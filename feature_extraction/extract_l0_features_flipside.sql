@@ -35,15 +35,15 @@ ethereum_tx_data AS (
     MIN(
       DATEDIFF(
         SECOND,
-        TO_TIMESTAMP_NTZ('2024-05-01 00:00:00'),
-        block_timestamp
+        block_timestamp,
+        TO_TIMESTAMP_NTZ('2024-05-01 00:00:00')
       )
     ) AS earliest_transaction_time_out,
     MAX(
       DATEDIFF(
         SECOND,
-        TO_TIMESTAMP_NTZ('2024-05-01 00:00:00'),
-        block_timestamp
+        block_timestamp,
+        TO_TIMESTAMP_NTZ('2024-05-01 00:00:00')
       )
     ) AS latest_transaction_time_out,
     MAX(value) AS max_tx_value,
@@ -60,6 +60,38 @@ ethereum_tx_data AS (
     block_timestamp <= TO_TIMESTAMP_NTZ('2024-05-01 00:00:00')
   GROUP BY
     from_address
+),
+ethereum_in_tx_data AS (
+  -- Inbound transaction metrics
+  SELECT
+    to_address AS addr,
+    COUNT(*) AS num_transactions_in,
+    MIN(
+      DATEDIFF(
+        SECOND,
+        block_timestamp,
+        TO_TIMESTAMP_NTZ('2024-05-01')
+      )
+    ) AS earliest_transaction_time_in,
+    MAX(
+      DATEDIFF(
+        SECOND,
+        block_timestamp,
+        TO_TIMESTAMP_NTZ('2024-05-01')
+      )
+    ) AS latest_transaction_time_in,
+    MAX(value) AS max_tx_value_in,
+    MIN(value) AS min_tx_value_in,
+    SUM(value) AS total_tx_value_in,
+    AVG(value) AS avg_tx_value_in,
+    COUNT(DISTINCT from_address) AS indegree
+  FROM
+    ethereum.core.fact_transactions a
+    JOIN addresses b ON a.to_address = b.addr
+  WHERE
+    block_timestamp < TO_TIMESTAMP_NTZ('2024-05-01 00:00:00')
+  GROUP BY
+    to_address
 )
 SELECT
   l.addr,
@@ -82,11 +114,11 @@ SELECT
   e.min_tx_fee,
   e.out_degree,
   (
-    e.latest_transaction_time_out - e.earliest_transaction_time_out
+    COALESCE(e.latest_transaction_time_out - e.earliest_transaction_time_out,0)
   ) / 86400 AS time_span_day_out,
   CASE
     WHEN (
-      e.latest_transaction_time_out - e.earliest_transaction_time_out
+      COALESCE(e.latest_transaction_time_out - e.earliest_transaction_time_out,0)
     ) = 0 THEN 0
     ELSE e.out_degree / (
       (
@@ -96,17 +128,49 @@ SELECT
   END AS out_degree_per_day_out,
   CASE
     WHEN (
-      e.latest_transaction_time_out - e.earliest_transaction_time_out
+      COALESCE (e.latest_transaction_time_out - e.earliest_transaction_time_out, 0)
     ) = 0 THEN 0
     ELSE e.total_tx_value / (
       (
         e.latest_transaction_time_out - e.earliest_transaction_time_out
       ) / 86400
     )
-  END AS tx_value_per_day_out
+  END AS tx_value_per_day_out,
+  COALESCE(ei.num_transactions_in, 0),
+  COALESCE(ei.earliest_transaction_time_in,0),
+  COALESCE(ei.latest_transaction_time_in,0),
+  COALESCE(ei.max_tx_value_in,0),
+  COALESCE(ei.min_tx_value_in,0),
+  COALESCE(ei.total_tx_value_in,0),
+  COALESCE(ei.avg_tx_value_in,0),
+  ei.indegree,
+  (
+    COALESCE(ei.latest_transaction_time_in - ei.earliest_transaction_time_in, 0)
+  ) / 86400 AS time_span_day_in,
+  CASE
+    WHEN (
+      COALESCE(ei.latest_transaction_time_in - ei.earliest_transaction_time_in, 0)
+    ) = 0 THEN 0
+    ELSE ei.indegree / (
+      (
+        COALESCE(ei.latest_transaction_time_in - ei.earliest_transaction_time_in, 0)
+      ) / 86400
+    )
+  END AS indegree_per_day_in,
+  CASE
+    WHEN (
+      COALESCE(ei.latest_transaction_time_in - ei.earliest_transaction_time_in, 0)
+    ) = 0 THEN 0
+    ELSE ei.total_tx_value_in / (
+      (
+        COALESCE(ei.latest_transaction_time_in - ei.earliest_transaction_time_in, 0)
+      ) / 86400
+    )
+  END AS tx_value_per_day_in
 FROM
   layerzero_data l
-  JOIN ethereum_tx_data e ON l.addr = e.addr 
+  LEFT JOIN ethereum_tx_data e ON l.addr = e.addr 
+  LEFT JOIN ethereum_in_tx_data ei on l.addr = ei.addr
   -- CHUNK DATA FOR FLIPSIDE DOWNLOAD
   QUALIFY RANK() OVER (
     ORDER BY
