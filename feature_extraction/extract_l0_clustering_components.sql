@@ -2,7 +2,7 @@ WITH eth_l0_interactors AS (
     SELECT DISTINCT sender_wallet AS addr
     FROM external.layerzero.fact_transactions_snapshot
     WHERE source_chain = 'Ethereum'
-    QUALIFY RANK() OVER (ORDER BY sender_wallet) BETWEEN 400000 AND 500000
+    QUALIFY RANK() OVER (ORDER BY sender_wallet) BETWEEN 300000 AND 400000
 ),
 node_metrics AS (
 	SELECT ei.addr,
@@ -11,6 +11,7 @@ node_metrics AS (
 	FROM eth_l0_interactors ei 
 	LEFT JOIN  ethereum.core.fact_transactions t1 ON ei.addr = t1.to_address 
 	LEFT JOIN  ethereum.core.fact_transactions t2 ON ei.addr = t2.from_address
+    GROUP BY ei.addr
 ),
 neighborhood AS (
     -- Find all transactions involving addresses in Set A and their neighbors (directed edges)
@@ -73,12 +74,16 @@ triangles AS (
     CROSS JOIN
         global_max_weight gmw
 )
-
-SELECT 
-    l0_interactor AS addr,
-    SUM(POW(weight1 * weight2 * weight3, 1/3)) AS weight_sum, 
-    COUNT(DISTINCT addr2) * COUNT(DISTINCT addr3) AS possible_triangles,
-    SUM(POW(weight1 * weight2 * weight3, 1/3)) / (COUNT(DISTINCT addr2) * COUNT(DISTINCT addr3)) AS clustering_coeff
-FROM 
-    triangles 
-GROUP BY addr
+    SELECT 
+        l0_interactor AS addr,
+        COALESCE(SUM(POW(weight1 * weight2 * weight3, 1/3)),0) AS weight_sum, 
+        COALESCE(COUNT(t.*),0) as n_triangles,
+        COALESCE(COUNT(DISTINCT addr2),0) * COALESCE(COUNT(DISTINCT addr3),0) AS possible_triangles,
+        CASE
+          WHEN COALESCE(COUNT(DISTINCT addr2),0) * COALESCE(COUNT(DISTINCT addr3),0) = 0 THEN 0
+          ELSE COALESCE(SUM(POW(weight1 * weight2 * weight3, 1/3)), 0) / (COALESCE(COUNT(DISTINCT addr2),0) * COALESCE(COUNT(DISTINCT addr3),0))
+        END AS clustering_coeff,
+        ROW_NUMBER() OVER (ORDER BY l0_interactor) AS rank
+    FROM 
+        eth_l0_interactors ei LEFT JOIN triangles t on ei.addr = t.l0_interactor
+    GROUP BY l0_interactor
