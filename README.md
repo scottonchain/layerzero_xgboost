@@ -24,34 +24,30 @@ Test set: 130,437 addresses · 4.19 % Sybil prevalence · threshold selected on 
 ## Repository layout
 
 ```
-project/
+layerzero_xgboost/
 │
-├── data/                         ← put all input CSV files here
-│   ├── l0_features_0_100000.txt
-│   ├── l0_features_100000_200000.txt
-│   ├── l0_features_200000_300000.txt
-│   ├── l0_features_300000_400000.txt
-│   ├── l0_features_400000_500000.txt
-│   ├── 20241114_1633_layer0_gas_provision_network_000000000000.txt
-│   ├── 20241214_labeled_addresses.txt
-│   ├── 20241117_graph_and_tree_features.txt
-│   ├── cex_dex_features_in_0.txt
-│   ├── cex_dex_features_in_100000.txt
-│   ├── cex_dex_features_in_200000.txt
-│   ├── cex_dex_features_in_300000.txt
-│   ├── cex_dex_features_in_400000.txt
-│   └── fcfs_list.txt
+├── data/                                   ← Git LFS; run `git lfs pull` after cloning
+│   ├── 20240915_final_sybil_list/          fcfs_list.csv (ground-truth labels)
+│   ├── 20241013_hildobby_cex_evms/         CEX address list
+│   ├── 20241104_layer0_sybil_features/     l0_features_*.csv (×5)
+│   ├── 20241114_gas_provision/             gas provision network + query (readme.txt)
+│   ├── 20241117_tree_features/             graph and tree features + featurization notebook
+│   ├── 20241214_labeled_addresses/         labeled entity addresses
+│   └── 20250208_cex_dex_indegree/          cex_dex_features_in_*.csv (×5)
 │
-├── output/                       ← created automatically on first run
-│   ├── master_df.parquet         ← full feature matrix (434k × 63 + labels)
-│   ├── splits.npz                ← train/val/test NumPy arrays
-│   └── feature_list.json         ← ordered list of 63 feature names
+├── output/                                 ← created on first run (gitignored)
+│   ├── master_df.parquet                   ← full feature matrix (434k × 63 + labels)
+│   ├── splits.npz                          ← train/val/test NumPy arrays
+│   └── feature_list.json                   ← ordered list of 63 feature names
 │
-├── 00_data_pipeline.ipynb        ← ① run first — builds master_df + splits
-├── 01_xgboost_sybil.ipynb        ← ② XGBoost (tuned 3-seed ensemble)
-├── 02_lightgbm_sybil.ipynb       ← ③ LightGBM (tuned 3-seed ensemble)
-├── 03_logistic_regression_sybil.ipynb   ← ④ Logistic Regression baseline
-├── 04_cross_ensemble_sybil.ipynb ← ⑤ Cross-model ensemble (XGB + LGBM)
+├── 00_data_pipeline.ipynb                  ← ① run first: builds master_df + splits
+├── 01_xgboost_sybil.ipynb                  ← ② XGBoost (tuned 3-seed ensemble)
+├── 02_lightgbm_sybil.ipynb                 ← ③ LightGBM (tuned 3-seed ensemble)
+├── 03_logistic_regression_sybil.ipynb      ← ④ Logistic Regression baseline
+├── 04_cross_ensemble_sybil.ipynb           ← ⑤ Cross-model ensemble (XGB + LGBM)
+├── docs/REVISION_LEAKAGE.md                ← open work items for the current revision
+├── legacy/                                 ← original 2025 notebook (Windows paths; reference only)
+├── requirements.txt
 └── README.md
 ```
 
@@ -60,13 +56,12 @@ project/
 ## Prerequisites
 
 ### Python version
-Python 3.9 or later. Python 3.10 recommended.
+Python 3.11 or later (required by pandas 3).
 
 ### Packages
 
 ```bash
-pip install xgboost==3.2.0 lightgbm==4.6.0 scikit-learn==1.8.0 \
-            pandas numpy matplotlib pyarrow jupyterlab
+pip install -r requirements.txt
 ```
 
 Minimum verified versions:
@@ -91,7 +86,7 @@ Minimum verified versions:
 | Disk | 2 GB free | 5 GB free |
 | GPU | not needed | not needed |
 
-> **RAM note.** The labeled-addresses file (`20241214_labeled_addresses.txt`) contains 9 million
+> **RAM note.** The labeled-addresses file (`20241214_labeled_addresses.csv`) contains 9 million
 > entries. The pipeline uses a streaming approach that retains only the ~3,700 addresses
 > that appear as gas providers, so peak RAM stays under 2 GB. Do **not** load the full
 > file into memory manually.
@@ -100,23 +95,22 @@ Minimum verified versions:
 
 ## Step-by-step instructions
 
-### 1 — Place data files
+### 1 — Fetch data files
 
-Copy all input files listed under `data/` above into a single folder. The default
-path expected by every notebook is `./data` (relative to the notebook file).
+The input files are stored with Git LFS. After cloning:
 
-If your files are in a different location, edit the `DATA_DIR` variable at the top
-of each notebook's config cell:
-
-```python
-DATA_DIR   = '/path/to/your/data'   # ← change this
-OUTPUT_DIR = './output'              # ← where master_df.parquet and splits.npz are saved
+```bash
+git lfs install
+git lfs pull
 ```
+
+The notebooks expect the layout above, with `DATA_DIR = './data'` relative to the
+notebook. If your data lives elsewhere, edit `DATA_DIR` in each notebook's config cell.
 
 ### 2 — Launch Jupyter
 
 ```bash
-cd project/          # folder containing the notebooks
+cd layerzero_xgboost/
 jupyter lab          # or: jupyter notebook
 ```
 
@@ -220,12 +214,12 @@ If splits are pre-loaded from `splits.npz`, remove the ~25 s data loading from e
 
 | File | Rows | Description |
 |---|---|---|
-| `l0_features_*.txt` (×5) | 434,788 total | Transaction, bridge, and timing features for each LayerZero interactor address. Snapshot: May 1 2024. Source: Flipside Crypto `fact_transactions_snapshot`. |
-| `20241114_1633_layer0_gas_provision_network_000000000000.txt` | 604,864 | Gas provision graph: which address first sent ETH to each interactor, enabling on-chain transactions. Source: BigQuery public blockchain dataset (recursive CTE). |
-| `20241214_labeled_addresses.txt` | 9,054,105 | Known entities: centralized exchanges, decentralized exchanges, contracts, and other named accounts. Used to identify labeled anchors in provision chains. |
-| `20241117_graph_and_tree_features.txt` | 434,111 | Pre-computed structural metrics on each address's gas provision subtree (fan-out, Gini coefficient, branching factor, tree depth, etc.). |
-| `cex_dex_features_in_*.txt` (×5) | 434,789 total | Count of incoming transactions from centralized and decentralized exchanges per address. |
-| `fcfs_list.txt` | 151,784 | LayerZero Foundation's final Sybil list (snapshot: Sept 15 2024). Ground-truth labels. Columns: `address`, reward addresses, forum links, timestamp, ZRO allocation. |
+| `l0_features_*.csv` (×5) | 434,788 total | Transaction, bridge, and timing features for each LayerZero interactor address. Snapshot: May 1 2024. Source: Flipside Crypto `fact_transactions_snapshot`. |
+| `20241114_1633_layer0_provision_network_000000000000.csv` | 604,864 | Gas provision graph: which address first sent ETH to each interactor, enabling on-chain transactions. Source: BigQuery public blockchain dataset (recursive CTE). |
+| `20241214_labeled_addresses.csv` | 9,054,105 | Known entities: centralized exchanges, decentralized exchanges, contracts, and other named accounts. Used to identify labeled anchors in provision chains. |
+| `20241117_graph_and_tree_features.csv` | 434,111 | Pre-computed structural metrics on each address's gas provision subtree (fan-out, Gini coefficient, branching factor, tree depth, etc.). |
+| `cex_dex_features_in_*.csv` (×5) | 434,789 total | Count of incoming transactions from centralized and decentralized exchanges per address. |
+| `fcfs_list.csv` | 151,784 | LayerZero Foundation's final Sybil list (snapshot: Sept 15 2024). Ground-truth labels. Columns: `address`, reward addresses, forum links, timestamp, ZRO allocation. |
 
 ---
 
@@ -276,7 +270,7 @@ features are absent. This usually means a data file is missing or has different
 column names. Check that all 6 file groups are present.
 
 **Memory error during labeled-address streaming**
-Do not load `20241214_labeled_addresses.txt` with `pd.read_csv`. The pipeline reads
+Do not load `20241214_labeled_addresses.csv` with `pd.read_csv`. The pipeline reads
 it line-by-line. If you see a memory error, ensure you are running the notebook
 cells in order — the streaming cell must run before any cell that references
 `labeled_anchors`.
