@@ -23,7 +23,7 @@ for the paper come from `06_split_comparison.ipynb` in the tagged final run (sec
 | A9 descriptive figure on val+test | R1 | Not in repo: the figure is drawn outside these notebooks | — | Redraw on full data or train only |
 | A10 duplicate wallet row | New (row-level leakage) | Code done | b2904f4 | `00` quality check: 0 duplicates; build asserts uniqueness |
 | A11 XGBoost thread nondeterminism | New (R1 reproducibility) | Code done: `n_jobs` pinned to 4 | b2904f4 | Findings E |
-| A12 44 hand-added labeled addresses | New (possible label leakage) | Open question to the authors | — | Findings E |
+| A12 44 hand-added labeled addresses | New (possible label leakage) | Resolved: 20 in hildobby; 20 of 24 hand-only publicly tagged; removing them changes F1 by −0.002 ± 0.014 over 5 seeds. Completeness check of top 30 unlabeled funders pending | ce15ded, 998fa57 | `review_support/`; findings E |
 | B10 repo text | R2 test isolation | Notebook headers done (d84263a); README with final numbers | — | |
 
 ## A. Code and experiments
@@ -173,3 +173,12 @@ Measured facts, with the commit they were measured at. Append; don't rewrite.
 - Labeled addresses (A6): compiled Oct–Dec 2024 from Flipside L0 address labels, hildobby CEX list, BigQuery and Dune contract lists, dawsbot and brianleect label sets, plus 44 hand-added addresses (`data/20241214_labeled_addresses/readme.txt`). None of the 44 is on the Sybil list. One labeled address in the network is on the Sybil list (`0x3df1…9159`); it funds no other address, so it affects no other wallet's features.
 - A12 (open): the 44 hand-added addresses directly fund 3,153 interactors, of which 10 are Sybil (0.32 % vs 4.19 % overall). Labeling them changes those wallets' `provider_is_labeled`, `provider_is_star_like_attack`, chain, and tree features. If they were identified from public identity sources (explorer tags, exchange documentation), this is not leakage; if Sybil rates influenced the choice, it is. Ask the authors; a sensitivity run without the 44 would settle it empirically.
 - `total_gas` does not exist in the L0 query; it comes from the tree featurization (see C).
+
+**2026-09-30, A12 resolved (hand-added labeled addresses).** Evidence in `review_support/`.
+
+- 20 of the 44 hand-added addresses are also in the hildobby CEX list (`data/20241013_hildobby_cex_evms`, loaded by the same build script; verified by exact address match): Shakepay, MoonPay, Voyager, 13 ShapeShift. Their labels never depended on the hand step. The remaining 24 are "hand-only"; 15 affect any feature, funding 653 interactors in total.
+- Etherscan name tags for the 24, read from each page on 2026-09-30 (`etherscan_tags_2026-09-30.csv`): 20 carry a public entity tag, mostly bridges and relayers (ZigZag, Owlto, Umbria, Chaineye, Synapse, Hyphen, Multichain, Allbridge, Argent), plus Newton (exchange), an OKX deposit address, Union Chain, Kuailian wallet contract, Layer Zero Executor, Seaport 1.6, EtherDelta 2. Four have no entity tag (`0x6b8f…`, `0x0000…055a` with a personal ENS name only, `0xffff…61ef`, `0x0000…29d8`); together they fund 8 interactors.
+- Author's account: the addresses were checked on Etherscan after anomalies in exploratory, label-free analytics and found to be entities the hildobby CEX list does not cover. The tags are consistent with that.
+- Sensitivity, 5 group-split seeds (`hand_only_seed_band.csv`; LightGBM, 05 configuration from 82148f1, pre-Gini-fix features): removing the 24 hand-only labels changes test F1 by −0.002 ± 0.014 (mean ± SD across seeds; per seed −0.023, +0.006, +0.008, −0.009, +0.008), AUROC by −0.002 ± 0.002, AP by −0.004 ± 0.011. Indistinguishable from zero. The earlier single-seed −0.017 removed all 44, including the 20 hildobby addresses, and is superseded.
+- Side finding for R1 (significance) and the ensemble claim: with the labels, LightGBM test F1 ranges 0.702 to 0.726 across the 5 group-split seeds (SD ≈ 0.009). Model differences smaller than that are within split noise.
+- Open: completeness. The top 30 unlabeled funders by addresses funded (`top30_unlabeled_funders.csv`) are being checked on Etherscan the same way.
