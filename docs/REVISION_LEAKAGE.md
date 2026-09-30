@@ -4,6 +4,28 @@ Manuscript BCRA-D-26-00643, resubmission due Oct 12, 2026. Repo baseline: paven8
 
 Check an item only when the code, the manuscript text, and the response letter are all updated.
 
+## Status
+
+Code status per leakage item. "Code done" means the repository change is committed; the checkbox
+in sections A to C stays open until the manuscript and response letter are updated too. Numbers
+for the paper come from `06_split_comparison.ipynb` in the tagged final run (section E).
+
+| Item | Reviewer point | Code status | Commit | Evidence |
+|---|---|---|---|---|
+| A1 group split | R2 relational leakage | Code done | fd6411f | `sybil_pipeline.make_splits` asserts no group spans two partitions |
+| A2 group-overlap check | R2 relational leakage | Code done | fd6411f | `00` leakage cell; `06` leakage table |
+| A3 blend weight on test | R2 test isolation | Code done | fd6411f | `04` section 6 selects on validation F1 |
+| A4 search not in repo; tables on test | R1 search/validation; R2 test isolation | Code done; full search running | 82148f1 | `05_hyperparameter_search` (validation only; test deleted before fitting) |
+| A5 feature selection | R1 | Code done. Authors: the 63 were chosen manually. Label-based EDA moved to the training partition | fd6411f | Methods text still needed |
+| A6 post-snapshot reference data | R1 temporal cutoff | Audited (findings E). One question to the authors: A12 | — | `README` data table gives each source's cutoff |
+| A7 provision graph date filter | R1 temporal cutoff | Code done: cutoff enforced; tree features recomputed from filtered edges | b2904f4 | `00` steps 2 and 4 |
+| A8 both splits reported | R2 relational leakage | Code done; final run pending | d84263a | `06_split_comparison` |
+| A9 descriptive figure on val+test | R1 | Not in repo: the figure is drawn outside these notebooks | — | Redraw on full data or train only |
+| A10 duplicate wallet row | New (row-level leakage) | Code done | b2904f4 | `00` quality check: 0 duplicates; build asserts uniqueness |
+| A11 XGBoost thread nondeterminism | New (R1 reproducibility) | Code done: `n_jobs` pinned to 4 | b2904f4 | Findings E |
+| A12 44 hand-added labeled addresses | New (possible label leakage) | Open question to the authors | — | Findings E |
+| B10 repo text | R2 test isolation | Notebook headers done (d84263a); README with final numbers | — | |
+
 ## A. Code and experiments
 
 - [ ] **A1. Relational leakage from the random split.**
@@ -98,14 +120,25 @@ Check an item only when the code, the manuscript text, and the response letter a
 - [ ] Table 2 says `min_child_weight = 1`, while Sec 9 says mcw = 10. Pick one and match the code.
 - [ ] Feature importance: The code uses the last-trained seed (456), while the paper says seed 42. Average across seeds or state which one.
 - [ ] "Share only 2 of top-15" becomes 3 in the current code. Recheck after the rerun.
+- [ ] Dataset size: 434,786 addresses (18,211 Sybil; 416,575 non-Sybil) after removing the duplicated wallet (A10), not 434,787.
+- [ ] Table 5 percentages from the code: IxL 69.64 %, IxE 22.14 %, IxI 8.06 %, No provider 0.16 %. The paper's "IxL ≈ 71 %" and the IxI/IxE swap both change.
+- [ ] `gini_coefficient` is identically 0 up to rounding (max |value| 9.9e-16 over all wallets). The original formula `(n-1)/n * (1 - sum(sorted(x)/sum(x)))` always gives (n-1)/n × 0, because the normalized amounts sum to 1. Table 11 ranks it with importance 125e-4, which is splitting on floating-point noise. Decision needed: implement the real Gini coefficient of provision amounts, or drop the feature and say so. Not leakage; not changed in code yet.
+- [ ] `total_gas` is the total ETH provisioned within the wallet's funding tree (from the tree featurization), not "cumulative ETH gas consumed by an address" as Sec 5.3.1 and Appendix A say. Fix the definitions; R1 asks for formulas of graph features, and `sybil_pipeline.provision_features` is the reference implementation.
+- [ ] The committed notebook outputs at 11366f4 gave LightGBM F1 0.7371 and LR AP 0.159, not the paper's 0.739 and 0.094. Superseded by the rerun, but the response letter should not quote the old values.
+- [ ] Tables 7 and 8 "baseline" rows (default parameters) and the "directed grid search over 15 configurations" have no code in the repo. Replace with the `05_hyperparameter_search` results (validation only, full grids).
+- [ ] Contribution 5 (cross-model ensemble): at the fd6411f checkpoint the validation-selected blend weight on the group split was 0.00, i.e. pure LightGBM. Confirm in the final run; if it holds, the ensemble claim must be dropped or restated.
 
 ## D. Response letter mapping
 
 | Reviewer point | Items |
 |---|---|
-| R1: temporal cutoff, future-information leakage | A6, A7, B7 |
+| R1: temporal cutoff, future-information leakage | A6, A7, A12, B7 |
 | R1: search space, optimization method, validation scheme | A4, B6 |
-| R2: relational leakage from random split | A1, A2, A8, B5, B8, B9 |
+| R1: code and data release, verifiability | A7 (tree features now computed from repo data), A11, `06` provenance checks |
+| R1: formulas for graph-based features | C (`gini_coefficient`, `total_gas`); `sybil_pipeline.provision_features` |
+| R1: precision/recall per category; FPR at operating threshold | `06` per-category and FPR tables |
+| R1: ablations of tuning choices | `05` marginal-effect table |
+| R2: relational leakage from random split | A1, A2, A8, A10, B5, B8, B9 |
 | R2: test isolation contradicted by manuscript and repo | A3, A4, B2, B3, B4, B6, B10 |
 
 ## E. Findings log
@@ -122,3 +155,21 @@ Measured facts, with the commit they were measured at. Append; don't rewrite.
 - A6: `data/20250208_cex_dex_indegree/readme.txt` SQL filters `block_timestamp <= '2024-05-01'`. That sub-item is verified.
 - A5: `legacy/20250519 XGBoost Sybil Detection.ipynb` (the 2025 paper's code) also hard-codes the 63-feature list. The repo holds no selection code. The procedure must come from the authors.
 - Caveat for the discussion section: IxL wallets are singletons by design, so an operator who funds wallets through separate CEX withdrawals is invisible to the provision-graph grouping. The group split removes the leakage the provision graph can see, and no more.
+
+**2026-09-30, @ fd6411f (group split added; checkpoint before the temporal fix).** Runs in `results/` were not committed; they are superseded by the final run.
+
+- Random split through `sybil_pipeline` reproduces the original `splits.npz` bit for bit.
+- LightGBM on the random split reproduces the committed 11366f4 output exactly (F1 0.7371). XGBoost does not (F1 0.7329 vs 0.7356; best iterations 465/465/516 vs 493/449/480): XGBoost `hist` depends on the thread count, and the original ran on a different machine. Fixed from b2904f4 by pinning `n_jobs` (A11).
+- Group split, test F1 / AUROC / AP: XGBoost 0.707 / 0.968 / 0.767; LightGBM 0.723 / 0.971 / 0.778; LR 0.234 / 0.833 / 0.157. Random split: XGBoost 0.733 / 0.974 / 0.796; LightGBM 0.737 / 0.976 / 0.801; LR unchanged. The linear model does not move, consistent with cluster memorisation driving the tree models' gap.
+- Blend weight chosen on validation: 0.00 on the group split (the ensemble is LightGBM alone), 0.26 on the random split.
+- 04's individual models equal 01 and 02 exactly under both splits.
+
+**2026-09-30, temporal and data audit (R1), @ b2904f4.**
+
+- Snapshot boundary: the latest `latest_l0_tx_time` is 2024-05-01 23:59:58 UTC, so the L0 snapshot table covers all of May 1. Ethereum transaction features cut at 2024-05-01 00:00 UTC (`<=` for outgoing, `<` for incoming; see the L0 query). CEX/DEX in-degree cuts at `<= 2024-05-01`.
+- Provision network: 296 edges dated at or after 2024-05-02 00:00 UTC, all between 2024-08-17 and 2024-10-31, overlapping the Sybil list process (list snapshot 2024-09-15). None enters an interactor and none creates an `is_provider` flag; 295 join two unlabeled addresses. Effect before the fix: one IxE non-Sybil wallet's `chain_length`, funding group, and tree features. Fixed by the cutoff in `load_provision`.
+- Tree features: the original precomputed file came from `data/20241117_tree_features/20241117 Gas Provision Featurization.ipynb`, run on the unfiltered network with inputs outside the repo. Ported to `sybil_pipeline.provision_features`. Against the original file on 434,110 wallets: provider fan-out, max and min amounts match 100 %; tree features match on all but 13 or 14 wallets, which sit in one 14-node tree that the pipeline's labeled list splits, plus the one cutoff wallet; `provider_is_star_like_attack` differs on 9 wallets for the same labeled-list reason; provider total and average amounts differ on the 16,101 wallets of one provider because the original double-counted the duplicated wallet. Skewness uses the scipy < 1.9 rule (0 for near-constant data), which the original file reflects.
+- Duplicate wallet (A10): `0x3aecba06e531a982cfdba16f0589ece5dc200fa9` appeared twice in the precomputed file, so it appeared twice in the master table (non-Sybil, IxL). 00's own quality check reported "Duplicate addresses : 1 … Issues found". Under the random split the two copies could land in train and test.
+- Labeled addresses (A6): compiled Oct–Dec 2024 from Flipside L0 address labels, hildobby CEX list, BigQuery and Dune contract lists, dawsbot and brianleect label sets, plus 44 hand-added addresses (`data/20241214_labeled_addresses/readme.txt`). None of the 44 is on the Sybil list. One labeled address in the network is on the Sybil list (`0x3df1…9159`); it funds no other address, so it affects no other wallet's features.
+- A12 (open): the 44 hand-added addresses directly fund 3,153 interactors, of which 10 are Sybil (0.32 % vs 4.19 % overall). Labeling them changes those wallets' `provider_is_labeled`, `provider_is_star_like_attack`, chain, and tree features. If they were identified from public identity sources (explorer tags, exchange documentation), this is not leakage; if Sybil rates influenced the choice, it is. Ask the authors; a sensitivity run without the 44 would settle it empirically.
+- `total_gas` does not exist in the L0 query; it comes from the tree featurization (see C).
