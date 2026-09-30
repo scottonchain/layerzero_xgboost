@@ -564,15 +564,34 @@ def _git_commit():
         return 'unknown'
 
 
-def save_results(models, notebook, method, leakage=None, extra=None, out_dir='results'):
-    """Write scalar metrics for one notebook run to results/<notebook>_<method>.json.
+# Recorded when the kernel imports this module, i.e. the code that actually ran.
+# Ends in '-dirty' if tracked files differed from that commit at import time.
+CODE_COMMIT = _git_commit()
 
-    code_commit ends in '-dirty' if tracked files differed from that commit.
-    """
+
+def best_f1_threshold(y_true, probs):
+    """Threshold that maximises F1 on the given labels (used on validation only)."""
+    from sklearn.metrics import precision_recall_curve
+    prec, rec, thr = precision_recall_curve(y_true, probs)
+    f1 = np.where((prec + rec) > 0, 2 * prec * rec / (prec + rec), 0)
+    return float(thr[np.argmax(f1[:-1])])
+
+
+def load_selected_params(path='results/05_hyperparameter_search_group.json'):
+    """Hyperparameters chosen on validation by 05_hyperparameter_search.ipynb."""
+    if not os.path.exists(path):
+        raise FileNotFoundError(f'{path} not found: run 05_hyperparameter_search.ipynb first')
+    with open(path) as f:
+        hp = json.load(f)
+    return hp['xgb_selected'], hp['lgbm_selected']
+
+
+def save_results(models, notebook, method, leakage=None, extra=None, out_dir='results'):
+    """Write scalar metrics for one notebook run to results/<notebook>_<method>.json."""
     os.makedirs(out_dir, exist_ok=True)
     scalars = lambda r: {k: (v.item() if isinstance(v, np.generic) else v)
                          for k, v in r.items() if np.isscalar(v)}
-    record = dict(notebook=notebook, split_method=method, code_commit=_git_commit(),
+    record = dict(notebook=notebook, split_method=method, code_commit=CODE_COMMIT,
                   leakage=leakage, models=[scalars(r) for r in models], **(extra or {}))
     path = os.path.join(out_dir, f'{notebook}_{method}.json')
     with open(path, 'w') as f:
