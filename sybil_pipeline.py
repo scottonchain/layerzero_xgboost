@@ -16,12 +16,19 @@ next hop is a labeled anchor (CEX, DEX, named entity), when there is no
 further provider, or on a cycle. The last unlabeled node reached is the group
 root. An address funded directly by a labeled entity, or with no provider, is
 its own root, so a CEX hot wallet never merges its customers into one group.
+
+Temporal cutoff
+---------------
+The LayerZero snapshot table ends at 2024-05-01 23:59:59 UTC (the last L0
+transaction in the data). Provision edges dated at or after SNAPSHOT_END are
+dropped before any provider, chain, tree, or group feature is computed.
 """
 import gc
 import json
 import os
 import subprocess
 import time
+from statistics import variance
 
 import numpy as np
 import pandas as pd
@@ -32,6 +39,9 @@ SEED = 42
 TEST_FRAC = 0.30
 VAL_FRAC = 0.30          # fraction of the non-test remainder -> 21 % of total
 SPLIT_METHODS = ('random', 'group')
+SNAPSHOT_END = '2024-05-02 00:00:00'   # UTC; exclusive upper bound for provision edges
+# XGBoost 'hist' results depend on the thread count, so model notebooks fix it.
+N_JOBS = 4
 
 # 63 selected features (order matters for NumPy splits). Chosen manually by
 # the authors; no data-driven selection step.
@@ -72,7 +82,8 @@ def data_paths(data_dir='./data'):
         gas_prov=j(data_dir, '20241114_gas_provision',
                    '20241114_1633_layer0_provision_network_000000000000.csv'),
         labeled=j(data_dir, '20241214_labeled_addresses', '20241214_labeled_addresses.csv'),
-        tree=j(data_dir, '20241117_tree_features', '20241117_graph_and_tree_features.csv'),
+        # Original precomputed provider/tree features; used only as a regression check.
+        tree_precomputed=j(data_dir, '20241117_tree_features', '20241117_graph_and_tree_features.csv'),
         cex=[j(data_dir, '20250208_cex_dex_indegree', f'cex_dex_features_in_{s}.csv')
              for s in [0, 100000, 200000, 300000, 400000]],
         sybil=j(data_dir, '20240915_final_sybil_list', 'fcfs_list.csv'),
@@ -96,23 +107,42 @@ def load_l0(paths):
     return df[keep].drop_duplicates(subset='addr', keep='first').reset_index(drop=True)
 
 
-def load_provision_map(path):
-    """Step 2: tfm = {activated_address: gas_provider}."""
-    gp = pd.read_csv(path, usecols=['activated_address', 'gas_provider'],
-                     na_values=['', 'null'])
-    gp.columns = gp.columns.str.lower()
-    vm = gp['gas_provider'].notna()
-    return dict(zip(gp.loc[vm, 'activated_address'], gp.loc[vm, 'gas_provider']))
+def load_provision(path, cutoff=SNAPSHOT_END):
+    """Step 2: provision edges (first ETH received) dated before the cutoff.
+
+    One row per activated address with a known provider; amounts in ETH.
+    The number of edges dropped by the cutoff is kept in .attrs.
+    """
+    f = pd.read_csv(path, na_values=['', 'null'])
+    f.columns = f.columns.str.lower()
+    t = pd.to_datetime(f['first_gas_provision_time'], utc=True)
+    late = t >= pd.Timestamp(cutoff, tz='UTC')
+    f = f[~late & f['gas_provider'].notna() & (f['activated_address'] != BURN_ADDRESS)]
+    f = f.drop_duplicates(subset=['activated_address', 'gas_provider'], keep='first').copy()
+    assert f['activated_address'].is_unique
+    f['gas_provision_amount'] = pd.to_numeric(f['gas_provision_amount'], errors='coerce') / 1e18
+    f.attrs['n_after_cutoff'] = int(late.sum())
+    f.attrs['max_time'] = t[~late].max()
+    return f
 
 
-def stream_labeled_anchors(path, providers):
-    """Step 3a: labeled addresses that appear as gas providers (streamed)."""
-    providers = frozenset(providers)
+def provision_map(funding):
+    """tfm = {activated_address: gas_provider}."""
+    return dict(zip(funding['activated_address'], funding['gas_provider']))
+
+
+def stream_labeled_anchors(path, candidates):
+    """Step 3a: labeled addresses among the candidates (streamed, never fully loaded).
+
+    Pass every address in the provision network so the same set serves the
+    provider flags, the chain walk, the funding groups, and the tree features.
+    """
+    candidates = frozenset(candidates)
     anchors = set()
     with open(path) as f:
         for line in f:
             a = line.strip()
-            if a and a in providers:
+            if a and a in candidates:
                 anchors.add(a)
     anchors.add(EXTRA_LABELED)
     return anchors
@@ -128,12 +158,175 @@ def add_provider_flags(df, tfm, anchors):
     return df
 
 
-def merge_tree_features(df, path):
-    """Step 4: gas provision tree / topology features."""
-    tree = pd.read_csv(path, na_values=['', 'null'])
-    tree.columns = tree.columns.str.lower()
-    tree = tree.drop(columns='provider_is_labeled')   # recomputed in step 3
-    return df.merge(tree, on='addr', how='left').fillna(0)
+PROVIDER_COLS = ['provider_fan_out', 'provider_total_gas_provision_amount',
+                 'provider_avg_gas_provision_amount', 'provider_max_gas_provision_amount',
+                 'provider_min_gas_provision_amount', 'provider_is_star_like_attack']
+TREE_COLS = ['tree_size', 'total_gas', 'max_depth', 'branching_factor', 'balance_factor',
+             'leaf_provision_proportion', 'avg_depth', 'depth_variance', 'leaf_to_internal_ratio',
+             'avg_leaf_gas', 'breadth_factor', 'breadth_to_depth_ratio', 'gini_coefficient',
+             'gas_distribution_entropy', 'gas_distribution_skewness',
+             'leaf_gas_distribution_entropy', 'leaf_gas_distribution_skewness', 'sparsity',
+             'depth', 'longest_chain_ratio', 'star_like_ratio', 'depth_weighted_avg_gas']
+
+
+def _entropy(x):
+    if not x:
+        return 0
+    s = sum(x)
+    return -sum((v / s) * np.log2(v / s) for v in x if v / s > 0)
+
+
+def _skew(x):
+    """Biased sample skewness; 0 for (near-)constant data, as in scipy < 1.9."""
+    if len(x) < 2:
+        return 0
+    a = np.asarray(x, dtype=float)
+    m = a.mean()
+    d = a - m
+    m2, m3 = (d ** 2).mean(), (d ** 3).mean()
+    if m2 <= (np.finfo(float).resolution * m) ** 2:
+        return 0.0
+    return m3 / m2 ** 1.5
+
+
+def provision_features(funding, interactors, labeled):
+    """Step 4: provider_* and provision-tree features for each interactor.
+
+    Ported from data/20241117_tree_features/20241117 Gas Provision
+    Featurization.ipynb, which produced the precomputed file; same definitions.
+    The provision forest excludes every edge that touches a labeled address, so
+    a tree is the unlabeled funding cluster above and below an interactor.
+    """
+    gas = funding.groupby('activated_address')['gas_provision_amount'].sum().to_dict()
+
+    # provider_* over interactor edges only
+    fi = funding[funding['activated_address'].isin(interactors)]
+    g = fi.groupby('gas_provider')
+    prov = pd.DataFrame({
+        'provider_fan_out': g['activated_address'].nunique(),
+        'provider_total_gas_provision_amount': g['gas_provision_amount'].sum(),
+        'provider_max_gas_provision_amount': g['gas_provision_amount'].max(),
+        'provider_min_gas_provision_amount': g['gas_provision_amount'].min(),
+    })
+    prov['provider_avg_gas_provision_amount'] = (prov['provider_total_gas_provision_amount']
+                                                 / prov['provider_fan_out'])
+    prov['provider_is_star_like_attack'] = ((prov['provider_fan_out'] > 1)
+                                            & ~prov.index.isin(labeled)).astype(int)
+    out = fi[['activated_address', 'gas_provider', 'gas_provision_amount', 'block_number']].merge(
+        prov, left_on='gas_provider', right_index=True)
+    out = out.rename(columns={'activated_address': 'addr',
+                              'block_number': 'gas_provision_block_number'})
+
+    # unlabeled provision forest
+    parent, children = {}, {}
+    for a, p in zip(funding['activated_address'], funding['gas_provider']):
+        if p in labeled or a in labeled or a == p:
+            continue
+        parent[a] = p
+        children.setdefault(p, []).append(a)
+
+    cache = {}
+
+    def tree_metrics(root):
+        if root in cache:
+            return cache[root]
+        stack, seen, nodes = [(root, 0)], set(), []
+        total_gas = weighted = depth_sum = 0
+        max_depth, min_leaf = 0, float('inf')
+        total_children = star_nodes = internal = leaves = 0
+        leaf_gas, leaf_amts, provs, depths, breadths = 0, [], [], [], []
+        while stack:
+            cur, d = stack.pop()
+            if cur in seen:
+                continue
+            seen.add(cur)
+            nodes.append(cur)
+            depths.append(d)
+            max_depth = max(max_depth, d)
+            depth_sum += d
+            while len(breadths) <= d:
+                breadths.append(0)
+            breadths[d] += 1
+            ga = gas.get(cur, 0)
+            if ga > 0 and cur != root:
+                total_gas += ga
+                provs.append(ga)
+            weighted += ga * d
+            if cur not in children:
+                leaves += 1
+                leaf_gas += ga
+                leaf_amts.append(ga)
+                min_leaf = min(min_leaf, d)
+            else:
+                internal += 1
+                k = len(children[cur])
+                total_children += k
+                star_nodes += k > 1
+                stack.extend((c, d + 1) for c in children[cur])
+        n = len(nodes)
+        m = dict(
+            tree_size=n, total_gas=total_gas, max_depth=max_depth,
+            branching_factor=total_children / n,
+            balance_factor=max_depth - min_leaf if min_leaf != float('inf') else 0,
+            leaf_provision_proportion=leaf_gas / total_gas if total_gas > 0 else 0,
+            avg_depth=sum(depths) / n,
+            depth_variance=variance(depths) if n > 1 else 0,
+            leaf_to_internal_ratio=leaves / internal if internal > 0 else 0,
+            avg_leaf_gas=sum(leaf_amts) / len(leaf_amts) if leaf_amts else 0,
+            breadth_factor=sum(breadths) / len(breadths),
+            # As in the original featurization. Note: this expression is ~0 for
+            # every tree (normalized amounts sum to 1); see docs/REVISION_LEAKAGE.md.
+            gini_coefficient=(len(provs) - 1) / len(provs) * (1 - sum(sorted(provs) / np.sum(provs))),
+            gas_distribution_entropy=_entropy(provs),
+            gas_distribution_skewness=_skew(provs),
+            leaf_gas_distribution_entropy=_entropy(leaf_amts),
+            leaf_gas_distribution_skewness=_skew(leaf_amts),
+            sparsity=sum(gas.get(x, 0) > 0 for x in nodes) / n,
+            longest_chain_ratio=max_depth / n,
+            star_like_ratio=star_nodes / n,
+            depth_weighted_avg_gas=weighted / depth_sum if depth_sum > 0 else 0,
+        )
+        m['breadth_to_depth_ratio'] = m['breadth_factor'] / max_depth if max_depth > 0 else 0
+        for x in nodes:
+            cache[x] = m
+        return m
+
+    rows = []
+    for a in out['addr']:
+        if a not in parent:
+            rows.append({})
+            continue
+        cur, depth, seen = a, 0, {a}
+        while cur in parent and parent[cur] not in seen:
+            cur = parent[cur]
+            seen.add(cur)
+            depth += 1
+        m = dict(tree_metrics(cur))
+        m['depth'] = depth
+        rows.append(m)
+    tf = pd.DataFrame(rows, columns=TREE_COLS, index=out.index).fillna(0)
+    out = pd.concat([out.drop(columns='gas_provider'), tf], axis=1).reset_index(drop=True)
+    assert out['addr'].is_unique
+    return out
+
+
+def merge_provision_features(df, feats):
+    """Step 4 (merge): interactors without a provider get zeros."""
+    return df.merge(feats, on='addr', how='left').fillna(0)
+
+
+def compare_to_precomputed(feats, path):
+    """Match rate of recomputed provider/tree features against the original file."""
+    old = pd.read_csv(path, na_values=['', 'null']).drop_duplicates('addr').set_index('addr')
+    new = feats.set_index('addr')
+    com = old.index.intersection(new.index)
+    rows = []
+    for c in PROVIDER_COLS + TREE_COLS:
+        a = old.loc[com, c].fillna(0).astype(float).to_numpy()
+        b = new.loc[com, c].astype(float).to_numpy()
+        ok = np.isclose(a, b, rtol=1e-6, atol=1e-9)
+        rows.append(dict(feature=c, match_rate=ok.mean(), n_differ=int((~ok).sum())))
+    return pd.DataFrame(rows), len(com), len(old), len(new)
 
 
 def merge_cex_dex(df, paths):
@@ -211,13 +404,15 @@ def build_master_df(data_dir='./data', verbose=True):
     t0 = time.time()
     df = load_l0(p['l0'])
     log(f'[1] L0 features: {len(df):,} addresses, {len(df.columns)} cols')
-    tfm = load_provision_map(p['gas_prov'])
-    log(f'[2] Gas provision: {len(tfm):,} mappings')
-    anchors = stream_labeled_anchors(p['labeled'], tfm.values())
+    funding = load_provision(p['gas_prov'])
+    tfm = provision_map(funding)
+    log(f'[2] Gas provision: {len(tfm):,} edges before {SNAPSHOT_END} UTC '
+        f'({funding.attrs["n_after_cutoff"]} later edges dropped)')
+    anchors = stream_labeled_anchors(p['labeled'], set(tfm) | set(tfm.values()))
     df = add_provider_flags(df, tfm, anchors)
-    log(f'[3] Labeled anchors: {len(anchors):,}')
-    df = merge_tree_features(df, p['tree'])
-    log(f'[4] Tree features merged: {len(df.columns)} cols')
+    log(f'[3] Labeled addresses in provision network: {len(anchors):,}')
+    df = merge_provision_features(df, provision_features(funding, set(df['addr']), anchors))
+    log(f'[4] Provider and tree features: {len(df.columns)} cols')
     df = merge_cex_dex(df, p['cex'])
     log(f'[5] CEX/DEX merged: {len(df.columns)} cols')
     df = add_labels(df, p['sybil'], tfm)
@@ -227,6 +422,7 @@ def build_master_df(data_dir='./data', verbose=True):
     df = add_funding_group(df, tfm, anchors)
     log(f'[7] Chain features, taxonomy, funding groups '
         f'({df.funding_group.nunique():,} groups)')
+    assert df['addr'].is_unique, 'Duplicate addresses in master table'
     missing = [f for f in FEATS if f not in df.columns]
     assert not missing, f'Missing features: {missing}'
     log(f'All {len(FEATS)} features present ✓  ({time.time()-t0:.1f}s)')
