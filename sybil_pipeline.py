@@ -189,6 +189,18 @@ def _skew(x):
     return m3 / m2 ** 1.5
 
 
+def _gini(x):
+    """Gini coefficient of non-negative amounts: 0 = equal, (n-1)/n = one holds all."""
+    n = len(x)
+    if n < 2:
+        return 0.0
+    a = np.sort(np.asarray(x, dtype=float))
+    total = a.sum()
+    if total <= 0:
+        return 0.0
+    return max(0.0, float(2 * np.sum(np.arange(1, n + 1) * a) / (n * total) - (n + 1) / n))
+
+
 def provision_features(funding, interactors, labeled):
     """Step 4: provider_* and provision-tree features for each interactor.
 
@@ -274,9 +286,9 @@ def provision_features(funding, interactors, labeled):
             leaf_to_internal_ratio=leaves / internal if internal > 0 else 0,
             avg_leaf_gas=sum(leaf_amts) / len(leaf_amts) if leaf_amts else 0,
             breadth_factor=sum(breadths) / len(breadths),
-            # As in the original featurization. Note: this expression is ~0 for
-            # every tree (normalized amounts sum to 1); see docs/REVISION_LEAKAGE.md.
-            gini_coefficient=(len(provs) - 1) / len(provs) * (1 - sum(sorted(provs) / np.sum(provs))),
+            # Gini coefficient of the provision amounts. The original featurization's
+            # expression was identically 0 (see docs/REVISION_LEAKAGE.md, section C).
+            gini_coefficient=_gini(provs),
             gas_distribution_entropy=_entropy(provs),
             gas_distribution_skewness=_skew(provs),
             leaf_gas_distribution_entropy=_entropy(leaf_amts),
@@ -322,6 +334,8 @@ def compare_to_precomputed(feats, path):
     com = old.index.intersection(new.index)
     rows = []
     for c in PROVIDER_COLS + TREE_COLS:
+        if c == 'gini_coefficient':
+            continue   # formula corrected; the original file's values are identically 0
         a = old.loc[com, c].fillna(0).astype(float).to_numpy()
         b = new.loc[com, c].astype(float).to_numpy()
         ok = np.isclose(a, b, rtol=1e-6, atol=1e-9)
