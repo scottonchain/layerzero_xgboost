@@ -2,13 +2,14 @@
 
 ## Current work: leakage revision
 
-The paper built on this repo is being revised because reviewers raised data leakage. The work list is `docs/REVISION_LEAKAGE.md`. Read it first. Record every measured number in its Findings log (section E) along with the commit hash it came from.
+The paper built on this repo is being revised because reviewers raised data leakage. The work list is `docs/REVISION_LEAKAGE.md`: read its Status table first. Record every measured number in its Findings log (section E) with the commit it came from.
 
-Key findings so far:
-- The split is random at the address level (`train_test_split(..., stratify=y)`). Wallets from the same funding cluster share provider and tree feature values and land on both sides of the split. The fix is a stratified group split. The group key is defined in A1.
-- `04_cross_ensemble_sybil.ipynb` picks the blend weight on test F1, not validation (A3).
-- The hyperparameter search code is not in the repo, and the paper's tuning tables report test F1 (A4).
-- Paper vs. code mismatches: IxI and IxE counts are swapped in Table 5. The ensemble F1 in the README (0.741) doesn't match the notebook (0.738). See section C.
+What changed and why, in one place:
+- `sybil_pipeline.py` is the single source for features, funding groups, and splits. Every notebook imports it. Do not reintroduce per-notebook copies of the pipeline.
+- The primary split is a stratified group split on funding groups (A1). The random split is kept only for comparison.
+- Test labels are used only for final reporting: hyperparameters come from `05_hyperparameter_search` (validation only), thresholds and the blend weight from validation.
+- Provision edges at or after `SNAPSHOT_END` are dropped, and tree features are computed in the pipeline from the filtered network (A7). The precomputed file in `data/20241117_tree_features/` is only a regression check.
+- XGBoost's thread count is pinned (`sp.N_JOBS`), because `hist` results depend on it.
 
 ## Confidentiality
 
@@ -17,10 +18,11 @@ This repo and Paven's fork (paven86/layerzero_xgboost) are public. Never commit 
 ## Running
 
 - Data files are Git LFS objects. Run `git lfs pull` before anything else.
-- Install with `pip install -r requirements.txt`. Model libraries are pinned because their default hyperparameters change between releases.
-- `00_data_pipeline.ipynb` writes `output/` (gitignored) in about 40 s. Notebooks 01 to 04 each re-run the pipeline internally and take several minutes each on 4 cores.
-- Headless run: `jupyter nbconvert --to notebook --execute <nb> --inplace --ExecutePreprocessor.kernel_name=python3 --ExecutePreprocessor.timeout=3600`
-- When a fix is done, re-execute every affected notebook and commit its saved outputs, because the paper's numbers are read from them.
+- Install with `pip install -r requirements.txt`.
+- Order: `00` → `05` (search, about 3 hours on 4 cores) → `01`–`04` with `SPLIT_METHOD=group` and again with `SPLIT_METHOD=random` → `06` (tie-out) → `07` (sensitivity). The README has the exact commands.
+- Results go to `results/<notebook>_<split>.json` with the code commit recorded at kernel start. Start runs from a clean working tree, or the commit is recorded as `-dirty` and `06` rejects it.
+- `06_split_comparison` refuses results whose dependencies (`sybil_pipeline.py`, the notebook, `requirements.txt`, `data/`, and for 01/02/04 the search notebook) changed since they were produced. Editing `sybil_pipeline.py` therefore means rerunning everything, including the search.
+- Commit the executed `group` notebooks and `results/`; the paper's numbers are read from them.
 
 ## Remotes
 
