@@ -1,0 +1,66 @@
+address,in_rule_scope,name_tag,entity_type,labeled,checked_on,blockscout_name,blockscout_name_tags,blockscout_generic_tags,blockscout_is_contract,blockscout_named,etherscan_named
+0xf70da97812cb96acdf810712aa562db8dfa3dbef,True,Relay: Solver,bridge_or_relayer,True,2026-10-01,,Relay: Solver; Relay Bridge; Relay,Bridge,False,True,True
+0x2fc617e933a52713247ce25730f6695920b3befe,True,Layerswap 1,bridge_or_relayer,True,2026-10-01,,Layerswap 1,,False,True,True
+0x4c9af439b1a6761b8e549d8d226a468a6b2803a8,True,,none,False,2026-10-01,,,,False,False,False
+0x63a0a1c4b8606ddeb58ec9564e83ee1e9fb20ffb,True,,none,False,2026-10-01,,,,False,False,False
+0xcc9557f04633d82fb6a1741dcec96986cd8689ae,True,ZigZag: Bridge,bridge_or_relayer,True,2026-10-01,,ZigZag: Bridge; ZigZag,Bridge,False,True,True
+0x434ca7f0da6c47d3eb3515cbd97711aec9d4ae6e,True,,none,False,2026-10-01,,,,False,False,False
+0xee73323912a4e3772b74ed0ca1595a152b0ef282,True,,none,False,2026-10-01,,,,False,False,False
+0xe4e81a38ea6d480e4f21abdbe34df076621b9113,True,,none,False,2026-10-01,,,,False,False,False
+0x9cdc2a4e228b3ff679bb2487c609112affbdd3db,True,,none,False,2026-10-01,,,,False,False,False
+0x389044f3ac7472060a0618116e3624a5f0f20f28,True,Shakepay 7,exchange_hot_wallet,True,2026-10-01,,Shakepay 7,Shakepay,False,True,True
+0xbbd0d4d067d5af2065b1b6fd936d93237ae1c56c,True,Shakepay 6,exchange_hot_wallet,True,2026-10-01,,Shakepay 6,Shakepay,False,True,True
+0x963737c550e70ffe4d59464542a28604edb2ef9a,True,Union Chain,other_service,True,2026-10-01,,Union Chain,,False,True,True
+0xc5e8ceb141fa13d0c34101de3c5e53b445c5d015,True,,none,False,2026-10-01,,,,False,False,False
+0x657720113dea643354e494e0de955a101d2466a7,True,,none,False,2026-10-01,,,,False,False,False
+0x230a9e0a0eecb17c9e2cf770b15f7669e336d4f0,True,,none,False,2026-10-01,,,,False,False,False
+0x16dae7d42ad9ae86c885762caaa247fcc65ba516,True,,none,False,2026-10-01,,,,False,False,False
+0x7f04c1ea7e60f2c620948d5f201ca23d3d54d10d,True,,personal_name,False,2026-10-01,,,,False,False,False
+0xaa364c1a348f9517009207a1601e0a73c1cd530b,True,,none,False,2026-10-01,,,,False,False,False
+0x063ed6f59bd44d8bc99c3b170a3d52b49dcbcfff,True,,none,False,2026-10-01,,,,False,False,False
+0x7086ee078ff457f5f2c59cd140e79b2ebbc0e89c,True,,none,False,2026-10-01,,,,False,False,False
+0x5e809a85aa182a9921edd10a4163745bb3e36284,True,Owlto Finance: Bridge 2,bridge_or_relayer,True,2026-10-01,,Owlto Finance: Bridge 2; Owlto Finance,Bridge,False,True,True
+0xa88902d6e93922893ee77234ed1c3ba4bec90224,True,Umbria: Narni Bridge 2,bridge_or_relayer,True,2026-10-01,,Umbria: Narni Bridge 2; Umbria,,False,True,True
+0x08b067ad41e45babe5bbb52fc2fe7f692f628b06,True,,none,False,2026-10-01,WethUnwrapper,,,True,True,False
+0x24759faa9b57d2b3c215f2fca6d898a53e7799bf,True,,none,False,2026-10-01,,,,False,False,False
+0xdb3d858dcc295be2309e69539b2de07b41d658f7,True,,none,False,2026-10-01,,,,False,False,False
+0x4c20d6c790dcd8474df3ec22dd199ff03e0fcd7d,True,,none,False,2026-10-01,,,,False,False,False
+0x07f0eb0c571b6cfd90d17b5de2cc51112fb95915,True,,none,False,2026-10-01,,,,False,False,False
+0x81f91aca8c05b3eefebc00171139afefac17c9a6,True,,none,False,2026-10-01,,,,False,False,False
+0xe6b3c2fd41566c8dc5354da55cfe20eeaeaa299f,True,,none,False,2026-10-01,,,,False,False,False
+0x45a318273749d6eb00f5f6ca3bc7cd3de26d642a,True,Owlto Finance: Bridge,bridge_or_relayer,True,2026-10-01,,Owlto Finance: Bridge; Owlto Finance,Bridge,False,True,True
+0x60fe41469307da95b78ebaa100d70afb3c7805d9,True,,none,False,2026-10-01,,,,False,False,False
+0xbbba1983859ac05cacc453a6ae9a12ce83735b6d,True,,none,False,2026-10-01,,,,False,False,False
+0x78c49a9ff270562f0aaea3e54c12d5841acdf599,True,,none,False,2026-10-01,,,,False,False,False
+0xa3af00a4ca8a11b840b1cb190d1c1d66da1546fc,True,DeGate: Hot Wallet,exchange_hot_wallet,True,2026-10-01,,,,False,False,True
+0x75e7f640bf6968b6f32c47a3cd82c3c2c9dcae68,True,,none,False,2026-10-01,,,,False,False,False
+0xdcd6968c5e40a6b26cabca51e818b0404082c156,True,,none,False,2026-10-01,,,,False,False,False
+0xa60efe89e07cfcf83eb30f3b063834f0f8b30466,False,BingX 42,exchange_hot_wallet,True,2026-10-01,,BingX 42,Exchange; note_0,False,True,True
+0x2db1d8cdf1abe8c70b531a790cdf2ff38aecf652,False,Newton,exchange_hot_wallet,True,2026-10-01,,Newton,Exchange,False,True,True
+0x4ac92d60cb6415232e62db519657c33abdcd102f,False,Newton 5,exchange_hot_wallet,True,2026-10-01,,Newton 5,Exchange; note_0,False,True,True
+0x88dcdd4a0a58b7e2208805d547043c37dca2b6dc,False,Shakepay 9,exchange_hot_wallet,True,2026-10-01,,Shakepay 9,Exchange; Shakepay,False,True,True
+0xa0bb4ba19f578a63fa3f67adaf7bbca15ccadc45,False,,none,False,2026-10-01,,,,False,False,False
+0x556b5712c2a7cc5506fbfa785b52536fb8243765,False,,none,False,2026-10-01,,,,False,False,False
+0x158353a7601c7ba9bfdea6c77e571557267cd03b,False,Umbria: Narni Bridge 4,bridge_or_relayer,False,2026-10-01,,Umbria: Narni Bridge 4; Umbria,,False,True,True
+0x00000000000007736e2f9aa5630b8c812e1f3fc9,False,Chaineye: Mini Bridge,bridge_or_relayer,False,2026-10-01,,MiniBridge; Chaineye: Mini Bridge; Chaineye,Bridge,False,True,True
+0x84a518a35c7c361c64301b8f209c2f0edb6f608d,False,OKX Dep: 0x84A518...6F608d,exchange_deposit,False,2026-10-01,,OKX Deposit; OKX Dep,DEPOSIT ADDRESS,False,True,True
+0x6b8fac654d072d8a799f03626db7e4f4679b0e1d,False,,none,False,2026-10-01,,,,False,False,False
+0x469503159ddf6bfd0a9ec8eba8e97a84fd3eae5b,False,Kuailian APP: Wallet,protocol_contract,False,2026-10-01,BulkSender,BulkSender,,True,True,True
+0x000005a271a610964bb42658c7ff50fee2aa055a,False,,personal_name,False,2026-10-01,,,,False,False,False
+0xe93685f3bba03016f02bd1828badd6195988d950,False,Layer Zero: Executor,bridge_or_relayer,False,2026-10-01,,Layer Zero: Executor; Layer Zero,Contract Deployer,False,True,True
+0xffff3dcb664c3f69b049d121fba7b7d7273961ef,False,,none,False,2026-10-01,,,,False,False,False
+0x0000000000000068f116a894984e2db1123eb395,False,Seaport 1.6,protocol_contract,False,2026-10-01,Seaport,Seaport 1.6,,True,True,True
+0x0000000000a8fb09af944ab3baf7a9b3e1ab29d8,False,,none,False,2026-10-01,,,,True,False,False
+0xd64791e747188b0e5061fc65b56bf20fee2e3321,False,Aztec: Sequencer,bridge_or_relayer,False,2026-10-01,,Aztec: Sequencer; Aztec,note_0,False,True,True
+0x230a1ac45690b9ae1176389434610b9526d2f21b,False,Synapse: Executor,bridge_or_relayer,False,2026-10-01,,Synapse: Executor; Synapse,,False,True,True
+0x0385b3f162a0e001b60ecb84d3cb06199d78f666,False,Argent: Relayer 2,bridge_or_relayer,False,2026-10-01,,Argent: Relayer 2; Argent,,False,True,True
+0x4fb5df81b644e3bd5ad0ba07dce2b67559c764e0,False,Hyphen: Executor 3,bridge_or_relayer,False,2026-10-01,,Hyphen: Executor 3; Hyphen,,False,True,True
+0x2a038e100f8b85df21e4d44121bdbfe0c288a869,False,Multichain: Executor,bridge_or_relayer,False,2026-10-01,,Multichain: Executor; Multichain,,False,True,True
+0x1439eda7f9a911b9120e9a0dafb60eae317f7685,False,Hyphen: Executor 2,bridge_or_relayer,False,2026-10-01,,Hyphen: Executor 2; Hyphen,,False,True,True
+0x1eaca1277bcdfa83e60658d8938b3d63cd3e63c1,False,Allbridge: Executor,bridge_or_relayer,False,2026-10-01,,Allbridge: Executor; Allbridge,,False,True,True
+0x70217e7de3a68187905269462506f81cf344bbad,False,ShapeShift: Deployer,other_service,False,2026-10-01,,ShapeShift: Deployer; ShapeShift,Contract Deployer,False,True,True
+0x8d12a197cb00d4747a1fe03395095ce2a5cc6819,False,EtherDelta 2,protocol_contract,False,2026-10-01,EtherDelta,EtherDelta 2; Exchange 2,DEX,True,True,True
+0x4f9dd9b7e014a6a6838d16a81144ca92d0de793f,False,,none,False,2026-10-01,,,,False,False,False
+0x76c49d0e2b00ded0611862f0713c624a9bd0a432,False,,none,False,2026-10-01,,,,False,False,False
+0x797dbfab26308010199f0b18c97c1c554dd119f9,False,,none,False,2026-10-01,,,,False,False,False
+0x554ccc18f88cf3159eedfe161cd46611ef820359,False,,none,False,2026-10-01,,,,False,False,False

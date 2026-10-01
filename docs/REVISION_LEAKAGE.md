@@ -223,3 +223,10 @@ The corrected `gini_coefficient` is the only feature whose definition changed in
 - `09` (test F1 change vs all 62 features): without LayerZero transactions −0.066, Ethereum transactions −0.012, gas provider −0.005 (lower on 9 of 10 splits), funding tree −0.001, funding chain −0.002; all three provision-network families together −0.008 (lower on 7 of 10; validation F1 lower on 3 of 10). Alone: LayerZero 0.672, Ethereum 0.625, gas provider 0.438, funding tree 0.101, funding chain 0.101 (AUROC 0.61).
 - `10` (mean |SHAP| summed by family, test partition): LayerZero transactions 4.88, Ethereum transactions 2.44, gas provider 0.84, funding tree 0.49, funding chain 0.04. Funding-tree features weigh more within IxI (1.35) and IxE (0.98) than IxL (0.25).
 
+**2026-10-01, Blockscout cross-check of the Etherscan tags (A12).** `review_support/blockscout_crosscheck.py`, read 2026-10-01; a check only, the labeling rule is unchanged.
+
+- All 65 addresses looked up. In the rule's scope (36), the two explorers agree on 34: 9 named on both with the same name tag (Relay Solver, Layerswap 1, ZigZag Bridge, Shakepay 6 and 7, Union Chain, Owlto Finance Bridge and Bridge 2, Umbria Narni Bridge 2) and 25 named on neither.
+- Two differ. DeGate: Hot Wallet (52 interactors, labeled) has an Etherscan tag but none on Blockscout. `0x08b0…8b06` (66 interactors, not labeled) has no entity tag on either explorer, but Blockscout shows its verified contract name, WethUnwrapper. A contract's own name is not a third-party entity tag, so the rule leaves it unlabeled; the authors may want to note it.
+- Outside the scope (29 addresses), the two agree on all: 19 named on both, 10 on neither.
+- Caveat: some Blockscout tags come from shared public sources (for example the Open Labels Initiative), so agreement shows consistency between explorers, not fully independent confirmation.
+
