@@ -1,0 +1,1727 @@
+address,checked_on,addresses_funded,name_tags,protocol_tags,generic_tags,labeled
+0x00000000000000adc04c56bf30ac9d3c0aaf14dc,2026-10-01,3,Seaport 1.5,,NFT,False
+0x00000000000001ad428e4906ae43d8f9852d0dd6,2026-10-01,3,Seaport 1.4,,NFT,False
+0x00000000000007736e2f9aa5630b8c812e1f3fc9,2026-10-01,14,Chaineye: Mini Bridge,MiniBridge; Chaineye,Bridge,True
+0x00000000006c3852cbef3e08e8df289169ede581,2026-10-01,13,Seaport 1.1,,,False
+0x00000f312c54d0dd25888ee9cdc3dee988700000,2026-10-01,8,Pink Drainer: NetworkController; PinkDrainer: Contract 1,PinkDrainer,Phish / Hack; SCAM,False
+0x000011387eb24f199e875b1325e4805efd3b0000,2026-10-01,5,Fake_Phishing182233; ClaimRewards,,Phish / Hack; SCAM,False
+0x000037bb05b2cef17c6469f4bcdb198826ce0000,2026-10-01,44,Fake_Phishing188250; Receiver,,Phish / Hack,False
+0x00003d1cef5f30e34510198cb045e4ae0aa20000,2026-10-01,2,Fake_Phishing180526; ClaimRewards,,Phish / Hack; SCAM,False
+0x0000553f880ffa3728b290e04e819053a3590000,2026-10-01,3,Fake_Phishing182232,,Phish / Hack; SCAM,False
+0x00008f1149168c1d2fa1eba1ad3e9cd644510000,2026-10-01,9,Fake_Phishing179817,,Phish / Hack; SCAM,False
+0x0000daf60a1becf1bd617c584dea964455890000,2026-10-01,5,Inferno Drainer Phishing Contract 2; Receiver,,Phish / Hack,False
+0x0000db5c8b030ae20308ac975898e09741e70000,2026-10-01,22,Inferno Drainer: Approvals; Fake_Phishing187019,Inferno Drainer,Exploit; Phish / Hack; SCAM,False
+0x000f422887ea7d370ff31173fd3b46c8f66a5b1c,2026-10-01,487,Shakepay 2,,Exchange,True
+0x000f4432a40560bbff1b581a8b7aded8dab80026,2026-10-01,2,,,Take Action,False
+0x00192fb10df37c9fb26829eb2cc623cd1bf599e8,2026-10-01,142,2Miners: PPLNS,2Miners,Mining,False
+0x002471c86e9e97d393d84bddfa7d555a7fa2917a,2026-10-01,12,Hoo.com: Hot Wallet,Hoo.com,Exchange; HOT WALLET,True
+0x002e08000acbbae2155fab7ac01929564949070d,2026-10-01,7,2Miners: SOLO,2Miners,Mining,False
+0x003e36550908907c2a2da960fd19a419b9a774b7,2026-10-01,57,CoinPayments.net 1,,,False
+0x0055e75217ca5cb5aa8290cd966f9d85751a7993,2026-10-01,16,Hoo.com: Hot Wallet,Hoo.com,Exchange; HOT WALLET,True
+0x007174732705604bbbf77038332dc52fd5a5000c,2026-10-01,64,BlockTrades Exchange,,Exchange,True
+0x00799bbc833d5b168f0410312d2a8fd9e0e3079c,2026-10-01,4,Binance 31,,Binance; Exchange,True
+0x008932be50098089c6a075d35f4b5182ee549f8a,2026-10-01,3,Hoo.com: Hot Wallet,Hoo.com,Exchange; HOT WALLET,True
+0x00897e2d7168165b81558c3cd9257efb007f2410,2026-10-01,4,wronguser.eth,,Metamask User,False
+0x008d44a22df16518ea360dacdea5fb8cf6717a9e,2026-10-01,13,BITFRONT: Deployer,BITFRONT,Contract Deployer,False
+0x0093e5f2a850268c0ca3093c7ea53731296487eb,2026-10-01,13,Hoo.com: Hot Wallet,Hoo.com,Exchange; HOT WALLET,True
+0x009905bf008cca637185eeafe8f51bb56dd2aca7,2026-10-01,5,RetroBridge: Hot Wallet,RetroBridge,,False
+0x00cdc153aa8894d08207719fe921fff964f28ba3,2026-10-01,24,Bitzlato,,Exchange,True
+0x00de4b13153673bcae2616b67bf822500d325fc3,2026-10-01,10,Gitcoin: Maintainer,Gitcoin,Eth2 Depositor; Metamask User; Writer,False
+0x0104cb63d829142114ba5542ef7046099400eea1,2026-10-01,3,Upbit: Deposit Funder,Upbit,Exchange,True
+0x011e52e4e40cf9498c79273329e8827b21e2e581,2026-10-01,48,SushiXSwap,SushiSwap,,False
+0x016606acc6b0cfe537acc221e3bf1bb44b4049ee,2026-10-01,32,changehero: Hot Wallet,changehero,HOT WALLET,True
+0x01f9a987cb6b27dcb88062a35fcf5cecac9ada96,2026-10-01,2,,,,False
+0x020c60dbba86a979ecd61cf7dc95d8f4139341b4,2026-10-01,2,,,Beacon Depositor,False
+0x027beefcbad782faf69fad12dee97ed894c68549,2026-10-01,20,QuadrigaCX 1,,Compromised; Exchange; QuadrigaCX,True
+0x0348b55abd6e1a99c6ebc972a6a4582ec0bceb5c,2026-10-01,2,SuperDAO,,,False
+0x034f854b44d28e26386c1bc37ff9b20c6380b00d,2026-10-01,30,HTX 19,,Exchange; HTX,True
+0x0392b64b8bfda184f0a72ce37d73dc7df978c4f7,2026-10-01,4,Stake.com 8,,Exchange,True
+0x03bdf69b1322d623836afbd27679a1c0afa067e9,2026-10-01,17,AscendEX (BitMax): Hot Wallet; AscendEX 1,AscendEX (BitMax),Derivatives; Exchange; HOT WALLET,True
+0x03ce77d68c5ef952d91ff53c336ffa260f43caa0,2026-10-01,4,,,,False
+0x03e75d7dd38cce2e20ffee35ec914c57780a8e29,2026-10-01,3,GPUMINE Pool 1,,Mining,False
+0x0417926c1504f17892cff3b0d0feeda89c711fce,2026-10-01,4,kossu.eth,,Metamask User,False
+0x044c08639bd59beb4f6ec52c0da6cd47283534e8,2026-10-01,4,WooFi: Router; WooRouterV2,WooFi,Router,True
+0x04645af26b54bd85dc02ac65054e87362a72cb22,2026-10-01,6,HTX Old Address 8,HTX,Exchange; Old Contract,True
+0x04c079bb31deed8391015eed8d6b625a40957058,2026-10-01,5,Brasil Bitcoin 1,,Exchange,True
+0x052564eb0fd8b340803df55def89c25c432f43f4,2026-10-01,2,PabloPunkasso Editions: Deployer,PabloPunkasso Editions,Contract Deployer,False
+0x0544868b896316a53b01090a7c4505353b008c15,2026-10-01,3,"@TBF_crypto : ""TBFsi"" on Galxe",@TBF_crypto ,Beacon Depositor,False
+0x0577a79cfc63bbc0df38833ff4c4a3bf2095b404,2026-10-01,331,HTX 27,,Exchange; HTX,True
+0x05cdb1526f6e224e02919a4c018d9784ea25eb3d,2026-10-01,41,VALR Hot Wallet; Luno 3,VALR,Exchange,True
+0x05ee546c1a62f90d7acbffd6d846c9c54c7cf94c,2026-10-01,86,Gate Deposit; Gate.io 6,Gate Dep,DEPOSIT ADDRESS; Exchange,False
+0x05f51aab068caa6ab7eeb672f88c180f67f17ec7,2026-10-01,11,ABCC Exchange 1; ABCC,,ABCC; Exchange,True
+0x05fe5507da021d3df44d7d28519e69c77c5cf879,2026-10-01,4,,,,False
+0x0639556f03714a74a5feeaf5736a4a64ff70d206,2026-10-01,24,Bitget: Hot Wallet; Bitget 4,Bitget,Exchange; HOT WALLET,True
+0x0681d8db095565fe8a346fa0277bffde9c0edbbf,2026-10-01,3854,Binance: Hot Wallet; Binance 4,Binance,DEPOSIT ADDRESS; Exchange; HOT WALLET,False
+0x0690adc3dea3dd819064c60f9eecc22e60991f2c,2026-10-01,3,,,,False
+0x069e85d4f1010dd961897dc8c095fbb5ff297434,2026-10-01,3,CRE8R DAO: Deployer,CRE8R DAO,Contract Deployer,False
+0x06aa5e77cf3bec21129ddbf29b531ed742a4109c,2026-10-01,2,,,,False
+0x07687e702b410fa43f4cb4af7fa097918ffd2730,2026-10-01,6,"Tornado.Cash: 10,000 DAI 2; Fixed pool 10000 dai",Tornado.Cash,BLOCKED; Mixer,False
+0x0775ea2a88db33038c4069e41dda8d963b64c2a8,2026-10-01,7,,,,False
+0x0777f76d195795268388789343068e4fcd286919,2026-10-01,2,GU: Rare Pack Four,GU,Gods Unchained,False
+0x077d360f11d220e4d5d831430c81c26c9be7c4a4,2026-10-01,824,ChangeNOW: hot wallet,ChangeNOW,Exchange; HOT WALLET,True
+0x078a0b6d78d6fa119655fe6a1b7c02fc9dc7ff73,2026-10-01,4,,,,False
+0x079a892628ebf28d0ed8f00151cff225a093dc63,2026-10-01,508,Bitvavo: Hot 1,Bitvavo,Beacon Depositor; Exchange,True
+0x07ea23d8efb70db2a7aed8e77a93dd83cd12fa53,2026-10-01,2,,,Beacon Depositor,False
+0x0817e382a40d484a8b90c792b399667174e50ab8,2026-10-01,6,,,,False
+0x0836222f2b2b24a3f36f98668ed8f0b38d1a872f,2026-10-01,3,"Tornado.Cash: 1,000 USDT; Fixed pool 1000 usdt; TornadoCash_erc20",Tornado.Cash,BLOCKED; Mixer; OFAC Sanctions Lists,False
+0x083d7668e578f3938f84d9a2b75a5292d9873ca8,2026-10-01,43,Independent Reserve: Hot Wallet 3,Independent Reserve,,False
+0x08604bf8baafac4925cf40485c5d1eae07c0102c,2026-10-01,2,069115.eth,,Metamask User,False
+0x086f51fced9ff6c742d706c319112359e3658b08,2026-10-01,2,ilnico.eth,,,False
+0x08a39ae0b0da06fe824a65fa0a73c3126a82a0ba,2026-10-01,2,,,,False
+0x08c3806c2209e528afa54fc9213a8fc9528b96d8,2026-10-01,3,,,,False
+0x08d816526bdc9d077dd685bd9fa49f58a5ab8e48,2026-10-01,2,,,,False
+0x09187ebd7d6018e2a871ca5c4868cddbd498738a,2026-10-01,2,spejstica.eth,,,False
+0x09350f89e2d7b6e96ba730783c2d76137b045fef,2026-10-01,62,Gaslite: Drop,Gaslite,,False
+0x09363887a4096b142f3f6b58a7eed2f1a0ff7343,2026-10-01,112,CoinSpot: Hot Wallet,CoinSpot,Exchange; HOT WALLET,True
+0x0941ae5a513cc77c99df2b8f9f35281003d49510,2026-10-01,3,,,,False
+0x09678741bd50c3e74301f38fbd0136307099ae5d,2026-10-01,27,LocalEthereum 2,,,False
+0x0975ca9f986eee35f5cbba2d672ad9bc8d2a0844,2026-10-01,40,Cryptonator 4,,Exchange,True
+0x0980f403d58032e945a269a42955339f52624484,2026-10-01,3,Bounty0xEscrow,,,False
+0x09c679ccdd78e58fb3d5bd625e6d1436f4547e6d,2026-10-01,2,,,,False
+0x09efd0d038dab6adf8436118dbd51b117b50d4f3,2026-10-01,2,,,Metamask User,False
+0x0a1820f0ff7dc9fce0a4f0b589ee14ddae88233c,2026-10-01,127,Wirex 6,,Exchange,True
+0x0a389c8c7101409831e81c82dcc9cdb13dfb4e39,2026-10-01,2,,,,False
+0x0a52368d5a7e70d8c927f75ea6618c2c468031d4,2026-10-01,2,SwissBorg 15,,Exchange,True
+0x0a690b298f84d12414f5c8db7de1ece5a4605877,2026-10-01,2,redlioneye.eth,,,False
+0x0a98fb70939162725ae66e626fe4b52cff62c2e5,2026-10-01,17,HTX: Hot Wallet; HTX 36,HTX,Exchange; HOT WALLET,True
+0x0ac4dd0d43a587b5f44afd3c4e47ce49a5713292,2026-10-01,2,zukuzuku.eth,,Metamask User,False
+0x0af91fa049a7e1894f480bfe5bba20142c6c29a9,2026-10-01,2,Synapse: Deployer,Synapse,Contract Deployer,False
+0x0b0f7ebf967146566799229394171fc47f1a765a,2026-10-01,14,Bitstamp: Hot Wallet,Bitstamp,Beacon Depositor; Exchange; HOT WALLET,True
+0x0b1ae337a9d0f62c9026effcfdcee442e3ce31e6,2026-10-01,2,,,Beacon Depositor,False
+0x0b3bfe556e31f3c44e2004d79de4af01f3f362fe,2026-10-01,2,,,,False
+0x0ba6ef145274859bdee4241277288949fc06cb7b,2026-10-01,2,Beacon Depositor,,Beacon Depositor,False
+0x0c2f8e43cc0d7184d1057620994fa32f03f64a8d,2026-10-01,15,Bidesk 33,,Exchange,True
+0x0ca6cadb6a8ca4199788b9a060c3285fe7b897fd,2026-10-01,2,,,,False
+0x0d0707963952f2fba59dd06f2b425ace40b492fe,2026-10-01,3678,Gate.io: Hot Wallet; Gate Deposit,Gate.io,DEPOSIT ADDRESS; Deribit; Derivatives; Exchange; HOT WALLET,False
+0x0d41f957181e584db82d2e316837b2de1738c477,2026-10-01,3,Carlini8,,,False
+0x0d6b5a54f940bf3d52e438cab785981aaefdf40c,2026-10-01,9,COSS.io: Hot Wallet; COSS.io 1; COSS Exchange 4,COSS.io,Exchange; HOT WALLET,True
+0x0d8824ca76e627e9cc8227faa3b3993986ce9e48,2026-10-01,2,BitBase 1,,Exchange,True
+0x0da492cd26580d9bf9efb2a57e511ad9c8704895,2026-10-01,3,,,,False
+0x0e367b5db0ca2e68faad3b9e850155956b0f9e6b,2026-10-01,8,kayadesignart.eth,,,False
+0x0e747eb2ff0f26fb77c3a1ea67ee07fac2dbb783,2026-10-01,10,ChainUp: Custody; KeySecure 1,ChainUp,Exchange,True
+0x0e87bf5286c4091e0eeb7814d802115dfbb4c4cd,2026-10-01,6,LocalCoinSwapEthereumEscrow,,,False
+0x0ee4e2d09aec35bdf08083b649033ac0a41aa75e,2026-10-01,3,QuadrigaCX: Hot Wallet,QuadrigaCX,Compromised; Exchange; HOT WALLET,True
+0x0efb068354c10c070ddd64a0e8eaf8f054df7e26,2026-10-01,4,DharmaTradeReserve,,,False
+0x0f00a6d5824c256eb3403d69e3d68d977ea473b5,2026-10-01,2,"""Katias"" on OpenSea",,,False
+0x0f33c3461edc00bcd0b7698f32e21a64b5e13e3c,2026-10-01,2,bam123.eth,,Metamask User,False
+0x0f3f647e19ddf45d1a963527db2af07c8175db20,2026-10-01,7,,,,False
+0x0fecef59947fa6401fea1ba10b3aa173dabe2412,2026-10-01,2,,,,False
+0x0ff24158220a14398f047a80a513617ddc4f5289,2026-10-01,8,Zonda 3,,Exchange,True
+0x1002436c28d0ce2e1fa4f3204544b446e0cf02c8,2026-10-01,2,,,Take Action,False
+0x10374bc1c4ca086e22673dbc4d702fee74c4ffc5,2026-10-01,155,OKX 158,,Exchange,True
+0x10408ad1ab8a3ecef36c16e56305d24c60559ac4,2026-10-01,2,"""jkkhan48"" on OpenSea",,,False
+0x10c6b61dbf44a083aec3780acf769c77be747e23,2026-10-01,18,Multichain: Moonriver Bridge,Multichain,Bridge,True
+0x10eb26fc97bf8b848c9198c6d45d6db6f4c1e68e,2026-10-01,4,,,,False
+0x11111112542d85b3ef69ae05771c2dccff4faa26,2026-10-01,2,1inch: Aggregation Router V3; Router,1inch v3,Router,True
+0x1111111254eeb25477b68fb85ed929f73a960582,2026-10-01,88,Aggregation Router V5; Router,,1inch; DEX; Router,True
+0x1111111254fb6c44bac0bed2854e76f90643097d,2026-10-01,63,Aggregation Router V4; Router,,1inch; DEX; Router,True
+0x11111254369792b2ca5d084ab5eea397ca8fa48b,2026-10-01,2,1inch: Exchange 2; Router; OneInchExchange,1inch,DEX,True
+0x113941782d3eb0b80a6611a3b1ddfec16e82bd6e,2026-10-01,2,,,,False
+0x1144b887557680af942425f208807abe1e1926b7,2026-10-01,2,"""CPUMAN"" on OpenSea",,,False
+0x114f0bbf1318ac34be7d75658c98ae5684809887,2026-10-01,3,,,,False
+0x1151314c646ce4e0efd76d1af4760ae66a9fe30f,2026-10-01,207,Bitfinex 1,Bitfinex,Exchange; Fiat Gateway; HOT WALLET; OTC,True
+0x1157a2076b9bb22a85cc2c162f20fab3898f4101,2026-10-01,3,FalconX: 0x115...101,FalconX,Exchange; Fund,True
+0x11817afb29279703c5679959417015328ca6a0d1,2026-10-01,39,OKX 43,,DEPOSIT ADDRESS; Exchange; OKX,False
+0x11889c10ca33fbabdbeb0c5ffc016c8ee56f87f4,2026-10-01,41,Celsius Network ETH Withdrawal 4,,,False
+0x118b7a93b8ac5ed72564e4949c207ea8404f1304,2026-10-01,9,Coinbase: Deposit,Coinbase Dep,DEPOSIT ADDRESS,False
+0x120a270bbc009644e35f0bb6ab13f95b8199c4ad,2026-10-01,54,ShapeShift: Hot Wallet,ShapeShift,Exchange; HOT WALLET,True
+0x12136e543b551ecdfdea9a0ed23ed0eff5505ee0,2026-10-01,13,Bybit: Hot Wallet; Bybit 12,Bybit,Exchange; HOT WALLET,True
+0x121effb8160f7206444f5a57d13c7a4424a237a4,2026-10-01,341,Nexo 13,,Exchange,True
+0x12267aefd8bb461817df348ce16c933e76c1aa0d,2026-10-01,2,,,Smart Account by Safe,False
+0x1231deb6f5749ef6ce6943a275a1d3e7486f4eae,2026-10-01,2,LiFi Diamond,LI.FI,,False
+0x12352a385b6ca96b724d6203e234dc25f73e224c,2026-10-01,3,CSGO500: Hot Wallet,CSGO500,,False
+0x124b0b991b7dc67671fc5c3b7b58aa422bf196ef,2026-10-01,3,ToastPunk Genesis: Deployer,ToastPunk Genesis,Contract Deployer,False
+0x12b3509f54a224277a71e36f86d936051506d025,2026-10-01,2,Beacon Depositor,,Beacon Depositor,False
+0x12d66f87a04a9e220743712ce6d9bb1b5616b8fc,2026-10-01,172,Tornado.Cash: 0.1 ETH; 0.1 ETH; TornadoCash_Eth_01,Tornado.Cash,BLOCKED; Mixer; OFAC Sanctions Lists; SANCTIONED,False
+0x12eea04a8c4c6065e239a746d705c038b757c43e,2026-10-01,3,,,,False
+0x131fb2b873a3a67a146342e62d9964a18b5b541e,2026-10-01,8,,,,False
+0x137ad9c4777e1d36e4b605e745e8f37b2b62e9c5,2026-10-01,24,HTX 24,,Exchange; HTX,True
+0x13b3a50f3947476eda74fe191344524e2d2d28e5,2026-10-01,3,,,,False
+0x13b432914a996b0a48695df9b2d701eda45ff264,2026-10-01,10,Multichain: BNB Bridge,Multichain,Bridge,True
+0x13e0d0a9e4024f1804fa2a0dde4f7c38abcc63f7,2026-10-01,2,,,,False
+0x13f4ea83d0bd40e75c8222255bc855a974568dd4,2026-10-01,2,Smart Router V3,PancakeSwap V3,DEX; Router,True
+0x14093430ab7754adcf83d090280ae1d8d9a6bd13,2026-10-01,20,AddressPools,,,False
+0x140a6dbf0779186f39cd799462fda84743a5d1bd,2026-10-01,2,Hermes DAO: Deployer,Hermes DAO,Contract Deployer,False
+0x142800d85a668265a7e3429369473ebca87742a4,2026-10-01,5,Alfacash: Hot Wallet,Alfacash,HOT WALLET,True
+0x142db2db4cec0d4424c95f41d05b41c53251a8a8,2026-10-01,21,SuperEx: Hot Wallet,SuperEx,,False
+0x144e1547ad7be53ed5f751406a661540b860d522,2026-10-01,3,LADOB GALLERY: Deployer,LADOB GALLERY,Contract Deployer,False
+0x147a95fa1cceccc20b341824952106cb0ee1eded,2026-10-01,22,Exmo 6,,Exchange,True
+0x149444932e5b33c64a8081e99851b13fba6b2ddb,2026-10-01,2,,,,False
+0x14b889b25e70f60d8dc0aa5f10c83680add61351,2026-10-01,2,,,Take Action,False
+0x14c4017f81675f7ac1321218d4a385a2d3117328,2026-10-01,93,NDAX 1,,Exchange,True
+0x14d768309f02e9770482205fc6ebd3c22df4f1cf,2026-10-01,2,,,,False
+0x14f7e363e582e16a243cc0cd7e97fa3bc35b2042,2026-10-01,2,,,,False
+0x1518fcd87d333b632c28596f2dda8b8fa20c5f75,2026-10-01,9,,,,False
+0x151b381058f91cf871e7ea1ee83c45326f61e96d,2026-10-01,732,MoonPay 4,,Exchange,True
+0x1522900b6dafac587d499a862861c0869be6e428,2026-10-01,786,Bitstamp: Hot Wallet,Bitstamp,Exchange; HOT WALLET,True
+0x1544d2de126e3a4b194cfad2a5c6966b3460ebe3,2026-10-01,2,Metawin: Deployer 1,MetaWin,Contract Deployer,False
+0x1565f0c48c06bc006095591a4c3fe4a6f39712cf,2026-10-01,2,Coinbase Prime: Deposit Funder 1,Coinbase Prime,Exchange,True
+0x158353a7601c7ba9bfdea6c77e571557267cd03b,2026-10-01,24,Umbria: Narni Bridge 4,Umbria,,False
+0x15fab1cc5262d69853b1196f74d38c7fc96fc6d7,2026-10-01,2,,,,False
+0x160598df7642ee9c71e43ede4d2b4876622d4d28,2026-10-01,2,,,Metamask User,False
+0x160f713d638f7c849f807b97c6b71a3581b01dc3,2026-10-01,8,wowvavan.eth,,Metamask User,False
+0x1619d743d7dc612e99d5d94ebd6b9695d46f0bf3,2026-10-01,2,BTSE: Hot Wallet; BTSE: WBTC Merchant,BTSE,Exchange; HOT WALLET,True
+0x161d9b5d6e3ed8d9c1d36a7caf971901c60b9222,2026-10-01,11,jamoke.eth,,Metamask User,False
+0x1623b06f4cf1dd0f88b2ccdaeb0811c064c9e982,2026-10-01,2,Beacon Depositor,,Beacon Depositor,False
+0x1650683e50e075efc778be4d1a6be929f3831719,2026-10-01,7,Pheasant Network: Relayer,Pheasant Network,Bridge,True
+0x1651d700cd4020334bd185ba4c6e0271ffc0c732,2026-10-01,524,BingX 16,,BingX; Exchange,True
+0x1661f1b207629e4f385da89cff535c8e5eb23ee3,2026-10-01,2,Fake_Phishing66321,,Phish / Hack,False
+0x167a9333bf582556f35bd4d16a7e80e191aa6476,2026-10-01,129,Coinone: Hot Wallet,Coinone,Exchange; HOT WALLET,True
+0x16905697103cd4ad6a22193b242941b62f660bbc,2026-10-01,40,BitoPro 2; BitoPro : hot wallet,BitoPro ,Exchange; HOT WALLET,True
+0x16b00db74167b7469dda63b674ca9a3b1b70c439,2026-10-01,2,,,,False
+0x173272739bd7aa6e4e214714048a9fe699453059,2026-10-01,19,Layer Zero: Optimized Transparent Upgradeable Proxy; Executor,Layer Zero,,False
+0x175d7ac3844ac969c1d17431e59ff057ad17ee3b,2026-10-01,5,,,,False
+0x1764c139e1241ffedac3ee96291357aef501c7d7,2026-10-01,3,,,Metamask User,False
+0x17b1e028a1837ff15ba9e7140add0d13790092a3,2026-10-01,5,Presale (Proxy),Love Hate Inu,,False
+0x17e49502febdf7b3bd3a9842a325036d729b7654,2026-10-01,2,Crypto.com 26,,Exchange,True
+0x17ef59ccf9d1dddbde026a9bdc89b06a6c2d42bc,2026-10-01,2,,,,False
+0x17f1a51da68d27c94d2a51d92b27b5bd4718b986,2026-10-01,18,Paxful: Hot Wallet; Paxful 1,Paxful,Exchange; HOT WALLET,True
+0x182fcf35d9065375c0c74fccb13dffe912ca83b3,2026-10-01,4,,,,False
+0x183a6cf1fc6504138d92c9d663094ee774f80038,2026-10-01,5,AlphaPo: Hot Wallet 2,AlphaPo,Exchange; Payments,True
+0x18624615c67e3717f941fa6dc72d9ac6e8be87cd,2026-10-01,3,,,,False
+0x18772056026d50300ad9a23e153d20409abfd827,2026-10-01,2,0x0000000000000000000000000000000000000000,,,False
+0x189f6ea2d0b8169f96d5e4cec092327e5119fed7,2026-10-01,2,Coinbase: Deposit,Coinbase Dep,DEPOSIT ADDRESS,False
+0x18d80d453ba49366d02d5936161dc4bb8c6b3e10,2026-10-01,2,,,,False
+0x19556ff1d37bc346fcae6282973c5d75422fffc0,2026-10-01,2,,,,False
+0x19b3eb3af5d93b77a5619b047de0eed7115a19e7,2026-10-01,8,SushiSwap: Operation Multisig,SushiSwap,Smart Account by Safe,False
+0x19cd3473bafd2a3cade12262a73be21e02a50490,2026-10-01,2,usern.eth,,,False
+0x1a26ef6575b7bbb864d984d9255c069f6c361a14,2026-10-01,3,Boba Network: L1 Liquidity Pool,Boba Network,,False
+0x1a2a1c938ce3ec39b6d47113c7955baa9dd454f2,2026-10-01,15,Ronin Bridge V1,Axie Infinity,Bridge,True
+0x1a4c023eedc6ea3e96a1aef691e5e7166fcd497a,2026-10-01,2,,,,False
+0x1a743a2805429f6ad48bb883cc727d32c6ed9ad3,2026-10-01,2,piotr98453497.nft,,,False
+0x1a8f43e01b78979eb4ef7febec60f32c9a72f58e,2026-10-01,11,Bitget Wallet: Swap Router v1,Bitget Wallet,Router,True
+0x1a9a4932f36b3641f5f63e98f77f8a1f28d85dad,2026-10-01,2,52 Weeks: Deployer,52 Weeks,Contract Deployer,False
+0x1ab097474fe82108670c7d1309caac874fc98edf,2026-10-01,2,,,,False
+0x1ab4973a48dc892cd9971ece8e01dcc7688f8f23,2026-10-01,885,Bitget: Hot Wallet,Bitget,Exchange; HOT WALLET; Phish / Hack; Poisoning Address,True
+0x1ac49b99ac9458093fde490a86aef6d9d340a8de,2026-10-01,2,@uartape (0x1ac4),,,False
+0x1ad91ee08f21be3de0ba2ba6918e714da6b45836,2026-10-01,123,Hiveon Pool,,Mining,False
+0x1af711e706b693147c2b6bff82cb0422d9f56c95,2026-10-01,7,,,Beacon Depositor,False
+0x1b4c87add7a98d28910a0e1ab616d71aa4b4ce8b,2026-10-01,7,Proxy_1b4c_ce8b,,Smart Account by Safe,False
+0x1b54c5bda0e85b0b0f21c99713cbaf4957893579,2026-10-01,2,BlockGames: Deployer,BlockGames,Contract Deployer,False
+0x1b78b963dde00a7e3b7b3782ba42037e7378f21a,2026-10-01,2,eunpyung.eth,,,False
+0x1b93129f05cc2e840135aab154223c75097b69bf,2026-10-01,3,HTX Old Address 2,HTX,Exchange; Old Contract,True
+0x1bd435f3c054b6e901b7b108a0ab7617c808677b,2026-10-01,4,ParaSwap P4; AugustusSwapper,,DEX; Velora,True
+0x1bd9582f085b2f4575ffd53dd5c9ea328a677191,2026-10-01,2,,,,False
+0x1bdac750132eb91e569f6fd2582d2d67f6f1ea0c,2026-10-01,9,Zipmex MultiSig 1,,,False
+0x1bf68a9d1eaee7826b3593c20a0ca93293cb489a,2026-10-01,61,Orbit Chain: ETH Vault; Bridge; EthVault,Orbit Chain,Bridge,True
+0x1c727a55ea3c11b0ab7d3a361fe0f3c47ce6de5d,2026-10-01,124,Uphold,,Exchange; Uphold,True
+0x1d104ad019abc432b8d38c15257999fe12705eb5,2026-10-01,3,@heejong4785 (0x1d10),,,False
+0x1d1bd550197c7c0787b9ad0aea9c1cca66ee0e90,2026-10-01,13,Coinhako: Old Address 2,Coinhako,Exchange; Old Contract,True
+0x1d1ec8969bd49833b6512483a75c62fa98621e8b,2026-10-01,2,,,,False
+0x1d29756e8f7b091ce6c11a35980de79c7eda5d1f,2026-10-01,3,InstaDApp: Wallet,Instadapp,Compound Governance,False
+0x1d3edee1277d92a3282cbe27a2c908270754808f,2026-10-01,2,,,,False
+0x1df24622941c97840ba53e2b165d4bcd0d86464a,2026-10-01,2,,,,False
+0x1dfe33e5d97b0834b57142730d9e8d0a09cc9ea8,2026-10-01,38,AddressPools,,,False
+0x1e6c02d4f25dff92b8355abbac1b9522e0a7e8e9,2026-10-01,3,airdeni.eth,,,False
+0x1e9939daaad6924ad004c2560e90804164900341,2026-10-01,3,ethfans.org,,,False
+0x1ef1b6bb65cc49c3819ec9f2053000984cd7beb7,2026-10-01,5,TransparentUpgradeableProxy_1ef1_beb7,,,False
+0x1ef7bcc3976056d3f0238b6f8653287d4d2ea24e,2026-10-01,2,day25.eth,,,False
+0x1f2414d0af8741bc822dbc2f88069c2b2907a840,2026-10-01,3,Boba Network: Proxy Admin,Boba Network,,False
+0x1f973b233f5ebb1e5d7cfe51b9ae4a32415a3a08,2026-10-01,75,CEX.IO 2,,Cex.io,False
+0x1fd6267f0d86f62d88172b998390afee2a1f54b6,2026-10-01,165,Exmo 5,,Exchange,True
+0x1ff21eca1c3ba96ed53783ab9c92ffbf77862584,2026-10-01,3,Ambisafe Operations,,Contract Deployer; Unibright,False
+0x20251a0505ead51fb2c6ce5c1f399924ea068322,2026-10-01,6,ban.eth,,,False
+0x20312e96b1a0568ac31c6630844a962383cc66c2,2026-10-01,101,CoinSpot: Deposit Funder 1; CoinSpot Gas Supplier 1,CoinSpot,Beacon Depositor; Exchange,True
+0x2067bed542762d26e2755ce7d8776728f3429f48,2026-10-01,2,,,,False
+0x2074924ebfd97ff2351659cb00e259ebd6451aa5,2026-10-01,2,,,,False
+0x20bb82f2db6ff52b42c60ce79cde4c7094ce133f,2026-10-01,19,Lemon Cash 1,,Exchange,True
+0x20dc0b9520cc2c2be89f247061a2c8e310045949,2026-10-01,6,B2BinPay 1,,Exchange; Payments,True
+0x20e4b20bb2594f4f28565c3ce59622140c93cca0,2026-10-01,3,,,,False
+0x20ffe0d07d7f7c2c21a24537538b4cde06c9048a,2026-10-01,23,XeggeX 1,,Exchange,True
+0x2102202e25c69f14e0e1a2915cfd5b74db30594a,2026-10-01,3,Take Action,,Take Action,False
+0x2140efd7ba31169c69dfff6cdc66c542f0211825,2026-10-01,2,Bithumb 3,,Bithumb; Exchange,True
+0x214989c36c5fd378bcbb27f70315049e3d8aa74c,2026-10-01,6,Thodex 1,,,False
+0x21a31ee1afc51d94c2efccaa2092ad1028285549,2026-10-01,18238,Binance: Hot Wallet; Binance 15,Binance,Exchange; HOT WALLET,True
+0x21c8dc59f2e9a11c4c1a0c310641968132c6b1be,2026-10-01,2,,,Beacon Depositor,False
+0x21d79c2be4ab3de2802a60da66f86d497d06102b,2026-10-01,4,,,,False
+0x21dd5c13925407e5bcec3f27ab11a355a9dafbe3,2026-10-01,5,Coinsbit 2,,Coinsbit; Exchange,True
+0x22b84d5ffea8b801c0422afe752377a64aa738c2,2026-10-01,96,Bithumb 34,,Bithumb; Exchange,True
+0x22f9dcf4647084d6c31b2765f6910cd85c178c18,2026-10-01,3,0x: Exchange Proxy Flash Wallet; FlashWallet,0x,0x Protocol,False
+0x236f9f97e0e62388479bf9e5ba4889e46b0273c3,2026-10-01,124,OKX: Hot Wallet; Okx 2,OKX,Exchange; HOT WALLET,True
+0x23773e65ed146a459791799d01336db287f25334,2026-10-01,7,"Tornado.Cash: 100,000 DAI; Fixed pool 100000 dai",Tornado.Cash,BLOCKED; Mixer,False
+0x237c87faf0e06003e9ce63975a903f2aa67a08cd,2026-10-01,34,,,Upbit,False
+0x238afe488509b59474f10db0c58e2c73415e0b71,2026-10-01,2,,,,False
+0x23f4569002a5a07f0ecf688142eeb6bcd883eef8,2026-10-01,84,Blockchain.com: Hot Wallet,Blockchain.com,Exchange; HOT WALLET,True
+0x23fcd104a217f316dbfa66efcef38f0a084971ad,2026-10-01,2,,,Metamask User,False
+0x240543929693333da0946cbf2597c099e4daa7cf,2026-10-01,13,Coinbase: Deposit,Coinbase Dep,DEPOSIT ADDRESS,False
+0x242f20589e3aa594d5014a58501f376861984f65,2026-10-01,2,@Moonskycrypto (0x242f),,,False
+0x243bec9256c9a3469da22103891465b47583d9f1,2026-10-01,49,Livecoin.net,,Exchange,True
+0x245cc372c84b3645bf0ffe6538620b04a217988b,2026-10-01,2,OlympusDAO: DAO Funds; DAO,OlympusDAO,Multisig; Smart Account by Safe,False
+0x245e9362bb7e72a25e4ce7001298fae4910163c8,2026-10-01,2,,,,False
+0x2481fef92f6358a410f4b42a7672f23cac514c2a,2026-10-01,2,nooneeverreallydies.eth,,Metamask User,False
+0x249bdb4499bd7c683664c149276c1d86108e2137,2026-10-01,13,Cruxpool,,Mining,False
+0x24ba1542f8a0a20e8251d096213384cfb0ee3dbc,2026-10-01,28,HTX (0x24ba),,,False
+0x24d32644137e2bc36f3d039977c83e5cd489f809,2026-10-01,2,,,,False
+0x24f01da12667d5679bc2f4df44c919396ed152f2,2026-10-01,3,OctoHedz: Deployer,OctoHedz,Contract Deployer,False
+0x251e93d51c5f2a1e60b7bc90bc8b2534b68e8f40,2026-10-01,2,Coinbase LINK Hot 1,,,False
+0x252c8bbef63101ebca22c27951175c6b33c86b07,2026-10-01,5,Coinsbit 3,,Coinsbit; Exchange,True
+0x258cb32b1875168858e57bb31482054e008d344e,2026-10-01,2,RockX: Lido Node Operator,RockX,Beacon Depositor; Lido,False
+0x25ab3efd52e6470681ce037cd546dc60726948d3,2026-10-01,15,Proxy To Meson,,,False
+0x25cc275cfe3cce1700e816e00d4cd1f60872038a,2026-10-01,4,,,Phish / Hack,False
+0x25eaff5b179f209cf186b1cdcbfa463a69df4c45,2026-10-01,518,FTX (formerly Blockfolio),,Exchange; FTX,True
+0x25ec62e26f38e70fe6a77732cadb274761089b60,2026-10-01,2,SRSC Chiz: Deployer,SRSC Chiz,Contract Deployer,False
+0x260ee8f2b0c167e0cd6119b2df923fd061dc1093,2026-10-01,27,YouHodler 1,,Exchange; Loans,True
+0x264bd8291fae1d75db2c5f573b07faa6715997b5,2026-10-01,144,Paxos 4,,Exchange; Paxos,True
+0x267be1c1d684f78cb4f6a176c4911b741e4ffdc0,2026-10-01,5991,Kraken: Hot Wallet; Kraken 4,Kraken,Exchange; HOT WALLET,True
+0x26b63feabbc4f9fb3dbd35663a831fe25c681e18,2026-10-01,2,,,Smart Account by Safe,False
+0x26bb8414aa829670992e751d9c91ceabf12d9294,2026-10-01,2,,,,False
+0x26c9fc612b005781127246bbc5dc39f823e3106e,2026-10-01,2,,,,False
+0x26dc7680eedf5ff8c7f273ea898e29362612a3bb,2026-10-01,2,Beacon Depositor,,Beacon Depositor,False
+0x2719f75f3734475a0157e1257c12596b8ac2d1e5,2026-10-01,2,,,,False
+0x27286ab9f2fc5e068a36896ba3b2a1d5ec55b3e4,2026-10-01,2,Falcon 9: Deployer,Falcon 9,Contract Deployer,False
+0x272ce9cf8f219a35501985bff7662a591a5d701e,2026-10-01,2,,,,False
+0x27428dd2d3dd32a4d7f7c497eaaa23130d894911,2026-10-01,2,Wormhole: Standard Relayer,Wormhole,,False
+0x274f3c32c90517975e29dfc209a23f315c1e5fc7,2026-10-01,186,HotBit: Hot Wallet,Hotbit,Exchange; HOT WALLET,True
+0x2760d810eac30c554201c938d75ca940f7fd10da,2026-10-01,2,Beacon Depositor,,Beacon Depositor,False
+0x27899fface558bde9f284ba5c8c91ec79ee60fd6,2026-10-01,224,Transak: wallet 1,Transak,Exchange,True
+0x2796317b0ff8538f253012862c06787adfb8ceb6,2026-10-01,360,Ethereum Bridge; Synapse: Bridge,Synapse,Bridge,True
+0x27e7383e49be6fd965805a0302b32e40c3d9981e,2026-10-01,2,CarTaxiBonus,,,False
+0x2819c144d5946404c0516b6f817a960db37d4929,2026-10-01,195,Remitano 2,,Exchange; Remitano,True
+0x28846f1ec065eea239152213373bb58b1c9fc93b,2026-10-01,2,Miner: 0x288...93B,Miner,Mining,False
+0x28c5b0445d0728bc25f143f8eba5c5539fae151a,2026-10-01,2,Coinbase 36,,Coinbase; Exchange,True
+0x28c6c06298d514db089934071355e5743bf21d60,2026-10-01,15868,Binance: Hot Wallet; Binance 14,Binance,Exchange; HOT WALLET,True
+0x28e71d0b7f7f29106a1be2a5b289cab331e7b56f,2026-10-01,2,Coinbase 44,,,False
+0x28f961d99fb48d73c5a81a7e0a93f69a805803a6,2026-10-01,3,Alpha Rush AI: Deployer,Alpha Rush AI,Contract Deployer,False
+0x28ffe35688ffffd0659aee2e34778b0ae4e193ad,2026-10-01,942,HTX 33,,Exchange; HTX,True
+0x2910543af39aba0cd09dbb2d50200b3e800a63d2,2026-10-01,63,Kraken: Hot Wallet; Kraken 1,Kraken,Exchange; HOT WALLET,True
+0x292f04a44506c2fd49bac032e1ca148c35a478c8,2026-10-01,25,CoinsPaid 2,,CoinsPaid; Exchange,True
+0x29488e5fd6bf9b3cc98a9d06a25204947cccbe4d,2026-10-01,4,Fake_Phishing180395,,Phish / Hack,False
+0x2967e7bb9daa5711ac332caf874bd47ef99b3820,2026-10-01,28,SoDiamond,,,False
+0x296e781bbb0179b032cbcc31e4b6cdab724b2773,2026-10-01,44,ZB.com: Deposit Address,ZB.com,DEPOSIT ADDRESS,False
+0x29ac25d705966859a33e7957d8c56c2c6736ac0e,2026-10-01,5,consolidating.eth,,,False
+0x29af949c3d218c1133bd16257ed029e92defb168,2026-10-01,6,NBX: Hot Wallet; NBX 1; Norwegian Block Exchange 1,NBX,Exchange; HOT WALLET,True
+0x29d5527caa78f1946a409fa6acaf14a0a4a0274b,2026-10-01,275,Bitso 2,,Bitso; Exchange,True
+0x2a1530c4c41db0b0b2bb646cb5eb1a67b7158667,2026-10-01,2,Uniswap: DAI,Uniswap,,False
+0x2a5994b501e6a560e727b6c2de5d856396aadd38,2026-10-01,4,PandaMiner,,,False
+0x2a5c2568b10a0e826bfa892cf21ba7218310180b,2026-10-01,266,Liquidity Pool Proxy; Biconomy 1,Biconomy,Exchange,True
+0x2a65aca4d5fc5b5c859090a6c34d164135398226,2026-10-01,120,DwarfPool,,Mining,False
+0x2a7077399b3e90f5392d55a1dc7046ad8d152348,2026-10-01,2,Bitcoin Suisse: Eth2 Depositor 4,Bitcoin Suisse,Beacon Depositor; Exchange,True
+0x2a7f8fa32012ba83e77afa782fbc9267ab0967d5,2026-10-01,2,Bitfinex 24,,,False
+0x2abc22eb9a09ebbe7b41737ccde147f586efeb6a,2026-10-01,1564,HTX: Hot Wallet; HTX 43,HTX,Exchange; HOT WALLET,True
+0x2af21e37928613582734bcbaead0919801a4cacf,2026-10-01,2,Safe Multisig; GnosisSafeProxy_2af2_cacf,,Smart Account by Safe,False
+0x2afec79d520b5ee96b5493e96bd95f53e5d76492,2026-10-01,2,,,,False
+0x2b2b623d5b40e8d5d0932abf4bb383b2b42f69c5,2026-10-01,2,@Nothreadguy (0x2b2b),,,False
+0x2b5634c42055806a59e9107ed44d43c426e58258,2026-10-01,755,KuCoin 1,,Exchange; KuCoin,True
+0x2b645268e2fbb384b423e50089657395f749763a,2026-10-01,164,Zonda 4,,Exchange,True
+0x2b7661955d8df0efcb9172da6d50bcb1e63e8fa4,2026-10-01,2,pokochin.eth,,,False
+0x2b78a837c37549539c62ab54a235a8e19fea812f,2026-10-01,4,Cent.co: Wallet,Cent.co,,False
+0x2bb97b6cf6ffe53576032c11711d59bd056830ee,2026-10-01,15,Paribu: Hot Wallet; Paribu 2,Paribu,Exchange; HOT WALLET,True
+0x2bef7b6554c9c94306c361b3c4e14a1b0ec00772,2026-10-01,8,,,,False
+0x2c492138498165c3f6ff94ab7d0b7ab6dd546ada,2026-10-01,3,,,Take Action,False
+0x2c5ea6eb54298666fec09596b25de96d41dc320d,2026-10-01,2,hy🅿no.eth,,,False
+0x2d187a560cfbd28e1eb2f68534754b0f120459a9,2026-10-01,4,Celsius 24,,Exchange,True
+0x2d20cf351ff7e4ac4c522553f24b9beca5fd81f9,2026-10-01,2,,,,False
+0x2db1d8cdf1abe8c70b531a790cdf2ff38aecf652,2026-10-01,134,Newton,,Exchange,True
+0x2dc5b4261159fffaa56c4e197605d05a72a7b368,2026-10-01,2,,,,False
+0x2dfadab8266483bed9fd9a292ce56596a2d1378d,2026-10-01,11,Li.Fi: Executor,,,False
+0x2e3a5ea84cb76919f26eda71e2dee9b2a6ae224c,2026-10-01,2,Bitlo: Hot Wallet,Bitlo,HOT WALLET,True
+0x2ec705d306b51e486b1bc0d6ebee708e0661add1,2026-10-01,2,Sniper Bot,,,False
+0x2ecb2571202cc33a3e9a5a810d6e0a035bb6eab1,2026-10-01,2,"""Kryptonics2017"" on OpenSea",,,False
+0x2ed6c4b5da6378c7897ac67ba9e43102feb694ee,2026-10-01,2,0xSplits: Split Main,0xSplits,,False
+0x2eecc9026534fd430ac83c5007b068476fc5dc1f,2026-10-01,5,BingX: Hot Wallet; BingX 44,BingX,Exchange; HOT WALLET,True
+0x2f061aa574882c84649230b475a44d35795cc018,2026-10-01,3,,,,False
+0x2f1233ec3a4930fd95874291db7da9e90dfb2f03,2026-10-01,2,Uex,,Exchange,True
+0x2f1f7fc76e6cf5ab3e186a2a2fd4fc31952a77cc,2026-10-01,4,YouHodler 1,,Exchange,True
+0x2f2dd99235cb728fc79af575f1325eaa270f0c99,2026-10-01,2,BitKeep: BKSwap,BitKeep,Exchange,True
+0x2f33fac40ad14baa667cd0ddc76d424c185a3bc2,2026-10-01,12,Beanz Official: Deployer,Beanz Official,Contract Deployer,False
+0x2fbea2829b51ff4c5f202beae970075847baaba4,2026-10-01,2,,,,False
+0x2fc617e933a52713247ce25730f6695920b3befe,2026-10-01,679,Layerswap 1,,,False
+0x2fcc020f72e5d2edd2a24d04f3dc90d7fdfbd1dd,2026-10-01,2,Sybil Delegate,,Sybil Delegate,False
+0x3010b8ebdffcc76831574d923a1d80d1a203f11c,2026-10-01,2,,,,False
+0x30146933a3a0babc74ec0b3403bec69281ba5914,2026-10-01,6,Bit-Z 2,,Exchange,True
+0x3052cd6bf951449a984fe4b5a38b46aef9455c8e,2026-10-01,6,Bithumb 2,,Bithumb; DEPOSIT ADDRESS; Exchange,False
+0x3061007eec1898fac97403e692cde6299d0b3f90,2026-10-01,3,Pine: Pine Deployer 2,Pine,,False
+0x309934b6b1ef896d04f3536d50db456cd22d3b58,2026-10-01,2,Abyss Finance: Eth2 Depositor 118,Abyss Finance,Beacon Depositor,False
+0x30d8aacb95dcf352d436d305abb0f3ccb8ea3f43,2026-10-01,4,capitual.eth,,,False
+0x30eea1e603b556eef164b4554bb6e7471b3e70f7,2026-10-01,2,,,,False
+0x30eeff183dce51bd0738e931f6d7b73e23238868,2026-10-01,2,,,Metamask User,False
+0x311d61cd8310fee771db5c8d8352074e0e09591c,2026-10-01,2,,,,False
+0x31331ec182777b3e3cf127f4709a8aaa8f76e549,2026-10-01,2,0xkafo.eth,,Metamask User,False
+0x314686cdcff77c6b7878d3584e34fed3ec76af50,2026-10-01,2,,,Metamask User,False
+0x31ba7fbb25b37fc0dd2ebf1aaa8e4058ba801009,2026-10-01,2,Fake_Phishing326885,,Phish / Hack,False
+0x31e9b3373f2ad5d964cad0fd01332d6550cbbde6,2026-10-01,116,Nexo 51,,Exchange; Nexo,True
+0x31efc4aeaa7c39e54a33fdc3c46ee2bd70ae0a09,2026-10-01,43,xPollinate: Transaction Manager,xPollinate,Bridge; DEX,True
+0x32143a02fb6484d18c79fa0401c9bf760dd3de68,2026-10-01,73,CoinSpot 3,,CoinSpot; Exchange,True
+0x3234d4e615f011526c36c8c2b2f5b89f5fbaee2a,2026-10-01,2,,,,False
+0x32400084c286cf3e17e7b677ea9583e60a000324,2026-10-01,4091,zkSync Era: Diamond Proxy; ZKSync Bridge,zkSync Era,Bridge; Layer 2,True
+0x325409632bccffac706d378a2eca57cafa21ab11,2026-10-01,3,vivekonchain.eth,,Metamask User,False
+0x328809a567b87b6123462c3062e8438bbb75c1c5,2026-10-01,3,,,,False
+0x32be343b94f860124dc4fee278fdcbd38c102d88,2026-10-01,1273,Poloniex 1,,Exchange; Poloniex,True
+0x32e49dda638696b15ea3199dbc7441d18431be46,2026-10-01,4,,,,False
+0x32e567e8b527d3194c60ea3c6a5c009d58a0b36d,2026-10-01,18,CoinSpot 20,,CoinSpot; Exchange,True
+0x330bce303d27df0eb1b856da3464278db1db1ac5,2026-10-01,3,,,,False
+0x33566c9d8be6cf0b23795e0d380e112be9d75836,2026-10-01,2,Galaxy Digital: OTC,Galaxy Digital,Exchange,True
+0x33878e070db7f70d2953fe0278cd32adf8104572,2026-10-01,2,aabugosh.eth,,Metamask User,False
+0x33d4abf7bb9e84c7c186c022af4547e5e715251e,2026-10-01,2,,,,False
+0x33ddd548fe3a082d753e5fe721a26e1ab43e3598,2026-10-01,311,CoinEx: Hot Wallet; Coinex 2,CoinEx,Exchange; HOT WALLET,True
+0x33de12b5cf336692c6b7cfd3aaf779425067f21c,2026-10-01,8,Korbit 9,,Exchange; Korbit,True
+0x33f6ee932cea603fafd6854827259be172c91da4,2026-10-01,2,,,,False
+0x340d693ed55d7ba167d184ea76ea2fd092a35bdc,2026-10-01,184,Uphold: Hot Wallet; Uphold.com,Uphold,Exchange; Fiat Gateway; HOT WALLET,True
+0x342fd6acca1de5fdef53740ce1e0062b8112fa03,2026-10-01,3,,,Metamask User,False
+0x3462d4f128e214f09a5483ab2613fbf13cd4e57e,2026-10-01,3,,,,False
+0x346b46826be175c943a45cdbec2e9d95dc52fb38,2026-10-01,7,Bitpie 4,,,False
+0x3491b165b4d38d70d2c66a560248e729066d4cb8,2026-10-01,3,,,,False
+0x34aa3f359a9d614239015126635ce7732c18fdf3,2026-10-01,4,Fee Recipient: 0x34aa...df3; austingriffith.eth,Fee Recipient,DAO Voter; Metamask User; Snapshot Voter,False
+0x34e2cb7513a50b19f450a067ed5230a86c13a2e9,2026-10-01,2,,,,False
+0x34f9c0b11e67d72ad65c41ff90a6989846f28c22,2026-10-01,2,,,,False
+0x350247b61e1b40fe9b09b9747d645773eff707d2,2026-10-01,3,,,,False
+0x3504f9a1b78525388f3274203fa2be438d34100f,2026-10-01,2,,,,False
+0x3613ef1125a078ef96ffc898c4ec28d73c5b8c52,2026-10-01,10,Tidex 1,,Exchange; Tidex,True
+0x3624525075b88b24ecc29ce226b0cec1ffcb6976,2026-10-01,13,THORChain: THORChain Router v3.0.1,THORChain,,False
+0x36268dfae0b96d2805738ed39fa3e0ef15299db3,2026-10-01,2,callme57787.eth,,,False
+0x365b469b8b7b2ef372fc1c80fa9c0e6a0145a78a,2026-10-01,2,pinkcupcake.eth,,,False
+0x3665027740277e53d3afa7958570c05ece246ab9,2026-10-01,2,vandael.eth,,,False
+0x366e58737164430af4aed2856840be9bb148bdc7,2026-10-01,4,kingson.eth,,Metamask User,False
+0x3704e2af0e5a828549f9ff9da93eda10a7ccf402,2026-10-01,3,Offshift:  Anon Shifter 5000,Offshift,,False
+0x37240fadb2eb139328f312c3cb6f1238b16cfbdf,2026-10-01,2,Upbit 29,,,False
+0x373d419979862c6845e74cee5ae1e075801b6abc,2026-10-01,2,Innovations: Deployer,Innovations,Contract Deployer,False
+0x376df4ebfeac696a01090d0b017689afac3a60b6,2026-10-01,3,OKX Deposit,OKX Dep,DEPOSIT ADDRESS,False
+0x377bd40c7bfef4627ca6fd0dc06eceaa667a28da,2026-10-01,2,,,,False
+0x389044f3ac7472060a0618116e3624a5f0f20f28,2026-10-01,217,Shakepay 7,,Shakepay,False
+0x3890c6b13de444029c30621e911f0d5b2361810b,2026-10-01,3,,,,False
+0x38b3349d3c1454754f12848621fe590f2163c427,2026-10-01,2,hafizi.eth,,Metamask User,False
+0x390de26d772d2e2005c6d1d24afc902bae37a4bb,2026-10-01,87,Upbit: Hot Wallet; Upbit,Upbit,Exchange; HOT WALLET,True
+0x3971b68c4a8a5e1f7741e442df6d42914d5c52c9,2026-10-01,2,leolibertine.eth,,,False
+0x3974d816a969908a82428384c728fbd8faffbfe1,2026-10-01,8,CoinW 21,,,False
+0x39cc9c86e67baf2129b80fe3414c397492ea8026,2026-10-01,2,XCOPY: Deployer 2,XCOPY,Contract Deployer,False
+0x39d9f4640b98189540a9c0edcfa95c5e657706aa,2026-10-01,29,HTX 40,,Exchange; HTX,True
+0x39de56518e136d472ef9645e7d6e1f7c6c8ed37b,2026-10-01,5,DAO Voter,,DAO Voter,False
+0x39f6a6c85d39d5abad8a398310c52e7c374f2ba3,2026-10-01,309,WhiteBIT: Hot Wallet,WhiteBIT,Exchange; HOT WALLET,True
+0x3a25473a5098f8b5ce1bd383416801bff28575b9,2026-10-01,2,,,Take Action,False
+0x3a37c297dcb086f1aeb32fc5219ba9fc2792a333,2026-10-01,2,,,,False
+0x3a49309413793b32f6a308769220147fedbffa5f,2026-10-01,3,xxxtentacion.eth,,,False
+0x3a723e58c4808dde4591543282adc7d6b378715b,2026-10-01,47,Bitforex: Hot Wallet,Bitforex,Exchange; HOT WALLET,True
+0x3ab28ecedea6cdb6feed398e93ae8c7b316b1182,2026-10-01,25,BitMart: Hot Wallet; BitMart 3; BitMart_0x3ab2,BitMart,Exchange; HOT WALLET,True
+0x3afd8feed6bbd1d8254d92eafa1f695dce16387a,2026-10-01,2,Sweep Protocol : Multisig Governor; GnosisSafeProxy,Sweep Protocol ,Smart Account by Safe,False
+0x3b0bc51ab9de1e5b7b6e34e5b960285805c41736,2026-10-01,207,ShapeShift 6,,Exchange; ShapeShift,True
+0x3b3ae790df4f312e745d270119c6052904fb6790,2026-10-01,31,Aggregation Router; Router,OKX DEX,Exchange; Router,True
+0x3b54b824ccfe122397c44d99f2df5b5adb39a919,2026-10-01,2,,,,False
+0x3b6345239a23374083d27db89742a79c161c8bdd,2026-10-01,9,Fee Recipient: 0x3b63...bdd,Fee Recipient,Beacon Depositor,False
+0x3b794929566e3ba0f25e4263e1987828b5c87161,2026-10-01,397,Shakepay 4,,Exchange,True
+0x3b7e71a9f15eebb541c82f88ef020ae7040484f1,2026-10-01,32,Bitpie: Batch Sender v2; Multiplexer,Bitpie,Airdrop / Distributor; Exchange,True
+0x3bbe99772b596bb4ce0b2aac5a0b597dc2f98dea,2026-10-01,7,,,Metamask User,False
+0x3c047b9dfa4fd8f812f264f1611b959a4dd980f8,2026-10-01,5,Bidesk 21,,,False
+0x3c16183c1c0e28f1a0cb9f8ee4b21d0db208ca46,2026-10-01,5,Hiveon: Spreader 2,Hiveon,Mining,False
+0x3c1bb2a01b33f9cf223b223137020e1b4c78e96d,2026-10-01,2,link3 shit: Deployer,link3 shit,Contract Deployer,False
+0x3c73868c9b9ba4d71dec73ff7798a980da996320,2026-10-01,7,ChangeNOW 23,,Exchange,True
+0x3c795e4f750b15b61159e8f38dca512256a021c7,2026-10-01,2,CrazyParty: Deployer,CrazyParty,Contract Deployer,False
+0x3c979fb790c86e361738ed17588c1e8b4c4cc49a,2026-10-01,203,HTX 81,,Exchange; HTX,True
+0x3cd751e6b0078be393132286c442345e5dc49699,2026-10-01,3544,Coinbase Exchange: Hot Wallet; Coinbase 4,Coinbase Exchange,DEPOSIT ADDRESS; Fiat Gateway; HOT WALLET,False
+0x3d31a92dc4416b24b5e2a96654a0cb519c92bcf5,2026-10-01,3,Copper 40,,Exchange,True
+0x3d5202a0564de9b05ecd07c955bcca964585ea03,2026-10-01,116,ByBit: Hot Wallet 9,Bybit,DEPOSIT ADDRESS; Exchange,False
+0x3d8ef995a36965f17b4461848a8fbe92789a18db,2026-10-01,2,"""shiger"" on OpenSea",,,False
+0x3db76cc3673fef9b454562df53188ac3147826f8,2026-10-01,5,WalletSimple,,,False
+0x3e051c89cd06e6867ce98c758fcc665d2148e1bb,2026-10-01,2,,,,False
+0x3e0cf03f718520f30300266dcf4db50ba12d3331,2026-10-01,2,,,,False
+0x3e8cdc35dfb0d8fd4a25f1f921c135dd4ca3a65f,2026-10-01,2,mantisli.wallet,,,False
+0x3e8d1694270b2f3aab6cfc4cc3874e6b8960f073,2026-10-01,2,,,,False
+0x3ea2c9bad429589c94cc4ee3786fb04f0391c3f2,2026-10-01,2,,,,False
+0x3ecef08d0e2dad803847e052249bb4f8bff2d5bb,2026-10-01,24,MiningPoolHub,,MiningPoolHub,False
+0x3ee18b2214aff97000d974cf647e7c347e8fa585,2026-10-01,34,Wormhole: Token Bridge,Wormhole,Bridge,True
+0x3ee1c068fc9653489a5d03ab925047efeeb4bc26,2026-10-01,2,0xsimonlee.eth,,,False
+0x3eebbebecde31d36d6aa7aa4fe2a06159119b659,2026-10-01,7,Anycoin Direct 2,,Exchange,True
+0x3f3a26857b3bde848927fafca975b2ee5bcf1390,2026-10-01,61,Newton 2,,Exchange,True
+0x3f5ce5fbfe3e9af3971dd833d26ba9b5c936f0be,2026-10-01,4280,Binance: Hot Wallet,Binance,Exchange; HOT WALLET,True
+0x3f615ba21bc6cc5d4a6d798c5950cc5c42937fbd,2026-10-01,28,Tornado.Cash: L1 Unwrapper; L1 omnibridge helper for withdrawals; L1Unwrapper,Tornado.Cash,,False
+0x3fc91a3afd70395cd496c647d5a6cc9d4b2b7fad,2026-10-01,4,Universal Router V1.2,Uniswap V3,DEX; Router,True
+0x3fda25f27211a138adf211f4c060f2149674be6d,2026-10-01,345,BlockFi 4; Multisig,,BlockFi; Exchange,True
+0x4025ee6512dbbda97049bcf5aa5d38c54af6be8a,2026-10-01,216,Railgun: WETH Helper,Railgun,,False
+0x403466a60252e6339572757645426c62894b8bb6,2026-10-01,2,Alameda Research:8bb6(related_level_1),Alameda Research,,False
+0x404460039499c774c48248552f802ce5dd482e32,2026-10-01,26,Netcoins 1,,Exchange,True
+0x405237f3b039be62692bffce30badf965f7f5e39,2026-10-01,2,,,Beacon Depositor,False
+0x406c22b8740ae955b04fd11c2061e053807e2a69,2026-10-01,700,BingX 9,,BingX; Exchange,True
+0x40741855d34f4b9e4061b776bb1e9a7f1841151c,2026-10-01,10,TokenTool: MultiSender,TokenTool,,False
+0x40b9b889a21ff1534d018d71dc406122ebcf3f5a,2026-10-01,2,Gatecoin,,,False
+0x40ebf8a762801d1706d9d16a8abfec4c452d15e5,2026-10-01,4,,,,False
+0x40ef3ef4225e7c69188b8825f26c84983a468e7c,2026-10-01,5,,,Beacon Depositor,False
+0x40f465f1ba4c2aba91c0c896cb92bbe4c7e545df,2026-10-01,14,Take Action,,Take Action,False
+0x4103c267fba03a1df4fe84bc28092d629fa3f422,2026-10-01,59,Umbria: Narni Bridge,Umbria,Bridge,True
+0x410dcf5bc94a68c8de5ae99c18a89a3a8946462c,2026-10-01,3,,,,False
+0x416299aade6443e6f6e8ab67126e65a7f606eef5,2026-10-01,557,Luno: Hot Wallet; Luno 2,Luno,Exchange; Fiat Gateway; HOT WALLET,True
+0x417ac47ab85ff79254a541fd6a9fdff23852a9a4,2026-10-01,2,talltimbers.eth,,Metamask User,False
+0x41b309236c87b1bc6fa8eb865833e44158fa991a,2026-10-01,37,Paxos 6,,Exchange; Paxos,True
+0x41d5233f434d98b73f22ce664d48be06f4eb073f,2026-10-01,6,Liquid 5,,,False
+0x41e260e8f07615418968c5fc7d10e277cf7eab56,2026-10-01,4,btclabs.eth,,,False
+0x41e29c02713929f800419abe5770faa8a5b4dadc,2026-10-01,6,KuCoin: Hot Wallet; KuCoin 16,KuCoin,Exchange; HOT WALLET,True
+0x4207837d4cd914467eb76bf88c4d6e7ba11ccdf9,2026-10-01,76,CoinSpot 5,,CoinSpot; Exchange,True
+0x4230c402c08cb66dcf3820649a115e54661fce9d,2026-10-01,124,Bybit: Hot Wallet 8,Bybit,DEPOSIT ADDRESS; Exchange; HOT WALLET,False
+0x4240781a9ebdb2eb14a183466e8820978b7da4e2,2026-10-01,29,AscendEX (BitMax): Hot Wallet; AscendEX 7,AscendEX (BitMax),Exchange; HOT WALLET,True
+0x429bf8ec3330e02401d72beade86000d9a2e19eb,2026-10-01,6,CoinW: Hot Wallet; CoinW 3,CoinW,Exchange; HOT WALLET,True
+0x42a5ed456650a09dc10ebc6361a7480fdd61f27b,2026-10-01,15,THORChain_Router,,,False
+0x42cf18596ee08e877d532df1b7cf763059a7ea57,2026-10-01,2,OKX: Hot Wallet; OKX 107; OKX 46,OKX,Exchange; HOT WALLET,True
+0x42d17b7f3532ec2f7c4e4e5e239baa476846e2cd,2026-10-01,44,Kanga Exchange 1,,Exchange; Kanga,True
+0x42dfa24126138c3acc5dc0b29c6ef6dd161ee225,2026-10-01,2,,,,False
+0x42feec5c7e7d3c725864a2716ca357fa9993ccc0,2026-10-01,6,,,Take Action,False
+0x4315f344a905dc21a08189a117efd6e1fca37d57,2026-10-01,8,YBridge,XY Finance ,,False
+0x43305382781d9ad351923b8748da7037a160f677,2026-10-01,2,,,Beacon Depositor,False
+0x4337000c2828f5260d8921fd25829f606b9e8680,2026-10-01,3,Bundler: 0x433...680,Bundler,,False
+0x43568f65705bdeed4082153e94205e40a393b844,2026-10-01,2,177699.eth,,,False
+0x43c3382a5514d798e658f4019ba4d8e47f51ab65,2026-10-01,18,ZB.com 9,,,False
+0x43d037a562099a4c2c95b1e2120cc43054450629,2026-10-01,20,Incognito: Hot Wallet,Incognito,Exchange; HOT WALLET,True
+0x43f76ec710c9ac7b10c2dec2e2eb2f788175187a,2026-10-01,3,,,,False
+0x44337438ff5ae8860d590551d855a9368dfd0083,2026-10-01,2,,,,False
+0x4449dc1f7ceab2c7a933fe4a8841ef480a33ab74,2026-10-01,2,ThunderMultiSend,,,False
+0x44ae4efa8463ada0dbba34fd969b973c92cab5ca,2026-10-01,2,,,,False
+0x44bc8bf42e6c1f8f5d285fbb65986122c484a3f1,2026-10-01,2,Fee Recipient: 0x44bc...3f1,Fee Recipient,Beacon Depositor,False
+0x44fd3ab8381cc3d14afa7c4af7fd13cdc65026e1,2026-10-01,5,W POOL,,Mining,False
+0x451248229712d6f207ff9466d8d3a33cb59d103c,2026-10-01,2,,,,False
+0x45300136662dd4e58fc0df61e6290dffd992b785,2026-10-01,994,KuCoin: Hot Wallet; KuCoin 21,KuCoin,Exchange; HOT WALLET,True
+0x45602bfba960277bf917c1b2007d1f03d7bd29e4,2026-10-01,2,,,,False
+0x45a318273749d6eb00f5f6ca3bc7cd3de26d642a,2026-10-01,56,Owlto Finance: Bridge,Owlto Finance,Bridge,True
+0x45e1fc3a51c78724c7867d6cd7cdb44470feb195,2026-10-01,2,,,Metamask User,False
+0x46234fccd57237f421070e23c509c8d7f5c97022,2026-10-01,2,,,,False
+0x46340b20830761efd32832a74d7169b29feb9758,2026-10-01,4719,Crypto.com Exchange: Hot Wallet; Crypto.com 2,Crypto.com Exchange,HOT WALLET,True
+0x463e5b673d1029989c9b059d36393c539bef9094,2026-10-01,129,Nexo 52,,Exchange; Nexo,True
+0x4642d9d9a434134cb005222ea1422e1820508d7b,2026-10-01,2,shryder.eth,,,False
+0x4648451b5f87ff8f0f7d622bd40574bb97e25980,2026-10-01,85,TradeOgre: Hot Wallet,TradeOgre,Exchange; HOT WALLET,True
+0x46499f2dff9f551bc71646a0448396b1c4702343,2026-10-01,2,CoinW 15,,,False
+0x4675c7e5baafbffbca748158becba61ef3b0a263,2026-10-01,2,Coinbase Exchange: Deposit Address; MEV Builder: 0x467...263; Coinbase: MEV Builder,Coinbase Exchange; MEV Builder,DEPOSIT ADDRESS; Proposer Fee Recipient,False
+0x469503159ddf6bfd0a9ec8eba8e97a84fd3eae5b,2026-10-01,478,BulkSender,,,False
+0x46a189c7f37953b91e5bd75d0e608efdafefaf1c,2026-10-01,7,Coinmetro: Hot Wallet,CoinMetro,DEPOSIT ADDRESS; Exchange; HOT WALLET,False
+0x46f696dddbb9edbf504a4e0226016190995b6dc6,2026-10-01,5,Bidesk 15,,Exchange,True
+0x4736dcf1b7a3d580672cce6e7c65cd5cc9cfba9d,2026-10-01,3,"Tornado.Cash: 1,00 USDC; Fixed pool 100 usdc; TornadoCash_erc20",Tornado.Cash,BLOCKED; Mixer; OFAC Sanctions Lists,False
+0x477b8d5ef7c2c42db84deb555419cd817c336b6f,2026-10-01,166,MaiCoin: Hot Wallet; MaiCoin 1,MaiCoin,Exchange; HOT WALLET,True
+0x478680c5b1c6378451debafcd65af4827236dc3b,2026-10-01,2,,,,False
+0x47c5dcfd55b83fbd0a39ac62db9558624723d29f,2026-10-01,2,,,,False
+0x47ce0c6ed5b0ce3d3a51fdb1c52dc66a7c3c2936,2026-10-01,305,Tornado.Cash: 1 ETH; 1 ETH; Fixed pool 1 eth,Tornado.Cash,BLOCKED; Mixer; OFAC Sanctions Lists; SANCTIONED,False
+0x47ec58d5704082527a90362a6293029d7ed5fc4e,2026-10-01,3,,,Writer,False
+0x4839a4d4583586dda4e6b313bf6ce238ab4d2a5a,2026-10-01,12,osunmin1.wallet,,,False
+0x486063e323251ec48e8d11b756d0dfb7a7b5f308,2026-10-01,2,,,,False
+0x48707199060302639ad0d4bbe9225954326bd007,2026-10-01,2,c-willson001.nft,,,False
+0x487ddce3c82db9fc37972e3d682f7a1d2dd3070a,2026-10-01,2,,,,False
+0x489773ac60b915f9809011cf3f544f18a4441627,2026-10-01,6,Fake_Phishing7031019,,Phish / Hack,False
+0x48b6101128c0ed1e208b7c910e60542a2ee6f476,2026-10-01,18,Portico,,,False
+0x48b884fe1b6f92ca21646260001307b8e5b83e25,2026-10-01,3,Thunder Wrapped ETH (TWETH),,,False
+0x48c902ef7793fdf060630773f7c23d1b991d77a3,2026-10-01,2,,,,False
+0x48ec5560bfd59b95859965cce48cc244cfdf6b0c,2026-10-01,92,Bitstamp: Wallet,Bitstamp,Exchange,True
+0x4945ce2d1b5bd904cac839b7fdabafd19cab982b,2026-10-01,2,Bitrefill: Payment Gateway; Bitrefill: Hot Wallet,Bitrefill,Exchange; HOT WALLET,True
+0x4976a4a02f38326660d17bf34b431dc6e2eb2327,2026-10-01,17748,Binance: Hot Wallet; Binance 20,Binance,DEPOSIT ADDRESS; Deribit; Exchange; HOT WALLET,False
+0x497d32a3f4e9a4aced0a485c905a167b0517fe0d,2026-10-01,3,,,,False
+0x49887a216375fded17dc1aaad4920c3777265614,2026-10-01,3,,,Contract Deployer,False
+0x49d64ad862cec182576998bbc379b2e2a1ac7b3e,2026-10-01,2,,,Metamask User,False
+0x4a40eb870dcf533d4dc097c3d87aafe9f64490a1,2026-10-01,2,,,Take Action,False
+0x4a5b84fb4c7666692c49f2e11664710aa4d0d2a0,2026-10-01,8,Robinhood Deprecated 1,,Exchange,True
+0x4a87135693a5b7dd0653c151c16edfa3c524403f,2026-10-01,4,Zipmex: MultiSig 2,Zipmex,,False
+0x4ac6307a85d83962503f86457de9c331a6926f48,2026-10-01,2,Fake_Phishing3200,,Phish / Hack; SCAM,False
+0x4ac92d60cb6415232e62db519657c33abdcd102f,2026-10-01,117,Newton 5,,Exchange,True
+0x4acba0876cb0d9dd8992abc743333e686b4ef71a,2026-10-01,2,themoonbaboon.eth,,Metamask User,False
+0x4ad64983349c49defe8d7a4686202d24b25d0ce8,2026-10-01,1426,KuCoin 4,,Exchange; KuCoin,True
+0x4af3d441c343d81d07c8a8192c476b3151add64f,2026-10-01,2,,,,False
+0x4b01721f0244e7c5b5f63c20942850e447f5a5ee,2026-10-01,73,CoinExchange.io,,Exchange,True
+0x4b2c54b80b77580dc02a0f6734d3bad733f50900,2026-10-01,2,Kiba Inu: Old KIBA Token; KibaInu,Kiba Inu,Token Contract,False
+0x4b4e14a3773ee558b6597070797fd51eb48606e5,2026-10-01,3202,OKX: Hot Wallet; OKX 32,OKX,DEPOSIT ADDRESS; Exchange,False
+0x4b729cf402cfcffd057e254924b32241aedc1795,2026-10-01,15,Bit-Z,,Exchange,True
+0x4b8a6a3a657ba4568bd582fffe776a325a8616af,2026-10-01,13,Coinbase: Deposit,Coinbase Dep,DEPOSIT ADDRESS,False
+0x4bb4c1b0745ef7b4642feeccd0740dec417ca0a0,2026-10-01,5,Frax Finance: Deployer 15; Chef Jiro: Deployer,Frax Finance; Chef Jiro,Contract Deployer,False
+0x4bb55e4fce1fa8b20ee1824003afeb77e4f0e699,2026-10-01,36,,,,False
+0x4bb96091ee9d802ed039c4d1a5f6216f90f81b01,2026-10-01,10,Ethpool 2,,Mining,False
+0x4bbeeb066ed09b7aed07bf39eee0460dfa261520,2026-10-01,2,MyCrypto: Donate,MyCrypto,Donate,False
+0x4be049f5e64a82f17c5bcc34d7a0fc19ead53460,2026-10-01,2,,,,False
+0x4c2a6c5d15502c41c4d290f5ddd600878ff31da3,2026-10-01,2,lowkissed.eth,,,False
+0x4c34ae54dc716808e94af3d1d638b8ea3a23fa9b,2026-10-01,44,HitBTC: Hot Wallet; HitBTC 9,HitBTC,Exchange; HOT WALLET,True
+0x4c549990a7ef3fea8784406c1eecc98bf4211fa5,2026-10-01,35,Hiveon: Old Pool,Hiveon,Mining,False
+0x4c8cfe078a5b989cea4b330197246ced82764c63,2026-10-01,3,Alameda Research 27,,Alameda Research; Fund,False
+0x4cb72456e82aedd8b1ef0f08d03cc6bff96c6291,2026-10-01,2,,,,False
+0x4ce9f39d3a0426d8d1f2ad4fcff0b92e86b9b914,2026-10-01,3,HTX 99,,,False
+0x4cf2220105995f006813923019f02be1ccca8132,2026-10-01,5,Coinmetro 2,,CoinMetro,False
+0x4d4ffb448194504242267585f0ea6f9de6a96de3,2026-10-01,4,Hoo.com Gas Supplier 1,,,False
+0x4d55999b51a3dfc182dc9e066daf356ac46da10c,2026-10-01,4,,,,False
+0x4d73adb72bc3dd368966edd0f0b2148401a178e2,2026-10-01,2,Layer Zero: Ultra Light Node v2,Layer Zero,,False
+0x4d7f1790644af787933c9ff0e2cff9a9b4299abb,2026-10-01,152,Nexo 48; Nexo Withdrawals,,Exchange; Nexo,True
+0x4d846da8257bb0ebd164eff513dff0f0c2c3c0ba,2026-10-01,447,Shakepay 3,,Exchange,True
+0x4d9079bb4165aeb4084c526a32695dcfd2f77381,2026-10-01,1336,Across Protocol: Old Ethereum Spoke Pool V2 ; ESP V2; Ethereum_SpokePool,Across Protocol,Bridge,True
+0x4e5b2e1dc63f6b91cb6cd759936495434c7e972f,2026-10-01,957,FixedFloat: Hot Wallet 2,FIXEDFLOAT,Exchange; HOT WALLET; Phish / Hack; Poisoning Address,True
+0x4e667ed19fbf4cd37696d90f5de3f4aeada9599b,2026-10-01,8,LAToken 34,,Exchange,True
+0x4e73199cec5d87faf869f7736694fb8f076f9bc7,2026-10-01,2,Fake_Phishing461361,,Phish / Hack; SCAM,False
+0x4e7b110335511f662fdbb01bf958a7844118c0d4,2026-10-01,2726,OKX: Hot Wallet 2; OKX 28,OKX,DEPOSIT ADDRESS; Exchange,False
+0x4e80744fa23cec76e1621ce0dfaceb4b1d532e12,2026-10-01,16,Old Duelbits,,Exchange,True
+0x4ea111a8ca86c17aa34a016f78f294c55593c307,2026-10-01,5,,,,False
+0x4f05008a04e8d7ca6c497ce4ce927f1bff04ebec,2026-10-01,2,bagface.eth,,,False
+0x4f6742badb049791cd9a37ea913f2bac38d01279,2026-10-01,10,Celsius 10,,Celsius Network; Exchange,True
+0x4f7a67464b5976d7547c860109e4432d50afb38e,2026-10-01,34,MEV Bot: 0x4f7...38e; NativeOFT,MEV Bot,Suspicious,False
+0x4f9bebe3adc3c7f647c0023c60f91ac9dffa52d5,2026-10-01,3,Crazy Pool,,Miner; Mining,False
+0x4fc06231d9bb175dacf6b482ea236d5de1101317,2026-10-01,2,,,,False
+0x4fd39c9e151e50580779bd04b1f7ecc310079fd3,2026-10-01,55,SquidMulticall,Squid,,False
+0x4fed1fc4144c223ae3c1553be203cdfcbd38c581,2026-10-01,48,Cryptonator,,Exchange; Wallet App,True
+0x50002cdfe7ccb0c41f519c6eb0653158d11cd907,2026-10-01,10,Layer Zero: Aptos Bridge,Layer Zero,Bridge,True
+0x503828976d22510aad0201ac7ec88293211d23da,2026-10-01,870,Coinbase Exchange: Hot Wallet; Coinbase 12,Coinbase Exchange,Fiat Gateway; HOT WALLET,True
+0x50be13b54f3eebbe415d20250598d81280e56772,2026-10-01,134,Phemex,,Exchange; Phemex,True
+0x50c85e5587d5611cf5cdfba23640bc18b3571665,2026-10-01,3,JP-EX: Hot Wallet; JPEX: Deposits 1,JPEX,Exchange; HOT WALLET,True
+0x514c63a6de5a462cf499b59503f89a3eddea56de,2026-10-01,2,,,,False
+0x5180db0237291a6449dda9ed33ad90a38787621c,2026-10-01,3,Frax Finance: Deployer 6,Frax Finance,Beacon Depositor; Contract Deployer,False
+0x51836a753e344257b361519e948ffcaf5fb8d521,2026-10-01,312,Indodax: Hot Wallet; Indodax 1,Indodax,Exchange; HOT WALLET,True
+0x51971c86b04516062c1e708cdc048cb04fbe959f,2026-10-01,1017,Bitget: Hot Wallet; Bitget 2,Bitget,Exchange; HOT WALLET,True
+0x51e15804cf7ff061410193512b499f071ecf9c4b,2026-10-01,2,,,Contract Deployer,False
+0x521db06bf657ed1d6c98553a70319a8ddbac75a3,2026-10-01,20,CREX24 1,,CREX24; Exchange,True
+0x5254dfae39f3751bab2795698f5c0c80bee4d4cc,2026-10-01,2,,,Metamask User,False
+0x525d41a1554e9469798d081e5f359a10d0b4d830,2026-10-01,2,PhoneFarm Finance: Deployer,PhoneFarm Finance,Contract Deployer; Gitcoin Grantee,False
+0x52a258ed593c793251a89bfd36cae158ee9fc4f8,2026-10-01,9,BetFury: Hot Wallet; BetFury 1,BetFury,Exchange; HOT WALLET,True
+0x52b4567c37b48d51198b25caa6e79e4fda6d9734,2026-10-01,120,GMO Coin 5,,Exchange; GMO Coin,True
+0x52bc44d5378309ee2abf1539bf71de1b7d7be3b5,2026-10-01,728,Nanopool,,Mining,False
+0x52def6c112bffc66fc8c8258539d4d8c30c5000c,2026-10-01,7,5000c.eth,,,False
+0x52e14e8dfc87e8875ce5e9a94019f497b82b3e01,2026-10-01,2,,,,False
+0x52e4ae1395d4026f3434ab392624986a6c0c24f7,2026-10-01,3,bentleytales.eth,,,False
+0x52f13e25754d822a3550d0b68fdefe9304d27ae8,2026-10-01,2,EthashPool 2,,Mining,False
+0x52f6d6e1db786c8ce34a1c7bddeec27dfc231a16,2026-10-01,7,,,Beacon Depositor,False
+0x5361f7db8fce34fe9d4f720dbf5a1a3b5ea39eba,2026-10-01,2,,,,False
+0x53b015573630d248a32b11b21e5443efb92d9cfb,2026-10-01,2,philipp1.eth,,Metamask User,False
+0x53b77b9a06dd7e11aee247957784d76484fff540,2026-10-01,3,,,,False
+0x53d0e4dab3e125dd25ecfb24ca610075fa9bc8e1,2026-10-01,4,Fake_Phishing188246,,Phish / Hack,False
+0x53e0b897eae600b2f6855fce4a42482e9229d2c2,2026-10-01,2,,,,False
+0x53edc98cb6c21dfcddaf7f91ebf39789b93e2ac6,2026-10-01,3,Txbit 1,,,False
+0x53f07e235034a869eec8265e0cb120c55cc558d4,2026-10-01,6,OKX: Deposit Address; OKX (0x53f0); OKX 196,OKX Dep,DEPOSIT ADDRESS; Exchange,False
+0x5401dbf7da53e1c9dbf484e3d69505815f2f5e6e,2026-10-01,14,HTX 25,,Exchange; HTX,True
+0x5427fefa711eff984124bfbb1ab6fbf5e3da1820,2026-10-01,354,cBridge V2; Bridge,Celer Network,Bridge,True
+0x54ba36887df439a10e3fa6e6f47e5418b2475ac8,2026-10-01,2,,,,False
+0x54be3a794282c030b15e43ae2bb182e14c409c5e,2026-10-01,2,,,,False
+0x550625b5c7e97981336aeeaa3c0c1dfe30572eb3,2026-10-01,2,Bidesk 61,,,False
+0x5521a68d4f8253fc44bfb1490249369b3e299a4a,2026-10-01,7,Bithumb: Hot Wallet; Bithumb: Old Address 2,Bithumb,DISCONTINUED; Exchange; HOT WALLET; Old Contract,True
+0x5523d3c98809dddb82c686e152f5c58b1b0fb59e,2026-10-01,2,Synapse : Fast Bridge RFQ; FastBridge,Synapse,Bridge,True
+0x5529e0608cfc0cab5bb86b59cba7e88f0f66dfef,2026-10-01,2,,,,False
+0x552bde1dd231ed6d2d903428532b4d647ad6ec06,2026-10-01,2,,,,False
+0x5550d13389bb70f45fcef58f19f6b6e87f6e747d,2026-10-01,11,RouteProcessor3.2(Deprecated),,,False
+0x5574d6f75a59945a3d2e056d048816e11ce12bf8,2026-10-01,2,,,,False
+0x55e4d16f9c3041eff17ca32850662f3e9dddbce7,2026-10-01,3,Nexo 62,,Exchange,True
+0x55e787eb654ad31a3c83973094ec2d2f550b4dcd,2026-10-01,2,Take Action,,Take Action,False
+0x55f089d5f6aedfdacbd5e3acb0e8f31fbab44088,2026-10-01,7,Multichain: Doge Bridge,Multichain,,False
+0x560e389a2b032319e742a59ae8bafa62671089fe,2026-10-01,3,Bithumb Contract,,,False
+0x562680a4dc50ed2f14d75bf31f494cfe0b8d10a1,2026-10-01,79,Hotbit 9,Hotbit,Exchange; HOT WALLET,True
+0x562f223a5847daae5faa56a0883ed4d5e8ee0ee0,2026-10-01,2,,,,False
+0x5637f6e989428ed4aa0ae08dea615186f7403a51,2026-10-01,2,,,,False
+0x563b377a956c80d77a7c613a9343699ad6123911,2026-10-01,231,ShapeShift 4,,Exchange; ShapeShift,True
+0x564286362092d8e7936f0549571a803b203aaced,2026-10-01,3801,Binance: Hot Wallet; Binance 3,Binance,Exchange; HOT WALLET,True
+0x56b217cc582e19b3ca933fd411e85ca7def68445,2026-10-01,10,Fake_Phishing276037,,Phish / Hack,False
+0x56de1961fda5454e6f8e6d0e3124ff648fd69400,2026-10-01,62,CoinSpot 4,,CoinSpot; Exchange,True
+0x56eddb7aa87536c09ccc2793473599fd21a8b17f,2026-10-01,18259,Binance: Hot Wallet; Binance 17,Binance,Exchange; HOT WALLET,True
+0x5763a2a8194e9bd0b8140abccb9171f005470324,2026-10-01,2,BitPay 3,,,False
+0x5795a56b46553913d53d34f7ae494a99e882209a,2026-10-01,2,,,,False
+0x57e6adb5f6368b9946fe1f41254d9d54b7b7575e,2026-10-01,2,ndidi-gram.nft,,,False
+0x57ea46759fed1b47c200a9859e576239a941df76,2026-10-01,7,XY Finance : ETH YBridge Vault,XY Finance ,,False
+0x57ed6bd35a6ce815079855cd0b21331d1d5d0a0e,2026-10-01,2,Multichain: Telos Bridge,Multichain,Bridge,True
+0x5853ed4f26a3fcea565b3fbc698bb19cdf6deb85,2026-10-01,2,debanker.eth,,Metamask User; Take Action,False
+0x5861b8446a2f6e19a067874c133f04c578928727,2026-10-01,12,HTX 6,,Exchange; HTX,True
+0x58798355c6f2f474d58288377b20f1b48421c3b7,2026-10-01,2,Amber:c3b7(related_level_1),Amber,,False
+0x58a3feb357d7dabc120910c31b6b33d453bc6022,2026-10-01,2,,,,False
+0x58b704065b7aff3ed351052f8560019e05925023,2026-10-01,96,Bitso: Hot Wallet; Bitso 1,Bitso,Exchange; HOT WALLET,True
+0x58c2cb4a6bee98c309215d0d2a38d7f8aa71211c,2026-10-01,265,HTX 39,,Exchange; HTX,True
+0x58e6c7ab55aa9012eacca16d1ed4c15795669e1c,2026-10-01,3,GnosisSafeProxy,,Smart Account by Safe,False
+0x58f56615180a8eea4c462235d9e215f72484b4a3,2026-10-01,35,Deribit: Hot Wallet; Deribit 12,Deribit,Exchange; HOT WALLET,True
+0x595063172c85b1e8ac2fe74fcb6b7dc26844cc2d,2026-10-01,88,Paribu: Hot Wallet; Paribu 6,Paribu,Exchange; HOT WALLET,True
+0x596a2b27bfc6862c2ffb53a2b1f4bf7f1a047342,2026-10-01,2,,,,False
+0x598c60bb7e929f02008a098461fd2faec3f74771,2026-10-01,4,Nobitex 6,,Exchange,True
+0x59932c8e0b3cf2d9f890bb5f4d30291086e651f9,2026-10-01,2,,,Take Action,False
+0x59a5208b32e627891c389ebafc644145224006e8,2026-10-01,407,HitBTC: Hot Wallet; HitBTC 3,HitBTC,Exchange; HOT WALLET,True
+0x59a7f0779829bf51dbb1ecd9db873b6a2cf57f42,2026-10-01,48,Celsius Network ETH Withdrawal 3,,,False
+0x59daa74f2d15c87aac435ec18cb559f92490c100,2026-10-01,2,Furucombo Proxy v1.6.0,Furucombo,,False
+0x59f44895cd4088817eb5f5cf913d23b81a76974d,2026-10-01,2,,,Maker Vault Owner,False
+0x5a0b54d5dc17e0aadc383d2db43b0a0d3e029c4c,2026-10-01,21,Spark Pool,,Mining,False
+0x5a4ac9df62415f073e984db58dfe21e14eb8903f,2026-10-01,3,,,,False
+0x5a5a338eb7f5baf9b3ff72ce57424deecf23e154,2026-10-01,3,,,,False
+0x5a9e792143bf2708b4765c144451dca54f559a19,2026-10-01,2,zoomerdev.eth,,,False
+0x5acfbbf0aa370f232e341bc0b1a40e996c960e07,2026-10-01,2,,,,False
+0x5ae63fe9559914757472d0b70cac41c2ae6bbe8c,2026-10-01,3,WalletSimple,,,False
+0x5b1864cb38e96d3d25592c787d481b637abc4def,2026-10-01,8,Kedai Crypto,,,False
+0x5b191f5a2b4a867c4ed71858daccc51fc59c69c0,2026-10-01,2,,,Beacon Depositor,False
+0x5b31bb52bdd7006ae57f9d9506c0ff995229b63c,2026-10-01,5,Anycoin Direct,,Exchange; Fiat Gateway,True
+0x5b3256965e7c3cf26e11fcaf296dfc8807c01073,2026-10-01,7,OpenSea: Wallet,OpenSea,Contract Deployer,False
+0x5b6a1ba8bb103e34956fe3197c182200c75ee0d4,2026-10-01,2,,,,False
+0x5b990c664ae7e759763acfec76e11c289c53be77,2026-10-01,11,Amber Group: 0x5b9...e77,Amber Group,,False
+0x5baeac0a0417a05733884852aa068b706967e790,2026-10-01,174,Cryptopia 1,,Compromised; Exchange,True
+0x5bcbdfb6cc624b959c39a2d16110d1f2d9204f72,2026-10-01,21,Bitcasino: Hot Wallet,Bitcasino.io,Exchange; HOT WALLET,True
+0x5bd5edcca85c0c035c9b2f5b4e22683fe37f6677,2026-10-01,3,HTX Gas Supplier 7,,,False
+0x5be8f739c8ea94d99b44ab0b1421889c8b99b2e1,2026-10-01,2,tre.eth,,,False
+0x5c0796ed4f0b1de9f9eda9fd6fe29562b2a60296,2026-10-01,4,,,,False
+0x5c3f261290e02ba328af0dcfe2586dba61a358ec,2026-10-01,4,Upbit 55,,Exchange,True
+0x5c7bcd6e7de5423a257d81b442095a1a6ced35c5,2026-10-01,581,Ethereum Spoke Pool Proxy; ETH Spokepool,Across Protocol,,False
+0x5c9f3fff6ee846a83080f373f8cea1451bb4a3d9,2026-10-01,29,Bitpie 2,,,False
+0x5cac4a6ff0c0c90053f0204e8caf1b707bc307e6,2026-10-01,2,,,,False
+0x5d0c3f3428ce9a45167dd6ad66e80551e0ba85b8,2026-10-01,2,GnosisSafeProxy_5d0c_85b8,,Smart Account by Safe,False
+0x5d375281582791a38e0348915fa9cbc6139e9c2a,2026-10-01,2,BitBlinx,,Exchange,True
+0x5d738fbf1d8940bbe72af847d88c517064de76e7,2026-10-01,3,NonKyc.io: Hot Wallet,NonKyc.io,,False
+0x5d8ff2274fe11b3c6a05a2edcc3f59dc8c47d4e7,2026-10-01,2,,,,False
+0x5d9fe07813a260857cf60639dac710ebb9531a20,2026-10-01,5,Paykassa Inc.,,Exchange; Payments,True
+0x5db63f987817910bbb9656b5210990408d3831fb,2026-10-01,2,,,,False
+0x5dd697c77e80c7fda3da1cccd5214c3a75503727,2026-10-01,2,CoinTiger 1,,Exchange,True
+0x5e032243d507c743b061ef021e2ec7fcc6d3ab89,2026-10-01,74,Upbit: Hot Wallet; Upbit 3,Upbit,Exchange; HOT WALLET,True
+0x5e4aead7892a33c2fb9bb4ecb5d3c347015bba01,2026-10-01,2,,,Beacon Depositor,False
+0x5e4aeee3013b94b10a7faca0c637c96f4d3410c9,2026-10-01,2,MoonPepes: Deployer,MoonPepes,Contract Deployer,False
+0x5e809a85aa182a9921edd10a4163745bb3e36284,2026-10-01,81,Owlto Finance: Bridge 2,Owlto Finance,Bridge,True
+0x5e92a688387d317be3db80258e199094a0c2a462,2026-10-01,2,,,,False
+0x5eae73d4d24b2922fe614d4f58018b34a7e20a83,2026-10-01,136,Shakepay 5,,Exchange,True
+0x5ebc120365d607fc020fe388315813fda1a2f88c,2026-10-01,2,"""AirJenci"" on OpenSea",,,False
+0x5ed8cee6b63b1c6afce3ad7c92f4fd7e1b8fad9f,2026-10-01,5,EF 1,,Ethereum Foundation,False
+0x5eff77571184427f5a9e951597571b5259820b48,2026-10-01,2,vEmpire DDAO: Deployer,vEmpire DDAO,Contract Deployer,False
+0x5f3582b06b6697fd64e791ab7ace882fe66bc835,2026-10-01,2,,,,False
+0x5f5944104192242992420c3f1291822b82800714,2026-10-01,2,wdevil.eth,,Metamask User,False
+0x5fb42f82306ca42bd5bb831be77a53dca94be7dd,2026-10-01,3,,,Metamask User,False
+0x5fe4cdb5d41c3e08cb9689887cd94596e4e0e499,2026-10-01,2,,,,False
+0x5fe56cb82b3d88b6e37d3a9dba8f5b40b28dda7e,2026-10-01,3,CmctSale,,,False
+0x6001d26436986706ff19c35478f97e0c43846470,2026-10-01,2,,,,False
+0x6046d412b45dace6c963c7c3c892ad951ec97e57,2026-10-01,5,,,,False
+0x6081258689a75d253d87ce902a8de3887239fe80,2026-10-01,344,Robinhood: Hot Wallet,Robinhood,Exchange; HOT WALLET,True
+0x6091a224ec0e8bae16125603d179d9fce7aad641,2026-10-01,3,,,,False
+0x609c690e8f7d68a59885c9132e812eebdaaf0c9e,2026-10-01,37,Allbridge: Core Bridge,Allbridge,,False
+0x60b45f993223dcb8bdf05e3391f7630e5a51d787,2026-10-01,5,HTX Old Address 25,HTX,Old Contract,False
+0x60dd456273cbb018c2222621d4c2dc5016e870d3,2026-10-01,8,,,,False
+0x60f9e80d0d40b2958ac39006635de782096866c3,2026-10-01,73,CoinSpot: Hot Wallet,CoinSpot,Exchange; HOT WALLET,True
+0x610887f0ae329557d1ae067f6b7697ff07032116,2026-10-01,3,OPNX 1,,Exchange,True
+0x61189da79177950a7272c88c6058b96d4bcd6be2,2026-10-01,288,Binance US: Hot Wallet,Binance US,Exchange; HOT WALLET,True
+0x614a88bdac70ddb63c36cde8918b9cb3755fc021,2026-10-01,2,,,,False
+0x616ed054e0e0fdbfcad3fa2f42daed3d7d4ee448,2026-10-01,2,,,,False
+0x618ffd1cdabee36ce5992a857cc7463f21272bd7,2026-10-01,198,WazirX: Withdrawals,WazirX,Exchange,True
+0x61c808d82a3ac53231750dadc13c777b59310bd9,2026-10-01,3,Stakefish: Eth2 Depositor 10; satofishi.eth,stakefish,Eth2 Depositor; Metamask User; Miner,False
+0x61e193e514de408f57a648a641d9fcd412cded82,2026-10-01,2,,,,False
+0x620a3e5cddd2748e111a11810757f419d10b1aac,2026-10-01,43,Bitbank 1,,Exchange; bitbank,True
+0x6254b927ecc25ddd233aaecd5296d746b1c006b4,2026-10-01,74,Bitkub: Hot Wallet  7,Bitkub,DEPOSIT ADDRESS; Exchange,False
+0x6263656c2887444b74049979db04649f69acf92d,2026-10-01,2,,,,False
+0x6361d059ce1d9f49991dc7410972d3ad7b698773,2026-10-01,3,Contract Deployer,,Contract Deployer,False
+0x636b76ae213358b9867591299e5c62b8d014e372,2026-10-01,2,HTX Old Address 31,HTX,Old Contract,False
+0x63a5020c166750b2b8b474b864713f2648044c74,2026-10-01,2,,,Metamask User,False
+0x63c880aab2e8aad1a571d38a70a79b6c4729c468,2026-10-01,38,Multisig,BitGo,,False
+0x64192819ac13ef72bf6b5ae239ac672b43a9af08,2026-10-01,2,Ronin Bridge V2,Axie Infinity,Bridge,True
+0x648c43761c3d3e77335e3e0eddf490d38793d0e0,2026-10-01,5,,,Take Action,False
+0x64abc8886fb85ffd371734c5a4319d4b1b24d616,2026-10-01,3,DuckDice: Hot Wallet,DuckDice,,False
+0x655edce464cc797526600a462a8154650eee4b77,2026-10-01,3,Clipper Exchange: Pool; ClipperApproximateCaravelExchange,Clipper Exchange,,False
+0x657c79bec8dcd761cd5aa8c0419ea59e1515ec1b,2026-10-01,2,huynhlongdt.eth,,,False
+0x65951c3a417e9b5e749e688b1bea1280a052c0f1,2026-10-01,4,Bit-Z Deprecated 2,,,False
+0x65bf64ff5f51272f729bdcd7acfb00677ced86cd,2026-10-01,13,Kyber: Contract; KyberNetwork,Kyber,,False
+0x65dcf7782260aa1d6642a85f36c0bc9545182f1e,2026-10-01,2,bradbuilds.eth,,Metamask User,False
+0x65e2c5175e2e618f48e70343b14c31b280e42d90,2026-10-01,49,HitBTC: Hot Wallet; HitBTC 5,HitBTC,Exchange; HOT WALLET,True
+0x663fd1d7658cd428b256057c3a85d13b710804b6,2026-10-01,32,Voyager 22,,Exchange,True
+0x664fe01207dc37c84a97a8dcdc28bcc1da6bee57,2026-10-01,2,b3nn.eth,,@manilacrypto1; Celebrity; Metamask User,False
+0x66ed3f0dc9e3678315d3232f3be7d9390a0904e6,2026-10-01,2,qhawe.eth,,Metamask User,False
+0x674bdf20a0f284d710bc40872100128e2d66bd3f,2026-10-01,22,Loopring: Exchange v2 Deposit; DefaultDepositContract,Loopring,Bridge; Layer 2,True
+0x682a8bbc3398c7a22ae0e7876017352ccdc55841,2026-10-01,3,,,,False
+0x68575571e75d2cfa4222e0f8e7053f056eb91d6c,2026-10-01,3,Lido: Eth2 Depositor 12; Beacon Depositor,Lido,Beacon Depositor,False
+0x68b22215ff74e3606bd5e6c1de8c2d68180c85f7,2026-10-01,43,BitMart 2,,BitMart; Exchange,True
+0x68b3465833fb72a70ecdf485e0e4c7bd8665fc45,2026-10-01,5,Uniswap V3: Swap Router 2; SwapRouter02,Uniswap V3,DEX; Router,True
+0x68d39be8c66851afbb61abb3b2e0a8ef59b58e80,2026-10-01,2,,,,False
+0x691e3cbb2a8f504fc650f21c9af6226051340559,2026-10-01,274,SwissBorg 10,,Exchange,True
+0x6a03f49500fef032de287a138046777ee80a7bbb,2026-10-01,4,Proxy_6a03_7bbb,,Smart Account by Safe,False
+0x6a33d28d7f1e7ccad132304a6abd87336a7754fa,2026-10-01,2,ineed$$.eth,,,False
+0x6a3eb79e1c4023f1610ff046c5dc30f9790d326f,2026-10-01,5,CoinBene 4,,,False
+0x6a45b137c9681cf3cf531eb61e68545779facc36,2026-10-01,4,,,,False
+0x6a7a43be33ba930fe58f34e07d0ad6ba7adb9b1f,2026-10-01,6,Coinotron 3,,Mining,False
+0x6a851246689eb8fc77a9bf68df5860f13f679fa0,2026-10-01,5,ZET Technologies,,Mining,False
+0x6a9f6ab41a90d59fc5ef0d373559f39002c22a0f,2026-10-01,11,CoinW 24,,Exchange,True
+0x6aa36553f97d5965566697bafcfda5d69a5bc6d7,2026-10-01,3,Remitano 11,,,False
+0x6b630858d23a9d040aef6b712a90cc0e09c726dd,2026-10-01,2,,,,False
+0x6b71dcaa3fb9a4901491b748074a314dad9e980b,2026-10-01,61,ChainUp 6,,Exchange,True
+0x6bac48867bc94ff20b4c62b21d484a44d04d342c,2026-10-01,2,,,DAO Voter,False
+0x6c3183792fbb4a4dd276451af6baf5c66d5f5e48,2026-10-01,2,MaxHash: EthPool,MaxHash,Mining,False
+0x6c56f8e2a6a272b64214b2159fa1a6e5c32ea6f2,2026-10-01,3,,,,False
+0x6c7f03ddfdd8a37ca267c88630a4fee958591de0,2026-10-01,6,alpereum,,,False
+0x6c8a849c3dc3bac86af7ff34fc51d6d36c88e9f6,2026-10-01,2,nyxer.eth,,Metamask User,False
+0x6c9bfec4babb1dc5ad112aa79003d9cf7261dbda,2026-10-01,2,Wirex 7,,,False
+0x6cc5f688a315f3dc28a7781717a9a798a59fda7b,2026-10-01,87,OKX: Hot Wallet; OKX,OKX,Derivatives; Exchange; HOT WALLET,True
+0x6cc8dcbca746a6e4fdefb98e1d0df903b107fd21,2026-10-01,155,Bitrue: Hot Wallet; Bitrue,Bitrue,Exchange; HOT WALLET,True
+0x6cf9aa65ebad7028536e353393630e2340ca6049,2026-10-01,4,SwissBorg: Hot Wallet,SwissBorg,Exchange; HOT WALLET,True
+0x6cfa99b2352163d70bd52de24cdbf553374b9335,2026-10-01,2,,,,False
+0x6d0267156f1c6ce44caa4bf129b76009d3d41830,2026-10-01,2,,,,False
+0x6d0c7c6c4ed61a3c599e9b8a37aa38aeb78cb259,2026-10-01,8,,,,False
+0x6d1dc634d20268649e1eb6b207960fbc76e57dd7,2026-10-01,4,damienhauser.eth,,,False
+0x6d21266dfcf5541bee9f67c4837aaa72b3bf9303,2026-10-01,16,Genesis Trading: OTC Desk 3,Genesis Trading,OTC,True
+0x6d76cbd9762fc415f9d679bc557d6ffb9f46583b,2026-10-01,2,ypsono.eth,,Metamask User,False
+0x6dcd15a0dbefd0700063a4445382d3506391a41a,2026-10-01,2,BitBase 2,,Exchange,True
+0x6de5bdc580f55bc9dacafcb67b91674040a247e3,2026-10-01,2,ZKSwap: V2 Bridge,ZKSwap,Bridge; Layer 2,True
+0x6dfc34609a05bc22319fa4cce1d1e2929548c0d7,2026-10-01,46,AlphaPo 1,,AlphaPo; Exchange; Payments,True
+0x6e5bbe3f4fe7b0ccd74d7da1cbd5cfe3c868bbdc,2026-10-01,33,Coinjar 4,,Exchange,True
+0x6e71c6d41aed31b18dc37c27dc3309bcdb11e893,2026-10-01,4,94ETH.com: Airdrop Contract,94ETH.com,,False
+0x6ea2c8bcc87d5144acf38ff1da61b57ede3e420f,2026-10-01,2,,,,False
+0x6eb1028dd34dfa9f6fbd52837dd30fb3bbb7f260,2026-10-01,2,,,,False
+0x6ec88a2cb932eb46dfda0280c0eadb93b6eca13b,2026-10-01,11,Simplex: Deprecated 1,Simplex,,False
+0x6edb9d6547befc3397801c94bb8c97d2e8087e2f,2026-10-01,5,HTX Old Address 21,HTX,Exchange; Old Contract,True
+0x6edf968da408a9640b8865826429a977a11c5048,2026-10-01,78,Zonda 5,,Exchange,True
+0x6efb20f61b80f6a7ebe7a107bace58288a51fb34,2026-10-01,5,Biki.com: Old Address; BiKi 2,Biki.com,Exchange; Old Contract,True
+0x6eff3372fa352b239bb24ff91b423a572347000d,2026-10-01,13,BIKI.com,,Exchange,True
+0x6f0d30ee2bc8d381eefc23d5149fc9eee268321b,2026-10-01,6,,,,False
+0x6f3064d973c08dd9c88d43080549f474e5827d71,2026-10-01,2,Fake_Phishing309218,,Phish / Hack,False
+0x6f48a3e70f0251d1e83a989e62aaa2281a6d5380,2026-10-01,7,HTX 22,,Exchange; HTX,True
+0x6f50c6bff08ec925232937b204b0ae23c488402a,2026-10-01,16,HTX Old Address 5,HTX,Exchange; Old Contract,True
+0x6fc48de8f167456b7aa27dd4ecfabba329ea623d,2026-10-01,157,Bithumb 24,,Bithumb; Exchange,True
+0x703e50af7e055c6c9ac83d72255caacd62400bca,2026-10-01,2,,,,False
+0x7071f121c038a98f8a7d485648a27fcd48891ba8,2026-10-01,78,Bitpanda: Hot Wallet,Bitpanda,Exchange; HOT WALLET,True
+0x707c6f7d35798780cefce81b747392198566a186,2026-10-01,19,Cointiger: Hot Wallet,CoinTiger,Exchange; HOT WALLET,True
+0x708396f17127c42383e3b9014072679b2f60b82f,2026-10-01,1392,Binance: Hot Wallet; Binance 11,Binance,Exchange; HOT WALLET,True
+0x70c25bc57ba1f582075893d50de804d407fe68ea,2026-10-01,8,,,Metamask User,False
+0x70e967acfcc17c3941e87562161406d41676fd83,2026-10-01,3,Hana TSS,,,False
+0x70faa28a6b8d6829a4b1e649d26ec9a2a39ba413,2026-10-01,234,ShapeShift 3,,Exchange; ShapeShift,True
+0x7121fcee8d698c5597e71bc2a0ffdcd20a1baa86,2026-10-01,2,,,Take Action,False
+0x7137348dd65f9d5dab65f253e120c5a0227752eb,2026-10-01,2,,,,False
+0x71660c4005ba85c37ccec55d0c4493e66fe775d3,2026-10-01,847,Coinbase Exchange: Hot Wallet; Coinbase 1,Coinbase Exchange,Fiat Gateway; HOT WALLET,True
+0x7180eb39a6264938fdb3effd7341c4727c382153,2026-10-01,8,Bitfinex: Old Address 2,Bitfinex,Old Contract,False
+0x71e2fb38c2b9040d0014a629662b3c2b35f10d9a,2026-10-01,2,eth10w.eth,,Metamask User,False
+0x722122df12d4e14e13ac3b6895a86e84145b6967,2026-10-01,3,Tornado.Cash: Proxy,Tornado.Cash,BLOCKED,False
+0x72bcfa6932feacd91cb2ea44b0731ed8ae04d0d3,2026-10-01,4,Cashierest: Hot Wallet,Cashierest,Exchange; HOT WALLET,True
+0x72e2f4830b9e45d52f80ac08cb2bec0fef72ed9c,2026-10-01,7628,Stargate Finance: SGETH Token; StargateEthVault,Stargate Finance,DeFi; Token Contract,False
+0x72e5263ff33d2494692d7f94a758aa9f82062f73,2026-10-01,50,ProBit 1,,Exchange,True
+0x7307f7b267d73cd848e61afdd1b98d1e15325ca2,2026-10-01,3,,,,False
+0x731307f3b12cc56191ade83ea630a377d9a941f6,2026-10-01,4,Coinbase 43,,,False
+0x734ac651dd95a339c633cded410228515f97faff,2026-10-01,2,ZB.com: Deposit Funder; ZB.com Gas Supplier 1,ZB.com,Exchange,True
+0x7355efc63ae731f584380a9838292c7046c1e433,2026-10-01,33,Across Protocol: WETH Bridge Pool; BridgePoolProd,Across Protocol,Bridge,True
+0x737023d996d787d58d02fe74a7ab7df7e5571998,2026-10-01,26,Phoenix Payments BV: Anycoin,Phoenix Payments BV,,False
+0x737901bea3eeb88459df9ef1be8ff3ae1b42a2ba,2026-10-01,719,Private Rollup Bridge; RollupProcessor,Aztec,Bridge; Layer 2; Mixing,True
+0x738cf6903e6c4e699d1c2dd9ab8b67fcdb3121ea,2026-10-01,2,KuCoin: Hot Wallet; KuCoin 12,KuCoin,Exchange; HOT WALLET,True
+0x73957709695e73fd175582105c44743cf0fb6f2f,2026-10-01,36,Bw.com,,Exchange,True
+0x73f8fc2e74302eb2efda125a326655acf0dc2d1b,2026-10-01,296,HTX 35,,Exchange; HTX,True
+0x7454a609ea877f37fa6d42feca76a8f18de841c7,2026-10-01,28,OceanEx: Hot Wallet; OceanEx 2,OceanEx,Exchange,True
+0x74db0bbfde94aa80a135c5f8b60c0ca3d17332f2,2026-10-01,2,Parallel: Deployer,Parallel,Contract Deployer,False
+0x74de5d4fcbf63e00296fd95d33236b9794016631,2026-10-01,2,MetaMask: Swaps Spender; AirSwap: Spender,MetaMask,,False
+0x74dec05e5b894b0efec69cdf6316971802a2f9a1,2026-10-01,558,Bitpanda: Hot Wallet,Bitpanda,Exchange; HOT WALLET,True
+0x7502870924e43c71bedf0093a33f4b8f98046b88,2026-10-01,2,jamabai.eth,,Metamask User; Rustytro.eth,False
+0x7510792a3b1969f9307f3845ce88e39578f2bae1,2026-10-01,6,Celer Network: Original Token Vault V2,Celer Network,,False
+0x755f60a301e070d09137bc4cff0cbeabf5722ae6,2026-10-01,2,Safe Multisig,,Smart Account by Safe,False
+0x7563758243a262e96880f178aee7817dcf47ab0f,2026-10-01,86,BitMart: Hot Wallet; BitMart 8,BitMart,Exchange; HOT WALLET,True
+0x756bc95a8d0db3235c92fbdbe86809af63201706,2026-10-01,2,steffykia.eth,,Metamask User,False
+0x756e68f85226e17c2ad9a36f5f3c81f88a01b20d,2026-10-01,3,BAYC METAVERSE: Deployer,BAYC METAVERSE,Contract Deployer,False
+0x7580ba923c01783115d79975d6a41b3d38eff8d5,2026-10-01,2,Korbit 20,,Exchange,True
+0x75d228291f2670546549563569d25ab1840fa897,2026-10-01,3,,,,False
+0x75db63125a4f04e59a1a2ab4acc4fc1cd5daddd5,2026-10-01,2,Stader Labs: Deployer,Stader Labs,Beacon Depositor; Contract Deployer,False
+0x75db8b92937f8f86213e523788ab9f066efde3fe,2026-10-01,22,Celsius Network: Wallet 2,Celsius Network,Loans,False
+0x75e89d5979e4f6fba9f97c104c2f0afb3f1dcb88,2026-10-01,6563,MEXC: Hot Wallet; MEXC 1,MEXC,Exchange; HOT WALLET,True
+0x7600977eb9effa627d6bd0da2e5be35e11566341,2026-10-01,2,DEx.top; Dex2,,DEX; Exchange,True
+0x760762b30991a01f492e9ff067583a0c85d5768f,2026-10-01,2,MEV Bot: 0x760...68f,MEV Bot,,False
+0x76149d87a6ba9ea3c864d0643210e71393dd7777,2026-10-01,2,@V1jeromeloo (0x7614); jeromeloo.eth,,@v1jeromeloo; Celebrity; Metamask User,False
+0x762a7ea687d5f9aaed98eb4c5e597b43652af7ff,2026-10-01,6,�y� invalid method called (�y� inval...),,,False
+0x766182bfa8b8790d61c4d7e7912c1c3a6f42cef6,2026-10-01,29,BingX: Hot Wallet; BingX 3,BingX,Exchange; HOT WALLET,True
+0x76b60dcf71da2294f8aa034432d925d1eed8cf68,2026-10-01,2,,,,False
+0x77021d475e36b3ab1921a0e3a8380f069d3263de,2026-10-01,44,Deribit: Hot Wallet; Deribit 9,Deribit,Derivatives; Exchange; HOT WALLET,True
+0x77134cbc06cb00b66f4c7e623d5fdbf6777635ec,2026-10-01,207,Bitfinex: Hot Wallet,Bitfinex,Exchange; HOT WALLET,True
+0x77696bb39917c91a0c3908d577d5e322095425ca,2026-10-01,873,Coinbase Exchange: Hot Wallet; Coinbase 11,Coinbase Exchange,HOT WALLET,True
+0x777f415324d56e1d54fa832902d8797db7a4c57c,2026-10-01,29,1xBet 1,,Exchange; Gambling,True
+0x7782046601e7b9b05ca55a3899780ce6ee6b8b2b,2026-10-01,27,AnyswapV6Router,,,False
+0x77ab999d1e9f152156b4411e1f3e2a42dab8cd6d,2026-10-01,36,Kuna 2,,,False
+0x77ea512c0ee5e7b0a62d0712479cf4ccf09cd81a,2026-10-01,2,,,,False
+0x7866a4e8c7309414d65665d0d4b9a4e4324333e3,2026-10-01,2,,,Metamask User,False
+0x787075e3b69d7af519fe3abeaa8f83adc4ba7c38,2026-10-01,2,,,,False
+0x787b8840100d9baadd7463f4a73b5ba73b00c6ca,2026-10-01,7,Stake.com 11,,Exchange,True
+0x788529118f2a28c60b9de2ba0353f5ee4293e044,2026-10-01,3,BC.GAME: Hot Wallet 1,BC.Game,,False
+0x78c4b4a8bb8c7366b80f470d7dbeb3932e5261af,2026-10-01,2,,,,False
+0x7929cdd05469227441cfe29aeff234653361b2fe,2026-10-01,2,Fake_Phishing462459,,Phish / Hack,False
+0x794d28ac31bcb136294761a556b68d2634094153,2026-10-01,287,HTX 22,,Exchange; HTX,True
+0x79b53546af576dc72fed22ba664dd4ab3524c38a,2026-10-01,3,stardefi.eth,,Metamask User,False
+0x79c4213a328e3b4f1d87b4953c14759399db25e2,2026-10-01,2,@Litocoen (0x79c4),,,False
+0x79fd2f15e0ea8c27b5192259f9da63f4e562f021,2026-10-01,2,ART HAUS: Deployer,ART HAUS,Contract Deployer,False
+0x7a10ec7d68a048bdae36a70e93532d31423170fa,2026-10-01,4,GogoSwap: Hot Wallet; Bgogo 1,GogoSwap,Bgogo; Exchange; HOT WALLET,True
+0x7a16d8f5ebe68295b99d623c33845a41c3c015c7,2026-10-01,2,,,,False
+0x7a250d5630b4cf539739df2c5dacb4c659f2488d,2026-10-01,115,Uniswap V3: Universal Router,Uniswap V2,DEX,True
+0x7a56f645dcb513d0326cbaa048e9106ff6d4cd5f,2026-10-01,6,Catex Exchange: Hot Wallet ,Catex Exchange,HOT WALLET,True
+0x7a7f78a2af5aef01a889e8713083ab77dcc9fc9b,2026-10-01,2,wolf.bet,,Gambling,False
+0x7a91a362d4f2c9c4627688d5b7090bbb12e5715f,2026-10-01,2,Bitci 2,,,False
+0x7aafd99f9cc477aac54f3ce320b497d293a04cf3,2026-10-01,2,l0andpyth.eth,,,False
+0x7ac34681f6aaeb691e150c43ee494177c0e2c183,2026-10-01,2,,,Take Action,False
+0x7ae17a0f6f8f02b5b6e76b327db15f91306194e6,2026-10-01,101,Remitano 4,,,False
+0x7b138cc83ecccd6331cd7651c75ee3eb2ec6682e,2026-10-01,3,Bitpie: Batch Sender,Bitpie,Old Contract,False
+0x7b2e3fc7510d1a51b3bef735f985446589219354,2026-10-01,34,Interport: Action Executor 1; Bridge,Interport Finance,,False
+0x7bacd3e83522f484bc5128ea93bf7290f1f1b9e5,2026-10-01,136,Simpleswap.io: Hot Wallet,Simpleswap.io,Exchange; HOT WALLET,True
+0x7be98e1d8f29d23338e61694007d50d67144c7ef,2026-10-01,2,Bithumb 39,,Bithumb; Exchange,True
+0x7bfee91193d9df2ac0bfe90191d40f23c773c060,2026-10-01,3,DAO Voter,,Beacon Depositor; DAO Voter,False
+0x7c195d981abfdc3ddecd2ca0fed0958430488e34,2026-10-01,927,Coinbase Exchange: Hot Wallet; Coinbase 12,Coinbase Exchange,HOT WALLET,True
+0x7c4401ae98f12ef6de39ae24cf9fc51f80eba16b,2026-10-01,2,,,Genesis Address,False
+0x7c49e1c0e33f3efb57d64b7690fa287c8d15b90a,2026-10-01,10,Bit2c: Hot Wallet; Bit2C,Bit2c,Exchange; HOT WALLET,True
+0x7c66550c9c730b6fdd4c03bc2e73c5462c5f7acc,2026-10-01,5,Kyber: Contract 2,Kyber,,False
+0x7c6694032b4db11ac485e1cff0f7509d58b41569,2026-10-01,3,Whalesburg Pool: Old Address,Whalesburg Pool,DISCONTINUED; Mining; Old Contract,False
+0x7c7160a23b32402ad24ed5a617b8a83f434642d4,2026-10-01,8,,,,False
+0x7ccd2ee72a75f7e4776f598c1be11a119fd8d191,2026-10-01,2,First: Deployer,First,Contract Deployer,False
+0x7d45366395e275a4dbaa7335bb296c43e3be244e,2026-10-01,6,,,Metamask User,False
+0x7d655c57f71464b6f83811c55d84009cd9f5221c,2026-10-01,16,Gitcoin: Bulk Checkout,Gitcoin,,False
+0x7d7db2a7561919ae6caa7b06d5947ea70e0cecb9,2026-10-01,4,GnosisSafeProxy,,Smart Account by Safe,False
+0x7d8a212940933114dac826efba2f673dc66310d0,2026-10-01,2,LAToken 4,,Exchange; LAToken,True
+0x7e21c9cafbba619b2ad190f644f59797adaeed76,2026-10-01,2,helly.eth,,,False
+0x7e278a68a35d76a7e4b2c9d8b778acd775c6d832,2026-10-01,12,Binance 75,,Binance; Exchange,True
+0x7ea2df0f49d1cf7cb3a328f0038822b08aeb0ac1,2026-10-01,2,EtherToken (ETH),,,False
+0x7ed1e469fcb3ee19c0366d829e291451be638e59,2026-10-01,136,Freewallet 1,,Exchange; Wallet App,True
+0x7ee7ca6e75de79e618e88bdf80d0b1db136b22d0,2026-10-01,15,Switcheo Exchange V2; BrokerV2,,DEX; Switcheo,True
+0x7ef35bb398e0416b81b019fea395219b65c52164,2026-10-01,18,HTX 9,,Exchange; HTX,True
+0x7f101fe45e6649a6fb8f3f8b43ed03d353f2b90c,2026-10-01,54,Flexpool.io,,Mining,False
+0x7f396ef9f10c7beb11d01f2ea4a99a5787993474,2026-10-01,3,GnosisSafeProxy_7f39_3474,,Smart Account by Safe,False
+0x7f85cf44e446a4b1aace2a28774e88cd6d4e3441,2026-10-01,3,,,DAO Voter,False
+0x7f9b8c7bd797503af08e48ac52e19b0cd5ae9ac4,2026-10-01,3,,,,False
+0x7fd2c4a9ce4d387f951bffd65f4e64181de495a8,2026-10-01,2,,,Smart Account by Safe,False
+0x80106198dc662f5e02e79de2be10052e5ae016c2,2026-10-01,2,Phuture Finance: Deployer,Phuture Finance,Contract Deployer,False
+0x801a8b12c6a6bd62dad7f2a8b3d8496c8d0857af,2026-10-01,2,,,Take Action,False
+0x806388e04b7583a0148451a8ecd29a748b8fd584,2026-10-01,2,DAO Voter,,DAO Voter,False
+0x808d0aee8db7e7c74faf4b264333afe8c9ccdba4,2026-10-01,2,AlphaPo: Hot Wallet 1,AlphaPo,Payments,True
+0x8090d19181deabd4b25823cd71bd249a461217aa,2026-10-01,2,Hoo.com 16,,Exchange,True
+0x80a03dbf383c6fdd96fb95d1a24d63c7b6d02b08,2026-10-01,3,,,DAO Voter; Top Degen,False
+0x80ac8b6f4cacea6129f5cf1365904f056b4e29ea,2026-10-01,2,shrimpwen.eth,,Metamask User,False
+0x80c50231bbeaf678a950c4b9b7c68a6b62e69b0c,2026-10-01,2,BitKeep: Swap Router,BitKeep,,False
+0x80c67432656d59144ceff962e8faf8926599bcf8,2026-10-01,3428,Orbiter Finance: Bridge,Orbiter Finance,Bridge,True
+0x80e29acb842498fe6591f020bd82766dce619d43,2026-10-01,10,CoinW Gas Supplier 4,,,False
+0x813ec5facf289bd41365a8f1c9038a1228e95201,2026-10-01,12,,,,False
+0x8164bcd381c18403e069c06fe39ff9f63bc9f8cc,2026-10-01,2,,,,False
+0x8195fcb431ec1c21fa88afb4523590ed5a843c0f,2026-10-01,3,yauchun.eth,,@yauchunnft; Celebrity; Metamask User,False
+0x81b5ec3be3d9339299e56665d8206d4d28ece898,2026-10-01,2,,,Gitcoin Grantee,False
+0x81cffe15763c2daec1649681f70fabc2c57bcd55,2026-10-01,18,CoinFlux,,,False
+0x81e3c9ded64caf37ee5ffd643637e1a97cd64f5f,2026-10-01,5,,,,False
+0x820f92c1b3ad8e962e6c6d9d7caf2a550aec46fb,2026-10-01,37,Tip.cc,,,False
+0x8216874887415e2650d12d53ff53516f04a74fd7,2026-10-01,679,MoonPay: Withdrawals 1,MoonPay,Exchange,True
+0x823b92d6a4b2aed4b15675c7917c9f922ea8adad,2026-10-01,2,Juicebox: Deployer,Juicebox,Contract Deployer,False
+0x8271b2e8cbe29396e9563229030c89679b9470db,2026-10-01,70,Liqui.io 1; Liqui: Hot Wallet,Liqui,Exchange; HOT WALLET,True
+0x829709c3300d15e0bdb362769ad8528c0d769600,2026-10-01,6,TeamBookiebot: Deployer,TeamBookiebot,Contract Deployer,False
+0x829bd824b016326a401d083b33d092293333a830,2026-10-01,113,F2Pool Old,,F2Pool; Miner; Mining,False
+0x82ab4851dcc3e6f18c9e904e86aefedb13576cfe,2026-10-01,4,HTX 126,,,False
+0x82da7a2ee725185539cbd0a72c428b9b98bd350b,2026-10-01,3,"""LFGNFTS"" on OpenSea",,,False
+0x82ec0a9ee5201032c3b2608535d16d682c6261ca,2026-10-01,7,Coinbase: Deposit,Coinbase Dep,DEPOSIT ADDRESS,False
+0x82f9d5fe6c46990f3c2536e83b2b4e1c0a91f27f,2026-10-01,3,Rainicorn: Deployer,Rainicorn,Contract Deployer,False
+0x82fefda5eb48d65862ad79e005196eec78248155,2026-10-01,2,,,,False
+0x83136bb084f8c04b4d52b33d0be1271652ee0559,2026-10-01,2,,,,False
+0x832b52b8f40666f5c94b86ca7872b67045a7ddaf,2026-10-01,4,B2BinPay 5,,,False
+0x832f166799a407275500430b61b622f0058f15d6,2026-10-01,269,BTC Turk: Main Wallet; BtcTurk 1,BTC Turk,Exchange,True
+0x839395e20bbb182fa440d08f850e6c7a8f6f0780,2026-10-01,4,,,DAO Voter; Take Action,False
+0x83bf3df6318f9a4b4acc79f42e6305e8f7e781f5,2026-10-01,2,GnosisSafeProxy,,Smart Account by Safe,False
+0x841a63d6b17927de583404bcdc5281b99a0b801d,2026-10-01,3,Sellix: Payout 2,Sellix,,False
+0x84300dcc7ca9cf447e886fa17c11fa22557d1af0,2026-10-01,2,,,Contract Deployer; Phish / Hack,False
+0x8493eca71bbe028ce959c760e209e3ad73ecc86c,2026-10-01,2,,,,False
+0x84957e6c9f6ccfed9c35c850c3903732ed90858a,2026-10-01,3,BankTradingCards: Deployer,BankTradingCards,Contract Deployer,False
+0x849d52316331967b6ff1198e5e32a0eb168d039d,2026-10-01,3,Gnosis: Active Treasury Management,Gnosis,Maker Vault Owner; Smart Account by Safe,False
+0x849fb14e9782f4c5204e96aa363d991b48759ce3,2026-10-01,2,"""ethbuyer"" on OpenSea",,,False
+0x84a518a35c7c361c64301b8f209c2f0edb6f608d,2026-10-01,15,OKX Deposit,OKX Dep,DEPOSIT ADDRESS,False
+0x84eca34e4a1732113883407e3666b014dcca0a16,2026-10-01,2,,,,False
+0x84f918ba377cbd0385b4ef28f6b2b6d7e9b54a4b,2026-10-01,5,,,DAO Voter,False
+0x8513fafe1813b6ec3bbd9fc4baf5340bda8d670b,2026-10-01,2,,,,False
+0x851852620ac52031c3874c3ac254b837c9ca34c2,2026-10-01,2,nanativeman.eth,,,False
+0x851b7f3ab81bd8df354f0d7640efcd7288553419,2026-10-01,3,Gnosis: Multisig 2,Gnosis,ICO Wallets; Multisig,False
+0x851ba7347b3d7f873267fe597c8efd187de29a77,2026-10-01,3,AirDrop,,,False
+0x853054857d755c6d1605e003c8495be0407476ab,2026-10-01,3,,,Metamask User,False
+0x8595dd9e0438640b5e1254f9df579ac12a86865f,2026-10-01,33,EzilPool 2,,Mining,False
+0x85b931a32a0725be14285b66f1a22178c672d69b,2026-10-01,1395,Binance: Hot Wallet; Binance 10,Binance,Exchange; HOT WALLET,True
+0x85c0d1110c57a329ccd6cc91e50fb4666f2287c3,2026-10-01,2,GMO Coin 4,,Exchange; GMO Coin,True
+0x860ca90f4eab837d230bc90ce0eeffbdd028f0eb,2026-10-01,7,Alameda Research:f0eb(related_level_1),Alameda Research,,False
+0x86790abbaccd1b21f5ecfdaa67ec6282afbf3e83,2026-10-01,2,Coinstore: Hot Wallet,Coinstore,Exchange; HOT WALLET,True
+0x867bfa133d64fad734c89f886d2a169b6504ab2b,2026-10-01,68,CoinSpot 5,,CoinSpot; Exchange,True
+0x867ffb5a3871b500f65bdfafe0136f9667deae06,2026-10-01,38,LocalEthereum 1,,Marketplace; OTC,True
+0x86a1d85aa48343527d659a5682102d585a4b6fef,2026-10-01,2,,,,False
+0x86d3e894b5cdb6a80afffd35ed348868fb98dd3f,2026-10-01,75,Coinify 1,,Coinify; Exchange,True
+0x86e284421664840cb65c5b918da59c01ed8fa666,2026-10-01,2,GMO Coin 3,,Exchange; GMO Coin,True
+0x86e6df2933f88a00caa11ad19413123c3abef3de,2026-10-01,4,HTX 95,,,False
+0x87228bc42afa5967ce34302a4004cc3fde55b817,2026-10-01,3,CoinW 22,,,False
+0x875a7dfc5749eacfc5f2725e717d7b17cd5492fa,2026-10-01,3,,,Take Action,False
+0x87616fa850c87a78f307878f32d808dad8f4d401,2026-10-01,2,,,Beacon Depositor,False
+0x876eabf441b2ee5b5b0554fd502a8e0600950cfa,2026-10-01,404,Bitfinex: Hot Wallet,Bitfinex,Exchange; HOT WALLET,True
+0x87ad3f8573e96308eaef597dde8d9dcfb19202d2,2026-10-01,4,Remitano 10,,,False
+0x87add8d1b9c51f48999ea310dab4ae40d7bf0d74,2026-10-01,3,Beacon Depositor,,Beacon Depositor,False
+0x87afaa198117496bce792b6a5de3b33ba7cac73f,2026-10-01,5,,,Take Action,False
+0x87bc1b3e3db2a4c8d8def57817addc93afd5ea3f,2026-10-01,2,Proxy_87bc_ea3f,,Smart Account by Safe,False
+0x87cbc48075d7aa1760ac71c41e8bc289b6a31f56,2026-10-01,263,SwissBorg 3,,Exchange,True
+0x87d243900633045dd0c176fa35ff2f9dc9364280,2026-10-01,2,BitBase 4,,Exchange,True
+0x87d9559de42482fce489648c4ca3940734acd9cb,2026-10-01,2,Tge.betmatch.io: Deployer,Tge.betmatch.io,Contract Deployer,False
+0x881368e08cc5353e0188b2ca0401b5de35f319f4,2026-10-01,2,Dex-Trade: Hot Wallet,dex-trade,Exchange; HOT WALLET,True
+0x882260324ad5a87bf5007904b4a8ef87023c856a,2026-10-01,2,EIP173Proxy,,,False
+0x882a5bfcebf03178c4ab9220c12ebe83590714e2,2026-10-01,2,,,Beacon Depositor,False
+0x885b73c3586576541e18a8b84f6f0b641a6c1eba,2026-10-01,3,,,,False
+0x886478d3cf9581b624cb35b5446693fc8a58b787,2026-10-01,2,Zeneca,,Writer,False
+0x88aeaa399549dbe922b17ac882bddb888d78b907,2026-10-01,6,gaming1-nh.wallet,,,False
+0x88dcdd4a0a58b7e2208805d547043c37dca2b6dc,2026-10-01,100,Shakepay 9,,Exchange; Shakepay,True
+0x88fa395aa8a7b57cff6572fd37b585e1e8ce3dac,2026-10-01,3,,,,False
+0x893a83f5521001559883cb9682b15439c023e54f,2026-10-01,2,,,,False
+0x8958618332df62af93053cb9c535e26462c959b0,2026-10-01,20,Cobinhood 1,,Cobinhood; Exchange,True
+0x896002e29fe4cda28a3ae139b0bf7bac26b33a8c,2026-10-01,2,,,DAO Voter,False
+0x89a5ab93bad8aefb235a8965bbd74f1b719c2004,2026-10-01,2,GnosisSafeProxy,,Smart Account by Safe,False
+0x89aa0d7ebdcc58d230af421676a8f62ca168d57a,2026-10-01,2,,,,False
+0x8a1a3980a1f25a0421b460432bf9f2cdb378a056,2026-10-01,2,,,Metamask User,False
+0x8a37f0290ae85d08522d2a605617e76128fd0712,2026-10-01,50,Ramp Network US 1,,Exchange,True
+0x8a7e7a63b401293c4be78769750622b2a6f33494,2026-10-01,7,Korbit 24,,Exchange,True
+0x8a88c504743610b98e835345000f348449f0c275,2026-10-01,2,,,,False
+0x8aabba0077f1565df73e9d15dd3784a2b0033dad,2026-10-01,3,HTX Old Address 22,HTX,Old Contract,False
+0x8ac3ecf6973e020cc0e6e8989fb71b4a77d65987,2026-10-01,2,,,,False
+0x8ace464bfb0c502ce1e9ac6d550a0c60a2b49a36,2026-10-01,3,,,,False
+0x8adace41ec579423f149d7402f282301fcfaff36,2026-10-01,2,,,Metamask User,False
+0x8b3f14f0582fbf275be87d265c931b4dfd5f13b7,2026-10-01,3,,,Metamask User,False
+0x8b4b220456db17b37a0fc71d06a774cb3ef71523,2026-10-01,2,,,Beacon Depositor,False
+0x8b88581440bdbfacbbdec0a9e00afa31d31f7656,2026-10-01,4,,,,False
+0x8badd8b59ddaf9a12c4910ca1b2e8ea750a71594,2026-10-01,3,Blockchain.com 8,,Exchange,True
+0x8c0c88b15c76ea17d47e3df61a37d761b3bbb9f0,2026-10-01,2,SmartSwapUpgradeableProxy,,,False
+0x8c8d7c46219d9205f056f28fee5950ad564d7465,2026-10-01,579,mercuryo,,Exchange,True
+0x8cacc5bf46ea076a09febb2ae213dc4da6384e74,2026-10-01,4,MiningRigRentals,,,False
+0x8cb63ef92c592cf254190d9a36c8878b7a18c6fb,2026-10-01,2,,,,False
+0x8cf905c50f25a481171e7f5936625754d44a9537,2026-10-01,3,Stackup: ERC-4337 Factory 1,Stackup,ERC-4337 Bundler,False
+0x8d056d457a52c4daf71cef45f540a040c143ea05,2026-10-01,5,LAToken 9,,,False
+0x8d391948dc81d695822a24e7360943da6d9dfa0b,2026-10-01,2,,,,False
+0x8d56f551b44a6da6072a9608d63d664ce67681a5,2026-10-01,155,Nobitex 1,,Exchange,True
+0x8d76166c22658a144c0211d87abf152e6a2d9d95,2026-10-01,3,Eterbase; Bidesk 28,,Exchange,True
+0x8d88f384fb251c08805944f0c31e52a2277b530b,2026-10-01,2,,,Take Action,False
+0x8d9cc1d96cc7f98b73fb9c70df1b2f50daec6166,2026-10-01,3,HTX 132,,,False
+0x8dbf815dc6d182ebe67520379663901c23478ce6,2026-10-01,2,,,Beacon Depositor,False
+0x8df04d551e3f7f5b03a67de79184bb919a97bbde,2026-10-01,3,,,Beacon Depositor,False
+0x8df5f70ba13a793f96b90c27aad672cae1c2403e,2026-10-01,2,,,,False
+0x8e011a1723ba989d75288f78b42ca7b9997b4674,2026-10-01,2,,,,False
+0x8e01ef6a4d864698ff80b419fe9ec2e3c85e9e9e,2026-10-01,6,Liquid 10,,Exchange,True
+0x8e04af7f7c76daa9ab429b1340e0327b5b835748,2026-10-01,10,Fund: 0x8e0...748,Fund,,False
+0x8e8bc99b79488c276d6f3ca11901e9abd77efea4,2026-10-01,2,HTX Old Address 13,HTX,Old Contract,False
+0x8eb02395da29db420ca9d334c49e22657cff4749,2026-10-01,2,Coinbase Exchange: Deposit Address,Coinbase Exchange,DEPOSIT ADDRESS,False
+0x8eb871bbb6f754a04bca23881a7d25a30aad3f23,2026-10-01,22,Aeroswap 1,,Exchange,True
+0x8eca806aecc86ce90da803b080ca4e3a9b8097ad,2026-10-01,57,V1 Bridge; ZKSwap; Dex,,Bridge; Compromised; Layer 2,True
+0x8efaae7b67c141ecc1c1ba0c85679dacc323f486,2026-10-01,2,,,,False
+0x8efd9addd8de6a4e64664d1893dec51f8c3339e9,2026-10-01,2,,,,False
+0x8f02df367d80dc5e7eb2febd334ab473b35cc269,2026-10-01,3,1980.crypto,,,False
+0x8f22f2063d253846b53609231ed80fa571bc0c8f,2026-10-01,916,Binance: Hot Wallet; Binance 13,Binance,Exchange; HOT WALLET,True
+0x8f3c665cfd74fab1025e5693d80aaee3a4967398,2026-10-01,5,Umbria: Narni Bridge 5,Umbria,,False
+0x8f4728784a9d0c021cdf346cdc15511cb5569c6c,2026-10-01,9,,,,False
+0x8f493c12c4f5ff5fd510549e1e28ea3dd101e850,2026-10-01,2,Contract Deployer,,Contract Deployer,False
+0x8f54972f4ca40bd3ffc8b085f6ece1739c40c65f,2026-10-01,51,ChangeNOW 14,,,False
+0x8fa3aca9c712f3f582c8c6053e465c3f4db3cb83,2026-10-01,4,,,,False
+0x8fca4ade3a517133ff23ca55cdaea29c78c990b8,2026-10-01,10,Poloniex: Hot Wallet,Poloniex,Exchange; HOT WALLET,True
+0x8fd00f170fdf3772c5ebdcd90bf257316c69ba45,2026-10-01,47,Spark Pool: Distributor,Spark Pool,,False
+0x9008d19f58aabd9ed0d60971565aa8510560ab41,2026-10-01,18,GP V2 Settlement,CoW Protocol; CoW Swap,DEX,True
+0x902f09715b6303d4173037652fa7377e5b98089e,2026-10-01,1339,Relayer V2,Layer Zero,,False
+0x9030a104a49141459f4b419bd6f56e4ba6fcd800,2026-10-01,8,Kuna.io 3,,Exchange,True
+0x90598faecb13b32b33e0d2ad07e74eace9afd64f,2026-10-01,2,,,Metamask User,False
+0x908e8e8084d660f8f9054aa8ad1b31380d04b08f,2026-10-01,6,queenway.eth,,Metamask User,False
+0x90b62a4ea00b214b6838799c11a9ae3585b32af5,2026-10-01,2,,,,False
+0x90e9ddd9d8d5ae4e3763d0cf856c97594dea7325,2026-10-01,17,HTX 20,,Exchange; HTX,True
+0x910cbd523d972eb0a6f4cae4618ad62622b39dbf,2026-10-01,404,Tornado.Cash: 10 ETH; 10 ETH; Fixed pool 10 eth,Tornado.Cash,BLOCKED; Mixer; OFAC Sanctions Lists; SANCTIONED,False
+0x912fd21d7a69678227fe6d08c64222db41477ba0,2026-10-01,1405,Wyre Wallet; Shakepay 1,,Exchange; Metamask User,True
+0x91337a300e0361bddb2e377dd4e88ccb7796663d,2026-10-01,133,BTC-e 1,,Exchange,True
+0x915d7915f2b469bb654a7d903a5d4417cb8ea7df,2026-10-01,25,FCoin 1,,Exchange,True
+0x91709c57bdcb8c55993c39855e85eeda6e728a71,2026-10-01,2,pawan4545p.eth,,Metamask User,False
+0x91962711a4d2e4a830b366ce7276d99001e8564b,2026-10-01,283,Voyager 9,,Exchange,True
+0x91a0a3043f68986043d7083c4d85b558b21f0a7b,2026-10-01,71,CoinSpot: Hot Wallet,CoinSpot,Exchange; HOT WALLET,True
+0x91adf14f4c0782634e04dfc6e9be16d950aa4daa,2026-10-01,80,Coinsquare: Hot Wallet,Coinsquare,Exchange; HOT WALLET,True
+0x9224bbb4e0fbe2f2f8fab55debc41eb21fdfb804,2026-10-01,2,,,Top Degen,False
+0x923b6bfc8cb0d9a57716a1340f7b86e8b678ecea,2026-10-01,2,,,,False
+0x9241f27daffd0bb1df4f2a022584dd6c77843e64,2026-10-01,9,Ghost1212: Deployer,Ghost1212,Contract Deployer,False
+0x924dc2617d2f3c6b5c305b8063dbe5b0a659759a,2026-10-01,2,lambert7.eth,,Metamask User,False
+0x925eafea2cc8eb6f747624f745db3ef0bf5a425f,2026-10-01,2,,,,False
+0x926a7fbb205b5df79c47bcc80786afe091673623,2026-10-01,2,,,,False
+0x926fc576b7facf6ae2d08ee2d4734c134a743988,2026-10-01,26,HTX 15,,Exchange; HTX,True
+0x9272227568d59326a9be3a2bebbc79c5eb2aff4a,2026-10-01,2,dimethyl.eth,,Metamask User,False
+0x92790687eb8dbe3fbb05d0c37e717ce9f8b3d901,2026-10-01,2,Alameda Research:d901(related_level_1),Alameda Research,,False
+0x92a27f87cf6363fea05563fff0dfa8a4c809b5c8,2026-10-01,2,,,,False
+0x92c4317830af63462064b9b120f9c094ba428890,2026-10-01,3,,,,False
+0x92d47b6e3dce6471f42021db650a611af4257771,2026-10-01,18,ONUS,,,False
+0x92e929d8b2c8430bcaf4cd87654789578bb2b786,2026-10-01,152,SWFT Swap,,,False
+0x935f64b44b5c48a1539c4ada5161d27ace4205b5,2026-10-01,22,Wirex 3,,Exchange,True
+0x936998820f75b9043ed2856a9836a0e45b7ca7af,2026-10-01,3,GnosisSafeProxy,,Smart Account by Safe,False
+0x93b7e9364c4df6de55ed0d10c80e7afc0612e93a,2026-10-01,2,Metal: Wallet,Metal,ICO Wallets,False
+0x93f36930f94fbb5afc5fb506d3f7abb9179a4e4e,2026-10-01,2,CoinEgg 1,,Exchange,True
+0x941d120e39ce275ff5e8c94572c17458b573a8ea,2026-10-01,3,,,,False
+0x942266bc90465a8acb6f4174bdc78033f55c6a95,2026-10-01,3,,,,False
+0x9435d50503aee35c8757ae4933f7a0ab56597805,2026-10-01,5,WaterholePool,,Mining,False
+0x9477861457123c55cd34c608068c58af2bff5dc8,2026-10-01,2,bitski.eth,,Metamask User,False
+0x94a1b5cdb22c43faab4abeb5c74999895464ddaf,2026-10-01,4,Tornado.Cash: Mixer 1; Mixer 1,Tornado.Cash,BLOCKED; Mixer; OFAC Sanctions Lists,False
+0x94aff6c2c005567aa0e2a27f77701bb1b6679b6b,2026-10-01,2,,,Take Action,False
+0x94b18793b93b524b110fead408b955422b982fa4,2026-10-01,2,Shakepay 10,,Exchange,True
+0x94fe3ad91dacba8ec4b82f56ff7c122181f1535d,2026-10-01,5,Faa.st,,Exchange,True
+0x9508232030c3e9f9a1dcf8afdbf0150e73226763,2026-10-01,3,,,Smart Account by Safe,False
+0x9509665d015bfe3c77aa5ad6ca20c8afa1d98989,2026-10-01,5,ParaSwap V2; AugustusSwapper,,DEX; Velora,True
+0x951167530afa60bea983e5da28014b1faa607964,2026-10-01,5,Bitpanda 12,,,False
+0x95222290dd7278aa3ddd389cc1e1d165cc4bafe5,2026-10-01,5,beaverbuild,,MEV Builder; Phish / Hack; Poisoning Address,False
+0x9528043b8fc2a68380f1583c389a94dcd50d085e,2026-10-01,4,JPEX Withdrawals 1,,,False
+0x95316d7b255e7749d6b2cc9a493d4d412a00f423,2026-10-01,2,,,,False
+0x9539e0b14021a43cde41d9d45dc34969be9c7cb0,2026-10-01,17,Coinbene,,Exchange,True
+0x95a9bd206ae52c4ba8eecfc93d18eacdd41c88cc,2026-10-01,852,Coinbase Exchange: Hot Wallet; Coinbase 5,Coinbase Exchange,HOT WALLET,True
+0x95cb32be2265a0522c283d004632eb613537f49c,2026-10-01,3,,,,False
+0x95d8ecf7b8100a9e4cc684c6046750ee6761a741,2026-10-01,3,,,,False
+0x9633bac0ae8d720e2016d8268a9030a6acadd784,2026-10-01,5,,,,False
+0x963737c550e70ffe4d59464542a28604edb2ef9a,2026-10-01,242,Union Chain,,,False
+0x9696f59e4d72e237be84ffd425dcad154bf96976,2026-10-01,18165,Binance: Hot Wallet; Binance 18,Binance,Exchange; HOT WALLET,True
+0x96c01fa1d6a732f7888b564453ced1cd6c1fa5b9,2026-10-01,2,DigiFinex 4,,,False
+0x96fc4553a00c117c5b0bed950dd625d1c16dc894,2026-10-01,99,Changelly,,Exchange,True
+0x97122ddca38c29b7653d52b07998d06a7128fa0b,2026-10-01,80,Bithumb: Hot Wallet; Bithumb 36,Bithumb,DEPOSIT ADDRESS; Exchange; HOT WALLET,False
+0x971740ed368934875f1890898d5ffc10ea99fa43,2026-10-01,2,,,,False
+0x9724b4b59ea926683c733e2a6951f831e13f07a4,2026-10-01,7,,,,False
+0x97483a7337901bacca0cd198917fd1da774889a2,2026-10-01,2,Lazy Ape Yacht Club: Deployer,Lazy Ape Yacht Club,Contract Deployer,False
+0x974caa59e49682cda0ad2bbe82983419a2ecc400,2026-10-01,66,Stake: Hot Wallet; Stake.com 2,Stake,Exchange; Gambling; HOT WALLET,True
+0x9760862d09b70433a91ff27cbd069f51ef1cbd5c,2026-10-01,2,Hoo.com 10,,,False
+0x97852657d38e6d4f4ba79c70ad6961bc384cba7e,2026-10-01,2,spart3x.eth,,Metamask User,False
+0x978923b244cc1e8586104118b55f295b41dbb140,2026-10-01,2,,,Take Action,False
+0x97b9d2102a9a65a26e1ee82d59e42d1b73b68689,2026-10-01,3940,Bitget: Hot Wallet; Bitget 3,Bitget,Exchange; HOT WALLET; Phish / Hack,True
+0x97bfcf95b940e46990a42fdc21812be84442ef74,2026-10-01,2,,,,False
+0x97caf5f02c4162d37ef051b6c1e250f412e574d8,2026-10-01,2,,,DAO Voter,False
+0x97e12bd75bdee72d4975d6df410d2d145b3d8457,2026-10-01,34,Stex: Hot Wallet; Stex 2,Stex,Exchange; HOT WALLET,True
+0x983873529f95132bd1812a3b52c98fb271d2f679,2026-10-01,46,AscendEX 6,,AscendEX; DEPOSIT ADDRESS; Exchange,False
+0x985eaaa9531ddd634321208bf79baf623455d187,2026-10-01,9,,,,False
+0x986a2fca9eda0e06fbf7839b89bfc006ee2a23dd,2026-10-01,234,AscendEX: Hot Wallet,AscendEX,DEPOSIT ADDRESS; Exchange,False
+0x986c35fce598a86864670beced1ed179311be431,2026-10-01,2,,,Metamask User,False
+0x98915686e23032a1d3b8596badd7fadf147d5c00,2026-10-01,2,TaoPad: Deployer,TaoPad,Contract Deployer,False
+0x98db3a41bf8bf4ded2c92a84ec0705689ddeef8b,2026-10-01,256,Ramp Network,,Exchange,True
+0x98de69fc87790bf9679e5b781a03e6821f3d2f75,2026-10-01,2,,,Beacon Depositor,False
+0x99391c6f4d33ddac56e0856db4ef0013851031bd,2026-10-01,2,,,Top Degen,False
+0x993b7fcba51d8f75c2dfaec0d17b6649ee0c9068,2026-10-01,2,Hoo.com 3,,,False
+0x9967ba07819b26d002ac1534d1d46656e68fb736,2026-10-01,2,,,,False
+0x9976c40e8186a5e0c2a9d50d55b51f905d10ce52,2026-10-01,16,LAToken 11,,,False
+0x99799dbb5a66b2ed2499524a741ab7911236db1c,2026-10-01,2,Lou Dog,,,False
+0x99ab46812d1e6d2bfbb7a337418da10b15aa159f,2026-10-01,6,Huobi: Old Address 40; HTX 138,,,False
+0x99c85bb64564d9ef9a99621301f22c9993cb89e3,2026-10-01,17,BeePool,,Mining,False
+0x9a10f3ebdd3a0f0b084d84d96c345900592cfc10,2026-10-01,2,,,,False
+0x9a2cfc94f61e617c07a7976de16c9ef6fab1805f,2026-10-01,11,,,,False
+0x9a31cfbddd97276e43442f34e971decf6dc2d211,2026-10-01,2,HTX: Deposit Funder 11; HTX Gas Supplier 9,HTX,Exchange,True
+0x9a6cdf8221636d503773aad48dd3998e4ae03a5d,2026-10-01,2,,,Beacon Depositor,False
+0x9a755332d874c893111207b0b220ce2615cd036f,2026-10-01,4,HTX Old Address 32,HTX,Old Contract,False
+0x9a94ac82b17e67f7dff81912de68eb74ca20e6c3,2026-10-01,2,Gitcoin Grants: CuraDAI,Gitcoin Grants,,False
+0x9aa65464b4cfbe3dc2bdb3df412aee2b3de86687,2026-10-01,14,Blockchain.com: Hot Wallet,Blockchain.com,Exchange; HOT WALLET,True
+0x9ab5eb709e9048f3ded631d786521744970e3b76,2026-10-01,2,earntosee.eth,,Metamask User,False
+0x9acafc3fe25e7da2b8bf49c836619d40e395a859,2026-10-01,7,Tidex 4,,Exchange,True
+0x9acbb72cf67103a30333a32cd203459c6a9c3311,2026-10-01,69,Paribu: Hot Wallet; Paribu 5,Paribu,Exchange; HOT WALLET,True
+0x9afa066884ce723200438b672c0b8d5769e03a6a,2026-10-01,71,LiteBit 1,,Exchange,True
+0x9b4c00530a0355afaea727d9b17d7f7507d9f5c9,2026-10-01,2,thetheocrypto.nft,,Metamask User,False
+0x9b616ac1d31f17be9b23560d93699ca7732e2808,2026-10-01,2,,,Beacon Depositor; DAO Voter,False
+0x9b814233894cd227f561b78cc65891aa55c62ad2,2026-10-01,5,OpenSea: Royalties Distributor,OpenSea,,False
+0x9b8753ac5a975708a654d16f7a1c1fc9a7b98828,2026-10-01,2,@angrydonut6 (0x9b87),,Take Action,False
+0x9ba3560231e3e0ad7dde23106f5b98c72e30b468,2026-10-01,2,Bilaxy: Hot Wallet; Bilaxy 4,Bilaxy,Exchange; HOT WALLET,True
+0x9bb6acee72ef687e9e0bb1b78c908526d967b745,2026-10-01,2,,,,False
+0x9bc2f223026c252c8ef5f7f33f00f4bee21434b8,2026-10-01,38,ChangeNOW 9,,ChangeNOW; Exchange,True
+0x9bc910f14b0ee83689b9f49337b1dfd2962dbb94,2026-10-01,2,,,,False
+0x9be06783d8df6f483071805311e3dd55032eb88e,2026-10-01,3,,,,False
+0x9c19b0497997fe9e75862688a295168070456951,2026-10-01,478,Coincheck: Hot Wallet,Coincheck,Exchange; HOT WALLET,True
+0x9c4fa4ee466dff080adccb12d39b99e83cdb1077,2026-10-01,81,GMO Coin 1,,Beacon Depositor; Exchange; GMO Coin,True
+0x9c67e141c0472115aa1b98bd0088418be68fd249,2026-10-01,27,HitBTC: Hot Wallet; HitBTC 1,HitBTC,Exchange; HOT WALLET,True
+0x9cc2dce817093ceea82bb67a4cf43131fa354c06,2026-10-01,2,Liquid 4,,,False
+0x9cc5426b62801c4838d2e6df149fa048e22c48fd,2026-10-01,2,hunterr842.eth,,Take Action,False
+0x9d3f56186ce4ba86214ae9127e07491f2449d698,2026-10-01,2,heycape_,,,False
+0x9d78a7094318bb25c5deecc2063dbc9f2c714371,2026-10-01,2,GnosisSafeProxy,,Smart Account by Safe,False
+0x9d86f24287f1c679902fc481ad60a447f9c52643,2026-10-01,2,,,Beacon Depositor,False
+0x9e2a58d257963a276452fff1be94c0eb7e2775cc,2026-10-01,6,Clash[.]gg,,BLOCKED,False
+0x9e2b6378ee8ad2a4a95fe481d63caba8fb0ebbf9,2026-10-01,2,Alchemix Finance: Dev Multisig,Alchemix Finance,Multisig; Smart Account by Safe,False
+0x9e3ef83728a399d6f5f757e3fa04f4850bbfb5f0,2026-10-01,7,Bitcasino 3,,Exchange,True
+0x9e6316f44baeeee5d41a1070516cc5fa47baf227,2026-10-01,63,ShapeShift 2,,Exchange; ShapeShift,True
+0x9ec213d65fea207cc5c3940197a186ab7f08b946,2026-10-01,17,IndaCoin,,,False
+0x9ed80eda7f55054db9fb5282451688f26bb374c1,2026-10-01,2,,,Genesis Address,False
+0x9ee457023bb3de16d51a003a247baead7fce313d,2026-10-01,3,Grant Provider: 0x9ee...13d,Grant Provider,,False
+0x9eed555a7b54471a0808cec8d176980323674bc8,2026-10-01,2,,,,False
+0x9f2371715564f996d72dfea3437c52c92ac4522a,2026-10-01,2,,,Take Action,False
+0x9f33cca5dd6d96f91a0fec8570e9b218409e6209,2026-10-01,5,,,,False
+0x9f4745df0d6713b08323e0d39ab4cef6891c11e1,2026-10-01,6,GDAC 2,,,False
+0x9fa7bb759641fcd37fe4ae41f725e0f653f2c726,2026-10-01,4,PinkDrainer: Wallet 2,PinkDrainer,Metamask User; Phish / Hack; SCAM,False
+0x9fc6bef0702cf47dcd2e5a42b48e19aed8732499,2026-10-01,4,FalconX 3,,Exchange,True
+0x9fcafcca8aec0367abb35fbd161c241f7b79891b,2026-10-01,79,BtcTurk Deprecated 1,,,False
+0xa0116a92a032d17a9ce431eabe75c5b5f29e2d5e,2026-10-01,4,Robinhood Deprecated 2,,Exchange,True
+0xa027231f42c80ca4125b5cb962a21cd4f812e88f,2026-10-01,7,Eth.pp.ua,,Mining,False
+0xa03400e098f4421b34a3a44a1b4e571419517687,2026-10-01,148,HTX: Hot Wallet; HTX 52,HTX,DEPOSIT ADDRESS; Exchange; HOT WALLET,False
+0xa03d3611b34c3c49dbcb8206ed08fe6467f684a5,2026-10-01,2,SwissBorg 9,,,False
+0xa090e606e30bd747d4e6245a1517ebe430f0057e,2026-10-01,289,Coinbase: Miscellaneous,Coinbase,DEPOSIT ADDRESS; Exchange,False
+0xa09abd9cc1b1de0627b3b8f60cd60225a5ffd8ec,2026-10-01,2,,,,False
+0xa0cc04b4356b7b8db816030e8bf1977bbd75ecfd,2026-10-01,16,paulcryptoo.eth,,,False
+0xa1237ca6886f30264af4f5a8a1aa54b8f56ebe15,2026-10-01,5,Kuailian APP: Deployer,Kuailian APP,Contract Deployer,False
+0xa12db9f88f096f527fbe87a752c6ec16d501a25f,2026-10-01,2,Now Then When Collection: Deployer,Now Then When Collection,Contract Deployer,False
+0xa160cdab225685da1d56aa342ad8841c3b53f291,2026-10-01,199,Tornado.Cash: 100 ETH; 100 ETH,Tornado.Cash,BLOCKED; Mixer; OFAC Sanctions Lists; SANCTIONED,False
+0xa193c943980a9340f306b3d59deb183dc501b35f,2026-10-01,73,Coinhako: Old Address; Coinhako 3,Coinhako,Exchange; Old Contract,True
+0xa1be60a3dd728c15004344ace9039dae426a707b,2026-10-01,3,amboupe.eth,,Imtoken User; Metamask User,False
+0xa1be91b15e959294cb6efd7891c846caf7ef7602,2026-10-01,2,chris93.eth,,,False
+0xa1d8d972560c2f8144af871db508f0b0b10a3fbf,2026-10-01,605,KuCoin 3,,Exchange; KuCoin,True
+0xa20f10289248717374e9b7776dc368aa526cb6f2,2026-10-01,2,CoinW: Hot Wallet; CoinW_0xa20f; CoinW 12,CoinW,Exchange; HOT WALLET,True
+0xa21a16ec22a940990922220e4ab5bf4c2310f556,2026-10-01,88,Wealthsimple 1,,Exchange,True
+0xa251b373471e1ced96f3522e918471201d93ab60,2026-10-01,2,,,,False
+0xa26a683c3ea8d2f4d74f792f8d82429400eeee15,2026-10-01,2,0xsupern.eth,,Metamask User,False
+0xa270f3ad1a7a82e6a3157f12a900f1e25bc4fbfd,2026-10-01,24,CoinMetro 1,,CoinMetro; Exchange; HOT WALLET,True
+0xa29148c2a656e5ddc68acb95626d6b64a1131c06,2026-10-01,28,Stake.com 10,,,False
+0xa294cca691e4c83b1fc0c8d63d9a3eef0a196de1,2026-10-01,46,Fund: 0xa29...de1,Fund,,False
+0xa30d8157911ef23c46c0eb71889efe6a648a41f7,2026-10-01,26,BigONE,,BigONE; Exchange,True
+0xa31974408aad18c1e5c4648d435795fa757ea47f,2026-10-01,6,Bidesk 19,,Exchange,True
+0xa33bc5bf2d127b3083c4b76854fa8cf028c38105,2026-10-01,2,,,,False
+0xa35709ffa7d247cd5f36466b632b66d909d81beb,2026-10-01,2,,,,False
+0xa36a81e47d032cb5608175cf884d079ff7b2fb42,2026-10-01,2,0xUniverse: Wallet 1,0xUniverse,,False
+0xa397a8c2086c554b531c02e29f3291c9704b00c7,2026-10-01,2,Compound: WETH Bulker; MainnetBulker; Bulker,Compound,,False
+0xa3c277b8f35881cbdb017e52bcc376b3ce8f21da,2026-10-01,3,,,Take Action,False
+0xa40eb69d2adbd34ea73ea1dfd049f825e8216eb0,2026-10-01,2,,,,False
+0xa417100ddcd35787e6c0598e63db45ef5ecca567,2026-10-01,2,doomboke.eth,,Metamask User,False
+0xa42af2c70d316684e57aefcc6e393fecb1c7e84e,2026-10-01,7,Coinotron 2,,Mining,False
+0xa4938e606edfe350d08813a0785ed85d4640d365,2026-10-01,9,Bidesk 18,,Exchange,True
+0xa4b120fdb2fd946a67fbe996cb650dc2cd7d55f2,2026-10-01,2,,,,False
+0xa4cc4932722afe738abf7afd840537d75523445b,2026-10-01,2,,,,False
+0xa4ee5581fdcbaaf52c5edb65c8fbb7d3de78b838,2026-10-01,4,AAX 4,,Exchange,True
+0xa5025faba6e70b84f74e9b1113e5f7f4e7f4859f,2026-10-01,247,Multisender.app: Old Contract,Multisender.app,Airdrop / Distributor,False
+0xa53e7c7cade7f71bc2489dbe40af10057df8c79a,2026-10-01,11,ParJar,,,False
+0xa5c3a513645a9a00cb561fed40438e9dfe0d6a69,2026-10-01,3,,,,False
+0xa5d7f0f7027fa8f4d1be8042e1e43bbdec36951e,2026-10-01,709,HTX 41,,Exchange; HTX,True
+0xa60ab65b7fc55f5526af0b8ab038dc621606c8df,2026-10-01,4,,,,False
+0xa60efe89e07cfcf83eb30f3b063834f0f8b30466,2026-10-01,286,BingX 42,,Exchange,True
+0xa62f4152954c3cfbe762932512db35f40517507b,2026-10-01,3,,,,False
+0xa68ab6d6668745c4585667ae4a91c0032dbb932f,2026-10-01,2,@whaleyyds3_3 (0xa68a),,,False
+0xa68dd8cb83097765263adad881af6eed479c4a33,2026-10-01,7,fees.wtf: WTF Token,fees.wtf,NFT; Token Contract,False
+0xa6a04f391e2fe3c048f8593b94c4e0356f1c1b13,2026-10-01,2,,,Smart Account by Safe,False
+0xa752eea12f7ecaa7674363255e5e7f0b083a515c,2026-10-01,2,,,,False
+0xa75bae74e39dc2f38ee879ec3de9489abe65280e,2026-10-01,4,CoinW 8,,CoinW; Exchange,True
+0xa768532b3ca4ee6b6be718ee461910e88ee38a90,2026-10-01,2,,,,False
+0xa7a27637e5996f409ac0b90d69bc799522019663,2026-10-01,5,DropETH,,,False
+0xa7d7ac8fe7e8693b5599c69cc7d4f6226677845b,2026-10-01,3,,,,False
+0xa7eaa134207bed90659ed24ef92d41617e624087,2026-10-01,2,,,,False
+0xa7efae728d2936e78bda97dc267687568dd593f3,2026-10-01,17205,OKX 3,,DEPOSIT ADDRESS; Exchange; HOT WALLET; OKX,False
+0xa7fb5ca286fc3fd67525629048a4de3ba24cba2e,2026-10-01,5,B2BinPay 3,,Exchange,True
+0xa8337b477b76ab4a2658b7aa247d1542ed150ee1,2026-10-01,2,,,,False
+0xa8660c8ffd6d578f657b72c0c811284aef0b735e,2026-10-01,7,HTX 8,,Exchange; HTX,True
+0xa86e3d1c80a750a310b484fb9bdc470753a7506f,2026-10-01,3,Arthur Hayes 2,,,False
+0xa88235065d97a56719ea7d4fe72f8f953c984c0b,2026-10-01,3,,,Take Action,False
+0xa88902d6e93922893ee77234ed1c3ba4bec90224,2026-10-01,80,Umbria: Narni Bridge 2,Umbria,,False
+0xa8b39829ce2246f89b31c013b8cde15506fb9a76,2026-10-01,2,dYdX: Payable Proxy For Solo Margin,dYdX,,False
+0xa8eba6da3801489093c0299529ac79fc16c59b6d,2026-10-01,81,GMO Coin 7,,GMO Coin,False
+0xa910f92acdaf488fa6ef02174fb86208ad7722ba,2026-10-01,276,Poloniex: Hot Wallet,Poloniex,Exchange; HOT WALLET,True
+0xa91183d7dfcfe39d923071f5527552ab52da6d44,2026-10-01,2,HTX 83,,,False
+0xa94b40c53432f0576e64873ce1cead1aae62fc90,2026-10-01,2,,,,False
+0xa95350d70b18fa29f6b5eb8d627ceeeee499340d,2026-10-01,17,Uphold 5,,Exchange,True
+0xa96b536eef496e21f5432fd258b6f78cf3673f74,2026-10-01,12,Switchain,,Exchange,True
+0xa99c4f924a167cdec1486aa9920de70a48455ab2,2026-10-01,10,Sybil Delegate: jindouyun3,Sybil Delegate,,False
+0xa9bd318a4ca1747e6068d100e18711b529386e29,2026-10-01,74,CoinSpot 21,,CoinSpot; Exchange,True
+0xa9bff538a906154c80a8dbccd229f3deddfa52d6,2026-10-01,32,MaiCoin: Hot Wallet; MAX Exchange 1,MaiCoin,Exchange; HOT WALLET,True
+0xa9c7d31bb1879bff8be25ead2f59b310a52b7c5a,2026-10-01,20,Cobo 1,,Cobo; Wallet App,False
+0xa9d1e08c7793af67e9d92fe308d5697fb81d3e43,2026-10-01,7,Coinbase Exchange: Hot Wallet; Exchange Gateway 10; Coinbase10,Coinbase Exchange,HOT WALLET,True
+0xaa130e5a43cadbe2eaa4e58ede61e39874e3ead7,2026-10-01,3,,,,False
+0xaa1a6e3e6ef20068f7f8d8c835d2d22fd5116444,2026-10-01,72,ReplaySafeSplit,,,False
+0xaa28552dedd0223d0ff59eaa389c2547f34081a0,2026-10-01,3,Remitano 7,,,False
+0xaae8c50d76c76fb8947c9a203103d28b55862977,2026-10-01,2,,,Metamask User,False
+0xab0bc8e749f91b032aa0b909ede779f27f6a2cae,2026-10-01,2,,,,False
+0xab2109ad7f82bffe7c3cab3fda25e4799c28ea5b,2026-10-01,10,Upbit 54,,Exchange,True
+0xab21da17a6ed156b3642234ce27e412ac08a7627,2026-10-01,4,postnasaldrip.eth,,,False
+0xab32bf707c9d9f78f1101f9b7b4d6b4b3727b6ea,2026-10-01,2,prolasky.eth,,Metamask User,False
+0xab3454f4198940432f89872023ebbd64495293b0,2026-10-01,2,,,,False
+0xab5c66752a9e8167967685f1450532fb96d5d24f,2026-10-01,26,HTX 1,,DEPOSIT ADDRESS; Derivatives; Exchange; HTX; OTC,False
+0xab6f255dac71103ea6d57b320eaf0eec901b05aa,2026-10-01,2,czbnb.eth,,Imtoken User; Metamask User,False
+0xab782bc7d4a2b306825de5a7730034f8f63ee1bc,2026-10-01,148,Bitvavo: Hot 3,Bitvavo,Exchange,True
+0xab7b49bacd43bd4cfa41433d477f690bb9e1fb26,2026-10-01,6,eth9999.eth,,Imtoken User; Metamask User,False
+0xabe26faee77419897090bc4c5a112d463443a662,2026-10-01,2,Gitcoin Grantee,,Gitcoin Grantee,False
+0xabea9132b05a70803a4e85094fd0e1800777fbef,2026-10-01,1213,Bridge; ZKSync ETH Bridge; zkSync,,Bridge; Layer 2,True
+0xac98d36783266bc4fbae14751c69aff811406932,2026-10-01,2,,,Take Action,False
+0xad468e8336182e2cec7022f3434f91227c33a723,2026-10-01,2,0x0000000000000000000000000000000000000000,,,False
+0xad7c728f0171debe72374f6b5b0d3cb9d7b681ac,2026-10-01,2,,,,False
+0xadb2b42f6bd96f5c65920b9ac88619dce4166f94,2026-10-01,11,HTX 67,,DEPOSIT ADDRESS; Exchange; HTX,False
+0xade62b4cb00d520407b416a139d075f24a8e17c8,2026-10-01,2,rafcio18.eth,,Metamask User,False
+0xae0ee0a63a2ce6baeeffe56e7714fb4efe48d419,2026-10-01,133,StarkNet: StarkGate ETH Bridge,Starknet,Bridge,True
+0xae150fe9af090eceded52dbadeda6236f3acb865,2026-10-01,3,monwor.eth,,Metamask User,False
+0xae1c38847fb90a13a2a1d7e5552ccd80c62c6508,2026-10-01,2,ankrstaking.eth,,,False
+0xaea263ff92a7a8a2f183a4aa44efdc7e3b47d794,2026-10-01,2,,,,False
+0xaec27ce2133e82d052520afb5c576d9f7eb93ed2,2026-10-01,2,,,Genesis Address,False
+0xaecfe4eff84a1cd9a24accc1914ac537af7f6e1b,2026-10-01,3,tub.eth,,Metamask User,False
+0xaeec6f5aca72f3a005af1b3420ab8c8c7009bac8,2026-10-01,115,OTCBTC 1,,Exchange,True
+0xaf02fed043940022de75be24b712546d2761e903,2026-10-01,2,21coins.eth,,,False
+0xaf1931c20ee0c11bea17a41bfbbad299b2763bc0,2026-10-01,2,Luno: Hot Wallet; Luno 1,Luno,Exchange; Fiat Gateway; HOT WALLET,True
+0xaf1cc56a81ae3db157b73db4dbcd20907db5793f,2026-10-01,5,,,Metamask User,False
+0xaf30865104a62962bb6bcfa23cc1a0517ecda0c0,2026-10-01,2,"""Fernandoloji"" on OpenSea",,,False
+0xaf4807d083287f205d897e6d00c6fde1bf0a241a,2026-10-01,4,wilsonng.eth,,Metamask User,False
+0xaf8a08ddaedd2378b8075f8b90cee4b066ae0df7,2026-10-01,2,,,Take Action,False
+0xafc53db8506736e8264b4629e971a152ec3ff7d4,2026-10-01,5,500 Casino: Hot Wallet,500 Casino,,False
+0xafdee9be986b11d5101619a771685be8a9a18ec1,2026-10-01,2,,,Beacon Depositor,False
+0xafef10f072ad40a8be1e737b76ae965ed3365328,2026-10-01,4,Finecoin,,,False
+0xb01cb49fe0d6d6e47edf3a072d15dfe73155331c,2026-10-01,581,bitFlyer 2,,Exchange; bitFlyer,True
+0xb04c0eb29c72cebc467b9d4944d29116fa02c44a,2026-10-01,35,Stake.com 4,,Exchange,True
+0xb08f95dbc639621dbaf48a472ae8fce0f6f56a6e,2026-10-01,2,,,Beacon Depositor,False
+0xb0badc6f2f383df0bf25fd34f316a979fb6ad1d6,2026-10-01,2,igoryuzo.eth,,,False
+0xb10be5cbbf9655ed3648184ade56d3b4d6cedd4f,2026-10-01,5,,,,False
+0xb15b1a5773162fc0ad75944ab9ecd4b09a56c411,2026-10-01,2,,,,False
+0xb1d605200428394224a6356d57f295fbe21decc0,2026-10-01,17,Coinbase: Deposit,Coinbase Dep,DEPOSIT ADDRESS,False
+0xb1e079854268985431935ce53aa54c8e1722fa0d,2026-10-01,2,chefdavenyc.eth,,,False
+0xb1e302b3a3b0de2173c1a1c2de19d2868b7c446d,2026-10-01,3,,,,False
+0xb1f120578a7589fd9336315c4df7d5a5d90173a8,2026-10-01,12,ElkNet Bifrost Smart Contract,,,False
+0xb22dff49618a5e962749db0338b1242759203aea,2026-10-01,2,QUAI DAO: Deployer,QUAI DAO,Contract Deployer,False
+0xb23360ccdd9ed1b15d45e5d3824bb409c8d7c460,2026-10-01,343,Revolut: Hot Wallet; Revolut 1,Revolut,Exchange; HOT WALLET,True
+0xb23e32e08ee52d5176e3fe36150f369e1bf5e8a4,2026-10-01,3,,,,False
+0xb26314635252b4ee8b454423e5299a092dea8a4a,2026-10-01,21,Celsius Network: Wallet 4; Celsius 12,Celsius Network,Exchange; Loans,True
+0xb270c422e3757463e58d1a1b423d91935ef85dcc,2026-10-01,3,,,,False
+0xb2723beacce4bc54f23544343927f048cef6bd5a,2026-10-01,21,Stake.com 5,,Exchange,True
+0xb287eac48ab21c5fb1d3723830d60b4c797555b0,2026-10-01,225,MoonPay 9,,Exchange,True
+0xb2930b35844a230f00e51431acae96fe543a0347,2026-10-01,62,MiningPoolHub: Old Address,MiningPoolHub,DISCONTINUED; Miner; Old Contract,False
+0xb2a48f542dc56b89b24c04076cbe565b3dc58e7b,2026-10-01,28,HTX Old Address 9,HTX,Old Contract,False
+0xb2ca9495f3e1972801c12a964fa344a6630f427a,2026-10-01,9,DigiFinex 2,,DigiFinex; Exchange,True
+0xb2cc3cdd53fc9a1aeaf3a68edeba2736238ddc5d,2026-10-01,6,CryptoMonday: TopBTC; TOPBTC: Hot Wallet; TopBTC,CryptoMonday; TOPBTC,Exchange; HOT WALLET,True
+0xb2d39da392f19edb27639b92adfe7edfcc96391b,2026-10-01,3,SuperRare: Deployer,SuperRare,Contract Deployer,False
+0xb2e13b37c5227acd82d02c4cc76d86b85bddad49,2026-10-01,2,,,DAO Voter,False
+0xb33245bd4b5be7c99059539bbc5aec8b723ac4b7,2026-10-01,3,,,,False
+0xb36a0671b3d49587236d7833b01e79798175875f,2026-10-01,2,Stake DAO: Deployer,Stake DAO,Contract Deployer,False
+0xb3aaaae47070264f3595c5032ee94b620a583a39,2026-10-01,68,WEX Exchange; WEX 1,,Compromised; Exchange,True
+0xb460336e8850ba79c56cfa6e47de2fcd3d2d3d63,2026-10-01,2,,,,False
+0xb4fdc73a3b92028735edbfecc63f608df3352043,2026-10-01,2,,,,False
+0xb507fbbaa0da1a39f22b986c2d4cb3b8084e8b94,2026-10-01,28,ACE:hot wallet,ACE,HOT WALLET,True
+0xb541fc07bc7619fd4062a54d96268525cbc6ffef,2026-10-01,6,Tornado.Cash: Mixer 2; Mixer 2,Tornado.Cash,BLOCKED; Mixer; OFAC Sanctions Lists,False
+0xb5d85cbf7cb3ee0d56b3bb207d5fc4b82f43f511,2026-10-01,3543,Coinbase Exchange: Hot Wallet; Coinbase 44,Coinbase Exchange,DEPOSIT ADDRESS; Fiat Gateway; HOT WALLET,False
+0xb64d9784e8516983243434ce3badf967fd5cc71e,2026-10-01,33,Tokenize Xchange 1,,Exchange,True
+0xb6605f98a5562b1ac821bc5f2b75934239e8c6d6,2026-10-01,3,,,,False
+0xb685d0daea607fe75e02c1a7679261eac661b9bc,2026-10-01,6,Bitpie: Bitpie 5,Bitpie,Exchange,True
+0xb6aac3b56ff818496b747ea57fcbe42a9aae6218,2026-10-01,105,QuadrigaCX: Hot Wallet,QuadrigaCX,Compromised; Exchange; HOT WALLET,True
+0xb6ba1931e4e74fd080587688f6db10e830f810d5,2026-10-01,12,Coindelta 1,,Exchange,True
+0xb6ca5d1ed0ca4bf8444c9dee2d068a9f4c5e2e92,2026-10-01,2,,,DAO Voter,False
+0xb6cad910eb912ef13a030b682bf77aa8f781da60,2026-10-01,2,Newton 3,,Exchange,True
+0xb739d0895772dbb71a89a3754a160269068f0d45,2026-10-01,829,Coinbase Exchange: Hot Wallet; Coinbase 6,Coinbase Exchange,HOT WALLET,True
+0xb76b197d6e396682c042872aa795ce1f77dbd238,2026-10-01,2,Beacon Depositor,,Beacon Depositor,False
+0xb77c64a1fd89d57e0f26e1a5c0a4d5934ad84350,2026-10-01,112,GMO Coin 6,,Exchange; GMO Coin,True
+0xb78196b3e667841047d1bb1365ab8fb3d46ab1a8,2026-10-01,2,,,,False
+0xb7cabd1e6598209ec21a5a7ad72cc76b4ce4fc85,2026-10-01,4,Remitano 6,,,False
+0xb8001c3ec9aa1985f6c747e25c28324e4a361ec1,2026-10-01,316,Cobo: Custody 1; Cobo_0xb800; Cobo 6,Cobo,Exchange,True
+0xb8356a14e2610315f4d6604c71738c7f2ef7aa2a,2026-10-01,8,Remitano: Hot Wallet,Remitano,DEPOSIT ADDRESS; Exchange,False
+0xb840fe2b3fd8f75275240c671d6ec659e4c9a500,2026-10-01,7,CoinW: Hot Wallet; CoinW 21,CoinW,Exchange; HOT WALLET,True
+0xb84f2022a67ea830b40d897742c4e731ffe9bfee,2026-10-01,3,,,,False
+0xb8901acb165ed027e32754e0ffe830802919727f,2026-10-01,2937,Hop Protocol: Ethereum Bridge,Hop Protocol,Bridge,True
+0xb89dd647788c54a03ba290a6320ba53566afb57d,2026-10-01,7,Remitano 5,,Exchange,True
+0xb8b281e556c478583087ae5af5356b485b83e819,2026-10-01,2,,,Metamask User; Schumanncombo.eth,False
+0xb8b875efa3d407276aa1dd5bf53d61d88b0ea0c0,2026-10-01,2,,,,False
+0xb8ba36e591facee901ffd3d5d82df491551ad7ef,2026-10-01,86,Mercado Bitcoin 1,,Beacon Depositor; Exchange,True
+0xb8cf411b956b3f9013c1d0ac8c909b086218207c,2026-10-01,11,Remitano 1,,Exchange; Fiat Gateway; Remitano,True
+0xb936ae079032b368505dba3092bc175d7039e680,2026-10-01,2,,,,False
+0xb93fdf812d9ce368d0d93760d0e5ac549f4e3bb0,2026-10-01,2,Upbit 36,,,False
+0xb960665d4e601063df28c9067c0d925069cf9142,2026-10-01,5,,,Take Action,False
+0xb97f41cc340899dba210bdcc86a912ef100efe96,2026-10-01,2,Rocki: Deployer,Rocki,Contract Deployer,False
+0xb994d148aa9a45f4182bce93f53e9e07949b55e6,2026-10-01,8,BingX 45,,Exchange,True
+0xb9a4873d8d2c22e56b8574e8605644d08e047549,2026-10-01,21,HTX Old Address 14,HTX,Old Contract,False
+0xb9c764114c5619a95d7f232594e3b8dddf95b9cf,2026-10-01,88,Bitkub: Hot Wallet  5,Bitkub,DEPOSIT ADDRESS; Exchange,False
+0xb9d1fb123c779b47269280d0e152ac32e40b1177,2026-10-01,2,,,,False
+0xb9e29984fe50602e7a619662ebed4f90d93824c7,2026-10-01,2,Tokenlon: Fee Recipient,Tokenlon,,False
+0xb9ee1e551f538a464e8f8c41e9904498505b49b0,2026-10-01,187,Coinex,,CoinEx; Exchange; HOT WALLET,True
+0xb9f775179bcc7fcf4534700a48f09c590e390ead,2026-10-01,197,HTX: Hot Wallet; HTX 41,HTX,DEPOSIT ADDRESS; Exchange; HOT WALLET,False
+0xba7d1b904176e69d1685cfdf5f160dfefb4ea95b,2026-10-01,2,,,,False
+0xba83b3f71327bf8c8185446830d2cc15a1e8616a,2026-10-01,3,,,,False
+0xba8da9dcf11b50b03fd5284f164ef5cdef910705,2026-10-01,528,Router V6 1; AnyswapV6Router,Multichain,Bridge,True
+0xba966690326f93bb2353afb327afba021605209a,2026-10-01,2,,,,False
+0xbaa570ab85306246f2e25450e62422811f1eb057,2026-10-01,2,,,Take Action,False
+0xbaed383ede0e5d9d72430661f3285daa77e9439f,2026-10-01,130,Bybit: Hot Wallet 6,Bybit,DEPOSIT ADDRESS; Exchange,False
+0xbb1edb8c64d7baa322fadfd13d4a5db96d02a2e1,2026-10-01,2,,,,False
+0xbb4d1dc5c1abec4ea11166ec97e714862863ad1d,2026-10-01,23,BTSE: Hot Wallet; BTSE 1,BTSE,Exchange; HOT WALLET,True
+0xbb93e510bbcd0b7beb5a853875f9ec60275cf498,2026-10-01,2,Tornado.Cash: 10 WBTC; Fixed pool 10 wbtc,Tornado.Cash,BLOCKED; Mixer,False
+0xbb98f2a83d78310342da3e63278ce7515d52619d,2026-10-01,2,Amber:619d(related_level_1),Amber,,False
+0xbbbd588113923d1bc3f370f713d23b9e6f427fa4,2026-10-01,2,,,,False
+0xbbd0d4d067d5af2065b1b6fd936d93237ae1c56c,2026-10-01,202,Shakepay 6,,Shakepay,False
+0xbc09716f78c97f9a07821d3aec752512228ea17d,2026-10-01,3,,,,False
+0xbc6e70cb9b89851e6cff7ce198a774549f4c0f0c,2026-10-01,2,,,,False
+0xbccec45297ec2877ba96ae86b2fe59f95a0522e6,2026-10-01,11,PAYBIS 1,,,False
+0xbd02c51150a4ab6ce97b9de2025644594f3e75b8,2026-10-01,3,BitGo 1,,Exchange,True
+0xbd0fccdc19bc3b979e8e256b7b88aae7c77a5bec,2026-10-01,2,CoinsPaid 3,,CoinsPaid; Exchange,True
+0xbd6d79f3f02584cfcb754437ac6776c4c6e0a0ec,2026-10-01,6,IDAX 2,,,False
+0xbd7a1548882c919d5558bf6034e0895518125c07,2026-10-01,3,,,,False
+0xbde1148eec7b6939f6d6ccf9aaa020f3c0bcc180,2026-10-01,6,Chips.gg: Hot Wallet,Chips.gg,,False
+0xbe27f03c8e6a61e2a4b1ee7940dbcb9204744d1c,2026-10-01,3,Executor,,,False
+0xbe4aa0296b2b217d03ddfff792675cfca96a95b4,2026-10-01,3,,,Take Action,False
+0xbe73748446811ebc2a4ddddcd55867d013d6136e,2026-10-01,3,bananasiong.eth,,Metamask User,False
+0xbebd60d2985594c36ebfa66e44b0856807e9dd32,2026-10-01,3,Prime Foundation: Deployer,Prime Foundation,Contract Deployer,False
+0xbef80f3cba3bd4215eeb3a3c2dbfd7d5e15609f8,2026-10-01,2,Take Action,,Take Action,False
+0xbf028946e269b56537654f0c6dfe8552fb95eb1c,2026-10-01,4,,,Imtoken User; Metamask User,False
+0xbf1650e92db3f0e333665053aeaae02b0a5741f7,2026-10-01,2,AngelBlock: Deployer,AngelBlock,Contract Deployer,False
+0xbf62319147a6fb8dcb9bd907b890195be6929222,2026-10-01,3,,,,False
+0xbf79e9e31b530441dc3c9daeb985a0f2f64392b1,2026-10-01,23,,,Beacon Depositor,False
+0xbf91944f333d2e55ee2692a090fb4e0fd8712d00,2026-10-01,7,,,,False
+0xbf94f0ac752c739f623c463b5210a7fb2cbb420b,2026-10-01,12620,OKX: Hot Wallet; OKX 24,OKX,Coinbase; DEPOSIT ADDRESS; Exchange; HOT WALLET,False
+0xbf97c2f9f756ad8823d8000ea76e3096d2f9f8d9,2026-10-01,3,ktzcreep.eth,,Metamask User,False
+0xbfad8f7175e5a5a7d47bfadbce23791779dab25f,2026-10-01,2,0xvvp.eth,,Metamask User,False
+0xbfc80468df050d2a73fe455d6b3e484caf00e12f,2026-10-01,2,xfloyd.eth,,Metamask User,False
+0xbfdc0f82c5dcae0537981041442b1742c3e1a6f1,2026-10-01,3,,,,False
+0xc0193ba57d111349e54880321d2fc2a9b3fdfac2,2026-10-01,2,,,DAO Voter,False
+0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2,2026-10-01,87,WETH Token (v2); Wrapped Ether; WETH9,,Token Contract; Wrapped Token,False
+0xc040c7e5ba06e3f1ab5d1f45cc57ad3f997cd0a4,2026-10-01,2,,,Take Action,False
+0xc07b9ddc7f87e76e682a7a4f3859586eef1c7efd,2026-10-01,6,Delta Exchange: Hot Wallet,Delta Exchange,HOT WALLET,True
+0xc098b2a3aa256d2140208c3de6543aaef5cd3a94,2026-10-01,19022,FTX 2,,Exchange; FTX,True
+0xc0a4352241f4efbad1a919398ad1f77bd591c5de,2026-10-01,3,,,,False
+0xc0ad5d21ff19a4e85b016bfd53ced8842995c151,2026-10-01,2,,,,False
+0xc0f82fa8c0bb9d9222f133d3c842b6156b53932d,2026-10-01,9,sellbit.eth,,Metamask User,False
+0xc0f90e81e6c89d7581c55dade471fff8fd3cff60,2026-10-01,10,adopmass.eth,,Metamask User,False
+0xc1056adeb61a01964ea265ca95effb7016f9ed78,2026-10-01,2,Alameda Research:ed78(related_level_1),Alameda Research,,False
+0xc139971529fe84dfac8c91241506860ca8f5009d,2026-10-01,4,FHR: Deployer,FHR,Contract Deployer,False
+0xc13ca46a9c895b6afd8a44a1a8238a242dbd176d,2026-10-01,3,Bidesk 16,,Exchange,True
+0xc145990e84155416144c532e31f89b840ca8c2ce,2026-10-01,3,THORChain Router v2.0.0; THORSwap: RouterV2,THORSwap,Bridge; DEX,True
+0xc1a012e58ad5a229e4a7051e07bc5bdf2ecb91a2,2026-10-01,8,Graviex 1,,Exchange,True
+0xc1c88785e9b5c9c85b3f6c99255c3bef9e3b14a7,2026-10-01,12,Coinjar 2,,CoinJar; Exchange,True
+0xc1f85da4e0e5690df8d3076844101a36d1280867,2026-10-01,2,jabbutk.eth,,,False
+0xc21e4ebd1d92036cb467b53fe3258f219d909eb9,2026-10-01,6,Router Protocol: Asset Forwarder; AssetForwarder,Router Protocol,,False
+0xc22fae86443aeed038a4ed887bba8f5035fd12f0,2026-10-01,2,Premia: Multisig,Premia,Smart Account by Safe,False
+0xc24dc3e6cee505fad7f7c05b73317ab49fd827e8,2026-10-01,4,,,Beacon Depositor,False
+0xc257274276a4e539741ca11b590b9447b26a8051,2026-10-01,2,Bithumb: Hot Wallet; Bithumb 44,Bithumb,Exchange; HOT WALLET,True
+0xc25dc289edce5227cf15d42539824509e826b54d,2026-10-01,13,AAX 2,,Exchange,True
+0xc25f0533ecfd19ed060fbab335857a06552ad103,2026-10-01,4,coin111.crypto,,,False
+0xc2ba04e89016f417e1219af7ef82a5b6a9214793,2026-10-01,4,Bidesk 14,,Exchange,True
+0xc2f607b2f12b0e67ea00a787ab6ecea7d5cce62b,2026-10-01,2,,,Beacon Depositor,False
+0xc2ff8b2fb8082c811b310ca1c2d5cb235f3059bb,2026-10-01,9,,,,False
+0xc31db2e710192791b65de43d4b84886a6d770322,2026-10-01,2,Top Degen,,Top Degen,False
+0xc330a3c987382dc7c5b64e9b84c39a8bcf1e45c8,2026-10-01,2,,,Smart Account by Safe,False
+0xc333e80ef2dec2805f239e3f1e810612d294f771,2026-10-01,3,Alameda Research:f771(related_level_1); B2C2 Group 1,Alameda Research,,False
+0xc3348b43d3881151224b490e4aa39e03d2b1cdea,2026-10-01,6,EzilPool 3,,Mining,False
+0xc34ae1a39662415a4720d4a3e7c2be0e202568c2,2026-10-01,2,,,,False
+0xc35b9b6990c4daf088ad44036a42b2c3d6466687,2026-10-01,2,,,,False
+0xc37ac82ba27e32be766eb68a38cc5f3b9dddcbf2,2026-10-01,7,TriaToken: Deployer,TriaToken,Contract Deployer,False
+0xc39bdf685f289b1f261ee9b0b1b2bf9eae4c1980,2026-10-01,76,GMO Coin 2,,Exchange; GMO Coin,True
+0xc3ae71fe59f5133ba180cbbd76536a70dec23d40,2026-10-01,2831,OKX 30,,DEPOSIT ADDRESS; Exchange; OKX,False
+0xc3b7336d5a5158215599572012cedd4403a81629,2026-10-01,49,Bitstamp: Hot Wallet; Bitstamp 45,Bitstamp,Exchange; HOT WALLET,True
+0xc3ca38091061e3e5358a52d74730f16c60ca9c26,2026-10-01,397,Rhino.fi: Transfer Proxy; TransferRegistry,Rhino.fi,,False
+0xc3edbb9c181016cef5d76491f835930e9c8c4d2c,2026-10-01,3,MaskEx: Hot Wallet; MaskEX 16,MaskEx,Exchange; HOT WALLET,True
+0xc3f2c8f9d5f0705de706b1302b7a039e1e11ac88,2026-10-01,4,RelayAdapt,,,False
+0xc3f71224cfa5c49aff08d136af4455cea56c06f5,2026-10-01,5,boopde.eth,,,False
+0xc435c05232a18b79ad71a4df4944fb70a1b8e488,2026-10-01,3,,,Beacon Depositor,False
+0xc46e9a66fddc8d1a69529d86e668236f02957f1b,2026-10-01,2,Mirror: Impossible Object Books,Mirror,Writer,False
+0xc49a7d4f6db416011530d5a047db26b036c51328,2026-10-01,2,,,,False
+0xc4a198a79a5ad4fce374904d503b5fa32d6edd8d,2026-10-01,2,healthymofin.eth,,Metamask User,False
+0xc4f851ac3ea7efd89109846fd9892aa00c86c5fe,2026-10-01,2,sureshnair.eth,,,False
+0xc55d35af6a5ff6299ef3fb8632bbac6cce17dc8b,2026-10-01,2,tonys0x.eth,,Metamask User,False
+0xc55eddadeeb47fcde0b3b6f25bd47d745ba7e7fa,2026-10-01,219,BTC Markets 2,,Exchange,True
+0xc579b72fe7986b64a84948f8a41c4bee396835b5,2026-10-01,2,,,,False
+0xc58bb74606b73c5043b75d7aa25ebe1d5d4e7c72,2026-10-01,31,AltCoinTrader 1,,AltCoin Trader; Exchange,True
+0xc5a0a17eabbb0e64dcd567b5670c8c5d5c34128c,2026-10-01,16,Bake.io 2,,,False
+0xc5a8859c44ac8aa2169afacf45b87c08593bec10,2026-10-01,20,Paxos 7,,Exchange,True
+0xc5f6b52bdabce080a68b49e80ea264699c174882,2026-10-01,2,,,,False
+0xc60188ebfcbfc4f0771ad9c2ebc02ed5c58f1aed,2026-10-01,6,b-reynolds001.nft,,,False
+0xc602dc3fb4a966cd6aed233db2ae4a5e596fcc27,2026-10-01,73,Celsius Network: ETH Withdrawal 1,Celsius Network,Exchange,True
+0xc61206fdc09e595b8be1d2b4a708f27d2bdea64c,2026-10-01,12,EXMO.me 1,,,False
+0xc6160f5bc3c673ac390f11c492e8ed0d0693579a,2026-10-01,2,Stader: Deployer,Stader,Beacon Depositor; Contract Deployer,False
+0xc62785b58724d744b843e479d76d47897e61ca7e,2026-10-01,3,,,Top Degen,False
+0xc631058451c11a11d3799133c6a469c771ab87d8,2026-10-01,9,HTX 152,,,False
+0xc6a8f0f8379f06ca34f2f9a76864278105a6b2f3,2026-10-01,3,Beacon Depositor,,Beacon Depositor,False
+0xc6caaf025c30290843ac3a43f83a29afe7e0f041,2026-10-01,2,kevin516.wallet,,,False
+0xc6e4ad3ccdfc65687d2d60a454a8bddc1f4d6c06,2026-10-01,2,,,,False
+0xc730b028da66ebb14f20e67c68dd809fbc49890d,2026-10-01,10,Ezil.me : Ezil Pool 4,Ezil.me ,Mining,False
+0xc7797a6d8181ab3cc8a9975f6a79d91815e9cb8d,2026-10-01,2,Britto: Deployer,Britto,Contract Deployer,False
+0xc78c5564333bfc50172904cdf484952e0576cfd9,2026-10-01,3,,,Metamask User,False
+0xc7a024df387621e7065a549fd643367b85c8d2aa,2026-10-01,2,"@BombardKotoBaza : ""bombardkotobaza"" on OpenSea",@BombardKotoBaza ,,False
+0xc7f91e6650fe21791b1f8af864ed019b6853294e,2026-10-01,2,,,Metamask User,False
+0xc80e9ffcc3774f1fe5a925bda8f846fa4301eae8,2026-10-01,2,GnosisSafeProxy,,Smart Account by Safe,False
+0xc837f51a0efa33f8eca03570e3d01a4b2cf97ffd,2026-10-01,18,HTX Old Address 29,HTX,Old Contract,False
+0xc87efc9c71c422779f7dbef14b2fc4eef94b84ff,2026-10-01,2,,,,False
+0xc88f7666330b4b511358b7742dc2a3234710e7b1,2026-10-01,151,Blockchain.com: Hot Wallet,Blockchain.com,Exchange; HOT WALLET,True
+0xc8cb62d3b9ce4ba0c319f072f901313bf77047dc,2026-10-01,2,Protectors: Deployer,Protectors,Contract Deployer,False
+0xc94ebb328ac25b95db0e0aa968371885fa516215,2026-10-01,194,Roobet: Hot Wallet; Roobet 1,Roobet,Exchange; HOT WALLET,True
+0xc95fda8a94437c1b936169b62858f13ae0386307,2026-10-01,10,Raptor: Deployer,Raptor,Contract Deployer,False
+0xc9610be2843f1618edfedd0860dc43551c727061,2026-10-01,281,HTX 82,,Exchange; HTX,True
+0xc9f5296eb3ac266c94568d790b6e91eba7d76a11,2026-10-01,84,CEX.IO,,Cex.io; Exchange,True
+0xca0840578f57fe71599d29375e16783424023357,2026-10-01,10,Tornado.Cash: L1 Helper; L1 omnibridge helper for deposits; L1Helper,Tornado.Cash,BLOCKED; OFAC Sanctions Lists,False
+0xca10e8825fa9f1db0651cd48a9097997dbf7615d,2026-10-01,15,WooFi: Cross Swap Router V3.1,WooFi,Router,True
+0xca1308e38340c69e848061aa2c3880daeb958187,2026-10-01,2,Hackerlabs DAO: HLD Token,Hackerlabs DAO,DAO; Token Contract,False
+0xca3ac4f946b997db24515a7ae7779f2e587d5a26,2026-10-01,55,Coinbase: Deposit,Coinbase Dep,DEPOSIT ADDRESS,False
+0xca98a7db93e53aa7381461f728a481a941a590b5,2026-10-01,2,pimpim.eth,,,False
+0xcac59f91e4536bc0e79ab816a5cd54e89f10433c,2026-10-01,2,,,Beacon Depositor,False
+0xcac725bef4f114f728cbcfd744a731c2a463c3fc,2026-10-01,1101,Htx 28,,Exchange; HTX,True
+0xcad621da75a66c7a8f4ff86d30a2bf981bfc8fdd,2026-10-01,4516,KuCoin: Hot Wallet; KuCoin 10,KuCoin,DEPOSIT ADDRESS; Exchange; HOT WALLET,False
+0xcafd2f0a35a4459fa40c0517e17e6fa2939441ca,2026-10-01,25,Wormhole: Wormhole Token Bridge Relayer,Wormhole,,False
+0xcb566e3b6934fa77258d68ea18e931fa75e1aaaa,2026-10-01,28,Relayer V1,LayerZero,,False
+0xcb726f13479963934e91b6f34b6e87ec69c21bb9,2026-10-01,2,,,,False
+0xcb8bbfa45541a95c1de883eb3606708cae9fd45c,2026-10-01,64,Celsius Network ETH Withdrawal 2,Celsius Network,Exchange,True
+0xcbaafd37d054c33c1abb0213a7a812161eee8255,2026-10-01,2,cosmosnauts.eth,,Metamask User,False
+0xcbbc5d06be48b9b1d90a8e787b4d42bc4a3b74a8,2026-10-01,2,,,,False
+0xcbd6832ebc203e49e2b771897067fce3c58575ac,2026-10-01,146,Rollbit: Hot Wallet; Rollbit 1,Rollbit,Exchange,True
+0xcbffcb2c38ecd19468d366d392ac0c1dc7f04bb6,2026-10-01,2831,OKX 30,,DEPOSIT ADDRESS; Exchange; OKX,False
+0xcc0061c5025e1173c6ab08d56af429e3ba3037fd,2026-10-01,2,Reku 1,,Exchange,True
+0xcc0d8f409b149b92c089b5a9177331338671501c,2026-10-01,2,54460.eth,,Metamask User,False
+0xcc83dc5a37d49de4562019560307ce724a975d5c,2026-10-01,6,Remitano 12,,,False
+0xcc9557f04633d82fb6a1741dcec96986cd8689ae,2026-10-01,197,ZigZag: Bridge,ZigZag,Bridge,True
+0xccdfdc87341605200a3582ab52350fb4fb261ab0,2026-10-01,20,Liquid 7,,Exchange,True
+0xcce8d59affdd93be338fc77fa0a298c2cb65da59,2026-10-01,58,Bilaxy: Hot Wallet; Bilaxy 2,Bilaxy,Exchange; HOT WALLET,True
+0xcd0d4cdb238eec15fcf4ff9d13d5a59051e507d7,2026-10-01,2,,,,False
+0xcd33cfb6337032de97b74e1cbbfad835a9a4b9ce,2026-10-01,2,ms06294.wallet,,,False
+0xcd531ae9efcce479654c4926dec5f6209531ca7b,2026-10-01,17,Coinbase Prime 1,,Coinbase; Exchange,True
+0xcd5485b34c9902527bbee21f69312fe2a73bc802,2026-10-01,3,Ethereumico: Multisender; MultiSend,Ethereumico,,False
+0xcd74df7b8f0e01aa57ff5ce2518c53439370a4df,2026-10-01,4,losemoney.eth,,Metamask User,False
+0xcdd37ada79f589c15bd4f8fd2083dc88e34a2af2,2026-10-01,332,SideShift: Hot Wallet,SideShift,Exchange,True
+0xce16f69375520ab01377ce7b88f5ba8c48f8d666,2026-10-01,2,Squid Router Proxy,Squid,Router,True
+0xce473d30bb1dfda0747edccdaeb3de30042ce948,2026-10-01,6,Umbria: Narni Bridge 3,Umbria,,False
+0xce52a8dd7c8ad08e94b44620622e3630f7c1fc90,2026-10-01,2,Gnosis: MultiSig 3,Gnosis,ICO Wallets; Multisig,False
+0xce76a14dabe64acb8b044c489374c8ca1f456837,2026-10-01,6,Bidesk 8,,,False
+0xce7f7cc910a2afa9eba79084783d13c8db23e540,2026-10-01,2,@Smart06nft (0xce7f),,,False
+0xcea2d0f16684691307966502bca88295fc22706b,2026-10-01,2,,,,False
+0xcea43f7075816b60bbfce68b993af0881270f6c4,2026-10-01,2,,,Genesis Address,False
+0xcea525ee12e751379e3b0e8fe4a737e8a8d15622,2026-10-01,2,,,,False
+0xceb69f6342ece283b2f5c9088ff249b5d0ae66ea,2026-10-01,19,Coinbase Prime 2,,Coinbase; Exchange,True
+0xcec771b3ab9204c4eb0b731111658e7c8ba539cf,2026-10-01,2,,,,False
+0xcec8f07014d889442d7cf3b477b8f72f8179ea09,2026-10-01,159,MultiSender,CoinTool,Airdrop / Distributor,False
+0xceebc6d157f0281757d0c97f8978cdf60b86dfb7,2026-10-01,3,ox88888888.eth,,Metamask User,False
+0xcf684dfb8304729355b58315e8019b1aa2ad1bac,2026-10-01,2,,,Genesis Address,False
+0xcf6efe6cad0f9428f2b5f95cff90122dcd3bb4bc,2026-10-01,6,Presale (Proxy),AiDoge,,False
+0xcf7105fde573695d62666aefa4e1691bf3ab50d5,2026-10-01,120,CoinEx: Hot Wallet; CoinEx 10,CoinEx,Beacon Depositor; Exchange; HOT WALLET,True
+0xcfbba243c567738c2d3d958026b1bf6ad894a19e,2026-10-01,3,Copper: Hot Wallet; Copper 2,Copper,Exchange; HOT WALLET,True
+0xcfc0f98f30742b6d880f90155d4ebb885e55ab33,2026-10-01,209,Zero Hash 1,,Exchange,True
+0xcfc6311963155d645aa215be71352d5ffbe9c4d6,2026-10-01,2,,,,False
+0xd02d1718c2c62a5c152b27f86469b2bf2b436dc8,2026-10-01,2,picmen.eth,,,False
+0xd0808da05cc71a9f308d330bc9c5c81bbc26fc59,2026-10-01,84,Coinswitch,,Exchange,True
+0xd0f853b3c9c621c64b5b8c2067317b2afc008d03,2026-10-01,10,arlenbales.eth,,Metamask User,False
+0xd102cf6ce81da40d12cb38a1d3a3b335d7d20cc2,2026-10-01,7,,,Beacon Depositor,False
+0xd108fd0e8c8e71552a167e7a44ff1d345d233ba6,2026-10-01,204,MoonPay 3,,Exchange,True
+0xd10e08325c0e95d59c607a693483680fe5b755b3,2026-10-01,2,HTX Old Address 28,HTX,Old Contract,False
+0xd152f549545093347a162dce210e7293f1452150,2026-10-01,2197,Disperse.app,,,False
+0xd1560b3984b7481cd9a8f40435a53c860187174d,2026-10-01,4,COSS.io: Old Warm Wallet; COSS Exchange 2,COSS.io,Exchange,True
+0xd1669ac6044269b59fa12c5822439f609ca54f41,2026-10-01,369,Coinlist pro: Hot Wallet; Multisig; CoinList 1,Coinlist pro,Exchange; HOT WALLET,True
+0xd1917932a7db6af687b523d5db5d7f5c2734763f,2026-10-01,228,Bulksender.app,,Airdrop / Distributor,False
+0xd1c8c38e3536676849d736f2c0b4bbf81d00baa2,2026-10-01,4,,,,False
+0xd24400ae8bfebb18ca49be86258a3c749cf46853,2026-10-01,1843,Gemini: Hot Wallet; Gemini,Gemini,Exchange; Fiat Gateway; HOT WALLET,True
+0xd24cb02bed630baa49887168440d90be8da6708c,2026-10-01,2,,,Metamask User,False
+0xd25d64dfe8494e0f30cc82c24472fac76c0688f8,2026-10-01,2,,,Smart Account by Safe,False
+0xd3273eba07248020bf98a8b560ec1576a612102f,2026-10-01,164,ShapeShift 5,,Exchange; ShapeShift,True
+0xd33b3e12899dba622dc8b54746d821267c820dff,2026-10-01,2,50x.com: Hot Wallet,50x.com,,False
+0xd34da389374caad1a048fbdc4569aae33fd5a375,2026-10-01,57,Genesis Mining,,Mining,False
+0xd37bbe5744d730a1d98d8dc97c42f0ca46ad7146,2026-10-01,239,THORChain: THORChain Router v4.1.1,THORChain,Router,True
+0xd3a2f775e973c1671f2047e620448b8662dcd3ca,2026-10-01,19,HTX Old Address 23,HTX,Old Contract,False
+0xd3d555bb655acba9452bfc6d7cea8cc7b3628c55,2026-10-01,2,Set: Rebalancer,Set,Contract Deployer; Set Protocol,False
+0xd3e5b815843c31f621f2253c836b34f84debfe29,2026-10-01,43,QMall 3,,Exchange,True
+0xd415d2f890bff9b238aa4fc893f6a254f06cb4d9,2026-10-01,4,,,,False
+0xd4a1dec441846fcc444dcdab7122f690370a3dc4,2026-10-01,3,,,,False
+0xd4bddf5e3d0435d7a6214a0b949c7bb58621f37c,2026-10-01,280,Coinhako,Coinhako,Exchange; HOT WALLET,True
+0xd4c0bc1e04425d40b0677ec35f89e0413c188c48,2026-10-01,6,HTX 155,,,False
+0xd4dcd2459bb78d7a645aa7e196857d421b10d93f,2026-10-01,24,Peatio: Hot Wallet; Peatio_0xd4dc,Peatio,Exchange; HOT WALLET,True
+0xd551234ae421e3bcba99a0da6d736074f22192ff,2026-10-01,3792,Binance 2,,Binance; Exchange,True
+0xd55fa8efce8d5614ea62eeee32e6060a1f845320,2026-10-01,2,,,,False
+0xd55fc6eeab8f373a4f36e172848c81cf8c29201d,2026-10-01,2,Fake_Phishing270101,,Phish / Hack; SCAM,False
+0xd584fe736e5aad97c437c579e884d15b17a54a51,2026-10-01,2,Forgotten Runes Wizards Cult: Deployer,Forgotten Runes Wizards Cult,Contract Deployer,False
+0xd589a999b7f71365939bc2a96249e2b9ea315685,2026-10-01,2,happycc.eth,,Imtoken User; Metamask User,False
+0xd59d1ef7dfd0d9c41da1b12209722b5a0712dd32,2026-10-01,6,,,,False
+0xd5bbb4264b70ca4f58c45d27b9d7e11190754a54,2026-10-01,5,NoobPool,,Mining,False
+0xd5e9f8aa43409b1cb830424043672f08bb5ff662,2026-10-01,2,claytonw.eth,,Beacon Depositor; Metamask User,False
+0xd5eab5726bcd05a62becc74bdac5df9c7fa93622,2026-10-01,2,Sellix: Payout,Sellix,,False
+0xd5f6ed8d6743c1956190da6dae115e5fb7141ed7,2026-10-01,3,,,Beacon Depositor,False
+0xd5fbda4c79f38920159fe5f22df9655fde292d47,2026-10-01,48,Gamdom: Hot Wallet; Gamdom 1,Gamdom,Exchange,True
+0xd6216fc19db775df9774a6e33526131da7d19a2c,2026-10-01,2,KuCoin: Hot Wallet; KuCoin 6,KuCoin,Beacon Depositor; DEPOSIT ADDRESS; Exchange; HOT WALLET,False
+0xd64ffec0465eddebfe008695b41d62ebcb02ed74,2026-10-01,4,Swapster,,,False
+0xd6544ebc744434b051b4395b213895627191bc7e,2026-10-01,5,,,Metamask User,False
+0xd65e0cbd31977b2e0e23c8330c8b5f020818fc91,2026-10-01,10,PAYBIS 1,,,False
+0xd6a062cae6123c158768a5c444ca0896cc60d6b1,2026-10-01,51,CoinJar: Hot Wallet; Coinjar 3,Coinjar,Exchange; HOT WALLET,True
+0xd6aa298cbe6bcf9179935c1ed117f6669afa8fbf,2026-10-01,21,WaifuMultiPurpose,,,False
+0xd6cb6744b7f2da784c5afd6b023d957188522198,2026-10-01,9,HTX 110,,Exchange,True
+0xd712fb19bf6f3391e264cfcca10c3428bcf0231b,2026-10-01,3,tj-flnance.wallet,,,False
+0xd787001237818c10614bc6cef5d39ccb0348a9da,2026-10-01,2,,,,False
+0xd7efcbb86efdd9e8de014dafa5944aae36e817e4,2026-10-01,55,OKX: Hot Wallet; OKX 34,OKX,DEPOSIT ADDRESS; Exchange; HOT WALLET,False
+0xd84b4436b6aba0fa348c5cf35b4682448e94724a,2026-10-01,3,Coins.ph: Hot Wallet,Coins.ph,Exchange; HOT WALLET,True
+0xd89350284c7732163765b23338f2ff27449e0bf5,2026-10-01,65,KuCoin: Hot Wallet; KuCoin 13,KuCoin,DEPOSIT ADDRESS; Exchange; HOT WALLET,False
+0xd897fe50cc3f57ddea02c8c21d5ff3eb03387310,2026-10-01,42,HTX 96,,,False
+0xd8a83b72377476d0a66683cde20a8aad0b628713,2026-10-01,21,HTX 19,,Exchange; HTX,True
+0xd94c9ff168dc6aebf9b6cc86deff54f3fb0afc33,2026-10-01,355,Yunbi: Hot Wallet; Yunbi 1,Yunbi,Exchange; HOT WALLET,True
+0xd9e1ce17f2641f24ae83637ab66a2cca9c378b9f,2026-10-01,8,SushiSwap: Router; UniswapV2Router02,SushiSwap,DEX; Router,True
+0xd9e1d61d51b4d1ef7da8f09cabddcc59030bf872,2026-10-01,6,rhodiumrh.eth,,Metamask User,False
+0xda2a6295a6223e15d2e1bb3f03539be74c376580,2026-10-01,10,,,,False
+0xda3605d79bc9e6ddef9bc8166c922cf7fd7c01a0,2026-10-01,2,,,,False
+0xda43c54ce5083885f561e05fd6220b7096be246c,2026-10-01,8,BingX 2,,BingX; Exchange,True
+0xda5a78e2f0bd8df7b14174cd06737f819f7db125,2026-10-01,2,Realm (for Adventurers): Deployer,Realm (for Adventurers),Contract Deployer,False
+0xda73c1a50c16ab1faa1a523443955320eca0d02d,2026-10-01,3,,,,False
+0xda8e51e033428bdaa385a90a550969f83261828a,2026-10-01,6,Stake: Hot Wallet,Stake,HOT WALLET,True
+0xdb044b8298e04d442fdbe5ce01b8cc8f77130e33,2026-10-01,99,Bitkub: Hot Wallet 1,Bitkub,DEPOSIT ADDRESS; Exchange; HOT WALLET,False
+0xdb25ff2868cbc48856e44a2ae8e2f2b62f1f3b84,2026-10-01,39,Kuailian APP: pro; BulkSender,Kuailian APP,,False
+0xdb2cad4f306b47c9b35541988c7656f1bb092e15,2026-10-01,19,Liquid 3,,,False
+0xdb6fdc30ab61c7cca742d4c13d1b035f3f82019a,2026-10-01,2,CoinSpot: Hot Wallet,CoinSpot,Exchange; HOT WALLET,True
+0xdbaf81441897877328d596c3d7648f0b9a2fc07d,2026-10-01,2,,,Beacon Depositor,False
+0xdbd0b8b6851ea7bea7b443f4d1bbdf0f2c524789,2026-10-01,2,,,Take Action,False
+0xdbd324b73f6f85bf9013b75c442021303b635ff9,2026-10-01,82,Withdrawal,Sorare,,False
+0xdbdb43e4381a4466c2d1029914c9e58e2368d741,2026-10-01,3,,,Take Action,False
+0xdbdedb350f9e20e84892f2dff7ecedfac1d1166a,2026-10-01,2,,,,False
+0xdbf5e9c5206d0db70a90108bf936da60221dc080,2026-10-01,4,Wintermute: 0xdbf...080,Wintermute,Fund,False
+0xdc1664458d2f0b6090bea60a8793a4e66c2f1c00,2026-10-01,2,Boba Network: Gateway,Boba Network,Bridge; Layer 2,True
+0xdc299652fbd5acf9d522c70c6339b4f0b83b36bb,2026-10-01,2,,,,False
+0xdc3099ff4decf1cc2e88cb69398103f5d79be90e,2026-10-01,2,79be90e.blockchain,,,False
+0xdc3d4e12ab9eee060dc4de6b3d0b8fbf129d7dad,2026-10-01,4,Unibot: Deployer,Unibot,Contract Deployer,False
+0xdc9c5e34959ec3643af1e1d34a83d6b251aab1ef,2026-10-01,3,,,,False
+0xdcc1f0af33526f1fc3905fb0104d81919d2e1571,2026-10-01,3,,,,False
+0xdd1305150d27aecc60c066630105db419977e367,2026-10-01,5,Executor,,,False
+0xddb1734d908af939724435dc6c954b8383073613,2026-10-01,2,,,Smart Account by Safe,False
+0xddfabcdc4d8ffc6d5beaf154f18b778f892a0740,2026-10-01,3241,Coinbase Exchange: Hot Wallet; Coinbase 3,Coinbase Exchange,DEPOSIT ADDRESS; Fiat Gateway; HOT WALLET,False
+0xde0b295669a9fd93d5f28d9ec85e40f4cb697bae,2026-10-01,2,EthDev,,Ethereum Foundation,False
+0xde279a5cd86860cd3d039aa1b74bc29e74cabb12,2026-10-01,2,BTSE 4,,,False
+0xde5f99e701408381d8dd4fc4b37e25978e3ae2b7,2026-10-01,2,Beacon Depositor,,Beacon Depositor,False
+0xdebfbe80c8aeba98a32968278463ccb639c6c4e3,2026-10-01,3,Stake.com 2,,Exchange; Stake.com,True
+0xdee8f81017ebca8aaa096c3e78db2c417b7fcd45,2026-10-01,2,,,Metamask User,False
+0xdef171fe48cf0115b1d80b88dc8eab59176fee57,2026-10-01,68,Velora v5: Augustus Swapper,Paraswap v5; Velora v5,,False
+0xdef1c0ded9bec7f1a1670819833240f027b25eff,2026-10-01,5,Exchange Proxy; BaseRegistrarImplementation; ZeroEx,0x,0x Protocol; DEX,True
+0xdf14ff2ee4fe893a7ae2047fe9fc78add8a9861b,2026-10-01,2,,,,False
+0xdf1553a2130cbafa70a35e68efc6ccf67f0a278c,2026-10-01,84,CoinSpot 20,,CoinSpot; Exchange,True
+0xdf4b6fb700c428476bd3c02e6fa83e110741145b,2026-10-01,38,Liquid.com: Hot Wallet; Liquid 2,Liquid.com,Exchange; HOT WALLET,True
+0xdf95de30cdff4381b69f9e4fa8dddce31a0128df,2026-10-01,32,HTX Old Address 6,HTX,Old Contract,False
+0xdfaa75323fb721e5f29d43859390f62cc4b600b8,2026-10-01,12,Shuffle.com,,,False
+0xdfd5293d8e347dfe59e90efd55b2956a1343963d,2026-10-01,16014,Binance: Hot Wallet; Binance 16,Binance,DEPOSIT ADDRESS; Exchange; HOT WALLET,False
+0xe003b9a7f7837689eb17d77d6a1eb6b26265e843,2026-10-01,3,,,Smart Account by Safe,False
+0xe03c23519e18d64f144d2800e30e81b0065c48b5,2026-10-01,92,Mercatox: Hot Wallet,Mercatox,Exchange; HOT WALLET,True
+0xe0a616c3659be29567e08819772e6905307adf21,2026-10-01,17,XT.com: Hot Wallet; XT.com 5,XT.com,Exchange; HOT WALLET,True
+0xe0b2add5c2d094008d014369ab6bc5c42cf3acad,2026-10-01,3,,,,False
+0xe0f0cfde7ee664943906f17f7f14342e76a5cec7,2026-10-01,904,Binance 12,,Binance; Exchange,True
+0xe10772c3c2e8879b13d5d2886ef8e9f9b95b83aa,2026-10-01,2,,,,False
+0xe13467e36561606a821fb7ecd72bfce8f70648f9,2026-10-01,3,Remitano 9,,Exchange,True
+0xe1d29d0a39962a9a8d2a297ebe82e166f8b8ec18,2026-10-01,2,,,Beacon Depositor,False
+0xe1d3e4efa8729ae9df488da239f0907202b744a9,2026-10-01,2,benethminer.eth,,Metamask User,False
+0xe1e2a52a21226ba37f28ba6cdf59f20156798f94,2026-10-01,3,,,Beacon Depositor; Take Action,False
+0xe206e3dca498258f1b7eec1c640b5aee7bb88fd0,2026-10-01,5,Miner: 0xe20...Fd0,Miner,Mining,False
+0xe21bc8d4f47dbd9e4dd29229333d1999c33d0e87,2026-10-01,21,HTX 135,,,False
+0xe25a329d385f77df5d4ed56265babe2b99a5436e,2026-10-01,2,Paxos: Treasury; SimpleMultiSig; Paxos 3,Paxos,Exchange,True
+0xe3031c1bfaa7825813c562cbdcc69d96fcad2087,2026-10-01,38,Gopax:  WBTC Merchant Deposit Address,Gopax,DEPOSIT ADDRESS; Exchange; WBTC Merchant,False
+0xe3314bbf3334228b257779e28228cfb86fa4261b,2026-10-01,21,HTX Old Address 20,HTX,Old Contract,False
+0xe3743d1bf4bdc86bf1faac0ffe325a23cf495ad7,2026-10-01,25,Netcoins 2,,Exchange,True
+0xe406edd57b378177d2416a393605936a85ef4ce1,2026-10-01,2,,,Metamask User,False
+0xe4083f1e4ecde085bf7cfa1ac4f1f9a02905698c,2026-10-01,2,"""noname199"" on OpenSea",,,False
+0xe43ca1dee3f0fc1e2df73a0745674545f11a59f5,2026-10-01,4,SushiSwap: Route Processor 4,SushiSwap,DEX,True
+0xe442145711bf3c56452f0dcc730f3ad65ce230cc,2026-10-01,5,,,,False
+0xe450e4640f40bf74b573c371c8151a62dd39a91f,2026-10-01,2,,,,False
+0xe47e1ac440a31a8c77c825cf30d9a91f6352bc84,2026-10-01,2,commus.eth,,Imtoken User; Metamask User,False
+0xe47fec1c72850d867a1655c4c5902de7728ca205,2026-10-01,5,WooCrossChainRouterV3,,,False
+0xe48ca98446341b0e7f4984466656760f2902680c,2026-10-01,2,,,Metamask User,False
+0xe4b3dd9839ed1780351dc5412925cf05f07a1939,2026-10-01,180,CoinSpot: Hot Wallet,CoinSpot,Exchange; HOT WALLET,True
+0xe4b5b2667e049ac8c79ae6c5a7e3300815aa32be,2026-10-01,3,Binance 104,,Exchange,True
+0xe4edb277e41dc89ab076a1f049f4a3efa700bce8,2026-10-01,2126,Orbiter Finance: Bridge 2,Orbiter Finance,Bridge,True
+0xe5104af85f0146d2c5db72227b0d00dbbf9f8175,2026-10-01,5,,,,False
+0xe592427a0aece92de3edee1f18e0157c05861564,2026-10-01,12,Uniswap V3: Swap Router; Router 1,Uniswap V3,DEX; Router,True
+0xe5b8ff1ca1c3ef2ac704783d6473ee5a9be7e02d,2026-10-01,2,XT.com 6,,Exchange; XT.com,True
+0xe5ed720b476aab1623df2f6137bfa80d82887bb1,2026-10-01,2,LYNC Network: Deployer,LYNC Network,Contract Deployer,False
+0xe6a7a1d47ff21b6321162aea7c6cb457d5476bca,2026-10-01,6,Ethpool,,Mining,False
+0xe6aee6ec5a83010859e350cc07b16210a4641cbd,2026-10-01,3,,,,False
+0xe6f79f8b46b30f293cfbde50ef787d2fe0610782,2026-10-01,81,CoinSpot 7,,CoinSpot; Exchange,True
+0xe7148e4773b8f54755ae448b81bc67a3c666f1d7,2026-10-01,4,vitf1d7.eth,,,False
+0xe7351fd770a37282b91d153ee690b63579d6dd7f,2026-10-01,199,deBridge: DlnDestination,deBridge,,False
+0xe76fe52a251c8f3a5dcd657e47a6c8d16fdf4bfa,2026-10-01,4,Santiment: Wallet 1,Santiment,ICO Wallets,False
+0xe79eef9b9388a4ff70ed7ec5bccd5b928ebb8bd1,2026-10-01,5,BitMart: Hot Wallet; BitMart 1,BitMart,Exchange; HOT WALLET,True
+0xe7af11370c3bab51230d8307454350bdf6d68f4a,2026-10-01,2,MCH: Owner,MCH,Contract Deployer; My Crypto Heroes,False
+0xe7e6c88ad1bab6508a251b7995f44fb1c5e3dcf7,2026-10-01,11,Hiveon: Spreader,Hiveon,Mining,False
+0xe7e816de502811bb78a6f91863d2fc02d5332daf,2026-10-01,2,,,,False
+0xe802dc9e3c3a13505565cf7137b510a9da21d4d0,2026-10-01,2,,,,False
+0xe8517418753eae2c158ae413255f7dfedf18b2e4,2026-10-01,2,,,,False
+0xe854f8b14262f64e10dab03f9ba5fc37c8eb2a72,2026-10-01,2,,,Beacon Depositor,False
+0xe89943ec20d856f064a87349a00ef6ab00aed042,2026-10-01,137,GMO Coin 9,,Exchange; GMO Coin,True
+0xe8a0e282e6a3e8023465accd47fae39dd5db010b,2026-10-01,4,Kryptono 1,,Exchange; Kryptono,True
+0xe8d939f1a9cc4e85e09aff3d60d137a1bea17b21,2026-10-01,2,,,Contract Deployer,False
+0xe93685f3bba03016f02bd1828badd6195988d950,2026-10-01,2,Layer Zero: Executor,Layer Zero,Contract Deployer,False
+0xe954b098b80d43fd66af4a58400c05e62b087b72,2026-10-01,3,Bitci 1,,,False
+0xe957b0829c6ae6ac461d7365b7927e1ff604114b,2026-10-01,2,,,,False
+0xe95f6604a591f6ba33accb43a8a885c9c272108c,2026-10-01,2938,OKX 33,,DEPOSIT ADDRESS; Exchange; OKX,False
+0xe985a1a1248b995266869258cd965f1de11111ec,2026-10-01,2,,,DAO Voter,False
+0xe9b1a2164368c00fc93e0e749d9b3cafa1bc6ee2,2026-10-01,11,Bitsler: Hot Wallet; Bitsler.com: ETH,Bitsler.com,Gambling; HOT WALLET,True
+0xe9bdb4219706914441178bc8357e8551b53d8cbf,2026-10-01,30,Bitbuy MultiSig 1,,Bitbuy; Exchange,True
+0xe9c211ab4f051e86ac9b8e9ea0fbcdff56a36613,2026-10-01,2,,,,False
+0xe9c251cbb4881f9e056e40135e7d3ea9a7d037df,2026-10-01,3,AtomicSwap,,,False
+0xe9d2ad3af4dfcc31eb1d9e07e8c5032011996fdd,2026-10-01,2,,,,False
+0xea05150d6e257736b8035ce3416f6a3cdfdee936,2026-10-01,4,RangoStargateMiddleware,,,False
+0xea674fdde714fd979de3edf0f56aa9716b898ec8,2026-10-01,1693,Ethermine,,Miner; Mining,False
+0xea749fd6ba492dbc14c24fe8a3d08769229b896c,2026-10-01,14,SquidMulticall,,,False
+0xea7dc440678801f77410c86154110f4e555869d8,2026-10-01,3,spartan11b.eth,,,False
+0xea81ce54a0afa10a027f65503bd52fba83d745b8,2026-10-01,38,Kuna.io,,Exchange,True
+0xeac19e8940e149dbe4a92e283b47548bee274b32,2026-10-01,3,"""flipmachine"" on OpenSea",,,False
+0xeae57ce9cc1984f202e15e038b964bb8bdf7229a,2026-10-01,2,Sollet: Solana Bridge,Sollet,Bridge,True
+0xeb2629a2734e272bcc07bda959863f316f4bd4cf,2026-10-01,3593,Coinbase Exchange: Hot Wallet; Coinbase 6,Coinbase Exchange,DEPOSIT ADDRESS; Fiat Gateway; HOT WALLET,False
+0xeb3f3f5b1ec4430451059cb6bddc984f723c037a,2026-10-01,3,,,,False
+0xeb574cd5a407fefa5610fcde6aec13d983ba527c,2026-10-01,22,HTX 131,,,False
+0xeb6c4be4b92a52e969f4bf405025d997703d5383,2026-10-01,363,Bitbank: Hot Wallet; Bitbank 3,Bitbank,Exchange; HOT WALLET,True
+0xeb6d43fe241fb2320b5a3c9be9cdfd4dd8226451,2026-10-01,11,HTX Old Address 3,HTX,Old Contract,False
+0xeba290cf248cb14442a071fbcb58a9cc5dcde28e,2026-10-01,3,HTX 85,,,False
+0xebc18d25d8122da21f73a6bcb78971671f21f6ff,2026-10-01,13,Alameda Research:f6ff(related_level_1),Alameda Research,,False
+0xebf021da62b4fdb39c282ddc3b63094ec3f00c44,2026-10-01,2,,,,False
+0xec0a9996fec2f38cfda6c307c22c8ee7305eec56,2026-10-01,6,,,,False
+0xec1e47007b6425ea163e1bada3e884d0bb282484,2026-10-01,2,,,,False
+0xec4486a90371c9b66f499ff3936f29f0d5af8b7e,2026-10-01,6,Multichain: Moonbeam Bridge,Multichain,Bridge,True
+0xec5f4829854d1f0478b5b7a1c6f7dc50c4545fc0,2026-10-01,7,,,Smart Account by Safe,False
+0xecd8b3877d8e7cd0739de18a5b545bc0b3538566,2026-10-01,3,HTX Old Address 33,HTX,Old Contract,False
+0xed5e461999b1fedd00797a818edd75c727ed948f,2026-10-01,2,BingX: Hot Wallet; BingX 13,BingX,Exchange; HOT WALLET,True
+0xedbb72e6b3cf66a792bff7faac5ea769fe810517,2026-10-01,8,Liquid 1,,Exchange; Fiat Gateway; Liquid,True
+0xedc7001e99a37c3d23b5f7974f837387e09f9c93,2026-10-01,116,Coinbase: Deposit,,Coinbase; DEPOSIT ADDRESS; Exchange,False
+0xede26ccc85ae521d06b5ef2604952a421c9124b6,2026-10-01,19,LocalCryptosETHEscrows,,,False
+0xede4f636bc9ff333b01c26ba8a37d13b82e40214,2026-10-01,2,,,,False
+0xee23f4bc1671d048a8e592aabd0b2be497bcb5c2,2026-10-01,2,,,,False
+0xee5b5b923ffce93a870b3104b7ca09c3db80047a,2026-10-01,2,Bybit: Hot Wallet 4,Bybit,Exchange; HOT WALLET,True
+0xee650f5599bd48f27b29b254a4c45322a755c6b4,2026-10-01,2,udwl.eth,,,False
+0xeea5b82b61424df8020f5fedd81767f2d0d25bfb,2026-10-01,10,BTC.com Pool 1,,Exchange; Mining,True
+0xeebf84089145e42b11d6dce14650855b025683e6,2026-10-01,2,Kong Collective: Deployer,Kong Collective,Contract Deployer,False
+0xeec606a66edb6f497662ea31b5eb1610da87ab5f,2026-10-01,49,HTX 8,,Exchange; HTX,True
+0xeed16856d551569d134530ee3967ec79995e2051,2026-10-01,218,ShapeShift: Hot Wallet,ShapeShift,Exchange; HOT WALLET,True
+0xeed85ddd6828b8c714141d34a12d0c07f7553182,2026-10-01,4,Hoo.com 9,,Exchange; Hoo.com,True
+0xeed86b90448c371eab47b7f16e294297c27e4f51,2026-10-01,2,CoinSpot: Hot Wallet,CoinSpot,Exchange; HOT WALLET,True
+0xeee072349a531cbd66ba9fd1a6d55197a1fc022b,2026-10-01,2,,,,False
+0xeee28d484628d41a82d01e21d12e2e78d69920da,2026-10-01,50,HTX 4,,DEPOSIT ADDRESS; Exchange; HTX,False
+0xef10a5d898c21aa95865b447be6491380859a307,2026-10-01,2,Remitano 8,,,False
+0xef54f559b5e3b55b783c7bc59850f83514b6149c,2026-10-01,17,HTX Old Address 34,HTX,Old Contract,False
+0xefa4c696ea2505ec038c9ddc849b1bf817d7f69d,2026-10-01,2,,,,False
+0xefa85a56abfedec5e4d818934143673fbb0b5dc9,2026-10-01,3,,,,False
+0xefeb1997aad277cc33430e6111ed0943594048b8,2026-10-01,2,,,Genesis Address,False
+0xeff92a263d31888d860bd50809a8d171709b7b1c,2026-10-01,2,PancakeSwap: PancakeRouter v2,PancakeSwap,Router,True
+0xf056f435ba0cc4fcd2f1b17e3766549ffc404b94,2026-10-01,28,HTX 23,,Exchange; HTX,True
+0xf06cbbbaacae386f548295887a6efd325c0038fd,2026-10-01,2,,,Smart Account by Safe,False
+0xf07232bc85d995c32c1edf1c985c84a8b7b0ded7,2026-10-01,2,HitBTC: Hot Wallet; HitBTC 2,HitBTC,Exchange; HOT WALLET,True
+0xf0bc8fddb1f358cef470d63f96ae65b1d7914953,2026-10-01,8,Korbit: Hot Wallet; Korbit 8,Korbit,Exchange; HOT WALLET,True
+0xf0ea58b65c82c48ce69f0abd68d178e7764c4ba2,2026-10-01,19,lucky-s.eth,,Metamask User,False
+0xf139d72025bcde807b2ed618a065c2550e0c7c90,2026-10-01,2,arbitragegoblin.eth,,,False
+0xf14498bac686fd7e2425ce01f3eb86317d94a662,2026-10-01,2,"""CryptoTracy"" on OpenSea",,,False
+0xf16e9b0d03470827a95cdfd0cb8a8a3b46969b91,2026-10-01,107,KuCoin: Hot Wallet; KuCoin 9,KuCoin,Exchange; HOT WALLET,True
+0xf1b28700fb85ff2ac2f81c4f1c303c63ca8cb7b8,2026-10-01,2,GnosisSafeProxy_f1b2_b7b8,,Smart Account by Safe,False
+0xf1da173228fcf015f43f3ea15abbb51f0d8f1123,2026-10-01,173,eXch: Hot wallet; eXch.sc 1,eXch.cx,HOT WALLET; Suspicious,True
+0xf27071c352d1845c101d8181aa4ea70f8d0d6b68,2026-10-01,2,,,,False
+0xf271fca7f2896c43db0251676c5bfc61e6e51042,2026-10-01,3,,,,False
+0xf2a14015eaa3f9cc987f2c3b62fc93eee41aa5d0,2026-10-01,2,BitPay 1,,BitPay; Exchange,True
+0xf2f5c73fa04406b1995e397b55c24ab1f3ea726c,2026-10-01,2,bloXroute: Max Profit Builder,bloXroute,MEV Builder,False
+0xf32682d5f99ba4143532618d6f516859a055ea06,2026-10-01,87,Bitpanda 3,,Exchange,True
+0xf38db5d49676c170abbe9699e1ac88c80b44f861,2026-10-01,7,Upbit 28,,,False
+0xf396126d4ce9e8b8f8c70b5173b46834aeef66a2,2026-10-01,3,,,,False
+0xf3afc2383a0b45ae73d77b49df7f2184b1ad4b90,2026-10-01,16,maanimo.eth,,Metamask User,False
+0xf3d6ab48cdb4dcbfa4932d9ea69543c22695a15d,2026-10-01,8,,,Beacon Depositor,False
+0xf3f04555f8fda510bfc77820fd6eb8446f59e72d,2026-10-01,69,Mayan Swap: Bridge,Mayan Swap,,False
+0xf41084c75a910abf87a5c669f4b5481621a21720,2026-10-01,2,,,,False
+0xf455fc3643b0a6025b971efba786508967e46ac0,2026-10-01,2,GnosisSafeProxy_f455_6ac0,,Smart Account by Safe,False
+0xf45fcb6571ea9fe3f102f650feb514e988d2590a,2026-10-01,4,,,,False
+0xf4a2eff88a408ff4c4550148151c33c93442619e,2026-10-01,2,Plus Token Ponzi 1,,Heist; Plus Token Scam,False
+0xf4a3aeeba5ab408e65c9a97b56923fda8142b41b,2026-10-01,2,GnosisSafeProxy_f4a3_b41b,,Smart Account by Safe,False
+0xf4b00c937b4ec4bb5ac051c3c719036c668a31ec,2026-10-01,81,Secret Network: Bridge; Bridge,Secret Network,Bridge; Mixing,True
+0xf51cd688b8744b1bfd2fba70d050de85ec4fb9fb,2026-10-01,2641,OKX 29,,DEPOSIT ADDRESS; Exchange; OKX,False
+0xf52605c7b778563a5a9144ef4dc53b57463ca2c7,2026-10-01,5,Cryptomus: Hot Wallet,Cryptomus,Exchange; HOT WALLET,True
+0xf5613e4da78cee6a1bffdf9c235d56bbf6d01d8d,2026-10-01,14,HTX 98,,,False
+0xf598b81ef8c7b52a7f2a89253436e72ec6dc871f,2026-10-01,6,Stake.com 7,,Exchange,True
+0xf5ab6b4a8d578807491ef59ce855982990932617,2026-10-01,3,maheshs.eth,,Metamask User,False
+0xf5b4635f3858a2bc80a17bd4450e05a35ad99a72,2026-10-01,2,DAO Voter,,DAO Voter,False
+0xf5bec430576ff1b82e44ddb5a1c93f6f9d0884f3,2026-10-01,229,Yobit.net,,Exchange,True
+0xf5e10380213880111522dd0efd3dbb45b9f62bcc,2026-10-01,10,Chainflip 1; Vault,,Chainflip; DEX,True
+0xf5f3436a05b5ced2490dae07b86eb5bbd02782aa,2026-10-01,160,Bybit: Hot Wallet 7,Bybit,DEPOSIT ADDRESS; Exchange; HOT WALLET,False
+0xf60c2ea62edbfe808163751dd0d8693dcb30019c,2026-10-01,1153,Binance: Hot Wallet; Binance US 3,Binance,Exchange; HOT WALLET,True
+0xf6230e7e98d2bbebf96d14888020e9c3e8c27d69,2026-10-01,19,Korbit 10,,,False
+0xf646cbe3b030fb6c2569215f0117dba58badb95e,2026-10-01,364,Zonda 1,,Exchange,True
+0xf64edd94558ca8b3a0e3b362e20bb13ff52ea513,2026-10-01,9,Bitpie: Bitpie 1,Bitpie,Exchange,True
+0xf66852bc122fd40bfecc63cd48217e88bda12109,2026-10-01,270,HTX 37,,Exchange; HTX,True
+0xf6cc674930985edefcd56a30da522c327039d037,2026-10-01,2,,,,False
+0xf6d4e5a7c5215f91f59a95065190cca24bf64554,2026-10-01,25,Pionex: Hot Wallet,Pionex,,False
+0xf6deb02e24858887d2adbc713bf086de776a4be3,2026-10-01,9,CoinW 39,,,False
+0xf6f178f0dd95a495ee786fb9cc80ea354fbe58c8,2026-10-01,2,Chain of Life: Deployer,Chain of Life,Contract Deployer,False
+0xf70da97812cb96acdf810712aa562db8dfa3dbef,2026-10-01,2046,Relay: Solver; Relay Bridge,Relay,Bridge,True
+0xf71fc92e2949ccf6a5fd369a0b402ba80bc61e02,2026-10-01,3,Aave: Deployer 12,Aave,Contract Deployer,False
+0xf726dc178d1a4d9292a8d63f01e0fa0a1235e65c,2026-10-01,107,HTX 51,,Exchange; HTX,True
+0xf73c3c65bde10bf26c2e1763104e609a41702efe,2026-10-01,72,Bibox: Hot Wallet; Bibox,Bibox,Exchange; HOT WALLET,True
+0xf7476db5b717ac661c027e684456115ab1e728c3,2026-10-01,3,Sybil Delegate: MirageLight,Sybil Delegate,,False
+0xf7713f561a78696ece91f6ea117190595bba7349,2026-10-01,2,vlsqhfdhkd.eth,,Metamask User,False
+0xf775a9a0ad44807bc15936df0ee68902af1a0eee,2026-10-01,14,HTX:Old Address 16,HTX,Exchange; Old Contract,True
+0xf7793d27a1b76cdf14db7c83e82c772cf7c92910,2026-10-01,18,Bilaxy 1,,Bilaxy; Exchange,True
+0xf7858da8a6617f7c6d0ff2bcafdb6d2eedf64840,2026-10-01,13489,OKX: Hot Wallet; OKX 25,OKX,DEPOSIT ADDRESS; Exchange; HOT WALLET,False
+0xf7a8af16acb302351d7ea26ffc380575b741724c,2026-10-01,8,HTX Old Address 30,HTX,Exchange; Old Contract,True
+0xf7b10d603907658f690da534e9b7dbc4dab3e2d6,2026-10-01,2,nmstarchild.eth,,Metamask User,False
+0xf7b2ee9174c0c347b73bb61d98b83f708c35d3a1,2026-10-01,2,Beacon Depositor,,Beacon Depositor,False
+0xf7cb62bf544513be4d013f742f70d842c48633cf,2026-10-01,2,Take Action,,Take Action,False
+0xf7de62b65768a169279be74b12faa65a22fb38d3,2026-10-01,2,CoinDeal: Deployer,CoinDeal,Contract Deployer,False
+0xf7eee3a8363731c611a24cddfcbcade9c153cfe8,2026-10-01,9,BatchTransferWallet,,,False
+0xf7f189082878846c11a94ddac51c41afc7a7c772,2026-10-01,2,,,,False
+0xf83719280ba7f4b1e390bb1524ad42b427c80f4e,2026-10-01,3,"""eyensium"" on OpenSea",,,False
+0xf840c75142f81a12c5b82f9876edf5fffa34c3d1,2026-10-01,2,mr0roma.eth,,Avntis.eth; Metamask User,False
+0xf881bcb3705926cea9c598ab05a837cf41a833a9,2026-10-01,8,HTX 62,,Exchange; HTX,True
+0xf89d7b9c864f589bbf53a82105107622b35eaa40,2026-10-01,9484,Bybit: Hot Wallet; Bybit 5,Bybit,Exchange; HOT WALLET,True
+0xf8ace48bb24bf0aa69799e1c128d627e35fbfc33,2026-10-01,3,,,,False
+0xf8b483dba2c3b7176a3da549ad41a48bb3121069,2026-10-01,2,Coinotron 1,,Mining,False
+0xf8d04a720520d0bcbc722b1d21ca194aa22699f2,2026-10-01,4,BitUN.io 2,,Exchange,True
+0xf9107317b0ff77ed5b7adea15e50514a3564002b,2026-10-01,2,,,,False
+0xf930ebbd05ef8b25b1797b9b2109ddc9b0d43063,2026-10-01,3,Stake DAO: Governance,Stake DAO,Smart Account by Safe,False
+0xf98e7af638b015d15e1820852bf24900f074b38b,2026-10-01,12,ZB.com 11,,,False
+0xf9a416fdead4a9b7c32eb9d452f8e3428651cf99,2026-10-01,63,Alameda Research:cf99(related_level_1),Alameda Research,,False
+0xf9f41c487fd784e0cf7522206a2aeb4fe7b34b9c,2026-10-01,2,,,,False
+0xf9fb1c508ff49f78b60d3a96dea99fa5d7f3a8a6,2026-10-01,15,Harmony: ETH Bridge; EthManager,Harmony,Bridge,True
+0xfa1690f2778f1f78c24da9f33eb63c8965293e84,2026-10-01,5,,,,False
+0xfa453aec042a837e4aebbadab9d4e25b15fad69d,2026-10-01,4,Alameda Research 14,,Alameda Research; Fund,False
+0xfa5aa66478cb1f67d345d0d81aeff8b205a67273,2026-10-01,42,,,Coinbase; DEPOSIT ADDRESS,False
+0xfa66605b88e16c2fd011622dee6f35a976098edb,2026-10-01,2,BTCEX 2,,Exchange,True
+0xfa93c9a95727268b88ff77b5396ed3b8b59a1ba1,2026-10-01,3,,,,False
+0xfa9f7a1cbfbcb688729c522b4f0905ccf4d26d25,2026-10-01,66,Lbank: Hot Wallet 7,Lbank,Exchange; HOT WALLET,True
+0xfb05be5bb0f8275c1f4403f9525c46dd817ae0ce,2026-10-01,2,,,Take Action,False
+0xfb0f37c0456d60eded9b64442dfb0c4847cdd06a,2026-10-01,2,,,Gitcoin Grantee,False
+0xfb19ffd1ff9316b7f5bba076ef4b78e4bbedf4e1,2026-10-01,33,Aeroswap 2,,Exchange,True
+0xfb2dc580eed955b528407b4d36ffafe3da685401,2026-10-01,245,Umbra,,,False
+0xfb75b231c307738ce506c242babad2fd2e77b0bf,2026-10-01,2,Digital Surge 1,,Digital Surge; Exchange,True
+0xfb8131c260749c7835a08ccbdb64728de432858e,2026-10-01,16,BitMEX: Hot Wallet; BitMEX 2,BitMEX,Exchange; HOT WALLET,True
+0xfb90501083a3b6af766c8da35d3dde01eb0d2a68,2026-10-01,34,Paribu: Hot Wallet; Paribu 3,Paribu,Exchange; HOT WALLET,True
+0xfb9f7f41319157ac5c5dccae308a63a4337ad5d9,2026-10-01,41,Bity.com,,Exchange; Fiat Gateway,True
+0xfba4204435cee1f444a473f5ad4580fcf5c3b76f,2026-10-01,2,,,,False
+0xfbb1b73c4f0bda4f67dca266ce6ef42f520fbb98,2026-10-01,2653,Bittrex: Hot Wallet,Bittrex,Exchange; HOT WALLET,True
+0xfbd08fd2b2c7148b4e38624158c3155b5b49f886,2026-10-01,3,cryptohakka.eth,,Metamask User,False
+0xfbdc0e9522c9d8d40438d2c247bfa43dd5915864,2026-10-01,4,,,,False
+0xfcca6795934528041f9f8d09883b2f2fb6806b65,2026-10-01,2,,,,False
+0xfcdd3b92c83236d27b50ff4ae293068ffdd08797,2026-10-01,2,,,,False
+0xfceaaaeb8d564a9d0e71ef36f027b9d162bc334e,2026-10-01,11,CrossProxy; Cross Delegate,,,False
+0xfcf83648b8cdef62e5d03319a6f1fce16e4d6a59,2026-10-01,19,deBridge: WethGate,deBridge,,False
+0xfd047bb5f223dc03f476f64a9674d6416ece3734,2026-10-01,2,,,,False
+0xfd10510e5a6f2dadead4965ba590a0baf163054c,2026-10-01,2,,,,False
+0xfd54078badd5653571726c3370afb127351a6f26,2026-10-01,2,HTX: Deposit Funder 1; HTX Gas Supplier 1,HTX,DEPOSIT ADDRESS; Exchange,False
+0xfd64b63d4a54e6b1a0aa88e6623046c54f960d00,2026-10-01,2,Pixel Vault,,Contract Deployer,False
+0xfd746333b056fd3ab72a292aeb19cd2f48698031,2026-10-01,4,,,Smart Account by Safe,False
+0xfd8610d20aa15b7b2e3be39b396a1bc3516c7144,2026-10-01,2,"Tornado.Cash: 1,000 DAI; Fixed pool 1000 dai; TornadoCash_erc20",Tornado.Cash,BLOCKED; Mixer; OFAC Sanctions Lists,False
+0xfd9a6cd1670fe8eb4012d8abb9cdf25741a6ff04,2026-10-01,5,miaflusa.eth,,Metamask User,False
+0xfd9d2041d6934fd2f844e9f1f090573d8967f2ab,2026-10-01,3,,,,False
+0xfda462548ce04282f4b6d6619823a7c64fdc0185,2026-10-01,6,Angle Protocol: Deployer,Angle Protocol,Contract Deployer; DAO Voter,False
+0xfdd3636caeb29b76fcb9472a93b73d36c7c3f5bf,2026-10-01,2,Take Action,,Take Action,False
+0xfdfb9873e616fbac3d0ac68a35c7f1298cb5a0ac,2026-10-01,2,,,,False
+0xfe1f79f62bdd7f7e52a8a326bbe7f4f1e3734173,2026-10-01,2,,,,False
+0xfe4b04ade5478f3b649614221cdcc43ee31fa27e,2026-10-01,2,,,,False
+0xfe92a3cf1843b5ec7ccf27b2ae753fac1289fa9d,2026-10-01,48,Genesis Mining 2,,,False
+0xfe9e8709d3215310075d67e3ed32a380ccf451c8,2026-10-01,3,Binance: Hot Wallet; Binance 5,Binance,Exchange; HOT WALLET,True
+0xfe9f4e4fc884fbab008947c09c6bd7ecab1d9510,2026-10-01,2,,,,False
+0xfebded7df0b739564dcb218b4e673f0918528b8d,2026-10-01,2,,,,False
+0xfeef177e6168f9b7fd59e6c5b6c2d87ff398c6fd,2026-10-01,2,GnosisSafeProxy,,Smart Account by Safe,False
+0xff141bfc450c57ad84ebafbd09ffa94a268a7aae,2026-10-01,2,,,,False
+0xff1f2b4adb9df6fc8eafecdcbf96a2b351680455,2026-10-01,1045,Rollup Processor V2; Aztec: Connect,Aztec,,False
+0xff3885ef026edc8609037b0f3cdade548e302624,2026-10-01,2,,,,False
+0xff4fac1ee29f0a6f78b14cbc771f34d1406da286,2026-10-01,2,,,,False
+0xff6202e15773b4283dfa83d3559e70f293dd20ec,2026-10-01,2,,,,False
+0xff6a85ee4505b699b3e4131f37b1dbd6872eb3b5,2026-10-01,2,ongjaso.eth,,,False
+0xff6b1cdfd2d3e37977d7938aa06b6d89d6675e27,2026-10-01,3,Allbit 2,,Allbit; DEX; Exchange,True
+0xffd0ecee885fcd2ebce0fec9add69bf1ed03194b,2026-10-01,5,Fairdesk 1,,Fairdesk,False
+0xffe15ff598e719d29dfe5e1d60be1a5521a779ae,2026-10-01,7,HashKey Exchange: Hot Wallet; HashKey 2,HashKey Exchange,Bitget; DEPOSIT ADDRESS; HOT WALLET; OKX,False
+0xffe296bbbc86dfac056b42c6180d9f8b4cb412aa,2026-10-01,2,,,,False
