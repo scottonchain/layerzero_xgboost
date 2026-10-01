@@ -43,6 +43,9 @@ SPLIT_METHODS = ('random', 'group')
 SNAPSHOT_END = '2024-05-02 00:00:00'   # UTC; exclusive upper bound for provision edges
 # XGBoost 'hist' results depend on the thread count, so model notebooks fix it.
 N_JOBS = 4
+# LightGBM otherwise chooses col-wise or row-wise histograms by a timing test at startup (which
+# depends on machine load) and sums in thread order; either changes the trees between runs.
+LGBM_REPRO = dict(force_col_wise=True, deterministic=True)
 
 # The 63 features of the submitted paper (order matters for NumPy splits). Chosen manually by
 # the authors; no data-driven selection step.
@@ -694,7 +697,7 @@ def lgbm_fit_eval(S, feats, params, model_seeds=(42,)):
     pv, pt = [], []
     for seed in model_seeds:
         m = lgb.LGBMClassifier(n_estimators=5000, subsample_freq=1, colsample_bytree=0.8, verbose=-1,
-                               n_jobs=N_JOBS, random_state=seed, **params)
+                               n_jobs=N_JOBS, random_state=seed, **LGBM_REPRO, **params)
         m.fit(S['X_train'][feats], S['y_train'], eval_set=[(S['X_val'][feats], S['y_val'])],
               callbacks=[lgb.early_stopping(50, verbose=False), lgb.log_evaluation(-1)])
         pv.append(m.predict_proba(S['X_val'][feats])[:, 1])

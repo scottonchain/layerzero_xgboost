@@ -22,7 +22,7 @@ for the paper come from `06_split_comparison.ipynb` in the tagged final run (sec
 | A8 both splits reported | R2 relational leakage | Code done; final run pending | d84263a | `06_split_comparison` |
 | A9 descriptive figure on val+test | R1 | Not in repo: the figure is drawn outside these notebooks | — | Redraw on full data or train only |
 | A10 duplicate wallet row | New (row-level leakage) | Code done | b2904f4 | `00` quality check: 0 duplicates; build asserts uniqueness |
-| A11 XGBoost thread nondeterminism | New (R1 reproducibility) | Code done: `n_jobs` pinned to 4 | b2904f4 | Findings E |
+| A11 model nondeterminism | New (R1 reproducibility) | Code done: XGBoost `n_jobs` pinned to 4 (b2904f4); LightGBM `force_col_wise` and `deterministic` (`sp.LGBM_REPRO`) | b2904f4, this commit | Findings E; `06` checks that 04's single models equal 01 and 02 |
 | A12 44 hand-added labeled addresses | New (possible label leakage) | Code done: hand step replaced by a two-step labeling rule (public lists, then an Etherscan check of every other funder of ≥ 50 interactors; 36 checked, 10 labeled). Pre-snapshot label vintage as sensitivity | 25ef316, b1594ce | `review_support/etherscan_lookups.csv`; `07`; findings E |
 | C `gini_coefficient` identically zero | R1 graph-feature formulas | Code done: formula corrected, then removed by the pre-specified rule (3 of 10 splits; 62 features) | b1594ce | `08_ablation_gini`; findings E |
 | B10 repo text | R2 test isolation | Notebook headers done (d84263a); README with final numbers | — | |
@@ -201,4 +201,11 @@ The corrected `gini_coefficient` is the only feature whose definition changed in
 
 - `08_ablation_gini`: removing the corrected feature lowered validation F1 on 3 of 10 group splits (one-sided sign test p = 0.945); mean change when removed +0.0011 F1, +0.0010 AP. Decision: remove. `sp.FEATS` is now 62 features; `sp.FEATS_SUBMITTED` keeps the submitted 63 in their order for `08`.
 - The labeled set at b1594ce is identical to the reformatted tables (same 36 rows in scope, same 10 labeled), so the decision applies to the final feature table. The final batch reruns `08` from the final commit.
+
+**2026-10-01, full batch @ 91cfd02 rejected by `06`; LightGBM made deterministic.**
+
+- `06` stopped at its check that 04's individual models equal 01 and 02: under the random split, 04's LightGBM seed 123 stopped at 1,347 rounds and 02's at 1,324 (test F1 0.74101 vs 0.74105). Cause: LightGBM picks col-wise or row-wise histogram construction by a timing test at startup, which depends on machine load; forcing col-wise reproduces 02's 1,324 rounds and forcing row-wise reproduces 04's 1,347. Within one mode, predictions still differed in the last bits between runs (thread-order summation).
+- Fix: `sp.LGBM_REPRO = dict(force_col_wise=True, deterministic=True)` in every LightGBM model (02, 04, 05, 10, and `sp.lgbm_fit_eval` for 07 to 09). Two runs then give bit-identical test predictions, also with 2 threads instead of 4, at the same speed (about 50 s per fit).
+- `08` at 91cfd02 reproduced the b1594ce decision run exactly (all 10 splits). The whole batch is rerun from the fix commit; the 91cfd02 numbers are superseded.
+- `09` gains one report-only row, all three provision-network families removed together, because single-family removals of correlated families can understate what the network adds.
 
