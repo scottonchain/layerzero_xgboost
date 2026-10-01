@@ -25,7 +25,7 @@ for the paper come from `06_split_comparison.ipynb` in the tagged final run (sec
 | A11 model nondeterminism | New (R1 reproducibility) | Code done: XGBoost `n_jobs` pinned to 4 (b2904f4); LightGBM `force_col_wise` and `deterministic` (`sp.LGBM_REPRO`) | b2904f4, ea602c6 | Findings E; `06` checks that 04's single models equal 01 and 02 |
 | A12 44 hand-added labeled addresses | New (possible label leakage) | Code done: hand step replaced by a two-step labeling rule (public lists, then an Etherscan check of every other funder of ≥ 50 interactors; 36 checked, 10 labeled). Pre-snapshot label vintage as sensitivity | 25ef316, b1594ce, 91cfd02 | `review_support/etherscan_lookups.csv`; `07`; findings E |
 | C `gini_coefficient` identically zero | R1 graph-feature formulas | Code done: formula corrected, then removed by the pre-specified rule (3 of 10 splits; 62 features) | b1594ce, 91cfd02 | `08_ablation_gini`; findings E |
-| B10 repo text | R2 test isolation | Done: notebook headers, README benchmark and robustness tables from the final run | d84263a, this commit | `README.md` |
+| B10 repo text | R2 test isolation | Done: notebook headers, README benchmark and robustness tables from the final run | d84263a, 9558973 | `README.md` |
 
 ## A. Code and experiments
 
