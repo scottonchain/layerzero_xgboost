@@ -1,37 +1,37 @@
-address,interactors_funded,etherscan_name_tag,etherscan_category,label,reason
-0xf70da97812cb96acdf810712aa562db8dfa3dbef,2046,Relay: Solver,Relay; Bridge,True,shared service
-0x2fc617e933a52713247ce25730f6695920b3befe,656,Layerswap 1,,True,shared service
-0x4c9af439b1a6761b8e549d8d226a468a6b2803a8,358,,,False,no entity tag
-0x63a0a1c4b8606ddeb58ec9564e83ee1e9fb20ffb,196,,,False,no entity tag
-0xcc9557f04633d82fb6a1741dcec96986cd8689ae,190,ZigZag: Bridge,Bridge,True,shared service
-0x434ca7f0da6c47d3eb3515cbd97711aec9d4ae6e,186,,,False,no entity tag
-0xee73323912a4e3772b74ed0ca1595a152b0ef282,172,,,False,no entity tag
-0xe4e81a38ea6d480e4f21abdbe34df076621b9113,162,,,False,no entity tag
-0x9cdc2a4e228b3ff679bb2487c609112affbdd3db,160,,,False,no entity tag
-0x389044f3ac7472060a0618116e3624a5f0f20f28,152,Shakepay 7,Shakepay,True,shared service
-0xbbd0d4d067d5af2065b1b6fd936d93237ae1c56c,150,Shakepay 6,Shakepay,True,shared service
-0x963737c550e70ffe4d59464542a28604edb2ef9a,130,Union Chain,,True,shared service
-0xc5e8ceb141fa13d0c34101de3c5e53b445c5d015,126,,,False,no entity tag
-0x657720113dea643354e494e0de955a101d2466a7,111,,,False,no entity tag
-0x230a9e0a0eecb17c9e2cf770b15f7669e336d4f0,103,,,False,no entity tag
-0x16dae7d42ad9ae86c885762caaa247fcc65ba516,100,,,False,no entity tag
-0x7f04c1ea7e60f2c620948d5f201ca23d3d54d10d,97,,ENS name only (gcverseofmeta.eth),False,no entity tag (ENS name only (gcverseofmeta.eth))
-0xaa364c1a348f9517009207a1601e0a73c1cd530b,90,,,False,no entity tag
-0x063ed6f59bd44d8bc99c3b170a3d52b49dcbcfff,85,,,False,no entity tag
-0x7086ee078ff457f5f2c59cd140e79b2ebbc0e89c,82,,,False,no entity tag
-0x5e809a85aa182a9921edd10a4163745bb3e36284,81,Owlto Finance: Bridge 2,Bridge,True,shared service
-0xa88902d6e93922893ee77234ed1c3ba4bec90224,73,Umbria: Narni Bridge 2,Bridge,True,shared service
-0x08b067ad41e45babe5bbb52fc2fe7f692f628b06,66,,,False,no entity tag
-0x24759faa9b57d2b3c215f2fca6d898a53e7799bf,66,,,False,no entity tag
-0xdb3d858dcc295be2309e69539b2de07b41d658f7,65,,,False,no entity tag
-0x07f0eb0c571b6cfd90d17b5de2cc51112fb95915,62,,,False,no entity tag
-0x4c20d6c790dcd8474df3ec22dd199ff03e0fcd7d,62,,,False,no entity tag
-0x81f91aca8c05b3eefebc00171139afefac17c9a6,57,,,False,no entity tag
-0xe6b3c2fd41566c8dc5354da55cfe20eeaeaa299f,57,,,False,no entity tag
-0x45a318273749d6eb00f5f6ca3bc7cd3de26d642a,56,Owlto Finance: Bridge,Bridge,True,shared service
-0x60fe41469307da95b78ebaa100d70afb3c7805d9,56,,,False,no entity tag
-0xbbba1983859ac05cacc453a6ae9a12ce83735b6d,55,,,False,no entity tag
-0x78c49a9ff270562f0aaea3e54c12d5841acdf599,53,,,False,no entity tag
-0xa3af00a4ca8a11b840b1cb190d1c1d66da1546fc,52,DeGate: Hot Wallet,,True,shared service
-0x75e7f640bf6968b6f32c47a3cd82c3c2c9dcae68,51,,,False,no entity tag
-0xdcd6968c5e40a6b26cabca51e818b0404082c156,50,,,False,no entity tag
+address,etherscan_url,checked_on,lookup_reason,address_kind,name_tag,tag_badges,entity_type,interactors_funded,covered_by_public_list,in_rule_scope,labeled,decision_reason
+0xf70da97812cb96acdf810712aa562db8dfa3dbef,https://etherscan.io/address/0xf70da97812cb96acdf810712aa562db8dfa3dbef,2026-09-30,top30_unlabeled_funder,account,Relay: Solver,Relay; Bridge,bridge_or_relayer,2046,False,True,True,shared_service_tag
+0x2fc617e933a52713247ce25730f6695920b3befe,https://etherscan.io/address/0x2fc617e933a52713247ce25730f6695920b3befe,2026-09-30,top30_unlabeled_funder,account,Layerswap 1,,bridge_or_relayer,656,False,True,True,shared_service_tag
+0x4c9af439b1a6761b8e549d8d226a468a6b2803a8,https://etherscan.io/address/0x4c9af439b1a6761b8e549d8d226a468a6b2803a8,2026-09-30,top30_unlabeled_funder,account,,,none,358,False,True,False,no_entity_tag
+0x63a0a1c4b8606ddeb58ec9564e83ee1e9fb20ffb,https://etherscan.io/address/0x63a0a1c4b8606ddeb58ec9564e83ee1e9fb20ffb,2026-09-30,top30_unlabeled_funder,account,,,none,196,False,True,False,no_entity_tag
+0xcc9557f04633d82fb6a1741dcec96986cd8689ae,https://etherscan.io/address/0xcc9557f04633d82fb6a1741dcec96986cd8689ae,2026-09-30,hand_added_2024,account,ZigZag: Bridge,Bridge,bridge_or_relayer,190,False,True,True,shared_service_tag
+0x434ca7f0da6c47d3eb3515cbd97711aec9d4ae6e,https://etherscan.io/address/0x434ca7f0da6c47d3eb3515cbd97711aec9d4ae6e,2026-09-30,top30_unlabeled_funder,account,,,none,186,False,True,False,no_entity_tag
+0xee73323912a4e3772b74ed0ca1595a152b0ef282,https://etherscan.io/address/0xee73323912a4e3772b74ed0ca1595a152b0ef282,2026-09-30,top30_unlabeled_funder,account,,,none,172,False,True,False,no_entity_tag
+0xe4e81a38ea6d480e4f21abdbe34df076621b9113,https://etherscan.io/address/0xe4e81a38ea6d480e4f21abdbe34df076621b9113,2026-09-30,top30_unlabeled_funder,account,,,none,162,False,True,False,no_entity_tag
+0x9cdc2a4e228b3ff679bb2487c609112affbdd3db,https://etherscan.io/address/0x9cdc2a4e228b3ff679bb2487c609112affbdd3db,2026-09-30,top30_unlabeled_funder,account,,,none,160,False,True,False,no_entity_tag
+0x389044f3ac7472060a0618116e3624a5f0f20f28,https://etherscan.io/address/0x389044f3ac7472060a0618116e3624a5f0f20f28,2026-09-30,top30_unlabeled_funder,account,Shakepay 7,Shakepay,exchange_hot_wallet,152,False,True,True,shared_service_tag
+0xbbd0d4d067d5af2065b1b6fd936d93237ae1c56c,https://etherscan.io/address/0xbbd0d4d067d5af2065b1b6fd936d93237ae1c56c,2026-09-30,top30_unlabeled_funder,account,Shakepay 6,Shakepay,exchange_hot_wallet,150,False,True,True,shared_service_tag
+0x963737c550e70ffe4d59464542a28604edb2ef9a,https://etherscan.io/address/0x963737c550e70ffe4d59464542a28604edb2ef9a,2026-09-30,hand_added_2024,account,Union Chain,,other_service,130,False,True,True,shared_service_tag
+0xc5e8ceb141fa13d0c34101de3c5e53b445c5d015,https://etherscan.io/address/0xc5e8ceb141fa13d0c34101de3c5e53b445c5d015,2026-09-30,top30_unlabeled_funder,account,,,none,126,False,True,False,no_entity_tag
+0x657720113dea643354e494e0de955a101d2466a7,https://etherscan.io/address/0x657720113dea643354e494e0de955a101d2466a7,2026-09-30,top30_unlabeled_funder,account,,,none,111,False,True,False,no_entity_tag
+0x230a9e0a0eecb17c9e2cf770b15f7669e336d4f0,https://etherscan.io/address/0x230a9e0a0eecb17c9e2cf770b15f7669e336d4f0,2026-09-30,top30_unlabeled_funder,account,,,none,103,False,True,False,no_entity_tag
+0x16dae7d42ad9ae86c885762caaa247fcc65ba516,https://etherscan.io/address/0x16dae7d42ad9ae86c885762caaa247fcc65ba516,2026-09-30,top30_unlabeled_funder,account,,,none,100,False,True,False,no_entity_tag
+0x7f04c1ea7e60f2c620948d5f201ca23d3d54d10d,https://etherscan.io/address/0x7f04c1ea7e60f2c620948d5f201ca23d3d54d10d,2026-09-30,top30_unlabeled_funder,account,,,personal_name,97,False,True,False,personal_name
+0xaa364c1a348f9517009207a1601e0a73c1cd530b,https://etherscan.io/address/0xaa364c1a348f9517009207a1601e0a73c1cd530b,2026-09-30,top30_unlabeled_funder,account,,,none,90,False,True,False,no_entity_tag
+0x063ed6f59bd44d8bc99c3b170a3d52b49dcbcfff,https://etherscan.io/address/0x063ed6f59bd44d8bc99c3b170a3d52b49dcbcfff,2026-09-30,top30_unlabeled_funder,account,,,none,85,False,True,False,no_entity_tag
+0x7086ee078ff457f5f2c59cd140e79b2ebbc0e89c,https://etherscan.io/address/0x7086ee078ff457f5f2c59cd140e79b2ebbc0e89c,2026-09-30,top30_unlabeled_funder,account,,,none,82,False,True,False,no_entity_tag
+0x5e809a85aa182a9921edd10a4163745bb3e36284,https://etherscan.io/address/0x5e809a85aa182a9921edd10a4163745bb3e36284,2026-09-30,hand_added_2024,account,Owlto Finance: Bridge 2,Bridge,bridge_or_relayer,81,False,True,True,shared_service_tag
+0xa88902d6e93922893ee77234ed1c3ba4bec90224,https://etherscan.io/address/0xa88902d6e93922893ee77234ed1c3ba4bec90224,2026-09-30,hand_added_2024,account,Umbria: Narni Bridge 2,Bridge,bridge_or_relayer,73,False,True,True,shared_service_tag
+0x08b067ad41e45babe5bbb52fc2fe7f692f628b06,https://etherscan.io/address/0x08b067ad41e45babe5bbb52fc2fe7f692f628b06,2026-10-01,funder_50_plus,contract,,,none,66,False,True,False,no_entity_tag
+0x24759faa9b57d2b3c215f2fca6d898a53e7799bf,https://etherscan.io/address/0x24759faa9b57d2b3c215f2fca6d898a53e7799bf,2026-10-01,funder_50_plus,account,,,none,66,False,True,False,no_entity_tag
+0xdb3d858dcc295be2309e69539b2de07b41d658f7,https://etherscan.io/address/0xdb3d858dcc295be2309e69539b2de07b41d658f7,2026-10-01,funder_50_plus,account,,,none,65,False,True,False,no_entity_tag
+0x4c20d6c790dcd8474df3ec22dd199ff03e0fcd7d,https://etherscan.io/address/0x4c20d6c790dcd8474df3ec22dd199ff03e0fcd7d,2026-09-30,top30_unlabeled_funder,account,,,none,62,False,True,False,no_entity_tag
+0x07f0eb0c571b6cfd90d17b5de2cc51112fb95915,https://etherscan.io/address/0x07f0eb0c571b6cfd90d17b5de2cc51112fb95915,2026-09-30,top30_unlabeled_funder,account,,,none,62,False,True,False,no_entity_tag
+0x81f91aca8c05b3eefebc00171139afefac17c9a6,https://etherscan.io/address/0x81f91aca8c05b3eefebc00171139afefac17c9a6,2026-10-01,funder_50_plus,account,,,none,57,False,True,False,no_entity_tag
+0xe6b3c2fd41566c8dc5354da55cfe20eeaeaa299f,https://etherscan.io/address/0xe6b3c2fd41566c8dc5354da55cfe20eeaeaa299f,2026-10-01,funder_50_plus,account,,,none,57,False,True,False,no_entity_tag
+0x45a318273749d6eb00f5f6ca3bc7cd3de26d642a,https://etherscan.io/address/0x45a318273749d6eb00f5f6ca3bc7cd3de26d642a,2026-10-01,funder_50_plus,account,Owlto Finance: Bridge,Bridge,bridge_or_relayer,56,False,True,True,shared_service_tag
+0x60fe41469307da95b78ebaa100d70afb3c7805d9,https://etherscan.io/address/0x60fe41469307da95b78ebaa100d70afb3c7805d9,2026-10-01,funder_50_plus,account,,,none,56,False,True,False,no_entity_tag
+0xbbba1983859ac05cacc453a6ae9a12ce83735b6d,https://etherscan.io/address/0xbbba1983859ac05cacc453a6ae9a12ce83735b6d,2026-10-01,funder_50_plus,account,,,none,55,False,True,False,no_entity_tag
+0x78c49a9ff270562f0aaea3e54c12d5841acdf599,https://etherscan.io/address/0x78c49a9ff270562f0aaea3e54c12d5841acdf599,2026-10-01,funder_50_plus,account,,,none,53,False,True,False,no_entity_tag
+0xa3af00a4ca8a11b840b1cb190d1c1d66da1546fc,https://etherscan.io/address/0xa3af00a4ca8a11b840b1cb190d1c1d66da1546fc,2026-10-01,funder_50_plus,account,DeGate: Hot Wallet,,exchange_hot_wallet,52,False,True,True,shared_service_tag
+0x75e7f640bf6968b6f32c47a3cd82c3c2c9dcae68,https://etherscan.io/address/0x75e7f640bf6968b6f32c47a3cd82c3c2c9dcae68,2026-09-30,top30_unlabeled_funder,account,,,none,51,False,True,False,no_entity_tag
+0xdcd6968c5e40a6b26cabca51e818b0404082c156,https://etherscan.io/address/0xdcd6968c5e40a6b26cabca51e818b0404082c156,2026-10-01,funder_50_plus,account,,,none,50,False,True,False,no_entity_tag

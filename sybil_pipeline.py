@@ -44,9 +44,9 @@ SNAPSHOT_END = '2024-05-02 00:00:00'   # UTC; exclusive upper bound for provisio
 # XGBoost 'hist' results depend on the thread count, so model notebooks fix it.
 N_JOBS = 4
 
-# 63 selected features (order matters for NumPy splits). Chosen manually by
+# The 63 features of the submitted paper (order matters for NumPy splits). Chosen manually by
 # the authors; no data-driven selection step.
-FEATS = [
+FEATS_SUBMITTED = [
     'min_tx_value_out','gini_coefficient','cex_in_count',
     'leaf_gas_distribution_entropy','star_like_ratio','provider_is_star_like_attack',
     'leaf_gas_distribution_skewness','interactors_in_chain','provider_is_labeled',
@@ -68,6 +68,10 @@ FEATS = [
     'earliest_tx_block_in','n_l0_project_per_source_chain','l0_to_eth_avg_stargate_swap',
     'is_provider'
 ]
+# gini_coefficient was identically zero in the submission. After the formula was corrected it was
+# kept only if removing it lowered validation F1 on >= 8 of 10 group splits (rule fixed in advance,
+# docs/REVISION_LEAKAGE.md). Removing it lowered F1 on 3 of 10 (08_ablation_gini), so the model uses 62.
+FEATS = [f for f in FEATS_SUBMITTED if f != 'gini_coefficient']
 
 BURN_ADDRESS = '0x0000000000000000000000000000000000000000'
 
@@ -182,7 +186,7 @@ def stream_labeled_anchors(paths, candidates, vintage='current'):
         anchors |= set(s['address']) & candidates
     if vintage == 'current':
         e = pd.read_csv(paths['etherscan_services'])
-        anchors |= set(e.loc[e['label'], 'address'].str.lower()) & candidates
+        anchors |= set(e.loc[e['labeled'].astype(str).str.lower() == 'true', 'address'].str.lower()) & candidates
     return anchors
 
 
@@ -674,7 +678,7 @@ FEATURE_FAMILIES = {
         'provider_max_gas_provision_amount', 'provider_min_gas_provision_amount',
         'provider_avg_gas_provision_amount', 'is_provider', 'gas_provision_block_number'],
     'Funding tree': [
-        'gini_coefficient', 'leaf_gas_distribution_entropy', 'leaf_gas_distribution_skewness',
+        'leaf_gas_distribution_entropy', 'leaf_gas_distribution_skewness',
         'star_like_ratio', 'balance_factor', 'avg_depth', 'breadth_factor', 'gas_distribution_skewness',
         'gas_distribution_entropy', 'tree_size', 'total_gas', 'branching_factor', 'max_depth',
         'leaf_provision_proportion', 'longest_chain_ratio', 'sparsity', 'breadth_to_depth_ratio',
