@@ -21,17 +21,17 @@ address,interactors_funded,etherscan_name_tag,etherscan_category,label,reason
 0x7086ee078ff457f5f2c59cd140e79b2ebbc0e89c,82,,,False,no entity tag
 0x5e809a85aa182a9921edd10a4163745bb3e36284,81,Owlto Finance: Bridge 2,Bridge,True,shared service
 0xa88902d6e93922893ee77234ed1c3ba4bec90224,73,Umbria: Narni Bridge 2,Bridge,True,shared service
-0x08b067ad41e45babe5bbb52fc2fe7f692f628b06,66,,,False,lookup pending
-0x24759faa9b57d2b3c215f2fca6d898a53e7799bf,66,,,False,lookup pending
-0xdb3d858dcc295be2309e69539b2de07b41d658f7,65,,,False,lookup pending
+0x08b067ad41e45babe5bbb52fc2fe7f692f628b06,66,,,False,no entity tag
+0x24759faa9b57d2b3c215f2fca6d898a53e7799bf,66,,,False,no entity tag
+0xdb3d858dcc295be2309e69539b2de07b41d658f7,65,,,False,no entity tag
 0x07f0eb0c571b6cfd90d17b5de2cc51112fb95915,62,,,False,no entity tag
 0x4c20d6c790dcd8474df3ec22dd199ff03e0fcd7d,62,,,False,no entity tag
-0x81f91aca8c05b3eefebc00171139afefac17c9a6,57,,,False,lookup pending
-0xe6b3c2fd41566c8dc5354da55cfe20eeaeaa299f,57,,,False,lookup pending
-0x45a318273749d6eb00f5f6ca3bc7cd3de26d642a,56,,,False,lookup pending
-0x60fe41469307da95b78ebaa100d70afb3c7805d9,56,,,False,lookup pending
-0xbbba1983859ac05cacc453a6ae9a12ce83735b6d,55,,,False,lookup pending
-0x78c49a9ff270562f0aaea3e54c12d5841acdf599,53,,,False,lookup pending
-0xa3af00a4ca8a11b840b1cb190d1c1d66da1546fc,52,,,False,lookup pending
+0x81f91aca8c05b3eefebc00171139afefac17c9a6,57,,,False,no entity tag
+0xe6b3c2fd41566c8dc5354da55cfe20eeaeaa299f,57,,,False,no entity tag
+0x45a318273749d6eb00f5f6ca3bc7cd3de26d642a,56,Owlto Finance: Bridge,Bridge,True,shared service
+0x60fe41469307da95b78ebaa100d70afb3c7805d9,56,,,False,no entity tag
+0xbbba1983859ac05cacc453a6ae9a12ce83735b6d,55,,,False,no entity tag
+0x78c49a9ff270562f0aaea3e54c12d5841acdf599,53,,,False,no entity tag
+0xa3af00a4ca8a11b840b1cb190d1c1d66da1546fc,52,DeGate: Hot Wallet,,True,shared service
 0x75e7f640bf6968b6f32c47a3cd82c3c2c9dcae68,51,,,False,no entity tag
-0xdcd6968c5e40a6b26cabca51e818b0404082c156,50,,,False,lookup pending
+0xdcd6968c5e40a6b26cabca51e818b0404082c156,50,,,False,no entity tag

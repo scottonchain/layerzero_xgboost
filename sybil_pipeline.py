@@ -649,3 +649,57 @@ def save_results(models, notebook, method, leakage=None, extra=None, out_dir='re
     with open(path, 'w') as f:
         json.dump(record, f, indent=2)
     print(f'Saved {path}')
+
+
+# ── Ablation and sensitivity helpers (notebooks 07-10) ───────────────────────
+
+SPLIT_SEEDS = [42, 1, 2, 3, 4, 5, 6, 7, 8, 9]   # 10 group splits
+
+FEATURE_FAMILIES = {
+    'LayerZero transactions': [
+        'l0_tx_time_span', 'latest_l0_tx_time', 'earliest_l0_tx_time', 'l0_avg_stargate_swap',
+        'l0_min_stargate_swap', 'n_l0_source_chains', 'n_l0_source_contracts', 'n_l0_projects',
+        'n_l0_project_per_source_chain', 'n_eth_interactions', 'l0_to_eth_avg_native_drop_usd',
+        'l0_to_eth_max_native_drop_usd', 'l0_to_eth_tx_time_span', 'n_l0_to_eth_source_contracts',
+        'n_l0_to_eth_projects', 'n_l0_to_eth_project_per_source_chain', 'n_l0_to_eth_txs',
+        'n_l0_to_eth_dest_contracts', 'l0_to_eth_min_stargate_swap', 'n_l0_to_eth_source_chains',
+        'l0_to_eth_max_stargate_swap', 'l0_to_eth_avg_stargate_swap'],
+    'Ethereum transactions': [
+        'min_tx_value_out', 'max_tx_value_out', 'min_tx_value_in', 'time_span_in',
+        'indegree_per_block_in', 'num_transactions_in', 'tx_value_per_block_out',
+        'earliest_tx_block_in', 'cex_in_count'],
+    'Gas provider': [
+        'provider_is_labeled', 'provider_is_interactor', 'provider_is_null',
+        'provider_is_star_like_attack', 'provider_fan_out', 'provider_total_gas_provision_amount',
+        'provider_max_gas_provision_amount', 'provider_min_gas_provision_amount',
+        'provider_avg_gas_provision_amount', 'is_provider', 'gas_provision_block_number'],
+    'Funding tree': [
+        'gini_coefficient', 'leaf_gas_distribution_entropy', 'leaf_gas_distribution_skewness',
+        'star_like_ratio', 'balance_factor', 'avg_depth', 'breadth_factor', 'gas_distribution_skewness',
+        'gas_distribution_entropy', 'tree_size', 'total_gas', 'branching_factor', 'max_depth',
+        'leaf_provision_proportion', 'longest_chain_ratio', 'sparsity', 'breadth_to_depth_ratio',
+        'leaf_to_internal_ratio'],
+    'Funding chain': ['chain_length', 'interactors_in_chain', 'depth'],
+}
+
+
+def lgbm_fit_eval(S, feats, params, model_seeds=(42,)):
+    """Train LightGBM on S['X_train'][feats]; threshold on validation; return val and test metrics."""
+    import lightgbm as lgb
+    from sklearn.metrics import f1_score, average_precision_score, roc_auc_score
+    pv, pt = [], []
+    for seed in model_seeds:
+        m = lgb.LGBMClassifier(n_estimators=5000, subsample_freq=1, colsample_bytree=0.8, verbose=-1,
+                               n_jobs=N_JOBS, random_state=seed, **params)
+        m.fit(S['X_train'][feats], S['y_train'], eval_set=[(S['X_val'][feats], S['y_val'])],
+              callbacks=[lgb.early_stopping(50, verbose=False), lgb.log_evaluation(-1)])
+        pv.append(m.predict_proba(S['X_val'][feats])[:, 1])
+        pt.append(m.predict_proba(S['X_test'][feats])[:, 1])
+    pv, pt = np.mean(pv, axis=0), np.mean(pt, axis=0)
+    thr = best_f1_threshold(S['y_val'], pv)
+    out = dict(threshold=thr)
+    for part, y, p in [('val', S['y_val'], pv), ('test', S['y_test'], pt)]:
+        out[f'{part}_f1'] = f1_score(y, (p >= thr).astype(int))
+        out[f'{part}_ap'] = average_precision_score(y, p)
+        out[f'{part}_auroc'] = roc_auc_score(y, p)
+    return out
