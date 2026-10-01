@@ -1,0 +1,2 @@
+# Small public label lists: stored as plain git files, not LFS
+*.csv -filter -diff -merge text
