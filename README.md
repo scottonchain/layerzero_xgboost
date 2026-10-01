@@ -1,23 +1,74 @@
-# LayerZero Sybil Detection — ML Pipeline
+# LayerZero Sybil Detection: ML Pipeline
 
 > Reproduces and extends: *Sybil Detection on Public Blockchains via XGBoost and Gas Provision Network Analysis* (Imig et al., 2025)
 
-Trains three classifiers (XGBoost, LightGBM, Logistic Regression) and a cross-model ensemble on 434k Ethereum addresses to identify Sybil wallets in the LayerZero airdrop of June 2024. The full pipeline — from raw CSV files to evaluation plots — runs in under 30 minutes on a standard laptop CPU.
+Trains three classifiers (XGBoost, LightGBM, Logistic Regression) and a cross-model ensemble on 434,786 Ethereum addresses to identify Sybil wallets in the LayerZero airdrop of June 2024. Every number below is produced by a notebook in this repository; `06_split_comparison.ipynb` checks that each one traces to the code in the current commit.
 
 ---
 
 ## Benchmark results
 
-| Model | F1 | AUROC | Notes |
-|---|---|---|---|
-| XGBoost baseline | 0.720 | 0.970 | Default params, no tuning |
-| LightGBM baseline | 0.723 | 0.969 | Default params, no tuning |
-| Logistic Regression | 0.235 | 0.834 | Linear boundary; lower bound |
-| **XGBoost tuned** | **0.735** | **0.974** | lr=0.1, depth=10, sub=0.7 |
-| **LightGBM tuned** | **0.739** | **0.976** | lr=0.05, leaves=511, L2=1 |
-| **Cross-ensemble** | **0.741** | **0.976** | 40 % XGB + 60 % LGBM |
+Test partition: 130,435 addresses (group split) or 130,436 (random split), 5,463 Sybil (4.19 %).
+Hyperparameters, thresholds and the blend weight are chosen on validation. The **group split** is
+the primary evaluation; the random split is the original paper's protocol, kept for comparison.
 
-Test set: 130,437 addresses · 4.19 % Sybil prevalence · threshold selected on validation set.
+| Model | Split | Precision | Recall | F1 | AUROC | AP | FPR |
+|---|---|---|---|---|---|---|---|
+| XGBoost (3 seeds) | group | 0.720 | 0.720 | 0.720 | 0.966 | 0.764 | 0.0123 |
+| LightGBM (3 seeds) | group | 0.727 | 0.711 | 0.719 | 0.968 | 0.770 | 0.0117 |
+| Cross-ensemble | group | 0.697 | 0.739 | 0.717 | 0.968 | 0.770 | 0.0140 |
+| Logistic regression | group | 0.150 | 0.617 | 0.241 | 0.837 | 0.166 | 0.1529 |
+| XGBoost (3 seeds) | random | 0.754 | 0.728 | 0.741 | 0.974 | 0.798 | 0.0104 |
+| LightGBM (3 seeds) | random | 0.733 | 0.751 | 0.742 | 0.976 | 0.802 | 0.0120 |
+| Cross-ensemble | random | 0.734 | 0.751 | 0.743 | 0.976 | 0.803 | 0.0119 |
+| Logistic regression | random | 0.148 | 0.554 | 0.234 | 0.833 | 0.160 | 0.1395 |
+
+Source: `06_split_comparison.ipynb`. AP is average precision; FPR is the false-positive rate among
+non-Sybils at the model's threshold.
+
+- **Relational leakage.** Under the random split, 599 of 5,463 test Sybils share a funding group with
+  a training Sybil; under the group split, none. The tree models lose 0.021 to 0.025 F1 and 0.033 AP
+  under the group split; logistic regression, which cannot memorize clusters, does not. Within the
+  clustered categories the drop is large (LightGBM F1: IxI 0.85 to 0.47, IxE 0.54 to 0.29); IxL wallets,
+  which are singletons, are unchanged (0.74 to 0.75).
+- **Split noise.** Over 10 group splits, LightGBM test F1 has SD 0.006 (`09`). Differences between
+  XGBoost, LightGBM and the ensemble are smaller than that.
+- **Ensemble.** The validation-selected XGBoost weight is 0.06 under both splits; the ensemble is
+  essentially LightGBM.
+
+### Robustness checks (group split, 10 splits)
+
+| Check | Notebook | Result |
+|---|---|---|
+| Corrected `gini_coefficient`, rule fixed in advance | `08` | Removing it lowered validation F1 on 3 of 10 splits (8 required): removed |
+| Labels known before the snapshot vs current labels | `07` | Test F1 −0.005 ± 0.007 (mean ± SD) |
+| All provision-network features removed | `09` | Test F1 −0.008; transaction features alone carry most of the signal |
+| SHAP by feature family | `10` | LayerZero transactions first, then Ethereum transactions, gas provider, funding tree, funding chain |
+
+---
+
+## Evaluation protocol
+
+- **Split.** 49 % train, 21 % validation, 30 % test, stratified by class. The primary split is a
+  **stratified group split**: wallets are grouped by funding cluster (the root of the unlabeled part
+  of their gas provision chain), and no group spans two partitions. The address-level random split
+  used in the original paper is kept for comparison; the gap between the two is the relational
+  (cluster-level) leakage in the original evaluation.
+- **Test isolation.** Hyperparameters (`05_hyperparameter_search`), decision thresholds, and the
+  ensemble blend weight are all chosen on the validation set. Test labels are used only for the
+  final report.
+- **Temporal cutoff.** The LayerZero snapshot table ends at 2024-05-01 23:59:59 UTC. Ethereum
+  transaction features are cut at 2024-05-01 00:00 UTC by their source queries; provision-network
+  edges at or after 2024-05-02 00:00 UTC are dropped in code before any feature is computed.
+- **Labeled addresses.** Known services (exchanges, bridges, protocol contracts) end a funding
+  chain. They come from a fixed rule with no hand selection: public label datasets, then an
+  Etherscan check of every other address that funded at least 50 LayerZero interactors (see
+  [Labeled addresses](#labeled-addresses)). Sybil labels are never used to choose them.
+- **Features.** 62 features. The 63 of the submitted paper were chosen manually by the authors;
+  `gini_coefficient` was removed by a test whose rule was fixed before it ran (`08_ablation_gini`).
+- **Imbalance.** The Sybil class is upsampled to 1:1 in the training partition only, after the split.
+
+The open work items for the current revision are in [`docs/REVISION_LEAKAGE.md`](docs/REVISION_LEAKAGE.md).
 
 ---
 
@@ -28,24 +79,37 @@ layerzero_xgboost/
 │
 ├── data/                                   ← Git LFS; run `git lfs pull` after cloning
 │   ├── 20240915_final_sybil_list/          fcfs_list.csv (ground-truth labels)
-│   ├── 20241013_hildobby_cex_evms/         CEX address list
-│   ├── 20241104_layer0_sybil_features/     l0_features_*.csv (×5)
-│   ├── 20241114_gas_provision/             gas provision network + query (readme.txt)
-│   ├── 20241117_tree_features/             graph and tree features + featurization notebook
-│   ├── 20241214_labeled_addresses/         labeled entity addresses
-│   └── 20250208_cex_dex_indegree/          cex_dex_features_in_*.csv (×5)
+│   ├── 20241013_hildobby_cex_evms/         CEX address list (source for the labeled list)
+│   ├── 20241104_layer0_sybil_features/     l0_features_*.csv (×5) + source query
+│   ├── 20241114_gas_provision/             gas provision network + source query
+│   ├── 20241117_tree_features/             original precomputed tree features + featurization notebook
+│   ├── 20241214_labeled_addresses/         labeled entity addresses (2024) + build script
+│   ├── 20250208_cex_dex_indegree/          cex_dex_features_in_*.csv (×5) + source query
+│   ├── 20260128_dune_spellbook_labels/     Dune Spellbook CEX, DEX and bridge lists (pinned commits)
+│   └── 20260930_etherscan_service_labels/  Etherscan check of funders of 50+ interactors
 │
 ├── output/                                 ← created on first run (gitignored)
-│   ├── master_df.parquet                   ← full feature matrix (434k × 63 + labels)
-│   ├── splits.npz                          ← train/val/test NumPy arrays
-│   └── feature_list.json                   ← ordered list of 63 feature names
+│   ├── master_df.parquet                   ← full feature table (434,786 rows, all computed features + labels)
+│   ├── splits.npz                          ← train/val/test arrays and partition indices
+│   ├── feature_list.json                   ← ordered list of the 62 model features
+│   └── pred_*.parquet                      ← test predictions from 01–04
 │
-├── 00_data_pipeline.ipynb                  ← ① run first: builds master_df + splits
-├── 01_xgboost_sybil.ipynb                  ← ② XGBoost (tuned 3-seed ensemble)
-├── 02_lightgbm_sybil.ipynb                 ← ③ LightGBM (tuned 3-seed ensemble)
+├── results/                                ← metrics per notebook and split, with the code commit
+│
+├── sybil_pipeline.py                       ← shared pipeline: features, funding groups, splits
+├── 00_data_pipeline.ipynb                  ← ① builds the feature table; leakage check
+├── 08_ablation_gini.ipynb                  ← ② keep-or-drop test for gini_coefficient (fixes the feature set)
+├── 05_hyperparameter_search.ipynb          ← ③ selects hyperparameters on validation
+├── 01_xgboost_sybil.ipynb                  ← ④ XGBoost (3-seed ensemble)
+├── 02_lightgbm_sybil.ipynb                 ← ④ LightGBM (3-seed ensemble)
 ├── 03_logistic_regression_sybil.ipynb      ← ④ Logistic Regression baseline
-├── 04_cross_ensemble_sybil.ipynb           ← ⑤ Cross-model ensemble (XGB + LGBM)
-├── docs/REVISION_LEAKAGE.md                ← open work items for the current revision
+├── 04_cross_ensemble_sybil.ipynb           ← ④ Cross-model ensemble (XGB + LGBM)
+├── 07_sensitivity_label_vintage.ipynb      ← ⑤ labels known before the snapshot vs current labels
+├── 09_ablation_families.ipynb              ← ⑤ feature-family ablation
+├── 10_shap_importance.ipynb                ← ⑤ SHAP importance by family and taxonomy category
+├── 06_split_comparison.ipynb               ← ⑥ tie-out: provenance checks and every reported number
+├── review_support/                         ← labeled-address evidence: hand additions, Etherscan lookups
+├── docs/REVISION_LEAKAGE.md                ← revision work items and findings log
 ├── legacy/                                 ← original 2025 notebook (Windows paths; reference only)
 ├── requirements.txt
 └── README.md
@@ -55,47 +119,31 @@ layerzero_xgboost/
 
 ## Prerequisites
 
-### Python version
 Python 3.11 or later (required by pandas 3).
-
-### Packages
 
 ```bash
 pip install -r requirements.txt
 ```
 
-Minimum verified versions:
+`requirements.txt` pins the versions used to produce the results. Model libraries are pinned
+because default hyperparameters change between releases.
 
-| Package | Min version |
-|---|---|
-| xgboost | 1.7 |
-| lightgbm | 3.3 |
-| scikit-learn | 1.0 |
-| pandas | 1.4 |
-| numpy | 1.21 |
-| pyarrow | 8.0 (for parquet export) |
-
----
-
-## Hardware requirements
-
-| Resource | Minimum | Recommended |
-|---|---|---|
-| RAM | 4 GB | 8 GB |
-| CPU | 4 cores | 8 cores |
-| Disk | 2 GB free | 5 GB free |
-| GPU | not needed | not needed |
+**Hardware.** 4 CPU cores and 8 GB RAM are enough; no GPU is used. The model notebooks fix the
+XGBoost and LightGBM thread count at 4 (`sp.N_JOBS`), because XGBoost's `hist` algorithm gives
+slightly different trees with different thread counts. LightGBM also runs with `force_col_wise` and
+`deterministic` (`sp.LGBM_REPRO`): otherwise it picks its histogram method by a timing test at
+startup and sums in thread order, and its trees change between runs. With these settings, results
+reproduce across runs and machines.
 
 > **RAM note.** The labeled-addresses file (`20241214_labeled_addresses.csv`) contains 9 million
-> entries. The pipeline uses a streaming approach that retains only the ~3,700 addresses
-> that appear as gas providers, so peak RAM stays under 2 GB. Do **not** load the full
-> file into memory manually.
+> entries. The pipeline streams it and retains only the addresses that appear in the provision
+> network (a few thousand), so peak RAM stays low. Do **not** load the full file into memory.
 
 ---
 
 ## Step-by-step instructions
 
-### 1 — Fetch data files
+### 1. Fetch data files
 
 The input files are stored with Git LFS. After cloning:
 
@@ -104,190 +152,140 @@ git lfs install
 git lfs pull
 ```
 
-The notebooks expect the layout above, with `DATA_DIR = './data'` relative to the
-notebook. If your data lives elsewhere, edit `DATA_DIR` in each notebook's config cell.
+The notebooks expect the layout above, with `DATA_DIR = './data'` relative to the notebook.
 
-### 2 — Launch Jupyter
+### 2. Run the notebooks in order
+
+Interactively (`jupyter lab`), or headless:
 
 ```bash
-cd layerzero_xgboost/
-jupyter lab          # or: jupyter notebook
+run() { SPLIT_METHOD=$2 jupyter nbconvert --to notebook --execute "$1" --inplace \
+          --ExecutePreprocessor.kernel_name=python3 --ExecutePreprocessor.timeout=-1; }
+run 00_data_pipeline.ipynb group
+run 08_ablation_gini.ipynb group
+run 05_hyperparameter_search.ipynb group
+for m in group random; do
+  for nb in 01_xgboost_sybil 02_lightgbm_sybil 03_logistic_regression_sybil 04_cross_ensemble_sybil; do
+    run $nb.ipynb $m
+  done
+done
+for nb in 07_sensitivity_label_vintage 09_ablation_families 10_shap_importance 06_split_comparison; do
+  run $nb.ipynb group
+done
 ```
 
-### 3 — Run the data pipeline (required first)
+`SPLIT_METHOD` selects `group` (default) or `random`. Each model notebook rebuilds the feature
+table itself through `sybil_pipeline.build_master_df`, so notebooks can be run independently once
+`05_hyperparameter_search` has written `results/05_hyperparameter_search_group.json`. The
+committed notebook outputs are the `group` runs; the `random` runs are recorded in `results/`.
+`06` runs last because it checks every other notebook's results.
 
-Open **`00_data_pipeline.ipynb`** and run all cells top to bottom (`Kernel → Restart & Run All`).
+Runtimes on 4 cores for the committed run: `00` 1.5 min; `08` 12 min; `05` 82 min; per split,
+`01` 5 min, `02` 4 min, `03` 2 min, `04` 8 min; `07` 22 min; `09` 92 min; `10` 43 min; `06`
+under 1 min. About 5 hours in total.
 
-**What it does (35 cells, ~25 seconds):**
+### What each notebook does
 
-| Step | Cell | Time |
-|---|---|---|
-| Load 5 L0 feature files | Step 1 | ~4 s |
-| Build gas provision graph | Step 2 | ~3 s |
-| Stream labeled anchors | Step 3 | ~5 s |
-| Merge tree topology features | Step 4 | ~2 s |
-| Merge CEX/DEX in-degree | Step 5 | ~1 s |
-| Apply Sybil labels | Step 6 | ~1 s |
-| Chain traversal | Step 7 | ~2 s |
-| Quality checks + EDA | — | ~3 s |
-| Split + upsample + export | — | ~4 s |
-
-**Outputs written to `output/`:**
-- `master_df.parquet` — full feature matrix
-- `splits.npz` — `X_train`, `X_val`, `X_test`, `y_train`, `y_val`, `y_test`
-- `feature_list.json` — 63 feature names in order
-
-### 4 — Run the model notebooks
-
-Each notebook is **self-contained**: it re-runs the full data pipeline internally.
-If you have already completed Step 3, you can optionally skip the data-loading cells
-by loading the pre-built splits instead (see the *Loading Pre-Built Splits* section
-at the bottom of `00_data_pipeline.ipynb`).
-
-#### `01_xgboost_sybil.ipynb` — ~4 minutes
-
-Trains a 3-seed XGBoost ensemble using tuned parameters found by grid search.
-
-```
-lr=0.1  ·  max_depth=10  ·  subsample=0.7  ·  colsample_bytree=0.8
-n_estimators=5000 (early stopping at ~475 rounds per seed)
-Seeds: 42, 123, 456
-```
-
-Outputs: test metrics · feature importance plot · operating point table.
-
-#### `02_lightgbm_sybil.ipynb` — ~4 minutes
-
-Trains a 3-seed LightGBM ensemble.
-
-```
-lr=0.05  ·  num_leaves=511  ·  subsample=0.7  ·  subsample_freq=1
-colsample_bytree=0.8  ·  reg_lambda=1
-n_estimators=5000 (early stopping at ~340 rounds per seed)
-Seeds: 42, 123, 456
-```
-
-> **LightGBM-specific parameters** that differ from XGBoost defaults:
-> - `num_leaves` (not `max_depth`) controls model capacity
-> - `subsample_freq=1` **must** be set alongside `subsample < 1.0` — otherwise
->   bagging is silently disabled
-> - `reg_lambda` defaults to 0 in LightGBM (vs 1 in XGBoost); set to 1 explicitly
-
-#### `03_logistic_regression_sybil.ipynb` — ~30 seconds
-
-Linear baseline with L1 regularisation and StandardScaler. Included to confirm
-the Sybil decision boundary is non-linear (F1 ≈ 0.235 vs ≥ 0.735 for tree models).
-
-```
-C=0.01  ·  penalty='l1'  ·  solver='liblinear'
-```
-
-#### `04_cross_ensemble_sybil.ipynb` — ~8 minutes
-
-Trains all 6 models (3 XGB seeds + 3 LGBM seeds), then combines probability
-scores with a weighted average:
-
-```
-final_score = 0.40 × P(Sybil | XGBoost) + 0.60 × P(Sybil | LightGBM)
-```
-
-Includes blend-weight sensitivity analysis and agreement zone breakdown.
+- **`00_data_pipeline`**: loads the L0 features, the provision network (with the snapshot cutoff),
+  the labeled addresses, and the CEX/DEX in-degree; computes provider, tree, and chain features;
+  checks the recomputed tree features against the original precomputed file; assigns taxonomy
+  categories and funding groups; reports row and funding-group overlap between partitions under
+  both split methods; exports `output/`.
+- **`08_ablation_gini`**: trains LightGBM with and without the corrected `gini_coefficient` on 10
+  group splits and applies the rule fixed in advance (keep it only if removing it lowers validation
+  F1 on at least 8 of 10). Uses no test labels for the decision. It runs before the search because
+  it decides the feature set.
+- **`05_hyperparameter_search`**: full grids for XGBoost (learning rate, depth, row and column
+  subsampling, then `min_child_weight`) and LightGBM (leaves, learning rate, subsampling, L2),
+  selected by validation F1. Never loads test labels.
+- **`01`–`03`**: train the selected XGBoost and LightGBM configurations as 3-seed ensembles (seeds
+  42, 123, 456) and the L1 logistic-regression baseline; report test metrics at the
+  validation-selected threshold, feature importance, and an operating-point table.
+- **`04`**: blends the XGBoost and LightGBM probabilities, `w × P(XGB) + (1 − w) × P(LGBM)`, with
+  `w` chosen on validation F1; reports agreement between the two models.
+- **`07`**: retrains on labels restricted to list entries known before the snapshot and compares
+  with the current labels over 10 group splits; also reports the Sybil share among wallets funded by
+  exchanges added to the list before the snapshot, between the snapshot and the Sybil list, and after.
+- **`09`**: removes each feature family, and keeps each family alone, over 10 group splits. Reported
+  only; it changes no modeling choice.
+- **`10`**: mean |SHAP| per feature, summed by family, overall and per taxonomy category (test
+  partition, group split).
+- **`06`**: verifies provenance and prints every table the paper reports.
 
 ---
 
-## Expected runtimes (4-core CPU)
+## Input data files
 
-| Notebook | Data loading | Model training | Total |
+| File | Rows | Date cutoff | Description |
 |---|---|---|---|
-| 00 Pipeline | 25 s | — | ~35 s |
-| 01 XGBoost | 25 s | ~3.5 min | ~4 min |
-| 02 LightGBM | 25 s | ~3.5 min | ~4 min |
-| 03 LR | 25 s | 5 s | ~30 s |
-| 04 Cross-ensemble | 25 s | ~7.5 min | ~8 min |
-| **Total (fresh)** | | | **~17 min** |
-
-If splits are pre-loaded from `splits.npz`, remove the ~25 s data loading from each model notebook.
-
----
-
-## Input data files — descriptions
-
-| File | Rows | Description |
-|---|---|---|
-| `l0_features_*.csv` (×5) | 434,788 total | Transaction, bridge, and timing features for each LayerZero interactor address. Snapshot: May 1 2024. Source: Flipside Crypto `fact_transactions_snapshot`. |
-| `20241114_1633_layer0_provision_network_000000000000.csv` | 604,864 | Gas provision graph: which address first sent ETH to each interactor, enabling on-chain transactions. Source: BigQuery public blockchain dataset (recursive CTE). |
-| `20241214_labeled_addresses.csv` | 9,054,105 | Known entities: centralized exchanges, decentralized exchanges, contracts, and other named accounts. Used to identify labeled anchors in provision chains. |
-| `20241117_graph_and_tree_features.csv` | 434,111 | Pre-computed structural metrics on each address's gas provision subtree (fan-out, Gini coefficient, branching factor, tree depth, etc.). |
-| `cex_dex_features_in_*.csv` (×5) | 434,789 total | Count of incoming transactions from centralized and decentralized exchanges per address. |
-| `fcfs_list.csv` | 151,784 | LayerZero Foundation's final Sybil list (snapshot: Sept 15 2024). Ground-truth labels. Columns: `address`, reward addresses, forum links, timestamp, ZRO allocation. |
+| `l0_features_*.csv` (×5) | 434,793 raw; 434,786 after cleaning | L0 snapshot table (ends 2024-05-01 23:59:59 UTC); Ethereum transactions ≤ 2024-05-01 00:00 UTC | Transaction, bridge, and timing features per LayerZero interactor. Source: Flipside `external.layerzero.fact_transactions_snapshot` and `ethereum.core.fact_transactions`. |
+| `20241114_1633_layer0_provision_network_000000000000.csv` | 604,864 | None in the query; edges ≥ 2024-05-02 00:00 UTC dropped in code (296 edges) | First ETH transfer into each address, traced upward from the interactors. Source: BigQuery `crypto_ethereum.traces`. |
+| `20241214_labeled_addresses.csv` | 9,054,104 | Label lists compiled Oct–Dec 2024 | Known entities (CEXs, DEXs, contracts, named accounts). The 44 addresses its `readme.txt` adds by hand are excluded. |
+| Dune Spellbook lists (`data/20260128_dune_spellbook_labels/`) | CEX 4,957; DEX 73; bridges 136 (current versions) | Pinned commits; each row has the date it was added | CEX, DEX and bridge addresses on Ethereum. A `presnapshot` version (entries added by 2024-05-01) is the sensitivity in `07`. |
+| `service_labels.csv` (`data/20260930_etherscan_service_labels/`) | 36 | Etherscan read 2026-09-30 and 2026-10-01 | Every other funder of 50+ interactors, with its Etherscan tag and the rule's decision; 10 labeled. |
+| `20241117_graph_and_tree_features.csv` | 434,111 | Built from the unfiltered network | Original precomputed provider and tree features. Now used only as a regression check; the pipeline recomputes these features. |
+| `cex_dex_features_in_*.csv` (×5) | 434,793 total | Transfers ≤ 2024-05-01 | Distinct CEX and DEX addresses that sent ETH to each interactor. Labels from Flipside `dim_labels`. |
+| `fcfs_list.csv` | 151,784 | Sybil list snapshot 2024-09-15 | LayerZero Foundation's final Sybil list. Ground-truth labels. |
 
 ---
 
 ## Key design decisions
 
+**Why a group split?**
+Provider and tree features are relational: every wallet in a funding cluster shares the same
+`provider_*`, `tree_size`, `branching_factor`, and similar values. Under an address-level random
+split, wallets from one cluster land in both train and test, so test performance partly measures
+recognition of clusters already seen in training. The group split keeps each cluster in one
+partition, and `sybil_pipeline.make_splits` asserts that no group spans two partitions. Wallets
+funded directly by a labeled entity (an exchange, for example) are their own group, so a CEX hot
+wallet never merges its customers into one giant group.
+
 **Why upsample only the training set?**
-Upsampling before splitting would leak duplicated minority-class rows into the
-validation and test sets, inflating recall and F1. The pipeline splits first, then
-upsamples the training set to 1:1 balance. Validation and test sets keep the
-original ~4.2 % Sybil rate, so reported metrics reflect real-world conditions.
+Upsampling before splitting would put duplicated minority-class rows into validation and test,
+inflating recall and F1. The pipeline splits first, then upsamples the training partition to 1:1.
+
+**Why recompute the tree features?**
+The original precomputed file was built from the provision network without a date filter, with
+inputs outside this repository, and listed one wallet twice. `sybil_pipeline.provision_features`
+ports the same featurization, applies the snapshot cutoff, and runs from repository data;
+`00_data_pipeline` reports how the recomputed values compare with the original file.
+
+<a id="labeled-addresses"></a>**Labeled addresses.**
+A labeled address ends a funding chain, so it shapes the provider, chain and tree features of every
+wallet it funded. The set is built by one rule, applied to every address: (1) public label datasets,
+namely the 2024 consolidated label file without its 44 hand additions, plus Dune Spellbook's CEX,
+DEX and bridge lists; (2) an Etherscan check of every other address that funded at least 50
+LayerZero interactors, labeled when its public name tag identifies a shared service (exchange hot
+wallet, bridge or relayer, protocol contract, other named service). Exchange deposit addresses,
+personal ENS names and untagged addresses are not labeled. `review_support/etherscan_lookups.csv`
+records every lookup with its date and URL, so each row can be re-checked.
 
 **Why stream labeled addresses instead of loading all 9M?**
-The full set uses ~1.2 GB as a Python set. Only ~3,700 of the 202,899 unique
-gas provider addresses appear in the labeled file. The pipeline streams the file
-line-by-line and retains only those 3,700 entries, reducing memory to < 1 MB with
-no change in the computed features.
+The full set uses about 1.2 GB as a Python set. Only a few thousand of them appear in the provision
+network, so the pipeline streams the file and keeps those, with no change in the computed features.
 
-**Why does LightGBM need `subsample_freq=1`?**
-LightGBM's bagging is controlled by two parameters: `subsample` (the fraction) and
-`subsample_freq` (how often to apply it, in rounds). The default `subsample_freq=0`
-disables bagging entirely regardless of the `subsample` value. Setting
-`subsample_freq=1` applies bagging every round, which is the behavior XGBoost uses
-by default. Without this flag, `subsample=0.7` has no effect.
-
-**Why `reg_lambda=1` for LightGBM?**
-LightGBM defaults to `reg_lambda=0` (no L2 regularisation). XGBoost defaults to
-`reg_lambda=1`. The grid search found that adding `reg_lambda=1` to LightGBM
-improves AUROC by +0.001 and brings calibration in line with XGBoost. Omitting it
-matches the LightGBM baseline (AUROC 0.969); including it reaches the tuned result
-(AUROC 0.976).
+**LightGBM bagging.**
+`subsample_freq=1` must be set for `subsample < 1` to have any effect; the default of 0 disables
+bagging. `reg_lambda` defaults to 0 in LightGBM (1 in XGBoost); the search covers both values.
 
 ---
 
 ## Troubleshooting
 
-**`ModuleNotFoundError: No module named 'xgboost'`**
-```bash
-pip install xgboost lightgbm scikit-learn pyarrow
-```
+**`FileNotFoundError: results/05_hyperparameter_search_group.json`**
+Run `05_hyperparameter_search.ipynb` before 01, 02, and 04.
 
 **`FileNotFoundError` on data files**
-Check that `DATA_DIR` in the notebook config cell points to the folder containing
-all input files. File names must match exactly (case-sensitive on Linux/macOS).
+Run `git lfs pull`, and check that `DATA_DIR` points to the `data/` folder.
 
-**`KeyError` or `AssertionError: Missing features`**
-The quality-check cell in `00_data_pipeline.ipynb` will list which of the 63
-features are absent. This usually means a data file is missing or has different
-column names. Check that all 6 file groups are present.
+**`AssertionError` in `06_split_comparison`**
+A result was produced by code that differs from the current commit, or from a dirty working
+tree. Rerun the notebooks it names.
 
-**Memory error during labeled-address streaming**
-Do not load `20241214_labeled_addresses.csv` with `pd.read_csv`. The pipeline reads
-it line-by-line. If you see a memory error, ensure you are running the notebook
-cells in order — the streaming cell must run before any cell that references
-`labeled_anchors`.
-
-**LightGBM training never converges (runs all 5,000 rounds)**
-The default `learning_rate=0.1` with `num_leaves=31` (LightGBM defaults) produces
-very slow improvement that never triggers early stopping. The tuned parameters
-(`lr=0.05`, `num_leaves=511`) converge in ~340 rounds. If you are experimenting
-with different parameters, set `learning_rate ≥ 0.05` or increase
-`early_stopping_rounds` to 100+.
-
-**Results differ slightly from the benchmark table**
-Minor numeric differences are expected due to:
-- Dataset size: this pipeline builds 434,787 addresses vs the paper's 425,044
-  (a 2.3 % difference attributable to different source-data snapshots)
-- XGBoost/LightGBM version differences in default hyperparameters
-- The 3-seed ensemble reduces but does not eliminate random variance
+**Results differ from the paper's original numbers**
+The revision changes the evaluation (group split, validation-only selection, snapshot cutoff,
+duplicate removed, fixed thread count). `06_split_comparison` reports the random-split numbers
+under the same corrected pipeline for comparison.
 
 ---
 

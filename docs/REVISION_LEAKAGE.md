@@ -15,17 +15,17 @@ for the paper come from `06_split_comparison.ipynb` in the tagged final run (sec
 | A1 group split | R2 relational leakage | Code done | fd6411f | `sybil_pipeline.make_splits` asserts no group spans two partitions |
 | A2 group-overlap check | R2 relational leakage | Code done | fd6411f | `00` leakage cell; `06` leakage table |
 | A3 blend weight on test | R2 test isolation | Code done | fd6411f | `04` section 6 selects on validation F1 |
-| A4 search not in repo; tables on test | R1 search/validation; R2 test isolation | Code done; full search running | 82148f1 | `05_hyperparameter_search` (validation only; test deleted before fitting) |
+| A4 search not in repo; tables on test | R1 search/validation; R2 test isolation | Done: validation-only search, 74 XGBoost and 48 LightGBM configurations | ea602c6 | `05_hyperparameter_search` (validation only; test deleted before fitting) |
 | A5 feature selection | R1 | Code done. Authors: the 63 were chosen manually; `gini_coefficient` later removed by a pre-specified rule (C). Label-based EDA moved to the training partition | fd6411f | Methods text still needed |
-| A6 post-snapshot reference data | R1 temporal cutoff | Audited (findings E). One question to the authors: A12 | — | `README` data table gives each source's cutoff |
+| A6 post-snapshot reference data | R1 temporal cutoff | Audited (findings E). Labels: fixed rule, pre-snapshot vintage as sensitivity (`07`): test F1 −0.005 ± 0.007 | ea602c6 | `README` data table gives each source's cutoff; `07` |
 | A7 provision graph date filter | R1 temporal cutoff | Code done: cutoff enforced; tree features recomputed from filtered edges | b2904f4 | `00` steps 2 and 4 |
-| A8 both splits reported | R2 relational leakage | Code done; final run pending | d84263a | `06_split_comparison` |
+| A8 both splits reported | R2 relational leakage | Done: final run, both splits | ea602c6, 06dbd82 | `06_split_comparison` |
 | A9 descriptive figure on val+test | R1 | Not in repo: the figure is drawn outside these notebooks | — | Redraw on full data or train only |
 | A10 duplicate wallet row | New (row-level leakage) | Code done | b2904f4 | `00` quality check: 0 duplicates; build asserts uniqueness |
-| A11 model nondeterminism | New (R1 reproducibility) | Code done: XGBoost `n_jobs` pinned to 4 (b2904f4); LightGBM `force_col_wise` and `deterministic` (`sp.LGBM_REPRO`) | b2904f4, this commit | Findings E; `06` checks that 04's single models equal 01 and 02 |
-| A12 44 hand-added labeled addresses | New (possible label leakage) | Code done: hand step replaced by a two-step labeling rule (public lists, then an Etherscan check of every other funder of ≥ 50 interactors; 36 checked, 10 labeled). Pre-snapshot label vintage as sensitivity | 25ef316, b1594ce | `review_support/etherscan_lookups.csv`; `07`; findings E |
-| C `gini_coefficient` identically zero | R1 graph-feature formulas | Code done: formula corrected, then removed by the pre-specified rule (3 of 10 splits; 62 features) | b1594ce | `08_ablation_gini`; findings E |
-| B10 repo text | R2 test isolation | Notebook headers done (d84263a); README with final numbers | — | |
+| A11 model nondeterminism | New (R1 reproducibility) | Code done: XGBoost `n_jobs` pinned to 4 (b2904f4); LightGBM `force_col_wise` and `deterministic` (`sp.LGBM_REPRO`) | b2904f4, ea602c6 | Findings E; `06` checks that 04's single models equal 01 and 02 |
+| A12 44 hand-added labeled addresses | New (possible label leakage) | Code done: hand step replaced by a two-step labeling rule (public lists, then an Etherscan check of every other funder of ≥ 50 interactors; 36 checked, 10 labeled). Pre-snapshot label vintage as sensitivity | 25ef316, b1594ce, 91cfd02 | `review_support/etherscan_lookups.csv`; `07`; findings E |
+| C `gini_coefficient` identically zero | R1 graph-feature formulas | Code done: formula corrected, then removed by the pre-specified rule (3 of 10 splits; 62 features) | b1594ce, 91cfd02 | `08_ablation_gini`; findings E |
+| B10 repo text | R2 test isolation | Done: notebook headers, README benchmark and robustness tables from the final run | d84263a, this commit | `README.md` |
 
 ## A. Code and experiments
 
@@ -117,17 +117,17 @@ for the paper come from `06_split_comparison.ipynb` in the tagged final run (sec
   - Sec 4.4 disagreement count (649).
   - Conclusion (0.720 → 0.735, 0.723 → 0.739).
 - [ ] Table 5: IxI and IxE counts are swapped relative to the code. Add the "No provider" category (676 addresses).
-- [ ] Table 12: Sybil counts per category differ from the code (1,534/16,241/436 vs. 1,592/15,886/707+26).
-- [ ] Table 2 says `min_child_weight = 1`, while Sec 9 says mcw = 10. Pick one and match the code.
-- [ ] Feature importance: The code uses the last-trained seed (456), while the paper says seed 42. Average across seeds or state which one.
-- [ ] "Share only 2 of top-15" becomes 3 in the current code. Recheck after the rerun.
+- [ ] Table 12: Sybil counts per category from the final run (labeling rule): IxL 15,921; IxI 1,566; IxE 698; No provider 26 (paper: 16,241 / 1,534 / 436).
+- [ ] Table 2 says `min_child_weight = 1`, while Sec 9 says mcw = 10. The validation search selects 1 (mcw 10 is fourth); use the `05` configuration throughout.
+- [ ] Feature importance: fixed in 06dbd82. 01 reported XGBoost's average gain per split and 02 LightGBM's total gain, both from the last seed and labeled "Gini gain"; both now report total gain averaged over the three seeds. Proposed for the paper: SHAP on the test partition (`10`) in place of Tables 10 and 11 (ledger N13).
+- [ ] "Share only 2 of top-15": with the same measure for both models (total gain, mean of 3 seeds, group split), XGBoost and LightGBM share all 15 of their top-15 features. The low overlap in the submission came from comparing two different gain measures.
 - [ ] Dataset size: 434,786 addresses (18,211 Sybil; 416,575 non-Sybil) after removing the duplicated wallet (A10), not 434,787.
-- [ ] Table 5 percentages from the code: IxL 69.64 %, IxE 22.14 %, IxI 8.06 %, No provider 0.16 %. The paper's "IxL ≈ 71 %" and the IxI/IxE swap both change.
+- [ ] Table 5 from the final run (labeling rule): IxL 306,658 (70.53 %), IxE 93,061 (21.40 %), IxI 34,391 (7.91 %), No provider 676 (0.16 %). The IxI/IxE swap must be fixed.
 - [ ] `gini_coefficient` was identically 0 up to rounding (max |value| 9.9e-16 over all wallets): the original formula `(n-1)/n * (1 - sum(sorted(x)/sum(x)))` always gives (n-1)/n × 0. Table 11 ranked it with importance 125e-4, which was splitting on floating-point noise. **Fixed** (authors chose to fix, 2026-09-30): `sybil_pipeline._gini` computes the standard Gini coefficient of the non-root provision amounts in the tree, G = 2·Σ i·x₍ᵢ₎ / (n·Σx) − (n+1)/n, 0 for fewer than two amounts. After the fix it is nonzero for 20.4 % of wallets (IxI mean 0.358, IxE 0.347, IxL 0), and the **Sybil mean (0.051) is lower than the non-Sybil mean (0.108)**, the opposite of Sec 5.2's claim that a high Gini coefficient characterizes star-like Sybil funding. **Then removed** by the rule fixed in advance (findings E, 2026-10-01): removing it lowered validation F1 on 3 of 10 group splits, short of the 8 required. Manuscript: drop it from the feature list, Table 11 and Sec 5.2's sentence; the response letter explains the zero values, the correction and the test.
 - [ ] `total_gas` is the total ETH provisioned within the wallet's funding tree (from the tree featurization), not "cumulative ETH gas consumed by an address" as Sec 5.3.1 and Appendix A say. Fix the definitions; R1 asks for formulas of graph features, and `sybil_pipeline.provision_features` is the reference implementation.
 - [ ] The committed notebook outputs at 11366f4 gave LightGBM F1 0.7371 and LR AP 0.159, not the paper's 0.739 and 0.094. Superseded by the rerun, but the response letter should not quote the old values.
 - [ ] Tables 7 and 8 "baseline" rows (default parameters) and the "directed grid search over 15 configurations" have no code in the repo. Replace with the `05_hyperparameter_search` results (validation only, full grids).
-- [ ] Contribution 5 (cross-model ensemble): at the fd6411f checkpoint the validation-selected blend weight on the group split was 0.00, i.e. pure LightGBM. Confirm in the final run; if it holds, the ensemble claim must be dropped or restated.
+- [ ] Contribution 5 (cross-model ensemble): confirmed in the final run. Validation selects XGBoost weight 0.06 under both splits; on the group split the blend (F1 0.717) does not beat LightGBM alone (0.719). Restate (proposed text in ledger N12); the title names "Cross-Model Ensemble" (author decision).
 
 ## D. Response letter mapping
 
@@ -139,6 +139,7 @@ for the paper come from `06_split_comparison.ipynb` in the tagged final run (sec
 | R1: formulas for graph-based features | C (`gini_coefficient`, `total_gas`); `sybil_pipeline.provision_features` |
 | R1: precision/recall per category; FPR at operating threshold | `06` per-category and FPR tables |
 | R1: ablations of tuning choices | `05` marginal-effect table |
+| R1/R2: which features matter; graph features | `08` (Gini), `09` family ablation, `10` SHAP by category |
 | R2: relational leakage from random split | A1, A2, A8, A10, B5, B8, B9 |
 | R2: test isolation contradicted by manuscript and repo | A3, A4, B2, B3, B4, B6, B10 |
 
@@ -208,4 +209,17 @@ The corrected `gini_coefficient` is the only feature whose definition changed in
 - Fix: `sp.LGBM_REPRO = dict(force_col_wise=True, deterministic=True)` in every LightGBM model (02, 04, 05, 10, and `sp.lgbm_fit_eval` for 07 to 09). Two runs then give bit-identical test predictions, also with 2 threads instead of 4, at the same speed (about 50 s per fit).
 - `08` at 91cfd02 reproduced the b1594ce decision run exactly (all 10 splits). The whole batch is rerun from the fix commit; the 91cfd02 numbers are superseded.
 - `09` gains one report-only row, all three provision-network families removed together, because single-family removals of correlated families can understate what the network adds.
+
+**2026-10-01, final run.** Code commits: ea602c6 for 00, 03, 05, 07 to 10; 06dbd82 for 01, 02, 04 (operating-point and importance fixes, which change no metric); `06` passes every provenance and consistency check at 06dbd82.
+
+- Data (labeling rule): 434,786 addresses, 18,211 Sybil; 4,308 labeled addresses in the network; 371,764 funding groups (22,952 multi-wallet, largest 1,627). Taxonomy: IxL 306,658, IxE 93,061, IxI 34,391, No provider 676.
+- A2: random split, 599 of 5,463 test Sybils share a funding group with a training Sybil (19,884 of 130,436 test rows share a group with a training row); group split, 0.
+- Search (validation only): XGBoost lr 0.05, depth 8, subsample 0.7, colsample 1.0, mcw 1 (val F1 0.703); LightGBM 127 leaves, lr 0.05, subsample 0.7, λ 1 (val F1 0.707).
+- Test, group / random: XGBoost F1 0.720 / 0.741, AUROC 0.966 / 0.974, AP 0.764 / 0.798; LightGBM 0.719 / 0.742, 0.968 / 0.976, 0.770 / 0.802; ensemble 0.717 / 0.743; LR 0.241 / 0.234. The tree models lose 0.021 to 0.025 F1 and 0.033 AP under the group split; LR does not.
+- Per category (LightGBM F1, group / random): IxI 0.47 / 0.85, IxE 0.29 / 0.54, IxL 0.75 / 0.74. The leakage sits in the clustered categories.
+- Blend weight 0.06 (XGBoost) under both splits; disagreement at 0.5: 703 (group), 579 (random). In the nondeterministic 91cfd02 run the random-split weight was 0.58: the validation F1 curve is flat, so the weight is not a stable quantity.
+- Split noise: LightGBM test F1 over 10 group splits 0.713 ± 0.006 (`09`).
+- `07`: pre-snapshot labels (4,115 vs 4,308) change 10,575 wallets' features; test F1 −0.005 ± 0.007, validation F1 +0.009 ± 0.012 (opposite signs, both within split noise). Sybil share of wallets funded by CEX addresses by date added to the list: before the snapshot 5.30 % (264,646 wallets), between snapshot and Sybil list 2.40 % (1,082), after the Sybil list 0.92 % (1,086). Later labels do not concentrate Sybils.
+- `09` (test F1 change vs all 62 features): without LayerZero transactions −0.066, Ethereum transactions −0.012, gas provider −0.005 (lower on 9 of 10 splits), funding tree −0.001, funding chain −0.002; all three provision-network families together −0.008 (lower on 7 of 10; validation F1 lower on 3 of 10). Alone: LayerZero 0.672, Ethereum 0.625, gas provider 0.438, funding tree 0.101, funding chain 0.101 (AUROC 0.61).
+- `10` (mean |SHAP| summed by family, test partition): LayerZero transactions 4.88, Ethereum transactions 2.44, gas provider 0.84, funding tree 0.49, funding chain 0.04. Funding-tree features weigh more within IxI (1.35) and IxE (0.98) than IxL (0.25).
 
