@@ -230,3 +230,9 @@ The corrected `gini_coefficient` is the only feature whose definition changed in
 - Outside the scope (29 addresses), the two agree on all: 19 named on both, 10 on neither.
 - Caveat: some Blockscout tags come from shared public sources (for example the Open Labels Initiative), so agreement shows consistency between explorers, not fully independent confirmation.
 
+**2026-10-01, automated labeling rule as a robustness check (A12), @ cf244f3.** `review_support/build_blockscout_rule.py` and `sensitivity_blockscout_rule.ipynb`.
+
+- Alternative rule, fixed before the run: replace the Etherscan step with Blockscout's tag service for every funder of at least 2 addresses (13,992; 1,726 tagged), labeled when it carries a service category tag (Exchange, Hot Wallet, Bridge, DEX, Router, Fiat Gateway, Layer 2, Derivatives, Payments, OTC) and no Deposit Address tag. No interactor threshold, no human step. Public lists unchanged.
+- Why it is not the primary rule: Blockscout's category tags miss 6 of the 10 services the Etherscan step confirmed (Layerswap 1, Shakepay 6 and 7, Union Chain, Umbria Narni Bridge 2, DeGate), and its free-text name tags mix services, individuals and scam addresses, so a complete automated mapping would need hand classification of about 1,250 name tags.
+- Result: the labeled sets differ by 15 addresses (6 only primary, the ones above; 9 only automated: small exchange hot wallets and bridges funding 2 to 32 addresses, e.g. Chaineye Mini Bridge, changehero, ACE). 3,476 wallets' features change (54 Sybil). Automated minus primary over 10 group splits: test F1 −0.003 ± 0.010 (lower on 6 of 10), AP −0.005 ± 0.012, AUROC −0.002 ± 0.003, validation F1 +0.007 ± 0.012. Within split noise, the same pattern as the label-vintage check.
+
