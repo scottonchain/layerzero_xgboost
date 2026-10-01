@@ -26,6 +26,7 @@ dropped before any provider, chain, tree, or group feature is computed.
 import gc
 import json
 import os
+import re
 import subprocess
 import time
 from statistics import variance
@@ -68,9 +69,23 @@ FEATS = [
     'is_provider'
 ]
 
-# Labeled entity missing from the labeled-address file.
-EXTRA_LABELED = '0x9241f27daffd0bb1df4f2a022584dd6c77843e64'
 BURN_ADDRESS = '0x0000000000000000000000000000000000000000'
+
+# Labeling rule (docs/REVISION_LEAKAGE.md, A12):
+#   1. Public label datasets: the consolidated 2024 label file without its hand-added
+#      addresses, plus Dune Spellbook's CEX, DEX and bridge lists at pinned commits.
+#   2. Every other address that funded at least ETHERSCAN_MIN_FANOUT LayerZero interactors
+#      was looked up on Etherscan and labeled if tagged as a shared service.
+# 'presnapshot' uses only list entries known before the snapshot (sensitivity check).
+LABEL_VINTAGES = ('current', 'presnapshot')
+ETHERSCAN_MIN_FANOUT = 50
+SPELLBOOK = {
+    'current': ['cex_evms_addresses_current_9f61b0dd2.csv', 'dex_ethereum_addresses_current_d2ae74352.csv',
+                'bridges_ethereum_current_9f61b0dd2.csv'],
+    'presnapshot': ['cex_evms_addresses_presnapshot_839264841.csv', 'dex_ethereum_addresses_presnapshot_4eef8dc7e.csv',
+                    'bridges_ethereum_presnapshot_ad08fa0cc.csv'],
+}
+SNAPSHOT_DATE = '2024-05-01'
 
 
 def data_paths(data_dir='./data'):
@@ -82,6 +97,10 @@ def data_paths(data_dir='./data'):
         gas_prov=j(data_dir, '20241114_gas_provision',
                    '20241114_1633_layer0_provision_network_000000000000.csv'),
         labeled=j(data_dir, '20241214_labeled_addresses', '20241214_labeled_addresses.csv'),
+        labeled_readme=j(data_dir, '20241214_labeled_addresses', 'readme.txt'),
+        hildobby_2024=j(data_dir, '20241013_hildobby_cex_evms', 'All_Known_EVM_CEX_Addresses.2024-10-13.csv'),
+        spellbook_dir=j(data_dir, '20260128_dune_spellbook_labels'),
+        etherscan_services=j(data_dir, '20260930_etherscan_service_labels', 'service_labels.csv'),
         # Original precomputed provider/tree features; used only as a regression check.
         tree_precomputed=j(data_dir, '20241117_tree_features', '20241117_graph_and_tree_features.csv'),
         cex=[j(data_dir, '20250208_cex_dex_indegree', f'cex_dex_features_in_{s}.csv')
@@ -131,20 +150,39 @@ def provision_map(funding):
     return dict(zip(funding['activated_address'], funding['gas_provider']))
 
 
-def stream_labeled_anchors(path, candidates):
-    """Step 3a: labeled addresses among the candidates (streamed, never fully loaded).
+def hand_added_addresses(readme_path):
+    """Addresses the 2024 build script added by hand (labeled_addresses.add(...))."""
+    text = open(readme_path).read()
+    return {a.lower() for a in re.findall(r"labeled_addresses\.add\('(0x[0-9a-fA-F]{40})'", text)}
+
+
+def stream_labeled_anchors(paths, candidates, vintage='current'):
+    """Step 3a: labeled addresses among the candidates, by the labeling rule above.
 
     Pass every address in the provision network so the same set serves the
     provider flags, the chain walk, the funding groups, and the tree features.
+    The 9M-line consolidated file is streamed, never fully loaded.
     """
+    assert vintage in LABEL_VINTAGES, vintage
     candidates = frozenset(candidates)
+    drop = hand_added_addresses(paths['labeled_readme'])
+    if vintage == 'presnapshot':
+        h = pd.read_csv(paths['hildobby_2024'])
+        drop |= set(h.loc[h['added_date'] > SNAPSHOT_DATE, 'address'].str.lower())
     anchors = set()
-    with open(path) as f:
+    with open(paths['labeled']) as f:
         for line in f:
             a = line.strip()
-            if a and a in candidates:
+            if a and a in candidates and a not in drop:
                 anchors.add(a)
-    anchors.add(EXTRA_LABELED)
+    for fn in SPELLBOOK[vintage]:
+        s = pd.read_csv(os.path.join(paths['spellbook_dir'], fn), dtype=str).fillna('')
+        if vintage == 'presnapshot':
+            s = s[(s['added_date'] == '') | (s['added_date'] <= SNAPSHOT_DATE)]
+        anchors |= set(s['address']) & candidates
+    if vintage == 'current':
+        e = pd.read_csv(paths['etherscan_services'])
+        anchors |= set(e.loc[e['label'], 'address'].str.lower()) & candidates
     return anchors
 
 
@@ -411,7 +449,7 @@ def add_funding_group(df, tfm, anchors):
     return df
 
 
-def build_master_df(data_dir='./data', verbose=True):
+def build_master_df(data_dir='./data', verbose=True, label_vintage='current'):
     """Run steps 1-7 plus taxonomy and funding groups. Returns (df, tfm, anchors)."""
     p = data_paths(data_dir)
     log = print if verbose else (lambda *a, **k: None)
@@ -422,7 +460,7 @@ def build_master_df(data_dir='./data', verbose=True):
     tfm = provision_map(funding)
     log(f'[2] Gas provision: {len(tfm):,} edges before {SNAPSHOT_END} UTC '
         f'({funding.attrs["n_after_cutoff"]} later edges dropped)')
-    anchors = stream_labeled_anchors(p['labeled'], set(tfm) | set(tfm.values()))
+    anchors = stream_labeled_anchors(p, set(tfm) | set(tfm.values()), label_vintage)
     df = add_provider_flags(df, tfm, anchors)
     log(f'[3] Labeled addresses in provision network: {len(anchors):,}')
     df = merge_provision_features(df, provision_features(funding, set(df['addr']), anchors))
