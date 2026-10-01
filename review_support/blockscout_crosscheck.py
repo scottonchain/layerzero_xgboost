@@ -15,13 +15,20 @@ import urllib.request
 import pandas as pd
 
 API = 'https://eth.blockscout.com/api/v2/addresses/{}'
+META = 'https://metadata.services.blockscout.com/api/v1/metadata?addresses={}&chainId=1'
 OUT = 'review_support/blockscout_crosscheck.csv'
 
 
+def get(url):
+    with urllib.request.urlopen(url, timeout=30) as r:
+        return json.load(r)
+
+
 def lookup(address):
-    with urllib.request.urlopen(API.format(address), timeout=30) as r:
-        d = json.load(r)
-    tags = [t.get('name', '') for t in (d.get('metadata') or {}).get('tags', [])]
+    """Name and contract flag from the explorer API; entity tags from Blockscout's metadata service."""
+    d = get(API.format(address))
+    meta = {k.lower(): v for k, v in (get(META.format(address)).get('addresses') or {}).items()}
+    tags = [t.get('name', '') for t in (meta.get(address.lower()) or {}).get('tags', [])]
     tags += [t.get('display_name', '') for t in d.get('public_tags') or []]
     return dict(blockscout_name=d.get('name') or '', blockscout_tags='; '.join(t for t in tags if t),
                 blockscout_is_contract=bool(d.get('is_contract')))
