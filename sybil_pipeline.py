@@ -73,9 +73,9 @@ FEATS_SUBMITTED = [
     'earliest_tx_block_in','n_l0_project_per_source_chain','l0_to_eth_avg_stargate_swap',
     'is_provider'
 ]
-# gini_coefficient was identically zero in the submission. After the formula was corrected it was
-# kept only if removing it lowered validation F1 on >= 8 of 10 group splits (rule fixed in advance,
-# docs/REVISION_LEAKAGE.md). Removing it lowered F1 on 3 of 10 (08_ablation_gini), so the model uses 62.
+# gini_coefficient was identically zero in the submission. After the formula was corrected it was removed
+# by testing whether it lowered validation F1 on >= 8 of 10 group splits (rule fixed in advance,
+# docs/REVISION_LEAKAGE.md). Removing it lowered F1 on 3 of 10 (08_ablation_gini), and the  reported results do not include the feature.
 FEATS = [f for f in FEATS_SUBMITTED if f != 'gini_coefficient']
 
 BURN_ADDRESS = '0x0000000000000000000000000000000000000000'
@@ -500,6 +500,7 @@ def _random_partition(df, seed):
     return np.asarray(tr), np.asarray(va), np.asarray(te)
 
 
+# Group assignment similar to sklearn GroupKFold.  
 def _group_partition(df, seed):
     """Stratified group split with the same 49 / 21 / 30 targets.
 
@@ -512,7 +513,9 @@ def _group_partition(df, seed):
     rng = np.random.default_rng(seed)
     y = df['sybil'].to_numpy()
     n_cls = np.array([(y == 0).sum(), (y == 1).sum()])
-    target = np.outer(fracs, n_cls).astype(float)         # [partition, class]
+    
+    # 3x2 matrix with target number of sybils and nonsybils for each partition
+    target = np.outer(fracs, n_cls).astype(float)         
     quota = target.copy()
 
     g = df.groupby('provision_tree', sort=False)['sybil'].agg(['size', 'sum'])
@@ -520,13 +523,18 @@ def _group_partition(df, seed):
     order = rng.permutation(len(multi))
     multi = multi.iloc[order].sort_values('size', ascending=False, kind='stable')
     part_of_tree = {}
+    
     for grp, (size, n_syb) in zip(multi.index, multi[['size', 'sum']].to_numpy()):
         mix = np.array([size - n_syb, n_syb]) / n_cls
+
+        # select the partition the provision tree fits most closely (index 0-2).
         p = int(np.argmax((quota / target) @ mix))
         quota[p] -= (size - n_syb, n_syb)
         part_of_tree[grp] = p
 
     part = np.array(df['provision_tree'].map(part_of_tree), dtype=float)
+
+    # allocate singleton addresses to partitions to complete the target count
     single = np.isnan(part)
     for c in (0, 1):
         idx = np.flatnonzero(single & (y == c))
