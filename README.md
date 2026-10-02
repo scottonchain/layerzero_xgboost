@@ -26,12 +26,12 @@ non-Sybils at the model's threshold.
   XGBoost, LightGBM and the ensemble are smaller than that.
 - **Ensemble.** The validation-selected XGBoost weight is 0.06; the ensemble is essentially LightGBM.
 
-### Leakage in the original evaluation (not a benchmark result)
+### Note on leakage with simple random split
 
-The original paper split addresses at random. Wallets from one funding cluster then fall on both
-sides of the split, and the model is partly scored on clusters it saw in training: 599 of 5,463 test
-Sybils share a funding cluster with a training Sybil under the random split, none under the group
-split. Same models and hyperparameters, test F1 under each protocol:
+If a simple random split is used, rather than a stratified group split, wallets from a funding tree can fall on both
+sides of the split.  This causes leakage where the model is tested on the same actors it saw in training: In a sample random split, 599 of 5,463 test
+Sybils share a funding cluster with a training Sybil.  This cannot occur under the group
+split. This shows the leakage in the event of a simple random split:
 
 | Model | Random split (original, leaky) | Group split | Δ F1 |
 |---|---|---|---|
