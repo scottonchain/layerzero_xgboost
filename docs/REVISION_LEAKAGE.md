@@ -26,7 +26,7 @@ for the paper come from `10_tie_out.ipynb` (and `11_split_comparison.ipynb` for 
 | A6 post-snapshot reference data | R1 temporal cutoff | Audited (findings E). Labels: fixed rule, pre-snapshot vintage as sensitivity (`07`): test F1 −0.005 ± 0.007 | ea602c6 | `README` data table gives each source's cutoff; `07` |
 | A7 provision graph date filter | R1 temporal cutoff | Code done: cutoff enforced; tree features recomputed from filtered edges | b2904f4 | `00` steps 2 and 4 |
 | A8 both splits reported | R2 relational leakage | Done: final run, both splits | ea602c6, 06dbd82 | `11_split_comparison` |
-| A9 descriptive figure on val+test | R1 | Not in repo: the figure is drawn outside these notebooks | — | Redraw on full data or train only |
+| A9 descriptive figure on val+test | R1 | Done: `12_figures` redraws it on all IxI and IxE addresses (34,391 and 93,061) | this PR | `figures/non_interacting_dist_from_root.png` |
 | A10 duplicate wallet row | New (row-level leakage) | Code done | b2904f4 | `00` quality check: 0 duplicates; build asserts uniqueness |
 | A11 model nondeterminism | New (R1 reproducibility) | Code done: XGBoost `n_jobs` pinned to 4 (b2904f4); LightGBM `force_col_wise` and `deterministic` (`sp.LGBM_REPRO`) | b2904f4, ea602c6 | Findings E; `10` checks that `06`'s single models equal `03` and `04` |
 | A12 44 hand-added labeled addresses | New (possible label leakage) | Code done: hand step replaced by a two-step labeling rule (public lists, then an Etherscan check of every other funder of ≥ 50 interactors; 36 checked, 10 labeled). Pre-snapshot label vintage as sensitivity | 25ef316, b1594ce, 91cfd02 | `data/20260930_etherscan_service_labels/etherscan_lookups.csv`; `07`; findings E |
@@ -73,7 +73,7 @@ for the paper come from `10_tie_out.ipynb` (and `11_split_comparison.ipynb` for 
 - [ ] **A8. Report both splits.**
   - Fix: Report random-split and group-split results side by side. A temporal split (train on wallets funded earlier, test on later) is optional but strong.
   - Done when: A new table exists, with discussion of the gap between splits.
-- [ ] **A9. Descriptive figure drawn on val+test.**
+- [x] **A9. Descriptive figure drawn on val+test.** Redrawn on all addresses by `12_figures`.
   - Where: `non_interacting_dist_from_root` figure (caption says combined val+test).
   - Fix: Redraw on the full dataset (it is descriptive and uses no labels), or on train only.
 
