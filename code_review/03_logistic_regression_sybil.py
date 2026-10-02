@@ -1,11 +1,12 @@
 # %% [markdown]
 # # Logistic Regression Sybil Detector — LayerZero
 #
-# Baseline linear classifier. Matches the paper's LR configuration.
+# Baseline linear classifier (the paper's LR configuration; not tuned).
 #
 # **Configuration**: `C=0.01`, L1 regularisation, `liblinear` solver, `StandardScaler`
 #
-# **Expected results**: F1 ≈ 0.235, AUROC ≈ 0.834
+# **Results**: test metrics are printed in section 6 and saved to
+# `results/03_logistic_regression_<split>.json`.
 #
 # > LR serves as a lower bound confirming that the Sybil decision boundary is non-linear. The high AUROC relative to F1 reflects that the model ranks addresses well but cannot separate them sharply at any single threshold.
 
@@ -21,191 +22,51 @@ import os, time, warnings, gc
 import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
-from sklearn.model_selection import train_test_split
 from sklearn.metrics import (
     precision_recall_curve, roc_curve, auc,
     f1_score, precision_score, recall_score,
     confusion_matrix, classification_report,
     brier_score_loss, average_precision_score
 )
-from sklearn.utils import resample
+
+import sybil_pipeline as sp
 
 warnings.filterwarnings('ignore')
-SEED = 42
+SEED = sp.SEED
 
 # %%
 # ── Set this to the folder containing all data files ──────────
 DATA_DIR = './data'   # <-- adjust if needed
 
-# File paths
-L0_FILES = [os.path.join(DATA_DIR, f'20241104_layer0_sybil_features', f'l0_features_{s}.csv')
-            for s in ['0_100000','100000_200000','200000_300000',
-                      '300000_400000','400000_500000']]
-GAS_PROV_FILE  = os.path.join(DATA_DIR, f'20241114_gas_provision', f'20241114_1633_layer0_provision_network_000000000000.csv')
-LABELED_FILE   = os.path.join(DATA_DIR, f'20241214_labeled_addresses',f'20241214_labeled_addresses.csv')
-TREE_FEAT_FILE = os.path.join(DATA_DIR, f'20241117_tree_features', f'20241117_graph_and_tree_features.csv')
-CEX_FILES      = [os.path.join(DATA_DIR, f'20250208_cex_dex_indegree', f'cex_dex_features_in_{s}.csv')
-                  for s in [0, 100000, 200000, 300000, 400000]]
-SYBIL_FILE     = os.path.join(DATA_DIR, f'20240915_final_sybil_list', f'fcfs_list.csv')
+# 'group'  = stratified group split by funding cluster (revision default)
+# 'random' = address-level split used in the original paper
+SPLIT_METHOD = os.environ.get('SPLIT_METHOD', 'group')
 
-# 63 selected features
-FEATS = [
-    'min_tx_value_out','gini_coefficient','cex_in_count',
-    'leaf_gas_distribution_entropy','star_like_ratio','provider_is_star_like_attack',
-    'leaf_gas_distribution_skewness','interactors_in_chain','provider_is_labeled',
-    'provider_is_interactor','l0_to_eth_avg_native_drop_usd','l0_to_eth_max_native_drop_usd',
-    'balance_factor','l0_tx_time_span','latest_l0_tx_time','time_span_in',
-    'provider_total_gas_provision_amount','l0_avg_stargate_swap','avg_depth','breadth_factor',
-    'indegree_per_block_in','gas_distribution_skewness','tree_size','l0_min_stargate_swap',
-    'provider_max_gas_provision_amount','total_gas','num_transactions_in','branching_factor',
-    'l0_to_eth_tx_time_span','n_l0_to_eth_source_contracts','n_l0_to_eth_projects',
-    'provider_is_null','max_depth','leaf_provision_proportion',
-    'n_l0_to_eth_project_per_source_chain','n_l0_to_eth_txs','earliest_l0_tx_time',
-    'n_l0_projects','n_l0_to_eth_dest_contracts','provider_fan_out',
-    'l0_to_eth_min_stargate_swap','n_l0_source_chains','longest_chain_ratio',
-    'n_eth_interactions','provider_avg_gas_provision_amount','gas_distribution_entropy',
-    'sparsity','max_tx_value_out','n_l0_source_contracts','gas_provision_block_number',
-    'min_tx_value_in','tx_value_per_block_out','chain_length',
-    'provider_min_gas_provision_amount','n_l0_to_eth_source_chains','depth',
-    'l0_to_eth_max_stargate_swap','breadth_to_depth_ratio','leaf_to_internal_ratio',
-    'earliest_tx_block_in','n_l0_project_per_source_chain','l0_to_eth_avg_stargate_swap',
-    'is_provider'
-]
-print(f'DATA_DIR : {DATA_DIR}')
-print(f'Features : {len(FEATS)}')
+FEATS = sp.FEATS   # 62 model features (defined in sybil_pipeline.py)
+print(f'Split method: {SPLIT_METHOD}  |  {len(FEATS)} features')
 
 # %% [markdown]
 # ## 2. Data Loading
 
 # %%
-# ── Step 1: Load L0 base features ─────────────────────────────
-t0 = time.time()
-chunks = []
-for path in L0_FILES:
-    c = pd.read_csv(path, na_values=['null', 'NULL'])
-    c.columns = c.columns.str.lower()
-    chunks.append(c)
-df = pd.concat(chunks, ignore_index=True); del chunks; gc.collect()
-
-df = df[df['addr'] != '0x0000000000000000000000000000000000000000']
-df.drop(columns=['in_degree', 'out_degree', 'rank'], inplace=True, errors='ignore')
-keep = ~df.drop(columns='addr').isnull().all(axis=1)
-df = df[keep].drop_duplicates(subset='addr', keep='first').reset_index(drop=True)
-print(f'[1] L0 features: {len(df):,} addresses, {len(df.columns)} cols  ({time.time()-t0:.1f}s)')
-
-# ── Step 2: Gas provision mapping ─────────────────────────────
-t0 = time.time()
-gp = pd.read_csv(GAS_PROV_FILE, usecols=['activated_address', 'gas_provider'],
-                 na_values=['', 'null'])
-gp.columns = gp.columns.str.lower()
-vm = gp['gas_provider'].notna()
-tfm = dict(zip(gp.loc[vm, 'activated_address'], gp.loc[vm, 'gas_provider']))
-pset = set(tfm.values())
-del gp; gc.collect()
-print(f'[2] Gas provision: {len(tfm):,} mappings  ({time.time()-t0:.1f}s)')
-
-# ── Step 3: Labeled anchors (memory-efficient streaming) ───────
-# Only checks gas provider addresses against the 9M labeled set,
-# avoiding loading the full 9M into memory simultaneously.
-t0 = time.time()
-unique_providers = frozenset(pset)
-labeled_anchors = set()
-with open(LABELED_FILE) as f:
-    for line in f:
-        a = line.strip()
-        if a and a in unique_providers:
-            labeled_anchors.add(a)
-labeled_anchors.add('0x9241f27daffd0bb1df4f2a022584dd6c77843e64')
-
-iset = set(df['addr'])
-df['_gp'] = df['addr'].map(tfm)
-df['provider_is_labeled']    = df['_gp'].isin(labeled_anchors)
-df['provider_is_interactor'] = df['_gp'].apply(lambda g: (g in iset) if pd.notna(g) else False)
-df['provider_is_null']       = df['_gp'].isna()
-df.drop(columns='_gp', inplace=True)
-print(f'[3] Labeled anchors: {len(labeled_anchors):,}  ({time.time()-t0:.1f}s)')
-
-# ── Step 4: Tree / topology features ──────────────────────────
-t0 = time.time()
-tree = pd.read_csv(TREE_FEAT_FILE, na_values=['', 'null'])
-tree.columns = tree.columns.str.lower()
-tree.drop(columns='provider_is_labeled', inplace=True)   # recomputed above
-df = df.merge(tree, on='addr', how='left').fillna(0)
-del tree; gc.collect()
-print(f'[4] Tree features merged: {len(df):,} rows, {len(df.columns)} cols  ({time.time()-t0:.1f}s)')
-
-# ── Step 5: CEX / DEX in-degree ───────────────────────────────
-t0 = time.time()
-cex = pd.concat([pd.read_csv(p) for p in CEX_FILES], ignore_index=True)
-cex.columns = cex.columns.str.lower()
-cex = cex.drop_duplicates(subset='to_address', keep='first')
-df  = df.merge(cex, left_on='addr', right_on='to_address', how='left')
-df.drop(columns='to_address', inplace=True, errors='ignore')
-df.columns = df.columns.str.lower()
-df = df.fillna(0)
-del cex; gc.collect()
-print(f'[5] CEX/DEX merged: {len(df):,} rows, {len(df.columns)} cols  ({time.time()-t0:.1f}s)')
-
-# ── Step 6: Sybil labels + is_provider ────────────────────────
-t0 = time.time()
-sybil_df = pd.read_csv(SYBIL_FILE)
-sybil_df.columns = sybil_df.columns.str.lower().str.strip()
-sybil_set = set(sybil_df['address'].str.lower())
-df['sybil']       = df['addr'].isin(sybil_set).astype(int)
-df['is_provider'] = df['addr'].isin(pset).astype(int)
-print(f'[6] Labels: Sybil={df.sybil.sum():,} ({df.sybil.mean()*100:.2f}%)  ({time.time()-t0:.1f}s)')
-
-# ── Step 7: Chain traversal ────────────────────────────────────
-t0 = time.time()
-clen, icnt = [], []
-for addr in df['addr']:
-    length, interactors, cur, visited = 0, 0, addr, set()
-    while True:
-        if cur in visited: break
-        visited.add(cur)
-        if cur in iset: interactors += 1
-        if cur not in tfm: break
-        prv = tfm[cur]
-        if prv == cur: break
-        length += 1
-        if prv in labeled_anchors: break
-        cur = prv
-    clen.append(length); icnt.append(interactors)
-df['chain_length']        = clen
-df['interactors_in_chain'] = icnt
-print(f'[7] Chain features: mean={np.mean(clen):.2f}, max={max(clen)}  ({time.time()-t0:.1f}s)')
-
-# Feature check
-missing = [f for f in FEATS if f not in df.columns]
-assert not missing, f'Missing features: {missing}'
-print(f'All {len(FEATS)} features present ✓')
+# ── Build the master feature table (steps 1-7; see 00_data_pipeline) ──
+df, tfm, labeled_anchors = sp.build_master_df(DATA_DIR)
 
 # %% [markdown]
 # ## 3. Train / Validation / Test Split
 
 # %%
 # ── Train / Val / Test split + minority upsampling ────────────
-X = df[FEATS].astype(np.float32)
-y = df['sybil'].astype(int)
+# 49 / 21 / 30 partitions. With SPLIT_METHOD='group', no funding group
+# spans two partitions (asserted inside sp.make_splits).
+S = sp.make_splits(df, FEATS, method=SPLIT_METHOD, seed=SEED)
+X_train, y_train = S['X_train'], S['y_train']
+X_val,   y_val   = S['X_val'],   S['y_val']
+X_test,  y_test  = S['X_test'],  S['y_test']
 
-# 70/21/30 split — mirrors the paper's partitioning
-X_tr0, X_test, y_tr0, y_test = train_test_split(X, y, test_size=0.30,
-                                                  random_state=SEED, stratify=y)
-X_tr1, X_val,  y_tr1, y_val  = train_test_split(X_tr0, y_tr0, test_size=0.30,
-                                                  random_state=SEED, stratify=y_tr0)
-
-# Upsample Sybil class to 1:1 in training set only
-tr = pd.concat([X_tr1, y_tr1.rename('sybil')], axis=1)
-maj = tr[tr['sybil'] == 0]
-mn  = tr[tr['sybil'] == 1]
-mn_up = resample(mn, replace=True, n_samples=len(maj), random_state=SEED)
-bal = pd.concat([maj, mn_up]).sample(frac=1, random_state=SEED)
-X_train = bal.drop(columns='sybil').astype(np.float32)
-y_train = bal['sybil']
-
-print(f'Train (balanced) : {len(X_train):,}  ({y_train.mean()*100:.1f}% Sybil)')
-print(f'Validation       : {len(X_val):,}   ({y_val.mean()*100:.2f}% Sybil)')
-print(f'Test             : {len(X_test):,}  ({y_test.mean()*100:.2f}% Sybil)')
+print(sp.split_summary(df, S).to_string(index=False))
+print(f'Train after upsampling: {len(X_train):,} rows ({y_train.mean()*100:.1f}% Sybil)\n')
+leak = sp.leakage_report(df, S)
 
 
 # %% [markdown]
@@ -275,7 +136,7 @@ from sklearn.pipeline import Pipeline
 # LR is a linear model trained on the same balanced, upsampled data.
 # StandardScaler is mandatory: gradient-based solvers are scale-sensitive.
 # C=0.01 (strong L1 regularisation) induces sparsity; only ~20-30 of
-# the 63 features receive non-zero weights, improving interpretability.
+# the features receive non-zero weights, improving interpretability.
 LR_PARAMS = dict(
     C          = 0.01,
     penalty    = 'l1',
@@ -330,9 +191,26 @@ plt.tight_layout(); plt.show()
 # %% [markdown]
 # ## Note on LR performance
 #
-# Logistic Regression achieves AUROC ≈ 0.834 and F1 ≈ 0.235 — substantially lower than
-# the gradient-boosted models. This confirms the Sybil decision boundary is **non-linear**:
+# Logistic Regression scores well below the gradient-boosted models on F1 (see section 6 and
+# `06_split_comparison`), although its AUROC is moderate. This confirms the Sybil decision boundary is **non-linear**:
 # the behavioral signals (timing, gas topology, cross-chain breadth) interact in ways
 # that a linear classifier cannot fully capture.
 #
 # LR is included as a baseline, not a practical deployment choice for this task.
+
+# %% [markdown]
+# ## Save Results
+#
+# Scalar metrics go to `results/<notebook>_<split>.json` with the code commit, so every number in the paper can be traced to one run.
+
+# %%
+sp.save_results([lr_results], '03_logistic_regression', SPLIT_METHOD, leakage=leak,
+                extra=dict(params={k: v for k, v in LR_PARAMS.items()}))
+
+# ── Test predictions (read by 06_split_comparison for per-category metrics) ──
+os.makedirs('output', exist_ok=True)
+pred = pd.DataFrame({'addr': df.loc[S['idx_test'], 'addr'].to_numpy(),
+                     'category': df.loc[S['idx_test'], 'category'].to_numpy(),
+                     'y': y_test.to_numpy(), 'prob_lr': lr_test_probs})
+pred.to_parquet(f'output/pred_03_logistic_regression_{SPLIT_METHOD}.parquet', index=False)
+print(f'Saved output/pred_03_logistic_regression_{SPLIT_METHOD}.parquet ({len(pred):,} rows)')
