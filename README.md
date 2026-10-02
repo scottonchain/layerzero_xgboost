@@ -2,7 +2,7 @@
 
 > Reproduces and extends: *Sybil Detection on Public Blockchains via XGBoost and Gas Provision Network Analysis* (Imig et al., 2025)
 
-Trains three classifiers (XGBoost, LightGBM, Logistic Regression) and a cross-model ensemble on 434,786 Ethereum addresses to identify Sybil wallets in the LayerZero airdrop of June 2024. Every number below is produced by a notebook in this repository; `06_split_comparison.ipynb` checks that each one traces to the code in the current commit.
+Trains three classifiers (XGBoost, LightGBM, Logistic Regression) and a cross-model ensemble on 434,786 Ethereum addresses to identify Sybil wallets in the LayerZero airdrop of June 2024. Every number below is produced by a notebook in this repository; `11_split_comparison.ipynb` checks that each one traces to the code in the current commit.
 
 ---
 
