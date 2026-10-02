@@ -42,7 +42,7 @@ split. This shows the leakage in the event of a simple random split (`11_split_c
 
 XGBoost and LightGBM lose similar Average Precision; the cross-ensemble tracks LightGBM closely. Logistic regression has low performance and is included for completeness. The loss sits in the interactor categories where they would be expected in the event of leakage, e.g. LightGBM F1: IxI 0.85 to 0.47, IxE 0.54 to 0.29.
 
-### Robustness checks (group split, 10 splits)
+### Robustness checks (group split; 10 splits, SHAP on one)
 
 | Check | Notebook | Result |
 |---|---|---|
@@ -84,15 +84,15 @@ The open work items for the current revision are in [`docs/REVISION_LEAKAGE.md`]
 layerzero_xgboost/
 │
 ├── data/                                   ← Git LFS; run `git lfs pull` after cloning
-│   ├── 20240915_final_sybil_list/          fcfs_list.csv (ground-truth labels)
-│   ├── 20241013_hildobby_cex_evms/         CEX address list (source for the labeled list)
-│   ├── 20241104_layer0_sybil_features/     l0_features_*.csv (×5) + source query
-│   ├── 20241114_gas_provision/             gas provision network + source query
-│   ├── 20241117_tree_features/             original precomputed tree features + featurization notebook
-│   ├── 20241214_labeled_addresses/         labeled entity addresses (2024) + build script
-│   ├── 20250208_cex_dex_indegree/          cex_dex_features_in_*.csv (×5) + source query
-│   ├── 20260128_dune_spellbook_labels/     Dune Spellbook CEX, DEX and bridge lists (pinned commits)
-│   └── 20260930_etherscan_service_labels/  Etherscan check of funders of 50+ interactors
+│   ├── 20240915_final_sybil_list/          ← fcfs_list.csv (ground-truth labels)
+│   ├── 20241013_hildobby_cex_evms/         ← CEX address list (source for the labeled list)
+│   ├── 20241104_layer0_sybil_features/     ← l0_features_*.csv (×5) + source query
+│   ├── 20241114_gas_provision/             ← gas provision network + source query
+│   ├── 20241117_tree_features/             ← original precomputed tree features + featurization notebook
+│   ├── 20241214_labeled_addresses/         ← labeled entity addresses (2024) + build script
+│   ├── 20250208_cex_dex_indegree/          ← cex_dex_features_in_*.csv (×5) + source query
+│   ├── 20260128_dune_spellbook_labels/     ← Dune Spellbook CEX, DEX and bridge lists (pinned commits)
+│   └── 20260930_etherscan_service_labels/  ← Etherscan check of funders of 50+ interactors
 │
 ├── output/                                 ← created on first run (gitignored)
 │   ├── master_df.parquet                   ← full feature table (434,786 rows, all computed features + labels)
@@ -101,6 +101,10 @@ layerzero_xgboost/
 │   └── pred_*.parquet                      ← validation and test predictions from 03–06
 │
 ├── results/                                ← metrics per notebook, with the code commit
+├── review_support/                         ← labeled-address evidence: hand additions, Etherscan and Blockscout lookups
+├── docs/REVISION_LEAKAGE.md                ← revision work items and findings log
+├── code_review/                            ← plain-Python copies of the notebooks, for review only
+├── legacy/                                 ← original 2025 notebook (Windows paths; reference only)
 │
 ├── sybil_pipeline.py                       ← shared code: features, gas provision trees, splits, training, metrics
 ├── 00_data_pipeline.ipynb                  ← builds the feature table; leakage check
@@ -115,10 +119,6 @@ layerzero_xgboost/
 ├── 09_shap_importance.ipynb                ← SHAP importance by family and taxonomy category
 ├── 10_tie_out.ipynb                        ← provenance checks and every reported number
 ├── 11_split_comparison.ipynb               ← leakage under the original random split (not a reported result)
-├── review_support/                         ← labeled-address evidence: hand additions, Etherscan and Blockscout lookups
-├── code_review/                            ← plain-Python copies of the notebooks, for review only
-├── docs/REVISION_LEAKAGE.md                ← revision work items and findings log
-├── legacy/                                 ← original 2025 notebook (Windows paths; reference only)
 ├── requirements.txt
 └── README.md
 ```
