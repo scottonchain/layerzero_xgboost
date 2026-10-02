@@ -1,0 +1,13 @@
+# Versions used to regenerate the revision results. Model libraries are pinned
+# because default hyperparameters change between releases.
+xgboost==3.2.0
+lightgbm==4.6.0
+scikit-learn==1.8.0
+pandas==3.0.6
+numpy==2.4.6
+scipy==1.17.1
+matplotlib==3.11.2
+pyarrow==25.0.1
+shap==0.51.0
+jupyterlab
+nbconvert

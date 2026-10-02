@@ -1,0 +1,59 @@
+{
+  "notebook": "00_data_pipeline",
+  "code_commit": "21adb3c",
+  "leakage": {
+    "method": "group",
+    "test_rows": 130435,
+    "test_sybils": 5463,
+    "test_rows_sharing_tree_with_train": 0,
+    "test_sybils_sharing_tree_with_train_sybil": 0
+  },
+  "models": [],
+  "n_addresses": 434786,
+  "n_sybil": 18211,
+  "provision_edges_after_cutoff": 296,
+  "categories": {
+    "IxE": {
+      "n": 93061,
+      "sybil": 698
+    },
+    "IxI": {
+      "n": 34391,
+      "sybil": 1566
+    },
+    "IxL": {
+      "n": 306658,
+      "sybil": 15921
+    },
+    "No provider": {
+      "n": 676,
+      "sybil": 26
+    }
+  },
+  "splits": {
+    "Train": {
+      "Total": 213046,
+      "Sybil": 8924,
+      "NonSybil": 204122,
+      "SybilPct": 4.19
+    },
+    "Validation": {
+      "Total": 91305,
+      "Sybil": 3824,
+      "NonSybil": 87481,
+      "SybilPct": 4.19
+    },
+    "Test": {
+      "Total": 130435,
+      "Sybil": 5463,
+      "NonSybil": 124972,
+      "SybilPct": 4.19
+    }
+  },
+  "provision_trees": {
+    "n": 371764,
+    "multi_wallet": 22952,
+    "largest": 1627,
+    "sybils_in_multi": 2322
+  }
+}

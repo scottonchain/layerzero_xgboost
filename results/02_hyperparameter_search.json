@@ -1,0 +1,34 @@
+{
+  "notebook": "02_hyperparameter_search",
+  "code_commit": "21adb3c",
+  "leakage": null,
+  "models": [],
+  "selection": "max validation F1 at validation-optimal threshold; ties by validation AP; seed 42",
+  "xgb_selected": {
+    "learning_rate": 0.05,
+    "max_depth": 8,
+    "subsample": 0.7,
+    "colsample_bytree": 1.0,
+    "min_child_weight": 1
+  },
+  "lgbm_selected": {
+    "num_leaves": 127,
+    "learning_rate": 0.05,
+    "subsample": 0.7,
+    "reg_lambda": 1.0
+  },
+  "xgb_selected_val": {
+    "val_f1": 0.7031573498964804,
+    "val_ap": 0.7552013609146753,
+    "rounds": 1679
+  },
+  "lgbm_selected_val": {
+    "val_f1": 0.7067422810333963,
+    "val_ap": 0.7599885342460364,
+    "rounds": 1277
+  },
+  "n_configs": {
+    "xgboost": 74,
+    "lightgbm": 48
+  }
+}
