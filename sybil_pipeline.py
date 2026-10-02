@@ -915,6 +915,7 @@ def load_predictions(notebook, part):
 
 SPLIT_SEEDS = [42, 1, 2, 3, 4, 5, 6, 7, 8, 9]   # 10 group splits
 
+# Used to evaluate the impact of features by categories (07-09)
 FEATURE_FAMILIES = {
     'LayerZero transactions': [
         'l0_tx_time_span', 'latest_l0_tx_time', 'earliest_l0_tx_time', 'l0_avg_stargate_swap',
