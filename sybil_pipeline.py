@@ -714,7 +714,7 @@ def provenance(notebooks, results_dir='results'):
         files_same = (not commit.endswith('-dirty')) and git(
             'diff', '--quiet', commit, 'HEAD', '--', 'sybil_pipeline.py', 'requirements.txt', 'data').returncode == 0
         deps = [nb] + (['02_hyperparameter_search'] if nb in USES_SEARCH else []) + list(USES_PREDICTIONS.get(nb, ()))
-        code_same = all(code_cells(commit, f'{d}.ipynb') == code_cells(None, f'{d}.ipynb') for d in deps)
+        code_same = all(code_cells(commit, f'{d}.ipynb') == code_cells('HEAD', f'{d}.ipynb') for d in deps)
         rows.append(dict(notebook=nb, commit=commit, dependencies_unchanged=files_same and code_same))
     return pd.DataFrame(rows)
 
