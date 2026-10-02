@@ -13,6 +13,7 @@ except through the generated `data/20260930_etherscan_service_labels/service_lab
 | `etherscan_lookups.csv` | Every Etherscan lookup with its date, tag and the rule's decision (columns in `data/20260930_etherscan_service_labels/readme.md`) |
 | `blockscout_crosscheck.py`, `blockscout_crosscheck.csv` | The same 65 addresses on a second explorer (Blockscout API and its tag service), read 2026-10-01; a check only, no label depends on it |
 | `build_blockscout_rule.py`, `blockscout_tags.csv`, `blockscout_rule.csv` | Automated alternative to the Etherscan step: Blockscout tags for every funder of 2+ addresses, labeled by a fixed list of service categories |
+| `build_2024_only_evidence.py`, `labels_2024_only_evidence.csv` | The 32 addresses labeled only by the 2024 labeled-address file (not by Spellbook or the Etherscan step) that funded 50+ interactors, with their Blockscout name, entity tags and contract flag; a record only, no label depends on it |
 | `sensitivity_blockscout_rule.ipynb`, `review_blockscout_rule_group.json` | Primary vs automated labels, LightGBM on 10 group splits: test F1 −0.003 ± 0.010 |
 
 The labeling rule and its results are in `docs/REVISION_LEAKAGE.md`, findings for 2026-09-30 and 2026-10-01.
