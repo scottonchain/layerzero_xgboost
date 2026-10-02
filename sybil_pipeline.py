@@ -6,7 +6,8 @@ from here so that the split is defined in one place.
 
 Split methods
 -------------
-'random' : address-level stratified split. Reproduces the original paper.
+'random' : address-level stratified split: the original paper's procedure and seed
+           (the corrected table has one row fewer, so the partitions are not identical).
 'group'  : stratified group split. No gas provision tree spans two partitions.
 
 Gas provision tree (the key for the 'group' split)
@@ -73,15 +74,16 @@ FEATS_SUBMITTED = [
     'earliest_tx_block_in','n_l0_project_per_source_chain','l0_to_eth_avg_stargate_swap',
     'is_provider'
 ]
-# gini_coefficient was identically zero in the submission. After the formula was corrected it was removed
-# by testing whether it lowered validation F1 on >= 8 of 10 group splits (rule fixed in advance,
-# docs/REVISION_LEAKAGE.md). Removing it lowered F1 on 3 of 10 (01_ablation_gini), and the  reported results do not include the feature.
+# gini_coefficient was identically zero in the submission. After the formula was corrected, it was to be
+# kept only if removing it lowered validation F1 on >= 8 of 10 group splits (rule fixed in advance,
+# docs/REVISION_LEAKAGE.md). Removing it lowered F1 on 3 of 10 (01_ablation_gini), so it was removed and the
+# reported results do not include the feature.
 FEATS = [f for f in FEATS_SUBMITTED if f != 'gini_coefficient']
 
 BURN_ADDRESS = '0x0000000000000000000000000000000000000000'
 
 # Labeling rule (docs/REVISION_LEAKAGE.md, A12):
-#   1. Public label datasets: the consolidated 2024 label file without its hand-added
+#   1. Public label datasets: the 2024 labeled-address file without its hand-added
 #      addresses, plus Dune Spellbook's CEX, DEX and bridge lists at pinned commits.
 #   2. Every other address that funded at least ETHERSCAN_MIN_FANOUT LayerZero interactors
 #      was looked up on Etherscan and labeled if tagged as a shared service.
@@ -170,7 +172,7 @@ def stream_labeled_anchors(paths, candidates, vintage='current'):
 
     Pass every address in the provision network so the same set serves the
     provider flags, the chain walk, the gas provision trees, and the tree features.
-    The 9M-line consolidated file is streamed, never fully loaded.
+    The 9M-line 2024 labeled-address file is streamed, never fully loaded.
     """
     assert vintage in LABEL_VINTAGES, vintage
     candidates = frozenset(candidates)
@@ -500,7 +502,7 @@ def _random_partition(df, seed):
     return np.asarray(tr), np.asarray(va), np.asarray(te)
 
 
-# Group assignment similar to sklearn StratifiedGroupKFold.  
+# Group assignment similar to sklearn StratifiedGroupKFold.
 def _group_partition(df, seed):
     """Stratified group split with the same 49 / 21 / 30 targets.
 
@@ -513,28 +515,27 @@ def _group_partition(df, seed):
     rng = np.random.default_rng(seed)
     y = df['sybil'].to_numpy()
     n_cls = np.array([(y == 0).sum(), (y == 1).sum()])
-    
-    # 3x2 matrix with target number of sybils and nonsybils for each partition
-    target = np.outer(fracs, n_cls).astype(float)         
-    quota = target.copy()
+
+    # [partition, class]: target non-Sybil and Sybil counts for train, validation, test
+    target = np.outer(fracs, n_cls).astype(float)
+    quota = target.copy()                                 # room left; shrinks as trees are placed
 
     g = df.groupby('provision_tree', sort=False)['sybil'].agg(['size', 'sum'])
     multi = g[g['size'] > 1]
     order = rng.permutation(len(multi))
     multi = multi.iloc[order].sort_values('size', ascending=False, kind='stable')
     part_of_tree = {}
-    
     for grp, (size, n_syb) in zip(multi.index, multi[['size', 'sum']].to_numpy()):
         mix = np.array([size - n_syb, n_syb]) / n_cls
 
-        # select the partition the provision tree fits most closely (index 0-2).
+        # the partition with the most remaining room, relative to target, for this tree's classes
         p = int(np.argmax((quota / target) @ mix))
         quota[p] -= (size - n_syb, n_syb)
         part_of_tree[grp] = p
 
     part = np.array(df['provision_tree'].map(part_of_tree), dtype=float)
 
-    # allocate singleton addresses to partitions to complete the target count
+    # single-wallet trees fill each partition's remaining per-class quota at random
     single = np.isnan(part)
     for c in (0, 1):
         idx = np.flatnonzero(single & (y == c))
@@ -858,6 +859,36 @@ def gain_importance(models, feats):
             .sort_values('NormGain', ascending=False).reset_index(drop=True))
 
 
+def plot_importance(imp, title, color, n=20):
+    """Horizontal bar chart of the top-n features from gain_importance()."""
+    import matplotlib.pyplot as plt
+    top = imp.head(n)
+    fig, ax = plt.subplots(figsize=(10, 7))
+    ax.barh(top['Feature'][::-1], top['NormGain'][::-1], color=color)
+    ax.set(xlabel='Normalized total gain (mean over seeds)', title=title)
+    ax.grid(axis='x', alpha=0.25)
+    plt.tight_layout(); plt.show()
+
+
+def metrics_by_category(y, probs, category, threshold):
+    """Test metrics within each taxonomy category at a fixed threshold."""
+    from sklearn.metrics import confusion_matrix, f1_score, precision_score, recall_score, roc_auc_score
+    y, probs, category = np.asarray(y), np.asarray(probs), np.asarray(category)
+    rows = []
+    for c in sorted(set(category)):
+        k = category == c
+        yc, pc = y[k], probs[k]
+        yhat = (pc >= threshold).astype(int)
+        tn, fp, fn, tp = confusion_matrix(yc, yhat, labels=[0, 1]).ravel()
+        rows.append(dict(category=c, n=int(k.sum()), sybil=int(yc.sum()),
+                         precision=precision_score(yc, yhat, zero_division=0),
+                         recall=recall_score(yc, yhat, zero_division=0),
+                         f1=f1_score(yc, yhat, zero_division=0),
+                         auroc=roc_auc_score(yc, pc) if len(set(yc)) == 2 else np.nan,
+                         fpr=fp / (fp + tn) if (fp + tn) else np.nan))
+    return pd.DataFrame(rows)
+
+
 def save_predictions(df, S, notebook, **probs):
     """Validation and test probabilities, with address, category and label, to output/."""
     os.makedirs('output', exist_ok=True)
@@ -904,6 +935,8 @@ FEATURE_FAMILIES = {
         'leaf_to_internal_ratio'],
     'Provision chain': ['chain_length', 'interactors_in_chain', 'depth'],
 }
+_fam = [f for v in FEATURE_FAMILIES.values() for f in v]
+assert sorted(_fam) == sorted(FEATS), 'FEATURE_FAMILIES must partition FEATS'
 
 
 def lgbm_fit_eval(S, feats, params, model_seeds=(42,)):

@@ -259,7 +259,7 @@ ports the same featurization, applies the snapshot cutoff, and runs from reposit
 <a id="labeled-addresses"></a>**Labeled addresses.**
 A labeled address ends a provision chain, so it shapes the provider, chain and tree features of every
 wallet it funded. The set is built by one rule, applied to every address: (1) public label datasets,
-namely the 2024 consolidated label file without its 44 hand additions, plus Dune Spellbook's CEX,
+namely the 2024 labeled-address file (the union of six public lists) without its 44 hand additions, plus Dune Spellbook's CEX,
 DEX and bridge lists; (2) an Etherscan check of every other address that funded at least 50
 LayerZero interactors, labeled when its public name tag identifies a shared service (exchange hot
 wallet, bridge or relayer, protocol contract, other named service). Exchange deposit addresses,
