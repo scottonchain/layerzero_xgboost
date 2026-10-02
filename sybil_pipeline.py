@@ -256,7 +256,7 @@ def _gini(x):
     return max(0.0, float(2 * np.sum(np.arange(1, n + 1) * a) / (n * total) - (n + 1) / n))
 
 
-def provision_features(funding, interactors, labeled):
+def provision_features(funding, interactors, anchors):
     """Step 4: provider_* and provision-tree features for each interactor.
 
     Ported from data/20241117_tree_features/20241117 Gas Provision
@@ -278,7 +278,7 @@ def provision_features(funding, interactors, labeled):
     prov['provider_avg_gas_provision_amount'] = (prov['provider_total_gas_provision_amount']
                                                  / prov['provider_fan_out'])
     prov['provider_is_star_like_attack'] = ((prov['provider_fan_out'] > 1)
-                                            & ~prov.index.isin(labeled)).astype(int)
+                                            & ~prov.index.isin(anchors)).astype(int)
     out = fi[['activated_address', 'gas_provider', 'gas_provision_amount', 'block_number']].merge(
         prov, left_on='gas_provider', right_index=True)
     out = out.rename(columns={'activated_address': 'addr',
@@ -287,7 +287,7 @@ def provision_features(funding, interactors, labeled):
     # unlabeled provision forest
     parent, children = {}, {}
     for a, p in zip(funding['activated_address'], funding['gas_provider']):
-        if p in labeled or a in labeled or a == p:
+        if p in anchors or a in anchors or a == p:
             continue
         parent[a] = p
         children.setdefault(p, []).append(a)
