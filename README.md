@@ -46,10 +46,10 @@ XGBoost and LightGBM lose similar Average Precision; the cross-ensemble tracks L
 
 | Check | Notebook | Result |
 |---|---|---|
-| Corrected `gini_coefficient`, rule fixed in advance | `08` | Removing it lowered validation F1 on 3 of 10 splits (8 required): removed |
+| Corrected `gini_coefficient`, rule fixed in advance | `01` | Removing it lowered **validation** F1 on 3 of 10 splits (8 required): removed. The test set was not used |
 | Labels known before the snapshot vs current labels | `07` | Test F1 −0.005 ± 0.007 (mean ± SD) |
-| All provision-network features removed | `09` | Test F1 −0.008; transaction features alone carry most of the signal |
-| SHAP by feature family | `10` | LayerZero transactions first, then Ethereum transactions, gas provider, funding tree, funding chain |
+| All provision-network features removed | `08` | Test F1 −0.008; transaction features alone carry most of the signal |
+| SHAP by feature family | `09` | LayerZero transactions first, then Ethereum transactions, gas provider, funding tree, funding chain |
 
 ---
 
