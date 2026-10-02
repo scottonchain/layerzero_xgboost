@@ -8,33 +8,42 @@ Trains three classifiers (XGBoost, LightGBM, Logistic Regression) and a cross-mo
 
 ## Benchmark results
 
-Test partition: 130,435 addresses (group split) or 130,436 (random split), 5,463 Sybil (4.19 %).
-Hyperparameters, thresholds and the blend weight are chosen on validation. The **group split** is
-the primary evaluation; the random split is the original paper's protocol, kept for comparison.
+Stratified group split on funding clusters (no cluster spans train and test). Test partition:
+130,435 addresses, 5,463 Sybil (4.19 %). Hyperparameters, thresholds and the blend weight are chosen
+on validation; test labels are used only for this table.
 
-| Model | Split | Precision | Recall | F1 | AUROC | AP | FPR |
-|---|---|---|---|---|---|---|---|
-| XGBoost (3 seeds) | group | 0.720 | 0.720 | 0.720 | 0.966 | 0.764 | 0.0123 |
-| LightGBM (3 seeds) | group | 0.727 | 0.711 | 0.719 | 0.968 | 0.770 | 0.0117 |
-| Cross-ensemble | group | 0.697 | 0.739 | 0.717 | 0.968 | 0.770 | 0.0140 |
-| Logistic regression | group | 0.150 | 0.617 | 0.241 | 0.837 | 0.166 | 0.1529 |
-| XGBoost (3 seeds) | random | 0.754 | 0.728 | 0.741 | 0.974 | 0.798 | 0.0104 |
-| LightGBM (3 seeds) | random | 0.733 | 0.751 | 0.742 | 0.976 | 0.802 | 0.0120 |
-| Cross-ensemble | random | 0.734 | 0.751 | 0.743 | 0.976 | 0.803 | 0.0119 |
-| Logistic regression | random | 0.148 | 0.554 | 0.234 | 0.833 | 0.160 | 0.1395 |
+| Model | Precision | Recall | F1 | AUROC | AP | FPR |
+|---|---|---|---|---|---|---|
+| XGBoost (3 seeds) | 0.720 | 0.720 | 0.720 | 0.966 | 0.764 | 0.0123 |
+| LightGBM (3 seeds) | 0.727 | 0.711 | 0.719 | 0.968 | 0.770 | 0.0117 |
+| Cross-ensemble | 0.697 | 0.739 | 0.717 | 0.968 | 0.770 | 0.0140 |
+| Logistic regression | 0.150 | 0.617 | 0.241 | 0.837 | 0.166 | 0.1529 |
 
 Source: `06_split_comparison.ipynb`. AP is average precision; FPR is the false-positive rate among
 non-Sybils at the model's threshold.
 
-- **Relational leakage.** Under the random split, 599 of 5,463 test Sybils share a funding group with
-  a training Sybil; under the group split, none. The tree models lose 0.021 to 0.025 F1 and 0.033 AP
-  under the group split; logistic regression, which cannot memorize clusters, does not. Within the
-  clustered categories the drop is large (LightGBM F1: IxI 0.85 to 0.47, IxE 0.54 to 0.29); IxL wallets,
-  which are singletons, are unchanged (0.74 to 0.75).
 - **Split noise.** Over 10 group splits, LightGBM test F1 has SD 0.006 (`09`). Differences between
   XGBoost, LightGBM and the ensemble are smaller than that.
-- **Ensemble.** The validation-selected XGBoost weight is 0.06 under both splits; the ensemble is
-  essentially LightGBM.
+- **Ensemble.** The validation-selected XGBoost weight is 0.06; the ensemble is essentially LightGBM.
+
+### Leakage in the original evaluation (not a benchmark result)
+
+The original paper split addresses at random. Wallets from one funding cluster then fall on both
+sides of the split, and the model is partly scored on clusters it saw in training: 599 of 5,463 test
+Sybils share a funding cluster with a training Sybil under the random split, none under the group
+split. Same models and hyperparameters, test F1 under each protocol:
+
+| Model | Random split (original, leaky) | Group split | Δ F1 |
+|---|---|---|---|
+| XGBoost (3 seeds) | 0.741 | 0.720 | −0.021 |
+| LightGBM (3 seeds) | 0.742 | 0.719 | −0.023 |
+| Cross-ensemble | 0.743 | 0.717 | −0.025 |
+| Logistic regression | 0.234 | 0.241 | +0.008 |
+
+Δ is computed before rounding. The tree models also lose 0.033 AP. Logistic regression, which cannot
+memorize clusters, does not lose anything. The loss sits in the clustered categories (LightGBM F1:
+IxI 0.85 to 0.47, IxE 0.54 to 0.29); IxL wallets, which are singletons, are unchanged (0.74 to 0.75).
+The random-split runs are kept only to measure this.
 
 ### Robustness checks (group split, 10 splits)
 
@@ -52,8 +61,8 @@ non-Sybils at the model's threshold.
 - **Split.** 49 % train, 21 % validation, 30 % test, stratified by class. The primary split is a
   **stratified group split**: wallets are grouped by funding cluster (the root of the unlabeled part
   of their gas provision chain), and no group spans two partitions. The address-level random split
-  used in the original paper is kept for comparison; the gap between the two is the relational
-  (cluster-level) leakage in the original evaluation.
+  used in the original paper is run only to measure the leakage in the original evaluation; it is
+  not a reported result.
 - **Test isolation.** Hyperparameters (`05_hyperparameter_search`), decision thresholds, and the
   ensemble blend weight are all chosen on the validation set. Test labels are used only for the
   final report.
