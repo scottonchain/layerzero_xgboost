@@ -75,7 +75,7 @@ FEATS_SUBMITTED = [
 ]
 # gini_coefficient was identically zero in the submission. After the formula was corrected it was removed
 # by testing whether it lowered validation F1 on >= 8 of 10 group splits (rule fixed in advance,
-# docs/REVISION_LEAKAGE.md). Removing it lowered F1 on 3 of 10 (08_ablation_gini), and the  reported results do not include the feature.
+# docs/REVISION_LEAKAGE.md). Removing it lowered F1 on 3 of 10 (01_ablation_gini), and the  reported results do not include the feature.
 FEATS = [f for f in FEATS_SUBMITTED if f != 'gini_coefficient']
 
 BURN_ADDRESS = '0x0000000000000000000000000000000000000000'
@@ -500,7 +500,7 @@ def _random_partition(df, seed):
     return np.asarray(tr), np.asarray(va), np.asarray(te)
 
 
-# Group assignment similar to sklearn GroupKFold.  
+# Group assignment similar to sklearn StratifiedGroupKFold.  
 def _group_partition(df, seed):
     """Stratified group split with the same 49 / 21 / 30 targets.
 
