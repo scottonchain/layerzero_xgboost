@@ -11,7 +11,7 @@ service category tag (rule fixed before the run). Everything else follows the pr
 | `blockscout_tags.csv` | Every such funder with any Blockscout tag, with the read date |
 | `blockscout_rule.csv` | The addresses the automated rule labels |
 | `sensitivity_blockscout_rule.ipynb` | Primary vs automated labels on 10 group splits |
-| `review_blockscout_rule_group.json` | Results of the last run (code commit inside); the next run writes `review_blockscout_rule.json` |
+| `review_blockscout_rule.json` | Results of the final run (code commit 21adb3c recorded inside) |
 
 Run from the repo root: `python review_support/blockscout_rule_sensitivity/build_blockscout_rule.py`
 (network access to Blockscout), then execute the notebook. It needs `results/02_hyperparameter_search.json`.
