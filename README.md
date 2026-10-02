@@ -40,10 +40,7 @@ split. This shows the leakage in the event of a simple random split:
 | Cross-ensemble | 0.743 | 0.717 | −0.025 |
 | Logistic regression | 0.234 | 0.241 | +0.008 |
 
-Δ is computed before rounding. The tree models also lose 0.033 AP. Logistic regression, which cannot
-memorize clusters, does not lose anything. The loss sits in the clustered categories (LightGBM F1:
-IxI 0.85 to 0.47, IxE 0.54 to 0.29); IxL wallets, which are singletons, are unchanged (0.74 to 0.75).
-The random-split runs are kept only to measure this.
+Δ is computed before rounding. The tree models also lose 0.033 AP. Logistic regression has low performance and is included for completeness. The loss sits in the interactor categories where they would be expected in the event of leakage, e.g. LightGBM F1: IxI 0.85 to 0.47, IxE 0.54 to 0.29.
 
 ### Robustness checks (group split, 10 splits)
 
