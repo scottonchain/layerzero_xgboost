@@ -173,6 +173,12 @@ def stream_labeled_anchors(paths, candidates, vintage='current'):
     Pass every address in the provision network so the same set serves the
     provider flags, the chain walk, the gas provision trees, and the tree features.
     The 9M-line 2024 labeled-address file is streamed, never fully loaded.
+
+    Note:  The "vintage" of a label does not affect its usability.  The identity 
+    of "current" vintage addresses which are not in the "presnapshot" file 
+    did not change over time.  The identity was *identified* after the presnapshot
+    file, but the identity is consistent from the creation of the address. Therefore 
+    all labels may be used.
     """
     assert vintage in LABEL_VINTAGES, vintage
     candidates = frozenset(candidates)
