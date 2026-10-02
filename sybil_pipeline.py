@@ -636,29 +636,235 @@ def best_f1_threshold(y_true, probs):
     return float(thr[np.argmax(f1[:-1])])
 
 
-def load_selected_params(path='results/05_hyperparameter_search_group.json'):
-    """Hyperparameters chosen on validation by 05_hyperparameter_search.ipynb."""
+def load_selected_params(path='results/02_hyperparameter_search.json'):
+    """Hyperparameters chosen on validation by 02_hyperparameter_search.ipynb."""
     if not os.path.exists(path):
-        raise FileNotFoundError(f'{path} not found: run 05_hyperparameter_search.ipynb first')
+        raise FileNotFoundError(f'{path} not found: run 02_hyperparameter_search.ipynb first')
     with open(path) as f:
         hp = json.load(f)
     return hp['xgb_selected'], hp['lgbm_selected']
 
 
-def save_results(models, notebook, method, leakage=None, extra=None, out_dir='results'):
-    """Write scalar metrics for one notebook run to results/<notebook>_<method>.json."""
+def save_results(models, notebook, leakage=None, extra=None, out_dir='results'):
+    """Write scalar metrics for one notebook run to results/<notebook>.json, with the code commit."""
     os.makedirs(out_dir, exist_ok=True)
     scalars = lambda r: {k: (v.item() if isinstance(v, np.generic) else v)
                          for k, v in r.items() if np.isscalar(v)}
-    record = dict(notebook=notebook, split_method=method, code_commit=CODE_COMMIT,
+    record = dict(notebook=notebook, code_commit=CODE_COMMIT,
                   leakage=leakage, models=[scalars(r) for r in models], **(extra or {}))
-    path = os.path.join(out_dir, f'{notebook}_{method}.json')
+    path = os.path.join(out_dir, f'{notebook}.json')
     with open(path, 'w') as f:
         json.dump(record, f, indent=2)
     print(f'Saved {path}')
 
 
-# ── Ablation and sensitivity helpers (notebooks 07-10) ───────────────────────
+def load_results(notebook, results_dir='results'):
+    path = os.path.join(results_dir, f'{notebook}.json')
+    if not os.path.exists(path):
+        raise FileNotFoundError(f'{path} not found: run {notebook}.ipynb first')
+    with open(path) as f:
+        return json.load(f)
+
+
+# Notebooks whose results depend on the hyperparameter search (and so on its code).
+USES_SEARCH = ('03_xgboost_sybil', '04_lightgbm_sybil', '06_cross_ensemble_sybil',
+               '07_sensitivity_label_vintage', '08_ablation_families', '09_shap_importance',
+               '11_split_comparison')
+# Notebooks whose results depend on saved predictions of the XGBoost and LightGBM notebooks.
+USES_PREDICTIONS = {'06_cross_ensemble_sybil': ('03_xgboost_sybil', '04_lightgbm_sybil')}
+
+
+def provenance(notebooks, results_dir='results'):
+    """For each notebook's saved result: was it produced by the code in the current commit?
+
+    Compares, between the commit recorded in the result and HEAD: sybil_pipeline.py,
+    requirements.txt and data/ byte for byte, and the code cells of the notebook itself (plus the
+    search notebook, and the notebooks whose predictions it reads, where it depends on them).
+    Saved outputs and markdown may differ. Results from a dirty working tree are rejected.
+    """
+    import nbformat
+    git = lambda *a: subprocess.run(['git', *a], capture_output=True, text=True)
+
+    def code_cells(ref, path):
+        text = git('show', f'{ref}:{path}').stdout if ref else open(path).read()
+        if not text:
+            return None
+        return [c.source for c in nbformat.reads(text, as_version=4).cells if c.cell_type == 'code']
+
+    rows = []
+    for nb in notebooks:
+        commit = load_results(nb, results_dir)['code_commit']
+        files_same = (not commit.endswith('-dirty')) and git(
+            'diff', '--quiet', commit, 'HEAD', '--', 'sybil_pipeline.py', 'requirements.txt', 'data').returncode == 0
+        deps = [nb] + (['02_hyperparameter_search'] if nb in USES_SEARCH else []) + list(USES_PREDICTIONS.get(nb, ()))
+        code_same = all(code_cells(commit, f'{d}.ipynb') == code_cells(None, f'{d}.ipynb') for d in deps)
+        rows.append(dict(notebook=nb, commit=commit, dependencies_unchanged=files_same and code_same))
+    return pd.DataFrame(rows)
+
+
+# ── Models (one definition, used by every notebook that trains a model) ──────
+
+MODEL_SEEDS = (42, 123, 456)   # 3-seed ensembles in the model notebooks
+LR_PARAMS = dict(C=0.01, penalty='l1', solver='liblinear', max_iter=1000, random_state=SEED)
+BLEND_WEIGHTS = np.round(np.linspace(0, 1, 51), 2)   # XGBoost weight in the cross-ensemble
+
+
+def xgb_model(params, seed):
+    """XGBoost with the fixed settings; `params` are the tuned hyperparameters."""
+    from xgboost import XGBClassifier
+    return XGBClassifier(objective='binary:logistic', n_estimators=5000, eval_metric='logloss',
+                         early_stopping_rounds=50, verbosity=0, tree_method='hist',
+                         n_jobs=N_JOBS, random_state=seed, **params)
+
+
+def lgbm_model(params, seed):
+    """LightGBM with the fixed settings (bagging on, deterministic); `params` are tuned."""
+    from lightgbm import LGBMClassifier
+    return LGBMClassifier(n_estimators=5000, subsample_freq=1, colsample_bytree=0.8, verbose=-1,
+                          n_jobs=N_JOBS, random_state=seed, **LGBM_REPRO, **params)
+
+
+def fit_xgb(S, params, seeds=MODEL_SEEDS, feats=None, verbose=True):
+    """Train one XGBoost per seed with early stopping on validation; average the probabilities."""
+    Xtr, Xva, Xte = (S[k] if feats is None else S[k][feats] for k in ('X_train', 'X_val', 'X_test'))
+    out = dict(val=[], test=[], rounds=[], models=[])
+    for seed in seeds:
+        t0 = time.time()
+        m = xgb_model(params, seed)
+        m.fit(Xtr, S['y_train'], eval_set=[(Xva, S['y_val'])], verbose=False)
+        out['rounds'].append(int(m.best_iteration)); out['models'].append(m)
+        out['val'].append(m.predict_proba(Xva)[:, 1]); out['test'].append(m.predict_proba(Xte)[:, 1])
+        if verbose:
+            print(f'  XGBoost seed={seed}  rounds={m.best_iteration}  {time.time() - t0:.1f}s', flush=True)
+    out['val'], out['test'] = np.mean(out['val'], axis=0), np.mean(out['test'], axis=0)
+    return out
+
+
+def fit_lgbm(S, params, seeds=MODEL_SEEDS, feats=None, verbose=True):
+    """Train one LightGBM per seed with early stopping on validation; average the probabilities."""
+    import lightgbm as lgb
+    Xtr, Xva, Xte = (S[k] if feats is None else S[k][feats] for k in ('X_train', 'X_val', 'X_test'))
+    out = dict(val=[], test=[], rounds=[], models=[])
+    for seed in seeds:
+        t0 = time.time()
+        m = lgbm_model(params, seed)
+        m.fit(Xtr, S['y_train'], eval_set=[(Xva, S['y_val'])],
+              callbacks=[lgb.early_stopping(50, verbose=False), lgb.log_evaluation(-1)])
+        out['rounds'].append(int(m.best_iteration_)); out['models'].append(m)
+        out['val'].append(m.predict_proba(Xva)[:, 1]); out['test'].append(m.predict_proba(Xte)[:, 1])
+        if verbose:
+            print(f'  LightGBM seed={seed}  rounds={m.best_iteration_}  {time.time() - t0:.1f}s', flush=True)
+    out['val'], out['test'] = np.mean(out['val'], axis=0), np.mean(out['test'], axis=0)
+    return out
+
+
+def fit_lr(S):
+    """L1 logistic regression on standardized features (the paper's untuned baseline)."""
+    from sklearn.linear_model import LogisticRegression
+    from sklearn.pipeline import Pipeline
+    from sklearn.preprocessing import StandardScaler
+    m = Pipeline([('scaler', StandardScaler()), ('lr', LogisticRegression(**LR_PARAMS))])
+    m.fit(S['X_train'], S['y_train'])
+    return dict(val=m.predict_proba(S['X_val'])[:, 1], test=m.predict_proba(S['X_test'])[:, 1], model=m)
+
+
+def select_blend_weight(y_val, xgb_val, lgbm_val):
+    """XGBoost weight w maximizing validation F1 of w*XGB + (1-w)*LGBM (threshold re-chosen per w)."""
+    from sklearn.metrics import f1_score
+    f1 = []
+    for w in BLEND_WEIGHTS:
+        p = w * xgb_val + (1 - w) * lgbm_val
+        f1.append(f1_score(y_val, (p >= best_f1_threshold(y_val, p)).astype(int), zero_division=0))
+    f1 = np.array(f1)
+    return float(BLEND_WEIGHTS[np.argmax(f1)]), f1
+
+
+def evaluate(name, y_val, val_probs, y_test, test_probs):
+    """Test metrics at the F1-maximizing threshold chosen on validation (plus ROC/PR curves)."""
+    from sklearn.metrics import (auc, average_precision_score, brier_score_loss, f1_score,
+                                 precision_recall_curve, precision_score, recall_score, roc_curve)
+    thr = best_f1_threshold(y_val, val_probs)
+    y_pred = (test_probs >= thr).astype(int)
+    fpr, tpr, _ = roc_curve(y_test, test_probs)
+    prc, rec, _ = precision_recall_curve(y_test, test_probs)
+    return dict(name=name, threshold=thr,
+                precision=precision_score(y_test, y_pred, zero_division=0),
+                recall=recall_score(y_test, y_pred, zero_division=0),
+                f1=f1_score(y_test, y_pred, zero_division=0),
+                auroc=auc(fpr, tpr), ap=average_precision_score(y_test, test_probs),
+                brier=brier_score_loss(y_test, test_probs),
+                fpr=fpr, tpr=tpr, prc=prc, rec_c=rec)
+
+
+def print_metrics(r):
+    for k, label in [('threshold', 'Threshold'), ('precision', 'Precision'), ('recall', 'Recall'),
+                     ('f1', 'F1'), ('auroc', 'AUROC'), ('ap', 'Avg Prec'), ('brier', 'Brier')]:
+        print(f'  {label:<10}: {r[k]:.4f}')
+
+
+def plot_curves(results):
+    """ROC and precision-recall curves for one or more evaluate() results."""
+    import matplotlib.pyplot as plt
+    colors = ['#1565C0', '#2E7D32', '#B71C1C', '#6A1B9A', '#E65100']
+    fig, axes = plt.subplots(1, 2, figsize=(13, 5))
+    for r, c in zip(results, colors):
+        axes[0].plot(r['fpr'], r['tpr'], color=c, lw=2, label=f"{r['name']}  AUC={r['auroc']:.4f}")
+        axes[1].plot(r['rec_c'], r['prc'], color=c, lw=2, label=f"{r['name']}  AP={r['ap']:.4f}")
+    axes[0].plot([0, 1], [0, 1], 'k--', alpha=0.3, lw=1)
+    axes[0].set(xlabel='FPR', ylabel='TPR', title='ROC Curve')
+    axes[0].legend(fontsize=9); axes[0].grid(alpha=0.2)
+    axes[1].set(xlabel='Recall', ylabel='Precision', title='Precision-Recall Curve')
+    axes[1].legend(fontsize=9, loc='upper right'); axes[1].grid(alpha=0.2)
+    plt.tight_layout(); plt.show()
+
+
+def operating_points(y_test, test_probs, threshold, levels=(0.95, 0.90, 0.85, 0.80, 0.75, 0.70, 0.50)):
+    """Precision, recall, F1 and counts at fixed thresholds and at the validation threshold."""
+    y = np.asarray(y_test)
+    rows = []
+    for t in sorted(set(levels) | {threshold}, reverse=True):
+        pred = test_probs >= t
+        if not pred.any():
+            continue
+        tp, fp = int((pred & (y == 1)).sum()), int((pred & (y == 0)).sum())
+        p, r = tp / (tp + fp), tp / int(y.sum())
+        rows.append(dict(threshold=round(t, 4), precision=p, recall=r, f1=2 * p * r / (p + r) if p + r else 0.0,
+                         flagged=int(pred.sum()), false_pos=fp,
+                         note='validation threshold' if t == threshold else ''))
+    return pd.DataFrame(rows)
+
+
+def gain_importance(models, feats):
+    """Total gain per feature, normalized to sum to 1 per model, averaged over models (seeds)."""
+    imp = []
+    for m in models:
+        if hasattr(m, 'get_booster'):   # XGBoost; features never split on are absent
+            g = m.get_booster().get_score(importance_type='total_gain')
+            v = np.array([g.get(f, g.get(f'f{i}', 0.0)) for i, f in enumerate(feats)])
+        else:                           # LightGBM: 'gain' is total gain
+            v = m.booster_.feature_importance(importance_type='gain')
+        imp.append(v / v.sum())
+    return (pd.DataFrame({'Feature': feats, 'NormGain': np.mean(imp, axis=0)})
+            .sort_values('NormGain', ascending=False).reset_index(drop=True))
+
+
+def save_predictions(df, S, notebook, **probs):
+    """Validation and test probabilities, with address, category and label, to output/."""
+    os.makedirs('output', exist_ok=True)
+    for part, idx, y in [('val', S['idx_val'], S['y_val']), ('test', S['idx_test'], S['y_test'])]:
+        pred = pd.DataFrame({'addr': df.loc[idx, 'addr'].to_numpy(),
+                             'category': df.loc[idx, 'category'].to_numpy(), 'y': np.asarray(y),
+                             **{k: v[part] for k, v in probs.items()}})
+        path = f'output/pred_{notebook}_{part}.parquet'
+        pred.to_parquet(path, index=False)
+        print(f'Saved {path} ({len(pred):,} rows)')
+
+
+def load_predictions(notebook, part):
+    return pd.read_parquet(f'output/pred_{notebook}_{part}.parquet')
+
+
+# ── Ablation and sensitivity helpers (notebooks 01, 07-09) ───────────────────
 
 SPLIT_SEEDS = [42, 1, 2, 3, 4, 5, 6, 7, 8, 9]   # 10 group splits
 
@@ -691,18 +897,10 @@ FEATURE_FAMILIES = {
 
 
 def lgbm_fit_eval(S, feats, params, model_seeds=(42,)):
-    """Train LightGBM on S['X_train'][feats]; threshold on validation; return val and test metrics."""
-    import lightgbm as lgb
+    """Train LightGBM on the features `feats`; threshold on validation; return val and test metrics."""
     from sklearn.metrics import f1_score, average_precision_score, roc_auc_score
-    pv, pt = [], []
-    for seed in model_seeds:
-        m = lgb.LGBMClassifier(n_estimators=5000, subsample_freq=1, colsample_bytree=0.8, verbose=-1,
-                               n_jobs=N_JOBS, random_state=seed, **LGBM_REPRO, **params)
-        m.fit(S['X_train'][feats], S['y_train'], eval_set=[(S['X_val'][feats], S['y_val'])],
-              callbacks=[lgb.early_stopping(50, verbose=False), lgb.log_evaluation(-1)])
-        pv.append(m.predict_proba(S['X_val'][feats])[:, 1])
-        pt.append(m.predict_proba(S['X_test'][feats])[:, 1])
-    pv, pt = np.mean(pv, axis=0), np.mean(pt, axis=0)
+    r = fit_lgbm(S, params, seeds=model_seeds, feats=feats, verbose=False)
+    pv, pt = r['val'], r['test']
     thr = best_f1_threshold(S['y_val'], pv)
     out = dict(threshold=thr)
     for part, y, p in [('val', S['y_val'], pv), ('test', S['y_test'], pt)]:

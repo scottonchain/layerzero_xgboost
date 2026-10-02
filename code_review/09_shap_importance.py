@@ -19,8 +19,7 @@ import matplotlib.pyplot as plt
 _, LGBM_SELECTED = sp.load_selected_params()
 df, _, _ = sp.build_master_df(DATA_DIR, verbose=False)
 S = sp.make_splits(df, sp.FEATS, method='group', seed=SEED)
-m = lgb.LGBMClassifier(n_estimators=5000, subsample_freq=1, colsample_bytree=0.8, verbose=-1,
-                       n_jobs=sp.N_JOBS, random_state=SEED, **sp.LGBM_REPRO, **LGBM_SELECTED)
+m = sp.lgbm_model(LGBM_SELECTED, SEED)   # same settings as 04_lightgbm_sybil
 m.fit(S['X_train'], S['y_train'], eval_set=[(S['X_val'], S['y_val'])],
       callbacks=[lgb.early_stopping(50, verbose=False), lgb.log_evaluation(-1)])
 X = S['X_test']
@@ -45,5 +44,5 @@ plt.title('SHAP values, top 20 features (test partition, group split)')
 plt.tight_layout(); plt.show()
 
 # %%
-sp.save_results([], '10_shap_importance', 'group', extra=dict(
+sp.save_results([], '09_shap_importance', extra=dict(
     mean_abs_shap=imp.reset_index().rename(columns={'index': 'feature'}).to_dict('records'), params=LGBM_SELECTED))

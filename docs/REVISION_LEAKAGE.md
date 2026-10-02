@@ -4,6 +4,12 @@ Manuscript BCRA-D-26-00643, resubmission due Oct 12, 2026. Repo baseline: paven8
 
 Check an item only when the code, the manuscript text, and the response letter are all updated.
 
+**Notebook numbering (2026-10-02).** Notebooks were renumbered to run order; findings below use the old numbers.
+Old → new: `00` → `00`; `08_ablation_gini` → `01`; `05_hyperparameter_search` → `02`; `01_xgboost` → `03`;
+`02_lightgbm` → `04`; `03_logistic_regression` → `05`; `04_cross_ensemble` → `06`; `07` → `07`;
+`09_ablation_families` → `08`; `10_shap_importance` → `09`; `06_split_comparison` → split into `10_tie_out`
+(checks and reported numbers) and `11_split_comparison` (the original random split, trained only there).
+
 ## Status
 
 Code status per leakage item. "Code done" means the repository change is committed; the checkbox
@@ -156,7 +162,7 @@ Measured facts, with the commit they were measured at. Append; don't rewrite.
 - A7: the latest `first_gas_provision_time` for any L0 interactor is 2024-05-01 23:56:47 UTC, which is on the snapshot date. 163 interactor rows fall on May 1 itself. The full network file (which includes upstream non-interactor providers) runs to 2024-10-31 and has 460 rows after 2024-05-01 00:00. Those upstream rows can affect `chain_length`, `interactors_in_chain`, and the A1 group root. The tree features (`20241117_tree_features`) were built from this same network, so check their inputs too.
 - A6: `data/20250208_cex_dex_indegree/readme.txt` SQL filters `block_timestamp <= '2024-05-01'`. That sub-item is verified.
 - A5: `legacy/20250519 XGBoost Sybil Detection.ipynb` (the 2025 paper's code) also hard-codes the 63-feature list. The repo holds no selection code. The procedure must come from the authors.
-- Caveat for the discussion section: IxL wallets are singletons by design, so an operator who funds wallets through separate CEX withdrawals is invisible to the provision-graph grouping. The group split removes the leakage the provision graph can see, and no more.
+- Caveat for the discussion section: an IxL wallet starts its own funding group (it joins no group upstream of the labeled funder), so an operator who funds wallets through separate CEX withdrawals is invisible to the provision-graph grouping. The group split removes the leakage the provision graph can see, and no more.
 
 **2026-09-30, @ fd6411f (group split added; checkpoint before the temporal fix).** Runs in `results/` were not committed; they are superseded by the final run.
 
@@ -235,4 +241,7 @@ The corrected `gini_coefficient` is the only feature whose definition changed in
 - Alternative rule, fixed before the run: replace the Etherscan step with Blockscout's tag service for every funder of at least 2 addresses (13,992; 1,726 tagged), labeled when it carries a service category tag (Exchange, Hot Wallet, Bridge, DEX, Router, Fiat Gateway, Layer 2, Derivatives, Payments, OTC) and no Deposit Address tag. No interactor threshold, no human step. Public lists unchanged.
 - Why it is not the primary rule: Blockscout's category tags miss 6 of the 10 services the Etherscan step confirmed (Layerswap 1, Shakepay 6 and 7, Union Chain, Umbria Narni Bridge 2, DeGate), and its free-text name tags mix services, individuals and scam addresses, so a complete automated mapping would need hand classification of about 1,250 name tags.
 - Result: the labeled sets differ by 15 addresses (6 only primary, the ones above; 9 only automated: small exchange hot wallets and bridges funding 2 to 32 addresses, e.g. Chaineye Mini Bridge, changehero, ACE). 3,476 wallets' features change (54 Sybil). Automated minus primary over 10 group splits: test F1 −0.003 ± 0.010 (lower on 6 of 10), AP −0.005 ± 0.012, AUROC −0.002 ± 0.003, validation F1 +0.007 ± 0.012. Within split noise, the same pattern as the label-vintage check.
+
+**2026-10-02, restructure (Scott's PR review).** Notebooks renumbered to run order (map above). Model training, evaluation, the blend weight, test metrics, operating points and gain importance are defined once in `sybil_pipeline.py`; the search and robustness notebooks use the same model definitions (`sp.xgb_model`, `sp.lgbm_model`). The ensemble notebook reads the XGBoost and LightGBM predictions instead of retraining. The model notebooks run on the group split only; the random split is trained only in `11_split_comparison`. Check before any rerun: the shared functions reproduce the ea602c6/06dbd82 group-split results exactly (all metrics, thresholds, rounds, blend weight 0.06, importances; maximum difference 0).
+- Correction: earlier text said IxL wallets are singletons. They are not: 12,886 of 306,658 IxL wallets (4 %) are in multi-wallet funding groups, as roots of the wallets they fund; IxI ≈100 % (34,390 of 34,391), IxE 42 % (38,642 of 93,061). "Cluster" in earlier text means funding group.
 

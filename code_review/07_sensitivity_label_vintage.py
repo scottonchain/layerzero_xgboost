@@ -52,7 +52,7 @@ print('\nPre-snapshot minus current, mean and SD over 10 splits:'); print(summar
 # %% [markdown]
 # **Result.** Pre-snapshot labels change test F1 by −0.005 ± 0.007 and validation F1 by +0.009 ± 0.012
 # (mean ± SD over the 10 splits). The two move in opposite directions and both lie within the split-to-split
-# spread of the full model (test F1 SD 0.006 in `09`). Funding groups depend on the labels, so the partitions
+# spread of the full model (test F1 SD 0.006 in `08_ablation_families`). Funding groups depend on the labels, so the partitions
 # also differ slightly between the two label sets.
 
 # %% [markdown]
@@ -79,7 +79,7 @@ print(added.to_string())
 # listed before the snapshot (5.30 %). The later additions fund 2,168 wallets, 0.5 % of the data.
 
 # %%
-sp.save_results([], '07_sensitivity_label_vintage', 'group', extra=dict(
+sp.save_results([], '07_sensitivity_label_vintage', extra=dict(
     labeled_current=len(anchors_cur), labeled_presnapshot=len(anchors_pre), wallets_changed=int(changed.sum()),
     per_split=res.to_dict('records'), diff_mean=summary.loc['mean'].to_dict(), diff_sd=summary.loc['std'].to_dict(),
     cex_added_period=added.reset_index().to_dict('records'), params=LGBM_SELECTED))

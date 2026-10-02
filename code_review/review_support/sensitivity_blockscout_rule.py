@@ -53,7 +53,7 @@ summary = p.xs('diff', axis=1, level=1).agg(['mean', 'std'])
 print('\nAutomated minus primary, mean and SD over 10 splits:'); print(summary.round(4).to_string())
 
 # %%
-sp.save_results([], 'review_blockscout_rule', 'group', out_dir='review_support', extra=dict(
+sp.save_results([], 'review_blockscout_rule', out_dir='review_support', extra=dict(
     labeled_primary=len(anchors_cur), labeled_automated=len(anchors_alt),
     only_primary=sorted(anchors_cur - anchors_alt), only_automated=sorted(anchors_alt - anchors_cur),
     wallets_changed=int(changed.sum()), per_split=res.to_dict('records'),

@@ -44,7 +44,7 @@ KEEP = k >= 8
 print(f'Removing gini_coefficient lowered validation F1 on {k} of {len(r)} splits '
       f'(mean change {r.f1_change_when_removed.mean():+.4f}; one-sided sign test p = {p:.3f}).')
 print('Decision:', 'RETAIN gini_coefficient' if KEEP else 'REMOVE gini_coefficient (62 features)')
-sp.save_results([], '08_ablation_gini', 'group', extra=dict(
+sp.save_results([], '01_ablation_gini', extra=dict(
     rule='retain if removing lowers validation F1 on >= 8 of 10 group splits', splits_lowered=k,
     sign_test_p=p, mean_f1_change=float(r.f1_change_when_removed.mean()),
     mean_ap_change=float(r.ap_change_when_removed.mean()), decision='retain' if KEEP else 'remove',

@@ -1,11 +1,13 @@
 # %% [markdown]
 # # Hyperparameter Search — Validation Set Only
 #
-# Selects the XGBoost and LightGBM configurations used by `01`, `02`, and `04`.
+# Selects the XGBoost and LightGBM configurations used by `03_xgboost_sybil`, `04_lightgbm_sybil`, and the
+# robustness notebooks (`07`, `08`, `09`). The model settings that are not tuned come from `sp.xgb_model` and
+# `sp.lgbm_model`, the same definitions the model notebooks use.
 #
 # **Protocol**
 # - Split: the stratified **group** split (`sp.make_splits(..., method='group')`), the revision's
-#   primary evaluation. The same selected configuration is reused for the random-split comparison.
+#   primary evaluation. The same selected configuration is reused in `11_split_comparison`.
 # - The test partition is removed before any model is fit; this notebook never sees test labels.
 # - Each configuration is trained once (seed 42) on the upsampled training partition, with early
 #   stopping on validation log-loss (patience 50, ceiling 5,000 rounds).
@@ -20,29 +22,26 @@
 # | XGBoost | 2 | `min_child_weight` {1, 5, 10} at the stage-1 best | +2 |
 # | LightGBM | — | `num_leaves` {31, 63, 127, 255, 511, 1023} × `learning_rate` {0.1, 0.05} × `subsample` {1.0, 0.7} (`subsample_freq=1`) × `reg_lambda` {0, 1}; `colsample_bytree` 0.8 | 48 |
 #
-# Results are written after every configuration to `results/05_search_<model>.csv`, so an
+# Results are written after every configuration to `results/02_search_<model>.csv`, so an
 # interrupted run resumes where it stopped. The selected configurations go to
-# `results/05_hyperparameter_search_group.json`, which the model notebooks read.
+# `results/02_hyperparameter_search.json`, which the model notebooks read.
 
 # %%
 import os, time, json, itertools, warnings
 import numpy as np
 import pandas as pd
 from sklearn.metrics import f1_score, average_precision_score, log_loss
-from xgboost import XGBClassifier
-from lightgbm import LGBMClassifier
 import lightgbm as lgb_lib
 import sybil_pipeline as sp
 warnings.filterwarnings('ignore')
 
 DATA_DIR = './data'
 RESULTS_DIR = './results'
-SPLIT_METHOD = 'group'          # selection is always done on the group split
 SEED = sp.SEED
 os.makedirs(RESULTS_DIR, exist_ok=True)
 
 df, tfm, labeled_anchors = sp.build_master_df(DATA_DIR)
-S = sp.make_splits(df, sp.FEATS, method=SPLIT_METHOD, seed=SEED)
+S = sp.make_splits(df, sp.FEATS, method='group', seed=SEED)   # selection is done on the group split
 X_train, y_train = S['X_train'], S['y_train']
 X_val,   y_val   = S['X_val'],   S['y_val']
 for k in ['X_test', 'y_test', 'idx_test']:
@@ -58,8 +57,8 @@ def val_scores(probs):
                 val_logloss=log_loss(y_val, probs), val_threshold=thr)
 
 def run_grid(name, configs, fit):
-    """Fit every config not already in results/05_search_<name>.csv; return the full table."""
-    path = os.path.join(RESULTS_DIR, f'05_search_{name}.csv')
+    """Fit every config not already in results/02_search_<name>.csv; return the full table."""
+    path = os.path.join(RESULTS_DIR, f'02_search_{name}.csv')
     done = pd.read_csv(path) if os.path.exists(path) else pd.DataFrame()
     keys = list(configs[0])
     seen = set(map(tuple, done[keys].astype(str).values)) if len(done) else set()
@@ -91,12 +90,8 @@ def as_params(row, keys):
 # ## XGBoost — stage 1
 
 # %%
-XGB_FIXED = dict(objective='binary:logistic', n_estimators=5000, eval_metric='logloss',
-                 early_stopping_rounds=50, verbosity=0, tree_method='hist',
-                 n_jobs=sp.N_JOBS, random_state=SEED)
-
 def fit_xgb(cfg):
-    m = XGBClassifier(**XGB_FIXED, **cfg)
+    m = sp.xgb_model(cfg, SEED)   # fixed settings as in the model notebooks
     m.fit(X_train, y_train, eval_set=[(X_val, y_val)], verbose=False)
     return m.predict_proba(X_val)[:, 1], int(m.best_iteration)
 
@@ -120,15 +115,13 @@ XGB_SELECTED = as_params(xgb_best, ['learning_rate', 'max_depth', 'subsample',
 print('Selected XGBoost config:', XGB_SELECTED)
 print(xgb_best[['val_f1', 'val_ap', 'rounds']].to_string())
 
+
 # %% [markdown]
 # ## LightGBM
 
 # %%
-LGBM_FIXED = dict(n_estimators=5000, subsample_freq=1, colsample_bytree=0.8,
-                  verbose=-1, n_jobs=sp.N_JOBS, random_state=SEED, **sp.LGBM_REPRO)
-
 def fit_lgbm(cfg):
-    m = LGBMClassifier(**LGBM_FIXED, **cfg)
+    m = sp.lgbm_model(cfg, SEED)   # fixed settings as in the model notebooks
     m.fit(X_train, y_train, eval_set=[(X_val, y_val)],
           callbacks=[lgb_lib.early_stopping(50, verbose=False), lgb_lib.log_evaluation(-1)])
     return m.predict_proba(X_val)[:, 1], int(m.best_iteration_)
@@ -166,7 +159,7 @@ print(marginal(lgbm_all, ['num_leaves', 'learning_rate', 'subsample', 'reg_lambd
 # ## Save selected configurations
 
 # %%
-sp.save_results([], '05_hyperparameter_search', SPLIT_METHOD, extra=dict(
+sp.save_results([], '02_hyperparameter_search', extra=dict(
     selection='max validation F1 at validation-optimal threshold; ties by validation AP; seed 42',
     xgb_selected=XGB_SELECTED, lgbm_selected=LGBM_SELECTED,
     xgb_selected_val=dict(val_f1=float(xgb_best.val_f1), val_ap=float(xgb_best.val_ap), rounds=int(xgb_best.rounds)),

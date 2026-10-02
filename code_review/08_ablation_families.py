@@ -46,7 +46,7 @@ summ[('test_f1_change_vs_all', 'mean')] = res.groupby('config')['test_f1_change'
 print(summ.round(4).to_string())
 
 # %%
-sp.save_results([], '09_ablation_families', 'group', extra=dict(
+sp.save_results([], '08_ablation_families', extra=dict(
     families=FAM, per_split=res.to_dict('records'),
     summary={c: {f'{m}_{s}': float(summ.loc[c, (m, s)]) for m, s in summ.columns} for c in order},
     params=LGBM_SELECTED))

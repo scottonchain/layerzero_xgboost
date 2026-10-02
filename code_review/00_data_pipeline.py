@@ -20,7 +20,7 @@
 # 6. Sybil ground-truth labels + `is_provider` flag
 # 7. Chain traversal (`chain_length`, `interactors_in_chain`)
 #
-# Then: taxonomy, funding groups, and the train / validation / test split (`SPLIT_METHOD`).
+# Then: taxonomy, funding groups, and the train / validation / test split (stratified group split).
 # The step functions live in `sybil_pipeline.py`, which the model notebooks also import.
 #
 # ---
@@ -47,16 +47,11 @@ DATA_DIR   = './data'     # folder containing all input CSV files
 OUTPUT_DIR = './output'   # folder for master_df.parquet and splits.npz
 os.makedirs(OUTPUT_DIR, exist_ok=True)
 
-# 'group'  = stratified group split by funding cluster (revision default)
-# 'random' = address-level split used in the original paper
-SPLIT_METHOD = os.environ.get('SPLIT_METHOD', 'group')
-
 P     = sp.data_paths(DATA_DIR)   # input file paths
-FEATS = sp.FEATS                  # the submitted 63, chosen manually by the authors, minus gini_coefficient (08)
+FEATS = sp.FEATS                  # the submitted 63, chosen manually by the authors, minus gini_coefficient (01)
 SEED  = sp.SEED
 print(f'DATA_DIR     : {DATA_DIR}')
 print(f'OUTPUT_DIR   : {OUTPUT_DIR}')
-print(f'SPLIT_METHOD : {SPLIT_METHOD}')
 print(f'Features     : {len(FEATS)} selected')
 
 # %% [markdown]
@@ -192,7 +187,7 @@ print(f'Time : {time.time()-t0:.1f}s')
 #   interactor's tree is its unlabeled funding cluster. Metrics are computed on the whole tree
 #   (`tree_size`, `max_depth`, `branching_factor`, entropy / skewness of gas amounts, ...). `depth`
 #   is the interactor's distance to the tree root. `gini_coefficient` is still computed (corrected
-#   formula) but is not a model feature: `08_ablation_gini` removed it by a pre-specified rule.
+#   formula) but is not a model feature: `01_ablation_gini` removed it by a pre-specified rule.
 #
 # The code is `sp.provision_features`, a port of
 # `data/20241117_tree_features/20241117 Gas Provision Featurization.ipynb`, which produced the
@@ -422,11 +417,10 @@ print(df[df['funding_group'].map(gs['size']) > 1]['category'].value_counts().to_
 #
 # **Split ratios** (paper Table 1): test 30 %, validation 21 %, train 49 %.
 #
-# **Split method** (`SPLIT_METHOD`):
-# - `group` (default): stratified group split on the funding group above. No group spans two
-#   partitions. Multi-wallet groups are placed first, largest first, into the partition whose
-#   per-class quota is least filled; singletons then fill the remaining per-class quotas at random.
-# - `random`: the address-level stratified split used in the original paper, kept for comparison.
+# **Split method**: stratified group split on the funding group above. No group spans two
+# partitions. Multi-wallet groups are placed first, largest first, into the partition whose
+# per-class quota is least filled; singletons then fill the remaining per-class quotas at random.
+# (The original paper's address-level random split is measured only in `11_split_comparison`.)
 #
 # **Class imbalance handling**: random oversampling of the Sybil class in the training partition
 # only, to 1:1. Validation and test keep the original ~4.2 % Sybil rate, so reported metrics reflect
@@ -436,12 +430,11 @@ print(df[df['funding_group'].map(gs['size']) > 1]['category'].value_counts().to_
 # > rows never appear in validation or test.
 
 # %%
-S = sp.make_splits(df, FEATS, method=SPLIT_METHOD, seed=SEED)
+S = sp.make_splits(df, FEATS, method='group', seed=SEED)
 X_train, y_train = S['X_train'], S['y_train']
 X_val,   y_val   = S['X_val'],   S['y_val']
 X_test,  y_test  = S['X_test'],  S['y_test']
 
-print(f'Split method: {SPLIT_METHOD}\n')
 print('Split summary (before upsampling):')
 print(sp.split_summary(df, S).to_string(index=False))
 n_syb_tr = int(df.loc[S['idx_train'], 'sybil'].sum())
@@ -450,15 +443,9 @@ print(f'Upsample factor        : {(len(S["idx_train"]) - n_syb_tr) / n_syb_tr:.1
 
 # %%
 # ── Leakage check: row overlap and funding-group overlap ──────
-# Row overlap must be 0 under both methods (asserted). Group overlap measures
-# relational leakage: test wallets whose funding cluster also appears in train.
-# Both methods are reported so the comparison can go in the paper.
-leak = {}
-for m in sp.SPLIT_METHODS:
-    print(f'── {m} ──')
-    s_m = S if m == SPLIT_METHOD else sp.make_splits(df, FEATS, method=m, seed=SEED)
-    leak[m] = sp.leakage_report(df, s_m)
-    print()
+# Row overlap must be 0 (asserted). Group overlap is relational leakage: test wallets whose
+# funding cluster also appears in train. It is 0 by construction under the group split.
+leak = sp.leakage_report(df, S)
 
 # %% [markdown]
 # ## Exploratory Data Analysis
@@ -559,20 +546,17 @@ np.savez_compressed(
     X_val  =X_val.values,   y_val  =y_val.values,
     X_test =X_test.values,  y_test =y_test.values,
     idx_train=S['idx_train'], idx_val=S['idx_val'], idx_test=S['idx_test'],
-    split_method=np.array(SPLIT_METHOD),
 )
 size_mb_sp = os.path.getsize(splits_path) / 1e6
 print(f'splits.npz         saved  ({size_mb_sp:.1f} MB)')
 
 # ── Dataset statistics for the paper (Tables 1, 5, 12) ─────────
 cat = df.groupby('category')['sybil'].agg(n='size', sybil='sum')
-splits_by_method = {m: sp.split_summary(df, S if m == SPLIT_METHOD else sp.make_splits(df, FEATS, method=m, seed=SEED))
-                        .set_index('Split').to_dict('index') for m in sp.SPLIT_METHODS}
-sp.save_results([], '00_data_pipeline', SPLIT_METHOD, leakage=leak, extra=dict(
+sp.save_results([], '00_data_pipeline', leakage=leak, extra=dict(
     n_addresses=len(df), n_sybil=int(df.sybil.sum()),
     provision_edges_after_cutoff=funding.attrs['n_after_cutoff'],
     categories={k: {kk: int(vv) for kk, vv in v.items()} for k, v in cat.to_dict('index').items()},
-    splits=splits_by_method,
+    splits=sp.split_summary(df, S).set_index('Split').to_dict('index'),
     funding_groups=dict(n=int(len(gs)), multi_wallet=int(multi.sum()), largest=int(gs['size'].max()),
                         sybils_in_multi=int(gs.loc[multi, 'sum'].sum())),
 ))
