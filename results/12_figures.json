@@ -1,0 +1,127 @@
+{
+  "notebook": "12_figures",
+  "code_commit": "cae1b67",
+  "leakage": null,
+  "models": [],
+  "figures": [
+    "chain_length.png",
+    "gp_0x0f.png",
+    "gp_0x92.png",
+    "gp_0x47.png",
+    "non_interacting_dist_from_root.png",
+    "PRandROC.png",
+    "top_20_feature_importance.png",
+    "lgbm_xgb_comparison.png",
+    "learning_curve.png"
+  ],
+  "chain_length_axis": {
+    "x_max": 15,
+    "coverage": {
+      "Non-Sybil": 0.9954317949948989,
+      "Sybil": 0.9852287079237824
+    }
+  },
+  "depth_n_by_category": {
+    "IxI": 34391,
+    "IxE": 93061
+  },
+  "examples": {
+    "gp_0x0f": [
+      {
+        "addr": "0xf70768a86bf5f60108554042027aefaf62360d65",
+        "interacted": 1,
+        "sybil": 0,
+        "labeled": 0
+      },
+      {
+        "addr": "0xfa55dd6fe7aadae20401b7383a5e06483c298dce",
+        "interacted": 1,
+        "sybil": 0,
+        "labeled": 0
+      },
+      {
+        "addr": "0x95dacf2fe66ca8f097f182a9860333166d9907bb",
+        "interacted": 0,
+        "sybil": 0,
+        "labeled": 0
+      },
+      {
+        "addr": "0x28ffe35688ffffd0659aee2e34778b0ae4e193ad",
+        "interacted": 0,
+        "sybil": 0,
+        "labeled": 1
+      }
+    ],
+    "gp_0x92": [
+      {
+        "addr": "0x92bb85edb615d98c9c303f18201056b2adeddfb8",
+        "interacted": 1,
+        "sybil": 0,
+        "labeled": 0
+      },
+      {
+        "addr": "0xc67bfa3956c9706702bdeca905918228ab8d90bd",
+        "interacted": 0,
+        "sybil": 0,
+        "labeled": 0
+      },
+      {
+        "addr": "0x8274f4286ba8695cd1f06b42933d7ae2155c289b",
+        "interacted": 0,
+        "sybil": 0,
+        "labeled": 0
+      },
+      {
+        "addr": "0x62e0b529ca53057658f0604d9c805f2f30727b0b",
+        "interacted": 1,
+        "sybil": 0,
+        "labeled": 0
+      },
+      {
+        "addr": "0xddfabcdc4d8ffc6d5beaf154f18b778f892a0740",
+        "interacted": 0,
+        "sybil": 0,
+        "labeled": 1
+      }
+    ],
+    "gp_0x47": [
+      {
+        "addr": "0x47127232949c0bef6677b4d006253169ac0ab6c4",
+        "interacted": 1,
+        "sybil": 1,
+        "labeled": 0
+      },
+      {
+        "addr": "0x5f5f102914b677304a37cd50dca26b6fc476176a",
+        "interacted": 0,
+        "sybil": 0,
+        "labeled": 0
+      },
+      {
+        "addr": "0xe9ba7506dc9a35c1fa39cbdafdcb97436f855f50",
+        "interacted": 1,
+        "sybil": 1,
+        "labeled": 0
+      },
+      {
+        "addr": "0x0c55fe07ad75c135c797422a5857347b2e5a591e",
+        "interacted": 1,
+        "sybil": 0,
+        "labeled": 0
+      },
+      {
+        "addr": "0xf5bec430576ff1b82e44ddb5a1c93f6f9d0884f3",
+        "interacted": 0,
+        "sybil": 0,
+        "labeled": 1
+      }
+    ]
+  },
+  "learning_curve": {
+    "best_iteration": 1679,
+    "trees": 1680,
+    "train_f1": 0.9993240827361914,
+    "val_f1": 0.7031573498964804
+  },
+  "shared_top15": 15
+}

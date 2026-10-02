@@ -20,7 +20,7 @@ on validation; test labels are used only for this table.
 | Logistic regression | 0.150 | 0.617 | 0.241 | 0.837 | 0.166 | 0.1529 |
 
 Source: `10_tie_out.ipynb`. AP is average precision; FPR is the false-positive rate among
-non-Sybils at the model's threshold. Results produced at commit `21adb3c`.
+non-Sybils at the model's threshold. Results produced at commit `0d9eacc`.
 
 - **Split noise.** Over 10 group splits, LightGBM test F1 has SD 0.006 (`08`). Differences between
   XGBoost, LightGBM and the ensemble are smaller than that.
@@ -119,6 +119,8 @@ layerzero_xgboost/
 ├── 09_shap_importance.ipynb                ← SHAP importance by family and taxonomy category
 ├── 10_tie_out.ipynb                        ← provenance checks and every reported number
 ├── 11_split_comparison.ipynb               ← leakage under the original random split (not a reported result)
+├── 12_figures.ipynb                        ← every figure in the paper, written to figures/
+├── figures/                                ← PNGs named as in the manuscript's \includegraphics
 ├── requirements.txt
 └── README.md
 ```
@@ -173,34 +175,35 @@ for nb in [0-9][0-9]_*.ipynb; do
 done
 ```
 
-The glob runs `00` to `11` in numerical order, which is the dependency order. Every notebook
+The glob runs `00` to `12` in numerical order, which is the dependency order. Every notebook
 uses the stratified group split except `11`, which also trains the models on the original random
 split to measure the leakage. Each notebook rebuilds the feature table itself through
 `sybil_pipeline.build_master_df`, so after `02_hyperparameter_search` has written
 `results/02_hyperparameter_search.json`, the model notebooks can be run independently; `06` also
 needs the predictions saved by `03` and `04`. `01` and `02` fix the feature set and the
 hyperparameters; they must be rerun whenever `sybil_pipeline.py` changes, or `10` rejects the
-results that depend on them. `10` checks every result from `00` to `09`; `11` runs last.
+results that depend on them. `10` checks every result from `00` to `09`; `11` and `12` run last.
 
-Runtimes on 4 cores, from the run at commit `21adb3c`:
+Runtimes on 4 cores, from the run at commit `0d9eacc` (`02` searched from scratch):
 
 | Notebook | Runtime |
 |---|---|
-| `00_data_pipeline` | 2 min |
-| `01_ablation_gini` | 18 min |
-| `02_hyperparameter_search` | 112 min |
-| `03_xgboost_sybil` | 6 min |
+| `00_data_pipeline` | 3 min |
+| `01_ablation_gini` | 21 min |
+| `02_hyperparameter_search` | 119 min |
+| `03_xgboost_sybil` | 7 min |
 | `04_lightgbm_sybil` | 5 min |
 | `05_logistic_regression_sybil` | 2 min |
 | `06_cross_ensemble_sybil` | 10 s |
-| `07_sensitivity_label_vintage` | 31 min |
-| `08_ablation_families` | 129 min |
-| `09_shap_importance` | 56 min |
-| `10_tie_out` | 6 s |
-| `11_split_comparison` | 13 min |
+| `07_sensitivity_label_vintage` | 32 min |
+| `08_ablation_families` | 126 min |
+| `09_shap_importance` | 55 min |
+| `10_tie_out` | 8 s |
+| `11_split_comparison` | 12 min |
+| `12_figures` | 6 min |
 
-About 6.2 hours in total. `01` and `02` are needed only when `sybil_pipeline.py` changes; with their committed
-results, `03` to `11` take about 4.3 hours.
+About 6.5 hours in total. `01` and `02` are needed only when `sybil_pipeline.py` changes; with their committed
+results, `03` to `12` take about 4.1 hours.
 
 ### What each notebook does
 
@@ -233,6 +236,10 @@ results, `03` to `11` take about 4.3 hours.
 - **`11`**: trains the same models, with the same hyperparameters and shared code, on the original
   address-level random split, and reports the difference from the group split overall and by
   taxonomy category. A measurement of the leakage, not a reported result.
+- **`12`**: draws every figure in the paper from the saved predictions, results and feature table
+  (group split), and trains one XGBoost model (seed 42, selected hyperparameters) for the learning
+  curve; it checks the curve against `02` and `03` and the plotted AP and AUROC against `results/`.
+  The depth distribution uses all addresses.
 
 ---
 
