@@ -57,7 +57,8 @@ XGBoost and LightGBM lose similar Average Precision; the cross-ensemble tracks L
 
 - **Split.** 49 % train, 21 % validation, 30 % test, stratified by class. The primary split is a
   **stratified group split**: wallets are grouped by gas provision tree (identified by the root of
-  the unlabeled part of their gas provision chain), and no tree spans two partitions. The address-level random split
+  the unlabeled part of their gas provision chain), and no tree spans two partitions (`make_splits` and `_group_partition` in
+  [`sybil_pipeline.py`](sybil_pipeline.py)). The address-level random split
   used in the original paper is run only to measure the leakage in the original evaluation; it is
   not a reported result.
 - **Test isolation.** Hyperparameters (`02_hyperparameter_search`), decision thresholds, and the
@@ -242,7 +243,7 @@ Provider and tree features are relational: every wallet in a gas provision tree 
 `provider_*`, `tree_size`, `branching_factor`, and similar values. Under an address-level random
 split, wallets from one gas provision tree land in both train and test, so test performance partly
 measures recognition of trees already seen in training. The group split keeps each tree in one
-partition, and `sybil_pipeline.make_splits` asserts that no tree spans two partitions. Labeled
+partition, and `make_splits` in [`sybil_pipeline.py`](sybil_pipeline.py) asserts that no tree spans two partitions. Labeled
 entities are not part of any tree, so a wallet funded directly by one (an exchange, for example) is
 the root of its own tree, and a CEX hot wallet never merges its customers into one giant tree.
 
