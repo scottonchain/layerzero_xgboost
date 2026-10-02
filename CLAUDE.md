@@ -23,9 +23,9 @@ This repo and Paven's fork (paven86/layerzero_xgboost) are public. Never commit 
 - Data files are Git LFS objects. Run `git lfs pull` before anything else.
 - Install with `pip install -r requirements.txt`.
 - Order: run the notebooks in numerical order, `00` → `11`. `01` (Gini keep-or-drop) decides the feature set and `02` (search, about 80 minutes on 4 cores) the hyperparameters; both are one-time steps whose results are committed. `03`–`06` are the models (group split), `07`–`09` robustness, `10` the tie-out of every reported number, `11` the comparison with the original random split. The README has the exact commands.
-- Results go to `results/<notebook>_<split>.json` with the code commit recorded at kernel start. Start runs from a clean working tree, or the commit is recorded as `-dirty` and `06` rejects it.
+- Results go to `results/<notebook>.json` with the code commit recorded at kernel start. Start runs from a clean working tree, or the commit is recorded as `-dirty` and `10_tie_out` rejects it.
 - `10_tie_out` (and `11` for the results it compares) refuses results whose dependencies (`sybil_pipeline.py`, the notebook, `requirements.txt`, `data/`, the search notebook where used, and for `06` the notebooks whose predictions it reads) changed since they were produced (`sp.provenance`). Editing `sybil_pipeline.py` therefore means rerunning everything, including the search.
-- Commit the executed `group` notebooks and `results/`; the paper's numbers are read from them.
+- Commit the executed notebooks and `results/`; the paper's numbers are read from them.
 
 ## Remotes
 
