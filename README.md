@@ -19,7 +19,7 @@ on validation; test labels are used only for this table.
 | Cross-ensemble | 0.697 | 0.739 | 0.717 | 0.968 | 0.770 | 0.0140 |
 | Logistic regression | 0.150 | 0.617 | 0.241 | 0.837 | 0.166 | 0.1529 |
 
-Source: `06_split_comparison.ipynb`. AP is average precision; FPR is the false-positive rate among
+Source: `11_split_comparison.ipynb`. AP is average precision; FPR is the false-positive rate among
 non-Sybils at the model's threshold.
 
 - **Split noise.** Over 10 group splits, LightGBM test F1 has SD 0.006 (`09`). Differences between
