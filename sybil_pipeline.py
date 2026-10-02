@@ -592,8 +592,19 @@ def make_splits(df, feats=FEATS, method='group', seed=SEED):
     )
 
 
+# Called by 00_data_pipeline, 03-05 (each records the leakage of the split it trained on) and
+# 11_split_comparison. Under the group split the tree overlap is 0 by construction (make_splits
+# asserts it); the random split is measured only in 11, to answer the reviewers' leakage question.
 def leakage_report(df, s, verbose=True):
-    """Row overlap and gas-provision-tree overlap between partitions."""
+    """Row overlap and gas-provision-tree overlap between partitions.
+
+    s: the split dict returned by make_splits; only s['method'] and the row indices
+       s['idx_train'], s['idx_val'], s['idx_test'] (rows of df, before upsampling) are used.
+    Asserts that no row is in two partitions. Returns a dict of counts: method, test_rows,
+    test_sybils, test_rows_sharing_tree_with_train (test rows whose gas provision tree also has a
+    training row) and test_sybils_sharing_tree_with_train_sybil (test Sybils whose tree also has a
+    training Sybil).
+    """
     tr, va, te = (set(s[k]) for k in ('idx_train', 'idx_val', 'idx_test'))
     row = dict(train_val=len(tr & va), train_test=len(tr & te), val_test=len(va & te))
     assert not any(row.values()), f'Row overlap between partitions: {row}'
@@ -691,6 +702,9 @@ USES_SEARCH = ('03_xgboost_sybil', '04_lightgbm_sybil', '06_cross_ensemble_sybil
 USES_PREDICTIONS = {'06_cross_ensemble_sybil': ('03_xgboost_sybil', '04_lightgbm_sybil')}
 
 
+# Called by 10_tie_out (results of 00-09) and 11_split_comparison (results of 03-06) before any
+# number is shown; each asserts that every row's dependencies_unchanged is True, so a result produced
+# by different code stops the notebook.
 def provenance(notebooks, results_dir='results'):
     """For each notebook's saved result: was it produced by the code in the current commit?
 
@@ -714,6 +728,8 @@ def provenance(notebooks, results_dir='results'):
         files_same = (not commit.endswith('-dirty')) and git(
             'diff', '--quiet', commit, 'HEAD', '--', 'sybil_pipeline.py', 'requirements.txt', 'data').returncode == 0
         deps = [nb] + (['02_hyperparameter_search'] if nb in USES_SEARCH else []) + list(USES_PREDICTIONS.get(nb, ()))
+        # The code cells of the notebook and of the notebooks it depends on, as committed at the result's
+        # commit and at HEAD; markdown and saved outputs are ignored.
         code_same = all(code_cells(commit, f'{d}.ipynb') == code_cells('HEAD', f'{d}.ipynb') for d in deps)
         rows.append(dict(notebook=nb, commit=commit, dependencies_unchanged=files_same and code_same))
     return pd.DataFrame(rows)
@@ -915,7 +931,7 @@ def load_predictions(notebook, part):
 
 SPLIT_SEEDS = [42, 1, 2, 3, 4, 5, 6, 7, 8, 9]   # 10 group splits
 
-# Used to evaluate the impact of features by categories (07-09)
+# Used to evaluate the impact of features by family (08, 09)
 FEATURE_FAMILIES = {
     'LayerZero transactions': [
         'l0_tx_time_span', 'latest_l0_tx_time', 'earliest_l0_tx_time', 'l0_avg_stargate_swap',
