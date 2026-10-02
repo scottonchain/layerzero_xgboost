@@ -1,0 +1,110 @@
+{
+  "notebook": "01_ablation_gini",
+  "code_commit": "21adb3c",
+  "leakage": null,
+  "models": [],
+  "rule": "retain if removing lowers validation F1 on >= 8 of 10 group splits",
+  "splits_lowered": 3,
+  "sign_test_p": 0.9453125,
+  "mean_f1_change": 0.001130674433883383,
+  "mean_ap_change": 0.0009659128728605638,
+  "decision": "remove",
+  "per_split": [
+    {
+      "split_seed": 42,
+      "val_f1_with": 0.7016523463317912,
+      "val_f1_without": 0.7025435073627845,
+      "val_ap_with": 0.7595457415425101,
+      "val_ap_without": 0.759887165046236,
+      "f1_change_when_removed": 0.0008911610309932927,
+      "ap_change_when_removed": 0.0003414235037259017
+    },
+    {
+      "split_seed": 1,
+      "val_f1_with": 0.7164138308049747,
+      "val_f1_without": 0.7152644560153467,
+      "val_ap_with": 0.7695718458453337,
+      "val_ap_without": 0.7703348411266753,
+      "f1_change_when_removed": -0.001149374789627955,
+      "ap_change_when_removed": 0.0007629952813416052
+    },
+    {
+      "split_seed": 2,
+      "val_f1_with": 0.7147343627322691,
+      "val_f1_without": 0.7181947866683958,
+      "val_ap_with": 0.7741540738938928,
+      "val_ap_without": 0.776184488327103,
+      "f1_change_when_removed": 0.0034604239361266664,
+      "ap_change_when_removed": 0.0020304144332101703
+    },
+    {
+      "split_seed": 3,
+      "val_f1_with": 0.7091397849462365,
+      "val_f1_without": 0.7124600638977636,
+      "val_ap_with": 0.75527890780877,
+      "val_ap_without": 0.7594389183783566,
+      "f1_change_when_removed": 0.003320278951527089,
+      "ap_change_when_removed": 0.004160010569586592
+    },
+    {
+      "split_seed": 4,
+      "val_f1_with": 0.706723133933298,
+      "val_f1_without": 0.7040389031473727,
+      "val_ap_with": 0.7492963394590467,
+      "val_ap_without": 0.7448593269986047,
+      "f1_change_when_removed": -0.002684230785925279,
+      "ap_change_when_removed": -0.004437012460442036
+    },
+    {
+      "split_seed": 5,
+      "val_f1_with": 0.7168468591761324,
+      "val_f1_without": 0.7220971799285052,
+      "val_ap_with": 0.7677248754356665,
+      "val_ap_without": 0.7687814421352994,
+      "f1_change_when_removed": 0.00525032075237275,
+      "ap_change_when_removed": 0.0010565666996329437
+    },
+    {
+      "split_seed": 6,
+      "val_f1_with": 0.708604867668573,
+      "val_f1_without": 0.7097130242825607,
+      "val_ap_with": 0.7527346844399425,
+      "val_ap_without": 0.7525266926228216,
+      "f1_change_when_removed": 0.0011081566139876653,
+      "ap_change_when_removed": -0.00020799181712094494
+    },
+    {
+      "split_seed": 7,
+      "val_f1_with": 0.7060750853242321,
+      "val_f1_without": 0.7040572792362768,
+      "val_ap_with": 0.7578330028840279,
+      "val_ap_without": 0.7581702316575053,
+      "f1_change_when_removed": -0.0020178060879553206,
+      "ap_change_when_removed": 0.000337228773477416
+    },
+    {
+      "split_seed": 8,
+      "val_f1_with": 0.7120786516853933,
+      "val_f1_without": 0.7150147730325007,
+      "val_ap_with": 0.7624882665823827,
+      "val_ap_without": 0.7607877701848396,
+      "f1_change_when_removed": 0.002936121347107412,
+      "ap_change_when_removed": -0.0017004963975431053
+    },
+    {
+      "split_seed": 9,
+      "val_f1_with": 0.7098789535337758,
+      "val_f1_without": 0.7100706469040033,
+      "val_ap_with": 0.7586725646558964,
+      "val_ap_without": 0.7659885547986335,
+      "f1_change_when_removed": 0.0001916933702275081,
+      "ap_change_when_removed": 0.007315990142737094
+    }
+  ],
+  "params": {
+    "num_leaves": 511,
+    "learning_rate": 0.05,
+    "subsample": 0.7,
+    "reg_lambda": 1.0
+  }
+}

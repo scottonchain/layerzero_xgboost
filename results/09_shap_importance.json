@@ -1,0 +1,510 @@
+{
+  "notebook": "09_shap_importance",
+  "code_commit": "21adb3c",
+  "leakage": null,
+  "models": [],
+  "mean_abs_shap": [
+    {
+      "feature": "l0_tx_time_span",
+      "All": 0.9068075381095457,
+      "IxL": 0.8622309039122006,
+      "IxI": 0.8985261936081317,
+      "IxE": 1.0544587243199908,
+      "family": "LayerZero transactions"
+    },
+    {
+      "feature": "n_l0_source_contracts",
+      "All": 0.7108336025050216,
+      "IxL": 0.6513614922480851,
+      "IxI": 0.7272928800252146,
+      "IxE": 0.899112272259228,
+      "family": "LayerZero transactions"
+    },
+    {
+      "feature": "l0_avg_stargate_swap",
+      "All": 0.6063134174504393,
+      "IxL": 0.6165034700412129,
+      "IxI": 0.5415950096382632,
+      "IxE": 0.5966862221992687,
+      "family": "LayerZero transactions"
+    },
+    {
+      "feature": "earliest_l0_tx_time",
+      "All": 0.5452376466638952,
+      "IxL": 0.557412640223942,
+      "IxI": 0.46497017728658624,
+      "IxE": 0.5342754037845636,
+      "family": "LayerZero transactions"
+    },
+    {
+      "feature": "latest_l0_tx_time",
+      "All": 0.5041711821026919,
+      "IxL": 0.5002386401223514,
+      "IxI": 0.47644981473095643,
+      "IxE": 0.5265423457990189,
+      "family": "LayerZero transactions"
+    },
+    {
+      "feature": "max_tx_value_out",
+      "All": 0.4929289365726646,
+      "IxL": 0.5042431370158348,
+      "IxI": 0.4713662297453096,
+      "IxE": 0.463363518243837,
+      "family": "Ethereum transactions"
+    },
+    {
+      "feature": "num_transactions_in",
+      "All": 0.4697487572092975,
+      "IxL": 0.46439246698923387,
+      "IxI": 0.40181356218873154,
+      "IxE": 0.5110996717094013,
+      "family": "Ethereum transactions"
+    },
+    {
+      "feature": "n_l0_source_chains",
+      "All": 0.42837857370115867,
+      "IxL": 0.39837193728951464,
+      "IxI": 0.4325965232438667,
+      "IxE": 0.5246298374551452,
+      "family": "LayerZero transactions"
+    },
+    {
+      "feature": "tx_value_per_block_out",
+      "All": 0.34143722212076316,
+      "IxL": 0.3434477537347179,
+      "IxI": 0.3124446753116247,
+      "IxE": 0.3451148265853169,
+      "family": "Ethereum transactions"
+    },
+    {
+      "feature": "earliest_tx_block_in",
+      "All": 0.3234788636197013,
+      "IxL": 0.3328472657353776,
+      "IxI": 0.2897898637061145,
+      "IxE": 0.30496449024559236,
+      "family": "Ethereum transactions"
+    },
+    {
+      "feature": "l0_min_stargate_swap",
+      "All": 0.27399000490202774,
+      "IxL": 0.2529192786259766,
+      "IxI": 0.26288111480530013,
+      "IxE": 0.34650335953818645,
+      "family": "LayerZero transactions"
+    },
+    {
+      "feature": "min_tx_value_in",
+      "All": 0.2536483456398111,
+      "IxL": 0.2779190434376505,
+      "IxI": 0.20132783609440488,
+      "IxE": 0.19270884331231328,
+      "family": "Ethereum transactions"
+    },
+    {
+      "feature": "time_span_in",
+      "All": 0.24759765076865353,
+      "IxL": 0.2463228573844251,
+      "IxI": 0.2607028071038514,
+      "IxE": 0.2469067606372315,
+      "family": "Ethereum transactions"
+    },
+    {
+      "feature": "gas_provision_block_number",
+      "All": 0.2194443827154613,
+      "IxL": 0.22932641588065297,
+      "IxI": 0.18418443711744392,
+      "IxE": 0.19833966733018696,
+      "family": "Gas provider"
+    },
+    {
+      "feature": "n_l0_project_per_source_chain",
+      "All": 0.21943143295449183,
+      "IxL": 0.22705088286881797,
+      "IxI": 0.2086732778110231,
+      "IxE": 0.198577535755401,
+      "family": "LayerZero transactions"
+    },
+    {
+      "feature": "n_l0_projects",
+      "All": 0.16036636742152044,
+      "IxL": 0.15714882972414104,
+      "IxI": 0.17161739844914278,
+      "IxE": 0.16730605220589778,
+      "family": "LayerZero transactions"
+    },
+    {
+      "feature": "provider_avg_gas_provision_amount",
+      "All": 0.12940132455386674,
+      "IxL": 0.1350716111558172,
+      "IxI": 0.11053682033743722,
+      "IxE": 0.11744549762980139,
+      "family": "Gas provider"
+    },
+    {
+      "feature": "min_tx_value_out",
+      "All": 0.12756973076817338,
+      "IxL": 0.13792961764410328,
+      "IxI": 0.10196465839255368,
+      "IxE": 0.10220858717834784,
+      "family": "Ethereum transactions"
+    },
+    {
+      "feature": "provider_min_gas_provision_amount",
+      "All": 0.12656214048731484,
+      "IxL": 0.1021378667791529,
+      "IxI": 0.18223913764368582,
+      "IxE": 0.18643120020906576,
+      "family": "Gas provider"
+    },
+    {
+      "feature": "provider_fan_out",
+      "All": 0.11144095702239991,
+      "IxL": 0.10434925792004858,
+      "IxI": 0.11850636249501494,
+      "IxE": 0.13199155146348426,
+      "family": "Gas provider"
+    },
+    {
+      "feature": "n_eth_interactions",
+      "All": 0.1051987901859625,
+      "IxL": 0.09598500770293537,
+      "IxI": 0.11946436608539113,
+      "IxE": 0.13037717863986187,
+      "family": "LayerZero transactions"
+    },
+    {
+      "feature": "provider_total_gas_provision_amount",
+      "All": 0.10282137907378498,
+      "IxL": 0.08236845885495933,
+      "IxI": 0.14302294702762805,
+      "IxE": 0.15405176711792903,
+      "family": "Gas provider"
+    },
+    {
+      "feature": "cex_in_count",
+      "All": 0.09235238324266806,
+      "IxL": 0.08230416389542192,
+      "IxI": 0.11344402390640791,
+      "IxE": 0.11763895897313206,
+      "family": "Ethereum transactions"
+    },
+    {
+      "feature": "provider_max_gas_provision_amount",
+      "All": 0.09196054613030578,
+      "IxL": 0.10336408246704235,
+      "IxI": 0.06163437448229364,
+      "IxE": 0.0649561174009228,
+      "family": "Gas provider"
+    },
+    {
+      "feature": "indegree_per_block_in",
+      "All": 0.08875201910229166,
+      "IxL": 0.0876690084021527,
+      "IxI": 0.08685496134353762,
+      "IxE": 0.09307070673446573,
+      "family": "Ethereum transactions"
+    },
+    {
+      "feature": "l0_to_eth_tx_time_span",
+      "All": 0.07420643094641889,
+      "IxL": 0.07023867360639809,
+      "IxI": 0.07814744247451008,
+      "IxE": 0.08572433561150077,
+      "family": "LayerZero transactions"
+    },
+    {
+      "feature": "gas_distribution_entropy",
+      "All": 0.07200471169063064,
+      "IxL": 0.055018630845636726,
+      "IxI": 0.13085764988517076,
+      "IxE": 0.10677653303057202,
+      "family": "Gas provision tree"
+    },
+    {
+      "feature": "balance_factor",
+      "All": 0.06064480005751429,
+      "IxL": 0.048426704254566515,
+      "IxI": 0.14582138474421977,
+      "IxE": 0.07054038137916176,
+      "family": "Gas provision tree"
+    },
+    {
+      "feature": "l0_to_eth_min_stargate_swap",
+      "All": 0.058605333521510095,
+      "IxL": 0.053521897268480674,
+      "IxI": 0.07835617551977166,
+      "IxE": 0.06827764782175468,
+      "family": "LayerZero transactions"
+    },
+    {
+      "feature": "l0_to_eth_max_stargate_swap",
+      "All": 0.058539168450789006,
+      "IxL": 0.05678082490119738,
+      "IxI": 0.0742929386142919,
+      "IxE": 0.05880726748655031,
+      "family": "LayerZero transactions"
+    },
+    {
+      "feature": "l0_to_eth_avg_stargate_swap",
+      "All": 0.049940282941306105,
+      "IxL": 0.04913210564674251,
+      "IxI": 0.055729976196222226,
+      "IxE": 0.050555363800587054,
+      "family": "LayerZero transactions"
+    },
+    {
+      "feature": "breadth_to_depth_ratio",
+      "All": 0.049558567352888605,
+      "IxL": 0.015290213233566599,
+      "IxI": 0.15122168316806284,
+      "IxE": 0.1258835446236668,
+      "family": "Gas provision tree"
+    },
+    {
+      "feature": "n_l0_to_eth_source_contracts",
+      "All": 0.049417500517422566,
+      "IxL": 0.05294027015331087,
+      "IxI": 0.045351210825519586,
+      "IxE": 0.03932861491192082,
+      "family": "LayerZero transactions"
+    },
+    {
+      "feature": "n_l0_to_eth_txs",
+      "All": 0.045052745126856975,
+      "IxL": 0.042751857186702366,
+      "IxI": 0.05023645862343978,
+      "IxE": 0.05087136171808054,
+      "family": "LayerZero transactions"
+    },
+    {
+      "feature": "total_gas",
+      "All": 0.04397032951694847,
+      "IxL": 0.010499912759080557,
+      "IxI": 0.12044497313236477,
+      "IxE": 0.12646603747758153,
+      "family": "Gas provision tree"
+    },
+    {
+      "feature": "is_provider",
+      "All": 0.03798140701642471,
+      "IxL": 0.03555169959889307,
+      "IxI": 0.05728642338095821,
+      "IxE": 0.039234616285675476,
+      "family": "Gas provider"
+    },
+    {
+      "feature": "leaf_gas_distribution_entropy",
+      "All": 0.03485507291038619,
+      "IxL": 0.015358320641275059,
+      "IxI": 0.11302312289999607,
+      "IxE": 0.07103495381201966,
+      "family": "Gas provision tree"
+    },
+    {
+      "feature": "n_l0_to_eth_project_per_source_chain",
+      "All": 0.032710333355999856,
+      "IxL": 0.0333792239514657,
+      "IxI": 0.030763691531963403,
+      "IxE": 0.03129318507387583,
+      "family": "LayerZero transactions"
+    },
+    {
+      "feature": "max_depth",
+      "All": 0.031485472507787826,
+      "IxL": 0.024948252029007623,
+      "IxI": 0.07542449915039896,
+      "IxE": 0.03736134619027267,
+      "family": "Gas provision tree"
+    },
+    {
+      "feature": "leaf_gas_distribution_skewness",
+      "All": 0.031157289137746066,
+      "IxL": 0.006302018738886746,
+      "IxI": 0.13913690698094003,
+      "IxE": 0.07439550988626044,
+      "family": "Gas provision tree"
+    },
+    {
+      "feature": "n_l0_to_eth_projects",
+      "All": 0.02865940959807556,
+      "IxL": 0.029148626791520516,
+      "IxI": 0.02995116047601597,
+      "IxE": 0.026623997654218717,
+      "family": "LayerZero transactions"
+    },
+    {
+      "feature": "avg_depth",
+      "All": 0.028065944266036272,
+      "IxL": 0.015250231716418499,
+      "IxI": 0.07128470622652425,
+      "IxE": 0.054741908475339426,
+      "family": "Gas provision tree"
+    },
+    {
+      "feature": "leaf_to_internal_ratio",
+      "All": 0.027227914377802323,
+      "IxL": 0.013637356100134314,
+      "IxI": 0.07227065810754443,
+      "IxE": 0.05583449792095938,
+      "family": "Gas provision tree"
+    },
+    {
+      "feature": "gas_distribution_skewness",
+      "All": 0.02303410861764396,
+      "IxL": 0.0056054376073350586,
+      "IxI": 0.07169663432305363,
+      "IxE": 0.06289729097914389,
+      "family": "Gas provision tree"
+    },
+    {
+      "feature": "interactors_in_chain",
+      "All": 0.02291934605139212,
+      "IxL": 0.01712466450707799,
+      "IxI": 0.05564550314501189,
+      "IxE": 0.030265540797229238,
+      "family": "Provision chain"
+    },
+    {
+      "feature": "star_like_ratio",
+      "All": 0.02091235754400891,
+      "IxL": 0.006891448426275747,
+      "IxI": 0.07764175311734714,
+      "IxE": 0.04670913107736608,
+      "family": "Gas provision tree"
+    },
+    {
+      "feature": "provider_is_interactor",
+      "All": 0.02031777013841013,
+      "IxL": 0.012733199322237066,
+      "IxI": 0.07958159402458796,
+      "IxE": 0.024175194630106492,
+      "family": "Gas provider"
+    },
+    {
+      "feature": "leaf_provision_proportion",
+      "All": 0.019331050499622485,
+      "IxL": 0.006940153954642128,
+      "IxI": 0.06608255147879263,
+      "IxE": 0.043295840902002766,
+      "family": "Gas provision tree"
+    },
+    {
+      "feature": "longest_chain_ratio",
+      "All": 0.017296901508121833,
+      "IxL": 0.005399887970503407,
+      "IxI": 0.04424046260984669,
+      "IxE": 0.04672419728968073,
+      "family": "Gas provision tree"
+    },
+    {
+      "feature": "breadth_factor",
+      "All": 0.012857802349117162,
+      "IxL": 0.006845619475210615,
+      "IxI": 0.033436018490567584,
+      "IxE": 0.0252900299305758,
+      "family": "Gas provision tree"
+    },
+    {
+      "feature": "tree_size",
+      "All": 0.011486891008818024,
+      "IxL": 0.007736262809409,
+      "IxI": 0.02610743807764276,
+      "IxE": 0.018605812998714662,
+      "family": "Gas provision tree"
+    },
+    {
+      "feature": "n_l0_to_eth_source_chains",
+      "All": 0.00898504072556296,
+      "IxL": 0.008392811488375972,
+      "IxI": 0.010941867248363855,
+      "IxE": 0.010242704924798883,
+      "family": "LayerZero transactions"
+    },
+    {
+      "feature": "l0_to_eth_max_native_drop_usd",
+      "All": 0.008606296406555127,
+      "IxL": 0.008908934406314883,
+      "IxI": 0.00841329594582264,
+      "IxE": 0.007679469582360348,
+      "family": "LayerZero transactions"
+    },
+    {
+      "feature": "chain_length",
+      "All": 0.00805764162072708,
+      "IxL": 0.004342677339714181,
+      "IxI": 0.018645370071932062,
+      "IxE": 0.01647048264633011,
+      "family": "Provision chain"
+    },
+    {
+      "feature": "depth",
+      "All": 0.007715873990855834,
+      "IxL": 0.0032731203613344893,
+      "IxI": 0.016680781765960273,
+      "IxE": 0.01906068603780399,
+      "family": "Provision chain"
+    },
+    {
+      "feature": "n_l0_to_eth_dest_contracts",
+      "All": 0.005917572856758996,
+      "IxL": 0.005550993257885701,
+      "IxI": 0.0068718233323233294,
+      "IxE": 0.006789588928253842,
+      "family": "LayerZero transactions"
+    },
+    {
+      "feature": "branching_factor",
+      "All": 0.0043863329358550165,
+      "IxL": 0.0029471996772458,
+      "IxI": 0.009792405601333428,
+      "IxE": 0.0071857738468240505,
+      "family": "Gas provision tree"
+    },
+    {
+      "feature": "l0_to_eth_avg_native_drop_usd",
+      "All": 0.001760534119539211,
+      "IxL": 0.0015384481358414878,
+      "IxI": 0.0026578598279919804,
+      "IxE": 0.0021735126526027412,
+      "family": "LayerZero transactions"
+    },
+    {
+      "feature": "provider_is_labeled",
+      "All": 0.0011245154676561534,
+      "IxL": 0.001474669711131509,
+      "IxI": 0.00029149101155951073,
+      "IxE": 0.0002798834769500494,
+      "family": "Gas provider"
+    },
+    {
+      "feature": "provider_is_star_like_attack",
+      "All": 0.001012640710527861,
+      "IxL": 0.00038820593633674677,
+      "IxI": 0.003866354523923615,
+      "IxE": 0.0020466328510155246,
+      "family": "Gas provider"
+    },
+    {
+      "feature": "sparsity",
+      "All": 0.0008484835075724341,
+      "IxL": 0.0005896653305932033,
+      "IxI": 0.001483988724289222,
+      "IxE": 0.001459365616999109,
+      "family": "Gas provision tree"
+    },
+    {
+      "feature": "provider_is_null",
+      "All": 3.873127249875406e-06,
+      "IxL": 3.7553202401179256e-06,
+      "IxI": 1.7590332405742668e-06,
+      "IxE": 1.524964736608502e-06,
+      "family": "Gas provider"
+    }
+  ],
+  "params": {
+    "num_leaves": 127,
+    "learning_rate": 0.05,
+    "subsample": 0.7,
+    "reg_lambda": 1.0
+  }
+}
