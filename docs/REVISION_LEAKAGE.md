@@ -251,3 +251,9 @@ The corrected `gini_coefficient` is the only feature whose definition changed in
 - Scope of the table: those that funded at least 50 interactors (the Etherscan step's threshold, same count): 32 addresses, 22,532 interactors. Earlier text said 49; that counted all addresses funded, not interactors.
 - 27 of 32 carry a Blockscout entity tag (Stargate, Orbiter, Across, Aztec, Synapse, Rhino.fi, deBridge, THORChain, Ethermine, Nanopool, Tornado Cash pools, batch-send tools and others). Of the other 5, two are verified contracts whose code names a service (WooCrossChainRouterV2, Disperse), one is a Gnosis Safe, and two have no name or tag.
 - For the paper: 6 of the 32 are batch-send tools (Disperse twice, Bulksender, CoinTool MultiSender, Multisender.app, GasliteDrop), funding 2,650 interactors. Labeling them ends the provision chain there, so wallets funded through the same tool are not linked into one tree. Consistent with the rule (shared services), but a reviewer may ask.
+
+**2026-10-02, how much the split seed varies the group split, @ 08cc963.** `sp._group_partition` over split seeds 42 and 1 to 9.
+
+- Share of wallets in the same partition as under seed 42 (mean over the 9 other seeds): single-wallet trees 0.374 (348,812 wallets; chance for 49/21/30 is 0.374), trees of 2 to 10 wallets 0.37, 11 to 100 wallets 0.43, over 100 wallets 1.000.
+- The 34 trees over 100 wallets (9,020 wallets, 2.1 %; 97 Sybils, 0.5 %) land in the same partition for every seed: largest first into the partition with the most room, and `argmax` takes the first partition on ties (the largest tree, 1,627 wallets, is always in train). So the 10-split robustness checks do not vary their placement, and the split-to-split SD slightly understates the variation.
+- Decision (Scott): keep the code; state this in the paper (ledger B13).
