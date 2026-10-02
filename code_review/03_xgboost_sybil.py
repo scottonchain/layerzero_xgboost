@@ -26,13 +26,13 @@ FEATS = sp.FEATS   # 62 model features (defined in sybil_pipeline.py)
 # %% [markdown]
 # ## 1. Data and split
 #
-# Stratified group split on funding groups (49 % train, 21 % validation, 30 % test); the Sybil class is
+# Stratified group split on gas provision trees (49 % train, 21 % validation, 30 % test); the Sybil class is
 # upsampled to 1:1 in the training partition only.
 
 # %%
 # ── Feature table (steps 1-7; see 00_data_pipeline) and the stratified group split ──
 df, tfm, labeled_anchors = sp.build_master_df(DATA_DIR)
-S = sp.make_splits(df, FEATS, method='group', seed=sp.SEED)   # asserts no funding group spans two partitions
+S = sp.make_splits(df, FEATS, method='group', seed=sp.SEED)   # asserts no gas provision tree spans two partitions
 print(sp.split_summary(df, S).to_string(index=False))
 print(f"Train after upsampling: {len(S['X_train']):,} rows ({S['y_train'].mean()*100:.1f}% Sybil)\n")
 leak = sp.leakage_report(df, S)

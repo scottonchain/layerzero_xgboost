@@ -1,8 +1,8 @@
 # %% [markdown]
 # # Split Comparison — Leakage in the Original Random Split (not a benchmark result)
 #
-# The original paper split addresses at random. Wallets in the same funding group (the wallets that share the
-# root of an unlabeled funding chain) share their provider and tree feature values, so under a random split
+# The original paper split addresses at random. Wallets in the same gas provision tree (the wallets that share the
+# root of an unlabeled provision chain) share their provider and tree feature values, so under a random split
 # test wallets can match training wallets exactly on those features (relational leakage). Reviewer 2 raised
 # this.
 #
@@ -40,8 +40,8 @@ S = {m: sp.make_splits(df, sp.FEATS, method=m, seed=sp.SEED) for m in ['random',
 leak = {}
 for m in ['random', 'group']:
     leak[m] = sp.leakage_report(df, S[m]); print()
-print(pd.DataFrame(leak).T[['test_rows', 'test_sybils', 'test_rows_sharing_group_with_train',
-                            'test_sybils_sharing_group_with_train_sybil']].to_string())
+print(pd.DataFrame(leak).T[['test_rows', 'test_sybils', 'test_rows_sharing_tree_with_train',
+                            'test_sybils_sharing_tree_with_train_sybil']].to_string())
 
 # %% [markdown]
 # ## 2. Train the same models on the random split
@@ -84,8 +84,8 @@ print(comp.round(4).to_string())
 # %% [markdown]
 # ## 4. Where the leakage sits: F1 by taxonomy category
 #
-# Share of each taxonomy category in multi-wallet funding groups, then test F1 under each split. IxL wallets
-# are their own group unless they fund other wallets.
+# Share of each taxonomy category in multi-wallet gas provision trees, then test F1 under each split. IxL wallets
+# are each their own tree unless they fund other wallets.
 
 # %%
 PROB = {'XGBoost (tuned, 3-seed)': ('03_xgboost_sybil', 'prob_xgb', xgb),
@@ -101,9 +101,9 @@ for name, (nb, col, m) in PROB.items():
         f1g = f1_score(pg['y'][kg], (pg[col][kg] >= GROUP[name]['threshold']).astype(int), zero_division=0)
         rows.append(dict(Model=name, category=c, f1_random=f1r, f1_group=f1g, delta=f1g - f1r))
 by_cat = pd.DataFrame(rows)
-size = df['funding_group'].map(df['funding_group'].value_counts())
+size = df['provision_tree'].map(df['provision_tree'].value_counts())
 print((size > 1).groupby(df['category']).agg(['sum', 'size', 'mean']).rename(
-    columns={'sum': 'in_multi_wallet_groups', 'size': 'wallets', 'mean': 'share'}).round(3).to_string(), '\n')
+    columns={'sum': 'in_multi_wallet_trees', 'size': 'wallets', 'mean': 'share'}).round(3).to_string(), '\n')
 print(by_cat.round(4).to_string(index=False))
 
 # %% [markdown]

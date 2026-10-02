@@ -58,18 +58,18 @@ print('06 individual models match 03 and 04 ✓')
 D = R['00_data_pipeline']
 print(f"Addresses: {D['n_addresses']:,}  |  Sybil: {D['n_sybil']:,} ({D['n_sybil']/D['n_addresses']*100:.2f}%)")
 print(f"Provision edges dropped by the snapshot cutoff: {D['provision_edges_after_cutoff']}")
-fg = D['funding_groups']
-print(f"Funding groups: {fg['n']:,}  |  multi-wallet: {fg['multi_wallet']:,}  |  largest: {fg['largest']:,} wallets"
-      f"  |  Sybils in multi-wallet groups: {fg['sybils_in_multi']:,}\n")
+fg = D['provision_trees']
+print(f"Gas provision trees: {fg['n']:,}  |  multi-wallet: {fg['multi_wallet']:,}  |  largest: {fg['largest']:,} wallets"
+      f"  |  Sybils in multi-wallet trees: {fg['sybils_in_multi']:,}\n")
 cat = pd.DataFrame(D['categories']).T
 cat['pct_of_total'] = (cat['n'] / cat['n'].sum() * 100).round(2)
 cat['sybil_rate_pct'] = (cat['sybil'] / cat['n'] * 100).round(2)
 print('Taxonomy categories:'); print(cat.to_string(), '\n')
 print('Partitions (before upsampling):'); print(pd.DataFrame(D['splits']).T.to_string())
 L = D['leakage']
-print(f"\nRelational leakage (row overlap is asserted 0): test rows sharing a funding group with train "
-      f"{L['test_rows_sharing_group_with_train']:,} of {L['test_rows']:,}; test Sybils sharing one with a train Sybil "
-      f"{L['test_sybils_sharing_group_with_train_sybil']:,} of {L['test_sybils']:,}")
+print(f"\nRelational leakage (row overlap is asserted 0): test rows sharing a gas provision tree with train "
+      f"{L['test_rows_sharing_tree_with_train']:,} of {L['test_rows']:,}; test Sybils sharing one with a train Sybil "
+      f"{L['test_sybils_sharing_tree_with_train_sybil']:,} of {L['test_sybils']:,}")
 
 # %% [markdown]
 # ## Test-set metrics (paper Table 3)

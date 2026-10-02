@@ -5,8 +5,8 @@
 The paper built on this repo is being revised because reviewers raised data leakage. The work list is `docs/REVISION_LEAKAGE.md`: read its Status table first. Record every measured number in its Findings log (section E) with the commit it came from.
 
 What changed and why, in one place:
-- `sybil_pipeline.py` is the single source for features, funding groups, and splits. Every notebook imports it. Do not reintroduce per-notebook copies of the pipeline.
-- The split is a stratified group split on funding groups (A1). The original random split is trained only in `11_split_comparison`, to measure the leakage.
+- `sybil_pipeline.py` is the single source for features, gas provision trees, and splits. Every notebook imports it. Do not reintroduce per-notebook copies of the pipeline.
+- The split is a stratified group split on gas provision trees (A1). The original random split is trained only in `11_split_comparison`, to measure the leakage.
 - Model training, evaluation and the blend weight are defined once in `sybil_pipeline.py` (`fit_xgb`, `fit_lgbm`, `fit_lr`, `select_blend_weight`, `evaluate`); notebooks call them.
 - Test labels are used only for final reporting: hyperparameters come from `02_hyperparameter_search` (validation only), thresholds and the blend weight from validation.
 - Labeled addresses come from a fixed rule (`sp.stream_labeled_anchors`): public lists, then an Etherscan check of every other funder of at least `ETHERSCAN_MIN_FANOUT` interactors (`review_support/build_etherscan_lookups.py`). No hand additions.

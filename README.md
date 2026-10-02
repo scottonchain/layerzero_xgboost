@@ -2,13 +2,13 @@
 
 > Reproduces and extends: *Sybil Detection on Public Blockchains via XGBoost and Gas Provision Network Analysis* (Imig et al., 2025)
 
-Trains three classifiers (XGBoost, LightGBM, Logistic Regression) and a cross-model ensemble on 434,786 Ethereum addresses to identify Sybil wallets in the LayerZero airdrop of June 2024. Every number below is produced by a notebook in this repository; `11_split_comparison.ipynb` checks that each one traces to the code in the current commit.
+Trains three classifiers (XGBoost, LightGBM, Logistic Regression) and a cross-model ensemble on 434,786 Ethereum addresses to identify Sybil wallets in the LayerZero airdrop of June 2024. Every number below is produced by a notebook in this repository; `10_tie_out.ipynb` checks that each one traces to the code in the current commit.
 
 ---
 
 ## Benchmark results
 
-Stratified group split on funding clusters (no cluster spans train and test). Test partition:
+Stratified group split on gas provision trees (no tree spans train and test). Test partition:
 130,435 addresses, 5,463 Sybil (4.19 %). Hyperparameters, thresholds and the blend weight are chosen
 on validation; test labels are used only for this table.
 
@@ -19,19 +19,19 @@ on validation; test labels are used only for this table.
 | Cross-ensemble | 0.697 | 0.739 | 0.717 | 0.968 | 0.770 | 0.0140 |
 | Logistic regression | 0.150 | 0.617 | 0.241 | 0.837 | 0.166 | 0.1529 |
 
-Source: `11_split_comparison.ipynb`. AP is average precision; FPR is the false-positive rate among
+Source: `10_tie_out.ipynb`. AP is average precision; FPR is the false-positive rate among
 non-Sybils at the model's threshold.
 
-- **Split noise.** Over 10 group splits, LightGBM test F1 has SD 0.006 (`09`). Differences between
+- **Split noise.** Over 10 group splits, LightGBM test F1 has SD 0.006 (`08`). Differences between
   XGBoost, LightGBM and the ensemble are smaller than that.
 - **Ensemble.** The validation-selected XGBoost weight is 0.06; the ensemble is essentially LightGBM.
 
 ### Note on leakage with simple random split
 
-If a simple random split is used, rather than a stratified group split, wallets from a funding tree can fall on both
+If a simple random split is used, rather than a stratified group split, wallets from a gas provision tree can fall on both
 sides of the split.  This causes leakage where the model is tested on the same actors it saw in training: In a sample random split, 599 of 5,463 test
-Sybils share a funding cluster with a training Sybil.  This cannot occur under the group
-split. This shows the leakage in the event of a simple random split:
+Sybils share a gas provision tree with a training Sybil.  This cannot occur under the group
+split. This shows the leakage in the event of a simple random split (`11_split_comparison.ipynb`):
 
 | Model | F1 random (original, leaky) | F1 group | Δ F1 | AP random | AP group | Δ AP |
 |---|---|---|---|---|---|---|
@@ -49,29 +49,29 @@ XGBoost and LightGBM lose similar Average Precision; the cross-ensemble tracks L
 | Corrected `gini_coefficient`, rule fixed in advance | `01` | Removing it lowered **validation** F1 on 3 of 10 splits (8 required): removed. The test set was not used |
 | Labels known before the snapshot vs current labels | `07` | Test F1 −0.005 ± 0.007 (mean ± SD) |
 | All provision-network features removed | `08` | Test F1 −0.008; transaction features alone carry most of the signal |
-| SHAP by feature family | `09` | LayerZero transactions first, then Ethereum transactions, gas provider, funding tree, funding chain |
+| SHAP by feature family | `09` | LayerZero transactions first, then Ethereum transactions, gas provider, gas provision tree, provision chain |
 
 ---
 
 ## Evaluation protocol
 
 - **Split.** 49 % train, 21 % validation, 30 % test, stratified by class. The primary split is a
-  **stratified group split**: wallets are grouped by funding cluster (the root of the unlabeled part
-  of their gas provision chain), and no group spans two partitions. The address-level random split
+  **stratified group split**: wallets are grouped by gas provision tree (identified by the root of
+  the unlabeled part of their gas provision chain), and no tree spans two partitions. The address-level random split
   used in the original paper is run only to measure the leakage in the original evaluation; it is
   not a reported result.
-- **Test isolation.** Hyperparameters (`05_hyperparameter_search`), decision thresholds, and the
+- **Test isolation.** Hyperparameters (`02_hyperparameter_search`), decision thresholds, and the
   ensemble blend weight are all chosen on the validation set. Test labels are used only for the
   final report.
 - **Temporal cutoff.** The LayerZero snapshot table ends at 2024-05-01 23:59:59 UTC. Ethereum
   transaction features are cut at 2024-05-01 00:00 UTC by their source queries; provision-network
   edges at or after 2024-05-02 00:00 UTC are dropped in code before any feature is computed.
-- **Labeled addresses.** Known services (exchanges, bridges, protocol contracts) end a funding
+- **Labeled addresses.** Known services (exchanges, bridges, protocol contracts) end a provision
   chain. They come from a fixed rule with no hand selection: public label datasets, then an
   Etherscan check of every other address that funded at least 50 LayerZero interactors (see
   [Labeled addresses](#labeled-addresses)). Sybil labels are never used to choose them.
 - **Features.** 62 features. The 63 of the submitted paper were chosen manually by the authors;
-  `gini_coefficient` was removed by a test whose rule was fixed before it ran (`08_ablation_gini`).
+  `gini_coefficient` was removed by a test whose rule was fixed before it ran (`01_ablation_gini`).
 - **Imbalance.** The Sybil class is upsampled to 1:1 in the training partition only, after the split.
 
 The open work items for the current revision are in [`docs/REVISION_LEAKAGE.md`](docs/REVISION_LEAKAGE.md).
@@ -98,23 +98,25 @@ layerzero_xgboost/
 │   ├── master_df.parquet                   ← full feature table (434,786 rows, all computed features + labels)
 │   ├── splits.npz                          ← train/val/test arrays and partition indices
 │   ├── feature_list.json                   ← ordered list of the 62 model features
-│   └── pred_*.parquet                      ← test predictions from 01–04
+│   └── pred_*.parquet                      ← validation and test predictions from 03–06
 │
-├── results/                                ← metrics per notebook and split, with the code commit
+├── results/                                ← metrics per notebook, with the code commit
 │
-├── sybil_pipeline.py                       ← shared pipeline: features, funding groups, splits
-├── 00_data_pipeline.ipynb                  ← ① builds the feature table; leakage check
-├── 08_ablation_gini.ipynb                  ← ② keep-or-drop test for gini_coefficient (fixes the feature set)
-├── 05_hyperparameter_search.ipynb          ← ③ selects hyperparameters on validation
-├── 01_xgboost_sybil.ipynb                  ← ④ XGBoost (3-seed ensemble)
-├── 02_lightgbm_sybil.ipynb                 ← ④ LightGBM (3-seed ensemble)
-├── 03_logistic_regression_sybil.ipynb      ← ④ Logistic Regression baseline
-├── 04_cross_ensemble_sybil.ipynb           ← ④ Cross-model ensemble (XGB + LGBM)
-├── 07_sensitivity_label_vintage.ipynb      ← ⑤ labels known before the snapshot vs current labels
-├── 09_ablation_families.ipynb              ← ⑤ feature-family ablation
-├── 10_shap_importance.ipynb                ← ⑤ SHAP importance by family and taxonomy category
-├── 06_split_comparison.ipynb               ← ⑥ tie-out: provenance checks and every reported number
-├── review_support/                         ← labeled-address evidence: hand additions, Etherscan lookups
+├── sybil_pipeline.py                       ← shared code: features, gas provision trees, splits, training, metrics
+├── 00_data_pipeline.ipynb                  ← builds the feature table; leakage check
+├── 01_ablation_gini.ipynb                  ← keep-or-drop test for gini_coefficient (fixes the feature set)
+├── 02_hyperparameter_search.ipynb          ← selects hyperparameters on validation
+├── 03_xgboost_sybil.ipynb                  ← XGBoost (3-seed ensemble)
+├── 04_lightgbm_sybil.ipynb                 ← LightGBM (3-seed ensemble)
+├── 05_logistic_regression_sybil.ipynb      ← Logistic Regression baseline
+├── 06_cross_ensemble_sybil.ipynb           ← Cross-model ensemble (blends 03 and 04)
+├── 07_sensitivity_label_vintage.ipynb      ← labels known before the snapshot vs current labels
+├── 08_ablation_families.ipynb              ← feature-family ablation
+├── 09_shap_importance.ipynb                ← SHAP importance by family and taxonomy category
+├── 10_tie_out.ipynb                        ← provenance checks and every reported number
+├── 11_split_comparison.ipynb               ← leakage under the original random split (not a reported result)
+├── review_support/                         ← labeled-address evidence: hand additions, Etherscan and Blockscout lookups
+├── code_review/                            ← plain-Python copies of the notebooks, for review only
 ├── docs/REVISION_LEAKAGE.md                ← revision work items and findings log
 ├── legacy/                                 ← original 2025 notebook (Windows paths; reference only)
 ├── requirements.txt
@@ -165,58 +167,56 @@ The notebooks expect the layout above, with `DATA_DIR = './data'` relative to th
 Interactively (`jupyter lab`), or headless:
 
 ```bash
-run() { SPLIT_METHOD=$2 jupyter nbconvert --to notebook --execute "$1" --inplace \
-          --ExecutePreprocessor.kernel_name=python3 --ExecutePreprocessor.timeout=-1; }
-run 00_data_pipeline.ipynb group
-run 08_ablation_gini.ipynb group
-run 05_hyperparameter_search.ipynb group
-for m in group random; do
-  for nb in 01_xgboost_sybil 02_lightgbm_sybil 03_logistic_regression_sybil 04_cross_ensemble_sybil; do
-    run $nb.ipynb $m
-  done
-done
-for nb in 07_sensitivity_label_vintage 09_ablation_families 10_shap_importance 06_split_comparison; do
-  run $nb.ipynb group
+for nb in [0-9][0-9]_*.ipynb; do
+  jupyter nbconvert --to notebook --execute "$nb" --inplace \
+    --ExecutePreprocessor.kernel_name=python3 --ExecutePreprocessor.timeout=-1
 done
 ```
 
-`SPLIT_METHOD` selects `group` (default) or `random`. Each model notebook rebuilds the feature
-table itself through `sybil_pipeline.build_master_df`, so notebooks can be run independently once
-`05_hyperparameter_search` has written `results/05_hyperparameter_search_group.json`. The
-committed notebook outputs are the `group` runs; the `random` runs are recorded in `results/`.
-`06` runs last because it checks every other notebook's results.
+The glob runs `00` to `11` in numerical order, which is the dependency order. Every notebook
+uses the stratified group split except `11`, which also trains the models on the original random
+split to measure the leakage. Each notebook rebuilds the feature table itself through
+`sybil_pipeline.build_master_df`, so after `02_hyperparameter_search` has written
+`results/02_hyperparameter_search.json`, the model notebooks can be run independently; `06` also
+needs the predictions saved by `03` and `04`. `01` and `02` fix the feature set and the
+hyperparameters; they must be rerun whenever `sybil_pipeline.py` changes, or `10` rejects the
+results that depend on them. `10` checks every result from `00` to `09`; `11` runs last.
 
-Runtimes on 4 cores for the committed run: `00` 1.5 min; `08` 12 min; `05` 82 min; per split,
-`01` 5 min, `02` 4 min, `03` 2 min, `04` 8 min; `07` 22 min; `09` 92 min; `10` 43 min; `06`
-under 1 min. About 5 hours in total.
+Runtimes on 4 cores, from the last full run (before the notebooks were renumbered): `00` 1.5 min;
+`01` 12 min; `02` 82 min; `03` 5 min; `04` 4 min; `05` 2 min; `06` seconds; `07` 22 min; `08`
+92 min; `09` 43 min; `10` under 1 min; `11` about 11 min. About 5 hours in total.
 
 ### What each notebook does
 
 - **`00_data_pipeline`**: loads the L0 features, the provision network (with the snapshot cutoff),
   the labeled addresses, and the CEX/DEX in-degree; computes provider, tree, and chain features;
   checks the recomputed tree features against the original precomputed file; assigns taxonomy
-  categories and funding groups; reports row and funding-group overlap between partitions under
+  categories and gas provision trees; reports row and gas-provision-tree overlap between partitions under
   both split methods; exports `output/`.
-- **`08_ablation_gini`**: trains LightGBM with and without the corrected `gini_coefficient` on 10
+- **`01_ablation_gini`**: trains LightGBM with and without the corrected `gini_coefficient` on 10
   group splits and applies the rule fixed in advance (keep it only if removing it lowers validation
   F1 on at least 8 of 10). Uses no test labels for the decision. It runs before the search because
   it decides the feature set.
-- **`05_hyperparameter_search`**: full grids for XGBoost (learning rate, depth, row and column
+- **`02_hyperparameter_search`**: full grids for XGBoost (learning rate, depth, row and column
   subsampling, then `min_child_weight`) and LightGBM (leaves, learning rate, subsampling, L2),
   selected by validation F1. Never loads test labels.
-- **`01`–`03`**: train the selected XGBoost and LightGBM configurations as 3-seed ensembles (seeds
+- **`03`–`05`**: train the selected XGBoost and LightGBM configurations as 3-seed ensembles (seeds
   42, 123, 456) and the L1 logistic-regression baseline; report test metrics at the
   validation-selected threshold, feature importance, and an operating-point table.
-- **`04`**: blends the XGBoost and LightGBM probabilities, `w × P(XGB) + (1 − w) × P(LGBM)`, with
-  `w` chosen on validation F1; reports agreement between the two models.
+- **`06`**: blends the XGBoost and LightGBM probabilities saved by `03` and `04` (no retraining),
+  `w × P(XGB) + (1 − w) × P(LGBM)`, with `w` chosen on validation F1; reports agreement between the
+  two models.
 - **`07`**: retrains on labels restricted to list entries known before the snapshot and compares
   with the current labels over 10 group splits; also reports the Sybil share among wallets funded by
   exchanges added to the list before the snapshot, between the snapshot and the Sybil list, and after.
-- **`09`**: removes each feature family, and keeps each family alone, over 10 group splits. Reported
+- **`08`**: removes each feature family, and keeps each family alone, over 10 group splits. Reported
   only; it changes no modeling choice.
-- **`10`**: mean |SHAP| per feature, summed by family, overall and per taxonomy category (test
+- **`09`**: mean |SHAP| per feature, summed by family, overall and per taxonomy category (test
   partition, group split).
-- **`06`**: verifies provenance and prints every table the paper reports.
+- **`10`**: verifies provenance and prints every table the paper reports.
+- **`11`**: trains the same models, with the same hyperparameters and shared code, on the original
+  address-level random split, and reports the difference from the group split overall and by
+  taxonomy category. A measurement of the leakage, not a reported result.
 
 ---
 
@@ -238,13 +238,13 @@ under 1 min. About 5 hours in total.
 ## Key design decisions
 
 **Why a group split?**
-Provider and tree features are relational: every wallet in a funding cluster shares the same
+Provider and tree features are relational: every wallet in a gas provision tree shares the same
 `provider_*`, `tree_size`, `branching_factor`, and similar values. Under an address-level random
-split, wallets from one cluster land in both train and test, so test performance partly measures
-recognition of clusters already seen in training. The group split keeps each cluster in one
-partition, and `sybil_pipeline.make_splits` asserts that no group spans two partitions. Wallets
-funded directly by a labeled entity (an exchange, for example) are their own group, so a CEX hot
-wallet never merges its customers into one giant group.
+split, wallets from one gas provision tree land in both train and test, so test performance partly
+measures recognition of trees already seen in training. The group split keeps each tree in one
+partition, and `sybil_pipeline.make_splits` asserts that no tree spans two partitions. Labeled
+entities are not part of any tree, so a wallet funded directly by one (an exchange, for example) is
+the root of its own tree, and a CEX hot wallet never merges its customers into one giant tree.
 
 **Why upsample only the training set?**
 Upsampling before splitting would put duplicated minority-class rows into validation and test,
@@ -257,7 +257,7 @@ ports the same featurization, applies the snapshot cutoff, and runs from reposit
 `00_data_pipeline` reports how the recomputed values compare with the original file.
 
 <a id="labeled-addresses"></a>**Labeled addresses.**
-A labeled address ends a funding chain, so it shapes the provider, chain and tree features of every
+A labeled address ends a provision chain, so it shapes the provider, chain and tree features of every
 wallet it funded. The set is built by one rule, applied to every address: (1) public label datasets,
 namely the 2024 consolidated label file without its 44 hand additions, plus Dune Spellbook's CEX,
 DEX and bridge lists; (2) an Etherscan check of every other address that funded at least 50
@@ -278,19 +278,19 @@ bagging. `reg_lambda` defaults to 0 in LightGBM (1 in XGBoost); the search cover
 
 ## Troubleshooting
 
-**`FileNotFoundError: results/05_hyperparameter_search_group.json`**
-Run `05_hyperparameter_search.ipynb` before 01, 02, and 04.
+**`FileNotFoundError: results/02_hyperparameter_search.json`**
+Run `02_hyperparameter_search.ipynb` before `03` to `11`.
 
 **`FileNotFoundError` on data files**
 Run `git lfs pull`, and check that `DATA_DIR` points to the `data/` folder.
 
-**`AssertionError` in `06_split_comparison`**
+**`AssertionError` in `10_tie_out` or `11_split_comparison`**
 A result was produced by code that differs from the current commit, or from a dirty working
 tree. Rerun the notebooks it names.
 
 **Results differ from the paper's original numbers**
 The revision changes the evaluation (group split, validation-only selection, snapshot cutoff,
-duplicate removed, fixed thread count). `06_split_comparison` reports the random-split numbers
+duplicate removed, fixed thread count). `11_split_comparison` reports the random-split numbers
 under the same corrected pipeline for comparison.
 
 ---

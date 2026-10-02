@@ -5,7 +5,7 @@
 # LayerZero interactors (tracker A12). This notebook replaces the Etherscan step with a rule that has no
 # interactor threshold and no human step: every address that funded at least 2 addresses is labeled if
 # Blockscout's tag service gives it a service category tag (`build_blockscout_rule.py`, rule fixed before this
-# run). The public lists are the same. Everything else (features, funding groups, splits, the selected LightGBM
+# run). The public lists are the same. Everything else (features, gas provision trees, splits, the selected LightGBM
 # configuration) follows the primary pipeline; `sybil_pipeline.py` is not modified.
 #
 # Comparison: LightGBM on the same 10 group-split seeds as `07`, one model seed, primary vs automated labels.

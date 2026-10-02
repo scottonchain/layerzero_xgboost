@@ -2,12 +2,12 @@
 # # Ablation — Feature Families (report only)
 #
 # Which groups of features carry the signal? Five families (`sp.FEATURE_FAMILIES`): LayerZero transactions,
-# Ethereum transactions, gas provider, funding tree, funding chain. Two views on 10 stratified group splits
+# Ethereum transactions, gas provider, gas provision tree, provision chain. Two views on 10 stratified group splits
 # with the selected LightGBM configuration (1 model seed per fit):
 #
 # - **Without the family**: what it adds on top of all others.
 # - **Family alone**: how much signal it carries by itself.
-# - **Without all provision-network families** (gas provider, funding tree, funding chain together): what
+# - **Without all provision-network families** (gas provider, gas provision tree, provision chain together): what
 #   the gas provision network adds on top of the transaction features.
 #
 # Whole families are removed so correlated features cannot mask each other. Nothing is selected from these
@@ -28,7 +28,7 @@ df, _, _ = sp.build_master_df(DATA_DIR, verbose=False)
 configs = [('All features', sp.FEATS)]
 configs += [(f'Without {k}', [f for f in sp.FEATS if f not in v]) for k, v in FAM.items()]
 configs += [(f'{k} only', v) for k, v in FAM.items()]
-NETWORK = ['Gas provider', 'Funding tree', 'Funding chain']   # the provision-network families together
+NETWORK = ['Gas provider', 'Gas provision tree', 'Provision chain']   # the provision-network families together
 configs += [('Without all provision-network families', [f for f in sp.FEATS if not any(f in FAM[k] for k in NETWORK)])]
 rows = []
 for s in sp.SPLIT_SEEDS:

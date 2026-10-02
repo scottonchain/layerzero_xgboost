@@ -20,7 +20,7 @@
 # 6. Sybil ground-truth labels + `is_provider` flag
 # 7. Chain traversal (`chain_length`, `interactors_in_chain`)
 #
-# Then: taxonomy, funding groups, and the train / validation / test split (stratified group split).
+# Then: taxonomy, gas provision trees, and the train / validation / test split (stratified group split).
 # The step functions live in `sybil_pipeline.py`, which the model notebooks also import.
 #
 # ---
@@ -95,13 +95,13 @@ print(col_df.to_string(index=False))
 #
 # **Temporal cutoff.** The LayerZero snapshot table ends at 2024-05-01 23:59:59 UTC (the latest
 # L0 transaction in the data). Edges dated at or after `sp.SNAPSHOT_END` (2024-05-02 00:00 UTC)
-# are dropped here, before any provider, chain, tree, or group feature is computed. The source
+# are dropped here, before any provider, chain or tree feature, or any gas provision tree, is computed. The source
 # query (`data/20241114_gas_provision/readme.txt`) has no date filter, so this cutoff is applied
 # in code.
 #
 # This mapping is used for:
 # - Computing `provider_*` and tree features (Step 4)
-# - Chain traversal (Step 7) and funding groups
+# - Chain traversal (Step 7) and gas provision trees
 
 # %%
 t0 = time.time()
@@ -184,7 +184,7 @@ print(f'Time : {time.time()-t0:.1f}s')
 # - `provider_*`: statistics of the provider's edges to LayerZero interactors (fan-out, amounts,
 #   star-pattern flag).
 # - Tree features: the provision forest drops every edge that touches a labeled address, so an
-#   interactor's tree is its unlabeled funding cluster. Metrics are computed on the whole tree
+#   interactor's tree is its unlabeled gas provision tree. Metrics are computed on the whole tree
 #   (`tree_size`, `max_depth`, `branching_factor`, entropy / skewness of gas amounts, ...). `depth`
 #   is the interactor's distance to the tree root. `gini_coefficient` is still computed (corrected
 #   formula) but is not a model feature: `01_ablation_gini` removed it by a pre-specified rule.
@@ -385,40 +385,41 @@ axes[1].grid(axis='y', alpha=0.2)
 plt.tight_layout(); plt.show()
 
 # %% [markdown]
-# ## Funding Groups
+# ## Gas Provision Trees
 #
 # Wallets funded through the same unlabeled chain share provider and tree feature values
 # (`provider_*`, `branching_factor`, `tree_size`, ...). If such wallets land in both train and
-# test, test performance partly measures recognition of clusters already seen in training
-# (relational leakage). The group split keeps each cluster in one partition.
+# test, test performance partly measures recognition of trees already seen in training
+# (relational leakage). The group split keeps each gas provision tree in one partition.
 #
-# **Group key**: walk the provision map upward from each address until the next hop is a labeled
-# anchor, there is no further provider, or a cycle. The last unlabeled node reached is the group
-# root.
+# **Tree root**: walk the provision map upward from each address until the next hop is a labeled
+# anchor, there is no further provider, or a cycle. The last unlabeled node reached is the root of
+# the address's gas provision tree.
 #
 # - An address funded directly by a labeled entity (IxL) or with no provider is its own root, so a
-#   CEX hot wallet never merges its customers into one giant group.
-# - Grouping by the immediate provider would be wrong for the same reason.
+#   CEX hot wallet never merges its customers into one giant tree.
+# - Keying on the immediate provider instead would split a tree with more than one level across
+#   partitions.
 
 # %%
-# ── Funding group = root of the unlabeled part of the provision chain ──
-df = sp.add_funding_group(df, tfm, labeled_anchors)
-gs = df.groupby('funding_group')['sybil'].agg(['size', 'sum'])
+# ── Gas provision tree = root of the unlabeled part of the provision chain ──
+df = sp.add_provision_tree(df, tfm, labeled_anchors)
+gs = df.groupby('provision_tree')['sybil'].agg(['size', 'sum'])
 multi = gs['size'] > 1
-print(f'Funding groups            : {len(gs):,}')
-print(f'Multi-wallet groups       : {multi.sum():,}  (largest: {gs["size"].max():,} wallets)')
-print(f'Addresses in multi groups : {gs.loc[multi, "size"].sum():,}')
-print(f'Sybils in multi groups    : {gs.loc[multi, "sum"].sum():,} / {df.sybil.sum():,}')
-print('\nWallets in multi-wallet groups, by category:')
-print(df[df['funding_group'].map(gs['size']) > 1]['category'].value_counts().to_string())
+print(f'Gas provision trees            : {len(gs):,}')
+print(f'Multi-wallet trees             : {multi.sum():,}  (largest: {gs["size"].max():,} wallets)')
+print(f'Addresses in multi-wallet trees: {gs.loc[multi, "size"].sum():,}')
+print(f'Sybils in multi-wallet trees   : {gs.loc[multi, "sum"].sum():,} / {df.sybil.sum():,}')
+print('\nWallets in multi-wallet trees, by category:')
+print(df[df['provision_tree'].map(gs['size']) > 1]['category'].value_counts().to_string())
 
 # %% [markdown]
 # ## Train / Validation / Test Split
 #
 # **Split ratios** (paper Table 1): test 30 %, validation 21 %, train 49 %.
 #
-# **Split method**: stratified group split on the funding group above. No group spans two
-# partitions. Multi-wallet groups are placed first, largest first, into the partition whose
+# **Split method**: stratified group split on the gas provision tree above. No tree spans two
+# partitions. Multi-wallet trees are placed first, largest first, into the partition whose
 # per-class quota is least filled; singletons then fill the remaining per-class quotas at random.
 # (The original paper's address-level random split is measured only in `11_split_comparison`.)
 #
@@ -442,9 +443,9 @@ print(f'\nTrain after upsampling : {len(X_train):,} rows  Sybil={y_train.mean()*
 print(f'Upsample factor        : {(len(S["idx_train"]) - n_syb_tr) / n_syb_tr:.1f}×')
 
 # %%
-# ── Leakage check: row overlap and funding-group overlap ──────
-# Row overlap must be 0 (asserted). Group overlap is relational leakage: test wallets whose
-# funding cluster also appears in train. It is 0 by construction under the group split.
+# ── Leakage check: row overlap and gas-provision-tree overlap ──────
+# Row overlap must be 0 (asserted). Tree overlap is relational leakage: test wallets whose
+# gas provision tree also appears in train. It is 0 by construction under the group split.
 leak = sp.leakage_report(df, S)
 
 # %% [markdown]
@@ -557,7 +558,7 @@ sp.save_results([], '00_data_pipeline', leakage=leak, extra=dict(
     provision_edges_after_cutoff=funding.attrs['n_after_cutoff'],
     categories={k: {kk: int(vv) for kk, vv in v.items()} for k, v in cat.to_dict('index').items()},
     splits=sp.split_summary(df, S).set_index('Split').to_dict('index'),
-    funding_groups=dict(n=int(len(gs)), multi_wallet=int(multi.sum()), largest=int(gs['size'].max()),
+    provision_trees=dict(n=int(len(gs)), multi_wallet=int(multi.sum()), largest=int(gs['size'].max()),
                         sybils_in_multi=int(gs.loc[multi, 'sum'].sum())),
 ))
 

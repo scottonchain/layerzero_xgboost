@@ -6,7 +6,7 @@
 # (2024-05-01). A label records which entity controls an address, a fixed fact; later lists identify
 # existing entities rather than record later behavior. This notebook tests whether the choice matters:
 #
-# 1. **Vintage comparison.** Rebuild every feature, the taxonomy, and the funding groups with labels known
+# 1. **Vintage comparison.** Rebuild every feature, the taxonomy, and the gas provision trees with labels known
 #    before the snapshot only (`label_vintage='presnapshot'`: pre-snapshot Spellbook commits, CEX entries
 #    added on or before 2024-05-01, no Etherscan step), and compare LightGBM on 10 group splits.
 # 2. **Independence from the Sybil list.** Compare the Sybil share of wallets funded by CEX addresses added
@@ -52,7 +52,7 @@ print('\nPre-snapshot minus current, mean and SD over 10 splits:'); print(summar
 # %% [markdown]
 # **Result.** Pre-snapshot labels change test F1 by −0.005 ± 0.007 and validation F1 by +0.009 ± 0.012
 # (mean ± SD over the 10 splits). The two move in opposite directions and both lie within the split-to-split
-# spread of the full model (test F1 SD 0.006 in `08_ablation_families`). Funding groups depend on the labels, so the partitions
+# spread of the full model (test F1 SD 0.006 in `08_ablation_families`). Gas provision trees depend on the labels, so the partitions
 # also differ slightly between the two label sets.
 
 # %% [markdown]

@@ -19,7 +19,7 @@ for the paper come from `06_split_comparison.ipynb` in the tagged final run (sec
 | Item | Reviewer point | Code status | Commit | Evidence |
 |---|---|---|---|---|
 | A1 group split | R2 relational leakage | Code done | fd6411f | `sybil_pipeline.make_splits` asserts no group spans two partitions |
-| A2 group-overlap check | R2 relational leakage | Code done | fd6411f | `00` leakage cell; `06` leakage table |
+| A2 tree-overlap check | R2 relational leakage | Code done | fd6411f | `00` leakage cell; `06` leakage table |
 | A3 blend weight on test | R2 test isolation | Code done | fd6411f | `04` section 6 selects on validation F1 |
 | A4 search not in repo; tables on test | R1 search/validation; R2 test isolation | Done: validation-only search, 74 XGBoost and 48 LightGBM configurations | ea602c6 | `05_hyperparameter_search` (validation only; test deleted before fitting) |
 | A5 feature selection | R1 | Code done. Authors: the 63 were chosen manually; `gini_coefficient` later removed by a pre-specified rule (C). Label-based EDA moved to the training partition | fd6411f | Methods text still needed |
@@ -37,15 +37,15 @@ for the paper come from `06_split_comparison.ipynb` in the tagged final run (sec
 
 - [ ] **A1. Relational leakage from the random split.**
   - Where: 00_data_pipeline (`train_test_split(..., stratify=y)`), duplicated in 01, 02, 04.
-  - Problem: Wallets from the same funding cluster land in both train and test. Provider and tree features (`provider_*`, `gini_coefficient`, `branching_factor`, `tree_size`, etc.) are identical within a cluster, so test performance partly measures recognition of clusters seen in training.
+  - Problem: Wallets from the same gas provision tree land in both train and test. Provider and tree features (`provider_*`, `gini_coefficient`, `branching_factor`, `tree_size`, etc.) are identical within a tree, so test performance partly measures recognition of trees seen in training.
   - Fix: Use a stratified group split (`StratifiedGroupKFold`).
-    - Group key is the root of the unlabeled part of the provision chain. Walk `tfm` until the next hop is a labeled anchor or there is no provider; the last unlabeled node is the group.
-    - IxL and No-provider wallets are singletons. A CEX is not an operator.
-    - Do not group by the immediate provider. A CEX hot wallet would become one giant group.
-  - Done when: The split code asserts that no group spans two partitions.
+    - The group is the gas provision tree, identified by the root of the unlabeled part of the provision chain. Walk `tfm` until the next hop is a labeled anchor or there is no provider; the last unlabeled node is the root.
+    - IxL and No-provider wallets are roots of their own trees (shared only with wallets they fund). A CEX is not an operator.
+    - Do not key on the immediate provider. A CEX hot wallet would become one giant tree.
+  - Done when: The split code asserts that no tree spans two partitions.
 - [ ] **A2. Leakage check is too narrow.**
   - Where: 00, "No leakage ✓" cell (checks row-index overlap only).
-  - Fix: Add a group-overlap check. Report the count of test Sybils sharing a group with a train Sybil, under both the old and new splits.
+  - Fix: Add a tree-overlap check. Report the count of test Sybils sharing a gas provision tree with a train Sybil, under both the old and new splits.
   - Done when: Both counts appear in the notebook output and in the paper.
 - [ ] **A3. Blend weight selected on test.**
   - Where: 04, weight-sensitivity cell. It scores `f1_score(y_test, ...)`, plots "Test F1", and outputs a best weight of 0.16.
@@ -88,7 +88,7 @@ for the paper come from `06_split_comparison.ipynb` in the tagged final run (sec
   - Fix: Keep this sentence only after A3 and A4 make it true.
 - [ ] **B3. Sec 4.1 and Sec 12 circular overfitting argument.**
   - Current text: "The validation-to-test gap ... below 0.01, confirming that validation-based decisions did not over-fit."
-  - Problem: Under a random split, validation and test share clusters, so both are inflated equally and the gap proves nothing.
+  - Problem: Under a random split, validation and test share gas provision trees, so both are inflated equally and the gap proves nothing.
   - Fix: Remove, or restate under the group split as "consistent with."
 - [ ] **B4. Sec 4.4 blend weight description.**
   - Current text: "selected by optimizing F1 on the validation set ... optimum falls near 0.34."
@@ -96,7 +96,7 @@ for the paper come from `06_split_comparison.ipynb` in the tagged final run (sec
   - Fix: Replace with rerun numbers from A3.
 - [ ] **B5. Sec 4.6 overclaims no leakage.**
   - Current text: "Consequently, no Sybil label leakage occurs across the split boundary."
-  - Rewrite: Labels do not enter feature computation, but features are relational. Wallets sharing a funding cluster share feature values, so the split is grouped by cluster (A1). Name this relational or cluster-level leakage explicitly.
+  - Rewrite: Labels do not enter feature computation, but features are relational. Wallets sharing a gas provision tree share feature values, so the split is grouped by gas provision tree (A1). Name this relational or tree-level leakage explicitly.
 - [ ] **B6. Tables 7 and 8 captions.**
   - Current text: "Metrics on held-out test set."
   - Fix: Selection column is validation. Test is either dropped or labeled "for reference, not used in selection."
@@ -130,7 +130,7 @@ for the paper come from `06_split_comparison.ipynb` in the tagged final run (sec
 - [ ] Dataset size: 434,786 addresses (18,211 Sybil; 416,575 non-Sybil) after removing the duplicated wallet (A10), not 434,787.
 - [ ] Table 5 from the final run (labeling rule): IxL 306,658 (70.53 %), IxE 93,061 (21.40 %), IxI 34,391 (7.91 %), No provider 676 (0.16 %). The IxI/IxE swap must be fixed.
 - [ ] `gini_coefficient` was identically 0 up to rounding (max |value| 9.9e-16 over all wallets): the original formula `(n-1)/n * (1 - sum(sorted(x)/sum(x)))` always gives (n-1)/n × 0. Table 11 ranked it with importance 125e-4, which was splitting on floating-point noise. **Fixed** (authors chose to fix, 2026-09-30): `sybil_pipeline._gini` computes the standard Gini coefficient of the non-root provision amounts in the tree, G = 2·Σ i·x₍ᵢ₎ / (n·Σx) − (n+1)/n, 0 for fewer than two amounts. After the fix it is nonzero for 20.4 % of wallets (IxI mean 0.358, IxE 0.347, IxL 0), and the **Sybil mean (0.051) is lower than the non-Sybil mean (0.108)**, the opposite of Sec 5.2's claim that a high Gini coefficient characterizes star-like Sybil funding. **Then removed** by the rule fixed in advance (findings E, 2026-10-01): removing it lowered validation F1 on 3 of 10 group splits, short of the 8 required. Manuscript: drop it from the feature list, Table 11 and Sec 5.2's sentence; the response letter explains the zero values, the correction and the test.
-- [ ] `total_gas` is the total ETH provisioned within the wallet's funding tree (from the tree featurization), not "cumulative ETH gas consumed by an address" as Sec 5.3.1 and Appendix A say. Fix the definitions; R1 asks for formulas of graph features, and `sybil_pipeline.provision_features` is the reference implementation.
+- [ ] `total_gas` is the total ETH provisioned within the wallet's gas provision tree (from the tree featurization), not "cumulative ETH gas consumed by an address" as Sec 5.3.1 and Appendix A say. Fix the definitions; R1 asks for formulas of graph features, and `sybil_pipeline.provision_features` is the reference implementation.
 - [ ] The committed notebook outputs at 11366f4 gave LightGBM F1 0.7371 and LR AP 0.159, not the paper's 0.739 and 0.094. Superseded by the rerun, but the response letter should not quote the old values.
 - [ ] Tables 7 and 8 "baseline" rows (default parameters) and the "directed grid search over 15 configurations" have no code in the repo. Replace with the `05_hyperparameter_search` results (validation only, full grids).
 - [ ] Contribution 5 (cross-model ensemble): confirmed in the final run. Validation selects XGBoost weight 0.06 under both splits; on the group split the blend (F1 0.717) does not beat LightGBM alone (0.719). Restate (proposed text in ledger N12); the title names "Cross-Model Ensemble" (author decision).
@@ -157,25 +157,25 @@ Measured facts, with the commit they were measured at. Append; don't rewrite.
 
 - Baseline reproduces: 434,787 addresses, 18,211 Sybil (4.19%). Split sizes match Table 1 (213,045 / 91,305 / 130,437 before upsampling).
 - Taxonomy from code (confirms C, Table 5 swap): IxL 302,796 (15,886 Sybil), IxE 96,277 (707), IxI 35,038 (1,592), No provider 676 (26).
-- A1 group key as defined above: 367,923 groups; 22,912 with more than one wallet; largest group 2,103 wallets. Only 2,359 of 18,211 Sybils sit in multi-wallet groups, because 87% of Sybils are IxL singletons.
-- A2 under the current random split: 20,891 of 130,437 test addresses share a group with a train address; **608 of 5,463 test Sybils share a group with a train Sybil.**
+- A1 gas provision trees as defined above: 367,923 trees; 22,912 with more than one wallet; largest tree 2,103 wallets. Only 2,359 of 18,211 Sybils sit in multi-wallet trees, because 87% of Sybils are IxL singletons.
+- A2 under the current random split: 20,891 of 130,437 test addresses share a gas provision tree with a train address; **608 of 5,463 test Sybils share a tree with a train Sybil.**
 - A7: the latest `first_gas_provision_time` for any L0 interactor is 2024-05-01 23:56:47 UTC, which is on the snapshot date. 163 interactor rows fall on May 1 itself. The full network file (which includes upstream non-interactor providers) runs to 2024-10-31 and has 460 rows after 2024-05-01 00:00. Those upstream rows can affect `chain_length`, `interactors_in_chain`, and the A1 group root. The tree features (`20241117_tree_features`) were built from this same network, so check their inputs too.
 - A6: `data/20250208_cex_dex_indegree/readme.txt` SQL filters `block_timestamp <= '2024-05-01'`. That sub-item is verified.
 - A5: `legacy/20250519 XGBoost Sybil Detection.ipynb` (the 2025 paper's code) also hard-codes the 63-feature list. The repo holds no selection code. The procedure must come from the authors.
-- Caveat for the discussion section: an IxL wallet starts its own funding group (it joins no group upstream of the labeled funder), so an operator who funds wallets through separate CEX withdrawals is invisible to the provision-graph grouping. The group split removes the leakage the provision graph can see, and no more.
+- Caveat for the discussion section: an IxL wallet starts its own gas provision tree (it joins no group upstream of the labeled funder), so an operator who funds wallets through separate CEX withdrawals is invisible to the provision-graph grouping. The group split removes the leakage the provision graph can see, and no more.
 
 **2026-09-30, @ fd6411f (group split added; checkpoint before the temporal fix).** Runs in `results/` were not committed; they are superseded by the final run.
 
 - Random split through `sybil_pipeline` reproduces the original `splits.npz` bit for bit.
 - LightGBM on the random split reproduces the committed 11366f4 output exactly (F1 0.7371). XGBoost does not (F1 0.7329 vs 0.7356; best iterations 465/465/516 vs 493/449/480): XGBoost `hist` depends on the thread count, and the original ran on a different machine. Fixed from b2904f4 by pinning `n_jobs` (A11).
-- Group split, test F1 / AUROC / AP: XGBoost 0.707 / 0.968 / 0.767; LightGBM 0.723 / 0.971 / 0.778; LR 0.234 / 0.833 / 0.157. Random split: XGBoost 0.733 / 0.974 / 0.796; LightGBM 0.737 / 0.976 / 0.801; LR unchanged. The linear model does not move, consistent with cluster memorisation driving the tree models' gap.
+- Group split, test F1 / AUROC / AP: XGBoost 0.707 / 0.968 / 0.767; LightGBM 0.723 / 0.971 / 0.778; LR 0.234 / 0.833 / 0.157. Random split: XGBoost 0.733 / 0.974 / 0.796; LightGBM 0.737 / 0.976 / 0.801; LR unchanged. The linear model does not move, consistent with the tree models isolating feature values shared within a gas provision tree.
 - Blend weight chosen on validation: 0.00 on the group split (the ensemble is LightGBM alone), 0.26 on the random split.
 - 04's individual models equal 01 and 02 exactly under both splits.
 
 **2026-09-30, temporal and data audit (R1), @ b2904f4.**
 
 - Snapshot boundary: the latest `latest_l0_tx_time` is 2024-05-01 23:59:58 UTC, so the L0 snapshot table covers all of May 1. Ethereum transaction features cut at 2024-05-01 00:00 UTC (`<=` for outgoing, `<` for incoming; see the L0 query). CEX/DEX in-degree cuts at `<= 2024-05-01`.
-- Provision network: 296 edges dated at or after 2024-05-02 00:00 UTC, all between 2024-08-17 and 2024-10-31, overlapping the Sybil list process (list snapshot 2024-09-15). None enters an interactor and none creates an `is_provider` flag; 295 join two unlabeled addresses. Effect before the fix: one IxE non-Sybil wallet's `chain_length`, funding group, and tree features. Fixed by the cutoff in `load_provision`.
+- Provision network: 296 edges dated at or after 2024-05-02 00:00 UTC, all between 2024-08-17 and 2024-10-31, overlapping the Sybil list process (list snapshot 2024-09-15). None enters an interactor and none creates an `is_provider` flag; 295 join two unlabeled addresses. Effect before the fix: one IxE non-Sybil wallet's `chain_length`, gas provision tree, and tree features. Fixed by the cutoff in `load_provision`.
 - Tree features: the original precomputed file came from `data/20241117_tree_features/20241117 Gas Provision Featurization.ipynb`, run on the unfiltered network with inputs outside the repo. Ported to `sybil_pipeline.provision_features`. Against the original file on 434,110 wallets: provider fan-out, max and min amounts match 100 %; tree features match on all but 13 or 14 wallets, which sit in one 14-node tree that the pipeline's labeled list splits, plus the one cutoff wallet; `provider_is_star_like_attack` differs on 9 wallets for the same labeled-list reason; provider total and average amounts differ on the 16,101 wallets of one provider because the original double-counted the duplicated wallet. Skewness uses the scipy < 1.9 rule (0 for near-constant data), which the original file reflects.
 - Duplicate wallet (A10): `0x3aecba06e531a982cfdba16f0589ece5dc200fa9` appeared twice in the precomputed file, so it appeared twice in the master table (non-Sybil, IxL). 00's own quality check reported "Duplicate addresses : 1 … Issues found". Under the random split the two copies could land in train and test.
 - Labeled addresses (A6): compiled Oct–Dec 2024 from Flipside L0 address labels, hildobby CEX list, BigQuery and Dune contract lists, dawsbot and brianleect label sets, plus 44 hand-added addresses (`data/20241214_labeled_addresses/readme.txt`). None of the 44 is on the Sybil list. One labeled address in the network is on the Sybil list (`0x3df1…9159`); it funds no other address, so it affects no other wallet's features.
@@ -218,16 +218,16 @@ The corrected `gini_coefficient` is the only feature whose definition changed in
 
 **2026-10-01, final run.** Code commits: ea602c6 for 00, 03, 05, 07 to 10; 06dbd82 for 01, 02, 04 (operating-point and importance fixes, which change no metric); `06` passes every provenance and consistency check at 06dbd82.
 
-- Data (labeling rule): 434,786 addresses, 18,211 Sybil; 4,308 labeled addresses in the network; 371,764 funding groups (22,952 multi-wallet, largest 1,627). Taxonomy: IxL 306,658, IxE 93,061, IxI 34,391, No provider 676.
-- A2: random split, 599 of 5,463 test Sybils share a funding group with a training Sybil (19,884 of 130,436 test rows share a group with a training row); group split, 0.
+- Data (labeling rule): 434,786 addresses, 18,211 Sybil; 4,308 labeled addresses in the network; 371,764 gas provision trees (22,952 multi-wallet, largest 1,627). Taxonomy: IxL 306,658, IxE 93,061, IxI 34,391, No provider 676.
+- A2: random split, 599 of 5,463 test Sybils share a gas provision tree with a training Sybil (19,884 of 130,436 test rows share a tree with a training row); group split, 0.
 - Search (validation only): XGBoost lr 0.05, depth 8, subsample 0.7, colsample 1.0, mcw 1 (val F1 0.703); LightGBM 127 leaves, lr 0.05, subsample 0.7, λ 1 (val F1 0.707).
 - Test, group / random: XGBoost F1 0.720 / 0.741, AUROC 0.966 / 0.974, AP 0.764 / 0.798; LightGBM 0.719 / 0.742, 0.968 / 0.976, 0.770 / 0.802; ensemble 0.717 / 0.743; LR 0.241 / 0.234. The tree models lose 0.021 to 0.025 F1 and 0.033 AP under the group split; LR does not.
-- Per category (LightGBM F1, group / random): IxI 0.47 / 0.85, IxE 0.29 / 0.54, IxL 0.75 / 0.74. The leakage sits in the clustered categories.
+- Per category (LightGBM F1, group / random): IxI 0.47 / 0.85, IxE 0.29 / 0.54, IxL 0.75 / 0.74. The leakage sits in the categories with multi-wallet trees.
 - Blend weight 0.06 (XGBoost) under both splits; disagreement at 0.5: 703 (group), 579 (random). In the nondeterministic 91cfd02 run the random-split weight was 0.58: the validation F1 curve is flat, so the weight is not a stable quantity.
 - Split noise: LightGBM test F1 over 10 group splits 0.713 ± 0.006 (`09`).
 - `07`: pre-snapshot labels (4,115 vs 4,308) change 10,575 wallets' features; test F1 −0.005 ± 0.007, validation F1 +0.009 ± 0.012 (opposite signs, both within split noise). Sybil share of wallets funded by CEX addresses by date added to the list: before the snapshot 5.30 % (264,646 wallets), between snapshot and Sybil list 2.40 % (1,082), after the Sybil list 0.92 % (1,086). Later labels do not concentrate Sybils.
-- `09` (test F1 change vs all 62 features): without LayerZero transactions −0.066, Ethereum transactions −0.012, gas provider −0.005 (lower on 9 of 10 splits), funding tree −0.001, funding chain −0.002; all three provision-network families together −0.008 (lower on 7 of 10; validation F1 lower on 3 of 10). Alone: LayerZero 0.672, Ethereum 0.625, gas provider 0.438, funding tree 0.101, funding chain 0.101 (AUROC 0.61).
-- `10` (mean |SHAP| summed by family, test partition): LayerZero transactions 4.88, Ethereum transactions 2.44, gas provider 0.84, funding tree 0.49, funding chain 0.04. Funding-tree features weigh more within IxI (1.35) and IxE (0.98) than IxL (0.25).
+- `09` (test F1 change vs all 62 features): without LayerZero transactions −0.066, Ethereum transactions −0.012, gas provider −0.005 (lower on 9 of 10 splits), gas provision tree −0.001, provision chain −0.002; all three provision-network families together −0.008 (lower on 7 of 10; validation F1 lower on 3 of 10). Alone: LayerZero 0.672, Ethereum 0.625, gas provider 0.438, gas provision tree 0.101, provision chain 0.101 (AUROC 0.61).
+- `10` (mean |SHAP| summed by family, test partition): LayerZero transactions 4.88, Ethereum transactions 2.44, gas provider 0.84, gas provision tree 0.49, provision chain 0.04. Funding-tree features weigh more within IxI (1.35) and IxE (0.98) than IxL (0.25).
 
 **2026-10-01, Blockscout cross-check of the Etherscan tags (A12).** `review_support/blockscout_crosscheck.py`, read 2026-10-01; a check only, the labeling rule is unchanged.
 
@@ -243,5 +243,5 @@ The corrected `gini_coefficient` is the only feature whose definition changed in
 - Result: the labeled sets differ by 15 addresses (6 only primary, the ones above; 9 only automated: small exchange hot wallets and bridges funding 2 to 32 addresses, e.g. Chaineye Mini Bridge, changehero, ACE). 3,476 wallets' features change (54 Sybil). Automated minus primary over 10 group splits: test F1 −0.003 ± 0.010 (lower on 6 of 10), AP −0.005 ± 0.012, AUROC −0.002 ± 0.003, validation F1 +0.007 ± 0.012. Within split noise, the same pattern as the label-vintage check.
 
 **2026-10-02, restructure (Scott's PR review).** Notebooks renumbered to run order (map above). Model training, evaluation, the blend weight, test metrics, operating points and gain importance are defined once in `sybil_pipeline.py`; the search and robustness notebooks use the same model definitions (`sp.xgb_model`, `sp.lgbm_model`). The ensemble notebook reads the XGBoost and LightGBM predictions instead of retraining. The model notebooks run on the group split only; the random split is trained only in `11_split_comparison`. Check before any rerun: the shared functions reproduce the ea602c6/06dbd82 group-split results exactly (all metrics, thresholds, rounds, blend weight 0.06, importances; maximum difference 0).
-- Correction: earlier text said IxL wallets are singletons. They are not: 12,886 of 306,658 IxL wallets (4 %) are in multi-wallet funding groups, as roots of the wallets they fund; IxI ≈100 % (34,390 of 34,391), IxE 42 % (38,642 of 93,061). "Cluster" in earlier text means funding group.
+- Correction: earlier text said IxL wallets are singletons. They are not: 12,886 of 306,658 IxL wallets (4 %) are in multi-wallet gas provision trees, as roots of the wallets they fund; IxI ≈100 % (34,390 of 34,391), IxE 42 % (38,642 of 93,061). Earlier text used "cluster" and "funding group" for the gas provision tree; both are replaced throughout.
 

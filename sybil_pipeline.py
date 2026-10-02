@@ -1,27 +1,29 @@
 """Shared data pipeline for the LayerZero Sybil notebooks.
 
-Builds the master feature table from the raw files, assigns funding groups,
+Builds the master feature table from the raw files, assigns gas provision trees,
 and produces train / validation / test partitions. Every notebook imports
 from here so that the split is defined in one place.
 
 Split methods
 -------------
 'random' : address-level stratified split. Reproduces the original paper.
-'group'  : stratified group split. No funding group spans two partitions.
+'group'  : stratified group split. No gas provision tree spans two partitions.
 
-Funding group (the key for the 'group' split)
----------------------------------------------
-Walk the gas provision map from an address toward its funders. Stop when the
-next hop is a labeled anchor (CEX, DEX, named entity), when there is no
-further provider, or on a cycle. The last unlabeled node reached is the group
-root. An address funded directly by a labeled entity, or with no provider, is
-its own root, so a CEX hot wallet never merges its customers into one group.
+Gas provision tree (the key for the 'group' split)
+--------------------------------------------------
+The gas provision network links each address to its first funder. Removing every
+edge that touches a labeled address (CEX, DEX, named entity) leaves a forest; each
+of its trees is a gas provision tree. An address's tree is identified by its root:
+walk toward the funders until the next hop is labeled, there is no further
+provider, or a cycle; the last unlabeled address reached is the root. An address
+funded directly by a labeled entity, or with no provider, is a root itself, so a
+CEX hot wallet never joins its customers into one tree.
 
 Temporal cutoff
 ---------------
 The LayerZero snapshot table ends at 2024-05-01 23:59:59 UTC (the last L0
 transaction in the data). Provision edges dated at or after SNAPSHOT_END are
-dropped before any provider, chain, tree, or group feature is computed.
+dropped before any provider, chain or tree feature is computed.
 """
 import gc
 import json
@@ -167,7 +169,7 @@ def stream_labeled_anchors(paths, candidates, vintage='current'):
     """Step 3a: labeled addresses among the candidates, by the labeling rule above.
 
     Pass every address in the provision network so the same set serves the
-    provider flags, the chain walk, the funding groups, and the tree features.
+    provider flags, the chain walk, the gas provision trees, and the tree features.
     The 9M-line consolidated file is streamed, never fully loaded.
     """
     assert vintage in LABEL_VINTAGES, vintage
@@ -251,8 +253,8 @@ def provision_features(funding, interactors, labeled):
 
     Ported from data/20241117_tree_features/20241117 Gas Provision
     Featurization.ipynb, which produced the precomputed file; same definitions.
-    The provision forest excludes every edge that touches a labeled address, so
-    a tree is the unlabeled funding cluster above and below an interactor.
+    The provision forest excludes every edge that touches a labeled address; an
+    interactor's tree features describe the whole tree of that forest containing it.
     """
     gas = funding.groupby('activated_address')['gas_provision_amount'].sum().to_dict()
 
@@ -440,7 +442,7 @@ def add_category(df):
     return df
 
 
-def funding_root(addr, tfm, anchors):
+def provision_tree_root(addr, tfm, anchors):
     """Last unlabeled node on the provision chain above addr (see module doc)."""
     cur, seen = addr, set()
     while True:
@@ -451,13 +453,13 @@ def funding_root(addr, tfm, anchors):
         cur = prv
 
 
-def add_funding_group(df, tfm, anchors):
-    df['funding_group'] = [funding_root(a, tfm, anchors) for a in df['addr']]
+def add_provision_tree(df, tfm, anchors):
+    df['provision_tree'] = [provision_tree_root(a, tfm, anchors) for a in df['addr']]
     return df
 
 
 def build_master_df(data_dir='./data', verbose=True, label_vintage='current'):
-    """Run steps 1-7 plus taxonomy and funding groups. Returns (df, tfm, anchors)."""
+    """Run steps 1-7 plus taxonomy and gas provision trees. Returns (df, tfm, anchors)."""
     p = data_paths(data_dir)
     log = print if verbose else (lambda *a, **k: None)
     t0 = time.time()
@@ -478,9 +480,9 @@ def build_master_df(data_dir='./data', verbose=True, label_vintage='current'):
     log(f'[6] Labels: Sybil={df.sybil.sum():,} ({df.sybil.mean()*100:.2f}%)')
     df = add_chain_features(df, tfm, anchors)
     df = add_category(df)
-    df = add_funding_group(df, tfm, anchors)
-    log(f'[7] Chain features, taxonomy, funding groups '
-        f'({df.funding_group.nunique():,} groups)')
+    df = add_provision_tree(df, tfm, anchors)
+    log(f'[7] Chain features, taxonomy, gas provision trees '
+        f'({df.provision_tree.nunique():,} trees)')
     assert df['addr'].is_unique, 'Duplicate addresses in master table'
     missing = [f for f in FEATS if f not in df.columns]
     assert not missing, f'Missing features: {missing}'
@@ -501,9 +503,9 @@ def _random_partition(df, seed):
 def _group_partition(df, seed):
     """Stratified group split with the same 49 / 21 / 30 targets.
 
-    Multi-wallet groups are placed first, largest first, each into the
-    partition whose per-class quota is least filled (relative to its target),
-    weighted by the group's class mix. Singletons then fill each partition's
+    The groups are gas provision trees. Multi-wallet trees are placed first,
+    largest first, each into the partition whose per-class quota is least filled
+    (relative to its target), weighted by the tree's class mix. Singletons then fill each partition's
     remaining per-class quota at random.
     """
     fracs = np.array([(1 - TEST_FRAC) * (1 - VAL_FRAC), (1 - TEST_FRAC) * VAL_FRAC, TEST_FRAC])
@@ -513,18 +515,18 @@ def _group_partition(df, seed):
     target = np.outer(fracs, n_cls).astype(float)         # [partition, class]
     quota = target.copy()
 
-    g = df.groupby('funding_group', sort=False)['sybil'].agg(['size', 'sum'])
+    g = df.groupby('provision_tree', sort=False)['sybil'].agg(['size', 'sum'])
     multi = g[g['size'] > 1]
     order = rng.permutation(len(multi))
     multi = multi.iloc[order].sort_values('size', ascending=False, kind='stable')
-    part_of_group = {}
+    part_of_tree = {}
     for grp, (size, n_syb) in zip(multi.index, multi[['size', 'sum']].to_numpy()):
         mix = np.array([size - n_syb, n_syb]) / n_cls
         p = int(np.argmax((quota / target) @ mix))
         quota[p] -= (size - n_syb, n_syb)
-        part_of_group[grp] = p
+        part_of_tree[grp] = p
 
-    part = np.array(df['funding_group'].map(part_of_group), dtype=float)
+    part = np.array(df['provision_tree'].map(part_of_tree), dtype=float)
     single = np.isnan(part)
     for c in (0, 1):
         idx = np.flatnonzero(single & (y == c))
@@ -551,10 +553,10 @@ def make_splits(df, feats=FEATS, method='group', seed=SEED):
         tr, va, te = _random_partition(df, seed)
     else:
         tr, va, te = _group_partition(df, seed)
-        grp = df['funding_group']
+        grp = df['provision_tree']
         s_tr, s_va, s_te = set(grp.loc[tr]), set(grp.loc[va]), set(grp.loc[te])
         assert not (s_tr & s_va or s_tr & s_te or s_va & s_te), \
-            'A funding group spans two partitions'
+            'A gas provision tree spans two partitions'
 
     X = df[feats].astype(np.float32)
     y = df['sybil'].astype(int)
@@ -576,12 +578,12 @@ def make_splits(df, feats=FEATS, method='group', seed=SEED):
 
 
 def leakage_report(df, s, verbose=True):
-    """Row overlap and funding-group overlap between partitions."""
+    """Row overlap and gas-provision-tree overlap between partitions."""
     tr, va, te = (set(s[k]) for k in ('idx_train', 'idx_val', 'idx_test'))
     row = dict(train_val=len(tr & va), train_test=len(tr & te), val_test=len(va & te))
     assert not any(row.values()), f'Row overlap between partitions: {row}'
 
-    grp, syb = df['funding_group'], df['sybil'] == 1
+    grp, syb = df['provision_tree'], df['sybil'] == 1
     tr_i, te_i = s['idx_train'], s['idx_test']
     g_tr = set(grp.loc[tr_i])
     g_tr_syb = set(grp.loc[tr_i][syb.loc[tr_i]])
@@ -591,17 +593,17 @@ def leakage_report(df, s, verbose=True):
         method=s['method'],
         test_rows=len(te_i),
         test_sybils=int(syb.loc[te_i].sum()),
-        test_rows_sharing_group_with_train=int(te_grp.isin(g_tr).sum()),
-        test_sybils_sharing_group_with_train_sybil=int(te_syb.isin(g_tr_syb).sum()),
+        test_rows_sharing_tree_with_train=int(te_grp.isin(g_tr).sum()),
+        test_sybils_sharing_tree_with_train_sybil=int(te_syb.isin(g_tr_syb).sum()),
     )
     if verbose:
         print(f"Split method: {rep['method']}")
         print(f"Row overlap (train/val, train/test, val/test): "
               f"{row['train_val']}, {row['train_test']}, {row['val_test']}")
-        print(f"Test addresses sharing a funding group with a train address: "
-              f"{rep['test_rows_sharing_group_with_train']:,} / {rep['test_rows']:,}")
-        print(f"Test Sybils sharing a funding group with a train Sybil:     "
-              f"{rep['test_sybils_sharing_group_with_train_sybil']:,} / {rep['test_sybils']:,}")
+        print(f"Test addresses sharing a gas provision tree with a train address: "
+              f"{rep['test_rows_sharing_tree_with_train']:,} / {rep['test_rows']:,}")
+        print(f"Test Sybils sharing a gas provision tree with a train Sybil:     "
+              f"{rep['test_sybils_sharing_tree_with_train_sybil']:,} / {rep['test_sybils']:,}")
     return rep
 
 
@@ -886,13 +888,13 @@ FEATURE_FAMILIES = {
         'provider_is_star_like_attack', 'provider_fan_out', 'provider_total_gas_provision_amount',
         'provider_max_gas_provision_amount', 'provider_min_gas_provision_amount',
         'provider_avg_gas_provision_amount', 'is_provider', 'gas_provision_block_number'],
-    'Funding tree': [
+    'Gas provision tree': [
         'leaf_gas_distribution_entropy', 'leaf_gas_distribution_skewness',
         'star_like_ratio', 'balance_factor', 'avg_depth', 'breadth_factor', 'gas_distribution_skewness',
         'gas_distribution_entropy', 'tree_size', 'total_gas', 'branching_factor', 'max_depth',
         'leaf_provision_proportion', 'longest_chain_ratio', 'sparsity', 'breadth_to_depth_ratio',
         'leaf_to_internal_ratio'],
-    'Funding chain': ['chain_length', 'interactors_in_chain', 'depth'],
+    'Provision chain': ['chain_length', 'interactors_in_chain', 'depth'],
 }
 
 
