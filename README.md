@@ -40,9 +40,7 @@ split. This shows the leakage in the event of a simple random split:
 | Cross-ensemble | 0.743 | 0.717 | −0.0253 | 0.803 | 0.770 | −0.0327 |
 | Logistic regression | 0.234 | 0.241 | +0.0077 | 0.160 | 0.166 | +0.0056 |
 
-Δ is computed before rounding. AP is average precision (area under the precision-recall curve, independent
-of the threshold). XGBoost and LightGBM lose similar AP; the cross-ensemble is about 94 % LightGBM
-(validation-selected XGBoost weight 0.06), so it tracks LightGBM closely. Logistic regression has low performance and is included for completeness. The loss sits in the interactor categories where they would be expected in the event of leakage, e.g. LightGBM F1: IxI 0.85 to 0.47, IxE 0.54 to 0.29.
+XGBoost and LightGBM lose similar Average Precision; the cross-ensemble tracks LightGBM closely. Logistic regression has low performance and is included for completeness. The loss sits in the interactor categories where they would be expected in the event of leakage, e.g. LightGBM F1: IxI 0.85 to 0.47, IxE 0.54 to 0.29.
 
 ### Robustness checks (group split, 10 splits)
 
