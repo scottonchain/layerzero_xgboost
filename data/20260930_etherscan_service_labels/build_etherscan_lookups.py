@@ -1,14 +1,14 @@
 """Build the Etherscan lookup tables (labeling rule, step 2; tracker A12).
 
 Writes
-  review_support/etherscan_lookups.csv                       all 65 addresses looked up
+  data/20260930_etherscan_service_labels/etherscan_lookups.csv     all 65 addresses looked up
   data/20260930_etherscan_service_labels/service_labels.csv  the rows the rule requires (in_rule_scope)
 
 Tags were read from each address's etherscan.io page by the authors on the dates in `checked_on`.
 Each tag was matched to its address through the address printed on the page itself. A reviewer can
 re-check any row at `etherscan_url`; tags may change after `checked_on`.
 
-Run from the repo root: python review_support/build_etherscan_lookups.py [out_dir]
+Run from the repo root: python data/20260930_etherscan_service_labels/build_etherscan_lookups.py [out_dir]
 """
 import os
 import sys
@@ -138,9 +138,8 @@ missing = scope_all - set(t['address'])
 assert not missing, f'In rule scope but not looked up: {sorted(missing)}'
 assert set(t.loc[t.in_rule_scope, 'address']) == scope_all
 
-os.makedirs(os.path.join(OUT, 'review_support'), exist_ok=True)
 os.makedirs(os.path.join(OUT, 'data', '20260930_etherscan_service_labels'), exist_ok=True)
-t.to_csv(os.path.join(OUT, 'review_support', 'etherscan_lookups.csv'), index=False)
+t.to_csv(os.path.join(OUT, 'data', '20260930_etherscan_service_labels', 'etherscan_lookups.csv'), index=False)
 t[t.in_rule_scope].to_csv(os.path.join(OUT, 'data', '20260930_etherscan_service_labels', 'service_labels.csv'), index=False)
 print(f'{len(t)} lookups; {len(scope_all)} in rule scope; labeled by tag: {(t.decision_reason == "shared_service_tag").sum()}')
 print(t.decision_reason.value_counts().to_string())

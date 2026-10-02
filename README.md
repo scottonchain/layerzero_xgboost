@@ -93,7 +93,7 @@ layerzero_xgboost/
 │   ├── 20241214_labeled_addresses/         ← labeled entity addresses (2024) + build script
 │   ├── 20250208_cex_dex_indegree/          ← cex_dex_features_in_*.csv (×5) + source query
 │   ├── 20260128_dune_spellbook_labels/     ← Dune Spellbook CEX, DEX and bridge lists (pinned commits)
-│   └── 20260930_etherscan_service_labels/  ← Etherscan check of funders of 50+ interactors
+│   └── 20260930_etherscan_service_labels/  ← Etherscan check of funders of 50+ interactors + build script
 │
 ├── output/                                 ← created on first run (gitignored)
 │   ├── master_df.parquet                   ← full feature table (434,786 rows, all computed features + labels)
@@ -102,9 +102,8 @@ layerzero_xgboost/
 │   └── pred_*.parquet                      ← validation and test predictions from 03–06
 │
 ├── results/                                ← metrics per notebook, with the code commit
-├── review_support/                         ← labeled-address evidence: hand additions, Etherscan and Blockscout lookups
+├── review_support/                         ← non-essential supporting files for the reviewer response (Blockscout checks)
 ├── docs/REVISION_LEAKAGE.md                ← revision work items and findings log
-├── code_review/                            ← plain-Python copies of the notebooks, for review only
 ├── legacy/                                 ← original 2025 notebook (Windows paths; reference only)
 │
 ├── sybil_pipeline.py                       ← shared code: features, gas provision trees, splits, training, metrics
@@ -264,7 +263,7 @@ namely the 2024 consolidated label file without its 44 hand additions, plus Dune
 DEX and bridge lists; (2) an Etherscan check of every other address that funded at least 50
 LayerZero interactors, labeled when its public name tag identifies a shared service (exchange hot
 wallet, bridge or relayer, protocol contract, other named service). Exchange deposit addresses,
-personal ENS names and untagged addresses are not labeled. `review_support/etherscan_lookups.csv`
+personal ENS names and untagged addresses are not labeled. `data/20260930_etherscan_service_labels/etherscan_lookups.csv`
 records every lookup with its date and URL, so each row can be re-checked.
 
 **Why stream labeled addresses instead of loading all 9M?**

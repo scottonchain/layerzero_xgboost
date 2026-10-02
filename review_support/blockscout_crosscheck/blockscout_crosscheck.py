@@ -4,8 +4,8 @@ For every address in `etherscan_lookups.csv`, read its public name and tags from
 API and record whether Blockscout also identifies a named entity. This is a check only: the
 labeling rule still uses the Etherscan tags in `service_labels.csv`.
 
-Writes review_support/blockscout_crosscheck.csv. Run from the repo root:
-    python review_support/blockscout_crosscheck.py
+Writes review_support/blockscout_crosscheck/blockscout_crosscheck.csv. Run from the repo root:
+    python review_support/blockscout_crosscheck/blockscout_crosscheck.py
 """
 import datetime
 import json
@@ -16,7 +16,7 @@ import pandas as pd
 
 API = 'https://eth.blockscout.com/api/v2/addresses/{}'
 META = 'https://metadata.services.blockscout.com/api/v1/metadata?addresses={}&chainId=1'
-OUT = 'review_support/blockscout_crosscheck.csv'
+OUT = 'review_support/blockscout_crosscheck/blockscout_crosscheck.csv'
 
 
 def get(url):
@@ -38,7 +38,7 @@ def lookup(address):
 
 
 def main():
-    t = pd.read_csv('review_support/etherscan_lookups.csv')
+    t = pd.read_csv('data/20260930_etherscan_service_labels/etherscan_lookups.csv')
     today = datetime.date.today().isoformat()
     rows = []
     for a in t['address']:

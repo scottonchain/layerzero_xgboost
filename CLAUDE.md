@@ -9,7 +9,7 @@ What changed and why, in one place:
 - The split is a stratified group split on gas provision trees (A1). The original random split is trained only in `11_split_comparison`, to measure the leakage.
 - Model training, evaluation and the blend weight are defined once in `sybil_pipeline.py` (`fit_xgb`, `fit_lgbm`, `fit_lr`, `select_blend_weight`, `evaluate`); notebooks call them.
 - Test labels are used only for final reporting: hyperparameters come from `02_hyperparameter_search` (validation only), thresholds and the blend weight from validation.
-- Labeled addresses come from a fixed rule (`sp.stream_labeled_anchors`): public lists, then an Etherscan check of every other funder of at least `ETHERSCAN_MIN_FANOUT` interactors (`review_support/build_etherscan_lookups.py`). No hand additions.
+- Labeled addresses come from a fixed rule (`sp.stream_labeled_anchors`): public lists, then an Etherscan check of every other funder of at least `ETHERSCAN_MIN_FANOUT` interactors (`data/20260930_etherscan_service_labels/build_etherscan_lookups.py`). No hand additions.
 - The model uses 62 features: `gini_coefficient` was removed by a pre-specified test (`01`). `FEATS_SUBMITTED` keeps the submitted 63.
 - Provision edges at or after `SNAPSHOT_END` are dropped, and tree features are computed in the pipeline from the filtered network (A7). The precomputed file in `data/20241117_tree_features/` is only a regression check.
 - XGBoost's thread count is pinned (`sp.N_JOBS`), because `hist` results depend on it. LightGBM runs with `sp.LGBM_REPRO` (`force_col_wise`, `deterministic`); without it, its trees change between runs.

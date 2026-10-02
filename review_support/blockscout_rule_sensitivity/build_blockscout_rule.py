@@ -7,10 +7,10 @@ Etherscan check of funders of 50+ interactors) is unchanged; this only feeds
 `sensitivity_blockscout_rule.ipynb`.
 
 Writes
-  review_support/blockscout_tags.csv    every funder of 2+ addresses that has any Blockscout tag
-  review_support/blockscout_rule.csv    address, labeled (the rows the alternative rule labels)
+  review_support/blockscout_rule_sensitivity/blockscout_tags.csv    every funder of 2+ addresses that has any Blockscout tag
+  review_support/blockscout_rule_sensitivity/blockscout_rule.csv    address, labeled (the rows the alternative rule labels)
 
-Run from the repo root: python review_support/build_blockscout_rule.py
+Run from the repo root: python review_support/blockscout_rule_sensitivity/build_blockscout_rule.py
 """
 import datetime
 import json
@@ -56,8 +56,8 @@ def main():
                          generic_tags='; '.join(sorted(generic)),
                          labeled=bool(generic & SERVICE) and not (generic & EXCLUDE)))
     t = pd.DataFrame(rows)
-    t.to_csv('review_support/blockscout_tags.csv', index=False)
-    t.loc[t.labeled, ['address', 'labeled']].to_csv('review_support/blockscout_rule.csv', index=False)
+    t.to_csv('review_support/blockscout_rule_sensitivity/blockscout_tags.csv', index=False)
+    t.loc[t.labeled, ['address', 'labeled']].to_csv('review_support/blockscout_rule_sensitivity/blockscout_rule.csv', index=False)
     print(f'{len(funders):,} funders of 2+ addresses; {len(t):,} with any tag; {int(t.labeled.sum()):,} labeled')
 
 

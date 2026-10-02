@@ -4,10 +4,10 @@ Scope: addresses that the 2024 file labels (its 44 hand additions excluded), tha
 Spellbook nor the Etherscan step labels, and that funded at least `sp.ETHERSCAN_MIN_FANOUT` LayerZero
 interactors in the filtered network. These are the labels with the most weight that rest on the
 2024 file alone. For each, Blockscout's explorer API and tag service are read (the same lookup as
-`blockscout_crosscheck.py`). This is a record only: no label depends on it.
+`review_support/blockscout_crosscheck/blockscout_crosscheck.py`). This is a record only: no label depends on it.
 
-Writes review_support/labels_2024_only_evidence.csv. Run from the repo root:
-    python review_support/build_2024_only_evidence.py
+Writes review_support/labels_2024_only/labels_2024_only_evidence.csv. Run from the repo root:
+    python review_support/labels_2024_only/build_2024_only_evidence.py
 """
 import datetime
 import os
@@ -17,11 +17,11 @@ import time
 import pandas as pd
 
 sys.path.insert(0, '.')
-sys.path.insert(0, 'review_support')
+sys.path.insert(0, 'review_support/blockscout_crosscheck')
 import sybil_pipeline as sp
 from blockscout_crosscheck import lookup
 
-OUT = 'review_support/labels_2024_only_evidence.csv'
+OUT = 'review_support/labels_2024_only/labels_2024_only_evidence.csv'
 
 
 def main():
