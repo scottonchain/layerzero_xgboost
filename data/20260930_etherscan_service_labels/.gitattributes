@@ -1,0 +1,2 @@
+# Small label file: stored as plain git, not LFS
+*.csv -filter -diff -merge text
