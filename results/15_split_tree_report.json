@@ -1,0 +1,523 @@
+{
+  "notebook": "15_split_tree_report",
+  "code_commit": "e156d9d",
+  "leakage": {
+    "method": "group",
+    "test_rows": 130435,
+    "test_sybils": 5463,
+    "test_rows_sharing_tree_with_train": 0,
+    "test_sybils_sharing_tree_with_train_sybil": 0
+  },
+  "models": [],
+  "status": "stopped_for_review",
+  "stop_rule": "stop before training if any component holds > 5% of Sybils, a partition Sybil rate deviates > 0.3 pp from the overall rate, or a partition size deviates > 1 pt from 49/21/30",
+  "report_overlap": {
+    "per_split": [
+      {
+        "split": "random",
+        "seed": 42,
+        "tree": 599,
+        "report": 5434,
+        "report_keys_shared": 220,
+        "report_keys_in_test": 242,
+        "github_issue": 1935,
+        "github_issue_keys_shared": 96,
+        "github_issue_keys_in_test": 109,
+        "reporter": 5461,
+        "reporter_keys_shared": 132,
+        "reporter_keys_in_test": 134,
+        "test_sybils": 5463
+      },
+      {
+        "split": "tree",
+        "seed": 42,
+        "tree": 0,
+        "report": 5406,
+        "report_keys_shared": 212,
+        "report_keys_in_test": 239,
+        "github_issue": 1798,
+        "github_issue_keys_shared": 83,
+        "github_issue_keys_in_test": 102,
+        "reporter": 5445,
+        "reporter_keys_shared": 130,
+        "reporter_keys_in_test": 132,
+        "test_sybils": 5463
+      },
+      {
+        "split": "tree",
+        "seed": 1,
+        "tree": 0,
+        "report": 5354,
+        "report_keys_shared": 217,
+        "report_keys_in_test": 251,
+        "github_issue": 1801,
+        "github_issue_keys_shared": 77,
+        "github_issue_keys_in_test": 95,
+        "reporter": 5417,
+        "reporter_keys_shared": 127,
+        "reporter_keys_in_test": 132,
+        "test_sybils": 5463
+      },
+      {
+        "split": "tree",
+        "seed": 2,
+        "tree": 0,
+        "report": 5423,
+        "report_keys_shared": 216,
+        "report_keys_in_test": 243,
+        "github_issue": 1860,
+        "github_issue_keys_shared": 83,
+        "github_issue_keys_in_test": 103,
+        "reporter": 5456,
+        "reporter_keys_shared": 127,
+        "reporter_keys_in_test": 133,
+        "test_sybils": 5463
+      },
+      {
+        "split": "tree",
+        "seed": 3,
+        "tree": 0,
+        "report": 5389,
+        "report_keys_shared": 219,
+        "report_keys_in_test": 243,
+        "github_issue": 1830,
+        "github_issue_keys_shared": 82,
+        "github_issue_keys_in_test": 97,
+        "reporter": 5457,
+        "reporter_keys_shared": 131,
+        "reporter_keys_in_test": 135,
+        "test_sybils": 5463
+      },
+      {
+        "split": "tree",
+        "seed": 4,
+        "tree": 0,
+        "report": 5411,
+        "report_keys_shared": 207,
+        "report_keys_in_test": 237,
+        "github_issue": 1826,
+        "github_issue_keys_shared": 77,
+        "github_issue_keys_in_test": 104,
+        "reporter": 5442,
+        "reporter_keys_shared": 124,
+        "reporter_keys_in_test": 133,
+        "test_sybils": 5463
+      },
+      {
+        "split": "tree",
+        "seed": 5,
+        "tree": 0,
+        "report": 5410,
+        "report_keys_shared": 205,
+        "report_keys_in_test": 237,
+        "github_issue": 1816,
+        "github_issue_keys_shared": 82,
+        "github_issue_keys_in_test": 98,
+        "reporter": 5445,
+        "reporter_keys_shared": 127,
+        "reporter_keys_in_test": 134,
+        "test_sybils": 5463
+      },
+      {
+        "split": "tree",
+        "seed": 6,
+        "tree": 0,
+        "report": 5420,
+        "report_keys_shared": 216,
+        "report_keys_in_test": 243,
+        "github_issue": 1847,
+        "github_issue_keys_shared": 80,
+        "github_issue_keys_in_test": 101,
+        "reporter": 5457,
+        "reporter_keys_shared": 128,
+        "reporter_keys_in_test": 132,
+        "test_sybils": 5463
+      },
+      {
+        "split": "tree",
+        "seed": 7,
+        "tree": 0,
+        "report": 5408,
+        "report_keys_shared": 211,
+        "report_keys_in_test": 250,
+        "github_issue": 1840,
+        "github_issue_keys_shared": 83,
+        "github_issue_keys_in_test": 105,
+        "reporter": 5457,
+        "reporter_keys_shared": 129,
+        "reporter_keys_in_test": 134,
+        "test_sybils": 5463
+      },
+      {
+        "split": "tree",
+        "seed": 8,
+        "tree": 0,
+        "report": 5379,
+        "report_keys_shared": 215,
+        "report_keys_in_test": 243,
+        "github_issue": 1831,
+        "github_issue_keys_shared": 84,
+        "github_issue_keys_in_test": 104,
+        "reporter": 5413,
+        "reporter_keys_shared": 128,
+        "reporter_keys_in_test": 134,
+        "test_sybils": 5463
+      },
+      {
+        "split": "tree",
+        "seed": 9,
+        "tree": 0,
+        "report": 5425,
+        "report_keys_shared": 218,
+        "report_keys_in_test": 249,
+        "github_issue": 1795,
+        "github_issue_keys_shared": 81,
+        "github_issue_keys_in_test": 102,
+        "reporter": 5456,
+        "reporter_keys_shared": 129,
+        "reporter_keys_in_test": 133,
+        "test_sybils": 5463
+      }
+    ],
+    "summary": {
+      "random_seed42": {
+        "tree": 599,
+        "report": 5434,
+        "github_issue": 1935,
+        "reporter": 5461,
+        "report_keys_shared": 220,
+        "report_keys_in_test": 242
+      },
+      "tree_seed42": {
+        "tree": 0,
+        "report": 5406,
+        "github_issue": 1798,
+        "reporter": 5445,
+        "report_keys_shared": 212,
+        "report_keys_in_test": 239
+      },
+      "tree_10seeds": {
+        "tree_mean": 0.0,
+        "tree_std": 0.0,
+        "report_mean": 5402.5,
+        "report_std": 22.33706436496176,
+        "github_issue_mean": 1824.4,
+        "github_issue_std": 21.803159811774478,
+        "reporter_mean": 5444.5,
+        "reporter_std": 16.62828914831589,
+        "report_keys_shared_mean": 213.6,
+        "report_keys_shared_std": 4.718756898449704
+      }
+    }
+  },
+  "components": {
+    "variant": "tree + report + GitHub issue",
+    "components": 355619,
+    "multi_row_components": 22649,
+    "largest_by_rows": [
+      {
+        "rows": 13346,
+        "sybils": 8260,
+        "trees": 6651,
+        "reports": 57,
+        "sybil_share": 0.45357201691285487
+      },
+      {
+        "rows": 998,
+        "sybils": 0,
+        "trees": 1,
+        "reports": 0,
+        "sybil_share": 0.0
+      },
+      {
+        "rows": 954,
+        "sybils": 954,
+        "trees": 954,
+        "reports": 1,
+        "sybil_share": 0.052385920597441106
+      },
+      {
+        "rows": 843,
+        "sybils": 843,
+        "trees": 843,
+        "reports": 1,
+        "sybil_share": 0.04629070342100928
+      },
+      {
+        "rows": 733,
+        "sybils": 2,
+        "trees": 2,
+        "reports": 1,
+        "sybil_share": 0.00010982373290868156
+      }
+    ],
+    "largest_by_sybils": [
+      {
+        "rows": 13346,
+        "sybils": 8260,
+        "trees": 6651,
+        "reports": 57,
+        "sybil_share": 0.45357201691285487
+      },
+      {
+        "rows": 954,
+        "sybils": 954,
+        "trees": 954,
+        "reports": 1,
+        "sybil_share": 0.052385920597441106
+      },
+      {
+        "rows": 843,
+        "sybils": 843,
+        "trees": 843,
+        "reports": 1,
+        "sybil_share": 0.04629070342100928
+      },
+      {
+        "rows": 529,
+        "sybils": 529,
+        "trees": 529,
+        "reports": 1,
+        "sybil_share": 0.029048377354346275
+      },
+      {
+        "rows": 500,
+        "sybils": 500,
+        "trees": 500,
+        "reports": 1,
+        "sybil_share": 0.027455933227170392
+      }
+    ],
+    "max_component_sybil_share": 0.45357201691285487,
+    "split_summary": [
+      {
+        "Split": "Train",
+        "Total": 213046,
+        "Sybil": 8924,
+        "NonSybil": 204122,
+        "SybilPct": 4.19,
+        "SizePct": 49.00019779845717
+      },
+      {
+        "Split": "Validation",
+        "Total": 91305,
+        "Sybil": 3824,
+        "NonSybil": 87481,
+        "SybilPct": 4.19,
+        "SizePct": 20.99998620010764
+      },
+      {
+        "Split": "Test",
+        "Total": 130435,
+        "Sybil": 5463,
+        "NonSybil": 124972,
+        "SybilPct": 4.19,
+        "SizePct": 29.99981600143519
+      }
+    ],
+    "checks": {
+      "max component Sybil share <= 5%": false,
+      "Train Sybil rate within 0.3 pp of 4.19%": true,
+      "Train size within 1 pt of 49%": true,
+      "Validation Sybil rate within 0.3 pp of 4.19%": true,
+      "Validation size within 1 pt of 21%": true,
+      "Test Sybil rate within 0.3 pp of 4.19%": true,
+      "Test size within 1 pt of 30%": true
+    },
+    "passed": false,
+    "leakage_original_trees": {
+      "method": "group",
+      "test_rows": 130435,
+      "test_sybils": 5463,
+      "test_rows_sharing_tree_with_train": 0,
+      "test_sybils_sharing_tree_with_train_sybil": 0
+    },
+    "report_leakage": {
+      "report": {
+        "test_sybils": 5463,
+        "test_sybils_with_key": 5463,
+        "test_sybils_sharing_key_with_train_sybil": 0,
+        "keys_in_test": 99,
+        "keys_shared_with_train": 0
+      },
+      "github_issue": {
+        "test_sybils": 5463,
+        "test_sybils_with_key": 1401,
+        "test_sybils_sharing_key_with_train_sybil": 0,
+        "keys_in_test": 31,
+        "keys_shared_with_train": 0
+      },
+      "reporter": {
+        "test_sybils": 5463,
+        "test_sybils_with_key": 5463,
+        "test_sybils_sharing_key_with_train_sybil": 2589,
+        "keys_in_test": 59,
+        "keys_shared_with_train": 21
+      }
+    }
+  },
+  "components_reporter_variant": {
+    "variant": "tree + report + GitHub issue + reporter",
+    "components": 355461,
+    "multi_row_components": 22530,
+    "largest_by_rows": [
+      {
+        "rows": 16840,
+        "sybils": 10071,
+        "trees": 8394,
+        "reports": 153,
+        "sybil_share": 0.553017407061666
+      },
+      {
+        "rows": 1552,
+        "sybils": 1549,
+        "trees": 1549,
+        "reports": 9,
+        "sybil_share": 0.08505848113777387
+      },
+      {
+        "rows": 1029,
+        "sybils": 1029,
+        "trees": 1029,
+        "reports": 2,
+        "sybil_share": 0.05650431058151666
+      },
+      {
+        "rows": 998,
+        "sybils": 0,
+        "trees": 1,
+        "reports": 0,
+        "sybil_share": 0.0
+      },
+      {
+        "rows": 983,
+        "sybils": 983,
+        "trees": 983,
+        "reports": 2,
+        "sybil_share": 0.05397836472461699
+      }
+    ],
+    "largest_by_sybils": [
+      {
+        "rows": 16840,
+        "sybils": 10071,
+        "trees": 8394,
+        "reports": 153,
+        "sybil_share": 0.553017407061666
+      },
+      {
+        "rows": 1552,
+        "sybils": 1549,
+        "trees": 1549,
+        "reports": 9,
+        "sybil_share": 0.08505848113777387
+      },
+      {
+        "rows": 1029,
+        "sybils": 1029,
+        "trees": 1029,
+        "reports": 2,
+        "sybil_share": 0.05650431058151666
+      },
+      {
+        "rows": 983,
+        "sybils": 983,
+        "trees": 983,
+        "reports": 2,
+        "sybil_share": 0.05397836472461699
+      },
+      {
+        "rows": 516,
+        "sybils": 516,
+        "trees": 516,
+        "reports": 7,
+        "sybil_share": 0.028334523090439843
+      }
+    ],
+    "max_component_sybil_share": 0.553017407061666,
+    "split_summary": [
+      {
+        "Split": "Train",
+        "Total": 214192,
+        "Sybil": 10071,
+        "NonSybil": 204121,
+        "SybilPct": 4.7,
+        "SizePct": 49.26377574254921
+      },
+      {
+        "Split": "Validation",
+        "Total": 90829,
+        "Sybil": 3348,
+        "NonSybil": 87481,
+        "SybilPct": 3.69,
+        "SizePct": 20.890507054044978
+      },
+      {
+        "Split": "Test",
+        "Total": 129765,
+        "Sybil": 4792,
+        "NonSybil": 124973,
+        "SybilPct": 3.69,
+        "SizePct": 29.845717203405812
+      }
+    ],
+    "checks": {
+      "max component Sybil share <= 5%": false,
+      "Train Sybil rate within 0.3 pp of 4.19%": false,
+      "Train size within 1 pt of 49%": true,
+      "Validation Sybil rate within 0.3 pp of 4.19%": false,
+      "Validation size within 1 pt of 21%": true,
+      "Test Sybil rate within 0.3 pp of 4.19%": false,
+      "Test size within 1 pt of 30%": true
+    },
+    "passed": false,
+    "leakage_original_trees": {
+      "method": "group",
+      "test_rows": 129765,
+      "test_sybils": 4792,
+      "test_rows_sharing_tree_with_train": 0,
+      "test_sybils_sharing_tree_with_train_sybil": 0
+    },
+    "report_leakage": {
+      "report": {
+        "test_sybils": 4792,
+        "test_sybils_with_key": 4792,
+        "test_sybils_sharing_key_with_train_sybil": 0,
+        "keys_in_test": 99,
+        "keys_shared_with_train": 0
+      },
+      "github_issue": {
+        "test_sybils": 4792,
+        "test_sybils_with_key": 1838,
+        "test_sybils_sharing_key_with_train_sybil": 0,
+        "keys_in_test": 39,
+        "keys_shared_with_train": 0
+      },
+      "reporter": {
+        "test_sybils": 4792,
+        "test_sybils_with_key": 4792,
+        "test_sybils_sharing_key_with_train_sybil": 0,
+        "keys_in_test": 61,
+        "keys_shared_with_train": 0
+      }
+    }
+  },
+  "hyperparameters": "from 02_hyperparameter_search (chosen on the tree split; not re-searched)",
+  "partC": null,
+  "per_split": null,
+  "summary": null,
+  "interpretation_inputs": {
+    "status": "stopped_for_review",
+    "failed_conditions": [
+      "max component Sybil share <= 5%"
+    ],
+    "report_overlap_random_seed42": 5434,
+    "report_overlap_tree_seed42": 5406,
+    "report_overlap_tree_10seeds_mean": 5402.5,
+    "report_overlap_tree_10seeds_sd": 22.33706436496176,
+    "test_sybils": 5463,
+    "max_component_sybil_share": 0.45357201691285487,
+    "reporter_variant_passed": false,
+    "reporter_variant_max_component_sybil_share": 0.553017407061666
+  }
+}

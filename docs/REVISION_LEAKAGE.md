@@ -32,6 +32,9 @@ for the paper come from `10_tie_out.ipynb` (and `11_split_comparison.ipynb` for 
 | A12 44 hand-added labeled addresses | New (possible label leakage) | Code done: hand step replaced by a two-step labeling rule (public lists, then an Etherscan check of every other funder of ≥ 50 interactors; 36 checked, 10 labeled). Pre-snapshot label vintage as sensitivity | 25ef316, b1594ce, 91cfd02 | `data/20260930_etherscan_service_labels/etherscan_lookups.csv`; `07`; findings E |
 | C `gini_coefficient` identically zero | R1 graph-feature formulas | Code done: formula corrected, then removed by the pre-specified rule (3 of 10 splits; 62 features) | b1594ce, 91cfd02 | `01_ablation_gini`; findings E |
 | B10 repo text | R2 test isolation | Done: notebook headers, README benchmark and robustness tables from the final run | d84263a, 9558973 | `README.md` |
+| A13 Random Forest baseline | R2 baselines | Code done: validation-only search (12 configurations), 3-seed model, 10 splits | ce0a3c0 | `13_random_forest_sybil`; findings E (2026-10-05) |
+| A14 entity-level recall | R1 entity-level evaluation | Code done; run on arm64 predictions, flagged (do not match committed `03`/`04`/`06`) | e156d9d | `14_entity_level_recall`; findings E (2026-10-05) |
+| A15 split by tree and bounty report | New (internal review) | Stopped for review: one union component holds 45 % of Sybils; no model trained | e156d9d | `15_split_tree_report`; findings E (2026-10-05) |
 
 ## A. Code and experiments
 
@@ -148,6 +151,9 @@ for the paper come from `10_tie_out.ipynb` (and `11_split_comparison.ipynb` for 
 | R1/R2: which features matter; graph features | `01` (Gini), `08` family ablation, `09` SHAP by category |
 | R2: relational leakage from random split | A1, A2, A8, A10, B5, B8, B9 |
 | R2: test isolation contradicted by manuscript and repo | A3, A4, B2, B3, B4, B6, B10 |
+| R2: baselines | A13 (`13`) |
+| R1: entity-level evaluation | A14 (`14`) |
+| New (internal review): report-level dependence | A15 (`15`) |
 
 ## E. Findings log
 
@@ -274,3 +280,33 @@ The corrected `gini_coefficient` is the only feature whose definition changed in
 - The corrected `gini_coefficient` figures in section C now come from this run.
 
 **2026-10-02, figures @ cae1b67.** `12_figures` draws every figure in the paper from this run into `figures/` under the manuscript's file names. Learning curve (one XGBoost, seed 42, selected hyperparameters): early stopping at 1,680 trees, as in `03`; validation F1 0.7032 at its F1-maximizing threshold, equal to the `02` search; training F1 0.9993 on the upsampled 1:1 training set. PR and ROC curves reproduce every AP and AUROC in `results/`. Depth distribution on all addresses (IxI 34,391, IxE 93,061; A9). The three provision-graph examples match the manuscript's address tables exactly: 0xf70768a8… (IxI), 0x92bb85ed… (IxE), 0x47127232… (IxE, Sybil). All 15 of the XGBoost and LightGBM top-15 features are shared, so the comparison figure shows every bar as shared.
+
+**2026-10-05, Apple M5 (arm64) does not reproduce `03` and `04`.** Both rerun from a clean tree at d51af2c (pinned `requirements.txt`, Python 3.13.7, macOS arm64), to regenerate the `output/` predictions `14` reads; the committed `results/` were left unchanged.
+
+- Data and split agree: 434,786 addresses, 18,211 Sybil, 371,764 trees; test 130,435 rows and 5,463 Sybils, 0 tree overlap.
+- The models do not. XGBoost: test F1 0.7183 (committed 0.7200), validation threshold 0.5414 (0.5824), AP 0.7647 (0.7645). LightGBM: F1 0.7168 (0.7188), threshold 0.5748 (0.6001), AP 0.7697 (0.7696), rounds 1,224 / 1,267 / 1,225 (1,277 / 1,248 / 1,143). `06` on these predictions (ce0a3c0) selects XGBoost weight 0.00 (committed 0.06), so the ensemble equals LightGBM there.
+- So `sp.N_JOBS` and `sp.LGBM_REPRO` make runs reproducible on one machine, not across machines. The differences are below the split-to-split SD (0.006). The README's "reproduce across runs and machines" is corrected. `10_tie_out` cannot detect this, because it checks code and data, not the platform.
+
+**2026-10-05, A14 entity-level recall, `14` @ e156d9d.** The authors chose to run `14` on the arm64 predictions above, flagged: `results/14_entity_level_recall.json` records `predictions_match_committed_results: false`, the platform, and the metrics of the predictions used next to the committed ones. Numbers are LightGBM at its validation threshold (0.5748) on those predictions; XGBoost differs by at most 0.015 in any rate below. The acceptance checks pass against the predictions used: E1 Sybil-weighted recall equals address-level recall (0.7187) to 1e-9; every entity type sums to 5,463 test Sybils and 32,696.7 ZRO.
+
+- E1, gas provision tree: 4,907 trees hold the test Sybils; 97.1 % are single-wallet trees, and 98.5 % of IxL test Sybils sit in single-wallet trees, so E1 is close to address level. Any-hit 0.765, majority-hit 0.764, full-hit 0.762; within-tree recall 0.764 unweighted, 0.719 weighted. 1,160 trees (23.6 %) keep at least half their allocation unflagged.
+- E2, bounty report: 239 of 311 reports have test Sybils (median report: 31 % of its Sybils in test). Any-hit 0.703, majority-hit 0.552, full-hit 0.159; within-report recall 0.512 unweighted. 117 reports (49.0 %) keep at least half their allocation unflagged. Only 18 reports (20 Sybils) have every Sybil in test. On those, any-hit is 0.056, because they are small (16 of 18 have one Sybil).
+- E3, reporter (descriptive): 132 reporters; any-hit 0.871, majority-hit 0.689, full-hit 0.121; 50 (37.9 %) keep at least half their allocation unflagged.
+- Allocation: 37.2 % of the test Sybils' ZRO is on unflagged addresses, against an address miss rate of 28.1 %. The missed Sybils carry larger allocations than the detected ones.
+- Caveat: a tree or a report is a proxy for an operator, not the operator. One operator can fund many wallets directly from an exchange, which yields many single-wallet trees. `allocation` is intended payout, not profit (it excludes costs).
+
+**2026-10-05, A15 report-level dependence, `15` @ e156d9d: stopped for review.** No model was trained.
+
+- Report overlap: under the random split (seed 42), 5,434 of 5,463 test Sybils share a Commonwealth report with a training Sybil. Under the tree split, 5,406 (seed 42), and 5,402.5 ± 22.3 over the 10 seeds. GitHub issue: 1,935 / 1,798 / 1,824.4 ± 21.8. Reporter: 5,461 / 5,445 / 5,444.5 ± 16.6. Under the tree split, 212 of the 239 reports with test Sybils also have training Sybils. The tree split removes tree overlap (599 → 0) but almost none of the report overlap.
+- Union groups (tree ∪ report ∪ GitHub issue; GitHub issues never span two reports, so they add no links): 355,619 components (22,649 with more than one row). The largest has 13,346 rows and 8,260 Sybils (**45.4 % of all Sybils**), joining 6,651 trees through 57 reports. The second is a single report of 954 Sybils in 954 trees (5.2 %), so even a report-only grouping breaks the 5 % rule. Partition Sybil rates (4.19 % each) and sizes (49.0 / 21.0 / 30.0) pass. The union split has 0 tree and 0 report overlap (asserted).
+- Stop condition failed: a component holds more than 5 % of Sybils. Status `stopped_for_review`. Parts C and D (models on the union split, 10-split comparison with `08`) were not run. The partitioner was not modified and no edges were dropped.
+- Stricter variant (also group by reporter): the largest component has 16,840 rows and 10,071 Sybils (55.3 %). The partition Sybil rates then fail too (train 4.70 %, validation 3.69 %, test 3.69 %). Not run.
+- For the authors: report-level dependence cannot be removed by a group split with this partitioner. Options include a leave-reports-out evaluation (for example, holding out whole reports below a size cap), restricting the test set to reports with no training Sybils, or a relaxed component rule. Each would be a new pre-specified design, not a change to this notebook.
+
+**2026-10-05, A13 Random Forest baseline, `13` @ ce0a3c0 (Apple M5, arm64; 32 min).** Selected like `02`: validation only, test deleted before any fit, 12 configurations, 300 trees, no `class_weight`.
+
+- Memory guard: one fully grown tree pickles to 1.13 MiB (`'sqrt'`) or 0.90 MiB (0.3), so 300 trees project to 0.33 GiB, well under 50 % of available RAM (5.1 GiB). `max_samples` stays unset.
+- Search (validation F1): `max_features` 0.3, `min_samples_leaf` 1, `max_depth` None is selected (0.7044, AP 0.7508). That is above the selected XGBoost (0.7032) and below LightGBM (0.7067). Unlimited depth beats depth 24 in every pair (by 0.02 to 0.08); at unlimited depth, smaller leaves are better.
+- Test (3 seeds, threshold 0.3567 from validation): precision 0.7266, recall 0.6982, F1 0.7121, AUROC 0.9710, AP 0.7686, Brier 0.0176, FPR 0.0115. Against the committed models: XGBoost F1 0.7200 / AP 0.7645, LightGBM 0.7188 / 0.7696, LR 0.2412 / 0.1656. Random Forest has the highest AUROC of the four and an AP between XGBoost and LightGBM. Its F1 gap to the boosted models (0.007 to 0.008) is about one split-noise SD. Per category, F1: IxL 0.751, IxE 0.277, IxI 0.186 (LightGBM, group split: 0.75, 0.29, 0.47); recall is low in IxI (0.103) at high precision (0.936).
+- 10 group splits (model seed 42): test F1 0.7026 ± 0.0063, AP 0.7537 ± 0.0073, AUROC 0.9687 ± 0.0015, against `08` "All features" (LightGBM) 0.7131 ± 0.0060, 0.7607 ± 0.0060, 0.9682 ± 0.0018. Paired by split, Random Forest minus LightGBM: F1 −0.0105 ± 0.0071 (lower on 9 of 10), AP −0.0070 ± 0.0034, AUROC +0.0005 ± 0.0013. Caveat: `08` ran on the machine of the committed results and `13` on arm64; that alone moved LightGBM's seed-42 test F1 by 0.002 (above).
+- For the manuscript: replace the prose dismissal with these results. A tuned Random Forest is a strong baseline, close to the boosted models on AUROC and AP, and behind LightGBM on F1 by about 0.01 over 10 splits. Boosting's advantage is real but small.
