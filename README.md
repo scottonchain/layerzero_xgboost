@@ -53,7 +53,7 @@ XGBoost and LightGBM lose similar Average Precision; the cross-ensemble tracks L
 | All provision-network features removed | `08` | Test F1 −0.008; transaction features alone carry most of the signal |
 | SHAP by feature family | `09` | LayerZero transactions first, then Ethereum transactions, gas provider, gas provision tree, provision chain |
 | Random forest on the 10 splits of `08` | `13` | Test F1 0.703 ± 0.006 vs LightGBM 0.713 ± 0.006; paired difference −0.011 ± 0.007, lower on 9 of 10 |
-| Entity-level recall (LightGBM, validation threshold) | `14` | Gas provision trees: any-hit 0.765 (97 % are single-wallet trees). Bounty reports: any-hit 0.703, majority-hit 0.552; 49 % of reports keep at least half their ZRO allocation unflagged. 37 % of the test Sybils' allocation is unflagged (address miss rate 28 %). Arm64 predictions, flagged in the results file |
+| Entity-level recall (LightGBM, validation threshold) | `14` | Gas provision trees: any-hit 0.756 (97 % are single-wallet trees). Bounty reports: any-hit 0.695, majority-hit 0.540; 51 % of reports keep at least half their ZRO allocation unflagged. 38 % of the test Sybils' allocation is unflagged (address miss rate 29 %) |
 | Split grouped by tree and bounty report | `15` | Under the tree split, 5,406 of 5,463 test Sybils still share a bounty report with a training Sybil (random split: 5,434). Grouping by tree and report joins 45 % of Sybils into one component, so the run stopped before training (5 % rule) |
 
 ---
