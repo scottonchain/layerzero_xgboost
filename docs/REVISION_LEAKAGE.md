@@ -40,7 +40,8 @@ for the paper come from `10_tie_out.ipynb` (and `11_split_comparison.ipynb` for 
 | A18 mimicry stress test | R1 evasion | Code done; feature cost classes tentative (authors to confirm) | 5888aa3 | `18` |
 | A19 provision-network ablation by category | R2 novelty and ablation | Code done | 5888aa3 | `19` |
 | A20 temporal holdout | R1 drift | Code done | 5888aa3 | `20` |
-| A21 tie-out for 13–20 | R1 verifiability | Code done; 43 of 44 checks pass (14's inputs fail until it is rerun on the machine of the committed results) | c3d7217 | `21` |
+| A15b report-mates in training | R2 relational leakage (report level) | Code done: seen minus held out, test F1 +0.231 ± 0.084 (15 of 15) | ef82c78 | `22`; findings E (2026-10-06) |
+| A21 tie-out for 13–22 | R1 verifiability | Code done; renamed `99_tie_out_revision` (runs last); 49 of 50 checks pass (14's inputs fail until it is rerun on the machine of the committed results) | c3d7217, 3c2afe5 | `99` |
 | A22 data-release documents | R1 release | Drafts: `DATA.md`, `CITATION.cff` (validated); no LICENSE; Zenodo steps below | this PR | `DATA.md`, `CITATION.cff` |
 
 ## A. Code and experiments
@@ -166,7 +167,8 @@ for the paper come from `10_tie_out.ipynb` (and `11_split_comparison.ipynb` for 
 | R1: evasion once features are published | A18 (`18`) |
 | R2: novelty of the graph features; ablation | A19 (`19`) |
 | R1: concept drift | A20 (`20`) |
-| R1: release and verifiability | A21 (`21`), A22 (`DATA.md`, `CITATION.cff`, Zenodo) |
+| R1: release and verifiability | A21 (`99`, was `21`), A22 (`DATA.md`, `CITATION.cff`, Zenodo) |
+| R2: relational leakage, report level | A15 (`15`), A15b (`22`) |
 
 ## E. Findings log
 
@@ -355,3 +357,13 @@ The corrected `gini_coefficient` is the only feature whose definition changed in
 Zenodo steps (for Paven; not done here): (1) sign in to zenodo.org with GitHub and enable the integration for `paven86/layerzero_xgboost` (Account → GitHub → toggle the repository); (2) after the final merge, confirm `CITATION.cff` and choose a license, then create a GitHub release (tag, e.g. `v1.0-revision`), which Zenodo archives and assigns a DOI; (3) cite the DOI in the data-availability statement, with the release's commit.
 
 **2026-10-06, A16 provenance confirmed against the archive.** The authors retrieved the list from the Wayback Machine's 24 May 2024 capture of `github.com/LayerZero-Labs/sybil-report/raw/main/` and shared it (Google Drive id `1GJ356Vu59_188nxBAygkky4Bv5XbKvX1`, `initialList.csv`). Downloaded and checked: 34,560,871 bytes, SHA-256 `1a643f70056fe0c0b38d4a13468e968a2de0bd18de6bc25ed7139d9fa691a7cc`, byte-identical to `review_support/initial_list/initial_list.csv`. The archive still returned 429 to this machine, so the capture was retrieved by the authors, not fetched here. No result changes.
+
+**2026-10-06, A15b report dependence, `22` @ ef82c78 (Apple M5, arm64; 53 min).** Isolates report dependence from the training-diversity collapse in `15`'s union split. Union components as in `15` (reproduced: 355,619 components, largest 13,346 rows and 8,260 Sybils; the two components over 5 % of Sybils, 14,300 rows and 9,214 Sybils, are in every training set). The other components form 5 folds (20 % ± 1 % of rows and Sybils; no report or tree spans two folds), 3 repeats (fold seeds 42, 1, 2). Per fold k: its trees split 50/50 into k_a (test) and k_b; fold k+1 is validation; held-out training = 3 folds + large components; seen training = that plus k_b minus matched whole trees. Every acceptance check holds: the two training sets match exactly on Sybils (14,612.2 on average, rows within 2) and test and validation rows are identical in both conditions; no k_a Sybil's report is among the held-out training Sybils.
+
+- Composition: k_a 42,048–42,050 rows, 899–901 Sybils (prevalence 2.14 %); 98.7 % of k_a Sybils (97.7–99.3 %) have at least one report-mate in k_b; training Sybils from the large components 63.1 % in both conditions (tree split: 50.2 %; union split: 92.6 %); reports represented in training 209.8 (held out) vs 247.1 (seen). n_test / n_train = 0.158.
+- LightGBM, mean ± SD over 15: held out F1 0.367, AP 0.305, AUROC 0.891; seen F1 0.598, AP 0.597, AUROC 0.970. Seen minus held out: F1 +0.231 ± 0.084, AP +0.292 ± 0.075, AUROC +0.079 ± 0.041, recall +0.300 ± 0.110, precision +0.180 ± 0.080; seen higher on 15 of 15 for every metric; corrected repeated k-fold t-test p < 0.001 (F1, AP), 0.0012 (AUROC); Wilcoxon (uncorrected) p = 0.0001. XGBoost replicates: F1 +0.217 ± 0.081, AP +0.291 ± 0.078, AUROC +0.078 ± 0.043, 15 of 15.
+- Dose-response (LightGBM, pooled over the 15 fold-repeats; recall held → seen, mean score gain): 0 report-mates in k_b, 181 Sybils, 0.122 → 0.127, +0.015; 1–9, 1,275, 0.194 → 0.432, +0.249; 10–99, 6,111, 0.417 → 0.773, +0.363; ≥ 100, 5,927, 0.489 → 0.753, +0.275. The gain is near zero without report-mates and large with them; it peaks at 10–99, not ≥ 100 (the largest reports are already easier to detect when held out).
+- By category (LightGBM, seen minus held out): IxL F1 +0.232 ± 0.082, AUROC +0.092 (15 of 15; 860 test Sybils per fold); IxE F1 +0.154 ± 0.236, AUROC +0.044 (13 of 15; 28 per fold); IxI F1 +0.030 ± 0.066, AUROC +0.024 (3 and 12 of 15; 11 per fold). IxI and IxE are too small here to say more.
+- Reading: with training size and diversity held fixed, seeing a test Sybil's report-mates in training is worth about 0.23 F1 and 0.08 AUROC. Most of `15`'s drop is report dependence, not the diversity collapse. Absolute F1 and AP are at 2.1 % prevalence and not comparable with the main table; the main tree-split results (where 99 % of test Sybils share a report with a training Sybil, `15`) therefore include report-level similarity, which the paper should state.
+
+**2026-10-06, tie-out renamed `21` → `99_tie_out_revision` (runs last under the glob), extended to `22`.** At 3c2afe5: 49 of 50 checks pass; the failing one is still `14`'s inputs. `results/21_tie_out_revision.json` removed; the result is now `results/99_tie_out_revision.json`.

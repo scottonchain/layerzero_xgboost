@@ -3,7 +3,7 @@
 This file describes the input data in `data/`: what each file is, where it came from, when it was
 retrieved, its size and columns, its Git LFS object, which notebooks read it, and its known issues.
 Row counts exclude the header row. Facts were checked against the files, the readmes in each folder,
-[`sybil_pipeline.py`](sybil_pipeline.py) and the notebooks at commit `3bbec2c` (notebooks `16`–`21` added afterwards). Where something is
+[`sybil_pipeline.py`](sybil_pipeline.py) and the notebooks at commit `3bbec2c` (notebooks `16`–`22` and `99` added afterwards). Where something is
 not documented in the repository, this file says so.
 
 The CSV files in `data/` are Git LFS objects (`data/.gitattributes`), except the two folders added in
@@ -13,13 +13,13 @@ before any change to it.
 
 "Pipeline notebooks" below means the notebooks that build the feature table, either with
 `sp.build_master_df` or step by step with `sp.data_paths` (`00`): `00` to `05`, `07` to `09`, and
-`11` to `20`. `06`, `10` and `21` read no file in `data/`; they read saved predictions and results.
+`11` to `20` and `22`. `06`, `10` and `99` read no file in `data/`; they read saved predictions and results.
 
 ## Contents
 
 | Folder | What | Rows | Used by |
 |---|---|---|---|
-| [`20240915_final_sybil_list/`](#20240915_final_sybil_list) | Sybil addresses accepted through LayerZero's community bounty (the labels) | 151,784 | Pipeline notebooks; also read directly by `14`, `15`, `16` |
+| [`20240915_final_sybil_list/`](#20240915_final_sybil_list) | Sybil addresses accepted through LayerZero's community bounty (the labels) | 151,784 | Pipeline notebooks; also read directly by `14`, `15`, `16`, `22` |
 | [`20241013_hildobby_cex_evms/`](#20241013_hildobby_cex_evms) | hildobby's list of known EVM CEX addresses | 2,431 | `07` (pre-snapshot label vintage) |
 | [`20241104_layer0_sybil_features/`](#20241104_layer0_sybil_features) | LayerZero and Ethereum transaction features per interactor (5 files) | 434,788 (434,786 after cleaning) | Pipeline notebooks |
 | [`20241114_gas_provision/`](#20241114_gas_provision) | Gas provision network: first ETH transfer into each address | 604,864 (archive: 758,633) | Pipeline notebooks; `07` directly. Archive: none |

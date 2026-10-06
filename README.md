@@ -75,6 +75,7 @@ XGBoost and LightGBM lose similar Average Precision; the cross-ensemble tracks L
 | Label noise: LayerZero's initial Sybil list ([archived source](https://web.archive.org/web/*/https://github.com/LayerZero-Labs/sybil-report/raw/main/*)) | `16` | 34,545 interactors (8.3 % of the non-Sybils) are on LayerZero's initial list and labeled non-Sybil. At the validation threshold, 625 of the 1,566 test false positives (40 %) are on it; counting them as Sybil, precision is 0.829 instead of 0.715. Dropping them from training and validation: test F1 on the test set without them +0.034 ± 0.010 (10 of 10) |
 | Mimicry stress test (fixed model) | `18` | Replacing the 5 most important features of test Sybils with values from non-Sybils cuts recall at the fixed threshold from 0.719 to 0.01–0.04 (0.03–0.05 with cheap features only). Tentative cost classes; a fragility measure, not an attack simulation |
 | Provision-network features by category | `19` | Removing them: test F1 −0.008 overall (9 of 10), IxI −0.105 ± 0.124 (9 of 10), IxL −0.004, IxE +0.046 (removing them helps IxE on 9 of 10); none significant after the correction |
+| Report-mates in training | `22` | Same test Sybils, same training size: with their bounty-report mates in training, test F1 +0.231 ± 0.084, AP +0.292 ± 0.075, AUROC +0.079 ± 0.041 (15 of 15, corrected p < 0.002; LightGBM; XGBoost alike). The gain grows from +0.006 recall with no report-mate to +0.24 with 1–9 and +0.36 with 10–99. Test prevalence is 2.1 %, so only the paired difference is comparable |
 | Temporal holdout | `20` | Trained on wallets whose first LayerZero transaction precedes 2023-08-20, tested on the 30 % after: F1 0.170 (recall 0.095), AUROC 0.891, against 0.736 and 0.978 for the tree-split model on the same cohort. The late cohort's Sybil rate is 1.0 % against 5.6 % |
 
 ---
@@ -154,7 +155,8 @@ layerzero_xgboost/
 ├── 18_mimicry_stress.ipynb                 ← mimicry stress test of the fixed model
 ├── 19_ablation_by_category.ipynb           ← provision-network features removed, per category
 ├── 20_temporal_holdout.ipynb               ← train on earlier cohorts, test on later ones
-├── 21_tie_out_revision.ipynb               ← provenance checks and every cited number for 13–20
+├── 22_report_dependence.ipynb              ← test Sybils with and without report-mates in training
+├── 99_tie_out_revision.ipynb               ← provenance checks and every cited number for 13–22 (runs last)
 ├── DATA.md                                 ← what each data file is, where it came from, terms
 ├── CITATION.cff                            ← citation metadata (draft)
 ├── figures/                                ← PNGs named as in the manuscript's \includegraphics
@@ -214,7 +216,7 @@ for nb in [0-9][0-9]_*.ipynb; do
 done
 ```
 
-The glob runs `00` to `21` in numerical order, which is the dependency order. Every notebook
+The glob runs `00` to `22` and then `99` in numerical order, which is the dependency order. Every notebook
 uses the stratified group split except `11`, which also trains the models on the original random
 split to measure the leakage. Each notebook rebuilds the feature table itself through
 `sybil_pipeline.build_master_df`, so after `02_hyperparameter_search` has written
@@ -222,7 +224,7 @@ split to measure the leakage. Each notebook rebuilds the feature table itself th
 needs the predictions saved by `03` and `04`. `01` and `02` fix the feature set and the
 hyperparameters; they must be rerun whenever `sybil_pipeline.py` changes, or `10` rejects the
 results that depend on them. `10` checks every result from `00` to `09`; `11` and `12` run after it.
-`13` to `20` answer later reviewer requests and are not checked by `10`; `21_tie_out_revision` checks them
+`13` to `22` answer later reviewer requests and are not checked by `10`; `99_tie_out_revision` checks them
 instead and runs last. They rebuild the feature table themselves, except `14`, which reads the predictions `03`,
 `04` and `06` saved in `output/`; `17` needs `13`'s result, and `16` reads `review_support/initial_list/`
 (Git LFS).
@@ -252,7 +254,8 @@ Runtimes on 4 cores, from the run at commit `0d9eacc` (`02` searched from scratc
 | `18_mimicry_stress` | 4 min (Apple M5) |
 | `19_ablation_by_category` | 28 min (Apple M5) |
 | `20_temporal_holdout` | 6 min (Apple M5) |
-| `21_tie_out_revision` | 3 s |
+| `22_report_dependence` | 53 min (Apple M5) |
+| `99_tie_out_revision` | 3 s |
 
 About 6.5 hours in total. `01` and `02` are needed only when `sybil_pipeline.py` changes; with their committed
 results, `03` to `12` take about 4.1 hours.
@@ -312,7 +315,10 @@ results, `03` to `12` take about 4.1 hours.
 - **`19`**: LightGBM with and without the provision-network families on 10 splits, per taxonomy category.
 - **`20`**: a temporal holdout: trains on wallets whose tree first used LayerZero before a cut-off and tests on
   the later 20, 30 or 40 %, against the tree-split model on the same rows.
-- **`21`**: provenance of `13`–`20` and the notebooks they depend on, their stored hyperparameters, `14`'s inputs
+- **`22`**: scores the same test Sybils with and without their bounty-report mates in training (equal training
+  size, same validation and test rows; 5 folds of the union components of `15` × 3 repeats; LightGBM and XGBoost),
+  with a dose-response by number of report-mates.
+- **`99`** (was `21`): provenance of `13`–`22` and the notebooks they depend on, their stored hyperparameters, `14`'s inputs
   and the platforms; prints every number cited from them. It fails until `14` is rerun on predictions that
   reproduce the committed `03`, `04` and `06`.
 
