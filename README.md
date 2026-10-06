@@ -2,7 +2,7 @@
 
 > Reproduces and extends: *Sybil Detection on Public Blockchains via XGBoost and Gas Provision Network Analysis* (Imig et al., 2025)
 
-Trains three classifiers (XGBoost, LightGBM, Logistic Regression) and a cross-model ensemble on 434,786 Ethereum addresses to identify Sybil wallets in the LayerZero airdrop of June 2024. Every number below is produced by a notebook in this repository; `10_tie_out.ipynb` checks that each one traces to the code in the current commit.
+Trains four classifiers (XGBoost, LightGBM, Random Forest, Logistic Regression) and a cross-model ensemble on 434,786 Ethereum addresses to identify Sybil wallets in the LayerZero airdrop of June 2024. Every number below is produced by a notebook in this repository; `10_tie_out.ipynb` checks that each one traces to the code in the current commit.
 
 ---
 
@@ -17,10 +17,12 @@ on validation; test labels are used only for this table.
 | XGBoost (3 seeds) | 0.720 | 0.720 | 0.720 | 0.966 | 0.764 | 0.0123 |
 | LightGBM (3 seeds) | 0.727 | 0.711 | 0.719 | 0.968 | 0.770 | 0.0117 |
 | Cross-ensemble | 0.697 | 0.739 | 0.717 | 0.968 | 0.770 | 0.0140 |
+| Random forest (3 seeds) | 0.727 | 0.698 | 0.712 | 0.971 | 0.769 | 0.0115 |
 | Logistic regression | 0.150 | 0.617 | 0.241 | 0.837 | 0.166 | 0.1529 |
 
 Source: `10_tie_out.ipynb`. AP is average precision; FPR is the false-positive rate among
-non-Sybils at the model's threshold. Results produced at commit `0d9eacc`.
+non-Sybils at the model's threshold. Results produced at commit `0d9eacc`; Random forest from
+`13_random_forest_sybil.ipynb` at `ce0a3c0` (Apple M5, arm64; not checked by `10`).
 
 - **Split noise.** Over 10 group splits, LightGBM test F1 has SD 0.006 (`08`). Differences between
   XGBoost, LightGBM and the ensemble are smaller than that.
@@ -50,6 +52,9 @@ XGBoost and LightGBM lose similar Average Precision; the cross-ensemble tracks L
 | Labels known before the snapshot vs current labels | `07` | Test F1 −0.005 ± 0.007 (mean ± SD) |
 | All provision-network features removed | `08` | Test F1 −0.008; transaction features alone carry most of the signal |
 | SHAP by feature family | `09` | LayerZero transactions first, then Ethereum transactions, gas provider, gas provision tree, provision chain |
+| Random forest on 10 group splits | `13` | Test F1 0.703 ± 0.006 vs LightGBM 0.713 ± 0.009 (same machine); paired difference −0.011 ± 0.007, lower on 9 of 10 |
+| Entity-level recall (LightGBM, validation threshold) | `14` | Gas provision trees: any-hit 0.765 (97 % are single-wallet trees). Bounty reports: any-hit 0.703, majority-hit 0.552; 49 % of reports keep at least half their ZRO allocation unflagged. 37 % of the test Sybils' allocation is unflagged (address miss rate 28 %). Arm64 predictions, flagged in the results file |
+| Split grouped by tree and bounty report | `15` | Under the tree split, 5,406 of 5,463 test Sybils still share a bounty report with a training Sybil (random split: 5,434). Grouping by tree and report as well: test F1 0.256 ± 0.022 vs 0.713 ± 0.009 (−0.457 ± 0.023, 10 of 10; outside the two largest components −0.375). One component holds 45 % of Sybils and always lands in train, so the drop also reflects that composition |
 
 ---
 
@@ -120,6 +125,9 @@ layerzero_xgboost/
 ├── 10_tie_out.ipynb                        ← provenance checks and every reported number
 ├── 11_split_comparison.ipynb               ← leakage under the original random split (not a reported result)
 ├── 12_figures.ipynb                        ← every figure in the paper, written to figures/
+├── 13_random_forest_sybil.ipynb            ← tuned Random Forest baseline (validation-only search)
+├── 14_entity_level_recall.ipynb            ← recall by gas provision tree, bounty report and reporter
+├── 15_split_tree_report.ipynb              ← report-level overlap; split grouped by tree and bounty report
 ├── figures/                                ← PNGs named as in the manuscript's \includegraphics
 ├── requirements.txt
 └── README.md
@@ -143,7 +151,9 @@ XGBoost and LightGBM thread count at 4 (`sp.N_JOBS`), because XGBoost's `hist` a
 slightly different trees with different thread counts. LightGBM also runs with `force_col_wise` and
 `deterministic` (`sp.LGBM_REPRO`): otherwise it picks its histogram method by a timing test at
 startup and sums in thread order, and its trees change between runs. With these settings, results
-reproduce across runs and machines.
+reproduce across runs on one machine, but not necessarily across machines: on an Apple M5 (arm64), `03` and
+`04` give test F1 0.7183 and 0.7168, against the committed 0.7200 and 0.7188, with different
+early-stopping rounds (`docs/REVISION_LEAKAGE.md`, findings 2026-10-05).
 
 > **RAM note.** The labeled-addresses file (`20241214_labeled_addresses.csv`) contains 9 million
 > entries. The pipeline streams it and retains only the addresses that appear in the provision
@@ -175,14 +185,16 @@ for nb in [0-9][0-9]_*.ipynb; do
 done
 ```
 
-The glob runs `00` to `12` in numerical order, which is the dependency order. Every notebook
+The glob runs `00` to `15` in numerical order, which is the dependency order. Every notebook
 uses the stratified group split except `11`, which also trains the models on the original random
 split to measure the leakage. Each notebook rebuilds the feature table itself through
 `sybil_pipeline.build_master_df`, so after `02_hyperparameter_search` has written
 `results/02_hyperparameter_search.json`, the model notebooks can be run independently; `06` also
 needs the predictions saved by `03` and `04`. `01` and `02` fix the feature set and the
 hyperparameters; they must be rerun whenever `sybil_pipeline.py` changes, or `10` rejects the
-results that depend on them. `10` checks every result from `00` to `09`; `11` and `12` run last.
+results that depend on them. `10` checks every result from `00` to `09`; `11` and `12` run after it.
+`13` to `15` answer later reviewer requests and are not checked by `10`: `13` and `15` rebuild the
+feature table themselves, and `14` reads the predictions `03`, `04` and `06` saved in `output/`.
 
 Runtimes on 4 cores, from the run at commit `0d9eacc` (`02` searched from scratch):
 
@@ -201,6 +213,9 @@ Runtimes on 4 cores, from the run at commit `0d9eacc` (`02` searched from scratc
 | `10_tie_out` | 8 s |
 | `11_split_comparison` | 12 min |
 | `12_figures` | 6 min |
+| `13_random_forest_sybil` | 60 min (Apple M5, 12 of 24 configurations resumed) |
+| `14_entity_level_recall` | 18 s |
+| `15_split_tree_report` | 13.5 min (Apple M5) |
 
 About 6.5 hours in total. `01` and `02` are needed only when `sybil_pipeline.py` changes; with their committed
 results, `03` to `12` take about 4.1 hours.
@@ -240,6 +255,16 @@ results, `03` to `12` take about 4.1 hours.
   (group split), and trains one XGBoost model (seed 42, selected hyperparameters) for the learning
   curve; it checks the curve against `02` and `03` and the plotted AP and AUROC against `results/`.
   The depth distribution uses all addresses.
+- **`13`**: a Random Forest baseline selected like `02` (12 configurations, validation only, test
+  deleted before any fit), trained as a 3-seed ensemble, and run on the 10 group splits of `08`.
+- **`14`**: evaluates the saved test predictions of `03`, `04` and `06` per entity (gas provision
+  tree, bounty report, reporter): any-, majority- and full-hit recall, within-entity recall, and the
+  ZRO allocation left on unflagged addresses. Trains nothing. It records whether the predictions in
+  `output/` reproduce the committed results.
+- **`15`**: counts test Sybils whose bounty report, GitHub issue or reporter also has a training
+  Sybil, then builds groups joining gas provision trees and bounty reports, checks partition rates and
+  sizes before any training (and warns when a group holds more than 5 % of Sybils), and trains
+  XGBoost and LightGBM on that split and LightGBM on 10 such splits against the tree split.
 
 ---
 
