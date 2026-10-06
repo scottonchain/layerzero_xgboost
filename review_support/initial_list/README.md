@@ -8,6 +8,7 @@ It is stored here, not under `data/`, because `data/` is hash-checked by `sp.pro
 
 | | |
 |---|---|
+| Source | LayerZero's `LayerZero-Labs/sybil-report` repository (deleted), raw files archived by the Wayback Machine on 24 May 2024: <https://web.archive.org/web/*/https://github.com/LayerZero-Labs/sybil-report/raw/main/*> |
 | File | `initial_list.csv` (Git LFS), one column `ADDRESS` |
 | Size | 34,560,871 bytes |
 | SHA-256 | `1a643f70056fe0c0b38d4a13468e968a2de0bd18de6bc25ed7139d9fa691a7cc` |
@@ -19,11 +20,15 @@ It is stored here, not under `data/`, because `data/` is hash-checked by `sp.pro
 
 ## Provenance
 
-The original was `initialList.txt` in `github.com/LayerZero-Labs/sybil-report`, which has since been deleted (the
+**Cite as:** LayerZero Labs, initial Sybil list, `sybil-report` repository, 18 May 2024; archived copy, Internet
+Archive Wayback Machine, captured 24 May 2024, <https://web.archive.org/web/*/https://github.com/LayerZero-Labs/sybil-report/raw/main/*>.
+
+
+LayerZero published the list in `github.com/LayerZero-Labs/sybil-report`, which has since been deleted (the
 GitHub API returns 404 for the repository and its forks).
 
 **Archived original.** The Wayback Machine holds the repository's raw files as captured on 24 May 2024
-(`https://web.archive.org/web/*/https://github.com/LayerZero-Labs/sybil-report/raw/main/*`). On 2026-10-06 the
+(<https://web.archive.org/web/*/https://github.com/LayerZero-Labs/sybil-report/raw/main/*>). On 2026-10-06 the
 authors retrieved the list from that capture and shared it (Google Drive, file id
 `1GJ356Vu59_188nxBAygkky4Bv5XbKvX1`, served as `initialList.csv`). That file is byte-identical to the one committed
 here (same SHA-256 and size, checked 2026-10-06). The archive rate-limited every request from the machine used for

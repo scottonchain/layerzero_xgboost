@@ -63,7 +63,8 @@ report, GitHub issue and reporter; `16` reads it to check its overlap with Layer
 **Known issues.**
 - This is LayerZero's list of Sybil addresses accepted through the community bounty (reports of
   18–31 May 2024), not LayerZero's full Sybil list. It does not contain LayerZero's initial list (803,093
-  addresses, published 18 May 2024), which is in [`review_support/initial_list/`](review_support/initial_list/README.md)
+  addresses, published 18 May 2024 in the deleted `LayerZero-Labs/sybil-report` repository; archived by the
+  [Wayback Machine](https://web.archive.org/web/*/https://github.com/LayerZero-Labs/sybil-report/raw/main/*) on 24 May 2024), which is in [`review_support/initial_list/`](review_support/initial_list/README.md)
   outside `data/`: the two lists share no address. Consistent with this, every row has a Commonwealth report link and every `Timestamp` falls between 18 and
   30 May 2024. The README (input data table) still describes the file as "LayerZero Foundation's
   final Sybil list", and the folder's `readme.md` describes LayerZero's whole detection process
