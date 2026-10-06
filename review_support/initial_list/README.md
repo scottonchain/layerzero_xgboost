@@ -20,11 +20,16 @@ It is stored here, not under `data/`, because `data/` is hash-checked by `sp.pro
 ## Provenance
 
 The original was `initialList.txt` in `github.com/LayerZero-Labs/sybil-report`, which has since been deleted (the
-GitHub API returns 404 for the repository and its forks). A Wayback Machine capture of its page exists
-(`https://web.archive.org/web/20240524040829/https://github.com/LayerZero-Labs/sybil-report/blob/main/initialList.txt`),
-but the archive rate-limited every request during retrieval, so the archived bytes could not be compared.
+GitHub API returns 404 for the repository and its forks).
 
-This file is a copy. Five independent copies were found and compared on 2026-10-05 and 2026-10-06:
+**Archived original.** The Wayback Machine holds the repository's raw files as captured on 24 May 2024
+(`https://web.archive.org/web/*/https://github.com/LayerZero-Labs/sybil-report/raw/main/*`). On 2026-10-06 the
+authors retrieved the list from that capture and shared it (Google Drive, file id
+`1GJ356Vu59_188nxBAygkky4Bv5XbKvX1`, served as `initialList.csv`). That file is byte-identical to the one committed
+here (same SHA-256 and size, checked 2026-10-06). The archive rate-limited every request from the machine used for
+the analysis, so the capture itself was not fetched from there.
+
+Independent copies, found and compared on 2026-10-05 and 2026-10-06, agree:
 
 | Copy | Name | First committed / dated | Agreement |
 |---|---|---|---|
@@ -35,7 +40,7 @@ This file is a copy. Five independent copies were found and compared on 2026-10-
 | Google Drive zip (obtained by the authors) | `initialList.csv` inside `initialList.csv.zip` | file dated 2024-05-18 07:08 (zip time, no time zone) | identical bytes |
 | Telegram copy (obtained by the authors) | `initialList.txt` | — | same 803,093 addresses in the same order; 297 written in scientific notation (`3.128…E+46`), each equal to the numeric value of the hex address, i.e. damaged by a spreadsheet |
 
-The file committed here is the GitHub/Google Drive version. The authors accepted it as the original on 2026-10-06.
+The file committed here is byte-identical to the archived original and to the GitHub and Google Drive copies.
 Details and the search log: `docs/REVISION_LEAKAGE.md`, findings 2026-10-06 (A16).
 
 ## Among the 434,786 interactors
