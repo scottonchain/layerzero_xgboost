@@ -1,0 +1,31 @@
+# DRAFT. Author order, name split, ORCIDs and version must be confirmed by the authors
+# before this file is committed. No license is stated: the repository has no LICENSE yet.
+cff-version: 1.2.0
+message: >-
+  If you use this code or data, please cite it using the metadata in this file,
+  and cite the accompanying paper.
+title: >-
+  Sybil Detection on Public Blockchains via XGBoost and Gas Provision Network
+  Analysis — code and data
+type: software
+version: "TBD"
+authors:
+  - given-names: Thuat
+    family-names: Do
+  - given-names: Scott
+    family-names: Imig
+  - given-names: Thanh Duc
+    family-names: Phan
+repository-code: "https://github.com/paven86/layerzero_xgboost"
+abstract: >-
+  Code and input data that train and evaluate XGBoost, LightGBM, random forest and
+  logistic regression classifiers, and a cross-model ensemble, on 434,786 Ethereum
+  addresses to identify Sybil wallets in the LayerZero airdrop of June 2024, using
+  transaction features and features of the gas provision network.
+keywords:
+  - Sybil detection
+  - airdrop
+  - LayerZero
+  - Ethereum
+  - gas provision network
+  - XGBoost

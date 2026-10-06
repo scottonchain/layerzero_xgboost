@@ -26,6 +26,23 @@ non-Sybils at the model's threshold. Results produced at commit `0d9eacc`; Rando
 
 - **Split noise.** Over 10 group splits, LightGBM test F1 has SD 0.006 (`08`). Differences between
   XGBoost, LightGBM and the ensemble are smaller than that.
+
+**Over 10 group splits** (`17_models_10_splits.ipynb`, one model seed per fit, all models on one machine:
+Apple M5, arm64, at `5888aa3`). Mean ± SD of test metrics; p: corrected resampled t-test (Nadeau and Bengio
+2003) against LightGBM, Holm-adjusted per metric.
+
+| Model | F1 | p | AP | p | AUROC | p |
+|---|---|---|---|---|---|---|
+| LightGBM | 0.713 ± 0.009 | — | 0.761 ± 0.007 | — | 0.968 ± 0.002 | — |
+| Cross-ensemble | 0.713 ± 0.008 | 0.96 | 0.761 ± 0.008 | 0.92 | 0.968 ± 0.002 | 1 |
+| XGBoost | 0.706 ± 0.007 | 0.30 | 0.753 ± 0.008 | 0.020 | 0.964 ± 0.002 | 0.003 |
+| Random forest | 0.703 ± 0.006 | 0.30 | 0.754 ± 0.007 | 0.022 | 0.969 ± 0.002 | 1 |
+| Logistic regression | 0.234 ± 0.004 | <0.001 | 0.161 ± 0.009 | <0.001 | 0.832 ± 0.003 | <0.001 |
+
+No F1 difference among the tree models is significant after the correction; LightGBM's AP is higher than
+XGBoost's and Random Forest's (p ≈ 0.02). Training one model on 408,244 upsampled rows takes 27 s (XGBoost), 33 s
+(LightGBM), 95 s (Random Forest) and 11 s (logistic regression); scoring the 130,435 test rows takes under 4 s for
+every model (`17`, cost section).
 - **Ensemble.** The validation-selected XGBoost weight is 0.06; the ensemble is essentially LightGBM.
 
 ### Note on leakage with simple random split
@@ -55,6 +72,10 @@ XGBoost and LightGBM lose similar Average Precision; the cross-ensemble tracks L
 | Random forest on 10 group splits | `13` | Test F1 0.703 ± 0.006 vs LightGBM 0.713 ± 0.009 (same machine); paired difference −0.011 ± 0.007, lower on 9 of 10 |
 | Entity-level recall (LightGBM, validation threshold) | `14` | Gas provision trees: any-hit 0.765 (97 % are single-wallet trees). Bounty reports: any-hit 0.703, majority-hit 0.552; 49 % of reports keep at least half their ZRO allocation unflagged. 37 % of the test Sybils' allocation is unflagged (address miss rate 28 %). Arm64 predictions, flagged in the results file |
 | Split grouped by tree and bounty report | `15` | Under the tree split, 5,406 of 5,463 test Sybils still share a bounty report with a training Sybil (random split: 5,434). Grouping by tree and report as well: test F1 0.256 ± 0.022 vs 0.713 ± 0.009 (−0.457 ± 0.023, 10 of 10; outside the two largest components −0.375). One component holds 45 % of Sybils and always lands in train, so the drop also reflects that composition |
+| Label noise: LayerZero's initial Sybil list ([archived source](https://web.archive.org/web/*/https://github.com/LayerZero-Labs/sybil-report/raw/main/*)) | `16` | 34,545 interactors (8.3 % of the non-Sybils) are on LayerZero's initial list and labeled non-Sybil. At the validation threshold, 625 of the 1,566 test false positives (40 %) are on it; counting them as Sybil, precision is 0.829 instead of 0.715. Dropping them from training and validation: test F1 on the test set without them +0.034 ± 0.010 (10 of 10) |
+| Mimicry stress test (fixed model) | `18` | Replacing the 5 most important features of test Sybils with values from non-Sybils cuts recall at the fixed threshold from 0.719 to 0.01–0.04 (0.03–0.05 with cheap features only). Tentative cost classes; a fragility measure, not an attack simulation |
+| Provision-network features by category | `19` | Removing them: test F1 −0.008 overall (9 of 10), IxI −0.105 ± 0.124 (9 of 10), IxL −0.004, IxE +0.046 (removing them helps IxE on 9 of 10); none significant after the correction |
+| Temporal holdout | `20` | Trained on wallets whose first LayerZero transaction precedes 2023-08-20, tested on the 30 % after: F1 0.170 (recall 0.095), AUROC 0.891, against 0.736 and 0.978 for the tree-split model on the same cohort. The late cohort's Sybil rate is 1.0 % against 5.6 % |
 
 ---
 
@@ -107,7 +128,7 @@ layerzero_xgboost/
 │   └── pred_*.parquet                      ← validation and test predictions from 03–06
 │
 ├── results/                                ← metrics per notebook, with the code commit
-├── review_support/                         ← non-essential supporting files for the reviewer response (Blockscout checks)
+├── review_support/                         ← supporting files for the reviewer response (Blockscout checks; LayerZero's initial list)
 ├── docs/REVISION_LEAKAGE.md                ← revision work items and findings log
 ├── legacy/                                 ← original 2025 notebook (Windows paths; reference only)
 │
@@ -128,6 +149,14 @@ layerzero_xgboost/
 ├── 13_random_forest_sybil.ipynb            ← tuned Random Forest baseline (validation-only search)
 ├── 14_entity_level_recall.ipynb            ← recall by gas provision tree, bounty report and reporter
 ├── 15_split_tree_report.ipynb              ← report-level overlap; split grouped by tree and bounty report
+├── 16_label_robustness_initial_list.ipynb  ← labels against LayerZero's initial Sybil list
+├── 17_models_10_splits.ipynb               ← every model over 10 splits; significance tests; cost
+├── 18_mimicry_stress.ipynb                 ← mimicry stress test of the fixed model
+├── 19_ablation_by_category.ipynb           ← provision-network features removed, per category
+├── 20_temporal_holdout.ipynb               ← train on earlier cohorts, test on later ones
+├── 21_tie_out_revision.ipynb               ← provenance checks and every cited number for 13–20
+├── DATA.md                                 ← what each data file is, where it came from, terms
+├── CITATION.cff                            ← citation metadata (draft)
 ├── figures/                                ← PNGs named as in the manuscript's \includegraphics
 ├── requirements.txt
 └── README.md
@@ -185,7 +214,7 @@ for nb in [0-9][0-9]_*.ipynb; do
 done
 ```
 
-The glob runs `00` to `15` in numerical order, which is the dependency order. Every notebook
+The glob runs `00` to `21` in numerical order, which is the dependency order. Every notebook
 uses the stratified group split except `11`, which also trains the models on the original random
 split to measure the leakage. Each notebook rebuilds the feature table itself through
 `sybil_pipeline.build_master_df`, so after `02_hyperparameter_search` has written
@@ -193,8 +222,10 @@ split to measure the leakage. Each notebook rebuilds the feature table itself th
 needs the predictions saved by `03` and `04`. `01` and `02` fix the feature set and the
 hyperparameters; they must be rerun whenever `sybil_pipeline.py` changes, or `10` rejects the
 results that depend on them. `10` checks every result from `00` to `09`; `11` and `12` run after it.
-`13` to `15` answer later reviewer requests and are not checked by `10`: `13` and `15` rebuild the
-feature table themselves, and `14` reads the predictions `03`, `04` and `06` saved in `output/`.
+`13` to `20` answer later reviewer requests and are not checked by `10`; `21_tie_out_revision` checks them
+instead and runs last. They rebuild the feature table themselves, except `14`, which reads the predictions `03`,
+`04` and `06` saved in `output/`; `17` needs `13`'s result, and `16` reads `review_support/initial_list/`
+(Git LFS).
 
 Runtimes on 4 cores, from the run at commit `0d9eacc` (`02` searched from scratch):
 
@@ -216,6 +247,12 @@ Runtimes on 4 cores, from the run at commit `0d9eacc` (`02` searched from scratc
 | `13_random_forest_sybil` | 60 min (Apple M5, 12 of 24 configurations resumed) |
 | `14_entity_level_recall` | 18 s |
 | `15_split_tree_report` | 13.5 min (Apple M5) |
+| `16_label_robustness_initial_list` | 21 min (Apple M5) |
+| `17_models_10_splits` | 40 min (Apple M5) |
+| `18_mimicry_stress` | 4 min (Apple M5) |
+| `19_ablation_by_category` | 28 min (Apple M5) |
+| `20_temporal_holdout` | 6 min (Apple M5) |
+| `21_tie_out_revision` | 3 s |
 
 About 6.5 hours in total. `01` and `02` are needed only when `sybil_pipeline.py` changes; with their committed
 results, `03` to `12` take about 4.1 hours.
@@ -265,6 +302,19 @@ results, `03` to `12` take about 4.1 hours.
   Sybil, then builds groups joining gas provision trees and bounty reports, checks partition rates and
   sizes before any training (and warns when a group holds more than 5 % of Sybils), and trains
   XGBoost and LightGBM on that split and LightGBM on 10 such splits against the tree split.
+- **`16`**: counts interactors on LayerZero's initial Sybil list (`review_support/initial_list/`), the test
+  false positives that are on it, and retrains with them removed from training and validation (and, as an
+  exploratory variant, labeled Sybil); 10 splits for the first.
+- **`17`**: every model on the 10 group splits on one machine, with corrected resampled t-tests (Holm-adjusted)
+  against LightGBM, and the training and scoring cost on the seed-42 split.
+- **`18`**: replaces the top-k features (by SHAP) of test Sybils with values from non-Sybil training wallets,
+  marginally or as a whole profile, and scores the fixed model; also restricted to tentatively cheap features.
+- **`19`**: LightGBM with and without the provision-network families on 10 splits, per taxonomy category.
+- **`20`**: a temporal holdout: trains on wallets whose tree first used LayerZero before a cut-off and tests on
+  the later 20, 30 or 40 %, against the tree-split model on the same rows.
+- **`21`**: provenance of `13`–`20` and the notebooks they depend on, their stored hyperparameters, `14`'s inputs
+  and the platforms; prints every number cited from them. It fails until `14` is rerun on predictions that
+  reproduce the committed `03`, `04` and `06`.
 
 ---
 
@@ -280,6 +330,7 @@ results, `03` to `12` take about 4.1 hours.
 | `20241117_graph_and_tree_features.csv` | 434,111 | Built from the unfiltered network | Original precomputed provider and tree features. Now used only as a regression check; the pipeline recomputes these features. |
 | `cex_dex_features_in_*.csv` (×5) | 434,793 total | Transfers ≤ 2024-05-01 | Distinct CEX and DEX addresses that sent ETH to each interactor. Labels from Flipside `dim_labels`. |
 | `fcfs_list.csv` | 151,784 | Sybil list snapshot 2024-09-15 | LayerZero Foundation's final Sybil list. Ground-truth labels. |
+| `review_support/initial_list/initial_list.csv` | 803,093 | Published 18 May 2024; archived 24 May 2024 | LayerZero's initial Sybil list, from the deleted `LayerZero-Labs/sybil-report` repository, as archived by the [Wayback Machine](https://web.archive.org/web/*/https://github.com/LayerZero-Labs/sybil-report/raw/main/*). Not a label; used only by `16`. Provenance: [`review_support/initial_list/README.md`](review_support/initial_list/README.md). |
 
 ---
 

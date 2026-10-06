@@ -1,0 +1,1096 @@
+{
+  "notebook": "21_tie_out_revision",
+  "code_commit": "c3d7217",
+  "leakage": null,
+  "models": [],
+  "checks": [
+    {
+      "check": "provenance 13_random_forest_sybil",
+      "passed": true,
+      "detail": "commit 3bbec2c"
+    },
+    {
+      "check": "provenance 14_entity_level_recall",
+      "passed": true,
+      "detail": "commit e156d9d"
+    },
+    {
+      "check": "provenance 15_split_tree_report",
+      "passed": true,
+      "detail": "commit 3bbec2c"
+    },
+    {
+      "check": "provenance 16_label_robustness_initial_list",
+      "passed": true,
+      "detail": "commit 5888aa3"
+    },
+    {
+      "check": "provenance 17_models_10_splits",
+      "passed": true,
+      "detail": "commit 5888aa3"
+    },
+    {
+      "check": "provenance 18_mimicry_stress",
+      "passed": true,
+      "detail": "commit 5888aa3"
+    },
+    {
+      "check": "provenance 19_ablation_by_category",
+      "passed": true,
+      "detail": "commit 5888aa3"
+    },
+    {
+      "check": "provenance 20_temporal_holdout",
+      "passed": true,
+      "detail": "commit 5888aa3"
+    },
+    {
+      "check": "13_random_forest_sybil -> 02_hyperparameter_search",
+      "passed": true,
+      "detail": "code of 02_hyperparameter_search unchanged since 3bbec2c: True; 02_hyperparameter_search's own result traces to HEAD: True"
+    },
+    {
+      "check": "13_random_forest_sybil -> 08_ablation_families",
+      "passed": true,
+      "detail": "code of 08_ablation_families unchanged since 3bbec2c: True; 08_ablation_families's own result traces to HEAD: True"
+    },
+    {
+      "check": "14_entity_level_recall -> 03_xgboost_sybil",
+      "passed": true,
+      "detail": "code of 03_xgboost_sybil unchanged since e156d9d: True; 03_xgboost_sybil's own result traces to HEAD: True"
+    },
+    {
+      "check": "14_entity_level_recall -> 04_lightgbm_sybil",
+      "passed": true,
+      "detail": "code of 04_lightgbm_sybil unchanged since e156d9d: True; 04_lightgbm_sybil's own result traces to HEAD: True"
+    },
+    {
+      "check": "14_entity_level_recall -> 06_cross_ensemble_sybil",
+      "passed": true,
+      "detail": "code of 06_cross_ensemble_sybil unchanged since e156d9d: True; 06_cross_ensemble_sybil's own result traces to HEAD: True"
+    },
+    {
+      "check": "15_split_tree_report -> 02_hyperparameter_search",
+      "passed": true,
+      "detail": "code of 02_hyperparameter_search unchanged since 3bbec2c: True; 02_hyperparameter_search's own result traces to HEAD: True"
+    },
+    {
+      "check": "15_split_tree_report -> 03_xgboost_sybil",
+      "passed": true,
+      "detail": "code of 03_xgboost_sybil unchanged since 3bbec2c: True; 03_xgboost_sybil's own result traces to HEAD: True"
+    },
+    {
+      "check": "15_split_tree_report -> 04_lightgbm_sybil",
+      "passed": true,
+      "detail": "code of 04_lightgbm_sybil unchanged since 3bbec2c: True; 04_lightgbm_sybil's own result traces to HEAD: True"
+    },
+    {
+      "check": "15_split_tree_report -> 08_ablation_families",
+      "passed": true,
+      "detail": "code of 08_ablation_families unchanged since 3bbec2c: True; 08_ablation_families's own result traces to HEAD: True"
+    },
+    {
+      "check": "16_label_robustness_initial_list -> 02_hyperparameter_search",
+      "passed": true,
+      "detail": "code of 02_hyperparameter_search unchanged since 5888aa3: True; 02_hyperparameter_search's own result traces to HEAD: True"
+    },
+    {
+      "check": "17_models_10_splits -> 02_hyperparameter_search",
+      "passed": true,
+      "detail": "code of 02_hyperparameter_search unchanged since 5888aa3: True; 02_hyperparameter_search's own result traces to HEAD: True"
+    },
+    {
+      "check": "17_models_10_splits -> 08_ablation_families",
+      "passed": true,
+      "detail": "code of 08_ablation_families unchanged since 5888aa3: True; 08_ablation_families's own result traces to HEAD: True"
+    },
+    {
+      "check": "17_models_10_splits -> 13_random_forest_sybil",
+      "passed": true,
+      "detail": "code of 13_random_forest_sybil unchanged since 5888aa3: True; 13_random_forest_sybil's own result traces to HEAD: True"
+    },
+    {
+      "check": "18_mimicry_stress -> 02_hyperparameter_search",
+      "passed": true,
+      "detail": "code of 02_hyperparameter_search unchanged since 5888aa3: True; 02_hyperparameter_search's own result traces to HEAD: True"
+    },
+    {
+      "check": "18_mimicry_stress -> 09_shap_importance",
+      "passed": true,
+      "detail": "code of 09_shap_importance unchanged since 5888aa3: True; 09_shap_importance's own result traces to HEAD: True"
+    },
+    {
+      "check": "19_ablation_by_category -> 02_hyperparameter_search",
+      "passed": true,
+      "detail": "code of 02_hyperparameter_search unchanged since 5888aa3: True; 02_hyperparameter_search's own result traces to HEAD: True"
+    },
+    {
+      "check": "19_ablation_by_category -> 08_ablation_families",
+      "passed": true,
+      "detail": "code of 08_ablation_families unchanged since 5888aa3: True; 08_ablation_families's own result traces to HEAD: True"
+    },
+    {
+      "check": "20_temporal_holdout -> 02_hyperparameter_search",
+      "passed": true,
+      "detail": "code of 02_hyperparameter_search unchanged since 5888aa3: True; 02_hyperparameter_search's own result traces to HEAD: True"
+    },
+    {
+      "check": "13_random_forest_sybil LightGBM parameters = 02",
+      "passed": true,
+      "detail": "{'num_leaves': 127, 'learning_rate': 0.05, 'subsample': 0.7, 'reg_lambda': 1.0}"
+    },
+    {
+      "check": "16_label_robustness_initial_list LightGBM parameters = 02",
+      "passed": true,
+      "detail": "{'num_leaves': 127, 'learning_rate': 0.05, 'subsample': 0.7, 'reg_lambda': 1.0}"
+    },
+    {
+      "check": "18_mimicry_stress LightGBM parameters = 02",
+      "passed": true,
+      "detail": "{'num_leaves': 127, 'learning_rate': 0.05, 'subsample': 0.7, 'reg_lambda': 1.0}"
+    },
+    {
+      "check": "19_ablation_by_category LightGBM parameters = 02",
+      "passed": true,
+      "detail": "{'num_leaves': 127, 'learning_rate': 0.05, 'subsample': 0.7, 'reg_lambda': 1.0}"
+    },
+    {
+      "check": "20_temporal_holdout LightGBM parameters = 02",
+      "passed": true,
+      "detail": "{'num_leaves': 127, 'learning_rate': 0.05, 'subsample': 0.7, 'reg_lambda': 1.0}"
+    },
+    {
+      "check": "17 XGBoost parameters = 02",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "17 LightGBM parameters = 02",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "17 Random Forest parameters = 13",
+      "passed": true,
+      "detail": "{'max_features': 0.3, 'min_samples_leaf': 1, 'max_depth': None, 'max_samples': None, 'n_estimators': 300, 'criterion': 'gini', 'bootstrap': True, 'n_jobs': 4}"
+    },
+    {
+      "check": "15 uses 02 (loaded at run time; no parameters stored)",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "14 predictions reproduce the committed 03/04/06",
+      "passed": false,
+      "detail": "rerun 03, 04, 06 and then 14 on the machine that produced the committed results (about 15 min)"
+    },
+    {
+      "check": "13_random_forest_sybil records its platform",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "14_entity_level_recall records its platform",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "15_split_tree_report records its platform",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "16_label_robustness_initial_list records its platform",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "17_models_10_splits records its platform",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "18_mimicry_stress records its platform",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "19_ablation_by_category records its platform",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "20_temporal_holdout records its platform",
+      "passed": true,
+      "detail": ""
+    }
+  ],
+  "all_passed": false,
+  "multiple_platforms_cited": true,
+  "platforms": [
+    {
+      "index": "13_random_forest_sybil",
+      "machine": "arm64",
+      "system": "Darwin",
+      "processor": "arm",
+      "python": "3.13.7",
+      "cpu_count": 10,
+      "n_jobs": 4
+    },
+    {
+      "index": "14_entity_level_recall",
+      "machine": "arm64",
+      "system": "Darwin",
+      "processor": "arm",
+      "python": "3.13.7",
+      "cpu_count": NaN,
+      "n_jobs": NaN
+    },
+    {
+      "index": "15_split_tree_report",
+      "machine": "arm64",
+      "system": "Darwin",
+      "processor": "arm",
+      "python": "3.13.7",
+      "cpu_count": 10,
+      "n_jobs": 4
+    },
+    {
+      "index": "16_label_robustness_initial_list",
+      "machine": "arm64",
+      "system": "Darwin",
+      "processor": "arm",
+      "python": "3.13.7",
+      "cpu_count": 10,
+      "n_jobs": 4
+    },
+    {
+      "index": "17_models_10_splits",
+      "machine": "arm64",
+      "system": "Darwin",
+      "processor": "arm",
+      "python": "3.13.7",
+      "cpu_count": 10,
+      "n_jobs": 4
+    },
+    {
+      "index": "18_mimicry_stress",
+      "machine": "arm64",
+      "system": "Darwin",
+      "processor": "arm",
+      "python": "3.13.7",
+      "cpu_count": 10,
+      "n_jobs": 4
+    },
+    {
+      "index": "19_ablation_by_category",
+      "machine": "arm64",
+      "system": "Darwin",
+      "processor": "arm",
+      "python": "3.13.7",
+      "cpu_count": 10,
+      "n_jobs": 4
+    },
+    {
+      "index": "20_temporal_holdout",
+      "machine": "arm64",
+      "system": "Darwin",
+      "processor": "arm",
+      "python": "3.13.7",
+      "cpu_count": 10,
+      "n_jobs": 4
+    }
+  ],
+  "cited": {
+    "Model table: 10 group splits, mean \u00b1 SD, p vs LightGBM (17)": [
+      {
+        "model": "Logistic regression",
+        "F1": "0.2336 \u00b1 0.0041",
+        "p F1": "7.62e-13",
+        "AP": "0.1605 \u00b1 0.0088",
+        "p AP": "5.54e-13",
+        "AUROC": "0.8323 \u00b1 0.0030",
+        "p AUROC": "8.21e-12"
+      },
+      {
+        "model": "XGBoost",
+        "F1": "0.7063 \u00b1 0.0068",
+        "p F1": "0.3",
+        "AP": "0.7534 \u00b1 0.0083",
+        "p AP": "0.0199",
+        "AUROC": "0.9643 \u00b1 0.0019",
+        "p AUROC": "0.00251"
+      },
+      {
+        "model": "LightGBM",
+        "F1": "0.7133 \u00b1 0.0086",
+        "p F1": "\u2014",
+        "AP": "0.7611 \u00b1 0.0065",
+        "p AP": "\u2014",
+        "AUROC": "0.9682 \u00b1 0.0017",
+        "p AUROC": "\u2014"
+      },
+      {
+        "model": "Random Forest",
+        "F1": "0.7026 \u00b1 0.0063",
+        "p F1": "0.3",
+        "AP": "0.7537 \u00b1 0.0073",
+        "p AP": "0.0221",
+        "AUROC": "0.9687 \u00b1 0.0015",
+        "p AUROC": "1"
+      },
+      {
+        "model": "Ensemble",
+        "F1": "0.7131 \u00b1 0.0082",
+        "p F1": "0.961",
+        "AP": "0.7612 \u00b1 0.0075",
+        "p AP": "0.923",
+        "AUROC": "0.9681 \u00b1 0.0018",
+        "p AUROC": "1"
+      }
+    ],
+    "Random Forest (13)": {
+      "selected": {
+        "max_features": 0.3,
+        "min_samples_leaf": 1,
+        "max_depth": null,
+        "max_samples": null,
+        "n_estimators": 300,
+        "criterion": "gini",
+        "bootstrap": true,
+        "n_jobs": 4
+      },
+      "test": {
+        "name": "Random Forest (tuned, 3-seed)",
+        "threshold": 0.35666666666666663,
+        "precision": 0.7266145932558583,
+        "recall": 0.6981511989749222,
+        "f1": 0.7120985810306198,
+        "auroc": 0.9710041071532077,
+        "ap": 0.7685814373462769,
+        "brier": 0.01760146285066023
+      },
+      "ten_splits": {
+        "test_f1_mean": 0.7025637915860621,
+        "test_f1_std": 0.006280658684371977,
+        "lgbm_test_f1_mean": 0.713273201768423,
+        "lgbm_test_f1_std": 0.008571495085575294,
+        "test_f1_minus_lgbm_mean": -0.010709410182360912,
+        "test_f1_minus_lgbm_std": 0.00692463763492512,
+        "test_f1_minus_lgbm08_mean": -0.01052872107009919,
+        "test_f1_minus_lgbm08_std": 0.007072583418105136,
+        "lgbm_test_f1_minus_lgbm08_mean": 0.0001806891122617227,
+        "lgbm_test_f1_minus_lgbm08_std": 0.004424725982871643,
+        "test_f1_lower_than_lgbm_n": 9,
+        "test_f1_lower_than_lgbm08_n": 9
+      }
+    },
+    "Entity-level recall (14)": [
+      {
+        "entity": "E1 gas provision tree",
+        "model": "LightGBM",
+        "entities": 4907,
+        "any_hit": 0.7646219686162625,
+        "majority_hit": 0.7642143876095374,
+        "full_hit": 0.762176482575912,
+        "residual_allocation_share": 0.37218821218188336,
+        "entities_majority_allocation_unflagged": 1160
+      },
+      {
+        "entity": "E1 gas provision tree",
+        "model": "Ensemble",
+        "entities": 4907,
+        "any_hit": 0.7646219686162625,
+        "majority_hit": 0.7642143876095374,
+        "full_hit": 0.762176482575912,
+        "residual_allocation_share": 0.37218821218188336,
+        "entities_majority_allocation_unflagged": 1160
+      },
+      {
+        "entity": "E2 bounty report",
+        "model": "LightGBM",
+        "entities": 239,
+        "any_hit": 0.702928870292887,
+        "majority_hit": 0.5523012552301255,
+        "full_hit": 0.1589958158995816,
+        "residual_allocation_share": 0.3721882121818833,
+        "entities_majority_allocation_unflagged": 117
+      },
+      {
+        "entity": "E2 bounty report",
+        "model": "Ensemble",
+        "entities": 239,
+        "any_hit": 0.702928870292887,
+        "majority_hit": 0.5523012552301255,
+        "full_hit": 0.1589958158995816,
+        "residual_allocation_share": 0.3721882121818833,
+        "entities_majority_allocation_unflagged": 117
+      },
+      {
+        "entity": "E2 bounty report (all Sybils in test)",
+        "model": "LightGBM",
+        "entities": 18,
+        "any_hit": 0.05555555555555555,
+        "majority_hit": 0.05555555555555555,
+        "full_hit": 0.05555555555555555,
+        "residual_allocation_share": 0.9818265318456822,
+        "entities_majority_allocation_unflagged": 17
+      },
+      {
+        "entity": "E2 bounty report (all Sybils in test)",
+        "model": "Ensemble",
+        "entities": 18,
+        "any_hit": 0.05555555555555555,
+        "majority_hit": 0.05555555555555555,
+        "full_hit": 0.05555555555555555,
+        "residual_allocation_share": 0.9818265318456822,
+        "entities_majority_allocation_unflagged": 17
+      },
+      {
+        "entity": "E3 reporter",
+        "model": "LightGBM",
+        "entities": 132,
+        "any_hit": 0.8712121212121212,
+        "majority_hit": 0.6893939393939394,
+        "full_hit": 0.12121212121212122,
+        "residual_allocation_share": 0.37218821218188325,
+        "entities_majority_allocation_unflagged": 50
+      },
+      {
+        "entity": "E3 reporter",
+        "model": "Ensemble",
+        "entities": 132,
+        "any_hit": 0.8712121212121212,
+        "majority_hit": 0.6893939393939394,
+        "full_hit": 0.12121212121212122,
+        "residual_allocation_share": 0.37218821218188325,
+        "entities_majority_allocation_unflagged": 50
+      }
+    ],
+    "Report-level dependence (15)": {
+      "status": "ok_with_warning",
+      "failed_conditions": [],
+      "warnings": [
+        "max component Sybil share <= 5%"
+      ],
+      "report_overlap_random_seed42": 5434,
+      "report_overlap_tree_seed42": 5406,
+      "report_overlap_tree_10seeds_mean": 5402.5,
+      "report_overlap_tree_10seeds_sd": 22.33706436496176,
+      "test_sybils": 5463,
+      "max_component_sybil_share": 0.45357201691285487,
+      "reporter_variant_passed": false,
+      "reporter_variant_max_component_sybil_share": 0.553017407061666,
+      "union_test_f1_mean": 0.2558497206099668,
+      "union_test_f1_sd": 0.02191172661651436,
+      "tree_test_f1_mean": 0.713273201768423,
+      "tree_test_f1_sd": 0.008571495085575294,
+      "delta_vs_08_all_features_other_machine": -0.45724279204619445,
+      "sd_08": 0.006012560529847454,
+      "delta_test_f1_mean": -0.4574234811584561,
+      "delta_test_f1_std": 0.022981498529599544,
+      "delta_test_ap_mean": -0.5640853216668356,
+      "delta_test_ap_std": 0.01583482070880758,
+      "delta_test_f1_IxI_mean": -0.4624633189410325,
+      "delta_test_f1_IxI_std": 0.09245092417280734,
+      "delta_test_f1_IxL_mean": -0.4755435936234759,
+      "delta_test_f1_IxL_std": 0.024016980713170696,
+      "delta_test_f1_IxE_mean": -0.18125097284438224,
+      "delta_test_f1_IxE_std": 0.06193720703116924,
+      "delta_outBIG_f1_mean": -0.37519648996370514,
+      "delta_outBIG_f1_std": 0.02164046950437782,
+      "delta_outBIG_ap_mean": -0.4488659942860159,
+      "delta_outBIG_ap_std": 0.015434159175538108
+    },
+    "Initial-list robustness (16)": {
+      "counts": {
+        "list_size": 803093,
+        "overlap_with_fcfs_list": 0,
+        "interactors": 434786,
+        "interactors_on_list": 34545,
+        "on_list_and_sybil": 0,
+        "negatives": 416575,
+        "negatives_on_list": 34545,
+        "share_of_negatives": 0.0829262437736302
+      },
+      "fp_at_validation_threshold": [
+        {
+          "threshold": 0.5748,
+          "note": "validation threshold",
+          "flagged": 5492,
+          "tp": 3926,
+          "fp": 1566,
+          "fp_on_initial_list": 625,
+          "fp_not_on_list": 941,
+          "fp_share_on_list": 0.3991060025542784,
+          "precision": 0.7148579752367079,
+          "precision_if_list_counted_sybil": 0.8286598689002185
+        }
+      ],
+      "table_2x2": [
+        {
+          "model": "Baseline",
+          "test_set": "full test",
+          "n": 130435,
+          "sybils": 5463,
+          "threshold": 0.5748310308675113,
+          "precision": 0.7148579752367079,
+          "recall": 0.718652754896577,
+          "f1": 0.7167503423094478,
+          "auroc": 0.9683017452801246,
+          "ap": 0.7696917549094032,
+          "flagged": 5492
+        },
+        {
+          "model": "Baseline",
+          "test_set": "test without initial-list rows",
+          "n": 120120,
+          "sybils": 5463,
+          "threshold": 0.5748310308675113,
+          "precision": 0.8066570782823095,
+          "recall": 0.718652754896577,
+          "f1": 0.7601161665053243,
+          "auroc": 0.9721156995229686,
+          "ap": 0.8068987240754335,
+          "flagged": 4867
+        },
+        {
+          "model": "Variant A (clean negatives)",
+          "test_set": "full test",
+          "n": 130435,
+          "sybils": 5463,
+          "threshold": 0.507835837619094,
+          "precision": 0.5517728674203495,
+          "recall": 0.7861980596741717,
+          "f1": 0.648448705367253,
+          "auroc": 0.9596965220850144,
+          "ap": 0.4569159992603035,
+          "flagged": 7784
+        },
+        {
+          "model": "Variant A (clean negatives)",
+          "test_set": "test without initial-list rows",
+          "n": 120120,
+          "sybils": 5463,
+          "threshold": 0.507835837619094,
+          "precision": 0.7872067448680352,
+          "recall": 0.7861980596741717,
+          "f1": 0.7867020789449584,
+          "auroc": 0.9741561334036513,
+          "ap": 0.8322395091624366,
+          "flagged": 5456
+        }
+      ],
+      "variant_B": {
+        "prevalence_all": 0.12133785356474219,
+        "prevalence_test": 0.1209644650592249,
+        "test_positives": 15778,
+        "threshold": 0.42924271296104627,
+        "precision": 0.7862590029656829,
+        "recall": 0.7057294967676512,
+        "f1": 0.7438209752839011,
+        "auroc": 0.9222269826920201,
+        "ap": 0.7980475016866775,
+        "recall_on_fcfs_sybils": 0.8134724510342303,
+        "recall_on_initial_list": 0.6486669898206495
+      },
+      "ten_splits": {
+        "delta_full_precision_mean": -0.17742572306276344,
+        "delta_full_precision_std": 0.02093759711869423,
+        "delta_full_recall_mean": 0.07503203368112758,
+        "delta_full_recall_std": 0.02067937616395486,
+        "delta_full_f1_mean": -0.0694486332304566,
+        "delta_full_f1_std": 0.00627002759001457,
+        "delta_full_ap_mean": -0.3103422560608803,
+        "delta_full_ap_std": 0.004670511982546117,
+        "delta_full_auroc_mean": -0.00942397516659974,
+        "delta_full_auroc_std": 0.0007234537021335024,
+        "delta_clean_precision_mean": -0.013687664091658346,
+        "delta_clean_precision_std": 0.015113618771473405,
+        "delta_clean_recall_mean": 0.07503203368112758,
+        "delta_clean_recall_std": 0.02067937616395486,
+        "delta_clean_f1_mean": 0.034342814747875317,
+        "delta_clean_f1_std": 0.0095804810823331,
+        "delta_clean_ap_mean": 0.028077180946885726,
+        "delta_clean_ap_std": 0.001876817703904887,
+        "delta_clean_auroc_mean": 0.0015002817877630137,
+        "delta_clean_auroc_std": 0.00074063131306978,
+        "delta_full_f1_higher_n": 0,
+        "delta_clean_f1_higher_n": 10
+      }
+    },
+    "Mimicry stress test (18)": {
+      "baseline": {
+        "recall": 0.718652754896577,
+        "f1": 0.7167503423094478,
+        "ap": 0.7696917549094032,
+        "mean_sybil_score": 0.717581479584564
+      },
+      "k5_k10": [
+        {
+          "features": "all features",
+          "attack": "M1 marginal",
+          "k": 5,
+          "recall_mean": 0.013106351821343582,
+          "recall_std": 0.001705409437869612
+        },
+        {
+          "features": "all features",
+          "attack": "M2 profile copy",
+          "k": 5,
+          "recall_mean": 0.038989566172432724,
+          "recall_std": 0.0033528572366857403
+        },
+        {
+          "features": "all features",
+          "attack": "M1 marginal",
+          "k": 10,
+          "recall_mean": 0.0004027091341753616,
+          "recall_std": 0.0003007811957743911
+        },
+        {
+          "features": "all features",
+          "attack": "M2 profile copy",
+          "k": 10,
+          "recall_mean": 0.004832509610104338,
+          "recall_std": 0.0010952425628154194
+        },
+        {
+          "features": "cheap only",
+          "attack": "M1 marginal",
+          "k": 5,
+          "recall_mean": 0.026578802855573857,
+          "recall_std": 0.0021126176893653315
+        },
+        {
+          "features": "cheap only",
+          "attack": "M2 profile copy",
+          "k": 5,
+          "recall_mean": 0.04462749405088779,
+          "recall_std": 0.0018000395048785674
+        },
+        {
+          "features": "cheap only",
+          "attack": "M1 marginal",
+          "k": 10,
+          "recall_mean": 0.0038074318140216,
+          "recall_std": 0.0009097399699644281
+        },
+        {
+          "features": "cheap only",
+          "attack": "M2 profile copy",
+          "k": 10,
+          "recall_mean": 0.011166025993044117,
+          "recall_std": 0.001672676815165391
+        },
+        {
+          "features": "cheap + structural",
+          "attack": "M1 marginal",
+          "k": 5,
+          "recall_mean": 0.026578802855573857,
+          "recall_std": 0.0021126176893653315
+        },
+        {
+          "features": "cheap + structural",
+          "attack": "M2 profile copy",
+          "k": 5,
+          "recall_mean": 0.04462749405088779,
+          "recall_std": 0.0018000395048785674
+        },
+        {
+          "features": "cheap + structural",
+          "attack": "M1 marginal",
+          "k": 10,
+          "recall_mean": 0.0038074318140216,
+          "recall_std": 0.0009097399699644281
+        },
+        {
+          "features": "cheap + structural",
+          "attack": "M2 profile copy",
+          "k": 10,
+          "recall_mean": 0.011166025993044117,
+          "recall_std": 0.001672676815165391
+        }
+      ]
+    },
+    "Category ablation (19)": [
+      {
+        "without": "Without all provision-network families",
+        "category": "All",
+        "metric": "f1",
+        "diff_mean": 0.008060886112374311,
+        "diff_sd": 0.007881927948300794,
+        "all_higher_n": 9,
+        "p_corrected": 0.2564366276867141
+      },
+      {
+        "without": "Without all provision-network families",
+        "category": "All",
+        "metric": "recall",
+        "diff_mean": 0.012300933552992855,
+        "diff_sd": 0.031190946322176238,
+        "all_higher_n": 9,
+        "p_corrected": 0.6513922494337866
+      },
+      {
+        "without": "Without all provision-network families",
+        "category": "IxL",
+        "metric": "f1",
+        "diff_mean": 0.0038286367553719614,
+        "diff_sd": 0.003311353943431029,
+        "all_higher_n": 9,
+        "p_corrected": 0.20388547397517356
+      },
+      {
+        "without": "Without all provision-network families",
+        "category": "IxL",
+        "metric": "recall",
+        "diff_mean": 0.006711833214234286,
+        "diff_sd": 0.02825699956611369,
+        "all_higher_n": 7,
+        "p_corrected": 0.7847290686717
+      },
+      {
+        "without": "Without all provision-network families",
+        "category": "IxI",
+        "metric": "f1",
+        "diff_mean": 0.10515833330302882,
+        "diff_sd": 0.12431415332612608,
+        "all_higher_n": 9,
+        "p_corrected": 0.34237102883814713
+      },
+      {
+        "without": "Without all provision-network families",
+        "category": "IxI",
+        "metric": "recall",
+        "diff_mean": 0.09466728557273707,
+        "diff_sd": 0.10494785335287596,
+        "all_higher_n": 9,
+        "p_corrected": 0.31296952152773544
+      },
+      {
+        "without": "Without all provision-network families",
+        "category": "IxE",
+        "metric": "f1",
+        "diff_mean": -0.04601897530852359,
+        "diff_sd": 0.04274010517490791,
+        "all_higher_n": 1,
+        "p_corrected": 0.23396267416045852
+      },
+      {
+        "without": "Without all provision-network families",
+        "category": "IxE",
+        "metric": "recall",
+        "diff_mean": -0.03608975007235716,
+        "diff_sd": 0.030124811393818098,
+        "all_higher_n": 1,
+        "p_corrected": 0.18943813597200404
+      },
+      {
+        "without": "Without Gas provider",
+        "category": "All",
+        "metric": "f1",
+        "diff_mean": 0.0028790729303606933,
+        "diff_sd": 0.005953769285495542,
+        "all_higher_n": 7,
+        "p_corrected": 0.5806828021896433
+      },
+      {
+        "without": "Without Gas provider",
+        "category": "All",
+        "metric": "recall",
+        "diff_mean": -0.0008786381109280761,
+        "diff_sd": 0.028148905858249165,
+        "all_higher_n": 6,
+        "p_corrected": 0.9713037039957173
+      },
+      {
+        "without": "Without Gas provider",
+        "category": "IxL",
+        "metric": "f1",
+        "diff_mean": 0.002890751335457786,
+        "diff_sd": 0.0037250503162996897,
+        "all_higher_n": 8,
+        "p_corrected": 0.38180360502557925
+      },
+      {
+        "without": "Without Gas provider",
+        "category": "IxL",
+        "metric": "recall",
+        "diff_mean": -0.0012867510365377698,
+        "diff_sd": 0.025700160354068604,
+        "all_higher_n": 6,
+        "p_corrected": 0.9539888524227422
+      },
+      {
+        "without": "Without Gas provider",
+        "category": "IxI",
+        "metric": "f1",
+        "diff_mean": 0.011226958821192517,
+        "diff_sd": 0.07688519229271333,
+        "all_higher_n": 5,
+        "p_corrected": 0.8664614156679731
+      },
+      {
+        "without": "Without Gas provider",
+        "category": "IxI",
+        "metric": "recall",
+        "diff_mean": 0.009811183410162521,
+        "diff_sd": 0.06661988515912007,
+        "all_higher_n": 4,
+        "p_corrected": 0.8653321986486358
+      },
+      {
+        "without": "Without Gas provider",
+        "category": "IxE",
+        "metric": "f1",
+        "diff_mean": -0.011298660627883267,
+        "diff_sd": 0.03048027275604321,
+        "all_higher_n": 4,
+        "p_corrected": 0.6708495332615872
+      },
+      {
+        "without": "Without Gas provider",
+        "category": "IxE",
+        "metric": "recall",
+        "diff_mean": -0.009275325083156833,
+        "diff_sd": 0.02259772509619486,
+        "all_higher_n": 4,
+        "p_corrected": 0.6383407513139303
+      },
+      {
+        "without": "Without Gas provision tree",
+        "category": "All",
+        "metric": "f1",
+        "diff_mean": 0.001260497249076431,
+        "diff_sd": 0.0043514490202515065,
+        "all_higher_n": 6,
+        "p_corrected": 0.7393013819460318
+      },
+      {
+        "without": "Without Gas provision tree",
+        "category": "All",
+        "metric": "recall",
+        "diff_mean": -0.0008420281896393877,
+        "diff_sd": 0.022289533331573103,
+        "all_higher_n": 6,
+        "p_corrected": 0.9652742310036188
+      },
+      {
+        "without": "Without Gas provision tree",
+        "category": "IxL",
+        "metric": "f1",
+        "diff_mean": 0.00018503557970200868,
+        "diff_sd": 0.003784682890833717,
+        "all_higher_n": 5,
+        "p_corrected": 0.9550692917952904
+      },
+      {
+        "without": "Without Gas provision tree",
+        "category": "IxL",
+        "metric": "recall",
+        "diff_mean": -0.0028457629084724712,
+        "diff_sd": 0.020090003536097932,
+        "all_higher_n": 5,
+        "p_corrected": 0.8704172566830333
+      },
+      {
+        "without": "Without Gas provision tree",
+        "category": "IxI",
+        "metric": "f1",
+        "diff_mean": 0.0270407383586986,
+        "diff_sd": 0.10518415099992784,
+        "all_higher_n": 5,
+        "p_corrected": 0.7675837735411768
+      },
+      {
+        "without": "Without Gas provision tree",
+        "category": "IxI",
+        "metric": "recall",
+        "diff_mean": 0.026962222145985138,
+        "diff_sd": 0.09136876546793189,
+        "all_higher_n": 6,
+        "p_corrected": 0.7346373088181859
+      },
+      {
+        "without": "Without Gas provision tree",
+        "category": "IxE",
+        "metric": "f1",
+        "diff_mean": -0.016251937628461492,
+        "diff_sd": 0.040779702306771574,
+        "all_higher_n": 2,
+        "p_corrected": 0.64800731458448
+      },
+      {
+        "without": "Without Gas provision tree",
+        "category": "IxE",
+        "metric": "recall",
+        "diff_mean": -0.012052208126023294,
+        "diff_sd": 0.029979250849107682,
+        "all_higher_n": 2,
+        "p_corrected": 0.6451720924724204
+      },
+      {
+        "without": "Without Provision chain",
+        "category": "All",
+        "metric": "f1",
+        "diff_mean": 0.0014892195124320718,
+        "diff_sd": 0.004617452430335842,
+        "all_higher_n": 6,
+        "p_corrected": 0.7112118231536417
+      },
+      {
+        "without": "Without Provision chain",
+        "category": "All",
+        "metric": "recall",
+        "diff_mean": -0.004374885593995981,
+        "diff_sd": 0.024870874274986226,
+        "all_higher_n": 5,
+        "p_corrected": 0.8395331723185616
+      },
+      {
+        "without": "Without Provision chain",
+        "category": "IxL",
+        "metric": "f1",
+        "diff_mean": 0.0011470036094121227,
+        "diff_sd": 0.0036190131840991664,
+        "all_higher_n": 6,
+        "p_corrected": 0.7159540420636586
+      },
+      {
+        "without": "Without Provision chain",
+        "category": "IxL",
+        "metric": "recall",
+        "diff_mean": -0.005852597483168154,
+        "diff_sd": 0.02494767784081264,
+        "all_higher_n": 5,
+        "p_corrected": 0.7873121951549199
+      },
+      {
+        "without": "Without Provision chain",
+        "category": "IxI",
+        "metric": "f1",
+        "diff_mean": 0.01453929276953024,
+        "diff_sd": 0.044372925485225714,
+        "all_higher_n": 6,
+        "p_corrected": 0.7068549197371082
+      },
+      {
+        "without": "Without Provision chain",
+        "category": "IxI",
+        "metric": "recall",
+        "diff_mean": 0.010609288362278743,
+        "diff_sd": 0.039644755185355554,
+        "all_higher_n": 6,
+        "p_corrected": 0.7584051509518723
+      },
+      {
+        "without": "Without Provision chain",
+        "category": "IxE",
+        "metric": "f1",
+        "diff_mean": -0.0038110299680446714,
+        "diff_sd": 0.030989964081500756,
+        "all_higher_n": 4,
+        "p_corrected": 0.8873568403043051
+      },
+      {
+        "without": "Without Provision chain",
+        "category": "IxE",
+        "metric": "recall",
+        "diff_mean": -0.0023713204185807787,
+        "diff_sd": 0.023020542561277953,
+        "all_higher_n": 4,
+        "p_corrected": 0.905536121860694
+      }
+    ],
+    "Temporal holdout (20)": [
+      {
+        "late_share_target": 0.3,
+        "cutoff_utc": "2023-08-20 11:32:02.500000+00:00",
+        "train_unique": 213045,
+        "val": 91305,
+        "train_sybil_rate": 0.055481236358515804,
+        "val_sybil_rate": 0.0554734132851432,
+        "rounds": [
+          1409,
+          1355,
+          1479
+        ],
+        "temporal_n": 130436,
+        "temporal_sybils": 1326,
+        "temporal_threshold": 0.5834240126134763,
+        "temporal_precision": 0.7974683544303798,
+        "temporal_recall": 0.09502262443438914,
+        "temporal_f1": 0.16981132075471697,
+        "temporal_auroc": 0.891419195669903,
+        "temporal_ap": 0.29206281111464416,
+        "reference_n": 39217,
+        "reference_sybils": 383,
+        "reference_threshold": 0.5748310308675113,
+        "reference_precision": 0.7768115942028986,
+        "reference_recall": 0.6997389033942559,
+        "reference_f1": 0.7362637362637363,
+        "reference_auroc": 0.9781285369298336,
+        "reference_ap": 0.7746203813058541
+      },
+      {
+        "late_share_target": 0.2,
+        "cutoff_utc": "2023-12-17 17:14:40+00:00",
+        "train_unique": 243480,
+        "val": 104348,
+        "train_sybil_rate": 0.05163463118120585,
+        "val_sybil_rate": 0.0516349139418101,
+        "rounds": [
+          1486,
+          1619,
+          1511
+        ],
+        "temporal_n": 86958,
+        "temporal_sybils": 251,
+        "temporal_threshold": 0.6021455094405211,
+        "temporal_precision": 1.0,
+        "temporal_recall": 0.00398406374501992,
+        "temporal_f1": 0.007936507936507936,
+        "temporal_auroc": 0.7472980050917463,
+        "temporal_ap": 0.06196529407273456,
+        "reference_n": 26093,
+        "reference_sybils": 64,
+        "reference_threshold": 0.5748310308675113,
+        "reference_precision": 0.88,
+        "reference_recall": 0.34375,
+        "reference_f1": 0.4943820224719101,
+        "reference_auroc": 0.9378823859925468,
+        "reference_ap": 0.44183325290816783
+      },
+      {
+        "late_share_target": 0.4,
+        "cutoff_utc": "2023-06-27 12:20:13+00:00",
+        "train_unique": 182610,
+        "val": 78261,
+        "train_sybil_rate": 0.051125349104649255,
+        "val_sybil_rate": 0.051123803682549415,
+        "rounds": [
+          1215,
+          1136,
+          1155
+        ],
+        "temporal_n": 173915,
+        "temporal_sybils": 4874,
+        "temporal_threshold": 0.5807376210349561,
+        "temporal_precision": 0.4389750505731625,
+        "temporal_recall": 0.13356585966352072,
+        "temporal_f1": 0.2048135913166588,
+        "temporal_auroc": 0.8956397716198232,
+        "temporal_ap": 0.2352610278920391,
+        "reference_n": 52259,
+        "reference_sybils": 1458,
+        "reference_threshold": 0.5748310308675113,
+        "reference_precision": 0.6850728155339806,
+        "reference_recall": 0.7743484224965707,
+        "reference_f1": 0.7269800386349002,
+        "reference_auroc": 0.9832966818076473,
+        "reference_ap": 0.8078278744725637
+      }
+    ]
+  }
+}
