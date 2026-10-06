@@ -52,9 +52,9 @@ XGBoost and LightGBM lose similar Average Precision; the cross-ensemble tracks L
 | Labels known before the snapshot vs current labels | `07` | Test F1 −0.005 ± 0.007 (mean ± SD) |
 | All provision-network features removed | `08` | Test F1 −0.008; transaction features alone carry most of the signal |
 | SHAP by feature family | `09` | LayerZero transactions first, then Ethereum transactions, gas provider, gas provision tree, provision chain |
-| Random forest on the 10 splits of `08` | `13` | Test F1 0.703 ± 0.006 vs LightGBM 0.713 ± 0.006; paired difference −0.011 ± 0.007, lower on 9 of 10 |
+| Random forest on 10 group splits | `13` | Test F1 0.703 ± 0.006 vs LightGBM 0.713 ± 0.009 (same machine); paired difference −0.011 ± 0.007, lower on 9 of 10 |
 | Entity-level recall (LightGBM, validation threshold) | `14` | Gas provision trees: any-hit 0.765 (97 % are single-wallet trees). Bounty reports: any-hit 0.703, majority-hit 0.552; 49 % of reports keep at least half their ZRO allocation unflagged. 37 % of the test Sybils' allocation is unflagged (address miss rate 28 %). Arm64 predictions, flagged in the results file |
-| Split grouped by tree and bounty report | `15` | Under the tree split, 5,406 of 5,463 test Sybils still share a bounty report with a training Sybil (random split: 5,434). Grouping by tree and report joins 45 % of Sybils into one component, so the run stopped before training (5 % rule) |
+| Split grouped by tree and bounty report | `15` | Under the tree split, 5,406 of 5,463 test Sybils still share a bounty report with a training Sybil (random split: 5,434). Grouping by tree and report as well: test F1 0.256 ± 0.022 vs 0.713 ± 0.009 (−0.457 ± 0.023, 10 of 10; outside the two largest components −0.375). One component holds 45 % of Sybils and always lands in train, so the drop also reflects that composition |
 
 ---
 
@@ -213,9 +213,9 @@ Runtimes on 4 cores, from the run at commit `0d9eacc` (`02` searched from scratc
 | `10_tie_out` | 8 s |
 | `11_split_comparison` | 12 min |
 | `12_figures` | 6 min |
-| `13_random_forest_sybil` | 32 min (Apple M5) |
+| `13_random_forest_sybil` | 60 min (Apple M5, 12 of 24 configurations resumed) |
 | `14_entity_level_recall` | 18 s |
-| `15_split_tree_report` | 31 s (stopped before training) |
+| `15_split_tree_report` | 13.5 min (Apple M5) |
 
 About 6.5 hours in total. `01` and `02` are needed only when `sybil_pipeline.py` changes; with their committed
 results, `03` to `12` take about 4.1 hours.
@@ -262,9 +262,9 @@ results, `03` to `12` take about 4.1 hours.
   ZRO allocation left on unflagged addresses. Trains nothing. It records whether the predictions in
   `output/` reproduce the committed results.
 - **`15`**: counts test Sybils whose bounty report, GitHub issue or reporter also has a training
-  Sybil, then builds groups joining gas provision trees and bounty reports and checks, before any
-  training, that no group holds more than 5 % of Sybils and that partition rates and sizes stay on
-  target. Models are trained on that split only if every check passes.
+  Sybil, then builds groups joining gas provision trees and bounty reports, checks partition rates and
+  sizes before any training (and warns when a group holds more than 5 % of Sybils), and trains
+  XGBoost and LightGBM on that split and LightGBM on 10 such splits against the tree split.
 
 ---
 
