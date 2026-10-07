@@ -1,6 +1,6 @@
 {
   "notebook": "23_revision_figures",
-  "code_commit": "4a84790",
+  "code_commit": "7648749",
   "leakage": null,
   "models": [],
   "figures": {
@@ -38,7 +38,7 @@
         }
       ],
       "platform_note": null,
-      "caption_note": "Pooled over 15 fold-repeats; test rows are 2.1% Sybil. Panel B: difference seen \u2212 held out, mean \u00b1 SD, and seen higher out of 15; Sybils per test fold in brackets."
+      "caption_note": "Pooled over 15 fold-repeats; test rows are 2.1% Sybil. Panel B: AUROC seen \u2212 held out, mean \u00b1 SD, and seen higher out of 15. IxE and IxI have too few test Sybils per fold for reliable category-level estimates."
     },
     "rev_label_effects": {
       "files": [
@@ -98,6 +98,33 @@
         }
       ],
       "platform_note": null
+    },
+    "rev_ensemble_appendix": {
+      "file": "tables/rev_ensemble_appendix.tex",
+      "sources": [
+        {
+          "results": "results/17_models_10_splits.json",
+          "code_commit": "5888aa3",
+          "platform": "arm64 / Darwin"
+        }
+      ],
+      "platform_note": null
+    },
+    "rev_ensemble_weight_stats": {
+      "file": "tables/rev_ensemble_weight_stats.json",
+      "sources": [
+        {
+          "results": "results/17_models_10_splits.json",
+          "code_commit": "5888aa3",
+          "platform": "arm64 / Darwin"
+        },
+        {
+          "results": "results/06_cross_ensemble_sybil.json",
+          "code_commit": "0d9eacc",
+          "platform": "not recorded (machine of the committed 00-12 results)"
+        }
+      ],
+      "platform_note": "mixes platforms: 17_models_10_splits: arm64 / Darwin; 06_cross_ensemble_sybil: not recorded (machine of the committed 00-12 results)"
     },
     "rev_report_dependence": {
       "file": "tables/rev_report_dependence.tex",
@@ -192,6 +219,25 @@
         "platform": "arm64 / Darwin"
       }
     ],
+    "rev_ensemble_appendix": [
+      {
+        "results": "results/17_models_10_splits.json",
+        "code_commit": "5888aa3",
+        "platform": "arm64 / Darwin"
+      }
+    ],
+    "rev_ensemble_weight_stats": [
+      {
+        "results": "results/17_models_10_splits.json",
+        "code_commit": "5888aa3",
+        "platform": "arm64 / Darwin"
+      },
+      {
+        "results": "results/06_cross_ensemble_sybil.json",
+        "code_commit": "0d9eacc",
+        "platform": "not recorded (machine of the committed 00-12 results)"
+      }
+    ],
     "rev_label_robustness": [
       {
         "results": "results/16_label_robustness_initial_list.json",
@@ -208,7 +254,8 @@
     ]
   },
   "platform_notes": {
-    "rev_leakage_hierarchy": "mixes platforms: 11_split_comparison: not recorded (machine of the committed 00-12 results); 22_report_dependence: arm64 / Darwin"
+    "rev_leakage_hierarchy": "mixes platforms: 11_split_comparison: not recorded (machine of the committed 00-12 results); 22_report_dependence: arm64 / Darwin",
+    "rev_ensemble_weight_stats": "mixes platforms: 17_models_10_splits: arm64 / Darwin; 06_cross_ensemble_sybil: not recorded (machine of the committed 00-12 results)"
   },
   "compile_check": "WARNING: pdflatex not installed; compile check skipped (structural column check passed)",
   "skipped": [
