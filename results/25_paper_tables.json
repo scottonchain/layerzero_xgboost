@@ -1,0 +1,334 @@
+{
+  "notebook": "25_paper_tables",
+  "code_commit": "b8747c0",
+  "leakage": null,
+  "models": [],
+  "tables": {
+    "rev_data_labels": {
+      "file": "tables/rev_data_labels.tex",
+      "sources": [
+        {
+          "results": "results/00_data_pipeline.json",
+          "code_commit": "0d9eacc",
+          "platform": "not recorded (machine of the committed 00-12 results)"
+        },
+        {
+          "results": "results/16_label_robustness_initial_list.json",
+          "code_commit": "5888aa3",
+          "platform": "arm64 / Darwin"
+        },
+        {
+          "file": "./data/20240915_final_sybil_list/fcfs_list.csv"
+        }
+      ],
+      "platform_note": "mixes platforms: 00_data_pipeline: not recorded (machine of the committed 00-12 results); 16_label_robustness_initial_list: arm64 / Darwin"
+    },
+    "rev_taxonomy": {
+      "file": "tables/rev_taxonomy.tex",
+      "sources": [
+        {
+          "results": "results/00_data_pipeline.json",
+          "code_commit": "0d9eacc",
+          "platform": "not recorded (machine of the committed 00-12 results)"
+        }
+      ],
+      "platform_note": null
+    },
+    "rev_levels": {
+      "file": "tables/rev_levels.tex",
+      "sources": [
+        {
+          "results": "results/15_split_tree_report.json",
+          "code_commit": "3bbec2c",
+          "platform": "arm64 / Darwin"
+        },
+        {
+          "results": "results/22_report_dependence.json",
+          "code_commit": "ef82c78",
+          "platform": "arm64 / Darwin"
+        }
+      ],
+      "platform_note": null
+    },
+    "rev_per_category": {
+      "file": "tables/rev_per_category.tex",
+      "sources": [
+        {
+          "results": "results/17_models_10_splits.json",
+          "code_commit": "5888aa3",
+          "platform": "arm64 / Darwin"
+        }
+      ],
+      "platform_note": null
+    },
+    "rev_family_ablation": {
+      "file": "tables/rev_family_ablation.tex",
+      "sources": [
+        {
+          "results": "results/08_ablation_families.json",
+          "code_commit": "0d9eacc",
+          "platform": "not recorded (machine of the committed 00-12 results)"
+        }
+      ],
+      "platform_note": null
+    },
+    "rev_provision_ablation_by_category": {
+      "file": "tables/rev_provision_ablation_by_category.tex",
+      "sources": [
+        {
+          "results": "results/19_ablation_by_category.json",
+          "code_commit": "5888aa3",
+          "platform": "arm64 / Darwin"
+        }
+      ],
+      "platform_note": null
+    },
+    "rev_entity_level": {
+      "file": "tables/rev_entity_level.tex",
+      "sources": [
+        {
+          "results": "results/14_entity_level_recall.json",
+          "code_commit": "e156d9d",
+          "platform": "arm64 / Darwin"
+        }
+      ],
+      "platform_note": null
+    },
+    "rev_temporal_holdout": {
+      "file": "tables/rev_temporal_holdout.tex",
+      "sources": [
+        {
+          "results": "results/20_temporal_holdout.json",
+          "code_commit": "5888aa3",
+          "platform": "arm64 / Darwin"
+        }
+      ],
+      "platform_note": null
+    },
+    "rev_union_split_appendix": {
+      "file": "tables/rev_union_split_appendix.tex",
+      "sources": [
+        {
+          "results": "results/15_split_tree_report.json",
+          "code_commit": "3bbec2c",
+          "platform": "arm64 / Darwin"
+        }
+      ],
+      "platform_note": null
+    },
+    "rev_search_top": {
+      "file": "tables/rev_search_top.tex",
+      "sources": [
+        {
+          "results": "results/02_hyperparameter_search.json",
+          "code_commit": "0d9eacc",
+          "platform": "not recorded (machine of the committed 00-12 results)"
+        },
+        {
+          "results": "results/13_random_forest_sybil.json",
+          "code_commit": "3bbec2c",
+          "platform": "arm64 / Darwin"
+        },
+        {
+          "file": "results/02_search_xgboost.csv"
+        },
+        {
+          "file": "results/02_search_lightgbm.csv"
+        },
+        {
+          "file": "results/13_search_random_forest.csv"
+        }
+      ],
+      "platform_note": "mixes platforms: 02_hyperparameter_search: not recorded (machine of the committed 00-12 results); 13_random_forest_sybil: arm64 / Darwin"
+    },
+    "rev_text_numbers": {
+      "file": "tables/rev_text_numbers.json",
+      "sources": "per name, inside the file",
+      "platform_note": null
+    }
+  },
+  "sources": {
+    "rev_data_labels": [
+      {
+        "results": "results/00_data_pipeline.json",
+        "code_commit": "0d9eacc",
+        "platform": "not recorded (machine of the committed 00-12 results)"
+      },
+      {
+        "results": "results/16_label_robustness_initial_list.json",
+        "code_commit": "5888aa3",
+        "platform": "arm64 / Darwin"
+      },
+      {
+        "file": "./data/20240915_final_sybil_list/fcfs_list.csv"
+      }
+    ],
+    "rev_taxonomy": [
+      {
+        "results": "results/00_data_pipeline.json",
+        "code_commit": "0d9eacc",
+        "platform": "not recorded (machine of the committed 00-12 results)"
+      }
+    ],
+    "rev_levels": [
+      {
+        "results": "results/15_split_tree_report.json",
+        "code_commit": "3bbec2c",
+        "platform": "arm64 / Darwin"
+      },
+      {
+        "results": "results/22_report_dependence.json",
+        "code_commit": "ef82c78",
+        "platform": "arm64 / Darwin"
+      }
+    ],
+    "rev_per_category": [
+      {
+        "results": "results/17_models_10_splits.json",
+        "code_commit": "5888aa3",
+        "platform": "arm64 / Darwin"
+      }
+    ],
+    "rev_family_ablation": [
+      {
+        "results": "results/08_ablation_families.json",
+        "code_commit": "0d9eacc",
+        "platform": "not recorded (machine of the committed 00-12 results)"
+      }
+    ],
+    "rev_provision_ablation_by_category": [
+      {
+        "results": "results/19_ablation_by_category.json",
+        "code_commit": "5888aa3",
+        "platform": "arm64 / Darwin"
+      }
+    ],
+    "rev_entity_level": [
+      {
+        "results": "results/14_entity_level_recall.json",
+        "code_commit": "e156d9d",
+        "platform": "arm64 / Darwin"
+      }
+    ],
+    "rev_temporal_holdout": [
+      {
+        "results": "results/20_temporal_holdout.json",
+        "code_commit": "5888aa3",
+        "platform": "arm64 / Darwin"
+      }
+    ],
+    "rev_union_split_appendix": [
+      {
+        "results": "results/15_split_tree_report.json",
+        "code_commit": "3bbec2c",
+        "platform": "arm64 / Darwin"
+      }
+    ],
+    "rev_search_top": [
+      {
+        "results": "results/02_hyperparameter_search.json",
+        "code_commit": "0d9eacc",
+        "platform": "not recorded (machine of the committed 00-12 results)"
+      },
+      {
+        "results": "results/13_random_forest_sybil.json",
+        "code_commit": "3bbec2c",
+        "platform": "arm64 / Darwin"
+      },
+      {
+        "file": "results/02_search_xgboost.csv"
+      },
+      {
+        "file": "results/02_search_lightgbm.csv"
+      },
+      {
+        "file": "results/13_search_random_forest.csv"
+      }
+    ],
+    "rev_text_numbers": "per name, inside the file"
+  },
+  "platforms": {
+    "00_data_pipeline": "not recorded (machine of the committed 00-12 results)",
+    "02_hyperparameter_search": "not recorded (machine of the committed 00-12 results)",
+    "07_sensitivity_label_vintage": "not recorded (machine of the committed 00-12 results)",
+    "08_ablation_families": "not recorded (machine of the committed 00-12 results)",
+    "11_split_comparison": "not recorded (machine of the committed 00-12 results)",
+    "13_random_forest_sybil": "arm64 / Darwin",
+    "14_entity_level_recall": "arm64 / Darwin",
+    "15_split_tree_report": "arm64 / Darwin",
+    "16_label_robustness_initial_list": "arm64 / Darwin",
+    "17_models_10_splits": "arm64 / Darwin",
+    "19_ablation_by_category": "arm64 / Darwin",
+    "20_temporal_holdout": "arm64 / Darwin",
+    "22_report_dependence": "arm64 / Darwin",
+    "03_xgboost_sybil": "not recorded (machine of the committed 00-12 results)",
+    "04_lightgbm_sybil": "not recorded (machine of the committed 00-12 results)"
+  },
+  "compile_check": "WARNING: pdflatex not installed; compile check skipped (structural column check passed)",
+  "bounty_stats": {
+    "computed": {
+      "list_rows": 151784,
+      "reports": 311,
+      "reporters": 145,
+      "top10_reports_share": 0.3561583658228543,
+      "top10_reporters_share": 0.4460490912086102,
+      "first_flagged": "2024-05-18",
+      "last_flagged": "2024-05-30"
+    },
+    "expected": {
+      "reports": 311,
+      "reporters": 145,
+      "top10_reports_share": 0.36,
+      "top10_reporters_share": 0.45
+    }
+  },
+  "large_trees": {
+    "n_trees": 34,
+    "wallets": 9020,
+    "sybils": 97,
+    "wallet_share": 0.020745838182462176,
+    "sybil_share": 0.005326451046071056
+  },
+  "search": {
+    "XGBoost": {
+      "configs": 74,
+      "selected_rank": 1,
+      "default_rank": 60
+    },
+    "LightGBM": {
+      "configs": 48,
+      "selected_rank": 1,
+      "default_rank": 48
+    },
+    "Random Forest": {
+      "configs": 24,
+      "selected_rank": 1,
+      "default_rank": null
+    }
+  },
+  "fields_used_temporal": [
+    "temporal_f1",
+    "temporal_recall",
+    "temporal_ap",
+    "temporal_auroc",
+    "reference_f1",
+    "reference_recall",
+    "reference_ap",
+    "reference_auroc",
+    "cohorts.cutoff_utc",
+    "cohorts.early_sybil_rate",
+    "cohorts.late_sybil_rate"
+  ],
+  "per_category_note": "The seed-42 per-category values in an earlier draft (IxI F1 0.534, IxE F1 0.265) are more favorable than these 10-split means.",
+  "results14_flag": false,
+  "results14_platform": "arm64 / Darwin",
+  "text_numbers_missing": [],
+  "platform": {
+    "machine": "arm64",
+    "processor": "arm",
+    "system": "Darwin",
+    "python": "3.13.7",
+    "cpu_count": 10,
+    "n_jobs": 4
+  }
+}
