@@ -1,6 +1,6 @@
 {
   "notebook": "99_tie_out_revision",
-  "code_commit": "3c2afe5",
+  "code_commit": "2c4b8e5",
   "leakage": null,
   "models": [],
   "checks": [
@@ -48,6 +48,11 @@
       "check": "provenance 22_report_dependence",
       "passed": true,
       "detail": "commit ef82c78"
+    },
+    {
+      "check": "provenance 23_revision_figures",
+      "passed": true,
+      "detail": "commit 4a84790"
     },
     {
       "check": "13_random_forest_sybil -> 02_hyperparameter_search",
@@ -148,6 +153,46 @@
       "check": "22_report_dependence -> 15_split_tree_report",
       "passed": true,
       "detail": "code of 15_split_tree_report unchanged since ef82c78: True; 15_split_tree_report's own result traces to HEAD: True"
+    },
+    {
+      "check": "23_revision_figures -> 03_xgboost_sybil",
+      "passed": true,
+      "detail": "code of 03_xgboost_sybil unchanged since 4a84790: True; 03_xgboost_sybil's own result traces to HEAD: True"
+    },
+    {
+      "check": "23_revision_figures -> 04_lightgbm_sybil",
+      "passed": true,
+      "detail": "code of 04_lightgbm_sybil unchanged since 4a84790: True; 04_lightgbm_sybil's own result traces to HEAD: True"
+    },
+    {
+      "check": "23_revision_figures -> 09_shap_importance",
+      "passed": true,
+      "detail": "code of 09_shap_importance unchanged since 4a84790: True; 09_shap_importance's own result traces to HEAD: True"
+    },
+    {
+      "check": "23_revision_figures -> 11_split_comparison",
+      "passed": true,
+      "detail": "code of 11_split_comparison unchanged since 4a84790: True; 11_split_comparison's own result traces to HEAD: True"
+    },
+    {
+      "check": "23_revision_figures -> 16_label_robustness_initial_list",
+      "passed": true,
+      "detail": "code of 16_label_robustness_initial_list unchanged since 4a84790: True; 16_label_robustness_initial_list's own result traces to HEAD: True"
+    },
+    {
+      "check": "23_revision_figures -> 17_models_10_splits",
+      "passed": true,
+      "detail": "code of 17_models_10_splits unchanged since 4a84790: True; 17_models_10_splits's own result traces to HEAD: True"
+    },
+    {
+      "check": "23_revision_figures -> 18_mimicry_stress",
+      "passed": true,
+      "detail": "code of 18_mimicry_stress unchanged since 4a84790: True; 18_mimicry_stress's own result traces to HEAD: True"
+    },
+    {
+      "check": "23_revision_figures -> 22_report_dependence",
+      "passed": true,
+      "detail": "code of 22_report_dependence unchanged since 4a84790: True; 22_report_dependence's own result traces to HEAD: True"
     },
     {
       "check": "13_random_forest_sybil LightGBM parameters = 02",
@@ -251,6 +296,11 @@
     },
     {
       "check": "22_report_dependence records its platform",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "23 records the platform of each source",
       "passed": true,
       "detail": ""
     }
