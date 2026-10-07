@@ -43,7 +43,8 @@ for the paper come from `10_tie_out.ipynb` (and `11_split_comparison.ipynb` for 
 | A15b report-mates in training | R2 relational leakage (report level) | Code done: seen minus held out, test F1 +0.231 ± 0.084 (15 of 15) | ef82c78 | `22`; findings E (2026-10-06) |
 | A23 revision figures and tables | R1 verifiability; manuscript | Code done: 5 figures (PDF and PNG), 6 booktabs tables and blend-weight stats; follow-up fixes (T1 without the weighted average, T6, F2B AUROC) from `results/` only | 4a84790, 7648749 | `23`; `figures/rev_*`, `tables/` |
 | A24 mimicry controls | R1 adversarial evasion | Code done: single-feature, strict-cheap, structural-only and random-k controls; reproduces `18` | 9b87db5 | `24`; `figures/rev_mimicry_controls`, `tables/rev_mimicry_controls.tex` |
-| A21 tie-out for 13–24 | R1 verifiability | Code done; renamed `99_tie_out_revision` (runs last); 66 of 67 checks pass (14's inputs fail until it is rerun on the machine of the committed results) | c3d7217, 3c2afe5, 2c4b8e5, 42d4cf5 | `99` |
+| A25 paper tables and cited numbers | R1 verifiability; manuscript | Code done: 10 tables and 199 named numbers from `results/`; T6 four decimals; controls table k = 7 | b8747c0 | `25`; `tables/rev_*.tex`, `tables/rev_text_numbers.json` |
+| A21 tie-out for 13–25 | R1 verifiability | Code done; renamed `99_tie_out_revision` (runs last); 82 of 83 checks pass (14's inputs fail until it is rerun on the machine of the committed results) | c3d7217, 3c2afe5, 2c4b8e5, 42d4cf5, 201c9b4 | `99` |
 | A22 data-release documents | R1 release | Drafts: `DATA.md`, `CITATION.cff` (validated); no LICENSE; Zenodo steps below | this PR | `DATA.md`, `CITATION.cff` |
 
 ## A. Code and experiments
@@ -384,3 +385,14 @@ Zenodo steps (for Paven; not done here): (1) sign in to zenodo.org with GitHub a
 - Reading: the collapse in `18` is specific to the top-ranked features (at k = 5, SHAP order 0.039 vs random 0.433), not general fragility to replacement. A rule-based strict-cheap attack on Ethereum-side statistics alone still cuts recall to 0.17 at k = 5; randomizing the whole gas-provision structure cuts it only to 0.48. Caveats in the results (those of `18`, plus: random k is not an attack model; strict cheap is defined by data source, not monetary cost).
 
 **2026-10-07, tie-out `99` @ 42d4cf5.** Adds `24` (provenance; dependencies `02`, `09`, `18`; parameters; platform; the regression check against `18`). 66 of 67 checks pass; the failing one is still `14`'s inputs.
+
+**2026-10-07, A25 paper tables and cited numbers, `25` @ b8747c0 (14 s; reads `results/`, the Sybil list and the master table; no model).** Tables: `rev_data_labels`, `rev_taxonomy`, `rev_levels`, `rev_per_category`, `rev_family_ablation`, `rev_provision_ablation_by_category`, `rev_entity_level`, `rev_temporal_holdout`, `rev_union_split_appendix`, `rev_search_top`; `tables/rev_text_numbers.json` holds 199 named scalars, each with its source and platform (none missing).
+
+- Bounty-list statistics, computed from `fcfs_list.csv` matched to the 18,211 Ethereum Sybils: 311 reports, 145 reporters, ten largest reports 35.6 % of Sybils, ten most prolific reporters 44.6 % (the manuscript cites 311 / 145 / 36 % / 45 %). Flag times run from 2024-05-18 to 2024-05-30.
+- Trees over 100 wallets: 34 trees, 9,020 wallets (2.07 %), 97 Sybils (0.53 %), computed from the master table (not stored in any result before).
+- Per-category performance over the ten tree splits (`17`, LightGBM, mean ± SD): IxL F1 0.741 ± 0.006, recall 0.761; IxI F1 0.483 ± 0.097, recall 0.338, precision 0.901; IxE F1 0.234 ± 0.057, recall 0.142, precision 0.694; No provider about 7 test Sybils per split (unreliable). XGBoost: IxL F1 0.736, IxI 0.409, IxE 0.221. **Correction for the manuscript:** the seed-42 per-category values in an earlier draft (IxI F1 0.534, IxE F1 0.265) are more favorable than these 10-split means; cite the 10-split means.
+- Searches: the selected configuration ranks first in each grid; the library defaults rank 60 of 74 (XGBoost) and 48 of 48 (LightGBM).
+- `rev_entity_level` carries `UNVERIFIED` in its first line: `results/14` → `predictions_match_committed_results` is false (arm64 predictions) until `14` is rerun on the machine of the committed results.
+- Part 1: T6 (`23`) prints the weighted-average differences to four decimals (F1 −0.0001 ± 0.0032, AP +0.0001 ± 0.0016, AUROC −0.0002 ± 0.0003); the controls table (`24`, which writes it; rerun at 61884d1 with unchanged numbers) has a k = 7 column for strict cheap. `pdflatex` is still not installed here; every table passes the structural column check.
+
+**2026-10-07, tie-out `99` @ 201c9b4.** Adds `25` (provenance; its 13 source notebooks; no missing named numbers). 82 of 83 checks pass; the failing one is still `14`'s inputs.
