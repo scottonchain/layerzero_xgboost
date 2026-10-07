@@ -1,6 +1,6 @@
 {
   "notebook": "99_tie_out_revision",
-  "code_commit": "2c4b8e5",
+  "code_commit": "42d4cf5",
   "leakage": null,
   "models": [],
   "checks": [
@@ -52,7 +52,12 @@
     {
       "check": "provenance 23_revision_figures",
       "passed": true,
-      "detail": "commit 4a84790"
+      "detail": "commit 7648749"
+    },
+    {
+      "check": "provenance 24_mimicry_controls",
+      "passed": true,
+      "detail": "commit 9b87db5"
     },
     {
       "check": "13_random_forest_sybil -> 02_hyperparameter_search",
@@ -157,42 +162,57 @@
     {
       "check": "23_revision_figures -> 03_xgboost_sybil",
       "passed": true,
-      "detail": "code of 03_xgboost_sybil unchanged since 4a84790: True; 03_xgboost_sybil's own result traces to HEAD: True"
+      "detail": "code of 03_xgboost_sybil unchanged since 7648749: True; 03_xgboost_sybil's own result traces to HEAD: True"
     },
     {
       "check": "23_revision_figures -> 04_lightgbm_sybil",
       "passed": true,
-      "detail": "code of 04_lightgbm_sybil unchanged since 4a84790: True; 04_lightgbm_sybil's own result traces to HEAD: True"
+      "detail": "code of 04_lightgbm_sybil unchanged since 7648749: True; 04_lightgbm_sybil's own result traces to HEAD: True"
     },
     {
       "check": "23_revision_figures -> 09_shap_importance",
       "passed": true,
-      "detail": "code of 09_shap_importance unchanged since 4a84790: True; 09_shap_importance's own result traces to HEAD: True"
+      "detail": "code of 09_shap_importance unchanged since 7648749: True; 09_shap_importance's own result traces to HEAD: True"
     },
     {
       "check": "23_revision_figures -> 11_split_comparison",
       "passed": true,
-      "detail": "code of 11_split_comparison unchanged since 4a84790: True; 11_split_comparison's own result traces to HEAD: True"
+      "detail": "code of 11_split_comparison unchanged since 7648749: True; 11_split_comparison's own result traces to HEAD: True"
     },
     {
       "check": "23_revision_figures -> 16_label_robustness_initial_list",
       "passed": true,
-      "detail": "code of 16_label_robustness_initial_list unchanged since 4a84790: True; 16_label_robustness_initial_list's own result traces to HEAD: True"
+      "detail": "code of 16_label_robustness_initial_list unchanged since 7648749: True; 16_label_robustness_initial_list's own result traces to HEAD: True"
     },
     {
       "check": "23_revision_figures -> 17_models_10_splits",
       "passed": true,
-      "detail": "code of 17_models_10_splits unchanged since 4a84790: True; 17_models_10_splits's own result traces to HEAD: True"
+      "detail": "code of 17_models_10_splits unchanged since 7648749: True; 17_models_10_splits's own result traces to HEAD: True"
     },
     {
       "check": "23_revision_figures -> 18_mimicry_stress",
       "passed": true,
-      "detail": "code of 18_mimicry_stress unchanged since 4a84790: True; 18_mimicry_stress's own result traces to HEAD: True"
+      "detail": "code of 18_mimicry_stress unchanged since 7648749: True; 18_mimicry_stress's own result traces to HEAD: True"
     },
     {
       "check": "23_revision_figures -> 22_report_dependence",
       "passed": true,
-      "detail": "code of 22_report_dependence unchanged since 4a84790: True; 22_report_dependence's own result traces to HEAD: True"
+      "detail": "code of 22_report_dependence unchanged since 7648749: True; 22_report_dependence's own result traces to HEAD: True"
+    },
+    {
+      "check": "24_mimicry_controls -> 02_hyperparameter_search",
+      "passed": true,
+      "detail": "code of 02_hyperparameter_search unchanged since 9b87db5: True; 02_hyperparameter_search's own result traces to HEAD: True"
+    },
+    {
+      "check": "24_mimicry_controls -> 09_shap_importance",
+      "passed": true,
+      "detail": "code of 09_shap_importance unchanged since 9b87db5: True; 09_shap_importance's own result traces to HEAD: True"
+    },
+    {
+      "check": "24_mimicry_controls -> 18_mimicry_stress",
+      "passed": true,
+      "detail": "code of 18_mimicry_stress unchanged since 9b87db5: True; 18_mimicry_stress's own result traces to HEAD: True"
     },
     {
       "check": "13_random_forest_sybil LightGBM parameters = 02",
@@ -233,6 +253,16 @@
       "check": "17 Random Forest parameters = 13",
       "passed": true,
       "detail": "{'max_features': 0.3, 'min_samples_leaf': 1, 'max_depth': None, 'max_samples': None, 'n_estimators': 300, 'criterion': 'gini', 'bootstrap': True, 'n_jobs': 4}"
+    },
+    {
+      "check": "24 LightGBM parameters = 02",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "24 reproduces 18 (baseline and recall regression checks)",
+      "passed": true,
+      "detail": "12 recall checks"
     },
     {
       "check": "22 LightGBM parameters = 02",
@@ -301,6 +331,11 @@
     },
     {
       "check": "23 records the platform of each source",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "24_mimicry_controls records its platform",
       "passed": true,
       "detail": ""
     }
@@ -382,6 +417,15 @@
     },
     {
       "index": "22_report_dependence",
+      "machine": "arm64",
+      "system": "Darwin",
+      "processor": "arm",
+      "python": "3.13.7",
+      "cpu_count": 10,
+      "n_jobs": 4
+    },
+    {
+      "index": "24_mimicry_controls",
       "machine": "arm64",
       "system": "Darwin",
       "processor": "arm",
@@ -1092,6 +1136,101 @@
         "p_corrected": 0.905536121860694
       }
     ],
+    "Mimicry controls (24)": {
+      "shap_shares": {
+        "top5_all_features": 0.37665861946355167,
+        "top5_cheap_only": 0.3116269081449674,
+        "top5_strict_cheap": 0.19392750611613874,
+        "all7_strict_cheap": 0.21476678550700753,
+        "all30_structural": 0.13237895968879934
+      },
+      "single_feature_top5": [
+        {
+          "component": "A single feature",
+          "feature": "l0_tx_time_span",
+          "cost_class": "time-bound",
+          "shap_rank": 1,
+          "recall_mean": 0.4197327476,
+          "recall_std": 0.0059568516,
+          "f1_mean": 0.4919398756,
+          "f1_std": 0.0052424206,
+          "ap_mean": 0.5131495204,
+          "ap_std": 0.0026036264,
+          "mean_sybil_score_mean": 0.4562573905,
+          "mean_sybil_score_std": 0.0034850773
+        },
+        {
+          "component": "A single feature",
+          "feature": "n_l0_source_contracts",
+          "cost_class": "cheap",
+          "shap_rank": 2,
+          "recall_mean": 0.4199524071,
+          "recall_std": 0.0014202573,
+          "f1_mean": 0.4921477828,
+          "f1_std": 0.0012553005,
+          "ap_mean": 0.510867293,
+          "ap_std": 0.0014997221,
+          "mean_sybil_score_mean": 0.4520650875,
+          "mean_sybil_score_std": 0.0013013598
+        },
+        {
+          "component": "A single feature",
+          "feature": "earliest_l0_tx_time",
+          "cost_class": "time-bound",
+          "shap_rank": 4,
+          "recall_mean": 0.4402709134,
+          "recall_std": 0.0032601335,
+          "f1_mean": 0.5098853061,
+          "f1_std": 0.0028105511,
+          "ap_mean": 0.5218098619,
+          "ap_std": 0.0022566407,
+          "mean_sybil_score_mean": 0.4719024867,
+          "mean_sybil_score_std": 0.0028609808
+        },
+        {
+          "component": "A single feature",
+          "feature": "l0_avg_stargate_swap",
+          "cost_class": "cheap",
+          "shap_rank": 3,
+          "recall_mean": 0.4935383489,
+          "recall_std": 0.000652335,
+          "f1_mean": 0.5544768734,
+          "f1_std": 0.0005299228,
+          "ap_mean": 0.571340735,
+          "ap_std": 0.0024450462,
+          "mean_sybil_score_mean": 0.5163809428,
+          "mean_sybil_score_std": 0.0018356373
+        },
+        {
+          "component": "A single feature",
+          "feature": "earliest_tx_block_in",
+          "cost_class": "time-bound",
+          "shap_rank": 10,
+          "recall_mean": 0.5319055464,
+          "recall_std": 0.0031209824,
+          "f1_mean": 0.5849707027,
+          "f1_std": 0.0024239998,
+          "ap_mean": 0.5990094773,
+          "ap_std": 0.000906153,
+          "mean_sybil_score_mean": 0.5525108185,
+          "mean_sybil_score_std": 0.0011478333
+        }
+      ],
+      "tie_check": {
+        "recall_l0_tx_time_span": 0.4197327475745928,
+        "recall_n_l0_source_contracts": 0.41995240710232473,
+        "equal_6dp": false,
+        "columns_differ": true,
+        "donor_values_differ": true,
+        "same_donor_rows": true,
+        "sybil_scores_differ_rep0": true,
+        "flagged_rep0": [
+          2273,
+          2300
+        ],
+        "flagged_both_rep0": 1767
+      }
+    },
     "Temporal holdout (20)": [
       {
         "late_share_target": 0.3,

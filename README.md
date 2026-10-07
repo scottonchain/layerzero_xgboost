@@ -73,6 +73,7 @@ XGBoost and LightGBM lose similar Average Precision; the cross-ensemble tracks L
 | Entity-level recall (LightGBM, validation threshold) | `14` | Gas provision trees: any-hit 0.765 (97 % are single-wallet trees). Bounty reports: any-hit 0.703, majority-hit 0.552; 49 % of reports keep at least half their ZRO allocation unflagged. 37 % of the test Sybils' allocation is unflagged (address miss rate 28 %). Arm64 predictions, flagged in the results file |
 | Split grouped by tree and bounty report | `15` | Under the tree split, 5,406 of 5,463 test Sybils still share a bounty report with a training Sybil (random split: 5,434). Grouping by tree and report as well: test F1 0.256 ± 0.022 vs 0.713 ± 0.009 (−0.457 ± 0.023, 10 of 10; outside the two largest components −0.375). One component holds 45 % of Sybils and always lands in train, so the drop also reflects that composition |
 | Label noise: LayerZero's initial Sybil list ([archived source](https://web.archive.org/web/*/https://github.com/LayerZero-Labs/sybil-report/raw/main/*)) | `16` | 34,545 interactors (8.3 % of the non-Sybils) are on LayerZero's initial list and labeled non-Sybil. At the validation threshold, 625 of the 1,566 test false positives (40 %) are on it; counting them as Sybil, precision is 0.829 instead of 0.715. Dropping them from training and validation: test F1 on the test set without them +0.034 ± 0.010 (10 of 10) |
+| Mimicry controls | `24` | Profile copy at k = 5: top features by SHAP 0.039, cheap only 0.045, strict cheap (7 Ethereum-side counts and values) 0.167, structural only 0.546, random 5 of 62 0.433 (range 0.179–0.719). All 30 structural features together: 0.484. Collapse is specific to the top features, and strongest for LayerZero activity and timing |
 | Mimicry stress test (fixed model) | `18` | Replacing the 5 most important features of test Sybils with values from non-Sybils cuts recall at the fixed threshold from 0.719 to 0.01–0.04 (0.03–0.05 with cheap features only). Tentative cost classes; a fragility measure, not an attack simulation |
 | Provision-network features by category | `19` | Removing them: test F1 −0.008 overall (9 of 10), IxI −0.105 ± 0.124 (9 of 10), IxL −0.004, IxE +0.046 (removing them helps IxE on 9 of 10); none significant after the correction |
 | Report-mates in training | `22` | Same test Sybils, same training size: with their bounty-report mates in training, test F1 +0.231 ± 0.084, AP +0.292 ± 0.075, AUROC +0.079 ± 0.041 (15 of 15, corrected p < 0.002; LightGBM; XGBoost alike). The gain grows from +0.006 recall with no report-mate to +0.24 with 1–9 and +0.36 with 10–99. Test prevalence is 2.1 %, so only the paired difference is comparable |
@@ -157,6 +158,7 @@ layerzero_xgboost/
 ├── 20_temporal_holdout.ipynb               ← train on earlier cohorts, test on later ones
 ├── 22_report_dependence.ipynb              ← test Sybils with and without report-mates in training
 ├── 23_revision_figures.ipynb               ← revision figures (figures/rev_*) and tables (tables/) from results/
+├── 24_mimicry_controls.ipynb               ← mimicry controls: single feature, strict cheap, structural only, random k
 ├── 99_tie_out_revision.ipynb               ← provenance checks and every cited number for 13–22 (runs last)
 ├── DATA.md                                 ← what each data file is, where it came from, terms
 ├── CITATION.cff                            ← citation metadata (draft)
@@ -218,7 +220,7 @@ for nb in [0-9][0-9]_*.ipynb; do
 done
 ```
 
-The glob runs `00` to `23` and then `99` in numerical order, which is the dependency order. Every notebook
+The glob runs `00` to `24` and then `99` in numerical order, which is the dependency order. Every notebook
 uses the stratified group split except `11`, which also trains the models on the original random
 split to measure the leakage. Each notebook rebuilds the feature table itself through
 `sybil_pipeline.build_master_df`, so after `02_hyperparameter_search` has written
@@ -226,7 +228,7 @@ split to measure the leakage. Each notebook rebuilds the feature table itself th
 needs the predictions saved by `03` and `04`. `01` and `02` fix the feature set and the
 hyperparameters; they must be rerun whenever `sybil_pipeline.py` changes, or `10` rejects the
 results that depend on them. `10` checks every result from `00` to `09`; `11` and `12` run after it.
-`13` to `23` answer later reviewer requests and are not checked by `10`; `99_tie_out_revision` checks them
+`13` to `24` answer later reviewer requests and are not checked by `10`; `99_tie_out_revision` checks them
 instead and runs last. `23` reads only `results/` and regenerates the revision's figures and tables in seconds;
 rerun `23` and then `99` after any rerun of the notebooks it reads. They rebuild the feature table themselves, except `14`, which reads the predictions `03`,
 `04` and `06` saved in `output/`; `17` needs `13`'s result, and `16` reads `review_support/initial_list/`
@@ -259,6 +261,7 @@ Runtimes on 4 cores, from the run at commit `0d9eacc` (`02` searched from scratc
 | `20_temporal_holdout` | 6 min (Apple M5) |
 | `22_report_dependence` | 53 min (Apple M5) |
 | `23_revision_figures` | 5 s |
+| `24_mimicry_controls` | 10 min (Apple M5) |
 | `99_tie_out_revision` | 3 s |
 
 About 6.5 hours in total. `01` and `02` are needed only when `sybil_pipeline.py` changes; with their committed
@@ -324,7 +327,10 @@ results, `03` to `12` take about 4.1 hours.
   with a dose-response by number of report-mates.
 - **`23`**: draws the revision figures and writes the revision tables from the committed `results/` (see
   [Paper figures and tables](#paper-figures-and-tables)); no data, no model.
-- **`99`** (was `21`): provenance of `13`–`23` and the notebooks they depend on, their stored hyperparameters, `14`'s inputs
+- **`24`**: controls for the mimicry test of `18` (same model, threshold and donors; asserts it reproduces `18`): every
+  feature replaced alone, a rule-based strict-cheap subset (Ethereum-side counts and values), the 30 structural
+  features, and random subsets of k features. Writes `figures/rev_mimicry_controls` and two tables.
+- **`99`** (was `21`): provenance of `13`–`24` and the notebooks they depend on, their stored hyperparameters, `14`'s inputs
   and the platforms; prints every number cited from them. It fails until `14` is rerun on predictions that
   reproduce the committed `03`, `04` and `06`.
 
@@ -342,11 +348,15 @@ Generated by `23_revision_figures.ipynb` from `results/` only; each figure is sa
 | `figures/rev_label_effects` | A: test false positives on LayerZero's initial list; B: clean negatives | `16` |
 | `figures/rev_mimicry` | Recall against top-k features replaced | `18` |
 | `figures/rev_shap_by_category` | Top 15 features, share of mean \|SHAP\| per category | `09` |
-| `tables/rev_models_10split.tex` | Every model over 10 splits, mean ± SD, corrected p vs LightGBM | `17` |
+| `figures/rev_mimicry_controls` | A: recall against k by attack scope (profile copy); B: 15 most sensitive single features | `24` |
+| `tables/rev_models_10split.tex` | LightGBM, XGBoost, Random Forest and LR over 10 splits, mean ± SD, corrected p vs LightGBM | `17` |
+| `tables/rev_ensemble_appendix.tex`, `tables/rev_ensemble_weight_stats.json` | Weighted average vs LightGBM and XGBoost (appendix); blend weights | `17`, `06` |
 | `tables/rev_report_dependence.tex` | Seen vs held out, LightGBM and XGBoost | `22` |
 | `tables/rev_label_robustness.tex` | Initial-list counts, false positives, clean negatives, relabeling | `16` |
 | `tables/rev_operating_points.tex` | Operating points with false positives on the initial list | `16` |
 | `tables/rev_mimicry.tex` | Recall at k = 1, 3, 5, 10 per attack | `18` |
+| `tables/rev_mimicry_controls.tex` | Recall at k = 1, 3, 5, 10 per attack scope, including random k | `24` |
+| `tables/rev_single_feature_sensitivity.tex` | 15 features whose replacement alone lowers recall most | `24` |
 
 ## Input data files
 
