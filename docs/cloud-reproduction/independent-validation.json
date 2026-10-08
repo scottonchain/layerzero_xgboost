@@ -1,0 +1,2660 @@
+{
+  "all_passed": true,
+  "all_applicable_mandatory_checks_passed": true,
+  "all_checks_including_optional_diagnostics_passed": false,
+  "random_forest_full_precision_diagnostics": [
+    {
+      "split_seed": 42,
+      "deltas": {
+        "f1": 0.0,
+        "ap": 0.0,
+        "auroc": 0.0,
+        "threshold": 0.0
+      },
+      "full_precision_1e_12_match": true
+    },
+    {
+      "split_seed": 1,
+      "deltas": {
+        "f1": 0.0,
+        "ap": 0.0,
+        "auroc": 0.0,
+        "threshold": 0.0
+      },
+      "full_precision_1e_12_match": true
+    },
+    {
+      "split_seed": 2,
+      "deltas": {
+        "f1": 0.0,
+        "ap": 0.0,
+        "auroc": 0.0,
+        "threshold": 0.0
+      },
+      "full_precision_1e_12_match": true
+    },
+    {
+      "split_seed": 3,
+      "deltas": {
+        "f1": 0.0,
+        "ap": 0.0,
+        "auroc": 0.0,
+        "threshold": 0.0
+      },
+      "full_precision_1e_12_match": true
+    },
+    {
+      "split_seed": 4,
+      "deltas": {
+        "f1": 0.0,
+        "ap": 9.741472961621866e-09,
+        "auroc": 0.0,
+        "threshold": 0.0
+      },
+      "full_precision_1e_12_match": false
+    },
+    {
+      "split_seed": 5,
+      "deltas": {
+        "f1": 0.0,
+        "ap": 0.0,
+        "auroc": 0.0,
+        "threshold": 0.0
+      },
+      "full_precision_1e_12_match": true
+    },
+    {
+      "split_seed": 6,
+      "deltas": {
+        "f1": 0.0,
+        "ap": 0.0,
+        "auroc": 0.0,
+        "threshold": 0.0
+      },
+      "full_precision_1e_12_match": true
+    },
+    {
+      "split_seed": 7,
+      "deltas": {
+        "f1": 0.0,
+        "ap": 0.0,
+        "auroc": 0.0,
+        "threshold": 0.0
+      },
+      "full_precision_1e_12_match": true
+    },
+    {
+      "split_seed": 8,
+      "deltas": {
+        "f1": 0.0,
+        "ap": 0.0,
+        "auroc": 0.0,
+        "threshold": 0.0
+      },
+      "full_precision_1e_12_match": true
+    },
+    {
+      "split_seed": 9,
+      "deltas": {
+        "f1": 0.0,
+        "ap": 0.0,
+        "auroc": 0.0,
+        "threshold": 0.0
+      },
+      "full_precision_1e_12_match": true
+    }
+  ],
+  "checks": [
+    {
+      "check": "complete execution inventory",
+      "passed": true,
+      "detail": "[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 22, 23, 24, 25, 99]"
+    },
+    {
+      "check": "established numerical backends exactly preserved",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "00 actual notebook language metadata",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "00 all code cells executed without errors",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "00 published artifact reachable",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "00 execution commit matches inventory",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "00 full producer commit reachable",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "00 one actual numerical platform",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "01 actual notebook language metadata",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "01 all code cells executed without errors",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "01 published artifact reachable",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "01 execution commit matches inventory",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "01 full producer commit reachable",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "01 one actual numerical platform",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "02 actual notebook language metadata",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "02 all code cells executed without errors",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "02 published artifact reachable",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "02 execution commit matches inventory",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "02 full producer commit reachable",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "02 one actual numerical platform",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "03 actual notebook language metadata",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "03 all code cells executed without errors",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "03 published artifact reachable",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "03 execution commit matches inventory",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "03 full producer commit reachable",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "03 one actual numerical platform",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "04 actual notebook language metadata",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "04 all code cells executed without errors",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "04 published artifact reachable",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "04 execution commit matches inventory",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "04 full producer commit reachable",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "04 one actual numerical platform",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "05 actual notebook language metadata",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "05 all code cells executed without errors",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "05 published artifact reachable",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "05 execution commit matches inventory",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "05 full producer commit reachable",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "05 one actual numerical platform",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "06 actual notebook language metadata",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "06 all code cells executed without errors",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "06 published artifact reachable",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "06 execution commit matches inventory",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "06 full producer commit reachable",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "06 one actual numerical platform",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "07 actual notebook language metadata",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "07 all code cells executed without errors",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "07 published artifact reachable",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "07 execution commit matches inventory",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "07 full producer commit reachable",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "07 one actual numerical platform",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "08 actual notebook language metadata",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "08 all code cells executed without errors",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "08 published artifact reachable",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "08 execution commit matches inventory",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "08 full producer commit reachable",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "08 one actual numerical platform",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "09 actual notebook language metadata",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "09 all code cells executed without errors",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "09 published artifact reachable",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "09 execution commit matches inventory",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "09 full producer commit reachable",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "09 one actual numerical platform",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "10 actual notebook language metadata",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "10 all code cells executed without errors",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "10 published artifact reachable",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "10 result-file exception",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "11 actual notebook language metadata",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "11 all code cells executed without errors",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "11 published artifact reachable",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "11 execution commit matches inventory",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "11 full producer commit reachable",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "11 one actual numerical platform",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "12 actual notebook language metadata",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "12 all code cells executed without errors",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "12 published artifact reachable",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "12 execution commit matches inventory",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "12 full producer commit reachable",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "12 one actual numerical platform",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "13 actual notebook language metadata",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "13 all code cells executed without errors",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "13 published artifact reachable",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "13 execution commit matches inventory",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "13 full producer commit reachable",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "13 one actual numerical platform",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "14 actual notebook language metadata",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "14 all code cells executed without errors",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "14 published artifact reachable",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "14 execution commit matches inventory",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "14 full producer commit reachable",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "14 one actual numerical platform",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "15 actual notebook language metadata",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "15 all code cells executed without errors",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "15 published artifact reachable",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "15 execution commit matches inventory",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "15 full producer commit reachable",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "15 one actual numerical platform",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "16 actual notebook language metadata",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "16 all code cells executed without errors",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "16 published artifact reachable",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "16 execution commit matches inventory",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "16 full producer commit reachable",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "16 one actual numerical platform",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "17 actual notebook language metadata",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "17 all code cells executed without errors",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "17 published artifact reachable",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "17 execution commit matches inventory",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "17 full producer commit reachable",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "17 one actual numerical platform",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "18 actual notebook language metadata",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "18 all code cells executed without errors",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "18 published artifact reachable",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "18 execution commit matches inventory",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "18 full producer commit reachable",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "18 one actual numerical platform",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "19 actual notebook language metadata",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "19 all code cells executed without errors",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "19 published artifact reachable",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "19 execution commit matches inventory",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "19 full producer commit reachable",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "19 one actual numerical platform",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "20 actual notebook language metadata",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "20 all code cells executed without errors",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "20 published artifact reachable",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "20 execution commit matches inventory",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "20 full producer commit reachable",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "20 one actual numerical platform",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "22 actual notebook language metadata",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "22 all code cells executed without errors",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "22 published artifact reachable",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "22 execution commit matches inventory",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "22 full producer commit reachable",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "22 one actual numerical platform",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "23 actual notebook language metadata",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "23 all code cells executed without errors",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "23 published artifact reachable",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "23 execution commit matches inventory",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "23 full producer commit reachable",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "23 one actual numerical platform",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "24 actual notebook language metadata",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "24 all code cells executed without errors",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "24 published artifact reachable",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "24 execution commit matches inventory",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "24 full producer commit reachable",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "24 one actual numerical platform",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "25 actual notebook language metadata",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "25 all code cells executed without errors",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "25 published artifact reachable",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "25 execution commit matches inventory",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "25 full producer commit reachable",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "25 one actual numerical platform",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "99 actual notebook language metadata",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "99 all code cells executed without errors",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "99 published artifact reachable",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "99 execution commit matches inventory",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "99 full producer commit reachable",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "99 one actual numerical platform",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "all source dependency provenance",
+      "passed": true,
+      "detail": "[{\"notebook\":\"00_data_pipeline\",\"commit\":\"a8f8d8e\",\"dependencies_unchanged\":true},{\"notebook\":\"01_ablation_gini\",\"commit\":\"666e247\",\"dependencies_unchanged\":true},{\"notebook\":\"02_hyperparameter_search\",\"commit\":\"60838d8\",\"dependencies_unchanged\":true},{\"notebook\":\"03_xgboost_sybil\",\"commit\":\"f6caa9c\",\"dependencies_unchanged\":true},{\"notebook\":\"04_lightgbm_sybil\",\"commit\":\"e3cc058\",\"dependencies_unchanged\":true},{\"notebook\":\"05_logistic_regression_sybil\",\"commit\":\"a2a4a69\",\"dependencies_unchanged\":true},{\"notebook\":\"06_cross_ensemble_sybil\",\"commit\":\"cb17cb9\",\"dependencies_unchanged\":true},{\"notebook\":\"07_sensitivity_label_vintage\",\"commit\":\"5f70994\",\"dependencies_unchanged\":true},{\"notebook\":\"08_ablation_families\",\"commit\":\"1c6f5ff\",\"dependencies_unchanged\":true},{\"notebook\":\"09_shap_importance\",\"commit\":\"e5885b4\",\"dependencies_unchanged\":true},{\"notebook\":\"11_split_comparison\",\"commit\":\"7f9e8fe\",\"dependencies_unchanged\":true},{\"notebook\":\"12_figures\",\"commit\":\"7f50b5b\",\"dependencies_unchanged\":true},{\"notebook\":\"13_random_forest_sybil\",\"commit\":\"3d1774c\",\"dependencies_unchanged\":true},{\"notebook\":\"14_entity_level_recall\",\"commit\":\"81edf15\",\"dependencies_unchanged\":true},{\"notebook\":\"15_split_tree_report\",\"commit\":\"8e6a32e\",\"dependencies_unchanged\":true},{\"notebook\":\"16_label_robustness_initial_list\",\"commit\":\"0e923a7\",\"dependencies_unchanged\":true},{\"notebook\":\"17_models_10_splits\",\"commit\":\"a578dd3\",\"dependencies_unchanged\":true},{\"notebook\":\"18_mimicry_stress\",\"commit\":\"5da7f51\",\"dependencies_unchanged\":true},{\"notebook\":\"19_ablation_by_category\",\"commit\":\"4fbf487\",\"dependencies_unchanged\":true},{\"notebook\":\"20_temporal_holdout\",\"commit\":\"e0c0016\",\"dependencies_unchanged\":true},{\"notebook\":\"22_report_dependence\",\"commit\":\"1f362bb\",\"dependencies_unchanged\":true},{\"notebook\":\"23_revision_figures\",\"commit\":\"fed2feb\",\"dependencies_unchanged\":true},{\"notebook\":\"24_mimicry_controls\",\"commit\":\"6feb694\",\"dependencies_unchanged\":true},{\"notebook\":\"25_paper_tables\",\"commit\":\"443f11b\",\"dependencies_unchanged\":true},{\"notebook\":\"99_tie_out_revision\",\"commit\":\"67a14e0\",\"dependencies_unchanged\":true}]"
+    },
+    {
+      "check": "12 publication follows current source 00",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "12 publication follows current source 02",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "12 publication follows current source 03",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "12 publication follows current source 04",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "12 publication follows current source 05",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "12 publication follows current source 06",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "24 publication follows current source 02",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "24 publication follows current source 09",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "24 publication follows current source 18",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "23 publication follows current source 03",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "23 publication follows current source 04",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "23 publication follows current source 06",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "23 publication follows current source 09",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "23 publication follows current source 11",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "23 publication follows current source 16",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "23 publication follows current source 17",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "23 publication follows current source 18",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "23 publication follows current source 22",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "25 publication follows current source 00",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "25 publication follows current source 02",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "25 publication follows current source 07",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "25 publication follows current source 08",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "25 publication follows current source 11",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "25 publication follows current source 13",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "25 publication follows current source 14",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "25 publication follows current source 15",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "25 publication follows current source 16",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "25 publication follows current source 17",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "25 publication follows current source 19",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "25 publication follows current source 20",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "25 publication follows current source 22",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "25 publication follows current source 03",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "25 publication follows current source 04",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "25 publication follows current source 06",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "final99 all checks passed",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "14 predictions match",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "13 paired LightGBM baseline matches08",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "17 baseline matches08",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "19 baseline matches08",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "17 ten matching Random Forest comparisons",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "17 Random Forest threshold/F1 and publication rounding match13 split 42",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "17 Random Forest threshold/F1 and publication rounding match13 split 1",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "17 Random Forest threshold/F1 and publication rounding match13 split 2",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "17 Random Forest threshold/F1 and publication rounding match13 split 3",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "17 Random Forest threshold/F1 and publication rounding match13 split 4",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "17 Random Forest threshold/F1 and publication rounding match13 split 5",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "17 Random Forest threshold/F1 and publication rounding match13 split 6",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "17 Random Forest threshold/F1 and publication rounding match13 split 7",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "17 Random Forest threshold/F1 and publication rounding match13 split 8",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "17 Random Forest threshold/F1 and publication rounding match13 split 9",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "06 validation-selected blend weight",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "02 xgboost complete grid",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "02 xgboost validation winner",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "02 lightgbm complete grid",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "02 lightgbm validation winner",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "13 complete predefined grid",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "13 validation winner",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "08 all configurations and split seeds",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "08 feature count All features",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "08 summary All features val_f1 mean",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "08 summary All features val_f1 std",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "08 summary All features test_f1 mean",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "08 summary All features test_f1 std",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "08 summary All features test_ap mean",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "08 summary All features test_ap std",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "08 summary All features test_auroc mean",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "08 summary All features test_auroc std",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "08 feature count Without LayerZero transactions",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "08 summary Without LayerZero transactions val_f1 mean",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "08 summary Without LayerZero transactions val_f1 std",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "08 summary Without LayerZero transactions test_f1 mean",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "08 summary Without LayerZero transactions test_f1 std",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "08 summary Without LayerZero transactions test_ap mean",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "08 summary Without LayerZero transactions test_ap std",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "08 summary Without LayerZero transactions test_auroc mean",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "08 summary Without LayerZero transactions test_auroc std",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "08 feature count Without Ethereum transactions",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "08 summary Without Ethereum transactions val_f1 mean",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "08 summary Without Ethereum transactions val_f1 std",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "08 summary Without Ethereum transactions test_f1 mean",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "08 summary Without Ethereum transactions test_f1 std",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "08 summary Without Ethereum transactions test_ap mean",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "08 summary Without Ethereum transactions test_ap std",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "08 summary Without Ethereum transactions test_auroc mean",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "08 summary Without Ethereum transactions test_auroc std",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "08 feature count Without Gas provider",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "08 summary Without Gas provider val_f1 mean",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "08 summary Without Gas provider val_f1 std",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "08 summary Without Gas provider test_f1 mean",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "08 summary Without Gas provider test_f1 std",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "08 summary Without Gas provider test_ap mean",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "08 summary Without Gas provider test_ap std",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "08 summary Without Gas provider test_auroc mean",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "08 summary Without Gas provider test_auroc std",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "08 feature count Without Gas provision tree",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "08 summary Without Gas provision tree val_f1 mean",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "08 summary Without Gas provision tree val_f1 std",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "08 summary Without Gas provision tree test_f1 mean",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "08 summary Without Gas provision tree test_f1 std",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "08 summary Without Gas provision tree test_ap mean",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "08 summary Without Gas provision tree test_ap std",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "08 summary Without Gas provision tree test_auroc mean",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "08 summary Without Gas provision tree test_auroc std",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "08 feature count Without Provision chain",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "08 summary Without Provision chain val_f1 mean",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "08 summary Without Provision chain val_f1 std",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "08 summary Without Provision chain test_f1 mean",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "08 summary Without Provision chain test_f1 std",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "08 summary Without Provision chain test_ap mean",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "08 summary Without Provision chain test_ap std",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "08 summary Without Provision chain test_auroc mean",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "08 summary Without Provision chain test_auroc std",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "08 feature count LayerZero transactions only",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "08 summary LayerZero transactions only val_f1 mean",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "08 summary LayerZero transactions only val_f1 std",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "08 summary LayerZero transactions only test_f1 mean",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "08 summary LayerZero transactions only test_f1 std",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "08 summary LayerZero transactions only test_ap mean",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "08 summary LayerZero transactions only test_ap std",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "08 summary LayerZero transactions only test_auroc mean",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "08 summary LayerZero transactions only test_auroc std",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "08 feature count Ethereum transactions only",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "08 summary Ethereum transactions only val_f1 mean",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "08 summary Ethereum transactions only val_f1 std",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "08 summary Ethereum transactions only test_f1 mean",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "08 summary Ethereum transactions only test_f1 std",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "08 summary Ethereum transactions only test_ap mean",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "08 summary Ethereum transactions only test_ap std",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "08 summary Ethereum transactions only test_auroc mean",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "08 summary Ethereum transactions only test_auroc std",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "08 feature count Gas provider only",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "08 summary Gas provider only val_f1 mean",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "08 summary Gas provider only val_f1 std",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "08 summary Gas provider only test_f1 mean",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "08 summary Gas provider only test_f1 std",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "08 summary Gas provider only test_ap mean",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "08 summary Gas provider only test_ap std",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "08 summary Gas provider only test_auroc mean",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "08 summary Gas provider only test_auroc std",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "08 feature count Gas provision tree only",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "08 summary Gas provision tree only val_f1 mean",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "08 summary Gas provision tree only val_f1 std",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "08 summary Gas provision tree only test_f1 mean",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "08 summary Gas provision tree only test_f1 std",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "08 summary Gas provision tree only test_ap mean",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "08 summary Gas provision tree only test_ap std",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "08 summary Gas provision tree only test_auroc mean",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "08 summary Gas provision tree only test_auroc std",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "08 feature count Provision chain only",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "08 summary Provision chain only val_f1 mean",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "08 summary Provision chain only val_f1 std",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "08 summary Provision chain only test_f1 mean",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "08 summary Provision chain only test_f1 std",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "08 summary Provision chain only test_ap mean",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "08 summary Provision chain only test_ap std",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "08 summary Provision chain only test_auroc mean",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "08 summary Provision chain only test_auroc std",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "08 feature count Without all provision-network families",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "08 summary Without all provision-network families val_f1 mean",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "08 summary Without all provision-network families val_f1 std",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "08 summary Without all provision-network families test_f1 mean",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "08 summary Without all provision-network families test_f1 std",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "08 summary Without all provision-network families test_ap mean",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "08 summary Without all provision-network families test_ap std",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "08 summary Without all provision-network families test_auroc mean",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "08 summary Without all provision-network families test_auroc std",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "03 unique disjoint prediction partitions",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "03 validation threshold",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "03 prediction metric tie-out",
+      "passed": true,
+      "detail": "{\"precision\": 0.7195612431444242, \"recall\": 0.7204832509610104, \"f1\": 0.720021951888777, \"ap\": 0.7644976151086569, \"auroc\": 0.9657430407006814}"
+    },
+    {
+      "check": "04 unique disjoint prediction partitions",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "04 validation threshold",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "04 prediction metric tie-out",
+      "passed": true,
+      "detail": "{\"precision\": 0.7267115600448933, \"recall\": 0.7111477210323998, \"f1\": 0.7188454066056065, \"ap\": 0.7695927941671368, \"auroc\": 0.9682758108601609}"
+    },
+    {
+      "check": "05 unique disjoint prediction partitions",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "05 validation threshold",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "05 prediction metric tie-out",
+      "passed": true,
+      "detail": "{\"precision\": 0.1499132292083834, \"recall\": 0.6166941241076331, \"f1\": 0.24119415807560138, \"ap\": 0.16564483763713758, \"auroc\": 0.8368401529081448}"
+    },
+    {
+      "check": "06 unique disjoint prediction partitions",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "06 validation threshold",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "06 prediction metric tie-out",
+      "passed": true,
+      "detail": "{\"precision\": 0.6970639032815199, \"recall\": 0.738788211605345, \"f1\": 0.7173198258242246, \"ap\": 0.7698852314328927, \"auroc\": 0.9683298709286132}"
+    },
+    {
+      "check": "13 unique disjoint prediction partitions",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "13 validation threshold",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "13 prediction metric tie-out",
+      "passed": true,
+      "detail": "{\"precision\": 0.7077592458303118, \"recall\": 0.7146256635548234, \"f1\": 0.7111758812277985, \"ap\": 0.7678966456040959, \"auroc\": 0.9706769652298142}"
+    },
+    {
+      "check": "06 blend labels and addresses agree",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "06 saved blend equals components",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "06 full-precision validation blend sweep 0.0",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "06 full-precision validation blend sweep 0.02",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "06 full-precision validation blend sweep 0.04",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "06 full-precision validation blend sweep 0.06",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "06 full-precision validation blend sweep 0.08",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "06 full-precision validation blend sweep 0.1",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "06 full-precision validation blend sweep 0.12",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "06 full-precision validation blend sweep 0.14",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "06 full-precision validation blend sweep 0.16",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "06 full-precision validation blend sweep 0.18",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "06 full-precision validation blend sweep 0.2",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "06 full-precision validation blend sweep 0.22",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "06 full-precision validation blend sweep 0.24",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "06 full-precision validation blend sweep 0.26",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "06 full-precision validation blend sweep 0.28",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "06 full-precision validation blend sweep 0.3",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "06 full-precision validation blend sweep 0.32",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "06 full-precision validation blend sweep 0.34",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "06 full-precision validation blend sweep 0.36",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "06 full-precision validation blend sweep 0.38",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "06 full-precision validation blend sweep 0.4",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "06 full-precision validation blend sweep 0.42",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "06 full-precision validation blend sweep 0.44",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "06 full-precision validation blend sweep 0.46",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "06 full-precision validation blend sweep 0.48",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "06 full-precision validation blend sweep 0.5",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "06 full-precision validation blend sweep 0.52",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "06 full-precision validation blend sweep 0.54",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "06 full-precision validation blend sweep 0.56",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "06 full-precision validation blend sweep 0.58",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "06 full-precision validation blend sweep 0.6",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "06 full-precision validation blend sweep 0.62",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "06 full-precision validation blend sweep 0.64",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "06 full-precision validation blend sweep 0.66",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "06 full-precision validation blend sweep 0.68",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "06 full-precision validation blend sweep 0.7",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "06 full-precision validation blend sweep 0.72",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "06 full-precision validation blend sweep 0.74",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "06 full-precision validation blend sweep 0.76",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "06 full-precision validation blend sweep 0.78",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "06 full-precision validation blend sweep 0.8",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "06 full-precision validation blend sweep 0.82",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "06 full-precision validation blend sweep 0.84",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "06 full-precision validation blend sweep 0.86",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "06 full-precision validation blend sweep 0.88",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "06 full-precision validation blend sweep 0.9",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "06 full-precision validation blend sweep 0.92",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "06 full-precision validation blend sweep 0.94",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "06 full-precision validation blend sweep 0.96",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "06 full-precision validation blend sweep 0.98",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "06 full-precision validation blend sweep 1.0",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "23 actual pdflatex compile",
+      "passed": true,
+      "detail": "pdflatex: all tables compile"
+    },
+    {
+      "check": "24 actual pdflatex compile",
+      "passed": true,
+      "detail": "pdflatex: tables compile"
+    },
+    {
+      "check": "25 actual pdflatex compile",
+      "passed": true,
+      "detail": "pdflatex: all tables compile"
+    },
+    {
+      "check": "22 all15 paired arms",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "22 paired train_unique tolerance",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "22 paired train_sybils tolerance",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "asset figures/rev_leakage_hierarchy.pdf",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "asset figures/rev_leakage_hierarchy.png",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "asset figures/rev_report_dependence.pdf",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "asset figures/rev_report_dependence.png",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "asset figures/rev_label_effects.pdf",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "asset figures/rev_label_effects.png",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "asset figures/rev_mimicry.pdf",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "asset figures/rev_mimicry.png",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "asset figures/rev_shap_by_category.pdf",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "asset figures/rev_shap_by_category.png",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "asset tables/rev_models_10split.tex",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "asset tables/rev_ensemble_appendix.tex",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "asset tables/rev_ensemble_weight_stats.json",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "asset tables/rev_report_dependence.tex",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "asset tables/rev_label_robustness.tex",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "asset tables/rev_operating_points.tex",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "asset tables/rev_mimicry.tex",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "asset figures/rev_mimicry_controls.pdf",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "asset figures/rev_mimicry_controls.png",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "asset tables/rev_mimicry_controls.tex",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "asset tables/rev_single_feature_sensitivity.tex",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "asset tables/rev_data_labels.tex",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "asset tables/rev_taxonomy.tex",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "asset tables/rev_levels.tex",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "asset tables/rev_per_category.tex",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "asset tables/rev_family_ablation.tex",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "asset tables/rev_provision_ablation_by_category.tex",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "asset tables/rev_entity_level.tex",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "asset tables/rev_temporal_holdout.tex",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "asset tables/rev_union_split_appendix.tex",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "asset tables/rev_search_top.tex",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "asset tables/rev_text_numbers.json",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "12 figure chain_length.png",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "12 figure gp_0x0f.png",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "12 figure gp_0x92.png",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "12 figure gp_0x47.png",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "12 figure non_interacting_dist_from_root.png",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "12 figure PRandROC.png",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "12 figure top_20_feature_importance.png",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "12 figure lgbm_xgb_comparison.png",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "12 figure learning_curve.png",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "23 source artifact results/11_split_comparison.json",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "23 source artifact results/22_report_dependence.json",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "23 source artifact results/22_report_dependence.json",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "23 source artifact results/16_label_robustness_initial_list.json",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "23 source artifact results/18_mimicry_stress.json",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "23 source artifact results/09_shap_importance.json",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "23 source artifact results/17_models_10_splits.json",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "23 source artifact results/17_models_10_splits.json",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "23 source artifact results/17_models_10_splits.json",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "23 source artifact results/06_cross_ensemble_sybil.json",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "23 source artifact results/22_report_dependence.json",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "23 source artifact results/16_label_robustness_initial_list.json",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "23 source artifact results/16_label_robustness_initial_list.json",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "23 source artifact results/18_mimicry_stress.json",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "25 source artifact results/00_data_pipeline.json",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "25 source artifact results/16_label_robustness_initial_list.json",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "25 source artifact results/00_data_pipeline.json",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "25 source artifact results/15_split_tree_report.json",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "25 source artifact results/22_report_dependence.json",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "25 source artifact results/17_models_10_splits.json",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "25 source artifact results/08_ablation_families.json",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "25 source artifact results/19_ablation_by_category.json",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "25 source artifact results/14_entity_level_recall.json",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "25 source artifact results/20_temporal_holdout.json",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "25 source artifact results/15_split_tree_report.json",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "25 source artifact results/02_hyperparameter_search.json",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "25 source artifact results/13_random_forest_sybil.json",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "15 main union feasibility criteria preserved",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "15 infeasible reporter variant recorded without training",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "LFS data/20240915_final_sybil_list/fcfs_list.csv",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "LFS data/20241013_hildobby_cex_evms/All_Known_EVM_CEX_Addresses.2024-10-13.csv",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "LFS data/20241104_layer0_sybil_features/l0_features_0_100000.csv",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "LFS data/20241104_layer0_sybil_features/l0_features_100000_200000.csv",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "LFS data/20241104_layer0_sybil_features/l0_features_200000_300000.csv",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "LFS data/20241104_layer0_sybil_features/l0_features_300000_400000.csv",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "LFS data/20241104_layer0_sybil_features/l0_features_400000_500000.csv",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "LFS data/20241114_gas_provision/20241114_1633_layer0_provision_network_000000000000.csv",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "LFS data/20241114_gas_provision/archive/20241114_layerzero_provisions_000000000000.csv",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "LFS data/20241117_tree_features/20241117_graph_and_tree_features.csv",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "LFS data/20241214_labeled_addresses/20241214_labeled_addresses.csv",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "LFS data/20241214_labeled_addresses/20241214_labeled_addresses_part_0.csv",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "LFS data/20241214_labeled_addresses/20241214_labeled_addresses_part_1.csv",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "LFS data/20241214_labeled_addresses/20241214_labeled_addresses_part_10.csv",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "LFS data/20241214_labeled_addresses/20241214_labeled_addresses_part_11.csv",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "LFS data/20241214_labeled_addresses/20241214_labeled_addresses_part_12.csv",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "LFS data/20241214_labeled_addresses/20241214_labeled_addresses_part_13.csv",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "LFS data/20241214_labeled_addresses/20241214_labeled_addresses_part_14.csv",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "LFS data/20241214_labeled_addresses/20241214_labeled_addresses_part_15.csv",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "LFS data/20241214_labeled_addresses/20241214_labeled_addresses_part_16.csv",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "LFS data/20241214_labeled_addresses/20241214_labeled_addresses_part_17.csv",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "LFS data/20241214_labeled_addresses/20241214_labeled_addresses_part_18.csv",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "LFS data/20241214_labeled_addresses/20241214_labeled_addresses_part_2.csv",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "LFS data/20241214_labeled_addresses/20241214_labeled_addresses_part_3.csv",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "LFS data/20241214_labeled_addresses/20241214_labeled_addresses_part_4.csv",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "LFS data/20241214_labeled_addresses/20241214_labeled_addresses_part_5.csv",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "LFS data/20241214_labeled_addresses/20241214_labeled_addresses_part_6.csv",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "LFS data/20241214_labeled_addresses/20241214_labeled_addresses_part_7.csv",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "LFS data/20241214_labeled_addresses/20241214_labeled_addresses_part_8.csv",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "LFS data/20241214_labeled_addresses/20241214_labeled_addresses_part_9.csv",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "LFS data/20241214_labeled_addresses/additional_addresses.csv",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "LFS data/20250208_cex_dex_indegree/cex_dex_features_in_0.csv",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "LFS data/20250208_cex_dex_indegree/cex_dex_features_in_100000.csv",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "LFS data/20250208_cex_dex_indegree/cex_dex_features_in_200000.csv",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "LFS data/20250208_cex_dex_indegree/cex_dex_features_in_300000.csv",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "LFS data/20250208_cex_dex_indegree/cex_dex_features_in_400000.csv",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "LFS review_support/initial_list/initial_list.csv",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "restored intermediate identity output/master_df.parquet",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "restored intermediate identity output/splits.npz",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "restored intermediate identity output/feature_list.json",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "all113 pinned packages",
+      "passed": true,
+      "detail": ""
+    }
+  ],
+  "feasibility_diagnostics": {
+    "notebook15_reporter_variant_passed": false,
+    "failed_checks": [
+      "Train Sybil rate within 0.3 pp of 4.19%",
+      "Validation Sybil rate within 0.3 pp of 4.19%",
+      "Test Sybil rate within 0.3 pp of 4.19%"
+    ],
+    "maximum_component_sybils": 10071,
+    "maximum_component_sybil_share": 0.553017407061666,
+    "reason": "One whole component contains10071 Sybils, exceeding every partition\u2019s joint size/class-rate bounds; guarded variant is not trained. The main union variant passes, retaining its large-component warning."
+  }
+}

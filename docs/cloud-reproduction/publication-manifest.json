@@ -1,0 +1,289 @@
+[
+  {
+    "path": "figures/PRandROC.png",
+    "sha256": "c0f04254e01cb027e7ab9de64e5c09f2e8d0f69e695d8d7d83ac015c705042e4",
+    "bytes": 233933,
+    "producer_notebook": 12,
+    "execution_commit": "7f50b5b509b9215124c0085a90b058fcc8473195"
+  },
+  {
+    "path": "figures/chain_length.png",
+    "sha256": "cfd7b8e78c31b5f31ef937ee2033a6d1329bdeb8124fc30262f0de6f314a9f5f",
+    "bytes": 81155,
+    "producer_notebook": 12,
+    "execution_commit": "7f50b5b509b9215124c0085a90b058fcc8473195"
+  },
+  {
+    "path": "figures/gp_0x0f.png",
+    "sha256": "8ed3c1bca8623d0efdd48b570ae261ab369a31f90c69a7c7b9982f3a019caf03",
+    "bytes": 83661,
+    "producer_notebook": 12,
+    "execution_commit": "7f50b5b509b9215124c0085a90b058fcc8473195"
+  },
+  {
+    "path": "figures/gp_0x47.png",
+    "sha256": "c8c2a0b9f2e852e559e785637146a698812716277c46176af7c47ada0711f84b",
+    "bytes": 97914,
+    "producer_notebook": 12,
+    "execution_commit": "7f50b5b509b9215124c0085a90b058fcc8473195"
+  },
+  {
+    "path": "figures/gp_0x92.png",
+    "sha256": "3c11215c3136e84048998120e7736dac16cadb8189f673f8ca427dd76a9d441f",
+    "bytes": 96879,
+    "producer_notebook": 12,
+    "execution_commit": "7f50b5b509b9215124c0085a90b058fcc8473195"
+  },
+  {
+    "path": "figures/learning_curve.png",
+    "sha256": "a0c59f5947cf3d70ac3d622da77d0a3a1a3af6765382102670dbe179456d17fe",
+    "bytes": 72537,
+    "producer_notebook": 12,
+    "execution_commit": "7f50b5b509b9215124c0085a90b058fcc8473195"
+  },
+  {
+    "path": "figures/lgbm_xgb_comparison.png",
+    "sha256": "8439c9887f76381986a5ae7031f93f3d9d4c46863f1e2517b3cf9044e654f467",
+    "bytes": 253570,
+    "producer_notebook": 12,
+    "execution_commit": "7f50b5b509b9215124c0085a90b058fcc8473195"
+  },
+  {
+    "path": "figures/non_interacting_dist_from_root.png",
+    "sha256": "455d4748dc62dbe652ad82101a7768da084fe4fb482c04ffd3066fa3df78e094",
+    "bytes": 57270,
+    "producer_notebook": 12,
+    "execution_commit": "7f50b5b509b9215124c0085a90b058fcc8473195"
+  },
+  {
+    "path": "figures/rev_label_effects.pdf",
+    "sha256": "a2962a2250c44247e576c3a94bf6ee2d897888d8646b432db9063eb9455cee85",
+    "bytes": 23018,
+    "producer_notebook": 23,
+    "execution_commit": "fed2febf5d060383c575b0b56c84cf8dc6a6d3e3"
+  },
+  {
+    "path": "figures/rev_label_effects.png",
+    "sha256": "d89c9abd9fd30787ccc827f4d10df0811b56aeadc2e6383c50e0a4d52a54026a",
+    "bytes": 107027,
+    "producer_notebook": 23,
+    "execution_commit": "fed2febf5d060383c575b0b56c84cf8dc6a6d3e3"
+  },
+  {
+    "path": "figures/rev_leakage_hierarchy.pdf",
+    "sha256": "36ce30cdf5e25a335497f13283581b1305ae08ca9eb576510df0fb3ac77956cf",
+    "bytes": 29649,
+    "producer_notebook": 23,
+    "execution_commit": "fed2febf5d060383c575b0b56c84cf8dc6a6d3e3"
+  },
+  {
+    "path": "figures/rev_leakage_hierarchy.png",
+    "sha256": "3f6707213cc3124ea4f78494d8cbe22721f453e3332121a3ec69c6a4a4096904",
+    "bytes": 144939,
+    "producer_notebook": 23,
+    "execution_commit": "fed2febf5d060383c575b0b56c84cf8dc6a6d3e3"
+  },
+  {
+    "path": "figures/rev_mimicry.pdf",
+    "sha256": "9fa68f202ca2adce024222022a4b2fb44133385485466aab75b3ce64a13aba83",
+    "bytes": 20909,
+    "producer_notebook": 23,
+    "execution_commit": "fed2febf5d060383c575b0b56c84cf8dc6a6d3e3"
+  },
+  {
+    "path": "figures/rev_mimicry.png",
+    "sha256": "2583ad633be80ef28c9ead964edd54e3e259de7a8f1418d6ba453237fce367e3",
+    "bytes": 91322,
+    "producer_notebook": 23,
+    "execution_commit": "fed2febf5d060383c575b0b56c84cf8dc6a6d3e3"
+  },
+  {
+    "path": "figures/rev_mimicry_controls.pdf",
+    "sha256": "27b81214f49dc2f5694ad8e3f203d6e85dcac07ef68cec907bfe5e401dc72998",
+    "bytes": 51742,
+    "producer_notebook": 24,
+    "execution_commit": "6feb6942602ab7cb79edf579d063bb339547a4ac"
+  },
+  {
+    "path": "figures/rev_mimicry_controls.png",
+    "sha256": "c38879f7a97988ff4429607c301f98564f45ca51670b44cd5355a40706edf4f8",
+    "bytes": 193503,
+    "producer_notebook": 24,
+    "execution_commit": "6feb6942602ab7cb79edf579d063bb339547a4ac"
+  },
+  {
+    "path": "figures/rev_report_dependence.pdf",
+    "sha256": "4efc9e350ddd900e140f5b578f4c8bf5a40d69d6ec5331d6456c668e1b079b27",
+    "bytes": 25472,
+    "producer_notebook": 23,
+    "execution_commit": "fed2febf5d060383c575b0b56c84cf8dc6a6d3e3"
+  },
+  {
+    "path": "figures/rev_report_dependence.png",
+    "sha256": "a39ff6f9cba1705cf2698c137183644bf7738fed152ad86a693ce40076ae9955",
+    "bytes": 141512,
+    "producer_notebook": 23,
+    "execution_commit": "fed2febf5d060383c575b0b56c84cf8dc6a6d3e3"
+  },
+  {
+    "path": "figures/rev_shap_by_category.pdf",
+    "sha256": "09146f28ead68cb4011c5dce12269e7de719173e904f5e9adaffc8fdbd21bd72",
+    "bytes": 20906,
+    "producer_notebook": 23,
+    "execution_commit": "fed2febf5d060383c575b0b56c84cf8dc6a6d3e3"
+  },
+  {
+    "path": "figures/rev_shap_by_category.png",
+    "sha256": "8008e18e3afa335d6c72bbec747d1819e4e0b4c3754898c8237261c7f3e39244",
+    "bytes": 203500,
+    "producer_notebook": 23,
+    "execution_commit": "fed2febf5d060383c575b0b56c84cf8dc6a6d3e3"
+  },
+  {
+    "path": "figures/top_20_feature_importance.png",
+    "sha256": "0d62a24b2f24d79ff8b20dd6fc467a1ed98af90f2d211f33bf1d3b0e8f37792b",
+    "bytes": 155867,
+    "producer_notebook": 12,
+    "execution_commit": "7f50b5b509b9215124c0085a90b058fcc8473195"
+  },
+  {
+    "path": "tables/rev_data_labels.tex",
+    "sha256": "40637360d8344a83009ee74475688fd377afdcb0e3f4ded5437ee54091b90ef0",
+    "bytes": 926,
+    "producer_notebook": 25,
+    "execution_commit": "443f11b0bec2468fa086e57a6f8e7609e92b262f"
+  },
+  {
+    "path": "tables/rev_ensemble_appendix.tex",
+    "sha256": "d84ddcb1228375350cc36684c34fe234c0ca07fa5c0fe2235875df65ba70a8ab",
+    "bytes": 873,
+    "producer_notebook": 23,
+    "execution_commit": "fed2febf5d060383c575b0b56c84cf8dc6a6d3e3"
+  },
+  {
+    "path": "tables/rev_ensemble_weight_stats.json",
+    "sha256": "f54cddc5cf2bd0907e947421347bbfec6c9564cd030f9cf1d1e01527c668e90a",
+    "bytes": 755,
+    "producer_notebook": 23,
+    "execution_commit": "fed2febf5d060383c575b0b56c84cf8dc6a6d3e3"
+  },
+  {
+    "path": "tables/rev_entity_level.tex",
+    "sha256": "f5eb9610d7c26924c61b280f545a2e332fa99777d4e78de978d556d38aef645f",
+    "bytes": 1073,
+    "producer_notebook": 25,
+    "execution_commit": "443f11b0bec2468fa086e57a6f8e7609e92b262f"
+  },
+  {
+    "path": "tables/rev_family_ablation.tex",
+    "sha256": "b83eae383de85c0906eac168f1c18aeb27b371060f6abac16d32be4adf9afa53",
+    "bytes": 1219,
+    "producer_notebook": 25,
+    "execution_commit": "443f11b0bec2468fa086e57a6f8e7609e92b262f"
+  },
+  {
+    "path": "tables/rev_label_robustness.tex",
+    "sha256": "89039a79329b3e2671777a273141c1800a03797e5d26a679faaed5c368db2067",
+    "bytes": 1352,
+    "producer_notebook": 23,
+    "execution_commit": "fed2febf5d060383c575b0b56c84cf8dc6a6d3e3"
+  },
+  {
+    "path": "tables/rev_levels.tex",
+    "sha256": "0665acf96f119db89a8f7e733fed3e96e4da0edd2c9b767b26ddb09efbe07b5e",
+    "bytes": 886,
+    "producer_notebook": 25,
+    "execution_commit": "443f11b0bec2468fa086e57a6f8e7609e92b262f"
+  },
+  {
+    "path": "tables/rev_mimicry.tex",
+    "sha256": "85044ca438a57c08b7bae9d150d120d978f88edb3da45d5fd4973a244f2417c7",
+    "bytes": 1135,
+    "producer_notebook": 23,
+    "execution_commit": "fed2febf5d060383c575b0b56c84cf8dc6a6d3e3"
+  },
+  {
+    "path": "tables/rev_mimicry_controls.tex",
+    "sha256": "abecc79cd2bb07a3791863885c03c8c94aeaa913263227757bcb6bb691c6beb6",
+    "bytes": 1960,
+    "producer_notebook": 24,
+    "execution_commit": "6feb6942602ab7cb79edf579d063bb339547a4ac"
+  },
+  {
+    "path": "tables/rev_models_10split.tex",
+    "sha256": "b268d46218d85707f172b78ac03b3f820636ef2bcf93a3d38920b6cf679d77e0",
+    "bytes": 996,
+    "producer_notebook": 23,
+    "execution_commit": "fed2febf5d060383c575b0b56c84cf8dc6a6d3e3"
+  },
+  {
+    "path": "tables/rev_operating_points.tex",
+    "sha256": "a56037f991076111e6a9eca01497cf27beaa34bcb223b3f4780e7a9cee94b1da",
+    "bytes": 796,
+    "producer_notebook": 23,
+    "execution_commit": "fed2febf5d060383c575b0b56c84cf8dc6a6d3e3"
+  },
+  {
+    "path": "tables/rev_per_category.tex",
+    "sha256": "41de25043e6d3c14a5e3c682e5a5802c98fab320e2832be813b3332e49cc761d",
+    "bytes": 1240,
+    "producer_notebook": 25,
+    "execution_commit": "443f11b0bec2468fa086e57a6f8e7609e92b262f"
+  },
+  {
+    "path": "tables/rev_provision_ablation_by_category.tex",
+    "sha256": "76c322a0125873a6740e4ca415d069e3e8361f84658f507e04fe54b02b0e8d8f",
+    "bytes": 1235,
+    "producer_notebook": 25,
+    "execution_commit": "443f11b0bec2468fa086e57a6f8e7609e92b262f"
+  },
+  {
+    "path": "tables/rev_report_dependence.tex",
+    "sha256": "c43346cd3af2d657635eb2082ac9138e64d41316d8624d896ee1c14714b12d60",
+    "bytes": 966,
+    "producer_notebook": 23,
+    "execution_commit": "fed2febf5d060383c575b0b56c84cf8dc6a6d3e3"
+  },
+  {
+    "path": "tables/rev_search_top.tex",
+    "sha256": "4acdee92453b58a12f4d58a27ceb509eae9afd0d6f2cd6e04690f648b69ab9a1",
+    "bytes": 2558,
+    "producer_notebook": 25,
+    "execution_commit": "443f11b0bec2468fa086e57a6f8e7609e92b262f"
+  },
+  {
+    "path": "tables/rev_single_feature_sensitivity.tex",
+    "sha256": "fe6a40c5cf37ae0f22a00723b709525bbec0b29b31d6fc118d4c831aa6c5a153",
+    "bytes": 1431,
+    "producer_notebook": 24,
+    "execution_commit": "6feb6942602ab7cb79edf579d063bb339547a4ac"
+  },
+  {
+    "path": "tables/rev_taxonomy.tex",
+    "sha256": "9d43c98b4f27952935c235b8478034b135a58f6ad0a3f2a77c3c311d14fa4dc8",
+    "bytes": 552,
+    "producer_notebook": 25,
+    "execution_commit": "443f11b0bec2468fa086e57a6f8e7609e92b262f"
+  },
+  {
+    "path": "tables/rev_temporal_holdout.tex",
+    "sha256": "82758c83cea175f946c5537ee75e3b346c77dcba441d2ae09f03965ad3db000a",
+    "bytes": 939,
+    "producer_notebook": 25,
+    "execution_commit": "443f11b0bec2468fa086e57a6f8e7609e92b262f"
+  },
+  {
+    "path": "tables/rev_text_numbers.json",
+    "sha256": "e734e488782ffd664ec049014b4290c54119f3a8b40136edf4a355513493011c",
+    "bytes": 38878,
+    "producer_notebook": 25,
+    "execution_commit": "443f11b0bec2468fa086e57a6f8e7609e92b262f"
+  },
+  {
+    "path": "tables/rev_union_split_appendix.tex",
+    "sha256": "27e73838960f5f4b48b0381524d79066c3768fe78d7e4a05c80b97c491d3be80",
+    "bytes": 1182,
+    "producer_notebook": 25,
+    "execution_commit": "443f11b0bec2468fa086e57a6f8e7609e92b262f"
+  }
+]

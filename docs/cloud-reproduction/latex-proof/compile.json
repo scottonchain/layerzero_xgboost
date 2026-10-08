@@ -1,0 +1,25 @@
+{
+  "passed": true,
+  "engine": "pdfTeX 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian)",
+  "tables": [
+    "tables/rev_data_labels.tex",
+    "tables/rev_ensemble_appendix.tex",
+    "tables/rev_entity_level.tex",
+    "tables/rev_family_ablation.tex",
+    "tables/rev_label_robustness.tex",
+    "tables/rev_levels.tex",
+    "tables/rev_mimicry.tex",
+    "tables/rev_mimicry_controls.tex",
+    "tables/rev_models_10split.tex",
+    "tables/rev_operating_points.tex",
+    "tables/rev_per_category.tex",
+    "tables/rev_provision_ablation_by_category.tex",
+    "tables/rev_report_dependence.tex",
+    "tables/rev_search_top.tex",
+    "tables/rev_single_feature_sensitivity.tex",
+    "tables/rev_taxonomy.tex",
+    "tables/rev_temporal_holdout.tex",
+    "tables/rev_union_split_appendix.tex"
+  ],
+  "pdf": "docs/cloud-reproduction/latex-proof/cloud-publication-proof.pdf"
+}

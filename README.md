@@ -1,4 +1,4 @@
-> **Cloud reproduction in progress (2026-10-08):** see [run report](docs/cloud-reproduction/REPORT.md). Tables below are historical until refreshed; they are not measurements from the new cloud run.
+> **Cloud reproduction completed (2026-10-08):** all 26 notebooks completed; mandatory tie-outs, consistency checks and generated LaTeX compilation passed; the optional reporter-linked split remains infeasible on the recorded AMD EPYC platform. See [run report](docs/cloud-reproduction/REPORT.md). Historical tables below retain their original labels.
 
 # LayerZero Sybil Detection: ML Pipeline
 
@@ -8,7 +8,19 @@ Trains four classifiers (XGBoost, LightGBM, Random Forest, Logistic Regression) 
 
 ---
 
-## Benchmark results
+## Current cloud benchmark
+
+| Model | Precision | Recall | F1 | AUROC | AP |
+|---|---:|---:|---:|---:|---:|
+| XGBoost (tuned, 3-seed) | 0.720 | 0.720 | 0.720 | 0.966 | 0.764 |
+| LightGBM (tuned, 3-seed) | 0.727 | 0.711 | 0.719 | 0.968 | 0.770 |
+| Cross-Ensemble | 0.697 | 0.739 | 0.717 | 0.968 | 0.770 |
+| Random Forest (tuned, 3-seed) | 0.708 | 0.715 | 0.711 | 0.971 | 0.768 |
+| Logistic Regression (C=0.01, L1) | 0.150 | 0.617 | 0.241 | 0.837 | 0.166 |
+
+Current cloud sources 03–06/13, validation-selected thresholds. Full inventories/comparisons are in the report.
+
+## Historical benchmark results
 
 Stratified group split on gas provision trees (no tree spans train and test). Test partition:
 130,435 addresses, 5,463 Sybil (4.19 %). Hyperparameters, thresholds and the blend weight are chosen
@@ -233,7 +245,7 @@ hyperparameters; they must be rerun whenever `sybil_pipeline.py` changes, or `10
 results that depend on them. `10` checks every result from `00` to `09`; `11` and `12` run after it.
 `13` to `25` answer later reviewer requests and are not checked by `10`; `99_tie_out_revision` checks them
 instead and runs last. `23` reads only `results/` and regenerates the revision's figures and tables in seconds;
-rerun `23`, `25` and then `99` after any rerun of the notebooks they read. They rebuild the feature table themselves, except `14`, which reads the predictions `03`,
+rerun `23`, `24`, `25` and then `99` after any rerun of the notebooks they read. They rebuild the feature table themselves, except `14`, which reads the predictions `03`,
 `04` and `06` saved in `output/`; `17` needs `13`'s result, and `16` reads `review_support/initial_list/`
 (Git LFS).
 
@@ -338,8 +350,7 @@ results, `03` to `12` take about 4.1 hours.
   entity level, temporal holdout, the union split, the searches) and `tables/rev_text_numbers.json`, every scalar the
   text cites with its source; reads only `results/`, the Sybil list and the master table; fits no model.
 - **`99`** (was `21`): provenance of `13`–`25` and the notebooks they depend on, their stored hyperparameters, `14`'s inputs
-  and the platforms; prints every number cited from them. It fails until `14` is rerun on predictions that
-  reproduce the committed `03`, `04` and `06`.
+  and the platforms; prints every number cited from them. It checks that `14` consumes predictions matching the committed `03`, `04` and `06`; this cloud run passes all 85 checks.
 
 ---
 
@@ -375,11 +386,11 @@ Tables from `25_paper_tables.ipynb` (same rules; `results/25_paper_tables.json` 
 | `tables/rev_per_category.tex` | LightGBM and XGBoost per category over 10 splits | `17` |
 | `tables/rev_family_ablation.tex` | Feature families removed, 10 splits | `08` |
 | `tables/rev_provision_ablation_by_category.tex` | Provision-network families removed, per category | `19` |
-| `tables/rev_entity_level.tex` | Entity-level outcomes (marked UNVERIFIED until `14` is rerun) | `14` |
+| `tables/rev_entity_level.tex` | Entity-level outcomes (verified against current cloud predictions) | `14` |
 | `tables/rev_temporal_holdout.tex` | Temporal holdout at 20, 30, 40 % late cohorts | `20` |
 | `tables/rev_union_split_appendix.tex` | The superseded union split (appendix) | `15` |
 | `tables/rev_search_top.tex` | Top configurations of the three searches (appendix) | `02`, `13`, search CSVs |
-| `tables/rev_text_numbers.json` | 199 named scalars for the running text, each with source and platform | as listed in the file |
+| `tables/rev_text_numbers.json` | 207 named scalars for the running text, each with source and platform | as listed in the file |
 
 ## Input data files
 

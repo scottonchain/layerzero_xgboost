@@ -400,3 +400,6 @@ Zenodo steps (for Paven; not done here): (1) sign in to zenodo.org with GitHub a
 **2026-10-08, ChatGPT cloud reproduction.** Notebook 00 completed on the recorded AMD EPYC platform; fresh Gini selection and search proceed. Code from #12 adds 25 and generator refinements. Computed outputs from #12 are excluded and will be regenerated here. Order: 00–20, 22, 23, 24, 25, 99. Notebook 21 is absent because it was renamed to 99. See `docs/cloud-reproduction/REPORT.md`.
 
 **2026-10-08, latest PR12 follow-up code.** Integrated68e8d63 publication display names, explicit seen-arm coverage, paired training-size differences and table/cited-number refinements; internal feature definitions unchanged. Outputs await cloud regeneration.
+
+
+**2026-10-08, completed ChatGPT cloud reproduction.** All 26 notebooks00–20,22–25,99 passed on documented Ubuntu 24.04.3/x86_64/AMD EPYC 9V74/Python 3.12.14.14 matches regenerated predictions;22 partitions and pairing checks passed;12/23/24/25 assets refreshed and LaTeX compiled;99 and independent mandatory audit passed. Notebook15’s optional reporter-linked variant remains infeasible and is stopped before training; the main union split retains its large-component warning. Prior entries remain historical; private manuscript tasks remain open. See [report](cloud-reproduction/REPORT.md).

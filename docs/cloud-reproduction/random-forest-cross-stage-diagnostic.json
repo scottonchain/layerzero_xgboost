@@ -1,0 +1,106 @@
+{
+  "all_full_precision_checks_passed": false,
+  "comparisons": [
+    {
+      "split_seed": 42,
+      "deltas": {
+        "f1": 0.0,
+        "ap": 0.0,
+        "auroc": 0.0,
+        "threshold": 0.0
+      },
+      "full_precision_1e_12_match": true
+    },
+    {
+      "split_seed": 1,
+      "deltas": {
+        "f1": 0.0,
+        "ap": 0.0,
+        "auroc": 0.0,
+        "threshold": 0.0
+      },
+      "full_precision_1e_12_match": true
+    },
+    {
+      "split_seed": 2,
+      "deltas": {
+        "f1": 0.0,
+        "ap": 0.0,
+        "auroc": 0.0,
+        "threshold": 0.0
+      },
+      "full_precision_1e_12_match": true
+    },
+    {
+      "split_seed": 3,
+      "deltas": {
+        "f1": 0.0,
+        "ap": 0.0,
+        "auroc": 0.0,
+        "threshold": 0.0
+      },
+      "full_precision_1e_12_match": true
+    },
+    {
+      "split_seed": 4,
+      "deltas": {
+        "f1": 0.0,
+        "ap": 9.741472961621866e-09,
+        "auroc": 0.0,
+        "threshold": 0.0
+      },
+      "full_precision_1e_12_match": false
+    },
+    {
+      "split_seed": 5,
+      "deltas": {
+        "f1": 0.0,
+        "ap": 0.0,
+        "auroc": 0.0,
+        "threshold": 0.0
+      },
+      "full_precision_1e_12_match": true
+    },
+    {
+      "split_seed": 6,
+      "deltas": {
+        "f1": 0.0,
+        "ap": 0.0,
+        "auroc": 0.0,
+        "threshold": 0.0
+      },
+      "full_precision_1e_12_match": true
+    },
+    {
+      "split_seed": 7,
+      "deltas": {
+        "f1": 0.0,
+        "ap": 0.0,
+        "auroc": 0.0,
+        "threshold": 0.0
+      },
+      "full_precision_1e_12_match": true
+    },
+    {
+      "split_seed": 8,
+      "deltas": {
+        "f1": 0.0,
+        "ap": 0.0,
+        "auroc": 0.0,
+        "threshold": 0.0
+      },
+      "full_precision_1e_12_match": true
+    },
+    {
+      "split_seed": 9,
+      "deltas": {
+        "f1": 0.0,
+        "ap": 0.0,
+        "auroc": 0.0,
+        "threshold": 0.0
+      },
+      "full_precision_1e_12_match": true
+    }
+  ],
+  "interpretation": "Threaded sklearn predict_proba accumulates tree outputs under a lock in thread completion order. The observed tiny AP differences are consistent with floating-point ordering affecting tied ranks; thresholds, F1 and displayed3-decimal publication metrics are checked separately. No notebook assertion is changed."
+}

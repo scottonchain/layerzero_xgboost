@@ -1,0 +1,62 @@
+[
+  {
+    "path": "output/pred_03_xgboost_sybil_val.parquet",
+    "sha256": "cbcf3136f8c8a0f7ce5ac035604e94b9cf7746eca91e35f343a46a7fe9319014",
+    "bytes": 4105101,
+    "execution_commit": "f6caa9c068cba43910b8ffcaf469d5919d70b927"
+  },
+  {
+    "path": "output/pred_03_xgboost_sybil_test.parquet",
+    "sha256": "3cf07ea7be631f70a2d4288f7a5fe332b84d4aa8e52c25745c92413b91ecd1b9",
+    "bytes": 5833809,
+    "execution_commit": "f6caa9c068cba43910b8ffcaf469d5919d70b927"
+  },
+  {
+    "path": "output/pred_04_lightgbm_sybil_val.parquet",
+    "sha256": "d0542dd3e5f7c0215dbe8ff49659492a3442cea1a622fb6ae117838f0fa31f54",
+    "bytes": 4468695,
+    "execution_commit": "e3cc058915d33b813923f166fbd98386976a5ab1"
+  },
+  {
+    "path": "output/pred_04_lightgbm_sybil_test.parquet",
+    "sha256": "9fa41834fc0c6a0546bd844ef08097ad5f37f97040725810243cacd0a81dd287",
+    "bytes": 6353659,
+    "execution_commit": "e3cc058915d33b813923f166fbd98386976a5ab1"
+  },
+  {
+    "path": "output/pred_05_logistic_regression_sybil_val.parquet",
+    "sha256": "0a7e2c54145e993799fa634a85c86df1779dae8a0832c47babac0fbe5d3c917f",
+    "bytes": 4473691,
+    "execution_commit": "a2a4a69fd0f01078d5409f767106910647da1be3"
+  },
+  {
+    "path": "output/pred_05_logistic_regression_sybil_test.parquet",
+    "sha256": "551d146d0b682055fca9a6e77055ae4be32c8e1e6a1190ac83ea7476ad402ed1",
+    "bytes": 6360247,
+    "execution_commit": "a2a4a69fd0f01078d5409f767106910647da1be3"
+  },
+  {
+    "path": "output/pred_06_cross_ensemble_sybil_val.parquet",
+    "sha256": "2dab741a95e50bc8eb6385a72b42df6343b53208363d2b3a3ef7b62dfc33fd0f",
+    "bytes": 4469643,
+    "execution_commit": "cb17cb9942c4f0a0ede69d3c81f493e95a146d3c"
+  },
+  {
+    "path": "output/pred_06_cross_ensemble_sybil_test.parquet",
+    "sha256": "82910c921afe051bcad21132fc25c880f67b4d36efce34f40b06544d24afd1a1",
+    "bytes": 6354863,
+    "execution_commit": "cb17cb9942c4f0a0ede69d3c81f493e95a146d3c"
+  },
+  {
+    "path": "output/pred_13_random_forest_sybil_val.parquet",
+    "sha256": "eb61de36c5d27c60a7b368eda70eb8348187d50fb55b000e1e39bfa69264a6a8",
+    "bytes": 3684903,
+    "execution_commit": "3d1774c8975c9b471d4c7fdec823cf087cdc98fe"
+  },
+  {
+    "path": "output/pred_13_random_forest_sybil_test.parquet",
+    "sha256": "62ac08e336fcfd4dfe5411b8ac04b9bf3d4bd66e8d736b76ee9fd279c2d481ce",
+    "bytes": 5230299,
+    "execution_commit": "3d1774c8975c9b471d4c7fdec823cf087cdc98fe"
+  }
+]

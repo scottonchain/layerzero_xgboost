@@ -550,7 +550,8 @@
       "started_utc": "2026-10-08T16:22:40Z",
       "status": "passed",
       "seconds": 4.183529376983643,
-      "completed_utc": "2026-10-08T16:22:44Z"
+      "completed_utc": "2026-10-08T16:22:44Z",
+      "artifact_commit": "65cce3a0ba06ab8f7aebeb8f9d4ec931d02d86ef"
     }
   ]
 }
