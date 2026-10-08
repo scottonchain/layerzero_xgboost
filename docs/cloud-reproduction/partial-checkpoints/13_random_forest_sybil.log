@@ -34,3 +34,7 @@ CELL 7 started
 [4/24] {'max_features': 'sqrt', 'min_samples_leaf': 5, 'max_depth': 24, 'max_samples': None}  val_F1=0.6263  AP=0.6594  73.4s
 [5/24] {'max_features': 'sqrt', 'min_samples_leaf': 20, 'max_depth': None, 'max_samples': None}  val_F1=0.6451  AP=0.6897  75.5s
 [6/24] {'max_features': 'sqrt', 'min_samples_leaf': 20, 'max_depth': 24, 'max_samples': None}  val_F1=0.6218  AP=0.6554  72.1s
+[7/24] {'max_features': 0.3, 'min_samples_leaf': 1, 'max_depth': None, 'max_samples': None}  val_F1=0.7028  AP=0.7515  190.4s
+[8/24] {'max_features': 0.3, 'min_samples_leaf': 1, 'max_depth': 24, 'max_samples': None}  val_F1=0.6350  AP=0.6636  180.6s
+[9/24] {'max_features': 0.3, 'min_samples_leaf': 5, 'max_depth': None, 'max_samples': None}  val_F1=0.6954  AP=0.7426  178.9s
+[10/24] {'max_features': 0.3, 'min_samples_leaf': 5, 'max_depth': 24, 'max_samples': None}  val_F1=0.6418  AP=0.6773  173.0s
