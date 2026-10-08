@@ -40,7 +40,16 @@
       "started_utc": "2026-10-08T00:50:35Z",
       "status": "passed",
       "seconds": 652.1958630084991,
-      "completed_utc": "2026-10-08T01:01:27Z"
+      "completed_utc": "2026-10-08T01:01:27Z",
+      "artifact_commit": "643f31681f9b11c704c9d328a00e119936eb070e"
+    },
+    {
+      "notebook": "02_hyperparameter_search.ipynb",
+      "execution_commit": "643f31681f9b11c704c9d328a00e119936eb070e",
+      "started_utc": "2026-10-08T01:02:29Z",
+      "status": "interrupted",
+      "completed_xgboost_configurations": 25,
+      "note": "Execution interrupted during notebook 02; cached validation-only fits preserved for same-platform continuation. No final search result or downstream run is claimed."
     }
   ]
 }

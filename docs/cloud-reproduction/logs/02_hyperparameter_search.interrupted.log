@@ -1,0 +1,43 @@
+START 02_hyperparameter_search.ipynb at 643f31681f9b11c704c9d328a00e119936eb070e
+No event loop hook running.
+CELL 1 started
+[1] L0 features: 434,786 addresses, 55 cols
+[2] Gas provision: 604,365 edges before 2024-05-02 00:00:00 UTC (296 later edges dropped)
+[3] Labeled addresses in provision network: 4,308
+[4] Provider and tree features: 88 cols
+[5] CEX/DEX merged: 90 cols
+[6] Labels: Sybil=18,211 (4.19%)
+[7] Chain features, taxonomy, gas provision trees (371,764 trees)
+All 62 features present ✓  (26.7s)
+     Split  Total  Sybil  NonSybil  SybilPct
+     Train 213046   8924    204122      4.19
+Validation  91305   3824     87481      4.19
+CELL 1 completed in 28.7s
+CELL 2 started
+CELL 2 completed in 0.0s
+CELL 4 started
+[1/72] {'learning_rate': 0.3, 'max_depth': 6, 'subsample': 1.0, 'colsample_bytree': 1.0, 'min_child_weight': 1}  val_F1=0.6907  AP=0.7422  rounds=671  19.6s
+[2/72] {'learning_rate': 0.3, 'max_depth': 6, 'subsample': 1.0, 'colsample_bytree': 0.8, 'min_child_weight': 1}  val_F1=0.6913  AP=0.7385  rounds=746  18.7s
+[3/72] {'learning_rate': 0.3, 'max_depth': 6, 'subsample': 0.7, 'colsample_bytree': 1.0, 'min_child_weight': 1}  val_F1=0.6897  AP=0.7348  rounds=628  20.5s
+[4/72] {'learning_rate': 0.3, 'max_depth': 6, 'subsample': 0.7, 'colsample_bytree': 0.8, 'min_child_weight': 1}  val_F1=0.6886  AP=0.7374  rounds=602  18.5s
+[5/72] {'learning_rate': 0.3, 'max_depth': 6, 'subsample': 0.5, 'colsample_bytree': 1.0, 'min_child_weight': 1}  val_F1=0.6822  AP=0.7277  rounds=558  18.7s
+[6/72] {'learning_rate': 0.3, 'max_depth': 6, 'subsample': 0.5, 'colsample_bytree': 0.8, 'min_child_weight': 1}  val_F1=0.6857  AP=0.7337  rounds=596  18.8s
+[7/72] {'learning_rate': 0.3, 'max_depth': 8, 'subsample': 1.0, 'colsample_bytree': 1.0, 'min_child_weight': 1}  val_F1=0.6896  AP=0.7367  rounds=293  12.6s
+[8/72] {'learning_rate': 0.3, 'max_depth': 8, 'subsample': 1.0, 'colsample_bytree': 0.8, 'min_child_weight': 1}  val_F1=0.6921  AP=0.7375  rounds=315  14.0s
+[9/72] {'learning_rate': 0.3, 'max_depth': 8, 'subsample': 0.7, 'colsample_bytree': 1.0, 'min_child_weight': 1}  val_F1=0.6891  AP=0.7388  rounds=257  13.2s
+[10/72] {'learning_rate': 0.3, 'max_depth': 8, 'subsample': 0.7, 'colsample_bytree': 0.8, 'min_child_weight': 1}  val_F1=0.6890  AP=0.7373  rounds=267  12.2s
+[11/72] {'learning_rate': 0.3, 'max_depth': 8, 'subsample': 0.5, 'colsample_bytree': 1.0, 'min_child_weight': 1}  val_F1=0.6955  AP=0.7359  rounds=238  11.9s
+[12/72] {'learning_rate': 0.3, 'max_depth': 8, 'subsample': 0.5, 'colsample_bytree': 0.8, 'min_child_weight': 1}  val_F1=0.6930  AP=0.7321  rounds=283  13.1s
+[13/72] {'learning_rate': 0.3, 'max_depth': 10, 'subsample': 1.0, 'colsample_bytree': 1.0, 'min_child_weight': 1}  val_F1=0.6902  AP=0.7380  rounds=157  8.3s
+[14/72] {'learning_rate': 0.3, 'max_depth': 10, 'subsample': 1.0, 'colsample_bytree': 0.8, 'min_child_weight': 1}  val_F1=0.6914  AP=0.7366  rounds=186  9.6s
+[15/72] {'learning_rate': 0.3, 'max_depth': 10, 'subsample': 0.7, 'colsample_bytree': 1.0, 'min_child_weight': 1}  val_F1=0.6908  AP=0.7279  rounds=133  9.4s
+[16/72] {'learning_rate': 0.3, 'max_depth': 10, 'subsample': 0.7, 'colsample_bytree': 0.8, 'min_child_weight': 1}  val_F1=0.6890  AP=0.7328  rounds=145  9.3s
+[17/72] {'learning_rate': 0.3, 'max_depth': 10, 'subsample': 0.5, 'colsample_bytree': 1.0, 'min_child_weight': 1}  val_F1=0.6901  AP=0.7343  rounds=119  8.6s
+[18/72] {'learning_rate': 0.3, 'max_depth': 10, 'subsample': 0.5, 'colsample_bytree': 0.8, 'min_child_weight': 1}  val_F1=0.6933  AP=0.7366  rounds=147  9.3s
+[19/72] {'learning_rate': 0.3, 'max_depth': 12, 'subsample': 1.0, 'colsample_bytree': 1.0, 'min_child_weight': 1}  val_F1=0.6892  AP=0.7343  rounds=87  8.1s
+[20/72] {'learning_rate': 0.3, 'max_depth': 12, 'subsample': 1.0, 'colsample_bytree': 0.8, 'min_child_weight': 1}  val_F1=0.6911  AP=0.7337  rounds=91  8.1s
+[21/72] {'learning_rate': 0.3, 'max_depth': 12, 'subsample': 0.7, 'colsample_bytree': 1.0, 'min_child_weight': 1}  val_F1=0.6951  AP=0.7319  rounds=75  7.3s
+[22/72] {'learning_rate': 0.3, 'max_depth': 12, 'subsample': 0.7, 'colsample_bytree': 0.8, 'min_child_weight': 1}  val_F1=0.6837  AP=0.7313  rounds=81  8.1s
+[23/72] {'learning_rate': 0.3, 'max_depth': 12, 'subsample': 0.5, 'colsample_bytree': 1.0, 'min_child_weight': 1}  val_F1=0.6939  AP=0.7407  rounds=80  8.3s
+[24/72] {'learning_rate': 0.3, 'max_depth': 12, 'subsample': 0.5, 'colsample_bytree': 0.8, 'min_child_weight': 1}  val_F1=0.6936  AP=0.7355  rounds=85  8.6s
+[25/72] {'learning_rate': 0.1, 'max_depth': 6, 'subsample': 1.0, 'colsample_bytree': 1.0, 'min_child_weight': 1}  val_F1=0.6946  AP=0.7467  rounds=2307  60.9s

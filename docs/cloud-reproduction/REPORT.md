@@ -30,3 +30,7 @@ Completed: 00 (61.5 seconds), 01 (652.2 seconds). The predefined Gini rule again
 24 now serializes DataFrame values at full Python float precision with missing cells as null, replacing pandas to_json’s default ten-decimal truncation. This affects saved precision, not fits or selection. The runner streams fit logs while capturing notebook outputs.
 
 The separately requested original-hardware rerun is not launched: the available host is AMD EPYC 9V74/Python 3.12.14, unlike Intel Xeon @ 2.80 GHz/Python 3.11.15. No tool exposes the original machine, whose committed provenance lacks a full CPU model. This run makes no exact-hardware claim and does not modify the other job.
+
+## Interruption checkpoint
+
+The execution was interrupted during notebook 02 after 25 initial XGBoost grid configurations completed. `results/02_search_xgboost.csv` and the live log preserve these validation-only fits; no LightGBM grid fits or downstream analyses have completed. Notebooks 00 and 01 remain complete. The committed legacy 02+ JSON results and publication assets have not been replaced and are historical, not cloud results. No completed PR, tie-out outcome, Section 5.5 rerun or paired 22 comparison is claimed. Resume notebook 02 on the same documented platform with the isolated runner; it skips cached configurations and retains the fixed search spaces and validation-only rule.
