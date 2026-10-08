@@ -1,0 +1,55 @@
+{
+  "numerical_platform_match": true,
+  "packages_verified": 113,
+  "lfs_inputs_verified": 37,
+  "completed_result_provenance": [
+    {
+      "notebook": "01_ablation_gini",
+      "commit": "666e247",
+      "dependencies_unchanged": true
+    },
+    {
+      "notebook": "03_xgboost_sybil",
+      "commit": "6ec421a",
+      "dependencies_unchanged": true
+    },
+    {
+      "notebook": "00_data_pipeline",
+      "commit": "7540b4b",
+      "dependencies_unchanged": true
+    },
+    {
+      "notebook": "05_logistic_regression_sybil",
+      "commit": "9c278b9",
+      "dependencies_unchanged": true
+    },
+    {
+      "notebook": "06_cross_ensemble_sybil",
+      "commit": "c4625e7",
+      "dependencies_unchanged": true
+    },
+    {
+      "notebook": "08_ablation_families",
+      "commit": "1c6f5ff",
+      "dependencies_unchanged": true
+    },
+    {
+      "notebook": "02_hyperparameter_search",
+      "commit": "60838d8",
+      "dependencies_unchanged": true
+    },
+    {
+      "notebook": "07_sensitivity_label_vintage",
+      "commit": "5f70994",
+      "dependencies_unchanged": true
+    },
+    {
+      "notebook": "04_lightgbm_sybil",
+      "commit": "8f0a40f",
+      "dependencies_unchanged": true
+    }
+  ],
+  "restored_metric_fits": 120,
+  "completed08_execution_commit": "1c6f5ff3b6a1379cbaa6f702966ea2c90d864257",
+  "event": "directory unavailable after successful08 publication; no09 launched; root andvenv remainnumericallyunchanged; use dedicatedworkarea plusdirectoryheartbeat"
+}
