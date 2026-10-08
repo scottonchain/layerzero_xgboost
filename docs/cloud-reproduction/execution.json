@@ -175,6 +175,14 @@
       "minimum_completed_fits_logged": 79,
       "exact_runtime": "unrecoverable",
       "cause": "scratch directory replaced; archive materialization returned HTTP403"
+    },
+    {
+      "notebook": "00_data_pipeline.ipynb",
+      "execution_commit": "7540b4b9edef2af7edaee8987cd44b8809a0d617",
+      "started_utc": "2026-10-08T05:25:38Z",
+      "status": "passed",
+      "seconds": 59.03032660484314,
+      "completed_utc": "2026-10-08T05:26:37Z"
     }
   ]
 }
