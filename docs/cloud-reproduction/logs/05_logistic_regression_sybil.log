@@ -1,0 +1,97 @@
+START 05_logistic_regression_sybil.ipynb at 0666a8070abf6e84931e48ca1dfd1146e4712980
+No event loop hook running.
+CELL 2 started
+CELL 2 completed in 0.8s
+CELL 4 started
+[1] L0 features: 434,786 addresses, 55 cols
+[2] Gas provision: 604,365 edges before 2024-05-02 00:00:00 UTC (296 later edges dropped)
+[3] Labeled addresses in provision network: 4,308
+[4] Provider and tree features: 88 cols
+[5] CEX/DEX merged: 90 cols
+[6] Labels: Sybil=18,211 (4.19%)
+[7] Chain features, taxonomy, gas provision trees (371,764 trees)
+All 62 features present ✓  (27.9s)
+     Split  Total  Sybil  NonSybil  SybilPct
+     Train 213046   8924    204122      4.19
+Validation  91305   3824     87481      4.19
+      Test 130435   5463    124972      4.19
+Train after upsampling: 408,244 rows (50.0% Sybil)
+
+Split method: group
+Row overlap (train/val, train/test, val/test): 0, 0, 0
+Test addresses sharing a gas provision tree with a train address: 0 / 130,435
+Test Sybils sharing a gas provision tree with a train Sybil:     0 / 5,463
+CELL 4 completed in 30.2s
+CELL 6 started
+Logistic regression: {'C': 0.01, 'penalty': 'l1', 'solver': 'liblinear', 'max_iter': 1000, 'random_state': 42}
+CELL 6 completed in 19.9s
+CELL 8 started
+  Threshold : 0.6823
+  Precision : 0.1499
+  Recall    : 0.6167
+  F1        : 0.2412
+  AUROC     : 0.8368
+  Avg Prec  : 0.1656
+  Brier     : 0.1750
+CELL 8 completed in 0.2s
+CELL 10 started
+Non-zero coefficients: 51 / 62
+                             Feature  Coefficient
+                  n_eth_interactions    -1.146083
+                           avg_depth     0.843941
+                     l0_tx_time_span     0.833933
+            gas_distribution_entropy     0.620916
+                      balance_factor    -0.620463
+                        time_span_in    -0.541166
+       n_l0_project_per_source_chain    -0.422455
+                    branching_factor    -0.390834
+                 num_transactions_in     0.377688
+           n_l0_to_eth_source_chains    -0.306543
+               n_l0_source_contracts    -0.302249
+ provider_total_gas_provision_amount     0.300735
+                       n_l0_projects     0.278514
+                   latest_l0_tx_time     0.264379
+                        cex_in_count    -0.262077
+                      breadth_factor    -0.228432
+                  n_l0_source_chains     0.225667
+              breadth_to_depth_ratio    -0.198348
+               indegree_per_block_in    -0.188485
+                n_l0_to_eth_projects     0.186358
+              provider_is_interactor     0.174998
+      leaf_gas_distribution_skewness    -0.167912
+                 longest_chain_ratio    -0.143581
+           gas_distribution_skewness     0.140656
+          gas_provision_block_number    -0.122768
+n_l0_to_eth_project_per_source_chain    -0.120029
+              leaf_to_internal_ratio     0.116331
+       leaf_gas_distribution_entropy     0.113099
+                               depth    -0.110663
+                           tree_size    -0.108792
+       l0_to_eth_avg_native_drop_usd    -0.103087
+                interactors_in_chain     0.099502
+              tx_value_per_block_out    -0.094412
+                 provider_is_labeled     0.088611
+          n_l0_to_eth_dest_contracts    -0.086993
+                l0_min_stargate_swap    -0.081367
+   provider_max_gas_provision_amount    -0.065563
+         l0_to_eth_avg_stargate_swap     0.065524
+        provider_is_star_like_attack     0.064480
+                         is_provider     0.056141
+                earliest_tx_block_in     0.050339
+           leaf_provision_proportion    -0.047714
+              l0_to_eth_tx_time_span    -0.043749
+         l0_to_eth_min_stargate_swap    -0.038135
+                    provider_fan_out     0.033800
+       l0_to_eth_max_native_drop_usd    -0.032502
+   provider_min_gas_provision_amount    -0.013196
+                     star_like_ratio    -0.006698
+         l0_to_eth_max_stargate_swap     0.005517
+                    max_tx_value_out     0.004069
+                     min_tx_value_in    -0.003446
+CELL 10 completed in 0.1s
+CELL 13 started
+Saved results/05_logistic_regression_sybil.json
+Saved output/pred_05_logistic_regression_sybil_val.parquet (91,305 rows)
+Saved output/pred_05_logistic_regression_sybil_test.parquet (130,435 rows)
+CELL 13 completed in 0.1s
+PASS 05_logistic_regression_sybil.ipynb: 53.8s
