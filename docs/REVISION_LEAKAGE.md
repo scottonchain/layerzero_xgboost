@@ -398,3 +398,5 @@ Zenodo steps (for Paven; not done here): (1) sign in to zenodo.org with GitHub a
 **2026-10-07, tie-out `99` @ 201c9b4.** Adds `25` (provenance; its 13 source notebooks; no missing named numbers). 82 of 83 checks pass; the failing one is still `14`'s inputs.
 
 **2026-10-08, ChatGPT cloud reproduction.** Notebook 00 completed on the recorded AMD EPYC platform; fresh Gini selection and search proceed. Code from #12 adds 25 and generator refinements. Computed outputs from #12 are excluded and will be regenerated here. Order: 00–20, 22, 23, 24, 25, 99. Notebook 21 is absent because it was renamed to 99. See `docs/cloud-reproduction/REPORT.md`.
+
+**2026-10-08, latest PR12 follow-up code.** Integrated68e8d63 publication display names, explicit seen-arm coverage, paired training-size differences and table/cited-number refinements; internal feature definitions unchanged. Outputs await cloud regeneration.

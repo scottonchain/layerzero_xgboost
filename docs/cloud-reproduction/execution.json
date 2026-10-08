@@ -159,6 +159,22 @@
       "status": "passed",
       "seconds": 4.807758808135986,
       "completed_utc": "2026-10-08T04:27:36Z"
+    },
+    {
+      "notebook": "08_ablation_families.ipynb",
+      "status": "interrupted",
+      "execution_commit": "cd699d0697ad73ce0bbd366b8a2d83331f0cb6ab",
+      "completed_splits_logged": [
+        42,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "minimum_completed_fits_logged": 79,
+      "exact_runtime": "unrecoverable",
+      "cause": "scratch directory replaced; archive materialization returned HTTP403"
     }
   ]
 }
