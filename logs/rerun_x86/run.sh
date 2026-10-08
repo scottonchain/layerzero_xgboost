@@ -35,10 +35,13 @@ if [ "$stage" = all ] || [ "$stage" = regen ]; then
   echo -e "$(date -u +%FT%TZ)\tPASS\tcompare_regen" >> $TL
 fi
 if [ "$stage" = all ] || [ "$stage" = main ]; then
-  for nb in $(ls [12][0-9]_*.ipynb | sed 's/.ipynb$//' | awk -F_ '$1>=13 && $1<=25') 99_tie_out_revision; do
+  FROM=${2:-13}   # resume point: first notebook number to run (completed notebooks are not rerun)
+  for nb in $(ls [12][0-9]_*.ipynb | sed 's/.ipynb$//' | awk -F_ -v f=$FROM '$1>=f && $1>=13 && $1<=25') 99_tie_out_revision; do
     nbrun $nb --inplace || die "$nb rc!=0 (see $LOG/$nb.log)"
     head=$(git rev-parse --short HEAD)
-    git add -A
+    # Stage only what the notebook writes; logs stay untracked until the end of the run, because a
+    # tracked log appended to before the next kernel starts would mark the tree dirty.
+    git add -A results figures tables $nb.ipynb
     printf 'x86 rerun: %s at %s\n\nExecuted from a clean tree at %s on this platform (logs/rerun_x86/env.txt).\nLog: logs/rerun_x86/%s.log\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01Cofo5QgMp6ieGLC9NEdHip\n' \
       "$nb" "$head" "$head" "$nb" | git commit -q -F - || die "$nb: commit failed"
   done
