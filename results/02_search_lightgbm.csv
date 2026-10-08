@@ -1,0 +1,2 @@
+num_leaves,learning_rate,subsample,reg_lambda,val_f1,val_ap,val_logloss,val_threshold,rounds,seconds
+31,0.1,1.0,0.0,0.6871375856615709,0.7376394965755032,0.09088616296154266,0.6503429645699378,2059,37.0
