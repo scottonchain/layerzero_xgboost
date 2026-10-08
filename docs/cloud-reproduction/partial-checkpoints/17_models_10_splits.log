@@ -18,3 +18,4 @@ split 1: Logistic regression 0.2308, XGBoost 0.6946, LightGBM 0.6990, Random For
 split 2: Logistic regression 0.2382, XGBoost 0.7001, LightGBM 0.7156, Random Forest 0.6992, Ensemble 0.7117; w=0.20 (351s)
 split 3: Logistic regression 0.2357, XGBoost 0.7103, LightGBM 0.7156, Random Forest 0.6970, Ensemble 0.7159; w=0.52 (327s)
 split 4: Logistic regression 0.2325, XGBoost 0.7137, LightGBM 0.7169, Random Forest 0.7048, Ensemble 0.7170; w=0.14 (339s)
+split 5: Logistic regression 0.2365, XGBoost 0.7068, LightGBM 0.7167, Random Forest 0.6993, Ensemble 0.7175; w=0.24 (358s)
