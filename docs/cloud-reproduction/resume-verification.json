@@ -1,0 +1,56 @@
+{
+  "platform": {
+    "machine": "x86_64",
+    "system": "Linux",
+    "processor": "AMD EPYC 9V74 80-Core Processor",
+    "kernel": "6.18.44",
+    "python": "3.12.14",
+    "cpu_count": 9,
+    "n_jobs": 4,
+    "versions": {
+      "numpy": "2.4.6",
+      "pandas": "3.0.6",
+      "scipy": "1.17.1",
+      "scikit-learn": "1.8.0",
+      "xgboost": "3.2.0",
+      "lightgbm": "4.6.0",
+      "shap": "0.51.0",
+      "pyarrow": "25.0.1",
+      "matplotlib": "3.11.2"
+    },
+    "threads": {
+      "OMP_NUM_THREADS": "4",
+      "OPENBLAS_NUM_THREADS": "1",
+      "MKL_NUM_THREADS": "1",
+      "NUMEXPR_NUM_THREADS": "4",
+      "PYTHONHASHSEED": "42"
+    },
+    "lightgbm_repro": {
+      "force_col_wise": true,
+      "deterministic": true
+    }
+  },
+  "source_execution_commit": "643f31681f9b11c704c9d328a00e119936eb070e",
+  "cached_fits": 25,
+  "cache_sha256": "621d242e9600155b9a8324c99153d028e8f63ba20f9607b74c11d92c613ae74d",
+  "lfs_inputs_verified": 37,
+  "prerequisites": [
+    {
+      "notebook": "00_data_pipeline",
+      "commit": "a2f2dd7",
+      "dependencies_unchanged": true
+    },
+    {
+      "notebook": "01_ablation_gini",
+      "commit": "666e247",
+      "dependencies_unchanged": true
+    }
+  ],
+  "intermediate_sha256": {
+    "output/master_df.parquet": "f3fdf65cb5be27110e3572796e69c34849cb5c4a332708b9dec6e6ccdf4597e0",
+    "output/splits.npz": "42653c511b5d89fcc6b388f52070c8595fe1022ded81d49496143c6d2bb2d1ac",
+    "output/feature_list.json": "fba5d3a1cad8e668d228d1a50e61613fc39c6d48e5a24667b8b73ab6fcfa939c"
+  },
+  "lost_checkpoints": [],
+  "active_workers": []
+}

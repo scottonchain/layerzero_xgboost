@@ -34,3 +34,7 @@ The separately requested original-hardware rerun is not launched: the available 
 ## Interruption checkpoint
 
 The execution was interrupted during notebook 02 after 25 initial XGBoost grid configurations completed. `results/02_search_xgboost.csv` and the live log preserve these validation-only fits; no LightGBM grid fits or downstream analyses have completed. Notebooks 00 and 01 remain complete. The committed legacy 02+ JSON results and publication assets have not been replaced and are historical, not cloud results. No completed PR, tie-out outcome, Section 5.5 rerun or paired 22 comparison is claimed. Resume notebook 02 on the same documented platform with the isolated runner; it skips cached configurations and retains the fixed search spaces and validation-only rule.
+
+## Resume verification
+
+The cloud reproduction was resumed on the established AMD EPYC 9V74 platform. The original Xeon requirement was superseded by the user. No active worker was present. All 37 LFS input hashes, numerical package versions, thread settings, prerequisite provenance, and all 25 cached XGBoost configurations and their logged metrics matched the published checkpoint. No checkpoints were lost. See resume-verification.json.
