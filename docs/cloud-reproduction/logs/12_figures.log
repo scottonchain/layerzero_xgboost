@@ -1,0 +1,59 @@
+START 12_figures.ipynb at a4eac5419b48acf4f4b532b625050b079b16b647
+No event loop hook running.
+CELL 2 started
+434,786 addresses
+CELL 2 completed in 0.1s
+CELL 4 started
+Saved figures/chain_length.png
+{'Non-Sybil': np.float64(0.9954), 'Sybil': np.float64(0.9852)}
+CELL 4 completed in 0.2s
+CELL 6 started
+[1] L0 features: 434,786 addresses, 55 cols
+[2] Gas provision: 604,365 edges before 2024-05-02 00:00:00 UTC (296 later edges dropped)
+[3] Labeled addresses in provision network: 4,308
+[4] Provider and tree features: 88 cols
+[5] CEX/DEX merged: 90 cols
+[6] Labels: Sybil=18,211 (4.19%)
+[7] Chain features, taxonomy, gas provision trees (371,764 trees)
+All 62 features present ✓  (27.1s)
+CELL 6 completed in 28.3s
+CELL 7 started
+All example chains and flags match the paper tables ✓
+CELL 7 completed in 0.0s
+CELL 8 started
+Saved figures/gp_0x0f.png
+Saved figures/gp_0x92.png
+Saved figures/gp_0x47.png
+CELL 8 completed in 0.5s
+CELL 10 started
+Saved figures/non_interacting_dist_from_root.png
+{'IxI': 34391, 'IxE': 93061}
+CELL 10 completed in 0.1s
+CELL 12 started
+XGBoost              AP 0.7645  AUROC 0.9657  (match results/03_xgboost_sybil.json)
+LightGBM             AP 0.7696  AUROC 0.9683  (match results/04_lightgbm_sybil.json)
+Logistic Regression  AP 0.1656  AUROC 0.8368  (match results/05_logistic_regression_sybil.json)
+Cross-Ensemble       AP 0.7699  AUROC 0.9683  (match results/06_cross_ensemble_sybil.json)
+Saved figures/PRandROC.png
+CELL 12 completed in 1.2s
+CELL 14 started
+Saved figures/top_20_feature_importance.png
+CELL 14 completed in 0.2s
+CELL 15 started
+Saved figures/lgbm_xgb_comparison.png
+Features in both top-15 lists: 15 of 15
+['earliest_l0_tx_time', 'earliest_tx_block_in', 'gas_provision_block_number', 'l0_avg_stargate_swap', 'l0_tx_time_span', 'latest_l0_tx_time', 'max_tx_value_out', 'min_tx_value_in', 'n_l0_project_per_source_chain', 'n_l0_projects', 'n_l0_source_chains', 'n_l0_source_contracts', 'num_transactions_in', 'time_span_in', 'tx_value_per_block_out']
+CELL 15 completed in 0.4s
+CELL 17 started
+best_iteration = 1679 (matches 03, seed 42); trees fitted = 1730
+CELL 17 completed in 71.9s
+CELL 18 started
+At 1680 trees: train F1 0.9993, validation F1 0.7032 (02: 0.7032)
+CELL 18 completed in 84.2s
+CELL 19 started
+Saved figures/learning_curve.png
+CELL 19 completed in 0.1s
+CELL 21 started
+Saved results/12_figures.json
+CELL 21 completed in 0.0s
+PASS 12_figures.ipynb: 190.5s
