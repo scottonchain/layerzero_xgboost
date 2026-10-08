@@ -14,3 +14,5 @@ CELL 5 completed in 1.1s
 CELL 7 started
 repeat 0 fold 0: k_a 42,050 rows / 901 Sybils, mate coverage 0.98; LightGBM F1 held 0.4618 seen 0.6255, AUROC 0.9195 / 0.9762 (243s)
 repeat 0 fold 1: k_a 42,048 rows / 899 Sybils, mate coverage 0.98; LightGBM F1 held 0.4044 seen 0.5980, AUROC 0.9150 / 0.9753 (259s)
+repeat 0 fold 2: k_a 42,048 rows / 899 Sybils, mate coverage 0.99; LightGBM F1 held 0.3277 seen 0.5804, AUROC 0.8909 / 0.9592 (189s)
+repeat 0 fold 3: k_a 42,049 rows / 900 Sybils, mate coverage 0.99; LightGBM F1 held 0.2209 seen 0.5975, AUROC 0.8050 / 0.9601 (259s)
