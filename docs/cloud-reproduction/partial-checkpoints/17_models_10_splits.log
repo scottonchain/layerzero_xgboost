@@ -1,7 +1,7 @@
-START 17_models_10_splits.ipynb at 2ef61811ab3228dd69393616f61ca037d8f1a69e
+START 17_models_10_splits.ipynb at a578dd33d81257ce6f439b28f6cb3f33a3093eb9
 No event loop hook running.
 CELL 2 started
-Code commit: 2ef6181
+Code commit: a578dd3
 Platform: {'machine': 'x86_64', 'processor': 'x86_64', 'system': 'Linux', 'python': '3.12.14', 'cpu_count': 9, 'n_jobs': 4}
                 notebook  commit  dependencies_unchanged
 02_hyperparameter_search 60838d8                    True
@@ -10,15 +10,7 @@ Platform: {'machine': 'x86_64', 'processor': 'x86_64', 'system': 'Linux', 'pytho
 XGBoost: {'learning_rate': 0.05, 'max_depth': 8, 'subsample': 0.7, 'colsample_bytree': 1.0, 'min_child_weight': 1}
 LightGBM: {'num_leaves': 127, 'learning_rate': 0.05, 'subsample': 0.7, 'reg_lambda': 1.0}
 Random Forest (from 13): {'max_features': 0.3, 'min_samples_leaf': 1, 'max_depth': None, 'max_samples': None, 'n_estimators': 300, 'criterion': 'gini', 'bootstrap': True, 'n_jobs': 4}
-build_master_df: 27.1s
-CELL 2 completed in 27.2s
+build_master_df: 27.7s
+CELL 2 completed in 27.8s
 CELL 4 started
-split 42: Logistic regression 0.2412, XGBoost 0.7166, LightGBM 0.7105, Random Forest 0.7106, Ensemble 0.7203; w=0.60 (332s)
-split 1: Logistic regression 0.2308, XGBoost 0.6946, LightGBM 0.6990, Random Forest 0.6961, Ensemble 0.6975; w=0.10 (349s)
-split 2: Logistic regression 0.2382, XGBoost 0.7001, LightGBM 0.7156, Random Forest 0.6992, Ensemble 0.7117; w=0.20 (339s)
-split 3: Logistic regression 0.2357, XGBoost 0.7103, LightGBM 0.7156, Random Forest 0.6970, Ensemble 0.7159; w=0.52 (314s)
-split 4: Logistic regression 0.2325, XGBoost 0.7137, LightGBM 0.7169, Random Forest 0.7048, Ensemble 0.7170; w=0.14 (303s)
-split 5: Logistic regression 0.2365, XGBoost 0.7068, LightGBM 0.7167, Random Forest 0.6993, Ensemble 0.7175; w=0.24 (342s)
-split 6: Logistic regression 0.2305, XGBoost 0.6988, LightGBM 0.7105, Random Forest 0.6954, Ensemble 0.6991; w=0.76 (316s)
-split 7: Logistic regression 0.2313, XGBoost 0.7162, LightGBM 0.7194, Random Forest 0.7100, Ensemble 0.7210; w=0.60 (331s)
-split 8: Logistic regression 0.2313, XGBoost 0.7068, LightGBM 0.7175, Random Forest 0.7046, Ensemble 0.7162; w=0.20 (357s)
+split 42: Logistic regression 0.2412, XGBoost 0.7166, LightGBM 0.7105, Random Forest 0.7106, Ensemble 0.7203; w=0.60 (359s)
