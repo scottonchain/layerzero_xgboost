@@ -541,7 +541,16 @@
       "started_utc": "2026-10-08T16:21:43Z",
       "status": "passed",
       "seconds": 32.95387625694275,
-      "completed_utc": "2026-10-08T16:22:16Z"
+      "completed_utc": "2026-10-08T16:22:16Z",
+      "artifact_commit": "67a14e035f72876d8c40bfff1432faaa3ff9683f"
+    },
+    {
+      "notebook": "99_tie_out_revision.ipynb",
+      "execution_commit": "67a14e035f72876d8c40bfff1432faaa3ff9683f",
+      "started_utc": "2026-10-08T16:22:40Z",
+      "status": "passed",
+      "seconds": 4.183529376983643,
+      "completed_utc": "2026-10-08T16:22:44Z"
     }
   ]
 }
