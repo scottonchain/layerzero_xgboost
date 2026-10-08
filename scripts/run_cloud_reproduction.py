@@ -11,6 +11,7 @@ import traceback
 
 ROOT = Path(__file__).resolve().parents[1]
 os.chdir(ROOT)
+sys.path.insert(0, str(ROOT))
 os.environ.update(OMP_NUM_THREADS='4', OPENBLAS_NUM_THREADS='1', MKL_NUM_THREADS='1',
                   NUMEXPR_NUM_THREADS='4', PYTHONHASHSEED='42', MPLBACKEND='Agg')
 import nbformat

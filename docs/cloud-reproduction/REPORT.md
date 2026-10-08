@@ -22,3 +22,5 @@ Final validations, result comparisons (particularly Sections 5.2 and 5.5), gener
 Execution transport repair: native Jupyter TCP and IPC socket creation both fail with Operation not permitted before notebook code runs. The runner therefore uses a fresh Python process and IPython shell per notebook, capturing stream and inline rich outputs; cell code is unmodified. Failed transport attempts are retained in the local run manifest. No numerical result was produced by those attempts.
 
 Publication transport: local Git has no authenticated HTTPS push credentials. The connected GitHub API has write access to scottonchain/layerzero_xgboost, and read access to Paven’s fork. Baseline and each stage are published through Git data APIs, fetched back, and become the clean HEAD before subsequent execution. This preserves reachable execution provenance. The PR will target Paven from Scott’s branch.
+
+Isolated process initialization also requires adding the repository root to sys.path; this replaces the working-directory import behavior of a notebook kernel. The terminal IPython shell supplies inline Matplotlib display hooks without a GUI or socket.
