@@ -29,6 +29,8 @@ dropped before any provider, chain or tree feature is computed.
 import gc
 import json
 import os
+import platform
+import importlib.metadata
 import re
 import subprocess
 import time
@@ -673,6 +675,19 @@ def load_selected_params(path='results/02_hyperparameter_search.json'):
     return hp['xgb_selected'], hp['lgbm_selected']
 
 
+def runtime_platform():
+    """Numerical execution provenance, independent of scientific configuration."""
+    cpu = next((line.split(':', 1)[1].strip() for line in open('/proc/cpuinfo')
+                if line.startswith('model name')), platform.processor()) if os.path.exists('/proc/cpuinfo') else platform.processor()
+    return dict(machine=platform.machine(), system=platform.system(), processor=cpu,
+                kernel=platform.release(), python=platform.python_version(), cpu_count=os.cpu_count(),
+                n_jobs=N_JOBS, versions={name: importlib.metadata.version(name) for name in
+                ['numpy', 'pandas', 'scipy', 'scikit-learn', 'xgboost', 'lightgbm', 'shap', 'pyarrow', 'matplotlib']},
+                threads={key: os.environ.get(key) for key in ['OMP_NUM_THREADS', 'OPENBLAS_NUM_THREADS',
+                         'MKL_NUM_THREADS', 'NUMEXPR_NUM_THREADS', 'PYTHONHASHSEED']},
+                lightgbm_repro=LGBM_REPRO)
+
+
 def save_results(models, notebook, leakage=None, extra=None, out_dir='results'):
     """Write scalar metrics for one notebook run to results/<notebook>.json, with the code commit."""
     os.makedirs(out_dir, exist_ok=True)
@@ -680,6 +695,8 @@ def save_results(models, notebook, leakage=None, extra=None, out_dir='results'):
                          for k, v in r.items() if np.isscalar(v)}
     record = dict(notebook=notebook, code_commit=CODE_COMMIT,
                   leakage=leakage, models=[scalars(r) for r in models], **(extra or {}))
+    record['platform'] = runtime_platform()
+    record['execution_commit'] = subprocess.run(['git', 'rev-parse', 'HEAD'], capture_output=True, text=True, check=True).stdout.strip()
     path = os.path.join(out_dir, f'{notebook}.json')
     with open(path, 'w') as f:
         json.dump(record, f, indent=2)
@@ -861,7 +878,7 @@ def operating_points(y_test, test_probs, threshold, levels=(0.95, 0.90, 0.85, 0.
             continue
         tp, fp = int((pred & (y == 1)).sum()), int((pred & (y == 0)).sum())
         p, r = tp / (tp + fp), tp / int(y.sum())
-        rows.append(dict(threshold=round(t, 4), precision=p, recall=r, f1=2 * p * r / (p + r) if p + r else 0.0,
+        rows.append(dict(threshold=float(t), precision=p, recall=r, f1=2 * p * r / (p + r) if p + r else 0.0,
                          flagged=int(pred.sum()), false_pos=fp,
                          note='validation threshold' if t == threshold else ''))
     return pd.DataFrame(rows)

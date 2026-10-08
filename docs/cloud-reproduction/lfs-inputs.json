@@ -1,0 +1,224 @@
+[
+  {
+    "path": "data/20240915_final_sybil_list/fcfs_list.csv",
+    "sha256": "94347fb723f7a0acf437043f12a81b80129812469df05e7607416b1f82349b65",
+    "bytes": 27765183,
+    "verified": true
+  },
+  {
+    "path": "data/20241013_hildobby_cex_evms/All_Known_EVM_CEX_Addresses.2024-10-13.csv",
+    "sha256": "7f046a83c5f0a2930508e4e3804b9f3484a02f8ef5f815b6712ffd4d161719b1",
+    "bytes": 206801,
+    "verified": true
+  },
+  {
+    "path": "data/20241104_layer0_sybil_features/l0_features_0_100000.csv",
+    "sha256": "53b6baa79f7382232bce4964e38d69dbbcaad837b5a4b275f722fd397d9c9431",
+    "bytes": 44412467,
+    "verified": true
+  },
+  {
+    "path": "data/20241104_layer0_sybil_features/l0_features_100000_200000.csv",
+    "sha256": "774dcdfc7421197971328871338ef4517b608013b81d7a86da0071eed2a12450",
+    "bytes": 44414738,
+    "verified": true
+  },
+  {
+    "path": "data/20241104_layer0_sybil_features/l0_features_200000_300000.csv",
+    "sha256": "7d96d5462d5044716f81ff626b992686731789800cef2b7615b9996911e7114c",
+    "bytes": 44412830,
+    "verified": true
+  },
+  {
+    "path": "data/20241104_layer0_sybil_features/l0_features_300000_400000.csv",
+    "sha256": "38a5b1e4c899459616a8aabfff22dba8d035f4257a60874af4c7aa95bff67eb9",
+    "bytes": 44417071,
+    "verified": true
+  },
+  {
+    "path": "data/20241104_layer0_sybil_features/l0_features_400000_500000.csv",
+    "sha256": "b64b0aaaa0ee193b676609e4b5607800282478b9a11acbd156d2db6b685ec729",
+    "bytes": 15468898,
+    "verified": true
+  },
+  {
+    "path": "data/20241114_gas_provision/20241114_1633_layer0_provision_network_000000000000.csv",
+    "sha256": "aa9aeed0995c8a5995b4ccdc8c1da87d5f4df4926e3dbd4109ee81108484ebeb",
+    "bytes": 124287435,
+    "verified": true
+  },
+  {
+    "path": "data/20241114_gas_provision/archive/20241114_layerzero_provisions_000000000000.csv",
+    "sha256": "74da359185863b2228bd548779e3994d239ee2606ad9bdffdf8b1b6829bddc15",
+    "bytes": 156167687,
+    "verified": true
+  },
+  {
+    "path": "data/20241117_tree_features/20241117_graph_and_tree_features.csv",
+    "sha256": "defb252b55d239297b94c4d9aa3b37db129a86e93d6e1266374d9ca52047478e",
+    "bytes": 107589964,
+    "verified": true
+  },
+  {
+    "path": "data/20241214_labeled_addresses/20241214_labeled_addresses.csv",
+    "sha256": "77b8566d3d57b436e88121dcbb9282abff85ad9f0871fbbfda30e08761ddebe4",
+    "bytes": 398380576,
+    "verified": true
+  },
+  {
+    "path": "data/20241214_labeled_addresses/20241214_labeled_addresses_part_0.csv",
+    "sha256": "513f07e8020f82674b898c0dfb33c55af55941b46728325deb7dacf25dd70d9a",
+    "bytes": 22000000,
+    "verified": true
+  },
+  {
+    "path": "data/20241214_labeled_addresses/20241214_labeled_addresses_part_1.csv",
+    "sha256": "6a3ab6f17edb6f8de7d55ecc3454c5834672f9a0e7191579c6f25ac415cb52e2",
+    "bytes": 22000000,
+    "verified": true
+  },
+  {
+    "path": "data/20241214_labeled_addresses/20241214_labeled_addresses_part_10.csv",
+    "sha256": "a43092373ffc3557cf66e7893bac4c27a4d6ed9ecea0801f0ab656ec53355fe2",
+    "bytes": 22000000,
+    "verified": true
+  },
+  {
+    "path": "data/20241214_labeled_addresses/20241214_labeled_addresses_part_11.csv",
+    "sha256": "554c33432ff012477fbe8f93cde0bde27f0f0c9985cf0474e53b1d61759c9b40",
+    "bytes": 22000000,
+    "verified": true
+  },
+  {
+    "path": "data/20241214_labeled_addresses/20241214_labeled_addresses_part_12.csv",
+    "sha256": "dd2ee00633a3fd672614db6ac8af0580072e92731f47680b50a76710da91b3b8",
+    "bytes": 22000000,
+    "verified": true
+  },
+  {
+    "path": "data/20241214_labeled_addresses/20241214_labeled_addresses_part_13.csv",
+    "sha256": "c0006c5abde88609c1342484199d98f2c25e1f56223c5d169ce69823a9bef6d4",
+    "bytes": 22000000,
+    "verified": true
+  },
+  {
+    "path": "data/20241214_labeled_addresses/20241214_labeled_addresses_part_14.csv",
+    "sha256": "b424bc2707c8e4717fdb4631ed86ac8d9d284f9a22dd55c7e7b6593e26617e85",
+    "bytes": 22000000,
+    "verified": true
+  },
+  {
+    "path": "data/20241214_labeled_addresses/20241214_labeled_addresses_part_15.csv",
+    "sha256": "c8030383ce259371b11d3a6bcff3af16b762f1ba8776921ac6d1c951ff903e55",
+    "bytes": 22000000,
+    "verified": true
+  },
+  {
+    "path": "data/20241214_labeled_addresses/20241214_labeled_addresses_part_16.csv",
+    "sha256": "e87613e642988c1c44ae9d50a4b843dc033a04e9f8d18665095706255c9707e7",
+    "bytes": 22000000,
+    "verified": true
+  },
+  {
+    "path": "data/20241214_labeled_addresses/20241214_labeled_addresses_part_17.csv",
+    "sha256": "e1a1e0a37eb5b693c0f7f74d8108fd9a1c69ceb57cfb2306a8989ea6331cfe3a",
+    "bytes": 22000000,
+    "verified": true
+  },
+  {
+    "path": "data/20241214_labeled_addresses/20241214_labeled_addresses_part_18.csv",
+    "sha256": "18a277e7834ad43768f72ea92e39d9eaa22a592bde273547ef46580a076438b7",
+    "bytes": 2380576,
+    "verified": true
+  },
+  {
+    "path": "data/20241214_labeled_addresses/20241214_labeled_addresses_part_2.csv",
+    "sha256": "2ae0c09d6275d42aed700a5c19af2377110fffce6a9e22fd8967dae30db2f3b5",
+    "bytes": 22000000,
+    "verified": true
+  },
+  {
+    "path": "data/20241214_labeled_addresses/20241214_labeled_addresses_part_3.csv",
+    "sha256": "451d623933518020b02215daf03a676b0cb43747339d2663cb1d913f7c880134",
+    "bytes": 22000000,
+    "verified": true
+  },
+  {
+    "path": "data/20241214_labeled_addresses/20241214_labeled_addresses_part_4.csv",
+    "sha256": "48f1f99c9c70d3f5ceda43878edd9b5d52d4c2f108ebdae05d49c2a44f0b92c4",
+    "bytes": 22000000,
+    "verified": true
+  },
+  {
+    "path": "data/20241214_labeled_addresses/20241214_labeled_addresses_part_5.csv",
+    "sha256": "638e0df290269ff8d00ceb77a5fee4b3b1807ba2d75a6ab341ae76d287f538e1",
+    "bytes": 22000000,
+    "verified": true
+  },
+  {
+    "path": "data/20241214_labeled_addresses/20241214_labeled_addresses_part_6.csv",
+    "sha256": "174ff83b410f331b161a2e2f8fb27ec792506b7f943b86be7a7e98670c59134f",
+    "bytes": 22000000,
+    "verified": true
+  },
+  {
+    "path": "data/20241214_labeled_addresses/20241214_labeled_addresses_part_7.csv",
+    "sha256": "97f927f72708f593eb0efc682141b5744e3f805f11b5081fdbf5e75144abce9f",
+    "bytes": 22000000,
+    "verified": true
+  },
+  {
+    "path": "data/20241214_labeled_addresses/20241214_labeled_addresses_part_8.csv",
+    "sha256": "ead9be5fa99cd39bdf50519c23d4dfdb88ea81e6397dc862574f55dd41d86850",
+    "bytes": 22000000,
+    "verified": true
+  },
+  {
+    "path": "data/20241214_labeled_addresses/20241214_labeled_addresses_part_9.csv",
+    "sha256": "ba253b5cc702382003e3d612e9bc634fc53a10c2c6e8297f9d43f41e2c16e895",
+    "bytes": 22000000,
+    "verified": true
+  },
+  {
+    "path": "data/20241214_labeled_addresses/additional_addresses.csv",
+    "sha256": "0f81122461927345dde2211e9dbf4c2e24e9af5d5b758c4a0f4eab796b0f0cf3",
+    "bytes": 42,
+    "verified": true
+  },
+  {
+    "path": "data/20250208_cex_dex_indegree/cex_dex_features_in_0.csv",
+    "sha256": "5588932ed9f0ec33614c5f034d74f45415de8eb5e75b24b16a94c0e9afb93f58",
+    "bytes": 4807430,
+    "verified": true
+  },
+  {
+    "path": "data/20250208_cex_dex_indegree/cex_dex_features_in_100000.csv",
+    "sha256": "450fc8a2fab757c4cedc52f1c6ec97504f778194c8d7bd8475d54814790b49a5",
+    "bytes": 4807675,
+    "verified": true
+  },
+  {
+    "path": "data/20250208_cex_dex_indegree/cex_dex_features_in_200000.csv",
+    "sha256": "bcefb6a2ab01ee5ca4bf1ac32c81eef381c037f627ba63f481c8c0d00b950e7f",
+    "bytes": 4807546,
+    "verified": true
+  },
+  {
+    "path": "data/20250208_cex_dex_indegree/cex_dex_features_in_300000.csv",
+    "sha256": "714de5e9d8a67c3e32db70158a2847f4caf5f01bb97693fbb2a038fe035e264b",
+    "bytes": 4807502,
+    "verified": true
+  },
+  {
+    "path": "data/20250208_cex_dex_indegree/cex_dex_features_in_400000.csv",
+    "sha256": "ee4e35fce506cbf4f0630b968db7c4796809c1f232220832e418902008c131d2",
+    "bytes": 1672429,
+    "verified": true
+  },
+  {
+    "path": "review_support/initial_list/initial_list.csv",
+    "sha256": "1a643f70056fe0c0b38d4a13468e968a2de0bd18de6bc25ed7139d9fa691a7cc",
+    "bytes": 34560871,
+    "verified": true
+  }
+]

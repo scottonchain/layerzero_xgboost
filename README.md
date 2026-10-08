@@ -1,3 +1,5 @@
+> **Cloud reproduction in progress (2026-10-08):** see [run report](docs/cloud-reproduction/REPORT.md). Tables below are historical until refreshed; they are not measurements from the new cloud run.
+
 # LayerZero Sybil Detection: ML Pipeline
 
 > Reproduces and extends: *Sybil Detection on Public Blockchains via XGBoost and Gas Provision Network Analysis* (Imig et al., 2025)
@@ -70,7 +72,7 @@ XGBoost and LightGBM lose similar Average Precision; the cross-ensemble tracks L
 | All provision-network features removed | `08` | Test F1 −0.008; transaction features alone carry most of the signal |
 | SHAP by feature family | `09` | LayerZero transactions first, then Ethereum transactions, gas provider, gas provision tree, provision chain |
 | Random forest on 10 group splits | `13` | Test F1 0.703 ± 0.006 vs LightGBM 0.713 ± 0.009 (same machine); paired difference −0.011 ± 0.007, lower on 9 of 10 |
-| Entity-level recall (LightGBM, validation threshold) | `14` | Gas provision trees: any-hit 0.765 (97 % are single-wallet trees). Bounty reports: any-hit 0.703, majority-hit 0.552; 49 % of reports keep at least half their ZRO allocation unflagged. 37 % of the test Sybils' allocation is unflagged (address miss rate 28 %). Arm64 predictions, flagged in the results file |
+| Entity-level recall (LightGBM, validation threshold) | `14` | Gas provision trees: any-hit 0.756 (97 % are single-wallet trees). Bounty reports: any-hit 0.695, majority-hit 0.540; 51 % of reports keep at least half their ZRO allocation unflagged. 38 % of the test Sybils' allocation is unflagged (address miss rate 29 %) |
 | Split grouped by tree and bounty report | `15` | Under the tree split, 5,406 of 5,463 test Sybils still share a bounty report with a training Sybil (random split: 5,434). Grouping by tree and report as well: test F1 0.256 ± 0.022 vs 0.713 ± 0.009 (−0.457 ± 0.023, 10 of 10; outside the two largest components −0.375). One component holds 45 % of Sybils and always lands in train, so the drop also reflects that composition |
 | Label noise: LayerZero's initial Sybil list ([archived source](https://web.archive.org/web/*/https://github.com/LayerZero-Labs/sybil-report/raw/main/*)) | `16` | 34,545 interactors (8.3 % of the non-Sybils) are on LayerZero's initial list and labeled non-Sybil. At the validation threshold, 625 of the 1,566 test false positives (40 %) are on it; counting them as Sybil, precision is 0.829 instead of 0.715. Dropping them from training and validation: test F1 on the test set without them +0.034 ± 0.010 (10 of 10) |
 | Mimicry controls | `24` | Profile copy at k = 5: top features by SHAP 0.039, cheap only 0.045, strict cheap (7 Ethereum-side counts and values) 0.167, structural only 0.546, random 5 of 62 0.433 (range 0.179–0.719). All 30 structural features together: 0.484. Collapse is specific to the top features, and strongest for LayerZero activity and timing |

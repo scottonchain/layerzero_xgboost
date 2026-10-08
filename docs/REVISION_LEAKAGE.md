@@ -33,7 +33,7 @@ for the paper come from `10_tie_out.ipynb` (and `11_split_comparison.ipynb` for 
 | C `gini_coefficient` identically zero | R1 graph-feature formulas | Code done: formula corrected, then removed by the pre-specified rule (3 of 10 splits; 62 features) | b1594ce, 91cfd02 | `01_ablation_gini`; findings E |
 | B10 repo text | R2 test isolation | Done: notebook headers, README benchmark and robustness tables from the final run | d84263a, 9558973 | `README.md` |
 | A13 Random Forest baseline | R2 baselines | Code done: validation-only search (24 configurations after the extension), 3-seed model, 10 splits against a same-machine LightGBM | ce0a3c0, 3bbec2c | `13_random_forest_sybil`; findings E (2026-10-05) |
-| A14 entity-level recall | R1 entity-level evaluation | Code done; run on arm64 predictions, flagged (do not match committed `03`/`04`/`06`) | e156d9d | `14_entity_level_recall`; findings E (2026-10-05) |
+| A14 entity-level recall | R1 entity-level evaluation | Done: rerun on the committed `03`/`04`/`06` predictions (x86_64), `predictions_match_committed_results: true` | 1fed658 | `14_entity_level_recall`; findings E (2026-10-05) |
 | A15 split by tree and bounty report | New (internal review) | Done with a warning: the 5 % component rule became a warning; union-split models and 10 splits run (union − tree test F1 −0.457) | e156d9d, 3bbec2c | `15_split_tree_report`; findings E (2026-10-05) |
 | A16 label robustness: initial list | R1 label methodology; R2 positive-unlabeled | Code done: list verified against the 24 May 2024 Wayback capture (byte-identical) and 5 copies; `16` run | 5888aa3 | `review_support/initial_list/`; `16`; findings E (2026-10-06) |
 | A17 all models over 10 splits; significance; cost | R1 significance and cost | Code done | 5888aa3 | `17`; README model table |
@@ -313,6 +313,13 @@ The corrected `gini_coefficient` is the only feature whose definition changed in
 - Allocation: 37.2 % of the test Sybils' ZRO is on unflagged addresses, against an address miss rate of 28.1 %. The missed Sybils carry larger allocations than the detected ones.
 - Caveat: a tree or a report is a proxy for an operator, not the operator. One operator can fund many wallets directly from an exchange, which yields many single-wallet trees. `allocation` is intended payout, not profit (it excludes costs).
 
+**2026-10-05, A14 rerun on the committed predictions, `14` @ 1fed658.** `14` rerun on the x86_64 Linux container that produced the committed results at 0d9eacc (Intel Xeon, 4 cores, Python 3.11.15, xgboost 3.2.0, lightgbm 4.6.0), reading the `output/` predictions from that run. `predictions_match_committed_results: true`: threshold, recall and F1 of all three models equal the committed `03`/`04`/`06`. This entry supersedes the arm64 numbers in the entry below. LightGBM at its validation threshold (0.6001); XGBoost differs by at most 0.03 in any rate below. E1 Sybil-weighted recall equals address-level recall (0.7111); every entity type sums to 5,463 test Sybils and 32,696.7 ZRO.
+
+- E1, gas provision tree: any-hit 0.756, majority-hit 0.755, full-hit 0.753; within-tree recall 0.755 unweighted, 0.711 weighted. 1,205 trees (24.6 %) keep at least half their allocation unflagged. Tree counts as below (4,907 trees, 97.1 % single-wallet).
+- E2, bounty report: any-hit 0.695, majority-hit 0.540, full-hit 0.155; within-report recall 0.502 unweighted. 121 reports (50.6 %) keep at least half their allocation unflagged. The 18 reports with every Sybil in test: any-hit 0.056.
+- E3, reporter: any-hit 0.864, majority-hit 0.674, full-hit 0.114; 52 (39.4 %) keep at least half their allocation unflagged.
+- Allocation: 38.0 % of the test Sybils' ZRO is on unflagged addresses (XGBoost 36.9 %), against an address miss rate of 28.9 %. The missed Sybils still carry larger allocations than the detected ones.
+
 **2026-10-05, A15 report-level dependence, `15` @ e156d9d: stopped for review.** No model was trained.
 
 - Report overlap: under the random split (seed 42), 5,434 of 5,463 test Sybils share a Commonwealth report with a training Sybil. Under the tree split, 5,406 (seed 42), and 5,402.5 ± 22.3 over the 10 seeds. GitHub issue: 1,935 / 1,798 / 1,824.4 ± 21.8. Reporter: 5,461 / 5,445 / 5,444.5 ± 16.6. Under the tree split, 212 of the 239 reports with test Sybils also have training Sybils. The tree split removes tree overlap (599 → 0) but almost none of the report overlap.
@@ -384,3 +391,5 @@ Zenodo steps (for Paven; not done here): (1) sign in to zenodo.org with GitHub a
 - Reading: the collapse in `18` is specific to the top-ranked features (at k = 5, SHAP order 0.039 vs random 0.433), not general fragility to replacement. A rule-based strict-cheap attack on Ethereum-side statistics alone still cuts recall to 0.17 at k = 5; randomizing the whole gas-provision structure cuts it only to 0.48. Caveats in the results (those of `18`, plus: random k is not an attack model; strict cheap is defined by data source, not monetary cost).
 
 **2026-10-07, tie-out `99` @ 42d4cf5.** Adds `24` (provenance; dependencies `02`, `09`, `18`; parameters; platform; the regression check against `18`). 66 of 67 checks pass; the failing one is still `14`'s inputs.
+
+**2026-10-08, ChatGPT cloud reproduction baseline.** Integrated #8 and #10/#11 (including 24), preserving later revisions. Full pipeline scheduled as 00–20, 22, 24, 23, 99; 25 is absent. Fresh searches, single documented numerical platform, clean-tree commits and checkpoint logs. Status pending execution; see `docs/cloud-reproduction/REPORT.md`. Historical findings above remain historical.
