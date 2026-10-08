@@ -1,0 +1,14 @@
+START 19_ablation_by_category.ipynb at 4fbf48766c7305fc9a4ad7d7654151c864be872f
+No event loop hook running.
+CELL 2 started
+Code commit: 4fbf487
+Platform: {'machine': 'x86_64', 'processor': 'x86_64', 'system': 'Linux', 'python': '3.12.14', 'cpu_count': 9, 'n_jobs': 4}
+All features: 62 features
+Without all provision-network families: 31 features
+Without Gas provider: 51 features
+Without Gas provision tree: 45 features
+Without Provision chain: 59 features
+CELL 2 completed in 27.4s
+CELL 4 started
+split 42 done (237s)
+split 1 done (248s)
