@@ -66,7 +66,16 @@
       "started_utc": "2026-10-08T02:27:03Z",
       "status": "passed",
       "seconds": 233.6261968612671,
-      "completed_utc": "2026-10-08T02:30:56Z"
+      "completed_utc": "2026-10-08T02:30:56Z",
+      "artifact_commit": "d2f80c0f3d26b7eefeeeb78a8c16426667e9ebfe"
+    },
+    {
+      "notebook": "04_lightgbm_sybil.ipynb",
+      "execution_commit": "d2f80c0f3d26b7eefeeeb78a8c16426667e9ebfe",
+      "started_utc": "2026-10-08T02:31:08Z",
+      "status": "passed",
+      "seconds": 182.50763463974,
+      "completed_utc": "2026-10-08T02:34:11Z"
     }
   ]
 }

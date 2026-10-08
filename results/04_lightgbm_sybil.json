@@ -1,6 +1,6 @@
 {
   "notebook": "04_lightgbm_sybil",
-  "code_commit": "0d9eacc",
+  "code_commit": "d2f80c0",
   "leakage": {
     "method": "group",
     "test_rows": 130435,
@@ -94,5 +94,37 @@
     "provider_is_star_like_attack": 5.0710086771117446e-05,
     "provider_is_labeled": 3.667570575978868e-06,
     "provider_is_null": 4.2110369656967327e-07
-  }
+  },
+  "platform": {
+    "machine": "x86_64",
+    "system": "Linux",
+    "processor": "AMD EPYC 9V74 80-Core Processor",
+    "kernel": "6.18.44",
+    "python": "3.12.14",
+    "cpu_count": 9,
+    "n_jobs": 4,
+    "versions": {
+      "numpy": "2.4.6",
+      "pandas": "3.0.6",
+      "scipy": "1.17.1",
+      "scikit-learn": "1.8.0",
+      "xgboost": "3.2.0",
+      "lightgbm": "4.6.0",
+      "shap": "0.51.0",
+      "pyarrow": "25.0.1",
+      "matplotlib": "3.11.2"
+    },
+    "threads": {
+      "OMP_NUM_THREADS": "4",
+      "OPENBLAS_NUM_THREADS": "1",
+      "MKL_NUM_THREADS": "1",
+      "NUMEXPR_NUM_THREADS": "4",
+      "PYTHONHASHSEED": "42"
+    },
+    "lightgbm_repro": {
+      "force_col_wise": true,
+      "deterministic": true
+    }
+  },
+  "execution_commit": "d2f80c0f3d26b7eefeeeb78a8c16426667e9ebfe"
 }
