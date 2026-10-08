@@ -1,0 +1,10 @@
+{
+  "stage": {
+    "notebook": "09_shap_importance.ipynb",
+    "execution_commit": "e5885b4a341bc2fd6ef9ce8881cc7a5911141563",
+    "started_utc": "2026-10-08T07:08:40Z",
+    "status": "running"
+  },
+  "working_tree_status": "",
+  "note": "Partial snapshot; not a completed notebook result."
+}
