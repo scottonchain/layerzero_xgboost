@@ -1,0 +1,276 @@
+START 00_data_pipeline.ipynb at a2f2dd79ecdc833da38de7c2ff30fc88b3a8c40d
+No event loop hook running.
+CELL 2 started
+pandas 3.0.6 | numpy 2.4.6
+
+CELL 2 completed in 1.0s
+CELL 3 started
+DATA_DIR     : ./data
+OUTPUT_DIR   : ./output
+Features     : 62 selected
+
+CELL 3 completed in 0.0s
+CELL 5 started
+After cleaning   : 434,786 rows
+Columns          : 55
+Time             : 2.8s
+
+CELL 5 completed in 2.8s
+CELL 6 started
+Columns in L0 features:
+                              Column   Dtype  NullPct  InFEATS
+                                addr     str     0.00    False
+                  n_eth_interactions float64     0.00     True
+                  n_l0_source_chains float64     0.00     True
+                    n_l0_dest_chains float64     0.00    False
+    n_l0_dest_chain_per_source_chain float64     0.00    False
+                       n_l0_projects float64     0.00     True
+       n_l0_project_per_source_chain float64     0.00     True
+               n_l0_source_contracts float64     0.00     True
+                 n_l0_dest_contracts float64     0.00    False
+                l0_max_stargate_swap float64     0.00    False
+                l0_avg_stargate_swap float64     0.00     True
+                l0_min_stargate_swap float64     0.00     True
+              l0_max_native_drop_usd float64     0.00    False
+              l0_avg_native_drop_usd float64     0.00    False
+                            n_l0_txs float64     0.00    False
+                 earliest_l0_tx_time float64     0.00     True
+                   latest_l0_tx_time float64     0.00     True
+                     l0_tx_time_span float64     0.00     True
+           n_l0_to_eth_source_chains float64    68.81     True
+                n_l0_to_eth_projects float64    68.81     True
+n_l0_to_eth_project_per_source_chain float64    68.81     True
+        n_l0_to_eth_source_contracts float64    68.81     True
+          n_l0_to_eth_dest_contracts float64    68.81     True
+         l0_to_eth_max_stargate_swap float64    68.81     True
+         l0_to_eth_avg_stargate_swap float64    68.81     True
+         l0_to_eth_min_stargate_swap float64    68.81     True
+       l0_to_eth_max_native_drop_usd float64    68.81     True
+       l0_to_eth_avg_native_drop_usd float64    68.81     True
+                     n_l0_to_eth_txs float64    68.81     True
+          earliest_l0_to_eth_tx_time float64    68.81    False
+            latest_l0_to_eth_tx_time float64    68.81    False
+              l0_to_eth_tx_time_span float64    68.81     True
+                    num_transactions float64     0.06    False
+               earliest_tx_block_out float64     0.06    False
+                 latest_tx_block_out float64     0.06    False
+                       tx_block_span float64     0.06    False
+                    max_tx_value_out float64     0.06     True
+                    min_tx_value_out float64     0.06     True
+                  total_tx_value_out float64     0.06    False
+                    avg_tx_value_out float64     0.06    False
+                      max_tx_fee_out float64     0.06    False
+                      min_tx_fee_out float64     0.06    False
+                       time_span_out float64     0.06    False
+            out_degree_per_block_out float64     0.00    False
+              tx_value_per_block_out float64     0.00     True
+                 num_transactions_in float64     0.00     True
+                earliest_tx_block_in float64     0.00     True
+                  latest_tx_block_in float64     0.00    False
+                     max_tx_value_in float64     0.00    False
+                     min_tx_value_in float64     0.00     True
+                   total_tx_value_in float64     0.00    False
+                     avg_tx_value_in float64     0.00    False
+                        time_span_in float64     0.00     True
+               indegree_per_block_in float64     0.00     True
+               tx_value_per_block_in float64     0.00    False
+
+CELL 6 completed in 0.0s
+CELL 8 started
+Snapshot cutoff         : 2024-05-02 00:00:00 UTC (exclusive)
+Edges dropped (later)   : 296
+Latest edge kept        : 2024-05-01 23:56:47+00:00
+Valid mappings          : 604,365
+Unique provider addrs   : 202,604
+L0 addresses covered    : 434,110 (99.8%)
+Time : 9.5s
+
+CELL 8 completed in 9.5s
+CELL 9 started
+Provider fan-out distribution:
+count    202604.00
+mean          2.98
+std         129.32
+min           1.00
+25%           1.00
+50%           1.00
+75%           1.00
+max       19022.00
+Name: fan_out, dtype: float64
+
+Providers funding ≥ 100 wallets : 235
+Providers funding ≥  10 wallets : 1,194
+Providers funding    1 wallet   : 188,612
+
+CELL 9 completed in 0.2s
+CELL 11 started
+Labeled anchors retained   : 4,308  (provision-network addresses that are known entities)
+
+provider_is_labeled    : 306,658 (70.5%)
+provider_is_interactor : 35,802 (8.2%)
+provider_is_null       : 676 (0.2%)
+Time : 3.8s
+
+CELL 11 completed in 3.8s
+CELL 13 started
+New columns added : 30
+  ['gas_provision_amount', 'gas_provision_block_number', 'provider_fan_out', 'provider_total_gas_provision_amount', 'provider_max_gas_provision_amount', 'provider_min_gas_provision_amount', 'provider_avg_gas_provision_amount', 'provider_is_star_like_attack', 'tree_size', 'total_gas', 'max_depth', 'branching_factor', 'balance_factor', 'leaf_provision_proportion', 'avg_depth', 'depth_variance', 'leaf_to_internal_ratio', 'avg_leaf_gas', 'breadth_factor', 'breadth_to_depth_ratio', 'gini_coefficient', 'gas_distribution_entropy', 'gas_distribution_skewness', 'leaf_gas_distribution_entropy', 'leaf_gas_distribution_skewness', 'sparsity', 'depth', 'longest_chain_ratio', 'star_like_ratio', 'depth_weighted_avg_gas']
+
+After merge : 434,786 rows, 88 cols
+Time        : 9.4s
+
+Original file rows (unique addr): 434,110 | recomputed: 434,110 | common: 434,110
+Features that differ from the original file:
+                            feature  match_rate  n_differ
+provider_total_gas_provision_amount    0.962910     16101
+  provider_avg_gas_provision_amount    0.962910     16101
+       provider_is_star_like_attack    0.990846      3974
+                          tree_size    0.980943      8273
+                          total_gas    0.980943      8273
+                          max_depth    0.982668      7524
+                   branching_factor    0.980943      8273
+                     balance_factor    0.982792      7470
+          leaf_provision_proportion    0.980945      8272
+                          avg_depth    0.980947      8271
+                     depth_variance    0.980945      8272
+             leaf_to_internal_ratio    0.980959      8266
+                       avg_leaf_gas    0.981003      8247
+                     breadth_factor    0.980977      8258
+             breadth_to_depth_ratio    0.980950      8270
+           gas_distribution_entropy    0.980959      8266
+          gas_distribution_skewness    0.980984      8255
+      leaf_gas_distribution_entropy    0.981037      8232
+     leaf_gas_distribution_skewness    0.981076      8215
+                           sparsity    0.987879      5262
+                              depth    0.982815      7460
+                longest_chain_ratio    0.980966      8263
+                    star_like_ratio    0.981014      8242
+             depth_weighted_avg_gas    0.980945      8272
+
+CELL 13 completed in 23.3s
+CELL 15 started
+cex_in_count stats:
+count    434786.000
+mean          3.212
+std           3.503
+min           0.000
+25%           1.000
+50%           2.000
+75%           4.000
+max          80.000
+Name: cex_in_count, dtype: float64
+
+Time : 0.6s
+
+CELL 15 completed in 0.6s
+CELL 17 started
+Label distribution in master df:
+  Sybil     : 18,211 (4.19%)
+  Non-Sybil : 416,575 (95.81%)
+  is_provider (Sybil)     : 1,077
+  is_provider (Non-Sybil) : 26,903
+Time : 2.2s
+
+CELL 17 completed in 2.2s
+CELL 19 started
+chain_length stats:
+count    434786.000
+mean          1.883
+std           3.657
+min           0.000
+25%           1.000
+50%           1.000
+75%           2.000
+max         504.000
+Name: chain_length, dtype: float64
+
+interactors_in_chain stats:
+count    434786.000
+mean          1.170
+std           1.353
+min           1.000
+25%           1.000
+50%           1.000
+75%           1.000
+max          94.000
+Name: interactors_in_chain, dtype: float64
+
+Time : 1.3s
+
+CELL 19 completed in 1.3s
+CELL 20 started
+CELL 20 completed in 0.5s
+CELL 22 started
+All 62 features present : True
+NaN values in feature columns : 0 columns affected
+Duplicate addresses : 0
+
+Final shape : (434786, 94)
+Memory usage: 336.1 MB
+
+All checks passed ✓
+
+CELL 22 completed in 0.1s
+CELL 24 started
+Address taxonomy:
+              Count  Sybil_n  Sybil_pct  Avg_chain  Pct_of_total
+category                                                        
+IxE           93061      698     0.0075     3.9469         21.40
+IxI           34391     1566     0.0455     4.2127          7.91
+IxL          306658    15921     0.0519     1.0000         70.53
+No provider     676       26     0.0385     0.0000          0.16
+
+CELL 24 completed in 0.1s
+CELL 26 started
+Gas provision trees            : 371,764
+Multi-wallet trees             : 22,952  (largest: 1,627 wallets)
+Addresses in multi-wallet trees: 85,974
+Sybils in multi-wallet trees   : 2,322 / 18,211
+
+Wallets in multi-wallet trees, by category:
+category
+IxE            38642
+IxI            34390
+IxL            12886
+No provider       56
+
+CELL 26 completed in 1.4s
+CELL 28 started
+Split summary (before upsampling):
+     Split  Total  Sybil  NonSybil  SybilPct
+     Train 213046   8924    204122      4.19
+Validation  91305   3824     87481      4.19
+      Test 130435   5463    124972      4.19
+
+Train after upsampling : 408,244 rows  Sybil=50.0%
+Upsample factor        : 22.9×
+
+CELL 28 completed in 1.1s
+CELL 29 started
+Split method: group
+Row overlap (train/val, train/test, val/test): 0, 0, 0
+Test addresses sharing a gas provision tree with a train address: 0 / 130,435
+Test Sybils sharing a gas provision tree with a train Sybil:     0 / 5,463
+
+CELL 29 completed in 1.0s
+CELL 31 started
+CELL 31 completed in 0.9s
+CELL 32 started
+CELL 32 completed in 1.5s
+CELL 33 started
+CELL 33 completed in 0.5s
+CELL 35 started
+master_df.parquet  saved  (143.6 MB)
+feature_list.json  saved  (62 features)
+splits.npz         saved  (40.3 MB)
+Saved results/00_data_pipeline.json
+
+=== Reload example ===
+splits = np.load('output/splits.npz')
+X_train = splits['X_train'];  y_train = splits['y_train']
+# ... etc.
+
+Pipeline complete ✓
+
+CELL 35 completed in 7.6s
+PASS 00_data_pipeline.ipynb: 61.5s

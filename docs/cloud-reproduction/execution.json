@@ -1,0 +1,37 @@
+{
+  "baseline_commit": "6c5a264df5d8b631c00aed2bd966babc872ed460",
+  "stages": [
+    {
+      "notebook": "00_data_pipeline.ipynb",
+      "execution_commit": "6c5a264df5d8b631c00aed2bd966babc872ed460",
+      "started_utc": "2026-10-08T00:45:08Z",
+      "status": "failed",
+      "seconds": 1.0499658584594727,
+      "error": "Kernel died before replying to kernel_info"
+    },
+    {
+      "notebook": "00_data_pipeline.ipynb",
+      "execution_commit": "81318f7b5b18e169526dbb6a848508e247bc7007",
+      "started_utc": "2026-10-08T00:46:18Z",
+      "status": "failed",
+      "seconds": 2.504944324493408,
+      "error": "Command '['/workspace/scratch/348f04c6aebb/cloud-venv/bin/python', '/workspace/scratch/348f04c6aebb/layerzero_xgboost/scripts/run_cloud_reproduction.py', '--execute-one', '00_data_pipeline.ipynb']' returned non-zero exit status 1."
+    },
+    {
+      "notebook": "00_data_pipeline.ipynb",
+      "execution_commit": "64da9c6facf75d37b3b016aa9ff9b5fc2a8e5337",
+      "started_utc": "2026-10-08T00:48:08Z",
+      "status": "failed",
+      "seconds": 2.2843387126922607,
+      "error": "Command '['/workspace/scratch/348f04c6aebb/cloud-venv/bin/python', '/workspace/scratch/348f04c6aebb/layerzero_xgboost/scripts/run_cloud_reproduction.py', '--execute-one', '00_data_pipeline.ipynb']' returned non-zero exit status 1."
+    },
+    {
+      "notebook": "00_data_pipeline.ipynb",
+      "execution_commit": "a2f2dd79ecdc833da38de7c2ff30fc88b3a8c40d",
+      "started_utc": "2026-10-08T00:48:55Z",
+      "status": "passed",
+      "seconds": 61.48964762687683,
+      "completed_utc": "2026-10-08T00:49:57Z"
+    }
+  ]
+}
