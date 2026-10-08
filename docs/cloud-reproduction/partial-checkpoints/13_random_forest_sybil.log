@@ -41,3 +41,56 @@ CELL 7 started
 [21/24] {'max_features': 0.7, 'min_samples_leaf': 5, 'max_depth': None, 'max_samples': None}  val_F1=0.6976  AP=0.7393  447.8s
 [22/24] {'max_features': 0.7, 'min_samples_leaf': 5, 'max_depth': 24, 'max_samples': None}  val_F1=0.6464  AP=0.6749  418.3s
 [23/24] {'max_features': 0.7, 'min_samples_leaf': 20, 'max_depth': None, 'max_samples': None}  val_F1=0.6810  AP=0.7224  400.5s
+[24/24] {'max_features': 0.7, 'min_samples_leaf': 20, 'max_depth': 24, 'max_samples': None}  val_F1=0.6562  AP=0.6846  398.7s
+CELL 7 completed in 4743.4s
+CELL 8 started
+Selected Random Forest config: {'max_features': 0.3, 'min_samples_leaf': 1, 'max_depth': None, 'max_samples': None}
+max_features min_samples_leaf max_depth max_samples  val_f1  val_ap  val_auroc  val_logloss  val_threshold  seconds
+         0.3                1      None        None  0.7028  0.7515     0.9683       0.0792         0.3567    190.4
+         0.5                1      None        None  0.7021  0.7484     0.9667       0.0820         0.3933    339.0
+         0.7                1      None        None  0.7000  0.7423     0.9642       0.0860         0.3900    450.8
+        sqrt                1      None        None  0.6990  0.7469     0.9675       0.0768         0.3326     80.8
+         0.5                5      None        None  0.6979  0.7424     0.9661       0.0896         0.5394    326.4
+         0.7                5      None        None  0.6976  0.7393     0.9653       0.0907         0.5083    447.8
+         0.3                5      None        None  0.6954  0.7426     0.9676       0.0880         0.5504    178.9
+         0.5               20      None        None  0.6815  0.7234     0.9661       0.1139         0.6844    295.6
+         0.7               20      None        None  0.6810  0.7224     0.9653       0.1141         0.6672    400.5
+         0.3               20      None        None  0.6743  0.7192     0.9664       0.1177         0.6878    183.9
+        sqrt                5      None        None  0.6728  0.7201     0.9647       0.0961         0.5894     78.1
+         0.7               20        24        None  0.6562  0.6846     0.9620       0.1340         0.7574    398.7
+         0.5               20        24        None  0.6529  0.6864     0.9626       0.1335         0.7620    289.1
+         0.3               20        24        None  0.6475  0.6822     0.9627       0.1366         0.7377    175.6
+         0.7                5        24        None  0.6464  0.6749     0.9585       0.1222         0.7557    418.3
+         0.5                5        24        None  0.6461  0.6790     0.9603       0.1187         0.7598    295.0
+        sqrt               20      None        None  0.6451  0.6897     0.9616       0.1377         0.6775     75.5
+         0.3                5        24        None  0.6418  0.6773     0.9606       0.1159         0.7527    173.0
+         0.7                1        24        None  0.6397  0.6608     0.9564       0.1238         0.7396    417.9
+         0.3                1        24        None  0.6350  0.6636     0.9585       0.1165         0.7291    180.6
+         0.5                1        24        None  0.6349  0.6609     0.9575       0.1187         0.7337    304.8
+        sqrt                5        24        None  0.6263  0.6594     0.9565       0.1265         0.7675     73.4
+        sqrt               20        24        None  0.6218  0.6554     0.9580       0.1558         0.7682     72.1
+        sqrt                1        24        None  0.6183  0.6523     0.9551       0.1186         0.5913     76.1
+CELL 8 completed in 0.0s
+CELL 10 started
+           param value  best_val_f1
+    max_features   0.3       0.7028
+    max_features   0.5       0.7021
+    max_features   0.7       0.7000
+    max_features  sqrt       0.6990
+min_samples_leaf     1       0.7028
+min_samples_leaf    20       0.6815
+min_samples_leaf     5       0.6979
+       max_depth    24       0.6562
+       max_depth  None       0.7028
+CELL 10 completed in 0.0s
+CELL 12 started
+     Split  Total  Sybil  NonSybil  SybilPct
+     Train 213046   8924    204122      4.19
+Validation  91305   3824     87481      4.19
+      Test 130435   5463    124972      4.19
+Split method: group
+Row overlap (train/val, train/test, val/test): 0, 0, 0
+Test addresses sharing a gas provision tree with a train address: 0 / 130,435
+Test Sybils sharing a gas provision tree with a train Sybil:     0 / 5,463
+  Random Forest seed=42  182.7s
+  Random Forest seed=123  185.8s
