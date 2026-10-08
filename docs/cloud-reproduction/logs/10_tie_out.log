@@ -1,0 +1,150 @@
+START 10_tie_out.ipynb at 033b1a437f73876ee49a547500f98301109bd96e
+No event loop hook running.
+CELL 1 started
+                    notebook  commit  dependencies_unchanged
+            00_data_pipeline b00ed56                    True
+            01_ablation_gini 666e247                    True
+    02_hyperparameter_search 60838d8                    True
+            03_xgboost_sybil 190c074                    True
+           04_lightgbm_sybil 4e3ec91                    True
+05_logistic_regression_sybil 02f3113                    True
+     06_cross_ensemble_sybil 189f0d5                    True
+07_sensitivity_label_vintage 5f70994                    True
+        08_ablation_families 1c6f5ff                    True
+          09_shap_importance e5885b4                    True
+
+All results trace to the code in this commit ✓
+CELL 1 completed in 0.2s
+CELL 2 started
+XGBoost  (selected on validation): {'learning_rate': 0.05, 'max_depth': 8, 'subsample': 0.7, 'colsample_bytree': 1.0, 'min_child_weight': 1}
+LightGBM (selected on validation): {'num_leaves': 127, 'learning_rate': 0.05, 'subsample': 0.7, 'reg_lambda': 1.0}
+03, 04, 06 used these ✓
+06 individual models match 03 and 04 ✓
+CELL 2 completed in 0.0s
+CELL 4 started
+Addresses: 434,786  |  Sybil: 18,211 (4.19%)
+Provision edges dropped by the snapshot cutoff: 296
+Gas provision trees: 371,764  |  multi-wallet: 22,952  |  largest: 1,627 wallets  |  Sybils in multi-wallet trees: 2,322
+
+Taxonomy categories:
+                  n  sybil  pct_of_total  sybil_rate_pct
+IxE           93061    698         21.40            0.75
+IxI           34391   1566          7.91            4.55
+IxL          306658  15921         70.53            5.19
+No provider     676     26          0.16            3.85 
+
+Partitions (before upsampling):
+               Total   Sybil  NonSybil  SybilPct
+Train       213046.0  8924.0  204122.0      4.19
+Validation   91305.0  3824.0   87481.0      4.19
+Test        130435.0  5463.0  124972.0      4.19
+
+Relational leakage (row overlap is asserted 0): test rows sharing a gas provision tree with train 0 of 130,435; test Sybils sharing one with a train Sybil 0 of 5,463
+CELL 4 completed in 0.0s
+CELL 6 started
+                                  precision  recall      f1   auroc      ap  threshold     fpr     fp
+Model                                                                                                
+XGBoost (tuned, 3-seed)              0.7196  0.7205  0.7200  0.9657  0.7645     0.5824  0.0123   1534
+LightGBM (tuned, 3-seed)             0.7267  0.7111  0.7188  0.9683  0.7696     0.6001  0.0117   1461
+Logistic Regression (C=0.01, L1)     0.1499  0.6167  0.2412  0.8368  0.1656     0.6823  0.1529  19104
+Cross-Ensemble                       0.6971  0.7388  0.7173  0.9683  0.7699     0.5035  0.0140   1754
+
+Blend: XGB weight = 0.06 (LightGBM 0.94)  |  disagreement at 0.5: 703 (0.54%)  |  rounds XGB [1679, 1617, 1578]  LGBM [1277, 1248, 1143]
+CELL 6 completed in 0.3s
+CELL 8 started
+                                                  n  sybil  precision  recall      f1   auroc     fpr
+Model                            category                                                            
+XGBoost (tuned, 3-seed)          IxE          28171    258     0.7885  0.1589  0.2645  0.9053  0.0004
+                                 IxI           9967    426     0.9691  0.3685  0.5340  0.9209  0.0005
+                                 IxL          92079   4770     0.7108  0.7822  0.7448  0.9746  0.0174
+                                 No provider    218      9     1.0000  0.7778  0.8750  0.9628  0.0000
+LightGBM (tuned, 3-seed)         IxE          28171    258     0.8333  0.1744  0.2885  0.9261  0.0003
+                                 IxI           9967    426     0.6207  0.3803  0.4716  0.9155  0.0104
+                                 IxL          92079   4770     0.7307  0.7696  0.7496  0.9762  0.0155
+                                 No provider    218      9     1.0000  0.7778  0.8750  0.9835  0.0000
+Logistic Regression (C=0.01, L1) IxE          28171    258     0.1855  0.2984  0.2288  0.8696  0.0121
+                                 IxI           9967    426     0.1967  0.6150  0.2981  0.8578  0.1121
+                                 IxL          92079   4770     0.1465  0.6352  0.2382  0.8043  0.2021
+                                 No provider    218      9     0.0000  0.0000  0.0000  0.5726  0.2392
+Cross-Ensemble                   IxE          28171    258     0.8197  0.1938  0.3135  0.9263  0.0004
+                                 IxI           9967    426     0.6015  0.3826  0.4677  0.9164  0.0113
+                                 IxL          92079   4770     0.7001  0.8000  0.7467  0.9762  0.0187
+                                 No provider    218      9     1.0000  0.7778  0.8750  0.9830  0.0000
+CELL 8 completed in 0.7s
+CELL 10 started
+Flagged at the validation threshold (0.5035): 5,790
+Top 8%: 463 addresses, precision 0.981 (454 Sybil)
+CELL 10 completed in 0.0s
+CELL 12 started
+xgboost: 74 configurations; top 5 by validation F1
+ learning_rate  max_depth  subsample  colsample_bytree  min_child_weight  val_f1  val_ap  val_logloss  val_threshold  rounds  seconds
+          0.05          8        0.7               1.0                 1  0.7032  0.7552       0.0826         0.5262    1679     64.6
+          0.05         10        0.5               1.0                 1  0.7025  0.7527       0.0820         0.5450     906     47.0
+          0.05         12        0.5               0.8                 1  0.7019  0.7543       0.0805         0.5808     547     37.8
+          0.05          8        0.7               1.0                10  0.7016  0.7518       0.0840         0.5573    2536     89.7
+          0.10         12        0.7               0.8                 1  0.7012  0.7525       0.0824         0.5899     297     20.6 
+
+lightgbm: 48 configurations; top 5 by validation F1
+ num_leaves  learning_rate  subsample  reg_lambda  val_f1  val_ap  val_logloss  val_threshold  rounds  seconds
+        127           0.05        0.7         1.0  0.7067  0.7600       0.0788         0.4355    1277     43.6
+        511           0.05        0.7         0.0  0.7061  0.7543       0.0787         0.5598     270     24.8
+        255           0.05        0.7         1.0  0.7047  0.7587       0.0780         0.5464     592     33.7
+       1023           0.05        0.7         1.0  0.7039  0.7590       0.0772         0.5715     164     26.3
+         31           0.05        0.7         1.0  0.7038  0.7558       0.0816         0.5931    4749     94.7 
+
+CELL 12 completed in 0.0s
+CELL 14 started
+                            n  avg_chain_length  pct_of_class
+class     category                                           
+Sybil     IxE             698             9.090          3.83
+          IxI            1566             8.663          8.60
+          IxL           15921             1.000         87.43
+          No provider      26             0.000          0.14
+          Total         18211             1.968        100.00
+Non-Sybil IxE           92363             3.908         22.17
+          IxI           32825             4.000          7.88
+          IxL          290737             1.000         69.79
+          No provider     650             0.000          0.16
+          Total        416575             1.880        100.00
+CELL 14 completed in 0.1s
+CELL 16 started
+Gini (01): removing it lowered validation F1 on 3 of 10 splits (one-sided sign test p = 0.945; mean change +0.0011). Decision: remove
+
+Label vintage (07): labeled addresses in the network, current 4,308, pre-snapshot 4,115; wallets with any feature changed 10,575
+Pre-snapshot minus current, mean ± SD over splits: val_f1 +0.0089 ± 0.0115, test_f1 -0.0047 ± 0.0070, test_ap -0.0055 ± 0.0090, test_auroc -0.0023 ± 0.0039
+
+Feature families (08), mean and SD over splits:
+                                        n_features_mean  val_f1_mean  test_f1_mean  test_f1_std  test_ap_mean  test_auroc_mean  test_f1_change_vs_all_mean
+All features                                       62.0       0.7121        0.7131       0.0060        0.7607           0.9682                      0.0000
+Without LayerZero transactions                     40.0       0.6489        0.6472       0.0046        0.6718           0.9366                     -0.0659
+Without Ethereum transactions                      53.0       0.6990        0.7007       0.0065        0.7417           0.9634                     -0.0124
+Without Gas provider                               51.0       0.7086        0.7081       0.0068        0.7579           0.9674                     -0.0050
+Without Gas provision tree                         45.0       0.7145        0.7120       0.0062        0.7616           0.9684                     -0.0011
+Without Provision chain                            59.0       0.7120        0.7113       0.0070        0.7607           0.9679                     -0.0017
+LayerZero transactions only                        22.0       0.6843        0.6718       0.0058        0.7131           0.9599                     -0.0413
+Ethereum transactions only                          9.0       0.6325        0.6254       0.0046        0.6364           0.9181                     -0.0877
+Gas provider only                                  11.0       0.4424        0.4381       0.0046        0.4072           0.8827                     -0.2750
+Gas provision tree only                            17.0       0.0996        0.1006       0.0009        0.0705           0.6115                     -0.6125
+Provision chain only                                3.0       0.1001        0.1005       0.0008        0.0653           0.6136                     -0.6126
+Without all provision-network families             31.0       0.7140        0.7052       0.0050        0.7581           0.9680                     -0.0079
+
+Sum of mean |SHAP| by family (09):
+                           All     IxL     IxI     IxE
+family                                                
+LayerZero transactions  4.8831  4.7315  4.7758  5.4168
+Ethereum transactions   2.4375  2.4771  2.2397  2.3771
+Gas provider            0.8421  0.8068  0.9412  0.9190
+Gas provision tree      0.4891  0.2477  1.3500  0.9752
+Provision chain         0.0387  0.0247  0.0910  0.0658
+CELL 16 completed in 0.0s
+CELL 17 started
+| Model | Precision | Recall | F1 | AUROC | AP | FPR |
+|---|---|---|---|---|---|---|
+| XGBoost (tuned, 3-seed) | 0.720 | 0.720 | 0.720 | 0.966 | 0.764 | 0.0123 |
+| LightGBM (tuned, 3-seed) | 0.727 | 0.711 | 0.719 | 0.968 | 0.770 | 0.0117 |
+| Logistic Regression (C=0.01, L1) | 0.150 | 0.617 | 0.241 | 0.837 | 0.166 | 0.1529 |
+| Cross-Ensemble | 0.697 | 0.739 | 0.717 | 0.968 | 0.770 | 0.0140 |
+
+Source: results/ checked against commit 033b1a4
+CELL 17 completed in 0.0s
+PASS 10_tie_out.ipynb: 5.4s
