@@ -1,4 +1,4 @@
-START 04_lightgbm_sybil.ipynb at f9f8288fb8dfad75ae974ae1d2b114992f45b2c6
+START 04_lightgbm_sybil.ipynb at 8f0a40f48e953f0cd7a39940750734fe5923978c
 No event loop hook running.
 CELL 2 started
 CELL 2 completed in 0.0s
@@ -10,7 +10,7 @@ CELL 4 started
 [5] CEX/DEX merged: 90 cols
 [6] Labels: Sybil=18,211 (4.19%)
 [7] Chain features, taxonomy, gas provision trees (371,764 trees)
-All 62 features present ✓  (25.9s)
+All 62 features present ✓  (26.5s)
      Split  Total  Sybil  NonSybil  SybilPct
      Train 213046   8924    204122      4.19
 Validation  91305   3824     87481      4.19
@@ -21,13 +21,13 @@ Split method: group
 Row overlap (train/val, train/test, val/test): 0, 0, 0
 Test addresses sharing a gas provision tree with a train address: 0 / 130,435
 Test Sybils sharing a gas provision tree with a train Sybil:     0 / 5,463
-CELL 4 completed in 27.8s
+CELL 4 completed in 28.6s
 CELL 6 started
 Tuned hyperparameters: {'num_leaves': 127, 'learning_rate': 0.05, 'subsample': 0.7, 'reg_lambda': 1.0}
-  LightGBM seed=42  rounds=1277  48.5s
-  LightGBM seed=123  rounds=1248  49.0s
-  LightGBM seed=456  rounds=1143  43.7s
-CELL 6 completed in 141.2s
+  LightGBM seed=42  rounds=1277  50.5s
+  LightGBM seed=123  rounds=1248  47.0s
+  LightGBM seed=456  rounds=1143  43.1s
+CELL 6 completed in 140.7s
 CELL 8 started
   Threshold : 0.6001
   Precision : 0.7267
@@ -77,4 +77,4 @@ Saved results/04_lightgbm_sybil.json
 Saved output/pred_04_lightgbm_sybil_val.parquet (91,305 rows)
 Saved output/pred_04_lightgbm_sybil_test.parquet (130,435 rows)
 CELL 14 completed in 0.1s
-PASS 04_lightgbm_sybil.ipynb: 172.3s
+PASS 04_lightgbm_sybil.ipynb: 172.8s
