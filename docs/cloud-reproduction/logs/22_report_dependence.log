@@ -1,0 +1,94 @@
+START 22_report_dependence.ipynb at 1f362bb82e322ac1c031199b2b58d33d1baf0253
+No event loop hook running.
+CELL 2 started
+Code commit: 1f362bb
+Platform: {'machine': 'x86_64', 'processor': 'x86_64', 'system': 'Linux', 'python': '3.12.14', 'cpu_count': 9, 'n_jobs': 4}
+            notebook  commit  dependencies_unchanged
+15_split_tree_report 8e6a32e                    True
+CELL 2 completed in 28.9s
+CELL 4 started
+CELL 4 completed in 0.0s
+CELL 5 started
+355,619 components; largest 13,346 rows, 8,260 Sybils; large: 2 components, 14,300 rows, 9,214 Sybils
+CELL 5 completed in 1.1s
+CELL 7 started
+repeat 0 fold 0: k_a 42,050 rows / 901 Sybils, mate coverage 0.98; LightGBM F1 held 0.4618 seen 0.6255, AUROC 0.9195 / 0.9762 (243s)
+repeat 0 fold 1: k_a 42,048 rows / 899 Sybils, mate coverage 0.98; LightGBM F1 held 0.4044 seen 0.5980, AUROC 0.9150 / 0.9753 (259s)
+repeat 0 fold 2: k_a 42,048 rows / 899 Sybils, mate coverage 0.99; LightGBM F1 held 0.3277 seen 0.5804, AUROC 0.8909 / 0.9592 (189s)
+repeat 0 fold 3: k_a 42,049 rows / 900 Sybils, mate coverage 0.99; LightGBM F1 held 0.2209 seen 0.5975, AUROC 0.8050 / 0.9601 (259s)
+repeat 0 fold 4: k_a 42,049 rows / 900 Sybils, mate coverage 0.99; LightGBM F1 held 0.4508 seen 0.6277, AUROC 0.9208 / 0.9735 (285s)
+repeat 1 fold 0: k_a 42,049 rows / 901 Sybils, mate coverage 0.99; LightGBM F1 held 0.4185 seen 0.6329, AUROC 0.9224 / 0.9738 (239s)
+repeat 1 fold 1: k_a 42,048 rows / 899 Sybils, mate coverage 0.98; LightGBM F1 held 0.3918 seen 0.5693, AUROC 0.9126 / 0.9690 (237s)
+repeat 1 fold 2: k_a 42,049 rows / 900 Sybils, mate coverage 0.99; LightGBM F1 held 0.3472 seen 0.5835, AUROC 0.8856 / 0.9660 (208s)
+repeat 1 fold 3: k_a 42,048 rows / 899 Sybils, mate coverage 0.98; LightGBM F1 held 0.2471 seen 0.6035, AUROC 0.8033 / 0.9632 (282s)
+repeat 1 fold 4: k_a 42,048 rows / 899 Sybils, mate coverage 0.99; LightGBM F1 held 0.4289 seen 0.6158, AUROC 0.9261 / 0.9737 (263s)
+repeat 2 fold 0: k_a 42,050 rows / 901 Sybils, mate coverage 0.99; LightGBM F1 held 0.4613 seen 0.6146, AUROC 0.9217 / 0.9750 (248s)
+repeat 2 fold 1: k_a 42,048 rows / 899 Sybils, mate coverage 0.99; LightGBM F1 held 0.4006 seen 0.5935, AUROC 0.9256 / 0.9770 (228s)
+repeat 2 fold 2: k_a 42,048 rows / 899 Sybils, mate coverage 0.98; LightGBM F1 held 0.3262 seen 0.5449, AUROC 0.8898 / 0.9684 (179s)
+repeat 2 fold 3: k_a 42,048 rows / 899 Sybils, mate coverage 0.98; LightGBM F1 held 0.2205 seen 0.5869, AUROC 0.8019 / 0.9641 (272s)
+repeat 2 fold 4: k_a 42,048 rows / 899 Sybils, mate coverage 0.99; LightGBM F1 held 0.4304 seen 0.5963, AUROC 0.9195 / 0.9747 (278s)
+total 3671s
+CELL 7 completed in 3671.5s
+CELL 9 started
+n_test / n_train = 0.1577
+   model    metric  held_out_mean  seen_mean  diff_mean  diff_sd  seen_higher_n  t_corrected  p_corrected  p_wilcoxon_uncorrected
+LightGBM        f1         0.3692     0.5980     0.2288   0.0763             15       6.3315       0.0000                  0.0001
+LightGBM        ap         0.3050     0.5990     0.2939   0.0775             15       8.0081       0.0000                  0.0001
+LightGBM     auroc         0.8906     0.9699     0.0793   0.0424             15       3.9471       0.0015                  0.0001
+LightGBM    recall         0.4211     0.7123     0.2912   0.0959             15       6.4086       0.0000                  0.0001
+LightGBM precision         0.3404     0.5193     0.1789   0.0593             15       6.3676       0.0000                  0.0001
+ XGBoost        f1         0.3630     0.5812     0.2182   0.0809             15       5.6976       0.0001                  0.0001
+ XGBoost        ap         0.3050     0.5950     0.2900   0.0752             15       8.1460       0.0000                  0.0001
+ XGBoost     auroc         0.8878     0.9673     0.0796   0.0433             15       3.8781       0.0017                  0.0001
+ XGBoost    recall         0.4132     0.7233     0.3101   0.0826             15       7.9237       0.0000                  0.0001
+ XGBoost precision         0.3370     0.4925     0.1555   0.0693             15       4.7377       0.0003                  0.0001
+CELL 9 completed in 0.0s
+CELL 11 started
+   model   bin  sybils  recall_held  recall_seen  score_held  score_seen  score_gain  score_gain_sd  recall_gain
+LightGBM     0     181       0.1105       0.1326      0.1203      0.1365      0.0162         0.1258       0.0221
+LightGBM   1–9    1275       0.1976       0.4267      0.2060      0.4516      0.2455         0.3300       0.2290
+LightGBM 10–99    6111       0.4158       0.7676      0.4002      0.7601      0.3599         0.3869       0.3518
+LightGBM  ≥100    5927       0.4842       0.7344      0.4657      0.7344      0.2687         0.3495       0.2502
+ XGBoost     0     181       0.0939       0.1271      0.1144      0.1321      0.0176         0.1418       0.0331
+ XGBoost   1–9    1275       0.1929       0.4369      0.2037      0.4503      0.2466         0.3263       0.2439
+ XGBoost 10–99    6111       0.4027       0.7668      0.4069      0.7612      0.3543         0.3807       0.3641
+ XGBoost  ≥100    5927       0.4812       0.7582      0.4786      0.7485      0.2699         0.3472       0.2770
+CELL 11 completed in 0.0s
+CELL 13 started
+   model category  test_sybils_per_fold  f1_held_out  f1_seen  f1_diff_mean  f1_diff_sd  f1_seen_higher_n  recall_held_out  recall_seen  recall_diff_mean  recall_diff_sd  recall_seen_higher_n  auroc_held_out  auroc_seen  auroc_diff_mean  auroc_diff_sd  auroc_seen_higher_n
+LightGBM      IxE               28.1333       0.0779   0.2294        0.1515      0.2385                11           0.0635       0.1745            0.1110          0.1925                     6          0.8541      0.8998           0.0457         0.0461                   14
+LightGBM      IxI               11.2667       0.0111   0.0312        0.0201      0.0736                 2           0.0095       0.0206            0.0111          0.0430                     1          0.7862      0.8280           0.0419         0.0405                   14
+LightGBM      IxL              859.6667       0.3789   0.6076        0.2287      0.0736                15           0.4372       0.7371            0.2999          0.0972                    15          0.8800      0.9722           0.0922         0.0482                   15
+ XGBoost      IxE               28.1333       0.0661   0.1068        0.0407      0.0879                 6           0.0501       0.0802            0.0302          0.0719                     5          0.7946      0.8706           0.0760         0.1065                   14
+ XGBoost      IxI               11.2667       0.0179   0.0343        0.0164      0.0771                 3           0.0151       0.0251            0.0100          0.0519                     2          0.7923      0.8182           0.0259         0.0339                   10
+ XGBoost      IxL              859.6667       0.3720   0.5940        0.2221      0.0852                15           0.4289       0.7541            0.3252          0.0938                    15          0.8796      0.9707           0.0911         0.0458                   15
+CELL 13 completed in 0.0s
+CELL 15 started
+ repeat  k  test_rows  test_sybils  test_prevalence  val_sybils  kb_sybils  removed_trees  mate_coverage  test_sybils_IxL  test_sybils_IxI  test_sybils_IxE
+      0  0    42050.0        901.0           0.0214      1799.0      900.0        36362.0         0.9834            890.0              6.0              5.0
+      0  1    42048.0        899.0           0.0214      1799.0      900.0        36499.0         0.9766            874.0              7.0             18.0
+      0  2    42048.0        899.0           0.0214      1799.0      900.0        36576.0         0.9889            836.0              7.0             55.0
+      0  3    42049.0        900.0           0.0214      1799.0      899.0        36896.0         0.9911            832.0             15.0             53.0
+      0  4    42049.0        900.0           0.0214      1801.0      899.0        36023.0         0.9911            861.0             16.0             22.0
+      1  0    42049.0        901.0           0.0214      1799.0      900.0        36106.0         0.9878            882.0              4.0             15.0
+      1  1    42048.0        899.0           0.0214      1799.0      900.0        36686.0         0.9844            873.0             10.0             15.0
+      1  2    42049.0        900.0           0.0214      1799.0      899.0        36846.0         0.9889            854.0             17.0             28.0
+      1  3    42048.0        899.0           0.0214      1799.0      900.0        36811.0         0.9789            832.0             15.0             51.0
+      1  4    42048.0        899.0           0.0214      1801.0      900.0        36712.0         0.9922            859.0             12.0             28.0
+      2  0    42050.0        901.0           0.0214      1799.0      900.0        36121.0         0.9933            882.0              7.0             11.0
+      2  1    42048.0        899.0           0.0214      1799.0      900.0        36200.0         0.9911            877.0              7.0             15.0
+      2  2    42048.0        899.0           0.0214      1799.0      900.0        35944.0         0.9766            849.0             23.0             26.0
+      2  3    42048.0        899.0           0.0214      1799.0      900.0        36876.0         0.9844            829.0             16.0             53.0
+      2  4    42048.0        899.0           0.0214      1801.0      900.0        36341.0         0.9900            865.0              7.0             27.0
+          train_unique                     train_sybils                   train_reports               big_share_of_train_sybils                
+                  mean       min       max         mean      min      max          mean    min    max                      mean     min     max
+condition                                                                                                                                      
+held_out   266591.6000  266591.0  266592.0      14612.2  14611.0  14613.0      209.8000  205.0  216.0                    0.6306  0.6305  0.6306
+seen       266591.4667  266590.0  266592.0      14612.2  14611.0  14613.0      247.0667  243.0  252.0                    0.6306  0.6305  0.6306
+Tree split (15, seed 42): 0.502 of training Sybils from the large components; union split: 0.926
+{'k_a_sybils_min': 899, 'k_a_sybils_max': 901, 'k_a_prevalence_mean': 0.0214, 'mate_coverage_mean': 0.9866, 'mate_coverage_min': 0.9766, 'mate_coverage_max': 0.9933, 'train_sybils_held_mean': 14612.2, 'train_sybils_seen_mean': 14612.2, 'train_reports_held_mean': 209.8, 'train_reports_seen_mean': 247.0667, 'big_share_held_mean': 0.6306, 'big_share_seen_mean': 0.6306, 'tree_split_big_share': 0.5018, 'n_test_over_n_train': 0.1577}
+CELL 15 completed in 0.0s
+CELL 17 started
+Saved results/22_report_dependence.json
+CELL 17 completed in 0.0s
+PASS 22_report_dependence.ipynb: 3705.0s
