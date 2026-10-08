@@ -1,0 +1,68 @@
+START 06_cross_ensemble_sybil.ipynb at 9a2d11869a8a568824484e4fbafc737b1d68cd0c
+No event loop hook running.
+CELL 2 started
+CELL 2 completed in 0.9s
+CELL 4 started
+Validation 91,305 rows, test 130,435 rows
+CELL 4 completed in 0.1s
+CELL 6 started
+Selected XGB weight = 0.06  (validation F1 = 0.7082)
+Weights within 0.001 of the best validation F1: 0.00 to 0.12
+Validation F1 at the original 0.40 weight: 0.7056
+CELL 6 completed in 1.4s
+CELL 8 started
+=== XGBoost (tuned, 3-seed) ===
+  Threshold : 0.5824
+  Precision : 0.7196
+  Recall    : 0.7205
+  F1        : 0.7200
+  AUROC     : 0.9657
+  Avg Prec  : 0.7645
+  Brier     : 0.0197
+
+=== LightGBM (tuned, 3-seed) ===
+  Threshold : 0.6001
+  Precision : 0.7267
+  Recall    : 0.7111
+  F1        : 0.7188
+  AUROC     : 0.9683
+  Avg Prec  : 0.7696
+  Brier     : 0.0194
+
+=== Cross-Ensemble ===
+  Threshold : 0.5035
+  Precision : 0.6971
+  Recall    : 0.7388
+  F1        : 0.7173
+  AUROC     : 0.9683
+  Avg Prec  : 0.7699
+  Brier     : 0.0194
+
+CELL 8 completed in 0.4s
+CELL 10 started
+  Both predict Sybil  :   5,462 addresses (3,951 true Sybil, 1,511 true Clean)
+  Both predict Clean  : 124,270 addresses (1,338 true Sybil, 122,932 true Clean)
+  Models disagree     :     703 addresses (174 true Sybil, 529 true Clean)
+
+Disagreement zone = 0.54% of test set
+  Cross-ensemble  correct in the disagreement zone: 366/703
+  XGBoost alone   correct in the disagreement zone: 341/703
+  LightGBM alone  correct in the disagreement zone: 362/703
+CELL 10 completed in 0.0s
+CELL 12 started
+ threshold  precision  recall     f1  flagged  false_pos                 note
+    0.9500     0.8746  0.4787 0.6187     2990        375                     
+    0.9000     0.8405  0.5594 0.6717     3636        580                     
+    0.8500     0.8208  0.6121 0.7013     4074        730                     
+    0.8000     0.8047  0.6405 0.7133     4348        849                     
+    0.7500     0.7859  0.6652 0.7205     4624        990                     
+    0.7000     0.7636  0.6813 0.7201     4874       1152                     
+    0.5035     0.6971  0.7388 0.7173     5790       1754 validation threshold
+    0.5000     0.6959  0.7403 0.7174     5811       1767                     
+CELL 12 completed in 0.0s
+CELL 14 started
+Saved results/06_cross_ensemble_sybil.json
+Saved output/pred_06_cross_ensemble_sybil_val.parquet
+Saved output/pred_06_cross_ensemble_sybil_test.parquet
+CELL 14 completed in 0.1s
+PASS 06_cross_ensemble_sybil.ipynb: 5.4s
