@@ -1,6 +1,6 @@
 {
   "notebook": "25_paper_tables",
-  "code_commit": "b8747c0",
+  "code_commit": "1a0282c",
   "leakage": null,
   "models": [],
   "tables": {
@@ -262,7 +262,8 @@
     "20_temporal_holdout": "arm64 / Darwin",
     "22_report_dependence": "arm64 / Darwin",
     "03_xgboost_sybil": "not recorded (machine of the committed 00-12 results)",
-    "04_lightgbm_sybil": "not recorded (machine of the committed 00-12 results)"
+    "04_lightgbm_sybil": "not recorded (machine of the committed 00-12 results)",
+    "06_cross_ensemble_sybil": "not recorded (machine of the committed 00-12 results)"
   },
   "compile_check": "WARNING: pdflatex not installed; compile check skipped (structural column check passed)",
   "bounty_stats": {

@@ -1,5 +1,5 @@
 {
-  "generated_by": "25_paper_tables.ipynb at b8747c0",
+  "generated_by": "25_paper_tables.ipynb at 1a0282c",
   "numbers": {
     "n_addresses": {
       "value": 434786,
@@ -570,6 +570,53 @@
       "value": 0.0016451026669478776,
       "source": "results/22 -> tests[XGBoost, auroc].p_corrected",
       "platform": "arm64 / Darwin"
+    },
+    "union_components_total": {
+      "value": 355619,
+      "source": "results/15 -> components.components",
+      "platform": "arm64 / Darwin"
+    },
+    "level3_training_sybils": {
+      "value": 14612.2,
+      "source": "results/22 -> composition (held_out train_sybils, mean over fold-repeats)",
+      "platform": "arm64 / Darwin"
+    },
+    "level3_pairs_equal_train_rows": {
+      "value": 14,
+      "source": "results/22 -> composition: fold-repeats with equal unique training rows in both conditions",
+      "platform": "arm64 / Darwin"
+    },
+    "level3_pairs_equal_train_sybils": {
+      "value": 15,
+      "source": "results/22 -> composition: fold-repeats with equal training Sybils in both conditions",
+      "platform": "arm64 / Darwin"
+    },
+    "level3_max_train_rows_diff": {
+      "value": 2,
+      "source": "results/22 -> composition: max |held-out - seen| unique training rows",
+      "platform": "arm64 / Darwin"
+    },
+    "level3_unequal_pair": {
+      "value": [
+        {
+          "repeat": 1,
+          "fold": 2,
+          "held_out_rows": 266592,
+          "seen_rows": 266590
+        }
+      ],
+      "source": "results/22 -> composition: fold-repeats whose training rows differ",
+      "platform": "arm64 / Darwin"
+    },
+    "level3_n_test_over_n_train": {
+      "value": 0.1577263999847539,
+      "source": "results/22 -> composition_summary.n_test_over_n_train",
+      "platform": "arm64 / Darwin"
+    },
+    "blend_weight_seed42": {
+      "value": 0.06,
+      "source": "results/06 -> xgb_weight",
+      "platform": "not recorded (machine of the committed 00-12 results)"
     },
     "xgb_selected": {
       "value": {
