@@ -16,3 +16,6 @@ repeat 0 fold 0: k_a 42,050 rows / 901 Sybils, mate coverage 0.98; LightGBM F1 h
 repeat 0 fold 1: k_a 42,048 rows / 899 Sybils, mate coverage 0.98; LightGBM F1 held 0.4044 seen 0.5980, AUROC 0.9150 / 0.9753 (259s)
 repeat 0 fold 2: k_a 42,048 rows / 899 Sybils, mate coverage 0.99; LightGBM F1 held 0.3277 seen 0.5804, AUROC 0.8909 / 0.9592 (189s)
 repeat 0 fold 3: k_a 42,049 rows / 900 Sybils, mate coverage 0.99; LightGBM F1 held 0.2209 seen 0.5975, AUROC 0.8050 / 0.9601 (259s)
+repeat 0 fold 4: k_a 42,049 rows / 900 Sybils, mate coverage 0.99; LightGBM F1 held 0.4508 seen 0.6277, AUROC 0.9208 / 0.9735 (285s)
+repeat 1 fold 0: k_a 42,049 rows / 901 Sybils, mate coverage 0.99; LightGBM F1 held 0.4185 seen 0.6329, AUROC 0.9224 / 0.9738 (239s)
+repeat 1 fold 1: k_a 42,048 rows / 899 Sybils, mate coverage 0.98; LightGBM F1 held 0.3918 seen 0.5693, AUROC 0.9126 / 0.9690 (237s)
