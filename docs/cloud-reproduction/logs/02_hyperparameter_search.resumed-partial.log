@@ -107,3 +107,16 @@ CELL 8 started
 [21/48] {'num_leaves': 127, 'learning_rate': 0.05, 'subsample': 1.0, 'reg_lambda': 0.0}  val_F1=0.6941  AP=0.7453  rounds=1032  31.9s
 [22/48] {'num_leaves': 127, 'learning_rate': 0.05, 'subsample': 1.0, 'reg_lambda': 1.0}  val_F1=0.7022  AP=0.7542  rounds=1243  39.2s
 [23/48] {'num_leaves': 127, 'learning_rate': 0.05, 'subsample': 0.7, 'reg_lambda': 0.0}  val_F1=0.7023  AP=0.7547  rounds=1049  34.9s
+[24/48] {'num_leaves': 127, 'learning_rate': 0.05, 'subsample': 0.7, 'reg_lambda': 1.0}  val_F1=0.7067  AP=0.7600  rounds=1277  43.6s
+[25/48] {'num_leaves': 255, 'learning_rate': 0.1, 'subsample': 1.0, 'reg_lambda': 0.0}  val_F1=0.6889  AP=0.7402  rounds=289  15.6s
+[26/48] {'num_leaves': 255, 'learning_rate': 0.1, 'subsample': 1.0, 'reg_lambda': 1.0}  val_F1=0.6956  AP=0.7504  rounds=325  17.7s
+[27/48] {'num_leaves': 255, 'learning_rate': 0.1, 'subsample': 0.7, 'reg_lambda': 0.0}  val_F1=0.7011  AP=0.7475  rounds=285  16.3s
+[28/48] {'num_leaves': 255, 'learning_rate': 0.1, 'subsample': 0.7, 'reg_lambda': 1.0}  val_F1=0.7008  AP=0.7528  rounds=290  17.2s
+[29/48] {'num_leaves': 255, 'learning_rate': 0.05, 'subsample': 1.0, 'reg_lambda': 0.0}  val_F1=0.6942  AP=0.7459  rounds=565  27.7s
+[30/48] {'num_leaves': 255, 'learning_rate': 0.05, 'subsample': 1.0, 'reg_lambda': 1.0}  val_F1=0.6999  AP=0.7550  rounds=673  35.1s
+[31/48] {'num_leaves': 255, 'learning_rate': 0.05, 'subsample': 0.7, 'reg_lambda': 0.0}  val_F1=0.7003  AP=0.7545  rounds=528  29.8s
+[32/48] {'num_leaves': 255, 'learning_rate': 0.05, 'subsample': 0.7, 'reg_lambda': 1.0}  val_F1=0.7047  AP=0.7587  rounds=592  33.7s
+[33/48] {'num_leaves': 511, 'learning_rate': 0.1, 'subsample': 1.0, 'reg_lambda': 0.0}  val_F1=0.6986  AP=0.7424  rounds=121  13.8s
+[34/48] {'num_leaves': 511, 'learning_rate': 0.1, 'subsample': 1.0, 'reg_lambda': 1.0}  val_F1=0.6997  AP=0.7520  rounds=156  17.0s
+[35/48] {'num_leaves': 511, 'learning_rate': 0.1, 'subsample': 0.7, 'reg_lambda': 0.0}  val_F1=0.7022  AP=0.7472  rounds=129  13.6s
+[36/48] {'num_leaves': 511, 'learning_rate': 0.1, 'subsample': 0.7, 'reg_lambda': 1.0}  val_F1=0.7033  AP=0.7535  rounds=156  16.8s
