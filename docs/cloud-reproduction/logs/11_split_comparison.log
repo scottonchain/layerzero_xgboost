@@ -1,0 +1,64 @@
+START 11_split_comparison.ipynb at 7f9e8fee3e2e4bdd52a3be63f9a8b6726a06ef1d
+No event loop hook running.
+CELL 2 started
+                    notebook  commit  dependencies_unchanged
+            03_xgboost_sybil 190c074                    True
+           04_lightgbm_sybil 4e3ec91                    True
+05_logistic_regression_sybil 02f3113                    True
+     06_cross_ensemble_sybil 189f0d5                    True
+CELL 2 completed in 0.1s
+CELL 4 started
+Split method: random
+Row overlap (train/val, train/test, val/test): 0, 0, 0
+Test addresses sharing a gas provision tree with a train address: 19,884 / 130,436
+Test Sybils sharing a gas provision tree with a train Sybil:     599 / 5,463
+
+Split method: group
+Row overlap (train/val, train/test, val/test): 0, 0, 0
+Test addresses sharing a gas provision tree with a train address: 0 / 130,435
+Test Sybils sharing a gas provision tree with a train Sybil:     0 / 5,463
+
+       test_rows test_sybils test_rows_sharing_tree_with_train test_sybils_sharing_tree_with_train_sybil
+random    130436        5463                             19884                                       599
+group     130435        5463                                 0                                         0
+CELL 4 completed in 32.1s
+CELL 6 started
+  XGBoost seed=42  rounds=1753  76.3s
+  XGBoost seed=123  rounds=1694  69.8s
+  XGBoost seed=456  rounds=1719  70.1s
+  LightGBM seed=42  rounds=1340  53.5s
+  LightGBM seed=123  rounds=1345  52.3s
+  LightGBM seed=456  rounds=1279  48.3s
+Blend weight on the random split: XGB 0.06
+CELL 6 completed in 395.5s
+CELL 8 started
+                                      f1                   auroc                      ap                
+                                  random   group       Δ  random   group       Δ  random   group       Δ
+Model                                                                                                   
+XGBoost (tuned, 3-seed)           0.7410  0.7200 -0.0210  0.9742  0.9657 -0.0084  0.7976  0.7645 -0.0331
+LightGBM (tuned, 3-seed)          0.7418  0.7188 -0.0230  0.9756  0.9683 -0.0074  0.8024  0.7696 -0.0328
+Logistic Regression (C=0.01, L1)  0.2335  0.2412  0.0077  0.8329  0.8368  0.0039  0.1601  0.1656  0.0056
+Cross-Ensemble                    0.7426  0.7173 -0.0253  0.9757  0.9683 -0.0073  0.8026  0.7699 -0.0327
+CELL 8 completed in 0.0s
+CELL 10 started
+             in_multi_wallet_trees  wallets  share
+category                                          
+IxE                          38642    93061  0.415
+IxI                          34390    34391  1.000
+IxL                          12886   306658  0.042
+No provider                     56      676  0.083 
+
+                   Model    category  f1_random  f1_group   delta
+ XGBoost (tuned, 3-seed)         IxE     0.5316    0.2645 -0.2671
+ XGBoost (tuned, 3-seed)         IxI     0.8467    0.5340 -0.3127
+ XGBoost (tuned, 3-seed)         IxL     0.7382    0.7448  0.0066
+ XGBoost (tuned, 3-seed) No provider     0.5455    0.8750  0.3295
+LightGBM (tuned, 3-seed)         IxE     0.5382    0.2885 -0.2498
+LightGBM (tuned, 3-seed)         IxI     0.8497    0.4716 -0.3781
+LightGBM (tuned, 3-seed)         IxL     0.7388    0.7496  0.0109
+LightGBM (tuned, 3-seed) No provider     0.5455    0.8750  0.3295
+CELL 10 completed in 1.0s
+CELL 12 started
+Saved results/11_split_comparison.json
+CELL 12 completed in 0.0s
+PASS 11_split_comparison.ipynb: 432.4s
