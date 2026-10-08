@@ -344,7 +344,16 @@
       "started_utc": "2026-10-08T08:14:16Z",
       "status": "passed",
       "seconds": 51.63412261009216,
-      "completed_utc": "2026-10-08T08:15:08Z"
+      "completed_utc": "2026-10-08T08:15:08Z",
+      "artifact_commit": "282519c52e72f002af274e251665eadafd78faac"
+    },
+    {
+      "notebook": "06_cross_ensemble_sybil.ipynb",
+      "execution_commit": "282519c52e72f002af274e251665eadafd78faac",
+      "started_utc": "2026-10-08T08:15:25Z",
+      "status": "passed",
+      "seconds": 5.578988075256348,
+      "completed_utc": "2026-10-08T08:15:31Z"
     }
   ]
 }
