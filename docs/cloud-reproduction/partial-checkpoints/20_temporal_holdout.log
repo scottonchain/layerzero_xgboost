@@ -1,0 +1,28 @@
+START 20_temporal_holdout.ipynb at e0c0016d4c5f68ebf009709cf130de590b8c9556
+No event loop hook running.
+CELL 2 started
+Code commit: e0c0016
+Platform: {'machine': 'x86_64', 'processor': 'x86_64', 'system': 'Linux', 'python': '3.12.14', 'cpu_count': 9, 'n_jobs': 4}
+ late_share_target                       cutoff_utc  late_share  early_rows  late_rows  early_sybil_rate  late_sybil_rate  early_sybils  late_sybils
+               0.3 2023-08-20 11:32:02.500000+00:00         0.3      304350     130436            0.0555           0.0102         16885         1326
+               0.2        2023-12-17 17:14:40+00:00         0.2      347828      86958            0.0516           0.0029         17960          251
+               0.4        2023-06-27 12:20:13+00:00         0.4      260871     173915            0.0511           0.0280         13337         4874
+CELL 2 completed in 31.0s
+CELL 4 started
+CELL 4 completed in 0.0s
+CELL 6 started
+  LightGBM seed=42  rounds=1277  52.5s
+  LightGBM seed=123  rounds=1248  49.4s
+  LightGBM seed=456  rounds=1143  45.2s
+(148s)  threshold 0.6001
+CELL 6 completed in 148.4s
+CELL 8 started
+  LightGBM seed=42  rounds=1388  52.3s
+  LightGBM seed=123  rounds=1385  53.6s
+  LightGBM seed=456  rounds=1331  50.4s
+late 30% (from 2023-08-20): temporal F1 0.1687 AP 0.2761 AUROC 0.8865; reference on late rows F1 0.7379 AP 0.7741 AUROC 0.9782 (158s)
+  LightGBM seed=42  rounds=1536  60.9s
+  LightGBM seed=123  rounds=1619  64.6s
+  LightGBM seed=456  rounds=1443  56.4s
+late 20% (from 2023-12-17): temporal F1 0.0079 AP 0.0596 AUROC 0.7290; reference on late rows F1 0.4828 AP 0.4460 AUROC 0.9349 (184s)
+  LightGBM seed=42  rounds=1090  42.4s
