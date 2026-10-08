@@ -81,6 +81,8 @@ def execute_one(filename):
     from IPython.terminal.interactiveshell import TerminalInteractiveShell
     from IPython.utils.capture import capture_output
     nb = nbformat.read(ROOT / filename, as_version=4)
+    from cloud_metric_checkpoint import install
+    install(ROOT, filename)
     shell = TerminalInteractiveShell.instance()
     shell.run_line_magic('matplotlib', 'inline')
     count = 0
@@ -121,6 +123,6 @@ if __name__ == '__main__' and len(sys.argv) > 1 and sys.argv[1] == '--execute-on
 elif __name__ == '__main__':
     state = json.loads(MANIFEST.read_text()) if MANIFEST.exists() else dict(baseline_commit=git('rev-parse', 'HEAD'), stages=[])
     completed = {int(x['notebook'][:2]) for x in state['stages'] if x['status']=='passed'}
-    for number in ([int(sys.argv[2])] if len(sys.argv) > 1 and sys.argv[1] == '--stage' else ORDER):
-        if number not in completed: run(number, state)
-    print('COMPLETE: all notebooks executed', flush=True)
+    for number in ([int(sys.argv[2])] if len(sys.argv) > 1 and sys.argv[1] in ('--stage', '--force-stage') else ORDER):
+        if number not in completed or sys.argv[1:2] == ['--force-stage']: run(number, state)
+    print('COMPLETE: requested notebook stages executed', flush=True)

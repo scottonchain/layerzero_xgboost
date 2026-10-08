@@ -102,7 +102,19 @@
       "started_utc": "2026-10-08T02:35:45Z",
       "status": "passed",
       "seconds": 1078.2338769435883,
-      "completed_utc": "2026-10-08T02:53:43Z"
+      "completed_utc": "2026-10-08T02:53:43Z",
+      "artifact_commit": "ad601232025cdf3e8f0b54808f99204cde2ecd83"
+    },
+    {
+      "notebook": "08_ablation_families.ipynb",
+      "execution_commit": "ad601232025cdf3e8f0b54808f99204cde2ecd83",
+      "status": "interrupted",
+      "reason": "Execution-server transport disconnected and original workspace was replaced",
+      "completed_splits_logged": [
+        42
+      ],
+      "minimum_lost_completed_fits": 12,
+      "note": "Exact additional fit count and runtime unrecoverable; no original full log or fit metrics survived"
     }
   ]
 }

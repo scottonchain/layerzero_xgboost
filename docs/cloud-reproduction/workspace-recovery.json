@@ -1,0 +1,83 @@
+{
+  "platform": {
+    "machine": "x86_64",
+    "system": "Linux",
+    "processor": "AMD EPYC 9V74 80-Core Processor",
+    "kernel": "6.18.44",
+    "python": "3.12.14",
+    "cpu_count": 9,
+    "n_jobs": 4,
+    "versions": {
+      "numpy": "2.4.6",
+      "pandas": "3.0.6",
+      "scipy": "1.17.1",
+      "scikit-learn": "1.8.0",
+      "xgboost": "3.2.0",
+      "lightgbm": "4.6.0",
+      "shap": "0.51.0",
+      "pyarrow": "25.0.1",
+      "matplotlib": "3.11.2"
+    },
+    "threads": {
+      "OMP_NUM_THREADS": "4",
+      "OPENBLAS_NUM_THREADS": "1",
+      "MKL_NUM_THREADS": "1",
+      "NUMEXPR_NUM_THREADS": "4",
+      "PYTHONHASHSEED": "42"
+    },
+    "lightgbm_repro": {
+      "force_col_wise": true,
+      "deterministic": true
+    }
+  },
+  "packages_verified": 113,
+  "lfs_inputs_verified": 37,
+  "provenance": [
+    {
+      "notebook": "00_data_pipeline",
+      "commit": "a2f2dd7",
+      "dependencies_unchanged": true
+    },
+    {
+      "notebook": "01_ablation_gini",
+      "commit": "666e247",
+      "dependencies_unchanged": true
+    },
+    {
+      "notebook": "02_hyperparameter_search",
+      "commit": "60838d8",
+      "dependencies_unchanged": true
+    },
+    {
+      "notebook": "03_xgboost_sybil",
+      "commit": "f9e3f5c",
+      "dependencies_unchanged": true
+    },
+    {
+      "notebook": "04_lightgbm_sybil",
+      "commit": "d2f80c0",
+      "dependencies_unchanged": true
+    },
+    {
+      "notebook": "05_logistic_regression_sybil",
+      "commit": "0666a80",
+      "dependencies_unchanged": true
+    },
+    {
+      "notebook": "06_cross_ensemble_sybil",
+      "commit": "9a2d118",
+      "dependencies_unchanged": true
+    },
+    {
+      "notebook": "07_sensitivity_label_vintage",
+      "commit": "5f70994",
+      "dependencies_unchanged": true
+    }
+  ],
+  "cache_checkpoint_tests": "reuse, changed input invalidation, corruption rejection passed in isolated fixture",
+  "lost": [
+    "original ignored output directory including master/splits and 03/04/05/06 predictions",
+    "notebook08 in-memory metrics for at least one 12-fit split plus unknown additional fits",
+    "unpublished scratch preparation scripts"
+  ]
+}
