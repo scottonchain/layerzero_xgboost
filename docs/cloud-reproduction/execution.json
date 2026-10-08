@@ -460,7 +460,16 @@
       "started_utc": "2026-10-08T12:46:23Z",
       "status": "passed",
       "seconds": 4497.534353494644,
-      "completed_utc": "2026-10-08T14:01:21Z"
+      "completed_utc": "2026-10-08T14:01:21Z",
+      "artifact_commit": "5da7f51a0ccd06a84f6f23874b5fe0bd15c09f78"
+    },
+    {
+      "notebook": "18_mimicry_stress.ipynb",
+      "execution_commit": "5da7f51a0ccd06a84f6f23874b5fe0bd15c09f78",
+      "started_utc": "2026-10-08T14:01:41Z",
+      "status": "passed",
+      "seconds": 317.4375648498535,
+      "completed_utc": "2026-10-08T14:06:58Z"
     }
   ]
 }

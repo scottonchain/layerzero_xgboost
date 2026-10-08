@@ -1,0 +1,98 @@
+START 18_mimicry_stress.ipynb at 5da7f51a0ccd06a84f6f23874b5fe0bd15c09f78
+No event loop hook running.
+CELL 2 started
+Code commit: 5da7f51
+Platform: {'machine': 'x86_64', 'processor': 'x86_64', 'system': 'Linux', 'python': '3.12.14', 'cpu_count': 9, 'n_jobs': 4}
+          notebook  commit  dependencies_unchanged
+09_shap_importance e5885b4                    True
+CELL 2 completed in 0.0s
+CELL 4 started
+cheap 25, time-bound 7, structural 30
+Cheap: ['min_tx_value_out', 'cex_in_count', 'l0_to_eth_avg_native_drop_usd', 'l0_to_eth_max_native_drop_usd', 'l0_avg_stargate_swap', 'indegree_per_block_in', 'l0_min_stargate_swap', 'num_transactions_in', 'n_l0_to_eth_source_contracts', 'n_l0_to_eth_projects', 'n_l0_to_eth_project_per_source_chain', 'n_l0_to_eth_txs', 'n_l0_projects', 'n_l0_to_eth_dest_contracts', 'l0_to_eth_min_stargate_swap', 'n_l0_source_chains', 'n_eth_interactions', 'max_tx_value_out', 'n_l0_source_contracts', 'min_tx_value_in', 'tx_value_per_block_out', 'n_l0_to_eth_source_chains', 'l0_to_eth_max_stargate_swap', 'n_l0_project_per_source_chain', 'l0_to_eth_avg_stargate_swap']
+                          feature    All                 family       cost
+                  l0_tx_time_span 0.9068 LayerZero transactions time-bound
+            n_l0_source_contracts 0.7108 LayerZero transactions      cheap
+             l0_avg_stargate_swap 0.6063 LayerZero transactions      cheap
+              earliest_l0_tx_time 0.5452 LayerZero transactions time-bound
+                latest_l0_tx_time 0.5042 LayerZero transactions time-bound
+                 max_tx_value_out 0.4929  Ethereum transactions      cheap
+              num_transactions_in 0.4697  Ethereum transactions      cheap
+               n_l0_source_chains 0.4284 LayerZero transactions      cheap
+           tx_value_per_block_out 0.3414  Ethereum transactions      cheap
+             earliest_tx_block_in 0.3235  Ethereum transactions time-bound
+             l0_min_stargate_swap 0.2740 LayerZero transactions      cheap
+                  min_tx_value_in 0.2536  Ethereum transactions      cheap
+                     time_span_in 0.2476  Ethereum transactions time-bound
+       gas_provision_block_number 0.2194           Gas provider time-bound
+    n_l0_project_per_source_chain 0.2194 LayerZero transactions      cheap
+                    n_l0_projects 0.1604 LayerZero transactions      cheap
+provider_avg_gas_provision_amount 0.1294           Gas provider structural
+                 min_tx_value_out 0.1276  Ethereum transactions      cheap
+provider_min_gas_provision_amount 0.1266           Gas provider structural
+                 provider_fan_out 0.1114           Gas provider structural
+CELL 4 completed in 0.0s
+CELL 6 started
+  LightGBM seed=42  rounds=1277  51.6s
+  LightGBM seed=123  rounds=1248  49.9s
+  LightGBM seed=456  rounds=1143  46.1s
+Threshold 0.6001; 5,463 test Sybils; 204,122 donor rows
+Unattacked: {'recall': 0.7111, 'f1': 0.7188, 'ap': 0.7696, 'mean_sybil_score': 0.7188}
+CELL 6 completed in 190.5s
+CELL 8 started
+all features done (41s)
+cheap only done (82s)
+cheap + structural done (124s)
+CELL 8 completed in 123.5s
+CELL 10 started
+Unattacked recall 0.7111 F1 0.7188 AP 0.7696
+k                                              1              2              3              5              10             20
+features           attack                                                                                                   
+all features       M1 marginal      0.410 ± 0.006  0.179 ± 0.005  0.074 ± 0.002  0.012 ± 0.001  0.000 ± 0.000  0.000 ± 0.000
+                   M2 profile copy  0.410 ± 0.006  0.234 ± 0.005  0.114 ± 0.001  0.036 ± 0.003  0.005 ± 0.001  0.004 ± 0.001
+cheap + structural M1 marginal      0.413 ± 0.003  0.210 ± 0.005  0.113 ± 0.002  0.025 ± 0.002  0.003 ± 0.001  0.000 ± 0.000
+                   M2 profile copy  0.413 ± 0.003  0.211 ± 0.002  0.107 ± 0.003  0.043 ± 0.002  0.011 ± 0.001  0.003 ± 0.001
+cheap only         M1 marginal      0.413 ± 0.003  0.210 ± 0.005  0.113 ± 0.002  0.025 ± 0.002  0.003 ± 0.001  0.002 ± 0.001
+                   M2 profile copy  0.413 ± 0.003  0.211 ± 0.002  0.107 ± 0.003  0.043 ± 0.002  0.011 ± 0.001  0.008 ± 0.002
+
+          features          attack  k  recall_mean  f1_mean  ap_mean  mean_sybil_score_mean
+      all features     M1 marginal  1       0.4098   0.4886   0.5163                 0.4604
+      all features M2 profile copy  1       0.4098   0.4886   0.5163                 0.4604
+      all features     M1 marginal  2       0.1791   0.2476   0.2752                 0.2385
+      all features M2 profile copy  2       0.2338   0.3114   0.3016                 0.2805
+      all features     M1 marginal  3       0.0740   0.1103   0.1683                 0.1288
+      all features M2 profile copy  3       0.1136   0.1645   0.1908                 0.1678
+      all features     M1 marginal  5       0.0119   0.0187   0.0737                 0.0355
+      all features M2 profile copy  5       0.0361   0.0554   0.0983                 0.0751
+      all features     M1 marginal 10       0.0005   0.0008   0.0396                 0.0053
+      all features M2 profile copy 10       0.0048   0.0075   0.0491                 0.0179
+      all features     M1 marginal 20       0.0000   0.0001   0.0332                 0.0025
+      all features M2 profile copy 20       0.0041   0.0065   0.0435                 0.0147
+        cheap only     M1 marginal  1       0.4125   0.4911   0.5141                 0.4550
+        cheap only M2 profile copy  1       0.4125   0.4911   0.5141                 0.4550
+        cheap only     M1 marginal  2       0.2097   0.2839   0.3187                 0.2757
+        cheap only M2 profile copy  2       0.2111   0.2855   0.3147                 0.2755
+        cheap only     M1 marginal  3       0.1128   0.1634   0.2234                 0.1804
+        cheap only M2 profile copy  3       0.1071   0.1559   0.2181                 0.1752
+        cheap only     M1 marginal  5       0.0250   0.0386   0.1071                 0.0663
+        cheap only M2 profile copy  5       0.0428   0.0653   0.1118                 0.0851
+        cheap only     M1 marginal 10       0.0031   0.0050   0.0620                 0.0223
+        cheap only M2 profile copy 10       0.0106   0.0166   0.0723                 0.0393
+        cheap only     M1 marginal 20       0.0019   0.0031   0.0536                 0.0146
+        cheap only M2 profile copy 20       0.0083   0.0130   0.0621                 0.0296
+cheap + structural     M1 marginal  1       0.4125   0.4911   0.5141                 0.4550
+cheap + structural M2 profile copy  1       0.4125   0.4911   0.5141                 0.4550
+cheap + structural     M1 marginal  2       0.2097   0.2839   0.3187                 0.2757
+cheap + structural M2 profile copy  2       0.2111   0.2855   0.3147                 0.2755
+cheap + structural     M1 marginal  3       0.1128   0.1634   0.2234                 0.1804
+cheap + structural M2 profile copy  3       0.1071   0.1559   0.2181                 0.1752
+cheap + structural     M1 marginal  5       0.0250   0.0386   0.1071                 0.0663
+cheap + structural M2 profile copy  5       0.0428   0.0653   0.1118                 0.0851
+cheap + structural     M1 marginal 10       0.0031   0.0050   0.0620                 0.0223
+cheap + structural M2 profile copy 10       0.0106   0.0166   0.0723                 0.0393
+cheap + structural     M1 marginal 20       0.0002   0.0003   0.0466                 0.0080
+cheap + structural M2 profile copy 20       0.0030   0.0047   0.0540                 0.0189
+CELL 10 completed in 0.0s
+CELL 12 started
+Saved results/18_mimicry_stress.json
+CELL 12 completed in 0.0s
+PASS 18_mimicry_stress.ipynb: 317.4s
