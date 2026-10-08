@@ -317,7 +317,16 @@
       "started_utc": "2026-10-08T08:06:07Z",
       "status": "passed",
       "seconds": 60.27605199813843,
-      "completed_utc": "2026-10-08T08:07:07Z"
+      "completed_utc": "2026-10-08T08:07:07Z",
+      "artifact_commit": "7478a70d2a6619b4292632b42d5eb44dede95ec9"
+    },
+    {
+      "notebook": "03_xgboost_sybil.ipynb",
+      "execution_commit": "7478a70d2a6619b4292632b42d5eb44dede95ec9",
+      "started_utc": "2026-10-08T08:07:20Z",
+      "status": "passed",
+      "seconds": 221.14139866828918,
+      "completed_utc": "2026-10-08T08:11:01Z"
     }
   ]
 }
