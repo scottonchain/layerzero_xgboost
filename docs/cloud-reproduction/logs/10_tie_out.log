@@ -1,20 +1,20 @@
-START 10_tie_out.ipynb at 033b1a437f73876ee49a547500f98301109bd96e
+START 10_tie_out.ipynb at b8628e73cb75a7ed5bfd4238e81417c9899c3f04
 No event loop hook running.
 CELL 1 started
                     notebook  commit  dependencies_unchanged
-            00_data_pipeline b00ed56                    True
+            00_data_pipeline a8f8d8e                    True
             01_ablation_gini 666e247                    True
     02_hyperparameter_search 60838d8                    True
-            03_xgboost_sybil 190c074                    True
-           04_lightgbm_sybil 4e3ec91                    True
-05_logistic_regression_sybil 02f3113                    True
-     06_cross_ensemble_sybil 189f0d5                    True
+            03_xgboost_sybil f6caa9c                    True
+           04_lightgbm_sybil e3cc058                    True
+05_logistic_regression_sybil a2a4a69                    True
+     06_cross_ensemble_sybil cb17cb9                    True
 07_sensitivity_label_vintage 5f70994                    True
         08_ablation_families 1c6f5ff                    True
           09_shap_importance e5885b4                    True
 
 All results trace to the code in this commit ✓
-CELL 1 completed in 0.2s
+CELL 1 completed in 0.1s
 CELL 2 started
 XGBoost  (selected on validation): {'learning_rate': 0.05, 'max_depth': 8, 'subsample': 0.7, 'colsample_bytree': 1.0, 'min_child_weight': 1}
 LightGBM (selected on validation): {'num_leaves': 127, 'learning_rate': 0.05, 'subsample': 0.7, 'reg_lambda': 1.0}
@@ -70,7 +70,7 @@ Cross-Ensemble                   IxE          28171    258     0.8197  0.1938  0
                                  IxI           9967    426     0.6015  0.3826  0.4677  0.9164  0.0113
                                  IxL          92079   4770     0.7001  0.8000  0.7467  0.9762  0.0187
                                  No provider    218      9     1.0000  0.7778  0.8750  0.9830  0.0000
-CELL 8 completed in 0.7s
+CELL 8 completed in 0.6s
 CELL 10 started
 Flagged at the validation threshold (0.5035): 5,790
 Top 8%: 463 addresses, precision 0.981 (454 Sybil)
@@ -145,6 +145,6 @@ CELL 17 started
 | Logistic Regression (C=0.01, L1) | 0.150 | 0.617 | 0.241 | 0.837 | 0.166 | 0.1529 |
 | Cross-Ensemble | 0.697 | 0.739 | 0.717 | 0.968 | 0.770 | 0.0140 |
 
-Source: results/ checked against commit 033b1a4
+Source: results/ checked against commit b8628e7
 CELL 17 completed in 0.0s
-PASS 10_tie_out.ipynb: 5.4s
+PASS 10_tie_out.ipynb: 4.6s
