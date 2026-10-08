@@ -97,3 +97,13 @@ CELL 8 started
 [11/48] {'num_leaves': 63, 'learning_rate': 0.1, 'subsample': 0.7, 'reg_lambda': 0.0}  val_F1=0.6983  AP=0.7448  rounds=1040  27.9s
 [12/48] {'num_leaves': 63, 'learning_rate': 0.1, 'subsample': 0.7, 'reg_lambda': 1.0}  val_F1=0.7025  AP=0.7528  rounds=1204  30.4s
 [13/48] {'num_leaves': 63, 'learning_rate': 0.05, 'subsample': 1.0, 'reg_lambda': 0.0}  val_F1=0.6945  AP=0.7438  rounds=2198  50.7s
+[14/48] {'num_leaves': 63, 'learning_rate': 0.05, 'subsample': 1.0, 'reg_lambda': 1.0}  val_F1=0.7008  AP=0.7520  rounds=2472  57.5s
+[15/48] {'num_leaves': 63, 'learning_rate': 0.05, 'subsample': 0.7, 'reg_lambda': 0.0}  val_F1=0.6997  AP=0.7522  rounds=2066  52.3s
+[16/48] {'num_leaves': 63, 'learning_rate': 0.05, 'subsample': 0.7, 'reg_lambda': 1.0}  val_F1=0.7022  AP=0.7586  rounds=2482  61.5s
+[17/48] {'num_leaves': 127, 'learning_rate': 0.1, 'subsample': 1.0, 'reg_lambda': 0.0}  val_F1=0.6930  AP=0.7400  rounds=502  18.3s
+[18/48] {'num_leaves': 127, 'learning_rate': 0.1, 'subsample': 1.0, 'reg_lambda': 1.0}  val_F1=0.6963  AP=0.7507  rounds=540  18.7s
+[19/48] {'num_leaves': 127, 'learning_rate': 0.1, 'subsample': 0.7, 'reg_lambda': 0.0}  val_F1=0.6991  AP=0.7475  rounds=530  20.0s
+[20/48] {'num_leaves': 127, 'learning_rate': 0.1, 'subsample': 0.7, 'reg_lambda': 1.0}  val_F1=0.7024  AP=0.7533  rounds=531  20.3s
+[21/48] {'num_leaves': 127, 'learning_rate': 0.05, 'subsample': 1.0, 'reg_lambda': 0.0}  val_F1=0.6941  AP=0.7453  rounds=1032  31.9s
+[22/48] {'num_leaves': 127, 'learning_rate': 0.05, 'subsample': 1.0, 'reg_lambda': 1.0}  val_F1=0.7022  AP=0.7542  rounds=1243  39.2s
+[23/48] {'num_leaves': 127, 'learning_rate': 0.05, 'subsample': 0.7, 'reg_lambda': 0.0}  val_F1=0.7023  AP=0.7547  rounds=1049  34.9s
