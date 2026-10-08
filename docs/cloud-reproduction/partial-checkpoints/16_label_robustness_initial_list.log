@@ -1,0 +1,75 @@
+START 16_label_robustness_initial_list.ipynb at 0e923a7883236329af2055f8ad2028fe059f17b2
+No event loop hook running.
+CELL 2 started
+Code commit: 0e923a7
+Platform: {'machine': 'x86_64', 'processor': 'x86_64', 'system': 'Linux', 'python': '3.12.14', 'cpu_count': 9, 'n_jobs': 4}
+Initial list: 803,093 addresses (801,932 20-byte, 1,161 32-byte)
+CELL 2 completed in 34.0s
+CELL 4 started
+  list_size                 803,093
+  overlap_with_fcfs_list    0
+  interactors               434,786
+  interactors_on_list       34,545
+  on_list_and_sybil         0
+  negatives                 416,575
+  negatives_on_list         34,545
+  share_of_negatives        0.0829
+             addresses  on_list   share
+category                               
+IxE              93061     2669  0.0287
+IxI              34391     2206  0.0641
+IxL             306658    29646  0.0967
+No provider        676       24  0.0355
+            negatives  negatives_on_list   share
+partition                                       
+Train          204122              17145  0.0840
+Validation      87481               7085  0.0810
+Test           124972              10315  0.0825
+CELL 4 completed in 1.7s
+CELL 6 started
+  LightGBM seed=42  rounds=1277  48.0s
+  LightGBM seed=123  rounds=1248  45.3s
+  LightGBM seed=456  rounds=1143  43.0s
+  Threshold : 0.6001
+  Precision : 0.7267
+  Recall    : 0.7111
+  F1        : 0.7188
+  AUROC     : 0.9683
+  Avg Prec  : 0.7696
+  Brier     : 0.0194
+(137s)
+CELL 6 completed in 137.0s
+CELL 8 started
+Test negatives: 124,972, of which on the initial list 10,315 (8.25%)
+ threshold                 note  flagged   tp   fp  fp_on_initial_list  fp_not_on_list  fp_share_on_list  precision  precision_if_list_counted_sybil
+    0.9500                          2996 2622  374                  64             310            0.1711     0.8752                           0.8965
+    0.9000                          3644 3064  580                 116             464            0.2000     0.8408                           0.8727
+    0.8500                          4071 3338  733                 165             568            0.2251     0.8199                           0.8605
+    0.8000                          4366 3500  866                 227             639            0.2621     0.8016                           0.8536
+    0.7500                          4650 3635 1015                 310             705            0.3054     0.7817                           0.8484
+    0.7000                          4898 3725 1173                 408             765            0.3478     0.7605                           0.8438
+    0.6001 validation threshold     5346 3885 1461                 556             905            0.3806     0.7267                           0.8307
+    0.5000                          5807 4040 1767                 707            1060            0.4001     0.6957                           0.8175
+CELL 8 completed in 0.0s
+CELL 10 started
+Variant A: train 195,901 unique rows (was 213,046), validation 84,220 (was 91,305); upsampled train 373,954
+  LightGBM seed=42  rounds=959  36.8s
+  LightGBM seed=123  rounds=919  35.5s
+  LightGBM seed=456  rounds=963  32.4s
+(105s)
+                      model                       test_set      n  sybils  threshold  precision  recall     f1  auroc     ap  flagged
+                   Baseline                      full test 130435    5463     0.6001     0.7267  0.7111 0.7188 0.9683 0.7696     5346
+                   Baseline test without initial-list rows 120120    5463     0.6001     0.8111  0.7111 0.7578 0.9721 0.8060     4790
+Variant A (clean negatives)                      full test 130435    5463     0.5522     0.5560  0.7783 0.6486 0.9594 0.4570     7648
+Variant A (clean negatives) test without initial-list rows 120120    5463     0.5522     0.7960  0.7783 0.7870 0.9739 0.8310     5342
+CELL 10 completed in 105.4s
+CELL 12 started
+  LightGBM seed=42  rounds=2127  62.6s
+  LightGBM seed=123  rounds=2149  63.9s
+  LightGBM seed=456  rounds=1965  61.0s
+(188s)
+{'prevalence_all': 0.1213, 'prevalence_test': 0.121, 'test_positives': 15778, 'threshold': 0.4835, 'precision': 0.7982, 'recall': 0.6913, 'f1': 0.7409, 'auroc': 0.9222, 'ap': 0.7969, 'recall_on_fcfs_sybils': 0.8005, 'recall_on_initial_list': 0.6334}
+CELL 12 completed in 187.9s
+CELL 14 started
+CACHE SAVE 16_label_robustness_initial_list a436d0a1e2e2 (62 features)
+split 42: F1 full base 0.7105 A 0.6469; clean base 0.7636 A 0.7845 (135s)
