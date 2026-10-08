@@ -33,3 +33,5 @@ CELL 7 started
 [13/24] {'max_features': 0.5, 'min_samples_leaf': 1, 'max_depth': None, 'max_samples': None}  val_F1=0.7021  AP=0.7484  339.0s
 [14/24] {'max_features': 0.5, 'min_samples_leaf': 1, 'max_depth': 24, 'max_samples': None}  val_F1=0.6349  AP=0.6609  304.8s
 [15/24] {'max_features': 0.5, 'min_samples_leaf': 5, 'max_depth': None, 'max_samples': None}  val_F1=0.6979  AP=0.7424  326.4s
+[16/24] {'max_features': 0.5, 'min_samples_leaf': 5, 'max_depth': 24, 'max_samples': None}  val_F1=0.6461  AP=0.6790  295.0s
+[17/24] {'max_features': 0.5, 'min_samples_leaf': 20, 'max_depth': None, 'max_samples': None}  val_F1=0.6815  AP=0.7234  295.6s
