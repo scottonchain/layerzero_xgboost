@@ -1,0 +1,28 @@
+START 02_hyperparameter_search.ipynb at 60838d89cfce084b89a4e031ad1403befd35c6cc
+No event loop hook running.
+CELL 1 started
+[1] L0 features: 434,786 addresses, 55 cols
+[2] Gas provision: 604,365 edges before 2024-05-02 00:00:00 UTC (296 later edges dropped)
+[3] Labeled addresses in provision network: 4,308
+[4] Provider and tree features: 88 cols
+[5] CEX/DEX merged: 90 cols
+[6] Labels: Sybil=18,211 (4.19%)
+[7] Chain features, taxonomy, gas provision trees (371,764 trees)
+All 62 features present ✓  (28.1s)
+     Split  Total  Sybil  NonSybil  SybilPct
+     Train 213046   8924    204122      4.19
+Validation  91305   3824     87481      4.19
+CELL 1 completed in 30.3s
+CELL 2 started
+CELL 2 completed in 0.0s
+CELL 4 started
+[26/72] {'learning_rate': 0.1, 'max_depth': 6, 'subsample': 1.0, 'colsample_bytree': 0.8, 'min_child_weight': 1}  val_F1=0.6925  AP=0.7457  rounds=2233  54.9s
+[27/72] {'learning_rate': 0.1, 'max_depth': 6, 'subsample': 0.7, 'colsample_bytree': 1.0, 'min_child_weight': 1}  val_F1=0.6968  AP=0.7483  rounds=1863  60.5s
+[28/72] {'learning_rate': 0.1, 'max_depth': 6, 'subsample': 0.7, 'colsample_bytree': 0.8, 'min_child_weight': 1}  val_F1=0.6959  AP=0.7462  rounds=1653  49.5s
+[29/72] {'learning_rate': 0.1, 'max_depth': 6, 'subsample': 0.5, 'colsample_bytree': 1.0, 'min_child_weight': 1}  val_F1=0.6901  AP=0.7423  rounds=1731  51.9s
+[30/72] {'learning_rate': 0.1, 'max_depth': 6, 'subsample': 0.5, 'colsample_bytree': 0.8, 'min_child_weight': 1}  val_F1=0.6940  AP=0.7419  rounds=1865  56.2s
+[31/72] {'learning_rate': 0.1, 'max_depth': 8, 'subsample': 1.0, 'colsample_bytree': 1.0, 'min_child_weight': 1}  val_F1=0.6943  AP=0.7455  rounds=971  31.0s
+[32/72] {'learning_rate': 0.1, 'max_depth': 8, 'subsample': 1.0, 'colsample_bytree': 0.8, 'min_child_weight': 1}  val_F1=0.6947  AP=0.7467  rounds=1050  34.2s
+[33/72] {'learning_rate': 0.1, 'max_depth': 8, 'subsample': 0.7, 'colsample_bytree': 1.0, 'min_child_weight': 1}  val_F1=0.7010  AP=0.7514  rounds=855  33.2s
+[34/72] {'learning_rate': 0.1, 'max_depth': 8, 'subsample': 0.7, 'colsample_bytree': 0.8, 'min_child_weight': 1}  val_F1=0.6980  AP=0.7468  rounds=833  30.7s
+[35/72] {'learning_rate': 0.1, 'max_depth': 8, 'subsample': 0.5, 'colsample_bytree': 1.0, 'min_child_weight': 1}  val_F1=0.6969  AP=0.7480  rounds=827  32.8s
