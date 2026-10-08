@@ -26,3 +26,15 @@ CELL 4 started
 [33/72] {'learning_rate': 0.1, 'max_depth': 8, 'subsample': 0.7, 'colsample_bytree': 1.0, 'min_child_weight': 1}  val_F1=0.7010  AP=0.7514  rounds=855  33.2s
 [34/72] {'learning_rate': 0.1, 'max_depth': 8, 'subsample': 0.7, 'colsample_bytree': 0.8, 'min_child_weight': 1}  val_F1=0.6980  AP=0.7468  rounds=833  30.7s
 [35/72] {'learning_rate': 0.1, 'max_depth': 8, 'subsample': 0.5, 'colsample_bytree': 1.0, 'min_child_weight': 1}  val_F1=0.6969  AP=0.7480  rounds=827  32.8s
+[36/72] {'learning_rate': 0.1, 'max_depth': 8, 'subsample': 0.5, 'colsample_bytree': 0.8, 'min_child_weight': 1}  val_F1=0.6988  AP=0.7449  rounds=900  33.3s
+[37/72] {'learning_rate': 0.1, 'max_depth': 10, 'subsample': 1.0, 'colsample_bytree': 1.0, 'min_child_weight': 1}  val_F1=0.6919  AP=0.7425  rounds=498  22.1s
+[38/72] {'learning_rate': 0.1, 'max_depth': 10, 'subsample': 1.0, 'colsample_bytree': 0.8, 'min_child_weight': 1}  val_F1=0.6954  AP=0.7461  rounds=540  24.9s
+[39/72] {'learning_rate': 0.1, 'max_depth': 10, 'subsample': 0.7, 'colsample_bytree': 1.0, 'min_child_weight': 1}  val_F1=0.6972  AP=0.7506  rounds=450  22.8s
+[40/72] {'learning_rate': 0.1, 'max_depth': 10, 'subsample': 0.7, 'colsample_bytree': 0.8, 'min_child_weight': 1}  val_F1=0.7012  AP=0.7531  rounds=481  23.9s
+[41/72] {'learning_rate': 0.1, 'max_depth': 10, 'subsample': 0.5, 'colsample_bytree': 1.0, 'min_child_weight': 1}  val_F1=0.6983  AP=0.7477  rounds=413  22.4s
+[42/72] {'learning_rate': 0.1, 'max_depth': 10, 'subsample': 0.5, 'colsample_bytree': 0.8, 'min_child_weight': 1}  val_F1=0.6981  AP=0.7537  rounds=454  21.1s
+[43/72] {'learning_rate': 0.1, 'max_depth': 12, 'subsample': 1.0, 'colsample_bytree': 1.0, 'min_child_weight': 1}  val_F1=0.6980  AP=0.7458  rounds=334  19.8s
+[44/72] {'learning_rate': 0.1, 'max_depth': 12, 'subsample': 1.0, 'colsample_bytree': 0.8, 'min_child_weight': 1}  val_F1=0.6935  AP=0.7441  rounds=286  16.9s
+[45/72] {'learning_rate': 0.1, 'max_depth': 12, 'subsample': 0.7, 'colsample_bytree': 1.0, 'min_child_weight': 1}  val_F1=0.6964  AP=0.7482  rounds=267  20.2s
+[46/72] {'learning_rate': 0.1, 'max_depth': 12, 'subsample': 0.7, 'colsample_bytree': 0.8, 'min_child_weight': 1}  val_F1=0.7012  AP=0.7525  rounds=297  20.6s
+[47/72] {'learning_rate': 0.1, 'max_depth': 12, 'subsample': 0.5, 'colsample_bytree': 1.0, 'min_child_weight': 1}  val_F1=0.6995  AP=0.7488  rounds=256  18.6s
