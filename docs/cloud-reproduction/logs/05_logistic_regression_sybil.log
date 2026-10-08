@@ -1,7 +1,7 @@
-START 05_logistic_regression_sybil.ipynb at 0666a8070abf6e84931e48ca1dfd1146e4712980
+START 05_logistic_regression_sybil.ipynb at a4363545212c904d85b87a78ed5fd5015fbdfdd1
 No event loop hook running.
 CELL 2 started
-CELL 2 completed in 0.8s
+CELL 2 completed in 0.0s
 CELL 4 started
 [1] L0 features: 434,786 addresses, 55 cols
 [2] Gas provision: 604,365 edges before 2024-05-02 00:00:00 UTC (296 later edges dropped)
@@ -10,7 +10,7 @@ CELL 4 started
 [5] CEX/DEX merged: 90 cols
 [6] Labels: Sybil=18,211 (4.19%)
 [7] Chain features, taxonomy, gas provision trees (371,764 trees)
-All 62 features present ✓  (27.9s)
+All 62 features present ✓  (27.6s)
      Split  Total  Sybil  NonSybil  SybilPct
      Train 213046   8924    204122      4.19
 Validation  91305   3824     87481      4.19
@@ -21,10 +21,10 @@ Split method: group
 Row overlap (train/val, train/test, val/test): 0, 0, 0
 Test addresses sharing a gas provision tree with a train address: 0 / 130,435
 Test Sybils sharing a gas provision tree with a train Sybil:     0 / 5,463
-CELL 4 completed in 30.2s
+CELL 4 completed in 29.6s
 CELL 6 started
 Logistic regression: {'C': 0.01, 'penalty': 'l1', 'solver': 'liblinear', 'max_iter': 1000, 'random_state': 42}
-CELL 6 completed in 19.9s
+CELL 6 completed in 18.2s
 CELL 8 started
   Threshold : 0.6823
   Precision : 0.1499
@@ -94,4 +94,4 @@ Saved results/05_logistic_regression_sybil.json
 Saved output/pred_05_logistic_regression_sybil_val.parquet (91,305 rows)
 Saved output/pred_05_logistic_regression_sybil_test.parquet (130,435 rows)
 CELL 13 completed in 0.1s
-PASS 05_logistic_regression_sybil.ipynb: 53.8s
+PASS 05_logistic_regression_sybil.ipynb: 51.3s
