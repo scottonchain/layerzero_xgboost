@@ -1,7 +1,7 @@
-START 06_cross_ensemble_sybil.ipynb at 9a2d11869a8a568824484e4fbafc737b1d68cd0c
+START 06_cross_ensemble_sybil.ipynb at f33219ac83249bce306a1b72dcea57422e12ad92
 No event loop hook running.
 CELL 2 started
-CELL 2 completed in 0.9s
+CELL 2 completed in 0.0s
 CELL 4 started
 Validation 91,305 rows, test 130,435 rows
 CELL 4 completed in 0.1s
@@ -9,7 +9,7 @@ CELL 6 started
 Selected XGB weight = 0.06  (validation F1 = 0.7082)
 Weights within 0.001 of the best validation F1: 0.00 to 0.12
 Validation F1 at the original 0.40 weight: 0.7056
-CELL 6 completed in 1.4s
+CELL 6 completed in 1.3s
 CELL 8 started
 === XGBoost (tuned, 3-seed) ===
   Threshold : 0.5824
@@ -65,4 +65,4 @@ Saved results/06_cross_ensemble_sybil.json
 Saved output/pred_06_cross_ensemble_sybil_val.parquet
 Saved output/pred_06_cross_ensemble_sybil_test.parquet
 CELL 14 completed in 0.1s
-PASS 06_cross_ensemble_sybil.ipynb: 5.4s
+PASS 06_cross_ensemble_sybil.ipynb: 4.8s
