@@ -50,6 +50,14 @@
       "status": "interrupted",
       "completed_xgboost_configurations": 25,
       "note": "Execution interrupted during notebook 02; cached validation-only fits preserved for same-platform continuation. No final search result or downstream run is claimed."
+    },
+    {
+      "notebook": "02_hyperparameter_search.ipynb",
+      "execution_commit": "60838d89cfce084b89a4e031ad1403befd35c6cc",
+      "started_utc": "2026-10-08T01:18:08Z",
+      "status": "passed",
+      "seconds": 4068.0387954711914,
+      "completed_utc": "2026-10-08T02:25:56Z"
     }
   ]
 }

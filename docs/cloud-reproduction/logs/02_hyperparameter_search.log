@@ -120,3 +120,63 @@ CELL 8 started
 [34/48] {'num_leaves': 511, 'learning_rate': 0.1, 'subsample': 1.0, 'reg_lambda': 1.0}  val_F1=0.6997  AP=0.7520  rounds=156  17.0s
 [35/48] {'num_leaves': 511, 'learning_rate': 0.1, 'subsample': 0.7, 'reg_lambda': 0.0}  val_F1=0.7022  AP=0.7472  rounds=129  13.6s
 [36/48] {'num_leaves': 511, 'learning_rate': 0.1, 'subsample': 0.7, 'reg_lambda': 1.0}  val_F1=0.7033  AP=0.7535  rounds=156  16.8s
+[37/48] {'num_leaves': 511, 'learning_rate': 0.05, 'subsample': 1.0, 'reg_lambda': 0.0}  val_F1=0.6955  AP=0.7467  rounds=269  24.3s
+[38/48] {'num_leaves': 511, 'learning_rate': 0.05, 'subsample': 1.0, 'reg_lambda': 1.0}  val_F1=0.7023  AP=0.7550  rounds=334  28.6s
+[39/48] {'num_leaves': 511, 'learning_rate': 0.05, 'subsample': 0.7, 'reg_lambda': 0.0}  val_F1=0.7061  AP=0.7543  rounds=270  24.8s
+[40/48] {'num_leaves': 511, 'learning_rate': 0.05, 'subsample': 0.7, 'reg_lambda': 1.0}  val_F1=0.7025  AP=0.7599  rounds=323  31.0s
+[41/48] {'num_leaves': 1023, 'learning_rate': 0.1, 'subsample': 1.0, 'reg_lambda': 0.0}  val_F1=0.6962  AP=0.7470  rounds=68  13.7s
+[42/48] {'num_leaves': 1023, 'learning_rate': 0.1, 'subsample': 1.0, 'reg_lambda': 1.0}  val_F1=0.6979  AP=0.7548  rounds=81  16.2s
+[43/48] {'num_leaves': 1023, 'learning_rate': 0.1, 'subsample': 0.7, 'reg_lambda': 0.0}  val_F1=0.6948  AP=0.7469  rounds=69  13.3s
+[44/48] {'num_leaves': 1023, 'learning_rate': 0.1, 'subsample': 0.7, 'reg_lambda': 1.0}  val_F1=0.6988  AP=0.7540  rounds=88  17.4s
+[45/48] {'num_leaves': 1023, 'learning_rate': 0.05, 'subsample': 1.0, 'reg_lambda': 0.0}  val_F1=0.6978  AP=0.7518  rounds=138  24.3s
+[46/48] {'num_leaves': 1023, 'learning_rate': 0.05, 'subsample': 1.0, 'reg_lambda': 1.0}  val_F1=0.7023  AP=0.7581  rounds=178  27.6s
+[47/48] {'num_leaves': 1023, 'learning_rate': 0.05, 'subsample': 0.7, 'reg_lambda': 0.0}  val_F1=0.7006  AP=0.7547  rounds=142  23.0s
+[48/48] {'num_leaves': 1023, 'learning_rate': 0.05, 'subsample': 0.7, 'reg_lambda': 1.0}  val_F1=0.7039  AP=0.7590  rounds=164  26.3s
+Selected LightGBM config: {'num_leaves': 127, 'learning_rate': 0.05, 'subsample': 0.7, 'reg_lambda': 1.0}
+ num_leaves  learning_rate  subsample  reg_lambda  val_f1  val_ap  val_logloss  val_threshold  rounds  seconds
+        127           0.05        0.7         1.0  0.7067  0.7600       0.0788         0.4355    1277     43.6
+        511           0.05        0.7         0.0  0.7061  0.7543       0.0787         0.5598     270     24.8
+        255           0.05        0.7         1.0  0.7047  0.7587       0.0780         0.5464     592     33.7
+       1023           0.05        0.7         1.0  0.7039  0.7590       0.0772         0.5715     164     26.3
+         31           0.05        0.7         1.0  0.7038  0.7558       0.0816         0.5931    4749     94.7
+         31           0.05        0.7         0.0  0.7036  0.7516       0.0833         0.5994    4321     82.9
+        511           0.10        0.7         1.0  0.7033  0.7535       0.0798         0.5543     156     16.8
+        511           0.05        0.7         1.0  0.7025  0.7599       0.0775         0.5603     323     31.0
+         63           0.10        0.7         1.0  0.7025  0.7528       0.0818         0.6141    1204     30.4
+        127           0.10        0.7         1.0  0.7024  0.7533       0.0807         0.6659     531     20.3
+CELL 8 completed in 1598.0s
+CELL 10 started
+XGBoost (stage 1 grid):
+           param  value  best_val_f1
+   learning_rate   0.05       0.7032
+   learning_rate   0.10       0.7012
+   learning_rate   0.30       0.6955
+       max_depth   6.00       0.6970
+       max_depth   8.00       0.7032
+       max_depth  10.00       0.7025
+       max_depth  12.00       0.7019
+       subsample   0.50       0.7025
+       subsample   0.70       0.7032
+       subsample   1.00       0.6980
+colsample_bytree   0.80       0.7019
+colsample_bytree   1.00       0.7032
+
+LightGBM:
+        param   value  best_val_f1
+   num_leaves   31.00       0.7038
+   num_leaves   63.00       0.7025
+   num_leaves  127.00       0.7067
+   num_leaves  255.00       0.7047
+   num_leaves  511.00       0.7061
+   num_leaves 1023.00       0.7039
+learning_rate    0.05       0.7067
+learning_rate    0.10       0.7033
+    subsample    0.70       0.7067
+    subsample    1.00       0.7023
+   reg_lambda    0.00       0.7061
+   reg_lambda    1.00       0.7067
+CELL 10 completed in 0.0s
+CELL 12 started
+Saved results/02_hyperparameter_search.json
+CELL 12 completed in 0.0s
+PASS 02_hyperparameter_search.ipynb: 4068.0s
