@@ -1,0 +1,88 @@
+{
+  "main": "5b2bfc3af83d025ed59df38060ff6afcfed66212",
+  "latest_pr8": "cf47a0fb7122d1ea64c81e0abbb5ae5d44ee0ed0",
+  "pr10": "15c6035f702e4618c21640d3a0b83837822b4a0d",
+  "pr11": "790f80da7329bd762af76309e4e0a6fd9693450c",
+  "pr12": "68e8d63fa14c2efb8f906f3885a1650bd0669154",
+  "comparisons": [
+    {
+      "notebook": "13_random_forest_sybil.ipynb",
+      "code_cells_identical": true,
+      "cloud_code_sha256": "9609ec41a7bffe29e4dbda0d48499968cf64065233448479deb2a8395a9d650d",
+      "latest_x86_code_sha256": "9609ec41a7bffe29e4dbda0d48499968cf64065233448479deb2a8395a9d650d"
+    },
+    {
+      "notebook": "14_entity_level_recall.ipynb",
+      "code_cells_identical": true,
+      "cloud_code_sha256": "bb052b1a0d540a690a3f91900965e6821e2cc3e60b05605597f45f2a422be690",
+      "latest_x86_code_sha256": "bb052b1a0d540a690a3f91900965e6821e2cc3e60b05605597f45f2a422be690"
+    },
+    {
+      "notebook": "15_split_tree_report.ipynb",
+      "code_cells_identical": true,
+      "cloud_code_sha256": "221fa0b4ca4b76334c8982ac0e8a63e12959eab5e362af25c6a844a791c3e0ca",
+      "latest_x86_code_sha256": "221fa0b4ca4b76334c8982ac0e8a63e12959eab5e362af25c6a844a791c3e0ca"
+    },
+    {
+      "notebook": "16_label_robustness_initial_list.ipynb",
+      "code_cells_identical": true,
+      "cloud_code_sha256": "8f3c79d19279a1982ea909f6e64589f45f62ea23f458a96338701b1602a297c4",
+      "latest_x86_code_sha256": "8f3c79d19279a1982ea909f6e64589f45f62ea23f458a96338701b1602a297c4"
+    },
+    {
+      "notebook": "17_models_10_splits.ipynb",
+      "code_cells_identical": false,
+      "cloud_code_sha256": "641f78fa0e07201e0fc6583ee200f84cd7752cb7c3ceb2ef58b156afad85b592",
+      "latest_x86_code_sha256": "1c24a266657753d724cb37c716f5f3e5db5889d8a7106b6529bc5a2fb06c3ba5"
+    },
+    {
+      "notebook": "18_mimicry_stress.ipynb",
+      "code_cells_identical": true,
+      "cloud_code_sha256": "35267d6621bc91f72671544fd811a030d2e0689b2ac5be240c1db12558625b9f",
+      "latest_x86_code_sha256": "35267d6621bc91f72671544fd811a030d2e0689b2ac5be240c1db12558625b9f"
+    },
+    {
+      "notebook": "19_ablation_by_category.ipynb",
+      "code_cells_identical": true,
+      "cloud_code_sha256": "968a4ffa725bfe91f9c5048cb1341b4d539a6b9300e4ded2c09c4c02786c5600",
+      "latest_x86_code_sha256": "968a4ffa725bfe91f9c5048cb1341b4d539a6b9300e4ded2c09c4c02786c5600"
+    },
+    {
+      "notebook": "20_temporal_holdout.ipynb",
+      "code_cells_identical": true,
+      "cloud_code_sha256": "65e8c6f384e6c9e9598d981abf4d9d6984d7f0dc9905ab24bbc0020e6a652af9",
+      "latest_x86_code_sha256": "65e8c6f384e6c9e9598d981abf4d9d6984d7f0dc9905ab24bbc0020e6a652af9"
+    },
+    {
+      "notebook": "22_report_dependence.ipynb",
+      "code_cells_identical": true,
+      "cloud_code_sha256": "1229a376f21eb72f5947c4d6f33dd0bce68a25b05ac8d259f45c1121bb1c1558",
+      "latest_x86_code_sha256": "1229a376f21eb72f5947c4d6f33dd0bce68a25b05ac8d259f45c1121bb1c1558"
+    },
+    {
+      "notebook": "23_revision_figures.ipynb",
+      "code_cells_identical": false,
+      "cloud_code_sha256": "453a09df8f035b5e117b335c32f445c9c41416f3cfb87517fa453b95a7b7e2aa",
+      "latest_x86_code_sha256": "57a2b8c4743a7de3f34ed235935b0099ca7b685fc9f3c99e2c4852e0905b1ac9"
+    },
+    {
+      "notebook": "24_mimicry_controls.ipynb",
+      "code_cells_identical": false,
+      "cloud_code_sha256": "48f0a98671e00c773703157c8fe7b41ab7c316bca18fd8529a5417e979e85fc2",
+      "latest_x86_code_sha256": "8872fe58f3ab38b54615ec0723393b98b1004841e3016d890552e1120410dec6"
+    },
+    {
+      "notebook": "25_paper_tables.ipynb",
+      "code_cells_identical": false,
+      "cloud_code_sha256": "5b6c64e4a5b0d098a68b4db7d8c9aae1c65ab0ed4a1cea8295e0803b5528eb75",
+      "latest_x86_code_sha256": "c47e05f4f6baec405151b8802eb7953c8b30eee7364b015c020d0256ea7f29af"
+    },
+    {
+      "notebook": "99_tie_out_revision.ipynb",
+      "code_cells_identical": false,
+      "cloud_code_sha256": "114a0e3260ea51485a320d650b6c346af78a503b7e60932d4e7f997d071c55ea",
+      "latest_x86_code_sha256": "5a8ae96e812cd1f3f97e1c1365a601af1f5b3e3bed3dd39761d3da2d1eb9ca5f"
+    }
+  ],
+  "decision": "Keep cloud17 PID/checkpoint repairs, current PR12 publication refinements and cloud full-precision/platform guards. New PR8 scientific13\u201316,18\u201320,22 code is identical. Its additional escaping fix targets Python3.11; cloud uses Python3.12. Foreign computed outputs are read-only comparisons, never cloud results. No other branch was changed."
+}
