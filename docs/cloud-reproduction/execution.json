@@ -453,6 +453,14 @@
       "status": "failed",
       "seconds": 3340.0754940509796,
       "error": "Command '['/tmp/layerzero-cloud-venv/bin/python', '/tmp/layerzero-cloud-reproduction/scripts/run_cloud_reproduction.py', '--execute-one', '17_models_10_splits.ipynb']' returned non-zero exit status 1."
+    },
+    {
+      "notebook": "17_models_10_splits.ipynb",
+      "execution_commit": "a578dd33d81257ce6f439b28f6cb3f33a3093eb9",
+      "started_utc": "2026-10-08T12:46:23Z",
+      "status": "passed",
+      "seconds": 4497.534353494644,
+      "completed_utc": "2026-10-08T14:01:21Z"
     }
   ]
 }
