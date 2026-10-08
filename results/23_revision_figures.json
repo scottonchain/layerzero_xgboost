@@ -1,6 +1,6 @@
 {
   "notebook": "23_revision_figures",
-  "code_commit": "61884d1",
+  "code_commit": "2f39463",
   "leakage": null,
   "models": [],
   "figures": {
@@ -68,7 +68,7 @@
         }
       ],
       "platform_note": null,
-      "caption_note": "\"cheap + structural\" equals \"cheap only\" for k \u2264 10; mean \u00b1 SD over 5 repetitions; feature cost classes tentative.",
+      "caption_note": "\"wallet-local + funding-graph\" equals \"wallet-local only\" for k \u2264 10; mean \u00b1 SD over 5 repetitions; feature cost classes tentative.",
       "cheap_structural_equals_cheap_k_le_10": true
     },
     "rev_shap_by_category": {
