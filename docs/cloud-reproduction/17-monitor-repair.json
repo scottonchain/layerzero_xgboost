@@ -1,0 +1,8 @@
+{
+  "reason": "psutil default namespace PID8 not present in host procfs; use actual PID from /proc/self/stat for the same process",
+  "failed_execution_commit": "2ef61811ab3228dd69393616f61ca037d8f1a69e",
+  "completed_comparison_splits": 10,
+  "unrecoverable_full_precision_comparison_groups": 10,
+  "failed_attempt_seconds": 3340.0754940509796,
+  "action": "No full-precision per-split namespace snapshot existed after worker exit; recompute those groups once with atomic verified per-split checkpoints. Scientific fits, selection rules and tests unchanged."
+}

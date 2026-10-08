@@ -1,0 +1,6 @@
+{
+  "cache_reuse": true,
+  "changed_matrix_invalidates": true,
+  "tampering_rejected": true,
+  "namespace_memory_monitor_passed": true
+}
