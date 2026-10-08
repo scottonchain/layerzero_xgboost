@@ -14,3 +14,5 @@ build_master_df: 27.1s
 CELL 2 completed in 27.2s
 CELL 4 started
 split 42: Logistic regression 0.2412, XGBoost 0.7166, LightGBM 0.7105, Random Forest 0.7106, Ensemble 0.7203; w=0.60 (332s)
+split 1: Logistic regression 0.2308, XGBoost 0.6946, LightGBM 0.6990, Random Forest 0.6961, Ensemble 0.6975; w=0.10 (349s)
+split 2: Logistic regression 0.2382, XGBoost 0.7001, LightGBM 0.7156, Random Forest 0.6992, Ensemble 0.7117; w=0.20 (339s)
