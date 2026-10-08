@@ -1,0 +1,86 @@
+{
+  "event": "Fourth checkout loss during first Random Forest search fit. Prior worker no longer exists; its unpublished log/cache cannot be recovered. Recovery within surviving virtual-environment directory.",
+  "platform_match": true,
+  "packages_verified": 113,
+  "lfs_verified": 37,
+  "valid_completed": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12
+  ],
+  "provenance": [
+    {
+      "notebook": "00_data_pipeline",
+      "commit": "b00ed56",
+      "dependencies_unchanged": true
+    },
+    {
+      "notebook": "01_ablation_gini",
+      "commit": "666e247",
+      "dependencies_unchanged": true
+    },
+    {
+      "notebook": "02_hyperparameter_search",
+      "commit": "60838d8",
+      "dependencies_unchanged": true
+    },
+    {
+      "notebook": "03_xgboost_sybil",
+      "commit": "190c074",
+      "dependencies_unchanged": true
+    },
+    {
+      "notebook": "04_lightgbm_sybil",
+      "commit": "4e3ec91",
+      "dependencies_unchanged": true
+    },
+    {
+      "notebook": "05_logistic_regression_sybil",
+      "commit": "02f3113",
+      "dependencies_unchanged": true
+    },
+    {
+      "notebook": "06_cross_ensemble_sybil",
+      "commit": "189f0d5",
+      "dependencies_unchanged": true
+    },
+    {
+      "notebook": "07_sensitivity_label_vintage",
+      "commit": "5f70994",
+      "dependencies_unchanged": true
+    },
+    {
+      "notebook": "08_ablation_families",
+      "commit": "1c6f5ff",
+      "dependencies_unchanged": true
+    },
+    {
+      "notebook": "09_shap_importance",
+      "commit": "e5885b4",
+      "dependencies_unchanged": true
+    },
+    {
+      "notebook": "11_split_comparison",
+      "commit": "7f9e8fe",
+      "dependencies_unchanged": true
+    },
+    {
+      "notebook": "12_figures",
+      "commit": "a4eac54",
+      "dependencies_unchanged": true
+    }
+  ],
+  "current_checkout": "/workspace/layerzero-cloud-venv/reproduction",
+  "lost_checkpoints": "13 live partial not yet published; number of completed fits unknown, at most first fit observed started. Ignored master/splits/predictions lost.",
+  "plan": "Reuse01/02/07/08/09/10/11/12. Regenerate00/03/04/05/06 solely to restore ignored prerequisites."
+}
