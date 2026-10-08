@@ -1,6 +1,6 @@
 {
   "notebook": "20_temporal_holdout",
-  "code_commit": "5888aa3",
+  "code_commit": "31d466b",
   "leakage": null,
   "models": [],
   "params": {
@@ -53,26 +53,26 @@
       "train_sybil_rate": 0.055481236358515804,
       "val_sybil_rate": 0.0554734132851432,
       "rounds": [
-        1409,
-        1355,
-        1479
+        1388,
+        1385,
+        1331
       ],
       "temporal_n": 130436,
       "temporal_sybils": 1326,
-      "temporal_threshold": 0.5834240126134763,
-      "temporal_precision": 0.7974683544303798,
-      "temporal_recall": 0.09502262443438914,
-      "temporal_f1": 0.16981132075471697,
-      "temporal_auroc": 0.891419195669903,
-      "temporal_ap": 0.29206281111464416,
+      "temporal_threshold": 0.6528376868999307,
+      "temporal_precision": 0.8012820512820513,
+      "temporal_recall": 0.0942684766214178,
+      "temporal_f1": 0.16869095816464239,
+      "temporal_auroc": 0.8865161192304714,
+      "temporal_ap": 0.2761158361849945,
       "reference_n": 39217,
       "reference_sybils": 383,
-      "reference_threshold": 0.5748310308675113,
-      "reference_precision": 0.7768115942028986,
-      "reference_recall": 0.6997389033942559,
-      "reference_f1": 0.7362637362637363,
-      "reference_auroc": 0.9781285369298336,
-      "reference_ap": 0.7746203813058541
+      "reference_threshold": 0.6000858349504762,
+      "reference_precision": 0.7869822485207101,
+      "reference_recall": 0.6945169712793734,
+      "reference_f1": 0.7378640776699029,
+      "reference_auroc": 0.9782047130781336,
+      "reference_ap": 0.7741022020089198
     },
     {
       "late_share_target": 0.2,
@@ -82,26 +82,26 @@
       "train_sybil_rate": 0.05163463118120585,
       "val_sybil_rate": 0.0516349139418101,
       "rounds": [
-        1486,
+        1536,
         1619,
-        1511
+        1443
       ],
       "temporal_n": 86958,
       "temporal_sybils": 251,
-      "temporal_threshold": 0.6021455094405211,
+      "temporal_threshold": 0.6376267240383521,
       "temporal_precision": 1.0,
       "temporal_recall": 0.00398406374501992,
       "temporal_f1": 0.007936507936507936,
-      "temporal_auroc": 0.7472980050917463,
-      "temporal_ap": 0.06196529407273456,
+      "temporal_auroc": 0.7290385897791881,
+      "temporal_ap": 0.05956916516952296,
       "reference_n": 26093,
       "reference_sybils": 64,
-      "reference_threshold": 0.5748310308675113,
-      "reference_precision": 0.88,
-      "reference_recall": 0.34375,
-      "reference_f1": 0.4943820224719101,
-      "reference_auroc": 0.9378823859925468,
-      "reference_ap": 0.44183325290816783
+      "reference_threshold": 0.6000858349504762,
+      "reference_precision": 0.9130434782608695,
+      "reference_recall": 0.328125,
+      "reference_f1": 0.4827586206896552,
+      "reference_auroc": 0.9349475584924507,
+      "reference_ap": 0.4459564896932377
     },
     {
       "late_share_target": 0.4,
@@ -111,26 +111,26 @@
       "train_sybil_rate": 0.051125349104649255,
       "val_sybil_rate": 0.051123803682549415,
       "rounds": [
-        1215,
-        1136,
-        1155
+        1090,
+        1187,
+        1157
       ],
       "temporal_n": 173915,
       "temporal_sybils": 4874,
-      "temporal_threshold": 0.5807376210349561,
-      "temporal_precision": 0.4389750505731625,
-      "temporal_recall": 0.13356585966352072,
-      "temporal_f1": 0.2048135913166588,
-      "temporal_auroc": 0.8956397716198232,
-      "temporal_ap": 0.2352610278920391,
+      "temporal_threshold": 0.5581141445221138,
+      "temporal_precision": 0.43206011271133377,
+      "temporal_recall": 0.14156750102585144,
+      "temporal_f1": 0.21325915623551228,
+      "temporal_auroc": 0.8936585609855021,
+      "temporal_ap": 0.230881939586922,
       "reference_n": 52259,
       "reference_sybils": 1458,
-      "reference_threshold": 0.5748310308675113,
-      "reference_precision": 0.6850728155339806,
-      "reference_recall": 0.7743484224965707,
-      "reference_f1": 0.7269800386349002,
-      "reference_auroc": 0.9832966818076473,
-      "reference_ap": 0.8078278744725637
+      "reference_threshold": 0.6000858349504762,
+      "reference_precision": 0.6927374301675978,
+      "reference_recall": 0.7654320987654321,
+      "reference_f1": 0.7272727272727273,
+      "reference_auroc": 0.9833084412944681,
+      "reference_ap": 0.8072833842169548
     }
   ],
   "by_category": [
@@ -143,7 +143,7 @@
       "precision": 0.0,
       "recall": 0.0,
       "f1": 0.0,
-      "auroc": 0.8921747995244882,
+      "auroc": 0.8945987408212681,
       "fpr": 0.0
     },
     {
@@ -155,7 +155,7 @@
       "precision": 0.0,
       "recall": 0.0,
       "f1": 0.0,
-      "auroc": 0.9407259849490925,
+      "auroc": 0.951394422310757,
       "fpr": 0.0
     },
     {
@@ -164,11 +164,11 @@
       "category": "IxL",
       "n": 93861,
       "sybil": 1190,
-      "precision": 0.7974683544303798,
-      "recall": 0.10588235294117647,
-      "f1": 0.18694362017804153,
-      "auroc": 0.8899480850708057,
-      "fpr": 0.000345307593529799
+      "precision": 0.8012820512820513,
+      "recall": 0.10504201680672269,
+      "f1": 0.18573551263001487,
+      "auroc": 0.8861925657487694,
+      "fpr": 0.00033451673123199274
     },
     {
       "late_share_target": 0.3,
@@ -179,7 +179,7 @@
       "precision": 0.0,
       "recall": 0.0,
       "f1": 0.0,
-      "auroc": 0.4389676819344338,
+      "auroc": 0.36921646128807256,
       "fpr": 0.0
     },
     {
@@ -189,9 +189,9 @@
       "n": 9334,
       "sybil": 49,
       "precision": 1.0,
-      "recall": 0.08163265306122448,
-      "f1": 0.1509433962264151,
-      "auroc": 0.9665523721604958,
+      "recall": 0.061224489795918366,
+      "f1": 0.11538461538461539,
+      "auroc": 0.9709922741309772,
       "fpr": 0.0
     },
     {
@@ -203,7 +203,7 @@
       "precision": 0.0,
       "recall": 0.0,
       "f1": 0.0,
-      "auroc": 0.9008524001794528,
+      "auroc": 0.8990578734858681,
       "fpr": 0.0
     },
     {
@@ -212,11 +212,11 @@
       "category": "IxL",
       "n": 28300,
       "sybil": 324,
-      "precision": 0.7694610778443114,
-      "recall": 0.7932098765432098,
-      "f1": 0.7811550151975684,
-      "auroc": 0.9803404020024218,
-      "fpr": 0.00275235916499857
+      "precision": 0.7804878048780488,
+      "recall": 0.7901234567901234,
+      "f1": 0.7852760736196319,
+      "auroc": 0.9799271288970794,
+      "fpr": 0.002573634543894767
     },
     {
       "late_share_target": 0.3,
@@ -239,7 +239,7 @@
       "precision": 0.0,
       "recall": 0.0,
       "f1": 0.0,
-      "auroc": 0.7352868076323545,
+      "auroc": 0.7322556941438996,
       "fpr": 0.0
     },
     {
@@ -251,7 +251,7 @@
       "precision": 0.0,
       "recall": 0.0,
       "f1": 0.0,
-      "auroc": 0.8988290654410156,
+      "auroc": 0.8956555044867586,
       "fpr": 0.0
     },
     {
@@ -263,7 +263,7 @@
       "precision": 1.0,
       "recall": 0.005076142131979695,
       "f1": 0.010101010101010102,
-      "auroc": 0.7526278625908175,
+      "auroc": 0.7381910319576332,
       "fpr": 0.0
     },
     {
@@ -275,7 +275,7 @@
       "precision": 0.0,
       "recall": 0.0,
       "f1": 0.0,
-      "auroc": 0.5473118279569893,
+      "auroc": 0.49354838709677423,
       "fpr": 0.0
     },
     {
@@ -284,10 +284,10 @@
       "category": "IxE",
       "n": 6613,
       "sybil": 8,
-      "precision": 1.0,
-      "recall": 0.125,
-      "f1": 0.2222222222222222,
-      "auroc": 0.8909159727479183,
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "auroc": 0.9007759273277819,
       "fpr": 0.0
     },
     {
@@ -299,7 +299,7 @@
       "precision": 0.0,
       "recall": 0.0,
       "f1": 0.0,
-      "auroc": 0.8767416934619507,
+      "auroc": 0.8708467309753483,
       "fpr": 0.0
     },
     {
@@ -308,11 +308,11 @@
       "category": "IxL",
       "n": 18469,
       "sybil": 47,
-      "precision": 0.8235294117647058,
+      "precision": 0.875,
       "recall": 0.2978723404255319,
-      "f1": 0.4375,
-      "auroc": 0.9391800275803446,
-      "fpr": 0.00016284876777765715
+      "f1": 0.4444444444444444,
+      "auroc": 0.9341444202930353,
+      "fpr": 0.00010856584518510477
     },
     {
       "late_share_target": 0.2,
@@ -335,7 +335,7 @@
       "precision": 0.0,
       "recall": 0.0,
       "f1": 0.0,
-      "auroc": 0.8716563347665727,
+      "auroc": 0.8722112813941236,
       "fpr": 0.0
     },
     {
@@ -344,11 +344,11 @@
       "category": "IxI",
       "n": 6741,
       "sybil": 64,
-      "precision": 0.9,
+      "precision": 1.0,
       "recall": 0.140625,
-      "f1": 0.24324324324324326,
-      "auroc": 0.9152875542908492,
-      "fpr": 0.0001497678598172832
+      "f1": 0.2465753424657534,
+      "auroc": 0.919396809944586,
+      "fpr": 0.0
     },
     {
       "late_share_target": 0.4,
@@ -356,11 +356,11 @@
       "category": "IxL",
       "n": 130522,
       "sybil": 4623,
-      "precision": 0.43584521384928715,
-      "recall": 0.13887086307592472,
-      "f1": 0.2106299212598425,
-      "auroc": 0.881455898616905,
-      "fpr": 0.006600528995464618
+      "precision": 0.4288413098236776,
+      "recall": 0.1473069435431538,
+      "f1": 0.2192883593624215,
+      "auroc": 0.8785796097619715,
+      "fpr": 0.007204187483617821
     },
     {
       "late_share_target": 0.4,
@@ -371,7 +371,7 @@
       "precision": 0.0,
       "recall": 0.0,
       "f1": 0.0,
-      "auroc": 0.5930536036940374,
+      "auroc": 0.5488857659104598,
       "fpr": 0.0
     },
     {
@@ -383,7 +383,7 @@
       "precision": 0.875,
       "recall": 0.1076923076923077,
       "f1": 0.1917808219178082,
-      "auroc": 0.9638210369780068,
+      "auroc": 0.966547604647688,
       "fpr": 9.249838127832763e-05
     },
     {
@@ -392,11 +392,11 @@
       "category": "IxI",
       "n": 2047,
       "sybil": 13,
-      "precision": 0.01,
+      "precision": 0.010638297872340425,
       "recall": 0.07692307692307693,
-      "f1": 0.017699115044247787,
-      "auroc": 0.9205052567884426,
-      "fpr": 0.048672566371681415
+      "f1": 0.018691588785046728,
+      "auroc": 0.9204674381665533,
+      "fpr": 0.045722713864306784
     },
     {
       "late_share_target": 0.4,
@@ -404,11 +404,11 @@
       "category": "IxL",
       "n": 39228,
       "sybil": 1373,
-      "precision": 0.7266797129810828,
-      "recall": 0.8113619810633649,
-      "f1": 0.76668960770819,
-      "auroc": 0.9845614466132364,
-      "fpr": 0.011068551050059437
+      "precision": 0.7330226364846871,
+      "recall": 0.8018936635105608,
+      "f1": 0.7659130434782608,
+      "auroc": 0.984468132367316,
+      "fpr": 0.010593052436930392
     },
     {
       "late_share_target": 0.4,
@@ -425,18 +425,18 @@
   ],
   "reference": {
     "split": "seed-42 tree split, 3 seeds, trained in this notebook",
-    "threshold": 0.5748310308675113
+    "threshold": 0.6000858349504762
   },
   "caveats": [
     "Cohort and Sybil status are confounded: the Sybil rate differs strongly between the early and late cohorts (see cohorts), so the late test set has a different prevalence; AP depends on prevalence.",
     "Features are cumulative up to the snapshot, so late-cohort addresses have shorter histories by construction."
   ],
   "platform": {
-    "machine": "arm64",
-    "processor": "arm",
-    "system": "Darwin",
-    "python": "3.13.7",
-    "cpu_count": 10,
+    "machine": "x86_64",
+    "processor": "x86_64",
+    "system": "Linux",
+    "python": "3.11.15",
+    "cpu_count": 4,
     "n_jobs": 4
   }
 }
