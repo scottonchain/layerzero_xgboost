@@ -1,0 +1,36 @@
+START 13_random_forest_sybil.ipynb at 3387981d1542ac7e90291f7be4c76aa65814987d
+No event loop hook running.
+CELL 2 started
+Code commit: 3387981
+Platform: {'machine': 'x86_64', 'processor': 'x86_64', 'system': 'Linux', 'python': '3.12.14', 'cpu_count': 9, 'n_jobs': 4}
+CELL 2 completed in 0.1s
+CELL 4 started
+[1] L0 features: 434,786 addresses, 55 cols
+[2] Gas provision: 604,365 edges before 2024-05-02 00:00:00 UTC (296 later edges dropped)
+[3] Labeled addresses in provision network: 4,308
+[4] Provider and tree features: 88 cols
+[5] CEX/DEX merged: 90 cols
+[6] Labels: Sybil=18,211 (4.19%)
+[7] Chain features, taxonomy, gas provision trees (371,764 trees)
+All 62 features present ✓  (27.6s)
+     Split  Total  Sybil  NonSybil  SybilPct
+     Train 213046   8924    204122      4.19
+Validation  91305   3824     87481      4.19
+Train after upsampling: 408,244 rows (50.0% Sybil)
+CELL 4 completed in 28.7s
+CELL 6 started
+max_features=sqrt  one tree: 1.1 MiB, 14,751 nodes, 0.9s
+max_features=0.3   one tree: 0.9 MiB, 11,801 nodes, 2.4s
+max_features=0.5   one tree: 0.8 MiB, 10,925 nodes, 4.0s
+max_features=0.7   one tree: 0.8 MiB, 10,551 nodes, 5.6s
+Projected 300-tree forest: 0.33 GiB; available RAM 7.87 GiB -> max_samples = None
+CELL 6 completed in 12.8s
+CELL 7 started
+0 of 24 configurations already in ./results/13_search_random_forest.csv
+  first fit 81s; about 31 min for the remaining 23 (the 3 final fits and 10 split fits take about 18 min more)
+[1/24] {'max_features': 'sqrt', 'min_samples_leaf': 1, 'max_depth': None, 'max_samples': None}  val_F1=0.6990  AP=0.7469  80.8s
+[2/24] {'max_features': 'sqrt', 'min_samples_leaf': 1, 'max_depth': 24, 'max_samples': None}  val_F1=0.6183  AP=0.6523  76.1s
+[3/24] {'max_features': 'sqrt', 'min_samples_leaf': 5, 'max_depth': None, 'max_samples': None}  val_F1=0.6728  AP=0.7201  78.1s
+[4/24] {'max_features': 'sqrt', 'min_samples_leaf': 5, 'max_depth': 24, 'max_samples': None}  val_F1=0.6263  AP=0.6594  73.4s
+[5/24] {'max_features': 'sqrt', 'min_samples_leaf': 20, 'max_depth': None, 'max_samples': None}  val_F1=0.6451  AP=0.6897  75.5s
+[6/24] {'max_features': 'sqrt', 'min_samples_leaf': 20, 'max_depth': 24, 'max_samples': None}  val_F1=0.6218  AP=0.6554  72.1s

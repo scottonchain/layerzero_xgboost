@@ -1,0 +1,10 @@
+{
+  "stage": {
+    "notebook": "13_random_forest_sybil.ipynb",
+    "execution_commit": "3387981d1542ac7e90291f7be4c76aa65814987d",
+    "started_utc": "2026-10-08T08:15:49Z",
+    "status": "running"
+  },
+  "working_tree_status": "?? results/13_search_random_forest.csv",
+  "note": "Partial snapshot; not a completed notebook result."
+}
