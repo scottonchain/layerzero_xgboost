@@ -73,7 +73,7 @@ XGBoost and LightGBM lose similar Average Precision; the cross-ensemble tracks L
 | Entity-level recall (LightGBM, validation threshold) | `14` | Gas provision trees: any-hit 0.765 (97 % are single-wallet trees). Bounty reports: any-hit 0.703, majority-hit 0.552; 49 % of reports keep at least half their ZRO allocation unflagged. 37 % of the test Sybils' allocation is unflagged (address miss rate 28 %). Arm64 predictions, flagged in the results file |
 | Split grouped by tree and bounty report | `15` | Under the tree split, 5,406 of 5,463 test Sybils still share a bounty report with a training Sybil (random split: 5,434). Grouping by tree and report as well: test F1 0.256 ± 0.022 vs 0.713 ± 0.009 (−0.457 ± 0.023, 10 of 10; outside the two largest components −0.375). One component holds 45 % of Sybils and always lands in train, so the drop also reflects that composition |
 | Label noise: LayerZero's initial Sybil list ([archived source](https://web.archive.org/web/*/https://github.com/LayerZero-Labs/sybil-report/raw/main/*)) | `16` | 34,545 interactors (8.3 % of the non-Sybils) are on LayerZero's initial list and labeled non-Sybil. At the validation threshold, 625 of the 1,566 test false positives (40 %) are on it; counting them as Sybil, precision is 0.829 instead of 0.715. Dropping them from training and validation: test F1 on the test set without them +0.034 ± 0.010 (10 of 10) |
-| Mimicry controls | `24` | Profile copy at k = 5: top features by SHAP 0.039, cheap only 0.045, strict cheap (7 Ethereum-side counts and values) 0.167, structural only 0.546, random 5 of 62 0.433 (range 0.179–0.719). All 30 structural features together: 0.484. Collapse is specific to the top features, and strongest for LayerZero activity and timing |
+| Mimicry controls | `24` | Profile copy at k = 5: top features by SHAP 0.039, wallet-local only 0.045, Ethereum-local (7 Ethereum-side counts and values) 0.167, funding-graph only 0.546, random 5 of 62 0.433 (range 0.179–0.719). All 30 funding-graph features together: 0.484. Collapse is specific to the top features, and strongest for LayerZero activity and timing |
 | Mimicry stress test (fixed model) | `18` | Replacing the 5 most important features of test Sybils with values from non-Sybils cuts recall at the fixed threshold from 0.719 to 0.01–0.04 (0.03–0.05 with cheap features only). Tentative cost classes; a fragility measure, not an attack simulation |
 | Provision-network features by category | `19` | Removing them: test F1 −0.008 overall (9 of 10), IxI −0.105 ± 0.124 (9 of 10), IxL −0.004, IxE +0.046 (removing them helps IxE on 9 of 10); none significant after the correction |
 | Report-mates in training | `22` | Same test Sybils, same training size: with their bounty-report mates in training, test F1 +0.231 ± 0.084, AP +0.292 ± 0.075, AUROC +0.079 ± 0.041 (15 of 15, corrected p < 0.002; LightGBM; XGBoost alike). The gain grows from +0.006 recall with no report-mate to +0.24 with 1–9 and +0.36 with 10–99. Test prevalence is 2.1 %, so only the paired difference is comparable |
@@ -158,7 +158,7 @@ layerzero_xgboost/
 ├── 20_temporal_holdout.ipynb               ← train on earlier cohorts, test on later ones
 ├── 22_report_dependence.ipynb              ← test Sybils with and without report-mates in training
 ├── 23_revision_figures.ipynb               ← revision figures (figures/rev_*) and tables (tables/) from results/
-├── 24_mimicry_controls.ipynb               ← mimicry controls: single feature, strict cheap, structural only, random k
+├── 24_mimicry_controls.ipynb               ← mimicry controls: single feature, Ethereum-local, funding-graph only, random k
 ├── 25_paper_tables.ipynb                   ← remaining paper tables and named numbers for the text, from results/
 ├── 99_tie_out_revision.ipynb               ← provenance checks and every cited number for 13–22 (runs last)
 ├── DATA.md                                 ← what each data file is, where it came from, terms
@@ -330,7 +330,7 @@ results, `03` to `12` take about 4.1 hours.
 - **`23`**: draws the revision figures and writes the revision tables from the committed `results/` (see
   [Paper figures and tables](#paper-figures-and-tables)); no data, no model.
 - **`24`**: controls for the mimicry test of `18` (same model, threshold and donors; asserts it reproduces `18`): every
-  feature replaced alone, a rule-based strict-cheap subset (Ethereum-side counts and values), the 30 structural
+  feature replaced alone, a rule-based Ethereum-local subset (Ethereum-side counts and values), the 30 funding-graph
   features, and random subsets of k features. Writes `figures/rev_mimicry_controls` and two tables.
 - **`25`**: renders the remaining paper tables (labels, taxonomy, dependence levels, per-category performance, ablations,
   entity level, temporal holdout, the union split, the searches) and `tables/rev_text_numbers.json`, every scalar the

@@ -1,6 +1,6 @@
 {
   "notebook": "99_tie_out_revision",
-  "code_commit": "201c9b4",
+  "code_commit": "f5d9618",
   "leakage": null,
   "models": [],
   "checks": [
@@ -52,17 +52,17 @@
     {
       "check": "provenance 23_revision_figures",
       "passed": true,
-      "detail": "commit 61884d1"
+      "detail": "commit 2f39463"
     },
     {
       "check": "provenance 24_mimicry_controls",
       "passed": true,
-      "detail": "commit 61884d1"
+      "detail": "commit 2f39463"
     },
     {
       "check": "provenance 25_paper_tables",
       "passed": true,
-      "detail": "commit b8747c0"
+      "detail": "commit 1a0282c"
     },
     {
       "check": "13_random_forest_sybil -> 02_hyperparameter_search",
@@ -167,122 +167,122 @@
     {
       "check": "23_revision_figures -> 03_xgboost_sybil",
       "passed": true,
-      "detail": "code of 03_xgboost_sybil unchanged since 61884d1: True; 03_xgboost_sybil's own result traces to HEAD: True"
+      "detail": "code of 03_xgboost_sybil unchanged since 2f39463: True; 03_xgboost_sybil's own result traces to HEAD: True"
     },
     {
       "check": "23_revision_figures -> 04_lightgbm_sybil",
       "passed": true,
-      "detail": "code of 04_lightgbm_sybil unchanged since 61884d1: True; 04_lightgbm_sybil's own result traces to HEAD: True"
+      "detail": "code of 04_lightgbm_sybil unchanged since 2f39463: True; 04_lightgbm_sybil's own result traces to HEAD: True"
     },
     {
       "check": "23_revision_figures -> 09_shap_importance",
       "passed": true,
-      "detail": "code of 09_shap_importance unchanged since 61884d1: True; 09_shap_importance's own result traces to HEAD: True"
+      "detail": "code of 09_shap_importance unchanged since 2f39463: True; 09_shap_importance's own result traces to HEAD: True"
     },
     {
       "check": "23_revision_figures -> 11_split_comparison",
       "passed": true,
-      "detail": "code of 11_split_comparison unchanged since 61884d1: True; 11_split_comparison's own result traces to HEAD: True"
+      "detail": "code of 11_split_comparison unchanged since 2f39463: True; 11_split_comparison's own result traces to HEAD: True"
     },
     {
       "check": "23_revision_figures -> 16_label_robustness_initial_list",
       "passed": true,
-      "detail": "code of 16_label_robustness_initial_list unchanged since 61884d1: True; 16_label_robustness_initial_list's own result traces to HEAD: True"
+      "detail": "code of 16_label_robustness_initial_list unchanged since 2f39463: True; 16_label_robustness_initial_list's own result traces to HEAD: True"
     },
     {
       "check": "23_revision_figures -> 17_models_10_splits",
       "passed": true,
-      "detail": "code of 17_models_10_splits unchanged since 61884d1: True; 17_models_10_splits's own result traces to HEAD: True"
+      "detail": "code of 17_models_10_splits unchanged since 2f39463: True; 17_models_10_splits's own result traces to HEAD: True"
     },
     {
       "check": "23_revision_figures -> 18_mimicry_stress",
       "passed": true,
-      "detail": "code of 18_mimicry_stress unchanged since 61884d1: True; 18_mimicry_stress's own result traces to HEAD: True"
+      "detail": "code of 18_mimicry_stress unchanged since 2f39463: True; 18_mimicry_stress's own result traces to HEAD: True"
     },
     {
       "check": "23_revision_figures -> 22_report_dependence",
       "passed": true,
-      "detail": "code of 22_report_dependence unchanged since 61884d1: True; 22_report_dependence's own result traces to HEAD: True"
+      "detail": "code of 22_report_dependence unchanged since 2f39463: True; 22_report_dependence's own result traces to HEAD: True"
     },
     {
       "check": "24_mimicry_controls -> 02_hyperparameter_search",
       "passed": true,
-      "detail": "code of 02_hyperparameter_search unchanged since 61884d1: True; 02_hyperparameter_search's own result traces to HEAD: True"
+      "detail": "code of 02_hyperparameter_search unchanged since 2f39463: True; 02_hyperparameter_search's own result traces to HEAD: True"
     },
     {
       "check": "24_mimicry_controls -> 09_shap_importance",
       "passed": true,
-      "detail": "code of 09_shap_importance unchanged since 61884d1: True; 09_shap_importance's own result traces to HEAD: True"
+      "detail": "code of 09_shap_importance unchanged since 2f39463: True; 09_shap_importance's own result traces to HEAD: True"
     },
     {
       "check": "24_mimicry_controls -> 18_mimicry_stress",
       "passed": true,
-      "detail": "code of 18_mimicry_stress unchanged since 61884d1: True; 18_mimicry_stress's own result traces to HEAD: True"
+      "detail": "code of 18_mimicry_stress unchanged since 2f39463: True; 18_mimicry_stress's own result traces to HEAD: True"
     },
     {
       "check": "25_paper_tables -> 00_data_pipeline",
       "passed": true,
-      "detail": "code of 00_data_pipeline unchanged since b8747c0: True; 00_data_pipeline's own result traces to HEAD: True"
+      "detail": "code of 00_data_pipeline unchanged since 1a0282c: True; 00_data_pipeline's own result traces to HEAD: True"
     },
     {
       "check": "25_paper_tables -> 02_hyperparameter_search",
       "passed": true,
-      "detail": "code of 02_hyperparameter_search unchanged since b8747c0: True; 02_hyperparameter_search's own result traces to HEAD: True"
+      "detail": "code of 02_hyperparameter_search unchanged since 1a0282c: True; 02_hyperparameter_search's own result traces to HEAD: True"
     },
     {
       "check": "25_paper_tables -> 07_sensitivity_label_vintage",
       "passed": true,
-      "detail": "code of 07_sensitivity_label_vintage unchanged since b8747c0: True; 07_sensitivity_label_vintage's own result traces to HEAD: True"
+      "detail": "code of 07_sensitivity_label_vintage unchanged since 1a0282c: True; 07_sensitivity_label_vintage's own result traces to HEAD: True"
     },
     {
       "check": "25_paper_tables -> 08_ablation_families",
       "passed": true,
-      "detail": "code of 08_ablation_families unchanged since b8747c0: True; 08_ablation_families's own result traces to HEAD: True"
+      "detail": "code of 08_ablation_families unchanged since 1a0282c: True; 08_ablation_families's own result traces to HEAD: True"
     },
     {
       "check": "25_paper_tables -> 11_split_comparison",
       "passed": true,
-      "detail": "code of 11_split_comparison unchanged since b8747c0: True; 11_split_comparison's own result traces to HEAD: True"
+      "detail": "code of 11_split_comparison unchanged since 1a0282c: True; 11_split_comparison's own result traces to HEAD: True"
     },
     {
       "check": "25_paper_tables -> 13_random_forest_sybil",
       "passed": true,
-      "detail": "code of 13_random_forest_sybil unchanged since b8747c0: True; 13_random_forest_sybil's own result traces to HEAD: True"
+      "detail": "code of 13_random_forest_sybil unchanged since 1a0282c: True; 13_random_forest_sybil's own result traces to HEAD: True"
     },
     {
       "check": "25_paper_tables -> 14_entity_level_recall",
       "passed": true,
-      "detail": "code of 14_entity_level_recall unchanged since b8747c0: True; 14_entity_level_recall's own result traces to HEAD: True"
+      "detail": "code of 14_entity_level_recall unchanged since 1a0282c: True; 14_entity_level_recall's own result traces to HEAD: True"
     },
     {
       "check": "25_paper_tables -> 15_split_tree_report",
       "passed": true,
-      "detail": "code of 15_split_tree_report unchanged since b8747c0: True; 15_split_tree_report's own result traces to HEAD: True"
+      "detail": "code of 15_split_tree_report unchanged since 1a0282c: True; 15_split_tree_report's own result traces to HEAD: True"
     },
     {
       "check": "25_paper_tables -> 16_label_robustness_initial_list",
       "passed": true,
-      "detail": "code of 16_label_robustness_initial_list unchanged since b8747c0: True; 16_label_robustness_initial_list's own result traces to HEAD: True"
+      "detail": "code of 16_label_robustness_initial_list unchanged since 1a0282c: True; 16_label_robustness_initial_list's own result traces to HEAD: True"
     },
     {
       "check": "25_paper_tables -> 17_models_10_splits",
       "passed": true,
-      "detail": "code of 17_models_10_splits unchanged since b8747c0: True; 17_models_10_splits's own result traces to HEAD: True"
+      "detail": "code of 17_models_10_splits unchanged since 1a0282c: True; 17_models_10_splits's own result traces to HEAD: True"
     },
     {
       "check": "25_paper_tables -> 19_ablation_by_category",
       "passed": true,
-      "detail": "code of 19_ablation_by_category unchanged since b8747c0: True; 19_ablation_by_category's own result traces to HEAD: True"
+      "detail": "code of 19_ablation_by_category unchanged since 1a0282c: True; 19_ablation_by_category's own result traces to HEAD: True"
     },
     {
       "check": "25_paper_tables -> 20_temporal_holdout",
       "passed": true,
-      "detail": "code of 20_temporal_holdout unchanged since b8747c0: True; 20_temporal_holdout's own result traces to HEAD: True"
+      "detail": "code of 20_temporal_holdout unchanged since 1a0282c: True; 20_temporal_holdout's own result traces to HEAD: True"
     },
     {
       "check": "25_paper_tables -> 22_report_dependence",
       "passed": true,
-      "detail": "code of 22_report_dependence unchanged since b8747c0: True; 22_report_dependence's own result traces to HEAD: True"
+      "detail": "code of 22_report_dependence unchanged since 1a0282c: True; 22_report_dependence's own result traces to HEAD: True"
     },
     {
       "check": "13_random_forest_sybil LightGBM parameters = 02",
@@ -327,7 +327,7 @@
     {
       "check": "25 text numbers: no missing names",
       "passed": true,
-      "detail": "199 names; missing []"
+      "detail": "207 names; missing []"
     },
     {
       "check": "24 LightGBM parameters = 02",
