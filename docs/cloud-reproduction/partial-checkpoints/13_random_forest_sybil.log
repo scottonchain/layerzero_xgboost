@@ -30,3 +30,5 @@ CELL 7 started
   first fit 184s; about 40 min for the remaining 13 (the 3 final fits and 10 split fits take about 40 min more)
 [11/24] {'max_features': 0.3, 'min_samples_leaf': 20, 'max_depth': None, 'max_samples': None}  val_F1=0.6743  AP=0.7192  183.9s
 [12/24] {'max_features': 0.3, 'min_samples_leaf': 20, 'max_depth': 24, 'max_samples': None}  val_F1=0.6475  AP=0.6822  175.6s
+[13/24] {'max_features': 0.5, 'min_samples_leaf': 1, 'max_depth': None, 'max_samples': None}  val_F1=0.7021  AP=0.7484  339.0s
+[14/24] {'max_features': 0.5, 'min_samples_leaf': 1, 'max_depth': 24, 'max_samples': None}  val_F1=0.6349  AP=0.6609  304.8s
