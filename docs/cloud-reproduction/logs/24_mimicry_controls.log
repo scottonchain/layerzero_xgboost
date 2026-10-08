@@ -1,0 +1,185 @@
+START 24_mimicry_controls.ipynb at 6feb6942602ab7cb79edf579d063bb339547a4ac
+No event loop hook running.
+CELL 2 started
+Code commit: 6feb694
+Platform: {'machine': 'x86_64', 'processor': 'x86_64', 'system': 'Linux', 'python': '3.12.14', 'cpu_count': 9, 'n_jobs': 4}
+          notebook  commit  dependencies_unchanged
+09_shap_importance e5885b4                    True
+ 18_mimicry_stress 5da7f51                    True
+CELL 2 completed in 0.0s
+CELL 3 started
+cheap 25, time-bound 7, structural 30
+Cheap: ['min_tx_value_out', 'cex_in_count', 'l0_to_eth_avg_native_drop_usd', 'l0_to_eth_max_native_drop_usd', 'l0_avg_stargate_swap', 'indegree_per_block_in', 'l0_min_stargate_swap', 'num_transactions_in', 'n_l0_to_eth_source_contracts', 'n_l0_to_eth_projects', 'n_l0_to_eth_project_per_source_chain', 'n_l0_to_eth_txs', 'n_l0_projects', 'n_l0_to_eth_dest_contracts', 'l0_to_eth_min_stargate_swap', 'n_l0_source_chains', 'n_eth_interactions', 'max_tx_value_out', 'n_l0_source_contracts', 'min_tx_value_in', 'tx_value_per_block_out', 'n_l0_to_eth_source_chains', 'l0_to_eth_max_stargate_swap', 'n_l0_project_per_source_chain', 'l0_to_eth_avg_stargate_swap']
+                          feature    All                 family       cost
+                  l0_tx_time_span 0.9068 LayerZero transactions time-bound
+            n_l0_source_contracts 0.7108 LayerZero transactions      cheap
+             l0_avg_stargate_swap 0.6063 LayerZero transactions      cheap
+              earliest_l0_tx_time 0.5452 LayerZero transactions time-bound
+                latest_l0_tx_time 0.5042 LayerZero transactions time-bound
+                 max_tx_value_out 0.4929  Ethereum transactions      cheap
+              num_transactions_in 0.4697  Ethereum transactions      cheap
+               n_l0_source_chains 0.4284 LayerZero transactions      cheap
+           tx_value_per_block_out 0.3414  Ethereum transactions      cheap
+             earliest_tx_block_in 0.3235  Ethereum transactions time-bound
+             l0_min_stargate_swap 0.2740 LayerZero transactions      cheap
+                  min_tx_value_in 0.2536  Ethereum transactions      cheap
+                     time_span_in 0.2476  Ethereum transactions time-bound
+       gas_provision_block_number 0.2194           Gas provider time-bound
+    n_l0_project_per_source_chain 0.2194 LayerZero transactions      cheap
+                    n_l0_projects 0.1604 LayerZero transactions      cheap
+provider_avg_gas_provision_amount 0.1294           Gas provider structural
+                 min_tx_value_out 0.1276  Ethereum transactions      cheap
+provider_min_gas_provision_amount 0.1266           Gas provider structural
+                 provider_fan_out 0.1114           Gas provider structural
+CELL 3 completed in 0.0s
+CELL 4 started
+  LightGBM seed=42  rounds=1277  51.6s
+  LightGBM seed=123  rounds=1248  51.9s
+  LightGBM seed=456  rounds=1143  47.2s
+Threshold 0.6001; 5,463 test Sybils; 204,122 donor rows
+Unattacked: {'recall': 0.7111, 'f1': 0.7188, 'ap': 0.7696, 'mean_sybil_score': 0.7188}
+CELL 4 completed in 194.7s
+CELL 6 started
+Regression vs 18: baseline (3 metrics) and 12 recall checks pass
+CELL 6 completed in 41.1s
+CELL 8 started
+(208s)
+                      feature cost_class  shap_rank  recall_mean  recall_std  f1_mean  ap_mean
+              l0_tx_time_span time-bound          1       0.4098      0.0059   0.4886   0.5163
+        n_l0_source_contracts      cheap          2       0.4125      0.0031   0.4911   0.5141
+          earliest_l0_tx_time time-bound          4       0.4219      0.0032   0.4995   0.5193
+         l0_avg_stargate_swap      cheap          3       0.4744      0.0024   0.5447   0.5687
+         earliest_tx_block_in time-bound         10       0.5174      0.0021   0.5797   0.5983
+           n_l0_source_chains      cheap          8       0.5371      0.0030   0.5953   0.6181
+            latest_l0_tx_time time-bound          5       0.5446      0.0050   0.6011   0.6148
+          num_transactions_in      cheap          7       0.5487      0.0028   0.6043   0.6404
+             max_tx_value_out      cheap          6       0.5707      0.0029   0.6209   0.6370
+                 time_span_in time-bound         13       0.5806      0.0027   0.6283   0.6424
+   gas_provision_block_number time-bound         14       0.5929      0.0013   0.6374   0.6464
+       tx_value_per_block_out      cheap          9       0.5976      0.0033   0.6409   0.6593
+              min_tx_value_in      cheap         12       0.6458      0.0039   0.6751   0.6960
+n_l0_project_per_source_chain      cheap         15       0.6463      0.0031   0.6754   0.7077
+                n_l0_projects      cheap         16       0.6562      0.0029   0.6823   0.7159
+
+recall l0_tx_time_span = 0.409775; n_l0_source_contracts = 0.412521; equal at 6 decimals: False
+{'recall_l0_tx_time_span': 0.4097748489840747, 'recall_n_l0_source_contracts': 0.41252059308072486, 'equal_6dp': False, 'columns_differ': True, 'donor_values_differ': True, 'same_donor_rows': True, 'sybil_scores_differ_rep0': True, 'flagged_rep0': [2218, 2267], 'flagged_both_rep0': 1727}
+CELL 8 completed in 209.3s
+CELL 10 started
+Strict-cheap order: ['max_tx_value_out', 'num_transactions_in', 'tx_value_per_block_out', 'min_tx_value_in', 'min_tx_value_out', 'cex_in_count', 'indegree_per_block_in']
+attack  M1 marginal  M2 profile copy
+k                                   
+1            0.5707           0.5707
+2            0.3643           0.3640
+3            0.2541           0.2605
+5            0.1605           0.1627
+7            0.1370           0.1404
+CELL 10 completed in 33.6s
+CELL 12 started
+Structural order (top 5): ['provider_avg_gas_provision_amount', 'provider_min_gas_provision_amount', 'provider_fan_out', 'provider_total_gas_provision_amount', 'provider_max_gas_provision_amount']
+attack  M1 marginal  M2 profile copy
+k                                   
+1            0.6903           0.6903
+2            0.6547           0.6537
+3            0.6083           0.6059
+5            0.5238           0.5314
+10           0.4832           0.4960
+20           0.4653           0.4712
+30           0.4566           0.4685
+CELL 12 completed in 48.2s
+CELL 14 started
+(324s)
+        pool  k          attack  recall_mean  recall_std  recall_min  recall_max  subsets  component
+all features  1     M1 marginal       0.6736      0.0753      0.4227      0.7111       20 D random-k
+all features  1 M2 profile copy       0.6736      0.0753      0.4227      0.7111       20 D random-k
+all features  2     M1 marginal       0.6017      0.1318      0.2618      0.7100       20 D random-k
+all features  2 M2 profile copy       0.6022      0.1312      0.2682      0.7102       20 D random-k
+all features  3     M1 marginal       0.5697      0.1647      0.1583      0.7095       20 D random-k
+all features  3 M2 profile copy       0.5724      0.1588      0.1906      0.7102       20 D random-k
+all features  5     M1 marginal       0.4186      0.1769      0.1294      0.7110       20 D random-k
+all features  5 M2 profile copy       0.4238      0.1691      0.1693      0.7100       20 D random-k
+all features 10     M1 marginal       0.2350      0.2023      0.0229      0.6370       20 D random-k
+all features 10 M2 profile copy       0.2484      0.1961      0.0269      0.6368       20 D random-k
+all features 20     M1 marginal       0.0635      0.1080      0.0011      0.4763       20 D random-k
+all features 20 M2 profile copy       0.0761      0.1100      0.0073      0.4833       20 D random-k
+       cheap  1     M1 marginal       0.6551      0.0790      0.4126      0.7106       20 D random-k
+       cheap  1 M2 profile copy       0.6551      0.0790      0.4126      0.7106       20 D random-k
+       cheap  2     M1 marginal       0.5820      0.1334      0.2111      0.7027       20 D random-k
+       cheap  2 M2 profile copy       0.5828      0.1323      0.2125      0.7033       20 D random-k
+       cheap  3     M1 marginal       0.5559      0.1437      0.2290      0.7033       20 D random-k
+       cheap  3 M2 profile copy       0.5582      0.1415      0.2433      0.7031       20 D random-k
+       cheap  5     M1 marginal       0.3378      0.1513      0.1314      0.6449       20 D random-k
+       cheap  5 M2 profile copy       0.3428      0.1454      0.1369      0.6452       20 D random-k
+       cheap 10     M1 marginal       0.1689      0.1343      0.0335      0.4794       20 D random-k
+       cheap 10 M2 profile copy       0.1799      0.1302      0.0306      0.4805       20 D random-k
+       cheap 20     M1 marginal       0.0055      0.0040      0.0009      0.0168       20 D random-k
+       cheap 20 M2 profile copy       0.0170      0.0089      0.0068      0.0416       20 D random-k
+CELL 14 completed in 324.3s
+CELL 16 started
+{'top5_all_features': 0.3767, 'top5_cheap_only': 0.3116, 'top5_strict_cheap': 0.1939, 'all7_strict_cheap': 0.2148, 'all30_structural': 0.1324}
+CELL 16 completed in 79.2s
+CELL 18 started
+Saved figures/rev_mimicry_controls.{pdf,png}
+CELL 18 completed in 0.6s
+CELL 20 started
+% Recall of test Sybils at the fixed validation threshold, mean $\pm$ SD (SHAP-ordered scopes: over 5 repetitions; random k: over 20 subsets). Ethereum-local has 7 features.
+% Generated by 24_mimicry_controls.ipynb at 6feb694 from its own results (results/24_mimicry_controls.json)
+\begin{tabular}{lrrrrr}
+\toprule
+Attack scope & $k=1$ & $k=3$ & $k=5$ & $k=7$ & $k=10$ \\
+\midrule
+No attack & \multicolumn{5}{r}{0.711} \\
+\midrule
+\multicolumn{6}{l}{\emph{M1 marginal}} \\
+All features (SHAP order) & 0.410 $\pm$ 0.006 & 0.074 $\pm$ 0.002 & 0.012 $\pm$ 0.001 & -- & 0.000 $\pm$ 0.000 \\
+Wallet-local only (SHAP order) & 0.413 $\pm$ 0.003 & 0.113 $\pm$ 0.002 & 0.025 $\pm$ 0.002 & -- & 0.003 $\pm$ 0.001 \\
+Ethereum-local only (SHAP order) & 0.571 $\pm$ 0.003 & 0.254 $\pm$ 0.004 & 0.160 $\pm$ 0.004 & 0.137 $\pm$ 0.007 & -- \\
+Funding-graph only (SHAP order) & 0.690 $\pm$ 0.000 & 0.608 $\pm$ 0.003 & 0.524 $\pm$ 0.001 & -- & 0.483 $\pm$ 0.003 \\
+Random $k$ of all 62 & 0.674 $\pm$ 0.075 & 0.570 $\pm$ 0.165 & 0.419 $\pm$ 0.177 & -- & 0.235 $\pm$ 0.202 \\
+Random $k$ of wallet-local (25) & 0.655 $\pm$ 0.079 & 0.556 $\pm$ 0.144 & 0.338 $\pm$ 0.151 & -- & 0.169 $\pm$ 0.134 \\
+\midrule
+\multicolumn{6}{l}{\emph{M2 profile copy}} \\
+All features (SHAP order) & 0.410 $\pm$ 0.006 & 0.114 $\pm$ 0.001 & 0.036 $\pm$ 0.003 & -- & 0.005 $\pm$ 0.001 \\
+Wallet-local only (SHAP order) & 0.413 $\pm$ 0.003 & 0.107 $\pm$ 0.003 & 0.043 $\pm$ 0.002 & -- & 0.011 $\pm$ 0.001 \\
+Ethereum-local only (SHAP order) & 0.571 $\pm$ 0.003 & 0.260 $\pm$ 0.003 & 0.163 $\pm$ 0.004 & 0.140 $\pm$ 0.002 & -- \\
+Funding-graph only (SHAP order) & 0.690 $\pm$ 0.000 & 0.606 $\pm$ 0.001 & 0.531 $\pm$ 0.005 & -- & 0.496 $\pm$ 0.004 \\
+Random $k$ of all 62 & 0.674 $\pm$ 0.075 & 0.572 $\pm$ 0.159 & 0.424 $\pm$ 0.169 & -- & 0.248 $\pm$ 0.196 \\
+Random $k$ of wallet-local (25) & 0.655 $\pm$ 0.079 & 0.558 $\pm$ 0.141 & 0.343 $\pm$ 0.145 & -- & 0.180 $\pm$ 0.130 \\
+\bottomrule
+\end{tabular}
+
+% The 15 features whose replacement alone (M1, k = 1, 5 repetitions) lowers test-Sybil recall most; class tentative (authors to confirm).
+% Generated by 24_mimicry_controls.ipynb at 6feb694
+\begin{tabular}{llrr}
+\toprule
+Feature & Class & SHAP rank & Recall \\
+\midrule
+\texttt{l0\_tx\_time\_span} & time-based & 1 & 0.410 $\pm$ 0.006 \\
+\texttt{n\_l0\_source\_contracts} & wallet-local & 2 & 0.413 $\pm$ 0.003 \\
+\texttt{earliest\_l0\_tx\_time} & time-based & 4 & 0.422 $\pm$ 0.003 \\
+\texttt{l0\_avg\_stargate\_swap} & wallet-local & 3 & 0.474 $\pm$ 0.002 \\
+\texttt{earliest\_tx\_block\_in} & time-based & 10 & 0.517 $\pm$ 0.002 \\
+\texttt{n\_l0\_source\_chains} & wallet-local & 8 & 0.537 $\pm$ 0.003 \\
+\texttt{latest\_l0\_tx\_time} & time-based & 5 & 0.545 $\pm$ 0.005 \\
+\texttt{num\_transactions\_in} & wallet-local & 7 & 0.549 $\pm$ 0.003 \\
+\texttt{max\_tx\_value\_out} & wallet-local & 6 & 0.571 $\pm$ 0.003 \\
+\texttt{time\_span\_in} & time-based & 13 & 0.581 $\pm$ 0.003 \\
+\texttt{gas\_provision\_block\_number} & time-based & 14 & 0.593 $\pm$ 0.001 \\
+\texttt{tx\_value\_per\_block\_out} & wallet-local & 9 & 0.598 $\pm$ 0.003 \\
+\texttt{min\_tx\_value\_in} & wallet-local & 12 & 0.646 $\pm$ 0.004 \\
+\texttt{n\_l0\_project\_per\_source\_chain} & wallet-local & 15 & 0.646 $\pm$ 0.003 \\
+\texttt{n\_l0\_projects} & wallet-local & 16 & 0.656 $\pm$ 0.003 \\
+\midrule
+No attack & & & 0.711 \\
+\bottomrule
+\end{tabular}
+
+CELL 20 completed in 0.0s
+CELL 22 started
+pdflatex: tables compile
+CELL 22 completed in 0.1s
+CELL 24 started
+{'previous_commit': '9b87db5', 'same_platform': False, 'max_abs_diff': {'single_feature': 0.022954420651290497, 'strict': 0.01361889074805056, 'structural': 0.016511074459820585, 'random_k': 0.014277869322313785, 'shap_ordered': 0.009957898615925331, 'baseline': 0.007505033864177224, 'shap_shares': 0.0}}
+NOTE: previous result of 24 is from another platform; numbers compared but not asserted.
+Saved results/24_mimicry_controls.json
+CELL 24 completed in 0.1s
+PASS 24_mimicry_controls.ipynb: 934.8s
