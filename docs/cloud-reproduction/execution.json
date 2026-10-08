@@ -364,6 +364,14 @@
       "recoverable_cached_fits": 10,
       "reason": "Fifth workspace loss removed checkout and virtual environment; former worker subsequently exited. Final ten-fit API checkpoint recovered from Git.",
       "seconds_unrecoverable": true
+    },
+    {
+      "notebook": "00_data_pipeline.ipynb",
+      "execution_commit": "a8f8d8eabd6941dcb7d3a45b9d77746041c997f6",
+      "started_utc": "2026-10-08T08:42:17Z",
+      "status": "passed",
+      "seconds": 62.4154634475708,
+      "completed_utc": "2026-10-08T08:43:20Z"
     }
   ]
 }

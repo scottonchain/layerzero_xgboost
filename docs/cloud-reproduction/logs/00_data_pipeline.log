@@ -1,4 +1,4 @@
-START 00_data_pipeline.ipynb at 75678fa4d6c07b90731c261fa88bf5b86b6946fc
+START 00_data_pipeline.ipynb at a8f8d8eabd6941dcb7d3a45b9d77746041c997f6
 No event loop hook running.
 CELL 2 started
 pandas 3.0.6 | numpy 2.4.6
@@ -11,8 +11,8 @@ CELL 3 completed in 0.0s
 CELL 5 started
 After cleaning   : 434,786 rows
 Columns          : 55
-Time             : 2.6s
-CELL 5 completed in 2.6s
+Time             : 2.5s
+CELL 5 completed in 2.5s
 CELL 6 started
 Columns in L0 features:
                               Column   Dtype  NullPct  InFEATS
@@ -79,8 +79,8 @@ Latest edge kept        : 2024-05-01 23:56:47+00:00
 Valid mappings          : 604,365
 Unique provider addrs   : 202,604
 L0 addresses covered    : 434,110 (99.8%)
-Time : 8.8s
-CELL 8 completed in 8.8s
+Time : 8.9s
+CELL 8 completed in 8.9s
 CELL 9 started
 Provider fan-out distribution:
 count    202604.00
@@ -103,8 +103,8 @@ Labeled anchors retained   : 4,308  (provision-network addresses that are known 
 provider_is_labeled    : 306,658 (70.5%)
 provider_is_interactor : 35,802 (8.2%)
 provider_is_null       : 676 (0.2%)
-Time : 3.8s
-CELL 11 completed in 3.8s
+Time : 3.6s
+CELL 11 completed in 3.6s
 CELL 13 started
 New columns added : 30
   ['gas_provision_amount', 'gas_provision_block_number', 'provider_fan_out', 'provider_total_gas_provision_amount', 'provider_max_gas_provision_amount', 'provider_min_gas_provision_amount', 'provider_avg_gas_provision_amount', 'provider_is_star_like_attack', 'tree_size', 'total_gas', 'max_depth', 'branching_factor', 'balance_factor', 'leaf_provision_proportion', 'avg_depth', 'depth_variance', 'leaf_to_internal_ratio', 'avg_leaf_gas', 'breadth_factor', 'breadth_to_depth_ratio', 'gini_coefficient', 'gas_distribution_entropy', 'gas_distribution_skewness', 'leaf_gas_distribution_entropy', 'leaf_gas_distribution_skewness', 'sparsity', 'depth', 'longest_chain_ratio', 'star_like_ratio', 'depth_weighted_avg_gas']
@@ -139,7 +139,7 @@ provider_total_gas_provision_amount    0.962910     16101
                 longest_chain_ratio    0.980966      8263
                     star_like_ratio    0.981014      8242
              depth_weighted_avg_gas    0.980945      8272
-CELL 13 completed in 23.4s
+CELL 13 completed in 24.1s
 CELL 15 started
 cex_in_count stats:
 count    434786.000
@@ -152,8 +152,8 @@ min           0.000
 max          80.000
 Name: cex_in_count, dtype: float64
 
-Time : 0.5s
-CELL 15 completed in 0.6s
+Time : 0.7s
+CELL 15 completed in 0.7s
 CELL 17 started
 Label distribution in master df:
   Sybil     : 18,211 (4.19%)
@@ -220,7 +220,7 @@ IxE            38642
 IxI            34390
 IxL            12886
 No provider       56
-CELL 26 completed in 1.3s
+CELL 26 completed in 1.4s
 CELL 28 started
 Split summary (before upsampling):
      Split  Total  Sybil  NonSybil  SybilPct
@@ -236,11 +236,11 @@ Split method: group
 Row overlap (train/val, train/test, val/test): 0, 0, 0
 Test addresses sharing a gas provision tree with a train address: 0 / 130,435
 Test Sybils sharing a gas provision tree with a train Sybil:     0 / 5,463
-CELL 29 completed in 0.9s
+CELL 29 completed in 1.0s
 CELL 31 started
 CELL 31 completed in 0.9s
 CELL 32 started
-CELL 32 completed in 1.5s
+CELL 32 completed in 1.6s
 CELL 33 started
 CELL 33 completed in 0.5s
 CELL 35 started
@@ -255,5 +255,5 @@ X_train = splits['X_train'];  y_train = splits['y_train']
 # ... etc.
 
 Pipeline complete ✓
-CELL 35 completed in 7.4s
-PASS 00_data_pipeline.ipynb: 60.3s
+CELL 35 completed in 7.6s
+PASS 00_data_pipeline.ipynb: 62.4s
