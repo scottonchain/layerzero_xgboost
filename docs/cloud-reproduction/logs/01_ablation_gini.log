@@ -1,0 +1,33 @@
+START 01_ablation_gini.ipynb at 666e2477787da82259491149db3884c983e33725
+No event loop hook running.
+CELL 1 started
+42 0.7017 0.7025
+1 0.7164 0.7153
+2 0.7147 0.7182
+3 0.7091 0.7125
+4 0.7067 0.704
+5 0.7168 0.7221
+6 0.7086 0.7097
+7 0.7061 0.7041
+8 0.7121 0.715
+9 0.7099 0.7101
+ split_seed  val_f1_with  val_f1_without  val_ap_with  val_ap_without  f1_change_when_removed  ap_change_when_removed
+         42       0.7017          0.7025       0.7595          0.7599                  0.0009                  0.0003
+          1       0.7164          0.7153       0.7696          0.7703                 -0.0011                  0.0008
+          2       0.7147          0.7182       0.7742          0.7762                  0.0035                  0.0020
+          3       0.7091          0.7125       0.7553          0.7594                  0.0033                  0.0042
+          4       0.7067          0.7040       0.7493          0.7449                 -0.0027                 -0.0044
+          5       0.7168          0.7221       0.7677          0.7688                  0.0053                  0.0011
+          6       0.7086          0.7097       0.7527          0.7525                  0.0011                 -0.0002
+          7       0.7061          0.7041       0.7578          0.7582                 -0.0020                  0.0003
+          8       0.7121          0.7150       0.7625          0.7608                  0.0029                 -0.0017
+          9       0.7099          0.7101       0.7587          0.7660                  0.0002                  0.0073
+
+CELL 1 completed in 649.9s
+CELL 2 started
+Removing gini_coefficient lowered validation F1 on 3 of 10 splits (mean change +0.0011; one-sided sign test p = 0.945).
+Decision: REMOVE gini_coefficient (62 features)
+Saved results/01_ablation_gini.json
+
+CELL 2 completed in 0.0s
+PASS 01_ablation_gini.ipynb: 652.2s

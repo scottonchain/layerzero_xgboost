@@ -16,7 +16,7 @@ os.environ.update(OMP_NUM_THREADS='4', OPENBLAS_NUM_THREADS='1', MKL_NUM_THREADS
                   NUMEXPR_NUM_THREADS='4', PYTHONHASHSEED='42', MPLBACKEND='Agg')
 import nbformat
 
-ORDER = list(range(21)) + [22, 24, 23, 99]
+ORDER = list(range(21)) + [22, 23, 24, 25, 99]
 OUT = ROOT / 'output/cloud-run'
 OUT.mkdir(parents=True, exist_ok=True)
 MANIFEST = OUT / 'execution.json'
@@ -89,14 +89,23 @@ def execute_one(filename):
         count += 1
         started = time.time()
         print(f'CELL {index} started', flush=True)
+        class Tee:
+            def __init__(self, captured, log): self.captured, self.log = captured, log
+            def write(self, text):
+                self.log.write(text); self.log.flush()
+                return self.captured.write(text)
+            def flush(self): self.captured.flush(); self.log.flush()
+            def __getattr__(self, name): return getattr(self.captured, name)
         with capture_output() as captured:
-            result = shell.run_cell(cell.source, store_history=True)
+            oldout, olderr = sys.stdout, sys.stderr
+            sys.stdout, sys.stderr = Tee(oldout, sys.__stdout__), Tee(olderr, sys.__stderr__)
+            try: result = shell.run_cell(cell.source, store_history=True)
+            finally: sys.stdout, sys.stderr = oldout, olderr
         cell.execution_count = count
         cell.outputs = []
         for name, value in [('stdout', captured.stdout), ('stderr', captured.stderr)]:
             if value:
                 cell.outputs.append(nbformat.v4.new_output('stream', name=name, text=value))
-                print(value, flush=True)
         for rich in captured.outputs:
             cell.outputs.append(nbformat.v4.new_output('display_data', data=rich.data, metadata=rich.metadata))
         error = result.error_before_exec or result.error_in_exec

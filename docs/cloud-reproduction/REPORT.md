@@ -1,10 +1,10 @@
 # ChatGPT cloud reproduction — 2026-10-08
 
-Status: integrated execution baseline; analyses pending. Historical JSON results and publication assets are retained until each stage replaces them and must not be described as this run's results.
+Status: integrated execution baseline; 00 and 01 passed; remaining analyses pending. Historical JSON results and publication assets are retained until each stage replaces them and must not be described as this run's results.
 
 Branch: `chatgpt/cloud-reproduction-2026-10-08`; target: Paven's `main` (`5b2bfc3`). Integrated PR #11 through `790f80d` (includes #10 and notebook 24), plus PR #8 `cfe3627`. README/tracker conflicts preserve the newer entries and adopt #8's historical x86 entity row. No AGENTS.md exists in the repository or workspace ancestors; CLAUDE.md instructions were read.
 
-Inventory/order: 00–20, 22, 24, 23, 99. Notebook 21 was renamed to 99 by #10. Notebook 25 is absent from current main and all integrated revisions; no result for 25 can be reproduced or cited. 24 generates its own controls assets. 23 then regenerates the remaining publication assets; 99 runs last.
+Inventory/order: 00–20, 22, 23, 24, 25, 99. Notebook 21 was renamed to 99 by #10. PR #12 (`2c2c05a`) supplies notebook 25 and generator refinements; it was found in the broader PR search after the initial main/#11 inventory. Its code and documentation are incorporated while its computed results and assets are excluded. All three publication generators run after analyses, and 99 runs last.
 
 Environment: Debian Linux, kernel 6.18.44, AMD EPYC 9V74, x86_64, 9 visible CPUs / 8-core cgroup quota, 8 GiB cgroup memory, Python 3.12.14. Exact package versions, backends and thread settings are in platform.json and pip-freeze.txt. About 29 GiB disk was free before setup. All 37 LFS inputs were checked against their committed SHA-256 and size; none is a pointer. LaTeX is available.
 
@@ -24,3 +24,9 @@ Execution transport repair: native Jupyter TCP and IPC socket creation both fail
 Publication transport: local Git has no authenticated HTTPS push credentials. The connected GitHub API has write access to scottonchain/layerzero_xgboost, and read access to Paven’s fork. Baseline and each stage are published through Git data APIs, fetched back, and become the clean HEAD before subsequent execution. This preserves reachable execution provenance. The PR will target Paven from Scott’s branch.
 
 Isolated process initialization also requires adding the repository root to sys.path; this replaces the working-directory import behavior of a notebook kernel. The terminal IPython shell supplies inline Matplotlib display hooks without a GUI or socket.
+
+Completed: 00 (61.5 seconds), 01 (652.2 seconds). The predefined Gini rule again removes the feature: 3/10 splits lowered validation F1 when removed (8 required). The first scientific execution baseline is `a2f2dd79ecdc833da38de7c2ff30fc88b3a8c40d`. Integrating #12 does not change completed notebook code, sybil_pipeline.py, data or requirements, so completed work is retained.
+
+24 now serializes DataFrame values at full Python float precision with missing cells as null, replacing pandas to_json’s default ten-decimal truncation. This affects saved precision, not fits or selection. The runner streams fit logs while capturing notebook outputs.
+
+The separately requested original-hardware rerun is not launched: the available host is AMD EPYC 9V74/Python 3.12.14, unlike Intel Xeon @ 2.80 GHz/Python 3.11.15. No tool exposes the original machine, whose committed provenance lacks a full CPU model. This run makes no exact-hardware claim and does not modify the other job.

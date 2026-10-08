@@ -43,7 +43,8 @@ for the paper come from `10_tie_out.ipynb` (and `11_split_comparison.ipynb` for 
 | A15b report-mates in training | R2 relational leakage (report level) | Code done: seen minus held out, test F1 +0.231 ± 0.084 (15 of 15) | ef82c78 | `22`; findings E (2026-10-06) |
 | A23 revision figures and tables | R1 verifiability; manuscript | Code done: 5 figures (PDF and PNG), 6 booktabs tables and blend-weight stats; follow-up fixes (T1 without the weighted average, T6, F2B AUROC) from `results/` only | 4a84790, 7648749 | `23`; `figures/rev_*`, `tables/` |
 | A24 mimicry controls | R1 adversarial evasion | Code done: single-feature, strict-cheap, structural-only and random-k controls; reproduces `18` | 9b87db5 | `24`; `figures/rev_mimicry_controls`, `tables/rev_mimicry_controls.tex` |
-| A21 tie-out for 13–24 | R1 verifiability | Code done; renamed `99_tie_out_revision` (runs last); 66 of 67 checks pass (14's inputs fail until it is rerun on the machine of the committed results) | c3d7217, 3c2afe5, 2c4b8e5, 42d4cf5 | `99` |
+| A25 paper tables and cited numbers | R1 verifiability; manuscript | Code done: 10 tables and 199 named numbers from `results/`; T6 four decimals; controls table k = 7 | b8747c0 | `25`; `tables/rev_*.tex`, `tables/rev_text_numbers.json` |
+| A21 tie-out for 13–25 | R1 verifiability | Code done; renamed `99_tie_out_revision` (runs last); 82 of 83 checks pass (14's inputs fail until it is rerun on the machine of the committed results) | c3d7217, 3c2afe5, 2c4b8e5, 42d4cf5, 201c9b4 | `99` |
 | A22 data-release documents | R1 release | Drafts: `DATA.md`, `CITATION.cff` (validated); no LICENSE; Zenodo steps below | this PR | `DATA.md`, `CITATION.cff` |
 
 ## A. Code and experiments
@@ -313,13 +314,6 @@ The corrected `gini_coefficient` is the only feature whose definition changed in
 - Allocation: 37.2 % of the test Sybils' ZRO is on unflagged addresses, against an address miss rate of 28.1 %. The missed Sybils carry larger allocations than the detected ones.
 - Caveat: a tree or a report is a proxy for an operator, not the operator. One operator can fund many wallets directly from an exchange, which yields many single-wallet trees. `allocation` is intended payout, not profit (it excludes costs).
 
-**2026-10-05, A14 rerun on the committed predictions, `14` @ 1fed658.** `14` rerun on the x86_64 Linux container that produced the committed results at 0d9eacc (Intel Xeon, 4 cores, Python 3.11.15, xgboost 3.2.0, lightgbm 4.6.0), reading the `output/` predictions from that run. `predictions_match_committed_results: true`: threshold, recall and F1 of all three models equal the committed `03`/`04`/`06`. This entry supersedes the arm64 numbers in the entry below. LightGBM at its validation threshold (0.6001); XGBoost differs by at most 0.03 in any rate below. E1 Sybil-weighted recall equals address-level recall (0.7111); every entity type sums to 5,463 test Sybils and 32,696.7 ZRO.
-
-- E1, gas provision tree: any-hit 0.756, majority-hit 0.755, full-hit 0.753; within-tree recall 0.755 unweighted, 0.711 weighted. 1,205 trees (24.6 %) keep at least half their allocation unflagged. Tree counts as below (4,907 trees, 97.1 % single-wallet).
-- E2, bounty report: any-hit 0.695, majority-hit 0.540, full-hit 0.155; within-report recall 0.502 unweighted. 121 reports (50.6 %) keep at least half their allocation unflagged. The 18 reports with every Sybil in test: any-hit 0.056.
-- E3, reporter: any-hit 0.864, majority-hit 0.674, full-hit 0.114; 52 (39.4 %) keep at least half their allocation unflagged.
-- Allocation: 38.0 % of the test Sybils' ZRO is on unflagged addresses (XGBoost 36.9 %), against an address miss rate of 28.9 %. The missed Sybils still carry larger allocations than the detected ones.
-
 **2026-10-05, A15 report-level dependence, `15` @ e156d9d: stopped for review.** No model was trained.
 
 - Report overlap: under the random split (seed 42), 5,434 of 5,463 test Sybils share a Commonwealth report with a training Sybil. Under the tree split, 5,406 (seed 42), and 5,402.5 ± 22.3 over the 10 seeds. GitHub issue: 1,935 / 1,798 / 1,824.4 ± 21.8. Reporter: 5,461 / 5,445 / 5,444.5 ± 16.6. Under the tree split, 212 of the 239 reports with test Sybils also have training Sybils. The tree split removes tree overlap (599 → 0) but almost none of the report overlap.
@@ -392,4 +386,15 @@ Zenodo steps (for Paven; not done here): (1) sign in to zenodo.org with GitHub a
 
 **2026-10-07, tie-out `99` @ 42d4cf5.** Adds `24` (provenance; dependencies `02`, `09`, `18`; parameters; platform; the regression check against `18`). 66 of 67 checks pass; the failing one is still `14`'s inputs.
 
-**2026-10-08, ChatGPT cloud reproduction baseline.** Integrated #8 and #10/#11 (including 24), preserving later revisions. Full pipeline scheduled as 00–20, 22, 24, 23, 99; 25 is absent. Fresh searches, single documented numerical platform, clean-tree commits and checkpoint logs. Status pending execution; see `docs/cloud-reproduction/REPORT.md`. Historical findings above remain historical.
+**2026-10-07, A25 paper tables and cited numbers, `25` @ b8747c0 (14 s; reads `results/`, the Sybil list and the master table; no model).** Tables: `rev_data_labels`, `rev_taxonomy`, `rev_levels`, `rev_per_category`, `rev_family_ablation`, `rev_provision_ablation_by_category`, `rev_entity_level`, `rev_temporal_holdout`, `rev_union_split_appendix`, `rev_search_top`; `tables/rev_text_numbers.json` holds 199 named scalars, each with its source and platform (none missing).
+
+- Bounty-list statistics, computed from `fcfs_list.csv` matched to the 18,211 Ethereum Sybils: 311 reports, 145 reporters, ten largest reports 35.6 % of Sybils, ten most prolific reporters 44.6 % (the manuscript cites 311 / 145 / 36 % / 45 %). Flag times run from 2024-05-18 to 2024-05-30.
+- Trees over 100 wallets: 34 trees, 9,020 wallets (2.07 %), 97 Sybils (0.53 %), computed from the master table (not stored in any result before).
+- Per-category performance over the ten tree splits (`17`, LightGBM, mean ± SD): IxL F1 0.741 ± 0.006, recall 0.761; IxI F1 0.483 ± 0.097, recall 0.338, precision 0.901; IxE F1 0.234 ± 0.057, recall 0.142, precision 0.694; No provider about 7 test Sybils per split (unreliable). XGBoost: IxL F1 0.736, IxI 0.409, IxE 0.221. **Correction for the manuscript:** the seed-42 per-category values in an earlier draft (IxI F1 0.534, IxE F1 0.265) are more favorable than these 10-split means; cite the 10-split means.
+- Searches: the selected configuration ranks first in each grid; the library defaults rank 60 of 74 (XGBoost) and 48 of 48 (LightGBM).
+- `rev_entity_level` carries `UNVERIFIED` in its first line: `results/14` → `predictions_match_committed_results` is false (arm64 predictions) until `14` is rerun on the machine of the committed results.
+- Part 1: T6 (`23`) prints the weighted-average differences to four decimals (F1 −0.0001 ± 0.0032, AP +0.0001 ± 0.0016, AUROC −0.0002 ± 0.0003); the controls table (`24`, which writes it; rerun at 61884d1 with unchanged numbers) has a k = 7 column for strict cheap. `pdflatex` is still not installed here; every table passes the structural column check.
+
+**2026-10-07, tie-out `99` @ 201c9b4.** Adds `25` (provenance; its 13 source notebooks; no missing named numbers). 82 of 83 checks pass; the failing one is still `14`'s inputs.
+
+**2026-10-08, ChatGPT cloud reproduction.** Notebook 00 completed on the recorded AMD EPYC platform; fresh Gini selection and search proceed. Code from #12 adds 25 and generator refinements. Computed outputs from #12 are excluded and will be regenerated here. Order: 00–20, 22, 23, 24, 25, 99. Notebook 21 is absent because it was renamed to 99. See `docs/cloud-reproduction/REPORT.md`.

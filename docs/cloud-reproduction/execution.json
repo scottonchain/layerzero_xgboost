@@ -1,5 +1,5 @@
 {
-  "baseline_commit": "6c5a264df5d8b631c00aed2bd966babc872ed460",
+  "baseline_commit": "a2f2dd79ecdc833da38de7c2ff30fc88b3a8c40d",
   "stages": [
     {
       "notebook": "00_data_pipeline.ipynb",
@@ -31,7 +31,16 @@
       "started_utc": "2026-10-08T00:48:55Z",
       "status": "passed",
       "seconds": 61.48964762687683,
-      "completed_utc": "2026-10-08T00:49:57Z"
+      "completed_utc": "2026-10-08T00:49:57Z",
+      "artifact_commit": "666e2477787da82259491149db3884c983e33725"
+    },
+    {
+      "notebook": "01_ablation_gini.ipynb",
+      "execution_commit": "666e2477787da82259491149db3884c983e33725",
+      "started_utc": "2026-10-08T00:50:35Z",
+      "status": "passed",
+      "seconds": 652.1958630084991,
+      "completed_utc": "2026-10-08T01:01:27Z"
     }
   ]
 }
