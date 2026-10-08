@@ -1,0 +1,100 @@
+[NbConvertApp] Converting notebook 14_entity_level_recall.ipynb to notebook
+[IPKernelApp] WARNING | Kernel is running over TCP without encryption. All communication (including code and outputs) is sent in plain text and is susceptible to eavesdropping. Use IPC transport or launch with kernel manager-provisioned CurveZMQ keys to enable transport encryption.
+Traceback (most recent call last):
+  File "/usr/local/bin/jupyter-nbconvert", line 8, in <module>
+    sys.exit(main())
+             ^^^^^^
+  File "/usr/local/lib/python3.11/dist-packages/jupyter_core/application.py", line 284, in launch_instance
+    super().launch_instance(argv=argv, **kwargs)
+  File "/usr/local/lib/python3.11/dist-packages/traitlets/config/application.py", line 1080, in launch_instance
+    app.start()
+  File "/usr/local/lib/python3.11/dist-packages/nbconvert/nbconvertapp.py", line 420, in start
+    self.convert_notebooks()
+  File "/usr/local/lib/python3.11/dist-packages/nbconvert/nbconvertapp.py", line 597, in convert_notebooks
+    self.convert_single_notebook(notebook_filename)
+  File "/usr/local/lib/python3.11/dist-packages/nbconvert/nbconvertapp.py", line 563, in convert_single_notebook
+    output, resources = self.export_single_notebook(
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/dist-packages/nbconvert/nbconvertapp.py", line 487, in export_single_notebook
+    output, resources = self.exporter.from_filename(
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/dist-packages/nbconvert/exporters/exporter.py", line 201, in from_filename
+    return self.from_file(f, resources=resources, **kw)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/dist-packages/nbconvert/exporters/exporter.py", line 220, in from_file
+    return self.from_notebook_node(
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/dist-packages/nbconvert/exporters/notebook.py", line 36, in from_notebook_node
+    nb_copy, resources = super().from_notebook_node(nb, resources, **kw)
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/dist-packages/nbconvert/exporters/exporter.py", line 154, in from_notebook_node
+    nb_copy, resources = self._preprocess(nb_copy, resources)
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/dist-packages/nbconvert/exporters/exporter.py", line 353, in _preprocess
+    nbc, resc = preprocessor(nbc, resc)
+                ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/dist-packages/nbconvert/preprocessors/base.py", line 48, in __call__
+    return self.preprocess(nb, resources)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/dist-packages/nbconvert/preprocessors/execute.py", line 103, in preprocess
+    self.preprocess_cell(cell, resources, index)
+  File "/usr/local/lib/python3.11/dist-packages/nbconvert/preprocessors/execute.py", line 124, in preprocess_cell
+    cell = self.execute_cell(cell, index, store_history=True)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/dist-packages/jupyter_core/utils/__init__.py", line 165, in wrapped
+    return loop.run_until_complete(inner)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.11/asyncio/base_events.py", line 654, in run_until_complete
+    return future.result()
+           ^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/dist-packages/nbclient/client.py", line 1062, in async_execute_cell
+    await self._check_raise_for_error(cell, cell_index, exec_reply)
+  File "/usr/local/lib/python3.11/dist-packages/nbclient/client.py", line 918, in _check_raise_for_error
+    raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
+nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
+------------------
+import platform, warnings
+import numpy as np
+import pandas as pd
+import sybil_pipeline as sp
+warnings.filterwarnings('ignore')
+pd.set_option('display.width', 220)
+assert not sp.CODE_COMMIT.endswith('-dirty'), f'Run from a clean working tree (CODE_COMMIT={sp.CODE_COMMIT})'
+print('Code commit:', sp.CODE_COMMIT)
+DATA_DIR = './data'
+
+NBS = ['03_xgboost_sybil', '04_lightgbm_sybil', '06_cross_ensemble_sybil']
+prov = sp.provenance(NBS)
+print(prov.to_string(index=False))
+assert prov['dependencies_unchanged'].all()
+
+# model -> (notebook, probability column, name of its entry in the notebook's results)
+MODELS = {'XGBoost': ('03_xgboost_sybil', 'prob_xgb', 'XGBoost (tuned, 3-seed)'),
+          'LightGBM': ('04_lightgbm_sybil', 'prob_lgbm', 'LightGBM (tuned, 3-seed)'),
+          'Ensemble': ('06_cross_ensemble_sybil', 'prob_ens', 'Cross-Ensemble')}
+P = {}
+for part in ['val', 'test']:
+    frames = {m: sp.load_predictions(nb, part) for m, (nb, _, _) in MODELS.items()}
+    base = frames['XGBoost'][['addr', 'category', 'y']]
+    for m, (_, col, _) in MODELS.items():
+        assert (frames[m]['addr'].to_numpy() == base['addr'].to_numpy()).all()   # same rows, same order
+        assert (frames[m]['y'].to_numpy() == base['y'].to_numpy()).all()
+    P[part] = base.assign(**{col: frames[m][col].to_numpy() for m, (_, col, _) in MODELS.items()})
+print(f"Validation {len(P['val']):,} rows, test {len(P['test']):,} rows")
+------------------
+
+
+[31m---------------------------------------------------------------------------[39m
+[31mAssertionError[39m                            Traceback (most recent call last)
+[36mCell[39m[36m [39m[32mIn[1][39m[32m, line 7[39m
+[32m      3[39m [38;5;28;01mimport[39;00m pandas [38;5;28;01mas[39;00m pd
+[32m      4[39m [38;5;28;01mimport[39;00m sybil_pipeline [38;5;28;01mas[39;00m sp
+[32m      5[39m warnings.filterwarnings([33m'ignore'[39m)
+[32m      6[39m pd.set_option([33m'display.width'[39m, [32m220[39m)
+[32m----> [39m[32m7[39m [38;5;28;01massert[39;00m [38;5;28;01mnot[39;00m sp.CODE_COMMIT.endswith([33m'-dirty'[39m), [33mf'Run from a clean working tree (CODE_COMMIT={sp.CODE_COMMIT})'[39m
+[32m      8[39m print([33m'Code commit:'[39m, sp.CODE_COMMIT)
+[32m      9[39m DATA_DIR = [33m'./data'[39m
+[32m     10[39m 
+
+[31mAssertionError[39m: Run from a clean working tree (CODE_COMMIT=e66e1c7-dirty)
+

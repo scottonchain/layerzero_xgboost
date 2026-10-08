@@ -1,0 +1,8 @@
+results/13 params: {'max_features': 0.3, 'min_samples_leaf': 1, 'max_depth': None, 'max_samples': None, 'n_estimators': 300, 'criterion': 'gini', 'bootstrap': True, 'n_jobs': 4} platform: {'machine': 'x86_64', 'processor': 'x86_64', 'system': 'Linux', 'python': '3.11.15', 'cpu_count': 4, 'n_jobs': 4}
+seed 42: 189s
+seed 123: 190s
+seed 456: 188s
+val: 91,305 rows; bit-identical to the 2.10 GHz host: True; max |diff| 0
+test: 130,435 rows; bit-identical to the 2.10 GHz host: True; max |diff| 0
+RF REPRODUCED
+rf_check rc=0

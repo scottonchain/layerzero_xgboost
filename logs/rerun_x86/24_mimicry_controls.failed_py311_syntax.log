@@ -1,0 +1,101 @@
+[NbConvertApp] Converting notebook 24_mimicry_controls.ipynb to notebook
+[IPKernelApp] WARNING | Kernel is running over TCP without encryption. All communication (including code and outputs) is sent in plain text and is susceptible to eavesdropping. Use IPC transport or launch with kernel manager-provisioned CurveZMQ keys to enable transport encryption.
+Traceback (most recent call last):
+  File "/usr/local/bin/jupyter-nbconvert", line 8, in <module>
+    sys.exit(main())
+             ^^^^^^
+  File "/usr/local/lib/python3.11/dist-packages/jupyter_core/application.py", line 284, in launch_instance
+    super().launch_instance(argv=argv, **kwargs)
+  File "/usr/local/lib/python3.11/dist-packages/traitlets/config/application.py", line 1080, in launch_instance
+    app.start()
+  File "/usr/local/lib/python3.11/dist-packages/nbconvert/nbconvertapp.py", line 420, in start
+    self.convert_notebooks()
+  File "/usr/local/lib/python3.11/dist-packages/nbconvert/nbconvertapp.py", line 597, in convert_notebooks
+    self.convert_single_notebook(notebook_filename)
+  File "/usr/local/lib/python3.11/dist-packages/nbconvert/nbconvertapp.py", line 563, in convert_single_notebook
+    output, resources = self.export_single_notebook(
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/dist-packages/nbconvert/nbconvertapp.py", line 487, in export_single_notebook
+    output, resources = self.exporter.from_filename(
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/dist-packages/nbconvert/exporters/exporter.py", line 201, in from_filename
+    return self.from_file(f, resources=resources, **kw)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/dist-packages/nbconvert/exporters/exporter.py", line 220, in from_file
+    return self.from_notebook_node(
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/dist-packages/nbconvert/exporters/notebook.py", line 36, in from_notebook_node
+    nb_copy, resources = super().from_notebook_node(nb, resources, **kw)
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/dist-packages/nbconvert/exporters/exporter.py", line 154, in from_notebook_node
+    nb_copy, resources = self._preprocess(nb_copy, resources)
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/dist-packages/nbconvert/exporters/exporter.py", line 353, in _preprocess
+    nbc, resc = preprocessor(nbc, resc)
+                ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/dist-packages/nbconvert/preprocessors/base.py", line 48, in __call__
+    return self.preprocess(nb, resources)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/dist-packages/nbconvert/preprocessors/execute.py", line 103, in preprocess
+    self.preprocess_cell(cell, resources, index)
+  File "/usr/local/lib/python3.11/dist-packages/nbconvert/preprocessors/execute.py", line 124, in preprocess_cell
+    cell = self.execute_cell(cell, index, store_history=True)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/dist-packages/jupyter_core/utils/__init__.py", line 165, in wrapped
+    return loop.run_until_complete(inner)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.11/asyncio/base_events.py", line 654, in run_until_complete
+    return future.result()
+           ^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/dist-packages/nbclient/client.py", line 1062, in async_execute_cell
+    await self._check_raise_for_error(cell, cell_index, exec_reply)
+  File "/usr/local/lib/python3.11/dist-packages/nbclient/client.py", line 918, in _check_raise_for_error
+    raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
+nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
+------------------
+pm = lambda mu, sd: f'{mu:.3f} $\\pm$ {sd:.3f}'
+KS = [1, 3, 5, 7, 10]   # k = 7 exists only for strict cheap (7 features)
+def scope_rows(attack):
+    rows = {}
+    for order, lab in [('all features', 'All features (SHAP order)'), ('cheap only', 'Cheap only (SHAP order)')]:
+        t = shap_curves[(shap_curves.order == order) & (shap_curves.attack == attack)].set_index('k')
+        rows[lab] = [pm(t.loc[k, 'recall_mean'], t.loc[k, 'recall_std']) if k in t.index else '--' for k in KS]
+    t = strict[strict.attack == attack].set_index('k')
+    rows['Strict cheap (SHAP order)'] = [pm(t.loc[k, 'recall_mean'], t.loc[k, 'recall_std']) if k in t.index else '--' for k in KS]
+    t = struct[struct.attack == attack].set_index('k')
+    rows['Structural only (SHAP order)'] = [pm(t.loc[k, 'recall_mean'], t.loc[k, 'recall_std']) if k in t.index else '--' for k in KS]
+    for pool, lab in [('all features', 'Random $k$ of all 62'), ('cheap', 'Random $k$ of cheap (25)')]:
+        t = random_k[(random_k.pool == pool) & (random_k.attack == attack)].set_index('k')
+        rows[lab] = [pm(t.loc[k, 'recall_mean'], t.loc[k, 'recall_std']) if k in t.index else '--' for k in KS]
+    return rows
+EXPECT = {a: scope_rows(a) for a in ['M1 marginal', 'M2 profile copy']}
+lines = ['% Recall of test Sybils at the fixed validation threshold, mean $\\pm$ SD (SHAP-ordered scopes: over 5 repetitions; random k: over 20 subsets). Strict cheap has 7 features.',
+         f'% Generated by 24_mimicry_controls.ipynb at {sp.CODE_COMMIT} from its own results (results/24_mimicry_controls.json)',
+         '\\begin{tabular}{l' + 'r' * len(KS) + '}', '\\toprule', 'Attack scope & ' + ' & '.join(f'$k={k}$' for k in KS) + ' \\\\', '\\midrule',
+         f"No attack & \\multicolumn{{{len(KS)}}}{{r}}{{{BASE['recall']:.3f}}} \\\\"]
+for attack, lab in [('M1 marginal', 'M1 marginal'), ('M2 profile copy', 'M2 profile copy')]:
+    lines += ['\\midrule', f'\\multicolumn{{{len(KS) + 1}}}{{l}}{{\\emph{{{lab}}}}} \\\\']
+    lines += [f'{name} & ' + ' & '.join(cells) + ' \\\\' for name, cells in EXPECT[attack].items()]
+lines += ['\\bottomrule', '\\end{tabular}', '']
+T_CTRL = '\n'.join(lines)
+open('tables/rev_mimicry_controls.tex', 'w').write(T_CTRL)
+print(T_CTRL)
+top15 = single.head(15)
+lines = ['% The 15 features whose replacement alone (M1, k = 1, 5 repetitions) lowers test-Sybil recall most; class tentative (authors to confirm).',
+         f'% Generated by 24_mimicry_controls.ipynb at {sp.CODE_COMMIT}',
+         '\\begin{tabular}{llrr}', '\\toprule', 'Feature & Class & SHAP rank & Recall \\\\', '\\midrule']
+lines += [f"\\texttt{{{r['feature'].replace('_', '\\_')}}} & {r['cost_class']} & {int(r['shap_rank'])} & {pm(r['recall_mean'], r['recall_std'])} \\\\"
+          for _, r in top15.iterrows()]
+lines += ['\\midrule', f"No attack & & & {BASE['recall']:.3f} \\\\", '\\bottomrule', '\\end{tabular}', '']
+T_SINGLE = '\n'.join(lines)
+open('tables/rev_single_feature_sensitivity.tex', 'w').write(T_SINGLE)
+print(T_SINGLE)
+------------------
+
+
+  [36mCell[39m[36m [39m[32mIn[11][39m[32m, line 33[39m
+[31m    [39m[31mfor _, r in top15.iterrows()][39m
+    ^
+[31mSyntaxError[39m[31m:[39m f-string expression part cannot include a backslash
+
+

@@ -1,0 +1,11 @@
+03_xgboost_sybil: committed at 0d9eacc, regenerated at 8d24f2e; 85 fields, 0 differ (code_commit ignored)
+   pred_03_xgboost_sybil_val.parquet: rows 91,305; same rows and order True; prob_xgb bit-identical True; max |diff| 0.0
+   pred_03_xgboost_sybil_test.parquet: rows 130,435; same rows and order True; prob_xgb bit-identical True; max |diff| 0.0
+04_lightgbm_sybil: committed at 0d9eacc, regenerated at 8d24f2e; 84 fields, 0 differ (code_commit ignored)
+   pred_04_lightgbm_sybil_val.parquet: rows 91,305; same rows and order True; prob_lgbm bit-identical True; max |diff| 0.0
+   pred_04_lightgbm_sybil_test.parquet: rows 130,435; same rows and order True; prob_lgbm bit-identical True; max |diff| 0.0
+06_cross_ensemble_sybil: committed at 0d9eacc, regenerated at 8d24f2e; 96 fields, 0 differ (code_commit ignored)
+   pred_06_cross_ensemble_sybil_val.parquet: rows 91,305; same rows and order True; prob_ens bit-identical True; max |diff| 0.0
+   pred_06_cross_ensemble_sybil_test.parquet: rows 130,435; same rows and order True; prob_ens bit-identical True; max |diff| 0.0
+REPRODUCED
+compare rc=0

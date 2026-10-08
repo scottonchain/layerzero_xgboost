@@ -1,0 +1,43 @@
+2026-10-08T00:43:50Z	START	03_xgboost_sybil	073ecca
+2026-10-08T00:47:42Z	END	03_xgboost_sybil	073ecca	rc=0	seconds=232
+2026-10-08T00:47:42Z	START	04_lightgbm_sybil	073ecca
+2026-10-08T00:50:52Z	END	04_lightgbm_sybil	073ecca	rc=0	seconds=190
+2026-10-08T00:50:52Z	START	06_cross_ensemble_sybil	073ecca
+2026-10-08T00:50:58Z	END	06_cross_ensemble_sybil	073ecca	rc=0	seconds=6
+2026-10-08T00:51:02Z	PASS	compare_regen
+2026-10-08T00:51:02Z	START	13_random_forest_sybil	073ecca
+2026-10-08T03:03:46Z	END	13_random_forest_sybil	073ecca	rc=0	seconds=7964
+2026-10-08T03:03:47Z	START	14_entity_level_recall	e66e1c7
+2026-10-08T03:03:49Z	END	14_entity_level_recall	e66e1c7	rc=1	seconds=2
+2026-10-08T03:03:49Z	FAILED	14_entity_level_recall rc!=0 (see logs/rerun_x86/14_entity_level_recall.log)
+2026-10-08T03:04:27Z	START	14_entity_level_recall	4f2d3a9
+2026-10-08T03:05:09Z	END	14_entity_level_recall	4f2d3a9	rc=0	seconds=42
+2026-10-08T03:05:09Z	START	15_split_tree_report	9753ef1
+2026-10-08T03:20:52Z	END	15_split_tree_report	9753ef1	rc=0	seconds=943
+2026-10-08T03:20:52Z	START	16_label_robustness_initial_list	a03cf26
+2026-10-08T03:45:09Z	END	16_label_robustness_initial_list	a03cf26	rc=0	seconds=1457
+2026-10-08T03:45:09Z	START	17_models_10_splits	8d24f2e
+2026-10-08T05:18:44Z	RESTART	container restarted during 17 (interrupted, no result written); new host Xeon @ 2.80 GHz; host check PASS (RF of 13 and 03/04/06 bit-identical)
+2026-10-08T05:18:44Z	START	17_models_10_splits	8d24f2e
+2026-10-08T06:45:34Z	END	17_models_10_splits	8d24f2e	rc=0	seconds=5210
+2026-10-08T06:45:35Z	START	18_mimicry_stress	5ab0bb1
+2026-10-08T06:52:54Z	END	18_mimicry_stress	5ab0bb1	rc=0	seconds=439
+2026-10-08T06:52:54Z	START	19_ablation_by_category	5ceb757
+2026-10-08T07:42:58Z	END	19_ablation_by_category	5ceb757	rc=0	seconds=3004
+2026-10-08T07:42:59Z	START	20_temporal_holdout	31d466b
+2026-10-08T07:56:54Z	END	20_temporal_holdout	31d466b	rc=0	seconds=835
+2026-10-08T07:56:54Z	START	22_report_dependence	7da3628
+2026-10-08T09:12:45Z	END	22_report_dependence	7da3628	rc=0	seconds=4551
+2026-10-08T09:12:45Z	START	23_revision_figures	3b1c175
+2026-10-08T09:12:58Z	END	23_revision_figures	3b1c175	rc=0	seconds=13
+2026-10-08T09:12:59Z	START	24_mimicry_controls	ec460b3
+2026-10-08T09:36:18Z	END	24_mimicry_controls	ec460b3	rc=1	seconds=1399
+2026-10-08T09:36:18Z	FAILED	24_mimicry_controls rc!=0 (see logs/rerun_x86/24_mimicry_controls.log)
+2026-10-08T09:37:13Z	FIX	24: Python 3.11 SyntaxError in the table cell (backslash in f-string expression) fixed at 693757c; resuming at 24
+2026-10-08T09:37:13Z	START	24_mimicry_controls	693757c
+2026-10-08T09:59:50Z	END	24_mimicry_controls	693757c	rc=0	seconds=1357
+2026-10-08T09:59:50Z	START	25_paper_tables	d31479e
+2026-10-08T10:00:39Z	END	25_paper_tables	d31479e	rc=0	seconds=49
+2026-10-08T10:00:39Z	START	99_tie_out_revision	5b6e441
+2026-10-08T10:00:45Z	END	99_tie_out_revision	5b6e441	rc=0	seconds=6
+2026-10-08T10:00:45Z	DONE	main
