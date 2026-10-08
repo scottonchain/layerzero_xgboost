@@ -73,3 +73,10 @@ CELL 12 completed in 187.9s
 CELL 14 started
 CACHE SAVE 16_label_robustness_initial_list a436d0a1e2e2 (62 features)
 split 42: F1 full base 0.7105 A 0.6469; clean base 0.7636 A 0.7845 (135s)
+split 1: F1 full base 0.6990 A 0.6357; clean base 0.7300 A 0.7717 (90s)
+split 2: F1 full base 0.7156 A 0.6455; clean base 0.7570 A 0.7854 (93s)
+split 3: F1 full base 0.7156 A 0.6441; clean base 0.7476 A 0.7803 (89s)
+split 4: F1 full base 0.7169 A 0.6350; clean base 0.7450 A 0.7821 (79s)
+split 5: F1 full base 0.7167 A 0.6490; clean base 0.7536 A 0.7829 (91s)
+split 6: F1 full base 0.7105 A 0.6418; clean base 0.7467 A 0.7765 (79s)
+split 7: F1 full base 0.7194 A 0.6493; clean base 0.7535 A 0.7884 (84s)
