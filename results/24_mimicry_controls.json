@@ -1,8 +1,26 @@
 {
   "notebook": "24_mimicry_controls",
-  "code_commit": "61884d1",
+  "code_commit": "2f39463",
   "leakage": null,
   "models": [],
+  "previous_result_check": {
+    "previous_commit": "61884d1",
+    "same_platform": true,
+    "max_abs_diff": {
+      "single_feature": 0.0,
+      "strict": 0.0,
+      "structural": 0.0,
+      "random_k": 0.0,
+      "shap_ordered": 0.0,
+      "baseline": 0.0,
+      "shap_shares": 0.0
+    }
+  },
+  "display_names": {
+    "cheap": "wallet-local",
+    "time-bound": "time-based",
+    "structural": "funding-graph"
+  },
   "params": {
     "num_leaves": 127,
     "learning_rate": 0.05,
