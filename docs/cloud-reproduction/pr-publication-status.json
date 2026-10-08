@@ -1,0 +1,11 @@
+{
+  "results_complete": true,
+  "branch": "scottonchain:chatgpt/cloud-reproduction-2026-10-08",
+  "target": "paven86/layerzero_xgboost:main",
+  "results_and_validation_commit": "a029120fed8418341d6d1e2413ceae4ef95ab317",
+  "pull_request_created": false,
+  "attempted_title": "ChatGPT cloud reproduction: complete pipeline and consistent publication results",
+  "github_error": "403 Resource not accessible by integration",
+  "missing_capability": "Authorization for the connected GitHub integration to create a pull request in the target repository, or an approved authenticated browser fallback.",
+  "pr_body": "docs/cloud-reproduction/PULL_REQUEST.md"
+}
