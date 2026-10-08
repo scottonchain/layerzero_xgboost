@@ -1,6 +1,6 @@
 {
   "notebook": "05_logistic_regression_sybil",
-  "code_commit": "a436354",
+  "code_commit": "9c278b9",
   "leakage": {
     "method": "group",
     "test_rows": 130435,
@@ -58,5 +58,5 @@
       "deterministic": true
     }
   },
-  "execution_commit": "a4363545212c904d85b87a78ed5fd5015fbdfdd1"
+  "execution_commit": "9c278b9a50d6bf726f42ff995573f2e909a71da2"
 }
