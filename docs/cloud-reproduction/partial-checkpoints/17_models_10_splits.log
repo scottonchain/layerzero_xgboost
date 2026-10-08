@@ -78,3 +78,5 @@ XGBoost             IxE         0.7085  0.0936  0.1400  0.0395  0.2324  0.0577  
 CELL 10 completed in 0.0s
 CELL 12 started
 Logistic regression: train 22.0s (3 seeds 66.5s), score 5,222,039 rows/s, peak +888 MiB, pickle 0.0 MiB
+XGBoost: train 59.3s (3 seeds 181.4s), score 122,340 rows/s, peak +0 MiB, pickle 14.2 MiB
+LightGBM: train 38.9s (3 seeds 113.1s), score 25,017 rows/s, peak +0 MiB, pickle 16.5 MiB
