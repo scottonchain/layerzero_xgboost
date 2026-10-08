@@ -1,6 +1,6 @@
 {
   "notebook": "04_lightgbm_sybil",
-  "code_commit": "d2709a3",
+  "code_commit": "e3cc058",
   "leakage": {
     "method": "group",
     "test_rows": 130435,
@@ -126,5 +126,5 @@
       "deterministic": true
     }
   },
-  "execution_commit": "d2709a346e7163c6c3ea65be86a6eaa7693968c9"
+  "execution_commit": "e3cc058915d33b813923f166fbd98386976a5ab1"
 }
