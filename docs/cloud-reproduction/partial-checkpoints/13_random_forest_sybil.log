@@ -94,3 +94,36 @@ Test addresses sharing a gas provision tree with a train address: 0 / 130,435
 Test Sybils sharing a gas provision tree with a train Sybil:     0 / 5,463
   Random Forest seed=42  182.7s
   Random Forest seed=123  185.8s
+  Random Forest seed=456  185.7s
+CELL 12 completed in 556.5s
+CELL 13 started
+  Threshold : 0.3278
+  Precision : 0.7078
+  Recall    : 0.7146
+  F1        : 0.7112
+  AUROC     : 0.9707
+  Avg Prec  : 0.7679
+  Brier     : 0.0176
+CELL 13 completed in 0.2s
+CELL 15 started
+ threshold  precision  recall     f1  flagged  false_pos                 note
+    0.9500     0.9686  0.1975 0.3281     1114         35                     
+    0.9000     0.9396  0.2762 0.4269     1606         97                     
+    0.8500     0.9100  0.3461 0.5015     2078        187                     
+    0.8000     0.8906  0.4040 0.5558     2478        271                     
+    0.7500     0.8729  0.4499 0.5938     2816        358                     
+    0.7000     0.8504  0.4973 0.6276     3195        478                     
+    0.5000     0.7921  0.6271 0.7000     4325        899                     
+    0.3278     0.7078  0.7146 0.7112     5516       1612 validation threshold
+   category     n  sybil  precision  recall     f1  auroc    fpr
+        IxE 28171    258     0.7857  0.1705 0.2803 0.9387 0.0004
+        IxI  9967    426     0.9038  0.1103 0.1967 0.9213 0.0005
+        IxL 92079   4770     0.7048  0.7979 0.7485 0.9753 0.0183
+No provider   218      9     0.8750  0.7778 0.8235 0.9957 0.0048
+CELL 15 completed in 0.2s
+CELL 17 started
+CACHE SAVE 13_random_forest_sybil 0cf3f96dd556 (62 features)
+split 42: RF test F1 0.7106  AP 0.7656; LightGBM 0.7105 / 0.7650  (236s)
+CACHE SAVE 13_random_forest_sybil 29a3e4c74cf9 (62 features)
+split 1: RF test F1 0.6961  AP 0.7415; LightGBM 0.6990 / 0.7511  (244s)
+CACHE SAVE 13_random_forest_sybil adb9104b9fab (62 features)
