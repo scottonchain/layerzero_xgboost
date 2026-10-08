@@ -1,0 +1,54 @@
+{
+  "key": "befa498a228c8abb64d77ae911e1b5f62aa3cbdec028e4be2d6fe3e3be7a0c13",
+  "identity": {
+    "schema": 1,
+    "notebook": "15_split_tree_report.ipynb",
+    "code_cells": "221fa0b4ca4b76334c8982ac0e8a63e12959eab5e362af25c6a844a791c3e0ca",
+    "pipeline": "92d67f96e2a8fa9c4143bf7a5417ac3947141c683efed7aac808de71b7db180e",
+    "requirements": "a374f3728b736e19b0a5a540072ed4c9b7c17d4f08ee65e096804b8d7d02d7fc",
+    "checkpoint_code": "33279957452c5f2ca71034b8067b1d0d5ca4587c831c42efbb968d756f641d73",
+    "data_tree": "5281dfd90598dd4c46b604922a0fd62868fa90a6",
+    "platform": {
+      "machine": "x86_64",
+      "system": "Linux",
+      "processor": "AMD EPYC 9V74 80-Core Processor",
+      "kernel": "6.18.44",
+      "python": "3.12.14",
+      "cpu_count": 9,
+      "n_jobs": 4,
+      "versions": {
+        "numpy": "2.4.6",
+        "pandas": "3.0.6",
+        "scipy": "1.17.1",
+        "scikit-learn": "1.8.0",
+        "xgboost": "3.2.0",
+        "lightgbm": "4.6.0",
+        "shap": "0.51.0",
+        "pyarrow": "25.0.1",
+        "matplotlib": "3.11.2"
+      },
+      "threads": {
+        "OMP_NUM_THREADS": "4",
+        "OPENBLAS_NUM_THREADS": "1",
+        "MKL_NUM_THREADS": "1",
+        "NUMEXPR_NUM_THREADS": "4",
+        "PYTHONHASHSEED": "42"
+      },
+      "lightgbm_repro": {
+        "force_col_wise": true,
+        "deterministic": true
+      }
+    }
+  },
+  "execution_commit": "8e6a32e0ac4f66d71b7d885e770e0b4ef97ee207",
+  "result": {
+    "threshold": 0.5957694108267613,
+    "val_f1": 0.35237780713342143,
+    "val_ap": 0.29367236427549653,
+    "val_auroc": 0.819536808925252,
+    "test_f1": 0.2695832824147623,
+    "test_ap": 0.22449317497523666,
+    "test_auroc": 0.8086363305841795
+  },
+  "result_sha256": "db6745c5a1b05e11e7efbc897bd3ad6944c50382454e9203159abe4cdd70aeed"
+}
