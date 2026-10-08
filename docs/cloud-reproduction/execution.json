@@ -335,7 +335,16 @@
       "started_utc": "2026-10-08T08:11:14Z",
       "status": "passed",
       "seconds": 169.86523413658142,
-      "completed_utc": "2026-10-08T08:14:04Z"
+      "completed_utc": "2026-10-08T08:14:04Z",
+      "artifact_commit": "e299cc9f7d151236c38a7b3fc20c7000933c6309"
+    },
+    {
+      "notebook": "05_logistic_regression_sybil.ipynb",
+      "execution_commit": "e299cc9f7d151236c38a7b3fc20c7000933c6309",
+      "started_utc": "2026-10-08T08:14:16Z",
+      "status": "passed",
+      "seconds": 51.63412261009216,
+      "completed_utc": "2026-10-08T08:15:08Z"
     }
   ]
 }
