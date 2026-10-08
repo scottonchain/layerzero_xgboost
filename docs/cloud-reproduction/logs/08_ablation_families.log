@@ -1,0 +1,153 @@
+START 08_ablation_families.ipynb at 1c6f5ff3b6a1379cbaa6f702966ea2c90d864257
+No event loop hook running.
+CELL 1 started
+CACHE SAVE 08_ablation_families c59454d84e02 (62 features)
+CACHE SAVE 08_ablation_families 2d2735d4bc32 (40 features)
+CACHE SAVE 08_ablation_families e4fddfcbe55a (53 features)
+CACHE SAVE 08_ablation_families 96cda7b9be5e (51 features)
+CACHE SAVE 08_ablation_families 641a49a2d576 (45 features)
+CACHE SAVE 08_ablation_families 0e17a50ae117 (59 features)
+CACHE SAVE 08_ablation_families 6645413583b8 (22 features)
+CACHE SAVE 08_ablation_families b9041055abf1 (9 features)
+CACHE SAVE 08_ablation_families 075e566b4165 (11 features)
+CACHE SAVE 08_ablation_families d3cb82931ede (17 features)
+CACHE SAVE 08_ablation_families 8deec50f0f7f (3 features)
+CACHE SAVE 08_ablation_families 37839a8b1dc7 (31 features)
+split 42 done
+CACHE SAVE 08_ablation_families 03adfed3e127 (62 features)
+CACHE SAVE 08_ablation_families f9e0efd991f3 (40 features)
+CACHE SAVE 08_ablation_families 38cb8304e165 (53 features)
+CACHE SAVE 08_ablation_families 7053276ff6f1 (51 features)
+CACHE SAVE 08_ablation_families 8cb450bfeb73 (45 features)
+CACHE SAVE 08_ablation_families ccc90199ad37 (59 features)
+CACHE SAVE 08_ablation_families e190e7aed223 (22 features)
+CACHE SAVE 08_ablation_families 5dbb1fc0e905 (9 features)
+CACHE SAVE 08_ablation_families e76899aa066f (11 features)
+CACHE SAVE 08_ablation_families 1dd1eac9a90d (17 features)
+CACHE SAVE 08_ablation_families e2bf5029ccec (3 features)
+CACHE SAVE 08_ablation_families 60c3665a8a98 (31 features)
+split 1 done
+CACHE SAVE 08_ablation_families f8697bd7e12c (62 features)
+CACHE SAVE 08_ablation_families e84cf37417f8 (40 features)
+CACHE SAVE 08_ablation_families 9e5e778d1227 (53 features)
+CACHE SAVE 08_ablation_families fd287e1d0a4e (51 features)
+CACHE SAVE 08_ablation_families 27f82cff992f (45 features)
+CACHE SAVE 08_ablation_families 5cf6d3f52292 (59 features)
+CACHE SAVE 08_ablation_families fab149f768ae (22 features)
+CACHE SAVE 08_ablation_families a392f46bc70e (9 features)
+CACHE SAVE 08_ablation_families 46033dc23875 (11 features)
+CACHE SAVE 08_ablation_families 550fb8adcdbf (17 features)
+CACHE SAVE 08_ablation_families bde43743857f (3 features)
+CACHE SAVE 08_ablation_families a218684b7309 (31 features)
+split 2 done
+CACHE SAVE 08_ablation_families e579857c8599 (62 features)
+CACHE SAVE 08_ablation_families f9db0e33a9f7 (40 features)
+CACHE SAVE 08_ablation_families a6c46e19f99d (53 features)
+CACHE SAVE 08_ablation_families 32011413a684 (51 features)
+CACHE SAVE 08_ablation_families 714c0fe73d1b (45 features)
+CACHE SAVE 08_ablation_families 0dc3060b51da (59 features)
+CACHE SAVE 08_ablation_families 58d09eef5504 (22 features)
+CACHE SAVE 08_ablation_families 149827edd468 (9 features)
+CACHE SAVE 08_ablation_families 6944677091cc (11 features)
+CACHE SAVE 08_ablation_families d2da06f8de7f (17 features)
+CACHE SAVE 08_ablation_families 6a278f3a37e5 (3 features)
+CACHE SAVE 08_ablation_families 883262daf227 (31 features)
+split 3 done
+CACHE SAVE 08_ablation_families 20fbaf0ca532 (62 features)
+CACHE SAVE 08_ablation_families 3a6645b3bf53 (40 features)
+CACHE SAVE 08_ablation_families 75e5ec4174b0 (53 features)
+CACHE SAVE 08_ablation_families dcbccb2e827b (51 features)
+CACHE SAVE 08_ablation_families bc220e9dad01 (45 features)
+CACHE SAVE 08_ablation_families 37350dbb6e00 (59 features)
+CACHE SAVE 08_ablation_families fd2d91918258 (22 features)
+CACHE SAVE 08_ablation_families 45043f81e57c (9 features)
+CACHE SAVE 08_ablation_families c17b2620f8fc (11 features)
+CACHE SAVE 08_ablation_families f725d9256bfa (17 features)
+CACHE SAVE 08_ablation_families 9f16a4ba943d (3 features)
+CACHE SAVE 08_ablation_families 15547b12c636 (31 features)
+split 4 done
+CACHE SAVE 08_ablation_families 2b97e3712fa2 (62 features)
+CACHE SAVE 08_ablation_families 8a8a94872839 (40 features)
+CACHE SAVE 08_ablation_families 2b65dc6f22b7 (53 features)
+CACHE SAVE 08_ablation_families 3d32fe23c53f (51 features)
+CACHE SAVE 08_ablation_families 4faaf355c08d (45 features)
+CACHE SAVE 08_ablation_families caeb29fc5a50 (59 features)
+CACHE SAVE 08_ablation_families 09298b81c4a2 (22 features)
+CACHE SAVE 08_ablation_families 6c6b32f6315a (9 features)
+CACHE SAVE 08_ablation_families 47758e57cfe1 (11 features)
+CACHE SAVE 08_ablation_families 7e5345781fad (17 features)
+CACHE SAVE 08_ablation_families f35fbf854fb6 (3 features)
+CACHE SAVE 08_ablation_families e5489dc7f265 (31 features)
+split 5 done
+CACHE SAVE 08_ablation_families 25039d180374 (62 features)
+CACHE SAVE 08_ablation_families ebf1d7eef13d (40 features)
+CACHE SAVE 08_ablation_families 9ee6e135b7db (53 features)
+CACHE SAVE 08_ablation_families 1fc628afbd2f (51 features)
+CACHE SAVE 08_ablation_families b6ccaad8b583 (45 features)
+CACHE SAVE 08_ablation_families 9edb49bc79a0 (59 features)
+CACHE SAVE 08_ablation_families b6cd7e52b9b6 (22 features)
+CACHE SAVE 08_ablation_families 4db9999d7464 (9 features)
+CACHE SAVE 08_ablation_families f3ba3133d8f3 (11 features)
+CACHE SAVE 08_ablation_families 266257444741 (17 features)
+CACHE SAVE 08_ablation_families a0b0db1512d9 (3 features)
+CACHE SAVE 08_ablation_families ad216a066c4d (31 features)
+split 6 done
+CACHE SAVE 08_ablation_families 1dbe93bdf533 (62 features)
+CACHE SAVE 08_ablation_families 382b2fba7349 (40 features)
+CACHE SAVE 08_ablation_families 6c5809df5d1e (53 features)
+CACHE SAVE 08_ablation_families 601f1ec4a760 (51 features)
+CACHE SAVE 08_ablation_families e12b6159945c (45 features)
+CACHE SAVE 08_ablation_families 970b57937416 (59 features)
+CACHE SAVE 08_ablation_families 31830f16deb1 (22 features)
+CACHE SAVE 08_ablation_families 5489059b798a (9 features)
+CACHE SAVE 08_ablation_families 9cbf57b3c5ea (11 features)
+CACHE SAVE 08_ablation_families afe897dbf10b (17 features)
+CACHE SAVE 08_ablation_families e290274b1f40 (3 features)
+CACHE SAVE 08_ablation_families e55b8a89c43a (31 features)
+split 7 done
+CACHE SAVE 08_ablation_families 7e52171401f5 (62 features)
+CACHE SAVE 08_ablation_families dc897334389f (40 features)
+CACHE SAVE 08_ablation_families 73066f7aa120 (53 features)
+CACHE SAVE 08_ablation_families bdad8b4beab6 (51 features)
+CACHE SAVE 08_ablation_families 30c56c187997 (45 features)
+CACHE SAVE 08_ablation_families 04b2602c0d2b (59 features)
+CACHE SAVE 08_ablation_families efda3460f662 (22 features)
+CACHE SAVE 08_ablation_families ccaa2bf92535 (9 features)
+CACHE SAVE 08_ablation_families c0f5fafdb15f (11 features)
+CACHE SAVE 08_ablation_families e57853d22e8c (17 features)
+CACHE SAVE 08_ablation_families f7d3f8a8423f (3 features)
+CACHE SAVE 08_ablation_families 30adaee4fe2a (31 features)
+split 8 done
+CACHE SAVE 08_ablation_families 175775661479 (62 features)
+CACHE SAVE 08_ablation_families f8f7e239d5a3 (40 features)
+CACHE SAVE 08_ablation_families 09680cff8ea4 (53 features)
+CACHE SAVE 08_ablation_families 157350dc01d2 (51 features)
+CACHE SAVE 08_ablation_families 63c6141bf9ef (45 features)
+CACHE SAVE 08_ablation_families 49c67719e82d (59 features)
+CACHE SAVE 08_ablation_families 16557efbdc9e (22 features)
+CACHE SAVE 08_ablation_families 11ca9883b2fd (9 features)
+CACHE SAVE 08_ablation_families 58d0f6b40207 (11 features)
+CACHE SAVE 08_ablation_families 8cf5eced9a17 (17 features)
+CACHE SAVE 08_ablation_families 688a3f5bc264 (3 features)
+CACHE SAVE 08_ablation_families 8bb987f53467 (31 features)
+split 9 done
+                                       n_features       val_f1         test_f1         test_ap         test_auroc         test_f1_change_vs_all
+                                             mean  std    mean     std    mean     std    mean     std       mean     std                  mean
+config                                                                                                                                         
+All features                                 62.0  0.0  0.7121  0.0056  0.7131  0.0060  0.7607  0.0060     0.9682  0.0018                0.0000
+Without LayerZero transactions               40.0  0.0  0.6489  0.0039  0.6472  0.0046  0.6718  0.0080     0.9366  0.0040               -0.0659
+Without Ethereum transactions                53.0  0.0  0.6990  0.0057  0.7007  0.0065  0.7417  0.0056     0.9634  0.0019               -0.0124
+Without Gas provider                         51.0  0.0  0.7086  0.0052  0.7081  0.0068  0.7579  0.0062     0.9674  0.0014               -0.0050
+Without Gas provision tree                   45.0  0.0  0.7145  0.0049  0.7120  0.0062  0.7616  0.0071     0.9684  0.0015               -0.0011
+Without Provision chain                      59.0  0.0  0.7120  0.0059  0.7113  0.0070  0.7607  0.0065     0.9679  0.0016               -0.0017
+LayerZero transactions only                  22.0  0.0  0.6843  0.0077  0.6718  0.0058  0.7131  0.0057     0.9599  0.0020               -0.0413
+Ethereum transactions only                    9.0  0.0  0.6325  0.0034  0.6254  0.0046  0.6364  0.0061     0.9181  0.0031               -0.0877
+Gas provider only                            11.0  0.0  0.4424  0.0052  0.4381  0.0046  0.4072  0.0053     0.8827  0.0043               -0.2750
+Gas provision tree only                      17.0  0.0  0.0996  0.0005  0.1006  0.0009  0.0705  0.0063     0.6115  0.0067               -0.6125
+Provision chain only                          3.0  0.0  0.1001  0.0008  0.1005  0.0008  0.0653  0.0040     0.6136  0.0057               -0.6126
+Without all provision-network families       31.0  0.0  0.7140  0.0055  0.7052  0.0050  0.7581  0.0057     0.9680  0.0015               -0.0079
+CELL 1 completed in 4553.8s
+CELL 2 started
+Saved results/08_ablation_families.json
+CELL 2 completed in 0.0s
+PASS 08_ablation_families.ipynb: 4556.8s

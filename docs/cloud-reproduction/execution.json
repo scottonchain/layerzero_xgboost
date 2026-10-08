@@ -218,7 +218,16 @@
       "started_utc": "2026-10-08T05:34:35Z",
       "status": "passed",
       "seconds": 5.191564559936523,
-      "completed_utc": "2026-10-08T05:34:41Z"
+      "completed_utc": "2026-10-08T05:34:41Z",
+      "artifact_commit": "1c6f5ff3b6a1379cbaa6f702966ea2c90d864257"
+    },
+    {
+      "notebook": "08_ablation_families.ipynb",
+      "execution_commit": "1c6f5ff3b6a1379cbaa6f702966ea2c90d864257",
+      "started_utc": "2026-10-08T05:34:53Z",
+      "status": "passed",
+      "seconds": 4556.7747967243195,
+      "completed_utc": "2026-10-08T06:50:49Z"
     }
   ]
 }
