@@ -1,7 +1,7 @@
-START 03_xgboost_sybil.ipynb at f9e3f5cca26fe5a4f0c48418ed5af275fbc01ee1
+START 03_xgboost_sybil.ipynb at 687764bcab923405b4c81b02403e4e805f1e7a42
 No event loop hook running.
 CELL 2 started
-CELL 2 completed in 1.0s
+CELL 2 completed in 0.0s
 CELL 4 started
 [1] L0 features: 434,786 addresses, 55 cols
 [2] Gas provision: 604,365 edges before 2024-05-02 00:00:00 UTC (296 later edges dropped)
@@ -10,7 +10,7 @@ CELL 4 started
 [5] CEX/DEX merged: 90 cols
 [6] Labels: Sybil=18,211 (4.19%)
 [7] Chain features, taxonomy, gas provision trees (371,764 trees)
-All 62 features present ✓  (31.9s)
+All 62 features present ✓  (25.5s)
      Split  Total  Sybil  NonSybil  SybilPct
      Train 213046   8924    204122      4.19
 Validation  91305   3824     87481      4.19
@@ -21,13 +21,13 @@ Split method: group
 Row overlap (train/val, train/test, val/test): 0, 0, 0
 Test addresses sharing a gas provision tree with a train address: 0 / 130,435
 Test Sybils sharing a gas provision tree with a train Sybil:     0 / 5,463
-CELL 4 completed in 34.1s
+CELL 4 completed in 27.5s
 CELL 6 started
 Tuned hyperparameters: {'learning_rate': 0.05, 'max_depth': 8, 'subsample': 0.7, 'colsample_bytree': 1.0, 'min_child_weight': 1}
-  XGBoost seed=42  rounds=1679  65.1s
-  XGBoost seed=123  rounds=1617  65.4s
-  XGBoost seed=456  rounds=1578  65.0s
-CELL 6 completed in 195.6s
+  XGBoost seed=42  rounds=1679  63.7s
+  XGBoost seed=123  rounds=1617  76.6s
+  XGBoost seed=456  rounds=1578  55.5s
+CELL 6 completed in 195.8s
 CELL 8 started
   Threshold : 0.5824
   Precision : 0.7196
@@ -76,5 +76,5 @@ CELL 14 started
 Saved results/03_xgboost_sybil.json
 Saved output/pred_03_xgboost_sybil_val.parquet (91,305 rows)
 Saved output/pred_03_xgboost_sybil_test.parquet (130,435 rows)
-CELL 14 completed in 0.2s
-PASS 03_xgboost_sybil.ipynb: 233.6s
+CELL 14 completed in 0.1s
+PASS 03_xgboost_sybil.ipynb: 226.8s
