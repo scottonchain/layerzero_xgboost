@@ -416,7 +416,16 @@
       "started_utc": "2026-10-08T08:52:24Z",
       "status": "passed",
       "seconds": 7841.319658041,
-      "completed_utc": "2026-10-08T11:03:05Z"
+      "completed_utc": "2026-10-08T11:03:05Z",
+      "artifact_commit": "81edf1564aeb98f6c4c10201c9c9e291c54f8e5c"
+    },
+    {
+      "notebook": "14_entity_level_recall.ipynb",
+      "execution_commit": "81edf1564aeb98f6c4c10201c9c9e291c54f8e5c",
+      "started_utc": "2026-10-08T11:04:25Z",
+      "status": "passed",
+      "seconds": 34.78883385658264,
+      "completed_utc": "2026-10-08T11:05:00Z"
     }
   ]
 }
