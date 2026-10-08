@@ -1,0 +1,62 @@
+START 20_temporal_holdout.ipynb at e0c0016d4c5f68ebf009709cf130de590b8c9556
+No event loop hook running.
+CELL 2 started
+Code commit: e0c0016
+Platform: {'machine': 'x86_64', 'processor': 'x86_64', 'system': 'Linux', 'python': '3.12.14', 'cpu_count': 9, 'n_jobs': 4}
+ late_share_target                       cutoff_utc  late_share  early_rows  late_rows  early_sybil_rate  late_sybil_rate  early_sybils  late_sybils
+               0.3 2023-08-20 11:32:02.500000+00:00         0.3      304350     130436            0.0555           0.0102         16885         1326
+               0.2        2023-12-17 17:14:40+00:00         0.2      347828      86958            0.0516           0.0029         17960          251
+               0.4        2023-06-27 12:20:13+00:00         0.4      260871     173915            0.0511           0.0280         13337         4874
+CELL 2 completed in 31.0s
+CELL 4 started
+CELL 4 completed in 0.0s
+CELL 6 started
+  LightGBM seed=42  rounds=1277  52.5s
+  LightGBM seed=123  rounds=1248  49.4s
+  LightGBM seed=456  rounds=1143  45.2s
+(148s)  threshold 0.6001
+CELL 6 completed in 148.4s
+CELL 8 started
+  LightGBM seed=42  rounds=1388  52.3s
+  LightGBM seed=123  rounds=1385  53.6s
+  LightGBM seed=456  rounds=1331  50.4s
+late 30% (from 2023-08-20): temporal F1 0.1687 AP 0.2761 AUROC 0.8865; reference on late rows F1 0.7379 AP 0.7741 AUROC 0.9782 (158s)
+  LightGBM seed=42  rounds=1536  60.9s
+  LightGBM seed=123  rounds=1619  64.6s
+  LightGBM seed=456  rounds=1443  56.4s
+late 20% (from 2023-12-17): temporal F1 0.0079 AP 0.0596 AUROC 0.7290; reference on late rows F1 0.4828 AP 0.4460 AUROC 0.9349 (184s)
+  LightGBM seed=42  rounds=1090  42.4s
+  LightGBM seed=123  rounds=1187  42.6s
+  LightGBM seed=456  rounds=1157  40.2s
+late 40% (from 2023-06-27): temporal F1 0.2133 AP 0.2309 AUROC 0.8937; reference on late rows F1 0.7273 AP 0.8073 AUROC 0.9833 (127s)
+CELL 8 completed in 468.8s
+CELL 10 started
+ late_share_target                       cutoff_utc  temporal_sybils  temporal_precision  temporal_recall  temporal_f1  temporal_ap  temporal_auroc  reference_sybils  reference_precision  reference_recall  reference_f1  reference_ap  reference_auroc
+               0.3 2023-08-20 11:32:02.500000+00:00             1326              0.8013           0.0943       0.1687       0.2761          0.8865               383               0.7870            0.6945        0.7379        0.7741           0.9782
+               0.2        2023-12-17 17:14:40+00:00              251              1.0000           0.0040       0.0079       0.0596          0.7290                64               0.9130            0.3281        0.4828        0.4460           0.9349
+               0.4        2023-06-27 12:20:13+00:00             4874              0.4321           0.1416       0.2133       0.2309          0.8937              1458               0.6927            0.7654        0.7273        0.8073           0.9833
+
+ late_share_target     model category      n  sybil  precision  recall     f1  auroc    fpr
+               0.3  temporal      IxE  31267    101     0.0000  0.0000 0.0000 0.8946 0.0000
+               0.3  temporal      IxI   5038     18     0.0000  0.0000 0.0000 0.9514 0.0000
+               0.3  temporal      IxL  93861   1190     0.8013  0.1050 0.1857 0.8862 0.0003
+               0.3 reference      IxE   9334     49     1.0000  0.0612 0.1154 0.9710 0.0000
+               0.3 reference      IxI   1489      3     0.0000  0.0000 0.0000 0.8991 0.0000
+               0.3 reference      IxL  28300    324     0.7805  0.7901 0.7853 0.9799 0.0026
+               0.2  temporal      IxE  22467     33     0.0000  0.0000 0.0000 0.7323 0.0000
+               0.2  temporal      IxI   3052      6     0.0000  0.0000 0.0000 0.8957 0.0000
+               0.2  temporal      IxL  61238    197     1.0000  0.0051 0.0101 0.7382 0.0000
+               0.2 reference      IxE   6613      8     0.0000  0.0000 0.0000 0.9008 0.0000
+               0.2 reference      IxI    935      2     0.0000  0.0000 0.0000 0.8708 0.0000
+               0.2 reference      IxL  18469     47     0.8750  0.2979 0.4444 0.9341 0.0001
+               0.4  temporal      IxE  36342    170     0.0000  0.0000 0.0000 0.8722 0.0000
+               0.4  temporal      IxI   6741     64     1.0000  0.1406 0.2466 0.9194 0.0000
+               0.4  temporal      IxL 130522   4623     0.4288  0.1473 0.2193 0.8786 0.0072
+               0.4 reference      IxE  10876     65     0.8750  0.1077 0.1918 0.9665 0.0001
+               0.4 reference      IxI   2047     13     0.0106  0.0769 0.0187 0.9205 0.0457
+               0.4 reference      IxL  39228   1373     0.7330  0.8019 0.7659 0.9845 0.0106
+CELL 10 completed in 0.0s
+CELL 12 started
+Saved results/20_temporal_holdout.json
+CELL 12 completed in 0.0s
+PASS 20_temporal_holdout.ipynb: 651.8s
