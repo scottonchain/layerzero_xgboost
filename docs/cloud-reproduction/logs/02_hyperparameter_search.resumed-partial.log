@@ -38,3 +38,13 @@ CELL 4 started
 [45/72] {'learning_rate': 0.1, 'max_depth': 12, 'subsample': 0.7, 'colsample_bytree': 1.0, 'min_child_weight': 1}  val_F1=0.6964  AP=0.7482  rounds=267  20.2s
 [46/72] {'learning_rate': 0.1, 'max_depth': 12, 'subsample': 0.7, 'colsample_bytree': 0.8, 'min_child_weight': 1}  val_F1=0.7012  AP=0.7525  rounds=297  20.6s
 [47/72] {'learning_rate': 0.1, 'max_depth': 12, 'subsample': 0.5, 'colsample_bytree': 1.0, 'min_child_weight': 1}  val_F1=0.6995  AP=0.7488  rounds=256  18.6s
+[48/72] {'learning_rate': 0.1, 'max_depth': 12, 'subsample': 0.5, 'colsample_bytree': 0.8, 'min_child_weight': 1}  val_F1=0.6981  AP=0.7511  rounds=266  17.4s
+[49/72] {'learning_rate': 0.05, 'max_depth': 6, 'subsample': 1.0, 'colsample_bytree': 1.0, 'min_child_weight': 1}  val_F1=0.6886  AP=0.7430  rounds=4521  121.5s
+[50/72] {'learning_rate': 0.05, 'max_depth': 6, 'subsample': 1.0, 'colsample_bytree': 0.8, 'min_child_weight': 1}  val_F1=0.6923  AP=0.7444  rounds=4319  105.4s
+[51/72] {'learning_rate': 0.05, 'max_depth': 6, 'subsample': 0.7, 'colsample_bytree': 1.0, 'min_child_weight': 1}  val_F1=0.6970  AP=0.7506  rounds=3695  105.4s
+[52/72] {'learning_rate': 0.05, 'max_depth': 6, 'subsample': 0.7, 'colsample_bytree': 0.8, 'min_child_weight': 1}  val_F1=0.6949  AP=0.7495  rounds=3709  106.9s
+[53/72] {'learning_rate': 0.05, 'max_depth': 6, 'subsample': 0.5, 'colsample_bytree': 1.0, 'min_child_weight': 1}  val_F1=0.6957  AP=0.7480  rounds=3604  112.5s
+[54/72] {'learning_rate': 0.05, 'max_depth': 6, 'subsample': 0.5, 'colsample_bytree': 0.8, 'min_child_weight': 1}  val_F1=0.6967  AP=0.7486  rounds=3467  102.1s
+[55/72] {'learning_rate': 0.05, 'max_depth': 8, 'subsample': 1.0, 'colsample_bytree': 1.0, 'min_child_weight': 1}  val_F1=0.6915  AP=0.7403  rounds=1975  63.5s
+[56/72] {'learning_rate': 0.05, 'max_depth': 8, 'subsample': 1.0, 'colsample_bytree': 0.8, 'min_child_weight': 1}  val_F1=0.6945  AP=0.7456  rounds=2227  72.8s
+[57/72] {'learning_rate': 0.05, 'max_depth': 8, 'subsample': 0.7, 'colsample_bytree': 1.0, 'min_child_weight': 1}  val_F1=0.7032  AP=0.7552  rounds=1679  64.6s
