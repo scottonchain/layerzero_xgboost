@@ -354,6 +354,16 @@
       "status": "passed",
       "seconds": 5.578988075256348,
       "completed_utc": "2026-10-08T08:15:31Z"
+    },
+    {
+      "notebook": "13_random_forest_sybil.ipynb",
+      "execution_commit": "3387981d1542ac7e90291f7be4c76aa65814987d",
+      "started_utc": "2026-10-08T08:15:49Z",
+      "status": "interrupted",
+      "minimum_completed_fits_observed": 10,
+      "recoverable_cached_fits": 10,
+      "reason": "Fifth workspace loss removed checkout and virtual environment; former worker subsequently exited. Final ten-fit API checkpoint recovered from Git.",
+      "seconds_unrecoverable": true
     }
   ]
 }
