@@ -1,0 +1,16 @@
+START 22_report_dependence.ipynb at 1f362bb82e322ac1c031199b2b58d33d1baf0253
+No event loop hook running.
+CELL 2 started
+Code commit: 1f362bb
+Platform: {'machine': 'x86_64', 'processor': 'x86_64', 'system': 'Linux', 'python': '3.12.14', 'cpu_count': 9, 'n_jobs': 4}
+            notebook  commit  dependencies_unchanged
+15_split_tree_report 8e6a32e                    True
+CELL 2 completed in 28.9s
+CELL 4 started
+CELL 4 completed in 0.0s
+CELL 5 started
+355,619 components; largest 13,346 rows, 8,260 Sybils; large: 2 components, 14,300 rows, 9,214 Sybils
+CELL 5 completed in 1.1s
+CELL 7 started
+repeat 0 fold 0: k_a 42,050 rows / 901 Sybils, mate coverage 0.98; LightGBM F1 held 0.4618 seen 0.6255, AUROC 0.9195 / 0.9762 (243s)
+repeat 0 fold 1: k_a 42,048 rows / 899 Sybils, mate coverage 0.98; LightGBM F1 held 0.4044 seen 0.5980, AUROC 0.9150 / 0.9753 (259s)
