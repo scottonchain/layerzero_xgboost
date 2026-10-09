@@ -1,0 +1,21 @@
+2026-10-09T16:57:35Z	PLAN	00_data_pipeline 01_ablation_gini 02_hyperparameter_search 03_xgboost_sybil 04_lightgbm_sybil 05_logistic_regression_sybil 06_cross_ensemble_sybil 07_sensitivity_label_vintage 08_ablation_families 09_shap_importance 10_tie_out 11_split_comparison 12_figures 13_random_forest_sybil 14_entity_level_recall 15_split_tree_report 16_label_robustness_initial_list 17_models_10_splits 18_mimicry_stress 19_ablation_by_category 20_temporal_holdout 22_report_dependence 23_revision_figures 24_mimicry_controls 25_paper_tables  99_tie_out_revision
+2026-10-09T16:57:36Z	ABSENT	21
+2026-10-09T16:57:36Z	START	00_data_pipeline	7e7130d
+2026-10-09T17:00:09Z	END	00_data_pipeline	7e7130d	rc=0	seconds=153
+2026-10-09T17:00:13Z	START	01_ablation_gini	da08630
+2026-10-09T17:20:43Z	END	01_ablation_gini	da08630	rc=0	seconds=1231
+2026-10-09T17:20:47Z	START	02_hyperparameter_search	03cea83
+2026-10-09T19:16:11Z	END	02_hyperparameter_search	03cea83	rc=0	seconds=6924
+2026-10-09T19:16:15Z	START	03_xgboost_sybil	622ca58
+2026-10-09T19:22:06Z	END	03_xgboost_sybil	622ca58	rc=0	seconds=352
+2026-10-09T19:22:10Z	START	04_lightgbm_sybil	71a009e
+2026-10-09T19:26:06Z	END	04_lightgbm_sybil	71a009e	rc=0	seconds=237
+2026-10-09T19:26:10Z	START	05_logistic_regression_sybil	9cd7e6b
+2026-10-09T19:28:22Z	END	05_logistic_regression_sybil	9cd7e6b	rc=0	seconds=132
+2026-10-09T19:28:25Z	START	06_cross_ensemble_sybil	93a79f5
+2026-10-09T19:28:35Z	END	06_cross_ensemble_sybil	93a79f5	rc=0	seconds=10
+2026-10-09T19:28:40Z	START	07_sensitivity_label_vintage	8b09009
+2026-10-09T19:49:48Z	END	07_sensitivity_label_vintage	8b09009	rc=0	seconds=1269
+2026-10-09T19:49:51Z	START	08_ablation_families	deef156
+2026-10-09T21:06:47Z	END	08_ablation_families	deef156	rc=0	seconds=4616
+2026-10-09T21:06:51Z	START	09_shap_importance	38c3093
