@@ -7,6 +7,7 @@ Each notebook started from a clean tree and was committed before the next one st
 ## Result
 
 - `99_tie_out_revision`: **83 of 83 checks pass**, `multiple_platforms_cited` false (`results/99_tie_out_revision.json`).
+- `10_tie_out` (the tie-out of `00`–`09`) also passes at 9ba9478, run into `run/final_checks/tieout_10/` after regenerating the `output/` files it reads: `00` and `05`, whose results equal the committed ones in every field (the first two attempts stopped on those missing files; their logs are kept). Its model table reproduces the committed benchmark (test F1 0.7200, 0.7188, 0.2412, 0.7173).
 - `14` regenerated its entity-level results from `03`/`04`/`06` predictions regenerated here: `predictions_match_committed_results` true for XGBoost, LightGBM and the ensemble.
 - `13`–`22` and `25` equal PR #8's x86 rerun (cf47a0f), which ran the same code on the same data. The only differences are Random Forest average precision at most 6.7e-7 (`13`, `17`) and timing or memory measurements (`compare_results.txt`).
 - Against the results committed at 68e8d63 (13–20 and 22 from an Apple M5, arm64), most numbers change (below).
