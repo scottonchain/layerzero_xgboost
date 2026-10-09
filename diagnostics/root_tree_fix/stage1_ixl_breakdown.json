@@ -1,0 +1,20 @@
+{
+ "ixl_total": 306658,
+ "ixl_sybil": 15921,
+ "ixl_roots_with_desc": 12886,
+ "ixl_singletons": 293772,
+ "ixl_non_roots": 0,
+ "ixl_sybil_roots_with_desc": 252,
+ "ixl_sybil_singletons": 15669,
+ "ixl_sybil_share_in_multi_wallet_trees": 0.01582815149802148,
+ "ixl_nonsybil_roots_with_desc": 12634,
+ "rate_root_with_desc_sybil": 0.019556107403383517,
+ "rate_singleton_sybil": 0.05333728197377558,
+ "ixl_singleton_sparsity_counts": {
+  "1.0": 293772
+ },
+ "tree_size_largest_among_ixl_roots": 610,
+ "old_tree_size_zero_roots_with_desc_children_hold": 12942,
+ "descendants_in_trees_rooted_at_ixl_roots_with_desc": 42546,
+ "tree_rows_with_size_gt1": 140106
+}
