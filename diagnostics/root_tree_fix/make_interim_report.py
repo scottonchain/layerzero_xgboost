@@ -6,7 +6,11 @@ D = 'diagnostics/root_tree_fix'
 S1 = json.load(open(f'{D}/stage1_feature_changes.json')); S2 = json.load(open(f'{D}/stage2_fixed_config.json'))
 BR = json.load(open(f'{D}/stage1_ixl_breakdown.json')); VEC = json.load(open(f'{D}/stage1_ixl_singleton_vector.json'))
 P = json.load(open(f'{D}/stage3_pairs.json')); n = len(P)
-R16 = json.load(open('results/16_label_robustness_initial_list.json'))
+import subprocess
+PRE_REF = 'b7a9a3f'     # PR #13's head: the pre-fix reference run
+R16 = json.loads(subprocess.run(['git', 'show', f'{PRE_REF}:results/16_label_robustness_initial_list.json'], capture_output=True, text=True).stdout)
+_cur16 = json.load(open('results/16_label_robustness_initial_list.json')) if os.path.exists('results/16_label_robustness_initial_list.json') else None
+R16_CORRECTED = _cur16 if (_cur16 and _cur16['code_commit'] != R16['code_commit']) else None   # present once the corrected run has executed 16
 fpv = [x for x in R16['fp_composition'] if x['note']][0]; pt = {x['partition']: x for x in R16['by_partition']}['Test']
 N_, I_, F_, J_ = pt['negatives'], pt['negatives_on_list'], fpv['fp'], fpv['fp_on_initial_list']
 head = os.popen('git rev-parse --short HEAD').read().strip()
@@ -19,9 +23,9 @@ w("Interim evidence from one environment (x86_64 Linux, Xeon 2.80 GHz, 4 cores, 
   "repository are still those from before the fix.\n")
 w("## 1. Branch, fix commit, draft PR")
 w("- Branch `fix/root-tree-metrics-2026-10-09` in `scottonchain/layerzero_xgboost`, started from b7a9a3f (PR #13's head, preserved untouched).")
-w("- Fix commit 663e026; regression checks included. Later commits add the Section 5.3 reporting change (7c97305) and the evidence under `diagnostics/root_tree_fix/`.")
-w("- Draft PR to `paven86/layerzero_xgboost`: the Claude GitHub App is refused (403) on that repository, so it must be opened from "
-  "https://github.com/paven86/layerzero_xgboost/compare/main...scottonchain:layerzero_xgboost:fix/root-tree-metrics-2026-10-09?expand=1 with \"Create draft pull request\".\n")
+w("- Fix commit 663e026 with its regression checks. Later commits add the Section 5.3 reporting change (7c97305), the evidence under `diagnostics/root_tree_fix/`, and the corrected-run notebooks as they finish.")
+w("- Draft PR: https://github.com/scottonchain/layerzero_xgboost/pull/4 in `scottonchain/layerzero_xgboost` (base `main`). It stays in draft until the corrected outputs and the final tie-out are complete. "
+  "The correction is not opened against `paven86/layerzero_xgboost`.\n")
 w("## 2. Cause and inherited history")
 w("`provision_features` skipped every wallet absent from the funding forest's parent map (`if a not in parent: rows.append({})`), so roots got all-zero tree "
   "features through the later `fillna(0)`, although their descendants carried the whole tree's summaries. Interactors with no recorded incoming funding edge "
@@ -114,8 +118,15 @@ w(f"- **\"Uninformative by construction\".** The old statement cannot stand as w
   f"the {VEC['n_tree_model_features']} tree-derived model features take one identical value vector for all {VEC['ixl_singletons']:,} IxL singleton wallets (tree_size 1, breadth_factor 1, sparsity 1, the rest 0), so within singletons they cannot discriminate, "
   f"but that is a property of singleton trees; for the {BR['ixl_roots_with_desc']:,} IxL roots with descendants they now carry the tree's summaries. Whether they help for IxL must be shown by the corrected ablation (notebook 19), not asserted by construction.")
 w("- **Numbers.** Every model result, table, figure and named number that depends on the tree features (notebooks 00 to 25 and 99) is to be replaced by the corrected rerun; the values above are fixed-configuration diagnostics only.")
-w(f"- **Section 5.3 false-positive rate** (reporting change, notebooks 25 and 99; values below are from the current, pre-fix results/16 and will regenerate): N = {N_:,} original negative test addresses, I = {I_:,} of them on the initial list; "
+w(f"- **Section 5.3 false-positive rate** (reporting change in notebooks 25 and 99). Pre-fix reference, from results/16 at {PRE_REF}: N = {N_:,} original negative test addresses, I = {I_:,} of them on the initial list; "
   f"F = {F_:,} false positives at the validation threshold, J = {J_:,} of them on the list. Original-label FPR = F/N = {F_:,}/{N_:,} = {100 * F_ / N_:.3f} %. "
   f"With every initial-list address counted as positive: (F-J)/(N-I) = {F_ - J_:,}/{N_ - I_:,} = {100 * (F_ - J_) / (N_ - I_):.3f} %. The denominator removes all {I_:,} list addresses among the test negatives, flagged or not.")
+if R16_CORRECTED:
+    _f = [x for x in R16_CORRECTED['fp_composition'] if x['note']][0]; _p = {x['partition']: x for x in R16_CORRECTED['by_partition']}['Test']
+    _N, _I, _F, _J = _p['negatives'], _p['negatives_on_list'], _f['fp'], _f['fp_on_initial_list']
+    w(f"  Corrected run (results/16 at {R16_CORRECTED['code_commit']}): N = {_N:,}, I = {_I:,}, F = {_F:,}, J = {_J:,}; original-label FPR = {_F:,}/{_N:,} = {100 * _F / _N:.3f} %; "
+      f"initial list counted as positive = {_F - _J:,}/{_N - _I:,} = {100 * (_F - _J) / (_N - _I):.3f} %. Notebook 25 and 99 emit and check these as named numbers once they have run.")
+else:
+    w("  The corrected-run values are not available yet; notebook 16 of the corrected run has not finished.")
 open(f'{D}/INTERIM_REPORT.md', 'w').write('\n'.join(L) + '\n')
 print(f"interim report written ({n} pairs) at {head}")
