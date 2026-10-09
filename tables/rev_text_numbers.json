@@ -1,0 +1,1076 @@
+{
+  "generated_by": "25_paper_tables.ipynb at 2bfbee1",
+  "numbers": {
+    "n_addresses": {
+      "value": 434786,
+      "source": "results/00 -> n_addresses",
+      "platform": "not recorded (machine of the committed 00-12 results)"
+    },
+    "n_sybil": {
+      "value": 18211,
+      "source": "results/00 -> n_sybil",
+      "platform": "not recorded (machine of the committed 00-12 results)"
+    },
+    "prevalence": {
+      "value": 0.041884973297208285,
+      "source": "results/00 -> n_sybil / n_addresses",
+      "platform": "not recorded (machine of the committed 00-12 results)"
+    },
+    "n_negatives": {
+      "value": 416575,
+      "source": "results/00 -> n_addresses - n_sybil",
+      "platform": "not recorded (machine of the committed 00-12 results)"
+    },
+    "provision_edges_after_cutoff": {
+      "value": 296,
+      "source": "results/00 -> provision_edges_after_cutoff",
+      "platform": "not recorded (machine of the committed 00-12 results)"
+    },
+    "n_trees": {
+      "value": 371764,
+      "source": "results/00 -> provision_trees.n",
+      "platform": "not recorded (machine of the committed 00-12 results)"
+    },
+    "n_multi_wallet_trees": {
+      "value": 22952,
+      "source": "results/00 -> provision_trees.multi_wallet",
+      "platform": "not recorded (machine of the committed 00-12 results)"
+    },
+    "largest_tree": {
+      "value": 1627,
+      "source": "results/00 -> provision_trees.largest",
+      "platform": "not recorded (machine of the committed 00-12 results)"
+    },
+    "sybils_in_multi_wallet_trees": {
+      "value": 2322,
+      "source": "results/00 -> provision_trees.sybils_in_multi",
+      "platform": "not recorded (machine of the committed 00-12 results)"
+    },
+    "split_train_rows": {
+      "value": 213046,
+      "source": "results/00 -> splits.Train.Total",
+      "platform": "not recorded (machine of the committed 00-12 results)"
+    },
+    "split_train_sybils": {
+      "value": 8924,
+      "source": "results/00 -> splits.Train.Sybil",
+      "platform": "not recorded (machine of the committed 00-12 results)"
+    },
+    "split_validation_rows": {
+      "value": 91305,
+      "source": "results/00 -> splits.Validation.Total",
+      "platform": "not recorded (machine of the committed 00-12 results)"
+    },
+    "split_validation_sybils": {
+      "value": 3824,
+      "source": "results/00 -> splits.Validation.Sybil",
+      "platform": "not recorded (machine of the committed 00-12 results)"
+    },
+    "split_test_rows": {
+      "value": 130435,
+      "source": "results/00 -> splits.Test.Total",
+      "platform": "not recorded (machine of the committed 00-12 results)"
+    },
+    "split_test_sybils": {
+      "value": 5463,
+      "source": "results/00 -> splits.Test.Sybil",
+      "platform": "not recorded (machine of the committed 00-12 results)"
+    },
+    "large_trees_over_100_n_trees": {
+      "value": 34,
+      "source": "computed from sp.build_master_df: gas provision trees with more than 100 wallets",
+      "platform": "computed here from data/ (no model)"
+    },
+    "large_trees_over_100_wallets": {
+      "value": 9020,
+      "source": "computed from sp.build_master_df: gas provision trees with more than 100 wallets",
+      "platform": "computed here from data/ (no model)"
+    },
+    "large_trees_over_100_sybils": {
+      "value": 97,
+      "source": "computed from sp.build_master_df: gas provision trees with more than 100 wallets",
+      "platform": "computed here from data/ (no model)"
+    },
+    "large_trees_over_100_wallet_share": {
+      "value": 0.020745838182462176,
+      "source": "computed from sp.build_master_df: gas provision trees with more than 100 wallets",
+      "platform": "computed here from data/ (no model)"
+    },
+    "large_trees_over_100_sybil_share": {
+      "value": 0.005326451046071056,
+      "source": "computed from sp.build_master_df: gas provision trees with more than 100 wallets",
+      "platform": "computed here from data/ (no model)"
+    },
+    "labeled_current": {
+      "value": 4308,
+      "source": "results/07 -> labeled_current",
+      "platform": "not recorded (machine of the committed 00-12 results)"
+    },
+    "labeled_presnapshot": {
+      "value": 4115,
+      "source": "results/07 -> labeled_presnapshot",
+      "platform": "not recorded (machine of the committed 00-12 results)"
+    },
+    "wallets_changed": {
+      "value": 10575,
+      "source": "results/07 -> wallets_changed",
+      "platform": "not recorded (machine of the committed 00-12 results)"
+    },
+    "vintage_test_f1_diff_mean": {
+      "value": -0.004734556147439273,
+      "source": "results/07 -> diff_mean.test_f1",
+      "platform": "not recorded (machine of the committed 00-12 results)"
+    },
+    "vintage_test_f1_diff_sd": {
+      "value": 0.007047925669539539,
+      "source": "results/07 -> diff_sd.test_f1",
+      "platform": "not recorded (machine of the committed 00-12 results)"
+    },
+    "vintage_test_ap_diff_mean": {
+      "value": -0.005492363846645009,
+      "source": "results/07 -> diff_mean.test_ap",
+      "platform": "not recorded (machine of the committed 00-12 results)"
+    },
+    "vintage_test_ap_diff_sd": {
+      "value": 0.009042083728387726,
+      "source": "results/07 -> diff_sd.test_ap",
+      "platform": "not recorded (machine of the committed 00-12 results)"
+    },
+    "vintage_test_auroc_diff_mean": {
+      "value": -0.0022935516505281804,
+      "source": "results/07 -> diff_mean.test_auroc",
+      "platform": "not recorded (machine of the committed 00-12 results)"
+    },
+    "vintage_test_auroc_diff_sd": {
+      "value": 0.003868618323039622,
+      "source": "results/07 -> diff_sd.test_auroc",
+      "platform": "not recorded (machine of the committed 00-12 results)"
+    },
+    "vintage_val_f1_diff_mean": {
+      "value": 0.008883757567968043,
+      "source": "results/07 -> diff_mean.val_f1",
+      "platform": "not recorded (machine of the committed 00-12 results)"
+    },
+    "vintage_val_f1_diff_sd": {
+      "value": 0.011500274102864272,
+      "source": "results/07 -> diff_sd.val_f1",
+      "platform": "not recorded (machine of the committed 00-12 results)"
+    },
+    "initial_list_rows": {
+      "value": 803093,
+      "source": "results/16 -> initial_list.rows",
+      "platform": "x86_64 / Linux"
+    },
+    "initial_list_sha256": {
+      "value": "1a643f70056fe0c0b38d4a13468e968a2de0bd18de6bc25ed7139d9fa691a7cc",
+      "source": "results/16 -> initial_list.sha256",
+      "platform": "x86_64 / Linux"
+    },
+    "initial_list_interactors": {
+      "value": 34545,
+      "source": "results/16 -> counts.interactors_on_list",
+      "platform": "x86_64 / Linux"
+    },
+    "initial_list_share_of_negatives": {
+      "value": 0.0829262437736302,
+      "source": "results/16 -> counts.share_of_negatives",
+      "platform": "x86_64 / Linux"
+    },
+    "initial_list_share_of_interactors": {
+      "value": 0.07945288026753392,
+      "source": "results/16 -> counts",
+      "platform": "x86_64 / Linux"
+    },
+    "initial_list_valthr_threshold": {
+      "value": 0.6001,
+      "source": "results/16 -> fp_composition[validation threshold].threshold",
+      "platform": "x86_64 / Linux"
+    },
+    "initial_list_valthr_fp": {
+      "value": 1461,
+      "source": "results/16 -> fp_composition[validation threshold].fp",
+      "platform": "x86_64 / Linux"
+    },
+    "initial_list_valthr_fp_on_initial_list": {
+      "value": 556,
+      "source": "results/16 -> fp_composition[validation threshold].fp_on_initial_list",
+      "platform": "x86_64 / Linux"
+    },
+    "initial_list_valthr_fp_not_on_list": {
+      "value": 905,
+      "source": "results/16 -> fp_composition[validation threshold].fp_not_on_list",
+      "platform": "x86_64 / Linux"
+    },
+    "initial_list_valthr_fp_share_on_list": {
+      "value": 0.3805612594113621,
+      "source": "results/16 -> fp_composition[validation threshold].fp_share_on_list",
+      "platform": "x86_64 / Linux"
+    },
+    "initial_list_valthr_precision": {
+      "value": 0.7267115600448933,
+      "source": "results/16 -> fp_composition[validation threshold].precision",
+      "platform": "x86_64 / Linux"
+    },
+    "initial_list_valthr_precision_if_list_counted_sybil": {
+      "value": 0.8307145529367752,
+      "source": "results/16 -> fp_composition[validation threshold].precision_if_list_counted_sybil",
+      "platform": "x86_64 / Linux"
+    },
+    "initial_list_2x2_baseline_full_f1": {
+      "value": 0.7188454066056065,
+      "source": "results/16 -> table_2x2[Baseline, full test].f1",
+      "platform": "x86_64 / Linux"
+    },
+    "initial_list_2x2_baseline_full_ap": {
+      "value": 0.7695927941671368,
+      "source": "results/16 -> table_2x2[Baseline, full test].ap",
+      "platform": "x86_64 / Linux"
+    },
+    "initial_list_2x2_baseline_full_auroc": {
+      "value": 0.9682758108601609,
+      "source": "results/16 -> table_2x2[Baseline, full test].auroc",
+      "platform": "x86_64 / Linux"
+    },
+    "initial_list_2x2_baseline_full_precision": {
+      "value": 0.7267115600448933,
+      "source": "results/16 -> table_2x2[Baseline, full test].precision",
+      "platform": "x86_64 / Linux"
+    },
+    "initial_list_2x2_baseline_full_recall": {
+      "value": 0.7111477210323998,
+      "source": "results/16 -> table_2x2[Baseline, full test].recall",
+      "platform": "x86_64 / Linux"
+    },
+    "initial_list_2x2_baseline_nolist_f1": {
+      "value": 0.7578269774700088,
+      "source": "results/16 -> table_2x2[Baseline, test without initial-list rows].f1",
+      "platform": "x86_64 / Linux"
+    },
+    "initial_list_2x2_baseline_nolist_ap": {
+      "value": 0.8060166344947022,
+      "source": "results/16 -> table_2x2[Baseline, test without initial-list rows].ap",
+      "platform": "x86_64 / Linux"
+    },
+    "initial_list_2x2_baseline_nolist_auroc": {
+      "value": 0.9720630183005974,
+      "source": "results/16 -> table_2x2[Baseline, test without initial-list rows].auroc",
+      "platform": "x86_64 / Linux"
+    },
+    "initial_list_2x2_baseline_nolist_precision": {
+      "value": 0.8110647181628392,
+      "source": "results/16 -> table_2x2[Baseline, test without initial-list rows].precision",
+      "platform": "x86_64 / Linux"
+    },
+    "initial_list_2x2_baseline_nolist_recall": {
+      "value": 0.7111477210323998,
+      "source": "results/16 -> table_2x2[Baseline, test without initial-list rows].recall",
+      "platform": "x86_64 / Linux"
+    },
+    "initial_list_2x2_clean_full_f1": {
+      "value": 0.6486156662344597,
+      "source": "results/16 -> table_2x2[Variant A (clean negatives), full test].f1",
+      "platform": "x86_64 / Linux"
+    },
+    "initial_list_2x2_clean_full_ap": {
+      "value": 0.45698315108659276,
+      "source": "results/16 -> table_2x2[Variant A (clean negatives), full test].ap",
+      "platform": "x86_64 / Linux"
+    },
+    "initial_list_2x2_clean_full_auroc": {
+      "value": 0.9594104100369187,
+      "source": "results/16 -> table_2x2[Variant A (clean negatives), full test].auroc",
+      "platform": "x86_64 / Linux"
+    },
+    "initial_list_2x2_clean_full_precision": {
+      "value": 0.5559623430962343,
+      "source": "results/16 -> table_2x2[Variant A (clean negatives), full test].precision",
+      "platform": "x86_64 / Linux"
+    },
+    "initial_list_2x2_clean_full_recall": {
+      "value": 0.7783269265971078,
+      "source": "results/16 -> table_2x2[Variant A (clean negatives), full test].recall",
+      "platform": "x86_64 / Linux"
+    },
+    "initial_list_2x2_clean_nolist_f1": {
+      "value": 0.787043035631652,
+      "source": "results/16 -> table_2x2[Variant A (clean negatives), test without initial-list rows].f1",
+      "platform": "x86_64 / Linux"
+    },
+    "initial_list_2x2_clean_nolist_ap": {
+      "value": 0.8309832480825501,
+      "source": "results/16 -> table_2x2[Variant A (clean negatives), test without initial-list rows].ap",
+      "platform": "x86_64 / Linux"
+    },
+    "initial_list_2x2_clean_nolist_auroc": {
+      "value": 0.9738834819751472,
+      "source": "results/16 -> table_2x2[Variant A (clean negatives), test without initial-list rows].auroc",
+      "platform": "x86_64 / Linux"
+    },
+    "initial_list_2x2_clean_nolist_precision": {
+      "value": 0.7959565705728192,
+      "source": "results/16 -> table_2x2[Variant A (clean negatives), test without initial-list rows].precision",
+      "platform": "x86_64 / Linux"
+    },
+    "initial_list_2x2_clean_nolist_recall": {
+      "value": 0.7783269265971078,
+      "source": "results/16 -> table_2x2[Variant A (clean negatives), test without initial-list rows].recall",
+      "platform": "x86_64 / Linux"
+    },
+    "initial_list_10split_delta_clean_f1_mean": {
+      "value": 0.03182181520421281,
+      "source": "results/16 -> summary.delta_clean_f1_mean",
+      "platform": "x86_64 / Linux"
+    },
+    "initial_list_10split_delta_clean_f1_std": {
+      "value": 0.005884419943034396,
+      "source": "results/16 -> summary.delta_clean_f1_std",
+      "platform": "x86_64 / Linux"
+    },
+    "initial_list_10split_delta_clean_f1_higher_n": {
+      "value": 10,
+      "source": "results/16 -> summary.delta_clean_f1_higher_n",
+      "platform": "x86_64 / Linux"
+    },
+    "initial_list_10split_delta_full_f1_mean": {
+      "value": -0.06880137303186792,
+      "source": "results/16 -> summary.delta_full_f1_mean",
+      "platform": "x86_64 / Linux"
+    },
+    "initial_list_10split_delta_full_f1_std": {
+      "value": 0.005437609539593869,
+      "source": "results/16 -> summary.delta_full_f1_std",
+      "platform": "x86_64 / Linux"
+    },
+    "bounty_list_rows": {
+      "value": 151784,
+      "source": "computed from ./data/20240915_final_sybil_list/fcfs_list.csv matched to the interactors",
+      "platform": "computed here from data/ (no model)"
+    },
+    "bounty_reports": {
+      "value": 311,
+      "source": "computed from ./data/20240915_final_sybil_list/fcfs_list.csv matched to the interactors",
+      "platform": "computed here from data/ (no model)"
+    },
+    "bounty_reporters": {
+      "value": 145,
+      "source": "computed from ./data/20240915_final_sybil_list/fcfs_list.csv matched to the interactors",
+      "platform": "computed here from data/ (no model)"
+    },
+    "bounty_top10_reports_share": {
+      "value": 0.3561583658228543,
+      "source": "computed from ./data/20240915_final_sybil_list/fcfs_list.csv matched to the interactors",
+      "platform": "computed here from data/ (no model)"
+    },
+    "bounty_top10_reporters_share": {
+      "value": 0.4460490912086102,
+      "source": "computed from ./data/20240915_final_sybil_list/fcfs_list.csv matched to the interactors",
+      "platform": "computed here from data/ (no model)"
+    },
+    "bounty_first_flagged": {
+      "value": "2024-05-18",
+      "source": "computed from ./data/20240915_final_sybil_list/fcfs_list.csv matched to the interactors",
+      "platform": "computed here from data/ (no model)"
+    },
+    "bounty_last_flagged": {
+      "value": "2024-05-30",
+      "source": "computed from ./data/20240915_final_sybil_list/fcfs_list.csv matched to the interactors",
+      "platform": "computed here from data/ (no model)"
+    },
+    "level1_tree_overlap": {
+      "value": 599,
+      "source": "results/15 -> report_overlap.per_split[random, 42].tree",
+      "platform": "x86_64 / Linux"
+    },
+    "level1_report_overlap": {
+      "value": 5434,
+      "source": "results/15 -> report_overlap.per_split[random, 42].report",
+      "platform": "x86_64 / Linux"
+    },
+    "level2_tree_overlap": {
+      "value": 0,
+      "source": "results/15 -> report_overlap.per_split[tree, 42].tree",
+      "platform": "x86_64 / Linux"
+    },
+    "level2_report_overlap": {
+      "value": 5406,
+      "source": "results/15 -> report_overlap.per_split[tree, 42].report",
+      "platform": "x86_64 / Linux"
+    },
+    "level2_report_overlap_10seed_mean": {
+      "value": 5402.5,
+      "source": "results/15 -> interpretation_inputs",
+      "platform": "x86_64 / Linux"
+    },
+    "level2_report_overlap_10seed_sd": {
+      "value": 22.33706436496176,
+      "source": "results/15 -> interpretation_inputs",
+      "platform": "x86_64 / Linux"
+    },
+    "test_sybils_seed42": {
+      "value": 5463,
+      "source": "results/15 -> interpretation_inputs.test_sybils",
+      "platform": "x86_64 / Linux"
+    },
+    "large_components_rows": {
+      "value": 14300,
+      "source": "results/15 -> composition.big_rows",
+      "platform": "x86_64 / Linux"
+    },
+    "large_components_sybils": {
+      "value": 9214,
+      "source": "results/15 -> composition.big_sybils",
+      "platform": "x86_64 / Linux"
+    },
+    "large_components_share_of_sybils": {
+      "value": 0.5059579375102959,
+      "source": "results/15 -> composition.big_sybils / n_sybil",
+      "platform": "x86_64 / Linux"
+    },
+    "level2_train_sybils_from_large_components_share": {
+      "value": 0.5017929179740027,
+      "source": "results/22 -> composition_summary.tree_split_big_share",
+      "platform": "x86_64 / Linux"
+    },
+    "level3_train_sybils_from_large_components_share": {
+      "value": 0.6305689794437925,
+      "source": "results/22 -> composition_summary.big_share_held_mean",
+      "platform": "x86_64 / Linux"
+    },
+    "level3_report_mate_coverage_mean": {
+      "value": 0.9865850886967259,
+      "source": "results/22 -> composition_summary.mate_coverage_mean",
+      "platform": "x86_64 / Linux"
+    },
+    "level3_test_prevalence": {
+      "value": 0.021394324984660228,
+      "source": "results/22 -> composition_summary.k_a_prevalence_mean",
+      "platform": "x86_64 / Linux"
+    },
+    "level3_fold_repeats": {
+      "value": 15,
+      "source": "results/22 -> per_fold (distinct repeat, fold)",
+      "platform": "x86_64 / Linux"
+    },
+    "level3_lightgbm_f1_diff_mean": {
+      "value": 0.22882469765529556,
+      "source": "results/22 -> tests[LightGBM, f1].diff_mean",
+      "platform": "x86_64 / Linux"
+    },
+    "level3_lightgbm_f1_diff_sd": {
+      "value": 0.07629428550214266,
+      "source": "results/22 -> tests[LightGBM, f1].diff_sd",
+      "platform": "x86_64 / Linux"
+    },
+    "level3_lightgbm_f1_seen_higher_n": {
+      "value": 15,
+      "source": "results/22 -> tests[LightGBM, f1].seen_higher_n",
+      "platform": "x86_64 / Linux"
+    },
+    "level3_lightgbm_f1_p_corrected": {
+      "value": 1.8548392687032806e-05,
+      "source": "results/22 -> tests[LightGBM, f1].p_corrected",
+      "platform": "x86_64 / Linux"
+    },
+    "level3_lightgbm_ap_diff_mean": {
+      "value": 0.2939171408987279,
+      "source": "results/22 -> tests[LightGBM, ap].diff_mean",
+      "platform": "x86_64 / Linux"
+    },
+    "level3_lightgbm_ap_diff_sd": {
+      "value": 0.07748053660236716,
+      "source": "results/22 -> tests[LightGBM, ap].diff_sd",
+      "platform": "x86_64 / Linux"
+    },
+    "level3_lightgbm_ap_seen_higher_n": {
+      "value": 15,
+      "source": "results/22 -> tests[LightGBM, ap].seen_higher_n",
+      "platform": "x86_64 / Linux"
+    },
+    "level3_lightgbm_ap_p_corrected": {
+      "value": 1.3534852529446437e-06,
+      "source": "results/22 -> tests[LightGBM, ap].p_corrected",
+      "platform": "x86_64 / Linux"
+    },
+    "level3_lightgbm_auroc_diff_mean": {
+      "value": 0.07929004779305918,
+      "source": "results/22 -> tests[LightGBM, auroc].diff_mean",
+      "platform": "x86_64 / Linux"
+    },
+    "level3_lightgbm_auroc_diff_sd": {
+      "value": 0.04240726935624671,
+      "source": "results/22 -> tests[LightGBM, auroc].diff_sd",
+      "platform": "x86_64 / Linux"
+    },
+    "level3_lightgbm_auroc_seen_higher_n": {
+      "value": 15,
+      "source": "results/22 -> tests[LightGBM, auroc].seen_higher_n",
+      "platform": "x86_64 / Linux"
+    },
+    "level3_lightgbm_auroc_p_corrected": {
+      "value": 0.0014601720962593198,
+      "source": "results/22 -> tests[LightGBM, auroc].p_corrected",
+      "platform": "x86_64 / Linux"
+    },
+    "level3_xgboost_f1_diff_mean": {
+      "value": 0.21823394830341936,
+      "source": "results/22 -> tests[XGBoost, f1].diff_mean",
+      "platform": "x86_64 / Linux"
+    },
+    "level3_xgboost_f1_diff_sd": {
+      "value": 0.08085869466792871,
+      "source": "results/22 -> tests[XGBoost, f1].diff_sd",
+      "platform": "x86_64 / Linux"
+    },
+    "level3_xgboost_f1_seen_higher_n": {
+      "value": 15,
+      "source": "results/22 -> tests[XGBoost, f1].seen_higher_n",
+      "platform": "x86_64 / Linux"
+    },
+    "level3_xgboost_f1_p_corrected": {
+      "value": 5.5091187478339587e-05,
+      "source": "results/22 -> tests[XGBoost, f1].p_corrected",
+      "platform": "x86_64 / Linux"
+    },
+    "level3_xgboost_ap_diff_mean": {
+      "value": 0.29002975022877675,
+      "source": "results/22 -> tests[XGBoost, ap].diff_mean",
+      "platform": "x86_64 / Linux"
+    },
+    "level3_xgboost_ap_diff_sd": {
+      "value": 0.07516082799891323,
+      "source": "results/22 -> tests[XGBoost, ap].diff_sd",
+      "platform": "x86_64 / Linux"
+    },
+    "level3_xgboost_ap_seen_higher_n": {
+      "value": 15,
+      "source": "results/22 -> tests[XGBoost, ap].seen_higher_n",
+      "platform": "x86_64 / Linux"
+    },
+    "level3_xgboost_ap_p_corrected": {
+      "value": 1.1087182109813585e-06,
+      "source": "results/22 -> tests[XGBoost, ap].p_corrected",
+      "platform": "x86_64 / Linux"
+    },
+    "level3_xgboost_auroc_diff_mean": {
+      "value": 0.07955123864651205,
+      "source": "results/22 -> tests[XGBoost, auroc].diff_mean",
+      "platform": "x86_64 / Linux"
+    },
+    "level3_xgboost_auroc_diff_sd": {
+      "value": 0.04330308041507737,
+      "source": "results/22 -> tests[XGBoost, auroc].diff_sd",
+      "platform": "x86_64 / Linux"
+    },
+    "level3_xgboost_auroc_seen_higher_n": {
+      "value": 15,
+      "source": "results/22 -> tests[XGBoost, auroc].seen_higher_n",
+      "platform": "x86_64 / Linux"
+    },
+    "level3_xgboost_auroc_p_corrected": {
+      "value": 0.0016722019833952247,
+      "source": "results/22 -> tests[XGBoost, auroc].p_corrected",
+      "platform": "x86_64 / Linux"
+    },
+    "union_components_total": {
+      "value": 355619,
+      "source": "results/15 -> components.components",
+      "platform": "x86_64 / Linux"
+    },
+    "level3_training_sybils": {
+      "value": 14612.2,
+      "source": "results/22 -> composition (held_out train_sybils, mean over fold-repeats)",
+      "platform": "x86_64 / Linux"
+    },
+    "level3_pairs_equal_train_rows": {
+      "value": 14,
+      "source": "results/22 -> composition: fold-repeats with equal unique training rows in both conditions",
+      "platform": "x86_64 / Linux"
+    },
+    "level3_pairs_equal_train_sybils": {
+      "value": 15,
+      "source": "results/22 -> composition: fold-repeats with equal training Sybils in both conditions",
+      "platform": "x86_64 / Linux"
+    },
+    "level3_max_train_rows_diff": {
+      "value": 2,
+      "source": "results/22 -> composition: max |held-out - seen| unique training rows",
+      "platform": "x86_64 / Linux"
+    },
+    "level3_unequal_pair": {
+      "value": [
+        {
+          "repeat": 1,
+          "fold": 2,
+          "held_out_rows": 266592,
+          "seen_rows": 266590
+        }
+      ],
+      "source": "results/22 -> composition: fold-repeats whose training rows differ",
+      "platform": "x86_64 / Linux"
+    },
+    "level3_n_test_over_n_train": {
+      "value": 0.1577263999847539,
+      "source": "results/22 -> composition_summary.n_test_over_n_train",
+      "platform": "x86_64 / Linux"
+    },
+    "blend_weight_seed42": {
+      "value": 0.06,
+      "source": "results/06 -> xgb_weight",
+      "platform": "not recorded (machine of the committed 00-12 results)"
+    },
+    "xgb_selected": {
+      "value": {
+        "learning_rate": 0.05,
+        "max_depth": 8,
+        "subsample": 0.7,
+        "colsample_bytree": 1.0,
+        "min_child_weight": 1
+      },
+      "source": "results/02 -> xgb_selected",
+      "platform": "not recorded (machine of the committed 00-12 results)"
+    },
+    "lgbm_selected": {
+      "value": {
+        "num_leaves": 127,
+        "learning_rate": 0.05,
+        "subsample": 0.7,
+        "reg_lambda": 1.0
+      },
+      "source": "results/02 -> lgbm_selected",
+      "platform": "not recorded (machine of the committed 00-12 results)"
+    },
+    "search_n_configs": {
+      "value": {
+        "xgboost": 74,
+        "lightgbm": 48
+      },
+      "source": "results/02 -> n_configs",
+      "platform": "not recorded (machine of the committed 00-12 results)"
+    },
+    "xgb_rounds_seed42_3seeds": {
+      "value": [
+        1679,
+        1617,
+        1578
+      ],
+      "source": "results/03 -> rounds",
+      "platform": "not recorded (machine of the committed 00-12 results)"
+    },
+    "lgbm_rounds_seed42_3seeds": {
+      "value": [
+        1277,
+        1248,
+        1143
+      ],
+      "source": "results/04 -> rounds",
+      "platform": "not recorded (machine of the committed 00-12 results)"
+    },
+    "rf_selected": {
+      "value": {
+        "max_features": 0.3,
+        "min_samples_leaf": 1,
+        "max_depth": null,
+        "n_estimators": 300
+      },
+      "source": "results/13 -> params",
+      "platform": "x86_64 / Linux"
+    },
+    "rf_n_configs": {
+      "value": 24,
+      "source": "results/13 -> n_configs",
+      "platform": "x86_64 / Linux"
+    },
+    "blend_weight_min": {
+      "value": 0.02,
+      "source": "results/17 -> split_info.xgb_weight",
+      "platform": "x86_64 / Linux"
+    },
+    "blend_weight_max": {
+      "value": 0.76,
+      "source": "results/17 -> split_info.xgb_weight",
+      "platform": "x86_64 / Linux"
+    },
+    "blend_weight_mean": {
+      "value": 0.33799999999999997,
+      "source": "results/17 -> split_info.xgb_weight",
+      "platform": "x86_64 / Linux"
+    },
+    "cost_logistic_regression_train_seconds_single_median": {
+      "value": 43.516866441000275,
+      "source": "results/17 -> cost.table[Logistic regression].train_seconds_single_median",
+      "platform": "x86_64 / Linux"
+    },
+    "cost_logistic_regression_train_seconds_3seed": {
+      "value": 132.48292416800086,
+      "source": "results/17 -> cost.table[Logistic regression].train_seconds_3seed",
+      "platform": "x86_64 / Linux"
+    },
+    "cost_logistic_regression_score_seconds_test_median": {
+      "value": 0.05655869700058247,
+      "source": "results/17 -> cost.table[Logistic regression].score_seconds_test_median",
+      "platform": "x86_64 / Linux"
+    },
+    "cost_logistic_regression_score_rows_per_second": {
+      "value": 2306188.206539778,
+      "source": "results/17 -> cost.table[Logistic regression].score_rows_per_second",
+      "platform": "x86_64 / Linux"
+    },
+    "cost_logistic_regression_pickled_mib_median": {
+      "value": 0.004385948181152344,
+      "source": "results/17 -> cost.table[Logistic regression].pickled_mib_median",
+      "platform": "x86_64 / Linux"
+    },
+    "cost_logistic_regression_peak_rss_increase_mib_median": {
+      "value": 984.23828125,
+      "source": "results/17 -> cost.table[Logistic regression].peak_rss_increase_mib_median",
+      "platform": "x86_64 / Linux"
+    },
+    "cost_xgboost_train_seconds_single_median": {
+      "value": 65.71465294100017,
+      "source": "results/17 -> cost.table[XGBoost].train_seconds_single_median",
+      "platform": "x86_64 / Linux"
+    },
+    "cost_xgboost_train_seconds_3seed": {
+      "value": 200.0909868409999,
+      "source": "results/17 -> cost.table[XGBoost].train_seconds_3seed",
+      "platform": "x86_64 / Linux"
+    },
+    "cost_xgboost_score_seconds_test_median": {
+      "value": 1.0760609799999656,
+      "source": "results/17 -> cost.table[XGBoost].score_seconds_test_median",
+      "platform": "x86_64 / Linux"
+    },
+    "cost_xgboost_score_rows_per_second": {
+      "value": 121215.24934395833,
+      "source": "results/17 -> cost.table[XGBoost].score_rows_per_second",
+      "platform": "x86_64 / Linux"
+    },
+    "cost_xgboost_pickled_mib_median": {
+      "value": 14.221095085144043,
+      "source": "results/17 -> cost.table[XGBoost].pickled_mib_median",
+      "platform": "x86_64 / Linux"
+    },
+    "cost_xgboost_peak_rss_increase_mib_median": {
+      "value": 0.00390625,
+      "source": "results/17 -> cost.table[XGBoost].peak_rss_increase_mib_median",
+      "platform": "x86_64 / Linux"
+    },
+    "cost_lightgbm_train_seconds_single_median": {
+      "value": 42.18272000900015,
+      "source": "results/17 -> cost.table[LightGBM].train_seconds_single_median",
+      "platform": "x86_64 / Linux"
+    },
+    "cost_lightgbm_train_seconds_3seed": {
+      "value": 127.25243067000065,
+      "source": "results/17 -> cost.table[LightGBM].train_seconds_3seed",
+      "platform": "x86_64 / Linux"
+    },
+    "cost_lightgbm_score_seconds_test_median": {
+      "value": 7.626466312000048,
+      "source": "results/17 -> cost.table[LightGBM].score_seconds_test_median",
+      "platform": "x86_64 / Linux"
+    },
+    "cost_lightgbm_score_rows_per_second": {
+      "value": 17102.940557773643,
+      "source": "results/17 -> cost.table[LightGBM].score_rows_per_second",
+      "platform": "x86_64 / Linux"
+    },
+    "cost_lightgbm_pickled_mib_median": {
+      "value": 16.542598724365234,
+      "source": "results/17 -> cost.table[LightGBM].pickled_mib_median",
+      "platform": "x86_64 / Linux"
+    },
+    "cost_lightgbm_peak_rss_increase_mib_median": {
+      "value": 96.55859375,
+      "source": "results/17 -> cost.table[LightGBM].peak_rss_increase_mib_median",
+      "platform": "x86_64 / Linux"
+    },
+    "cost_random_forest_train_seconds_single_median": {
+      "value": 191.42657936899923,
+      "source": "results/17 -> cost.table[Random Forest].train_seconds_single_median",
+      "platform": "x86_64 / Linux"
+    },
+    "cost_random_forest_train_seconds_3seed": {
+      "value": 571.5710540519985,
+      "source": "results/17 -> cost.table[Random Forest].train_seconds_3seed",
+      "platform": "x86_64 / Linux"
+    },
+    "cost_random_forest_score_seconds_test_median": {
+      "value": 1.6431999110000106,
+      "source": "results/17 -> cost.table[Random Forest].score_seconds_test_median",
+      "platform": "x86_64 / Linux"
+    },
+    "cost_random_forest_score_rows_per_second": {
+      "value": 79378.65571123388,
+      "source": "results/17 -> cost.table[Random Forest].score_rows_per_second",
+      "platform": "x86_64 / Linux"
+    },
+    "cost_random_forest_pickled_mib_median": {
+      "value": 270.2546043395996,
+      "source": "results/17 -> cost.table[Random Forest].pickled_mib_median",
+      "platform": "x86_64 / Linux"
+    },
+    "cost_random_forest_peak_rss_increase_mib_median": {
+      "value": 326.3984375,
+      "source": "results/17 -> cost.table[Random Forest].peak_rss_increase_mib_median",
+      "platform": "x86_64 / Linux"
+    },
+    "cost_build_master_df_seconds": {
+      "value": 42.71375012397766,
+      "source": "results/17 -> cost.build_master_df_seconds",
+      "platform": "x86_64 / Linux"
+    },
+    "models10_lightgbm_f1_mean": {
+      "value": 0.7130925126561611,
+      "source": "results/17 -> summary.LightGBM.f1_mean",
+      "platform": "x86_64 / Linux"
+    },
+    "models10_lightgbm_f1_sd": {
+      "value": 0.006012560529847479,
+      "source": "results/17 -> summary.LightGBM.f1_std",
+      "platform": "x86_64 / Linux"
+    },
+    "models10_lightgbm_ap_mean": {
+      "value": 0.7606865041559495,
+      "source": "results/17 -> summary.LightGBM.ap_mean",
+      "platform": "x86_64 / Linux"
+    },
+    "models10_lightgbm_ap_sd": {
+      "value": 0.005978143666864308,
+      "source": "results/17 -> summary.LightGBM.ap_std",
+      "platform": "x86_64 / Linux"
+    },
+    "models10_lightgbm_auroc_mean": {
+      "value": 0.9681638710562203,
+      "source": "results/17 -> summary.LightGBM.auroc_mean",
+      "platform": "x86_64 / Linux"
+    },
+    "models10_lightgbm_auroc_sd": {
+      "value": 0.0017573570306608157,
+      "source": "results/17 -> summary.LightGBM.auroc_std",
+      "platform": "x86_64 / Linux"
+    },
+    "models10_lightgbm_precision_mean": {
+      "value": 0.716947622988727,
+      "source": "results/17 -> summary.LightGBM.precision_mean",
+      "platform": "x86_64 / Linux"
+    },
+    "models10_lightgbm_precision_sd": {
+      "value": 0.021515768288066704,
+      "source": "results/17 -> summary.LightGBM.precision_std",
+      "platform": "x86_64 / Linux"
+    },
+    "models10_lightgbm_recall_mean": {
+      "value": 0.7103972176459822,
+      "source": "results/17 -> summary.LightGBM.recall_mean",
+      "platform": "x86_64 / Linux"
+    },
+    "models10_lightgbm_recall_sd": {
+      "value": 0.022304268845808002,
+      "source": "results/17 -> summary.LightGBM.recall_std",
+      "platform": "x86_64 / Linux"
+    },
+    "models10_xgboost_f1_mean": {
+      "value": 0.7065701865215777,
+      "source": "results/17 -> summary.XGBoost.f1_mean",
+      "platform": "x86_64 / Linux"
+    },
+    "models10_xgboost_f1_sd": {
+      "value": 0.00763146124691191,
+      "source": "results/17 -> summary.XGBoost.f1_std",
+      "platform": "x86_64 / Linux"
+    },
+    "models10_xgboost_ap_mean": {
+      "value": 0.7529184916681008,
+      "source": "results/17 -> summary.XGBoost.ap_mean",
+      "platform": "x86_64 / Linux"
+    },
+    "models10_xgboost_ap_sd": {
+      "value": 0.008484026166456519,
+      "source": "results/17 -> summary.XGBoost.ap_std",
+      "platform": "x86_64 / Linux"
+    },
+    "models10_xgboost_auroc_mean": {
+      "value": 0.964076677122398,
+      "source": "results/17 -> summary.XGBoost.auroc_mean",
+      "platform": "x86_64 / Linux"
+    },
+    "models10_xgboost_auroc_sd": {
+      "value": 0.0019552781774832854,
+      "source": "results/17 -> summary.XGBoost.auroc_std",
+      "platform": "x86_64 / Linux"
+    },
+    "models10_xgboost_precision_mean": {
+      "value": 0.7181440521051916,
+      "source": "results/17 -> summary.XGBoost.precision_mean",
+      "platform": "x86_64 / Linux"
+    },
+    "models10_xgboost_precision_sd": {
+      "value": 0.011979060494291927,
+      "source": "results/17 -> summary.XGBoost.precision_std",
+      "platform": "x86_64 / Linux"
+    },
+    "models10_xgboost_recall_mean": {
+      "value": 0.6958630788943804,
+      "source": "results/17 -> summary.XGBoost.recall_mean",
+      "platform": "x86_64 / Linux"
+    },
+    "models10_xgboost_recall_sd": {
+      "value": 0.019348159638626822,
+      "source": "results/17 -> summary.XGBoost.recall_std",
+      "platform": "x86_64 / Linux"
+    },
+    "models10_random_forest_f1_mean": {
+      "value": 0.7022008845509194,
+      "source": "results/17 -> summary.Random Forest.f1_mean",
+      "platform": "x86_64 / Linux"
+    },
+    "models10_random_forest_f1_sd": {
+      "value": 0.005578580376245376,
+      "source": "results/17 -> summary.Random Forest.f1_std",
+      "platform": "x86_64 / Linux"
+    },
+    "models10_random_forest_ap_mean": {
+      "value": 0.753537186668515,
+      "source": "results/17 -> summary.Random Forest.ap_mean",
+      "platform": "x86_64 / Linux"
+    },
+    "models10_random_forest_ap_sd": {
+      "value": 0.007314804005775443,
+      "source": "results/17 -> summary.Random Forest.ap_std",
+      "platform": "x86_64 / Linux"
+    },
+    "models10_random_forest_auroc_mean": {
+      "value": 0.9685184079103948,
+      "source": "results/17 -> summary.Random Forest.auroc_mean",
+      "platform": "x86_64 / Linux"
+    },
+    "models10_random_forest_auroc_sd": {
+      "value": 0.001496739384010066,
+      "source": "results/17 -> summary.Random Forest.auroc_std",
+      "platform": "x86_64 / Linux"
+    },
+    "models10_random_forest_precision_mean": {
+      "value": 0.7224467043877171,
+      "source": "results/17 -> summary.Random Forest.precision_mean",
+      "platform": "x86_64 / Linux"
+    },
+    "models10_random_forest_precision_sd": {
+      "value": 0.018614348395117535,
+      "source": "results/17 -> summary.Random Forest.precision_std",
+      "platform": "x86_64 / Linux"
+    },
+    "models10_random_forest_recall_mean": {
+      "value": 0.6839465495149185,
+      "source": "results/17 -> summary.Random Forest.recall_mean",
+      "platform": "x86_64 / Linux"
+    },
+    "models10_random_forest_recall_sd": {
+      "value": 0.02077757729568731,
+      "source": "results/17 -> summary.Random Forest.recall_std",
+      "platform": "x86_64 / Linux"
+    },
+    "models10_logistic_regression_f1_mean": {
+      "value": 0.23360477890269982,
+      "source": "results/17 -> summary.Logistic regression.f1_mean",
+      "platform": "x86_64 / Linux"
+    },
+    "models10_logistic_regression_f1_sd": {
+      "value": 0.004083399818392749,
+      "source": "results/17 -> summary.Logistic regression.f1_std",
+      "platform": "x86_64 / Linux"
+    },
+    "models10_logistic_regression_ap_mean": {
+      "value": 0.16048614810623274,
+      "source": "results/17 -> summary.Logistic regression.ap_mean",
+      "platform": "x86_64 / Linux"
+    },
+    "models10_logistic_regression_ap_sd": {
+      "value": 0.00881513195344471,
+      "source": "results/17 -> summary.Logistic regression.ap_std",
+      "platform": "x86_64 / Linux"
+    },
+    "models10_logistic_regression_auroc_mean": {
+      "value": 0.8322727759775056,
+      "source": "results/17 -> summary.Logistic regression.auroc_mean",
+      "platform": "x86_64 / Linux"
+    },
+    "models10_logistic_regression_auroc_sd": {
+      "value": 0.0030017606304122268,
+      "source": "results/17 -> summary.Logistic regression.auroc_std",
+      "platform": "x86_64 / Linux"
+    },
+    "models10_logistic_regression_precision_mean": {
+      "value": 0.14634638042779907,
+      "source": "results/17 -> summary.Logistic regression.precision_mean",
+      "platform": "x86_64 / Linux"
+    },
+    "models10_logistic_regression_precision_sd": {
+      "value": 0.003671858529140237,
+      "source": "results/17 -> summary.Logistic regression.precision_std",
+      "platform": "x86_64 / Linux"
+    },
+    "models10_logistic_regression_recall_mean": {
+      "value": 0.5815302947098664,
+      "source": "results/17 -> summary.Logistic regression.recall_mean",
+      "platform": "x86_64 / Linux"
+    },
+    "models10_logistic_regression_recall_sd": {
+      "value": 0.038826509681205344,
+      "source": "results/17 -> summary.Logistic regression.recall_std",
+      "platform": "x86_64 / Linux"
+    },
+    "models10_ensemble_f1_mean": {
+      "value": 0.71275207830014,
+      "source": "results/17 -> summary.Ensemble.f1_mean",
+      "platform": "x86_64 / Linux"
+    },
+    "models10_ensemble_f1_sd": {
+      "value": 0.008233106371581728,
+      "source": "results/17 -> summary.Ensemble.f1_std",
+      "platform": "x86_64 / Linux"
+    },
+    "models10_ensemble_ap_mean": {
+      "value": 0.7609846926909203,
+      "source": "results/17 -> summary.Ensemble.ap_mean",
+      "platform": "x86_64 / Linux"
+    },
+    "models10_ensemble_ap_sd": {
+      "value": 0.006999214666189865,
+      "source": "results/17 -> summary.Ensemble.ap_std",
+      "platform": "x86_64 / Linux"
+    },
+    "models10_ensemble_auroc_mean": {
+      "value": 0.9679528109725662,
+      "source": "results/17 -> summary.Ensemble.auroc_mean",
+      "platform": "x86_64 / Linux"
+    },
+    "models10_ensemble_auroc_sd": {
+      "value": 0.001813360650458822,
+      "source": "results/17 -> summary.Ensemble.auroc_std",
+      "platform": "x86_64 / Linux"
+    },
+    "models10_ensemble_precision_mean": {
+      "value": 0.7257669550450507,
+      "source": "results/17 -> summary.Ensemble.precision_mean",
+      "platform": "x86_64 / Linux"
+    },
+    "models10_ensemble_precision_sd": {
+      "value": 0.021559644136706337,
+      "source": "results/17 -> summary.Ensemble.precision_std",
+      "platform": "x86_64 / Linux"
+    },
+    "models10_ensemble_recall_mean": {
+      "value": 0.7014643968515468,
+      "source": "results/17 -> summary.Ensemble.recall_mean",
+      "platform": "x86_64 / Linux"
+    },
+    "models10_ensemble_recall_sd": {
+      "value": 0.026418038995612774,
+      "source": "results/17 -> summary.Ensemble.recall_std",
+      "platform": "x86_64 / Linux"
+    }
+  },
+  "missing": [],
+  "per_category_note": "The seed-42 per-category values in an earlier draft (IxI F1 0.534, IxE F1 0.265) are more favorable than these 10-split means."
+}

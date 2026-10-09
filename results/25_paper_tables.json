@@ -1,0 +1,335 @@
+{
+  "notebook": "25_paper_tables",
+  "code_commit": "2bfbee1",
+  "leakage": null,
+  "models": [],
+  "tables": {
+    "rev_data_labels": {
+      "file": "tables/rev_data_labels.tex",
+      "sources": [
+        {
+          "results": "results/00_data_pipeline.json",
+          "code_commit": "0d9eacc",
+          "platform": "not recorded (machine of the committed 00-12 results)"
+        },
+        {
+          "results": "results/16_label_robustness_initial_list.json",
+          "code_commit": "3a0e8ee",
+          "platform": "x86_64 / Linux"
+        },
+        {
+          "file": "./data/20240915_final_sybil_list/fcfs_list.csv"
+        }
+      ],
+      "platform_note": "mixes platforms: 00_data_pipeline: not recorded (machine of the committed 00-12 results); 16_label_robustness_initial_list: x86_64 / Linux"
+    },
+    "rev_taxonomy": {
+      "file": "tables/rev_taxonomy.tex",
+      "sources": [
+        {
+          "results": "results/00_data_pipeline.json",
+          "code_commit": "0d9eacc",
+          "platform": "not recorded (machine of the committed 00-12 results)"
+        }
+      ],
+      "platform_note": null
+    },
+    "rev_levels": {
+      "file": "tables/rev_levels.tex",
+      "sources": [
+        {
+          "results": "results/15_split_tree_report.json",
+          "code_commit": "1e6aa04",
+          "platform": "x86_64 / Linux"
+        },
+        {
+          "results": "results/22_report_dependence.json",
+          "code_commit": "1588c7c",
+          "platform": "x86_64 / Linux"
+        }
+      ],
+      "platform_note": null
+    },
+    "rev_per_category": {
+      "file": "tables/rev_per_category.tex",
+      "sources": [
+        {
+          "results": "results/17_models_10_splits.json",
+          "code_commit": "17dd144",
+          "platform": "x86_64 / Linux"
+        }
+      ],
+      "platform_note": null
+    },
+    "rev_family_ablation": {
+      "file": "tables/rev_family_ablation.tex",
+      "sources": [
+        {
+          "results": "results/08_ablation_families.json",
+          "code_commit": "0d9eacc",
+          "platform": "not recorded (machine of the committed 00-12 results)"
+        }
+      ],
+      "platform_note": null
+    },
+    "rev_provision_ablation_by_category": {
+      "file": "tables/rev_provision_ablation_by_category.tex",
+      "sources": [
+        {
+          "results": "results/19_ablation_by_category.json",
+          "code_commit": "cdb7aed",
+          "platform": "x86_64 / Linux"
+        }
+      ],
+      "platform_note": null
+    },
+    "rev_entity_level": {
+      "file": "tables/rev_entity_level.tex",
+      "sources": [
+        {
+          "results": "results/14_entity_level_recall.json",
+          "code_commit": "9c634b7",
+          "platform": "x86_64 / Linux"
+        }
+      ],
+      "platform_note": null
+    },
+    "rev_temporal_holdout": {
+      "file": "tables/rev_temporal_holdout.tex",
+      "sources": [
+        {
+          "results": "results/20_temporal_holdout.json",
+          "code_commit": "cb1243e",
+          "platform": "x86_64 / Linux"
+        }
+      ],
+      "platform_note": null
+    },
+    "rev_union_split_appendix": {
+      "file": "tables/rev_union_split_appendix.tex",
+      "sources": [
+        {
+          "results": "results/15_split_tree_report.json",
+          "code_commit": "1e6aa04",
+          "platform": "x86_64 / Linux"
+        }
+      ],
+      "platform_note": null
+    },
+    "rev_search_top": {
+      "file": "tables/rev_search_top.tex",
+      "sources": [
+        {
+          "results": "results/02_hyperparameter_search.json",
+          "code_commit": "0d9eacc",
+          "platform": "not recorded (machine of the committed 00-12 results)"
+        },
+        {
+          "results": "results/13_random_forest_sybil.json",
+          "code_commit": "412db11",
+          "platform": "x86_64 / Linux"
+        },
+        {
+          "file": "results/02_search_xgboost.csv"
+        },
+        {
+          "file": "results/02_search_lightgbm.csv"
+        },
+        {
+          "file": "results/13_search_random_forest.csv"
+        }
+      ],
+      "platform_note": "mixes platforms: 02_hyperparameter_search: not recorded (machine of the committed 00-12 results); 13_random_forest_sybil: x86_64 / Linux"
+    },
+    "rev_text_numbers": {
+      "file": "tables/rev_text_numbers.json",
+      "sources": "per name, inside the file",
+      "platform_note": null
+    }
+  },
+  "sources": {
+    "rev_data_labels": [
+      {
+        "results": "results/00_data_pipeline.json",
+        "code_commit": "0d9eacc",
+        "platform": "not recorded (machine of the committed 00-12 results)"
+      },
+      {
+        "results": "results/16_label_robustness_initial_list.json",
+        "code_commit": "3a0e8ee",
+        "platform": "x86_64 / Linux"
+      },
+      {
+        "file": "./data/20240915_final_sybil_list/fcfs_list.csv"
+      }
+    ],
+    "rev_taxonomy": [
+      {
+        "results": "results/00_data_pipeline.json",
+        "code_commit": "0d9eacc",
+        "platform": "not recorded (machine of the committed 00-12 results)"
+      }
+    ],
+    "rev_levels": [
+      {
+        "results": "results/15_split_tree_report.json",
+        "code_commit": "1e6aa04",
+        "platform": "x86_64 / Linux"
+      },
+      {
+        "results": "results/22_report_dependence.json",
+        "code_commit": "1588c7c",
+        "platform": "x86_64 / Linux"
+      }
+    ],
+    "rev_per_category": [
+      {
+        "results": "results/17_models_10_splits.json",
+        "code_commit": "17dd144",
+        "platform": "x86_64 / Linux"
+      }
+    ],
+    "rev_family_ablation": [
+      {
+        "results": "results/08_ablation_families.json",
+        "code_commit": "0d9eacc",
+        "platform": "not recorded (machine of the committed 00-12 results)"
+      }
+    ],
+    "rev_provision_ablation_by_category": [
+      {
+        "results": "results/19_ablation_by_category.json",
+        "code_commit": "cdb7aed",
+        "platform": "x86_64 / Linux"
+      }
+    ],
+    "rev_entity_level": [
+      {
+        "results": "results/14_entity_level_recall.json",
+        "code_commit": "9c634b7",
+        "platform": "x86_64 / Linux"
+      }
+    ],
+    "rev_temporal_holdout": [
+      {
+        "results": "results/20_temporal_holdout.json",
+        "code_commit": "cb1243e",
+        "platform": "x86_64 / Linux"
+      }
+    ],
+    "rev_union_split_appendix": [
+      {
+        "results": "results/15_split_tree_report.json",
+        "code_commit": "1e6aa04",
+        "platform": "x86_64 / Linux"
+      }
+    ],
+    "rev_search_top": [
+      {
+        "results": "results/02_hyperparameter_search.json",
+        "code_commit": "0d9eacc",
+        "platform": "not recorded (machine of the committed 00-12 results)"
+      },
+      {
+        "results": "results/13_random_forest_sybil.json",
+        "code_commit": "412db11",
+        "platform": "x86_64 / Linux"
+      },
+      {
+        "file": "results/02_search_xgboost.csv"
+      },
+      {
+        "file": "results/02_search_lightgbm.csv"
+      },
+      {
+        "file": "results/13_search_random_forest.csv"
+      }
+    ],
+    "rev_text_numbers": "per name, inside the file"
+  },
+  "platforms": {
+    "00_data_pipeline": "not recorded (machine of the committed 00-12 results)",
+    "02_hyperparameter_search": "not recorded (machine of the committed 00-12 results)",
+    "07_sensitivity_label_vintage": "not recorded (machine of the committed 00-12 results)",
+    "08_ablation_families": "not recorded (machine of the committed 00-12 results)",
+    "11_split_comparison": "not recorded (machine of the committed 00-12 results)",
+    "13_random_forest_sybil": "x86_64 / Linux",
+    "14_entity_level_recall": "x86_64 / Linux",
+    "15_split_tree_report": "x86_64 / Linux",
+    "16_label_robustness_initial_list": "x86_64 / Linux",
+    "17_models_10_splits": "x86_64 / Linux",
+    "19_ablation_by_category": "x86_64 / Linux",
+    "20_temporal_holdout": "x86_64 / Linux",
+    "22_report_dependence": "x86_64 / Linux",
+    "03_xgboost_sybil": "not recorded (machine of the committed 00-12 results)",
+    "04_lightgbm_sybil": "not recorded (machine of the committed 00-12 results)",
+    "06_cross_ensemble_sybil": "not recorded (machine of the committed 00-12 results)"
+  },
+  "compile_check": "pdflatex: all tables compile",
+  "bounty_stats": {
+    "computed": {
+      "list_rows": 151784,
+      "reports": 311,
+      "reporters": 145,
+      "top10_reports_share": 0.3561583658228543,
+      "top10_reporters_share": 0.4460490912086102,
+      "first_flagged": "2024-05-18",
+      "last_flagged": "2024-05-30"
+    },
+    "expected": {
+      "reports": 311,
+      "reporters": 145,
+      "top10_reports_share": 0.36,
+      "top10_reporters_share": 0.45
+    }
+  },
+  "large_trees": {
+    "n_trees": 34,
+    "wallets": 9020,
+    "sybils": 97,
+    "wallet_share": 0.020745838182462176,
+    "sybil_share": 0.005326451046071056
+  },
+  "search": {
+    "XGBoost": {
+      "configs": 74,
+      "selected_rank": 1,
+      "default_rank": 60
+    },
+    "LightGBM": {
+      "configs": 48,
+      "selected_rank": 1,
+      "default_rank": 48
+    },
+    "Random Forest": {
+      "configs": 24,
+      "selected_rank": 1,
+      "default_rank": null
+    }
+  },
+  "fields_used_temporal": [
+    "temporal_f1",
+    "temporal_recall",
+    "temporal_ap",
+    "temporal_auroc",
+    "reference_f1",
+    "reference_recall",
+    "reference_ap",
+    "reference_auroc",
+    "cohorts.cutoff_utc",
+    "cohorts.early_sybil_rate",
+    "cohorts.late_sybil_rate"
+  ],
+  "per_category_note": "The seed-42 per-category values in an earlier draft (IxI F1 0.534, IxE F1 0.265) are more favorable than these 10-split means.",
+  "results14_flag": true,
+  "results14_platform": "x86_64 / Linux",
+  "text_numbers_missing": [],
+  "platform": {
+    "machine": "x86_64",
+    "processor": "x86_64",
+    "system": "Linux",
+    "python": "3.11.15",
+    "cpu_count": 4,
+    "n_jobs": 4
+  }
+}

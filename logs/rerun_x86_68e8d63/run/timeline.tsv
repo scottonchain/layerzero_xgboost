@@ -1,0 +1,47 @@
+2026-10-08T22:32:47Z	START	03_xgboost_sybil	412db11
+2026-10-08T22:37:05Z	END	03_xgboost_sybil	412db11	rc=0	seconds=258
+2026-10-08T22:37:05Z	START	04_lightgbm_sybil	412db11
+2026-10-08T22:40:37Z	END	04_lightgbm_sybil	412db11	rc=0	seconds=212
+2026-10-08T22:40:37Z	START	06_cross_ensemble_sybil	412db11
+2026-10-08T22:40:44Z	END	06_cross_ensemble_sybil	412db11	rc=0	seconds=7
+2026-10-08T22:40:44Z	PASS	compare_regen
+2026-10-08T22:40:44Z	ABSENT	21
+2026-10-08T22:40:44Z	START	13_random_forest_sybil	412db11
+2026-10-09T00:00:27Z	RESTART	container restarted during 13 (21 of 24 search rows written, no result); runner stopped
+2026-10-09T00:13:49Z	HOSTCHECK	PASS after restart: env identical; 03/04/06 results identical, predictions byte-identical; RF config 1 reproduces its pre-restart validation scores; resuming 13 from its 21 search rows
+2026-10-09T00:13:49Z	ABSENT	21
+2026-10-09T00:13:49Z	START	13_random_forest_sybil	412db11
+2026-10-09T01:29:06Z	END	13_random_forest_sybil	412db11	rc=0	seconds=4517
+2026-10-09T01:29:09Z	START	14_entity_level_recall	9c634b7
+2026-10-09T01:29:58Z	END	14_entity_level_recall	9c634b7	rc=0	seconds=49
+2026-10-09T01:30:01Z	START	15_split_tree_report	1e6aa04
+2026-10-09T01:47:27Z	END	15_split_tree_report	1e6aa04	rc=0	seconds=1046
+2026-10-09T01:47:29Z	START	16_label_robustness_initial_list	3a0e8ee
+2026-10-09T02:00:54Z	RESTART	container restarted during 16 (no result written); runner stopped
+2026-10-09T02:06:53Z	HOSTCHECK	PASS after restart 2: env identical; 03 results identical, predictions byte-identical; resuming at 16
+2026-10-09T02:07:09Z	ABSENT	21
+2026-10-09T02:07:10Z	START	16_label_robustness_initial_list	3a0e8ee
+2026-10-09T02:34:44Z	END	16_label_robustness_initial_list	3a0e8ee	rc=0	seconds=1655
+2026-10-09T02:34:47Z	START	17_models_10_splits	17dd144
+2026-10-09T03:57:13Z	END	17_models_10_splits	17dd144	rc=0	seconds=4946
+2026-10-09T03:57:16Z	START	18_mimicry_stress	daa8986
+2026-10-09T04:04:12Z	END	18_mimicry_stress	daa8986	rc=0	seconds=416
+2026-10-09T04:04:15Z	START	19_ablation_by_category	cdb7aed
+2026-10-09T04:49:17Z	END	19_ablation_by_category	cdb7aed	rc=0	seconds=2702
+2026-10-09T04:49:20Z	START	20_temporal_holdout	cb1243e
+2026-10-09T05:01:30Z	END	20_temporal_holdout	cb1243e	rc=0	seconds=731
+2026-10-09T05:01:32Z	START	22_report_dependence	1588c7c
+2026-10-09T06:00:29Z	RESTART	container restarted during 22 (no result written); runner stopped
+2026-10-09T06:01:07Z	HOSTCHECK	PASS after restart 3: env identical True (numeric check deferred to comparison of 22-99 with PR #8 and a 03 rerun at the end); resuming at 22
+2026-10-09T06:01:10Z	ABSENT	21
+2026-10-09T06:01:15Z	START	22_report_dependence	1588c7c
+2026-10-09T07:45:31Z	END	22_report_dependence	1588c7c	rc=0	seconds=6261
+2026-10-09T07:45:36Z	START	23_revision_figures	bb458c6
+2026-10-09T07:45:55Z	END	23_revision_figures	bb458c6	rc=0	seconds=19
+2026-10-09T07:45:59Z	START	24_mimicry_controls	37bdba6
+2026-10-09T08:14:32Z	END	24_mimicry_controls	37bdba6	rc=0	seconds=1713
+2026-10-09T08:14:35Z	START	25_paper_tables	2bfbee1
+2026-10-09T08:15:51Z	END	25_paper_tables	2bfbee1	rc=0	seconds=76
+2026-10-09T08:15:54Z	START	99_tie_out_revision	8eed3f4
+2026-10-09T08:16:01Z	END	99_tie_out_revision	8eed3f4	rc=0	seconds=7
+2026-10-09T08:16:04Z	DONE	main

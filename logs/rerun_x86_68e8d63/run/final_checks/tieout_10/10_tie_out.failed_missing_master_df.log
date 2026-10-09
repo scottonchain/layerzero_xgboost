@@ -1,0 +1,135 @@
+[NbConvertApp] Converting notebook 10_tie_out.ipynb to notebook
+[IPKernelApp] WARNING | Kernel is running over TCP without encryption. All communication (including code and outputs) is sent in plain text and is susceptible to eavesdropping. Use IPC transport or launch with kernel manager-provisioned CurveZMQ keys to enable transport encryption.
+Traceback (most recent call last):
+  File "/home/user/paven86/venv311/bin/jupyter-nbconvert", line 10, in <module>
+    sys.exit(main())
+             ^^^^^^
+  File "/home/user/paven86/venv311/lib/python3.11/site-packages/jupyter_core/application.py", line 284, in launch_instance
+    super().launch_instance(argv=argv, **kwargs)
+  File "/home/user/paven86/venv311/lib/python3.11/site-packages/traitlets/config/application.py", line 1080, in launch_instance
+    app.start()
+  File "/home/user/paven86/venv311/lib/python3.11/site-packages/nbconvert/nbconvertapp.py", line 420, in start
+    self.convert_notebooks()
+  File "/home/user/paven86/venv311/lib/python3.11/site-packages/nbconvert/nbconvertapp.py", line 597, in convert_notebooks
+    self.convert_single_notebook(notebook_filename)
+  File "/home/user/paven86/venv311/lib/python3.11/site-packages/nbconvert/nbconvertapp.py", line 563, in convert_single_notebook
+    output, resources = self.export_single_notebook(
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/user/paven86/venv311/lib/python3.11/site-packages/nbconvert/nbconvertapp.py", line 487, in export_single_notebook
+    output, resources = self.exporter.from_filename(
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/user/paven86/venv311/lib/python3.11/site-packages/nbconvert/exporters/exporter.py", line 201, in from_filename
+    return self.from_file(f, resources=resources, **kw)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/user/paven86/venv311/lib/python3.11/site-packages/nbconvert/exporters/exporter.py", line 220, in from_file
+    return self.from_notebook_node(
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/user/paven86/venv311/lib/python3.11/site-packages/nbconvert/exporters/notebook.py", line 36, in from_notebook_node
+    nb_copy, resources = super().from_notebook_node(nb, resources, **kw)
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/user/paven86/venv311/lib/python3.11/site-packages/nbconvert/exporters/exporter.py", line 154, in from_notebook_node
+    nb_copy, resources = self._preprocess(nb_copy, resources)
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/user/paven86/venv311/lib/python3.11/site-packages/nbconvert/exporters/exporter.py", line 353, in _preprocess
+    nbc, resc = preprocessor(nbc, resc)
+                ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/user/paven86/venv311/lib/python3.11/site-packages/nbconvert/preprocessors/base.py", line 48, in __call__
+    return self.preprocess(nb, resources)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/user/paven86/venv311/lib/python3.11/site-packages/nbconvert/preprocessors/execute.py", line 103, in preprocess
+    self.preprocess_cell(cell, resources, index)
+  File "/home/user/paven86/venv311/lib/python3.11/site-packages/nbconvert/preprocessors/execute.py", line 124, in preprocess_cell
+    cell = self.execute_cell(cell, index, store_history=True)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/user/paven86/venv311/lib/python3.11/site-packages/jupyter_core/utils/__init__.py", line 165, in wrapped
+    return loop.run_until_complete(inner)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/.local/share/uv/python/cpython-3.11.15-linux-x86_64-gnu/lib/python3.11/asyncio/base_events.py", line 654, in run_until_complete
+    return future.result()
+           ^^^^^^^^^^^^^^^
+  File "/home/user/paven86/venv311/lib/python3.11/site-packages/nbclient/client.py", line 1062, in async_execute_cell
+    await self._check_raise_for_error(cell, cell_index, exec_reply)
+  File "/home/user/paven86/venv311/lib/python3.11/site-packages/nbclient/client.py", line 918, in _check_raise_for_error
+    raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
+nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
+------------------
+M = pd.read_parquet('output/master_df.parquet', columns=['sybil', 'category', 'chain_length'])
+M['class'] = M['sybil'].map({1: 'Sybil', 0: 'Non-Sybil'})
+by_cat = M.groupby(['class', 'category'])['chain_length'].agg(n='size', avg_chain_length='mean')
+by_cat['pct_of_class'] = 100 * by_cat['n'] / by_cat.groupby(level='class')['n'].transform('sum')
+total = M.groupby('class')['chain_length'].agg(n='size', avg_chain_length='mean').assign(pct_of_class=100.0)
+total.index = pd.MultiIndex.from_tuples([(c, 'Total') for c in total.index], names=['class', 'category'])
+chain = pd.concat([by_cat, total]).loc[['Sybil', 'Non-Sybil']]
+print(chain.round({'avg_chain_length': 3, 'pct_of_class': 2}).to_string())
+------------------
+
+
+[31m---------------------------------------------------------------------------[39m
+[31mFileNotFoundError[39m                         Traceback (most recent call last)
+[36mCell[39m[36m [39m[32mIn[8][39m[32m, line 1[39m
+[32m----> [39m[32m1[39m M = pd.read_parquet([33m'output/master_df.parquet'[39m, columns=[[33m'sybil'[39m, [33m'category'[39m, [33m'chain_length'[39m])
+[32m      2[39m M[[33m'class'[39m] = M[[33m'sybil'[39m].map({[32m1[39m: [33m'Sybil'[39m, [32m0[39m: [33m'Non-Sybil'[39m})
+[32m      3[39m by_cat = M.groupby([[33m'class'[39m, [33m'category'[39m])[[33m'chain_length'[39m].agg(n=[33m'size'[39m, avg_chain_length=[33m'mean'[39m)
+[32m      4[39m by_cat[[33m'pct_of_class'[39m] = [32m100[39m * by_cat[[33m'n'[39m] / by_cat.groupby(level=[33m'class'[39m)[[33m'n'[39m].transform([33m'sum'[39m)
+
+[36mFile [39m[32m/home/user/paven86/venv311/lib/python3.11/site-packages/pandas/io/parquet.py:671[39m, in [36mread_parquet[39m[34m(path, engine, columns, storage_options, dtype_backend, filesystem, filters, to_pandas_kwargs, **kwargs)[39m
+[32m    668[39m impl = get_engine(engine)
+[32m    669[39m check_dtype_backend(dtype_backend)
+[32m--> [39m[32m671[39m [38;5;28;01mreturn[39;00m [30;43mimpl[39;49m[30;43m.[39;49m[30;43mread[39;49m[30;43m([39;49m
+[32m    672[39m [30;43m    [39;49m[30;43mpath[39;49m[30;43m,[39;49m
+[32m    673[39m [30;43m    [39;49m[30;43mcolumns[39;49m[30;43m=[39;49m[30;43mcolumns[39;49m[30;43m,[39;49m
+[32m    674[39m [30;43m    [39;49m[30;43mfilters[39;49m[30;43m=[39;49m[30;43mfilters[39;49m[30;43m,[39;49m
+[32m    675[39m [30;43m    [39;49m[30;43mstorage_options[39;49m[30;43m=[39;49m[30;43mstorage_options[39;49m[30;43m,[39;49m
+[32m    676[39m [30;43m    [39;49m[30;43mdtype_backend[39;49m[30;43m=[39;49m[30;43mdtype_backend[39;49m[30;43m,[39;49m
+[32m    677[39m [30;43m    [39;49m[30;43mfilesystem[39;49m[30;43m=[39;49m[30;43mfilesystem[39;49m[30;43m,[39;49m
+[32m    678[39m [30;43m    [39;49m[30;43mto_pandas_kwargs[39;49m[30;43m=[39;49m[30;43mto_pandas_kwargs[39;49m[30;43m,[39;49m
+[32m    679[39m [30;43m    [39;49m[30;43m*[39;49m[30;43m*[39;49m[30;43mkwargs[39;49m[30;43m,[39;49m
+[32m    680[39m [30;43m[39;49m[30;43m)[39;49m
+
+[36mFile [39m[32m/home/user/paven86/venv311/lib/python3.11/site-packages/pandas/io/parquet.py:253[39m, in [36mPyArrowImpl.read[39m[34m(self, path, columns, filters, dtype_backend, storage_options, filesystem, to_pandas_kwargs, **kwargs)[39m
+[32m    240[39m [38;5;28;01mdef[39;00m[38;5;250m [39m[34mread[39m(
+[32m    241[39m     [38;5;28mself[39m,
+[32m    242[39m     path,
+[32m   (...)[39m[32m    249[39m     **kwargs,
+[32m    250[39m ) -> DataFrame:
+[32m    251[39m     kwargs[[33m"[39m[33muse_pandas_metadata[39m[33m"[39m] = [38;5;28;01mTrue[39;00m
+[32m--> [39m[32m253[39m     path_or_handle, handles, filesystem = [30;43m_get_path_or_handle[39;49m[30;43m([39;49m
+[32m    254[39m [30;43m        [39;49m[30;43mpath[39;49m[30;43m,[39;49m
+[32m    255[39m [30;43m        [39;49m[30;43mfilesystem[39;49m[30;43m,[39;49m
+[32m    256[39m [30;43m        [39;49m[30;43mstorage_options[39;49m[30;43m=[39;49m[30;43mstorage_options[39;49m[30;43m,[39;49m
+[32m    257[39m [30;43m        [39;49m[30;43mmode[39;49m[30;43m=[39;49m[30;43m"[39;49m[30;43mrb[39;49m[30;43m"[39;49m[30;43m,[39;49m
+[32m    258[39m [30;43m    [39;49m[30;43m)[39;49m
+[32m    259[39m     [38;5;28;01mtry[39;00m:
+[32m    260[39m         pa_table = [38;5;28mself[39m.api.parquet.read_table(
+[32m    261[39m             path_or_handle,
+[32m    262[39m             columns=columns,
+[32m   (...)[39m[32m    265[39m             **kwargs,
+[32m    266[39m         )
+
+[36mFile [39m[32m/home/user/paven86/venv311/lib/python3.11/site-packages/pandas/io/parquet.py:141[39m, in [36m_get_path_or_handle[39m[34m(path, fs, storage_options, mode, is_dir)[39m
+[32m    131[39m handles = [38;5;28;01mNone[39;00m
+[32m    132[39m [38;5;28;01mif[39;00m (
+[32m    133[39m     [38;5;129;01mnot[39;00m fs
+[32m    134[39m     [38;5;129;01mand[39;00m [38;5;129;01mnot[39;00m is_dir
+[32m   (...)[39m[32m    139[39m     [38;5;66;03m# fsspec resources can also point to directories[39;00m
+[32m    140[39m     [38;5;66;03m# this branch is used for example when reading from non-fsspec URLs[39;00m
+[32m--> [39m[32m141[39m     handles = [30;43mget_handle[39;49m[30;43m([39;49m
+[32m    142[39m [30;43m        [39;49m[30;43mpath_or_handle[39;49m[30;43m,[39;49m[30;43m [39;49m[30;43mmode[39;49m[30;43m,[39;49m[30;43m [39;49m[30;43mis_text[39;49m[30;43m=[39;49m[30;43;01mFalse[39;49;00m[30;43m,[39;49m[30;43m [39;49m[30;43mstorage_options[39;49m[30;43m=[39;49m[30;43mstorage_options[39;49m
+[32m    143[39m [30;43m    [39;49m[30;43m)[39;49m
+[32m    144[39m     fs = [38;5;28;01mNone[39;00m
+[32m    145[39m     path_or_handle = handles.handle
+
+[36mFile [39m[32m/home/user/paven86/venv311/lib/python3.11/site-packages/pandas/io/common.py:939[39m, in [36mget_handle[39m[34m(path_or_buf, mode, encoding, compression, memory_map, is_text, errors, storage_options)[39m
+[32m    930[39m         handle = [38;5;28mopen[39m(
+[32m    931[39m             handle,
+[32m    932[39m             ioargs.mode,
+[32m   (...)[39m[32m    935[39m             newline=[33m"[39m[33m"[39m,
+[32m    936[39m         )
+[32m    937[39m     [38;5;28;01melse[39;00m:
+[32m    938[39m         [38;5;66;03m# Binary mode[39;00m
+[32m--> [39m[32m939[39m         handle = [38;5;28mopen[39m(handle, ioargs.mode)
+[32m    940[39m     handles.append(handle)
+[32m    942[39m [38;5;66;03m# Convert BytesIO or file objects passed with an encoding[39;00m
+
+[31mFileNotFoundError[39m: [Errno 2] No such file or directory: 'output/master_df.parquet'
+

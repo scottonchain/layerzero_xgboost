@@ -1,0 +1,79 @@
+## runtimes (timeline.tsv)
+   2026-10-08T22:37:05Z | END | 03_xgboost_sybil | 412db11 | rc=0 | seconds=258
+   2026-10-08T22:40:37Z | END | 04_lightgbm_sybil | 412db11 | rc=0 | seconds=212
+   2026-10-08T22:40:44Z | END | 06_cross_ensemble_sybil | 412db11 | rc=0 | seconds=7
+   2026-10-08T22:40:44Z | PASS | compare_regen
+   2026-10-08T22:40:44Z | ABSENT | 21
+   2026-10-09T00:00:27Z | RESTART | container restarted during 13 (21 of 24 search rows written, no result); runner stopped
+   2026-10-09T00:13:49Z | HOSTCHECK | PASS after restart: env identical; 03/04/06 results identical, predictions byte-identical; RF config 1 reproduces its pre-restart validation scores; resuming 13 from its 21 search rows
+   2026-10-09T00:13:49Z | ABSENT | 21
+   2026-10-09T01:29:06Z | END | 13_random_forest_sybil | 412db11 | rc=0 | seconds=4517
+   2026-10-09T01:29:58Z | END | 14_entity_level_recall | 9c634b7 | rc=0 | seconds=49
+   2026-10-09T01:47:27Z | END | 15_split_tree_report | 1e6aa04 | rc=0 | seconds=1046
+   2026-10-09T02:00:54Z | RESTART | container restarted during 16 (no result written); runner stopped
+   2026-10-09T02:06:53Z | HOSTCHECK | PASS after restart 2: env identical; 03 results identical, predictions byte-identical; resuming at 16
+   2026-10-09T02:07:09Z | ABSENT | 21
+   2026-10-09T02:34:44Z | END | 16_label_robustness_initial_list | 3a0e8ee | rc=0 | seconds=1655
+   2026-10-09T03:57:13Z | END | 17_models_10_splits | 17dd144 | rc=0 | seconds=4946
+   2026-10-09T04:04:12Z | END | 18_mimicry_stress | daa8986 | rc=0 | seconds=416
+   2026-10-09T04:49:17Z | END | 19_ablation_by_category | cdb7aed | rc=0 | seconds=2702
+   2026-10-09T05:01:30Z | END | 20_temporal_holdout | cb1243e | rc=0 | seconds=731
+   2026-10-09T06:00:29Z | RESTART | container restarted during 22 (no result written); runner stopped
+   2026-10-09T06:01:07Z | HOSTCHECK | PASS after restart 3: env identical True (numeric check deferred to comparison of 22-99 with PR #8 and a 03 rerun at the end); resuming at 22
+   2026-10-09T06:01:10Z | ABSENT | 21
+   2026-10-09T07:45:31Z | END | 22_report_dependence | 1588c7c | rc=0 | seconds=6261
+   2026-10-09T07:45:55Z | END | 23_revision_figures | bb458c6 | rc=0 | seconds=19
+   2026-10-09T08:14:32Z | END | 24_mimicry_controls | 37bdba6 | rc=0 | seconds=1713
+   2026-10-09T08:15:51Z | END | 25_paper_tables | 2bfbee1 | rc=0 | seconds=76
+   2026-10-09T08:16:01Z | END | 99_tie_out_revision | 8eed3f4 | rc=0 | seconds=7
+   2026-10-09T08:16:04Z | DONE | main
+
+## 14 Section 5.5: LightGBM at the validation threshold, bucket all
+   threshold 0.6000858349504762 | predictions_match_committed_results True
+   E1 gas provision tree                  entities                                       now 4907                   68e8d63 4907                   PR#8 4907
+   E1 gas provision tree                  any_hit                                        now 0.755451395964948      68e8d63 0.7646219686162625     PR#8 0.755451395964948
+   E1 gas provision tree                  majority_hit                                   now 0.7550438149582229     68e8d63 0.7642143876095374     PR#8 0.7550438149582229
+   E1 gas provision tree                  full_hit                                       now 0.7532097004279601     68e8d63 0.762176482575912      PR#8 0.7532097004279601
+   E1 gas provision tree                  within_recall_unweighted                       now 0.7544870140162581     68e8d63 0.7635104046373661     PR#8 0.7544870140162581
+   E1 gas provision tree                  within_recall_weighted                         now 0.7111477210323998     68e8d63 0.718652754896577      PR#8 0.7111477210323998
+   E1 gas provision tree                  residual_allocation_share                      now 0.37962621344262376    68e8d63 0.37218821218188336    PR#8 0.37962621344262376
+   E1 gas provision tree                  entities_majority_allocation_unflagged_share   now 0.24556755655186469    68e8d63 0.23639698390055022    PR#8 0.24556755655186469
+   E2 bounty report                       entities                                       now 239                    68e8d63 239                    PR#8 239
+   E2 bounty report                       any_hit                                        now 0.694560669456067      68e8d63 0.702928870292887      PR#8 0.694560669456067
+   E2 bounty report                       majority_hit                                   now 0.5397489539748954     68e8d63 0.5523012552301255     PR#8 0.5397489539748954
+   E2 bounty report                       full_hit                                       now 0.15481171548117154    68e8d63 0.1589958158995816     PR#8 0.15481171548117154
+   E2 bounty report                       within_recall_unweighted                       now 0.5022099719237901     68e8d63 0.5120894254241902     PR#8 0.5022099719237901
+   E2 bounty report                       within_recall_weighted                         now 0.7111477210323998     68e8d63 0.718652754896577      PR#8 0.7111477210323998
+   E2 bounty report                       residual_allocation_share                      now 0.3796262134426237     68e8d63 0.3721882121818833     PR#8 0.3796262134426237
+   E2 bounty report                       entities_majority_allocation_unflagged_share   now 0.5062761506276151     68e8d63 0.4895397489539749     PR#8 0.5062761506276151
+   E2 bounty report (all Sybils in test)  entities                                       now 18                     68e8d63 18                     PR#8 18
+   E2 bounty report (all Sybils in test)  any_hit                                        now 0.05555555555555555    68e8d63 0.05555555555555555    PR#8 0.05555555555555555
+   E2 bounty report (all Sybils in test)  majority_hit                                   now 0.05555555555555555    68e8d63 0.05555555555555555    PR#8 0.05555555555555555
+   E2 bounty report (all Sybils in test)  full_hit                                       now 0.05555555555555555    68e8d63 0.05555555555555555    PR#8 0.05555555555555555
+   E2 bounty report (all Sybils in test)  within_recall_unweighted                       now 0.05555555555555555    68e8d63 0.05555555555555555    PR#8 0.05555555555555555
+   E2 bounty report (all Sybils in test)  within_recall_weighted                         now 0.05                   68e8d63 0.05                   PR#8 0.05
+   E2 bounty report (all Sybils in test)  residual_allocation_share                      now 0.9818265318456822     68e8d63 0.9818265318456822     PR#8 0.9818265318456822
+   E2 bounty report (all Sybils in test)  entities_majority_allocation_unflagged_share   now 0.9444444444444444     68e8d63 0.9444444444444444     PR#8 0.9444444444444444
+   E3 reporter                            entities                                       now 132                    68e8d63 132                    PR#8 132
+   E3 reporter                            any_hit                                        now 0.8636363636363636     68e8d63 0.8712121212121212     PR#8 0.8636363636363636
+   E3 reporter                            majority_hit                                   now 0.6742424242424242     68e8d63 0.6893939393939394     PR#8 0.6742424242424242
+   E3 reporter                            full_hit                                       now 0.11363636363636363    68e8d63 0.12121212121212122    PR#8 0.11363636363636363
+   E3 reporter                            within_recall_unweighted                       now 0.611696357322868      68e8d63 0.6250037575707336     PR#8 0.611696357322868
+   E3 reporter                            within_recall_weighted                         now 0.7111477210323998     68e8d63 0.718652754896577      PR#8 0.7111477210323998
+   E3 reporter                            residual_allocation_share                      now 0.37962621344262376    68e8d63 0.37218821218188325    PR#8 0.37962621344262376
+   E3 reporter                            entities_majority_allocation_unflagged_share   now 0.3939393939393939     68e8d63 0.3787878787878788     PR#8 0.3939393939393939
+
+## 22 central paired comparison (seen - held out)
+   LightGBM f1        held 0.369207 seen 0.598032 diff +0.228825 ± 0.076294 higher 15/15 p 1.85e-05 | 68e8d63: diff +0.231378 ± 0.084325 p 4.66e-05 | PR #8: diff +0.228825 ± 0.076294 p 1.85e-05
+   LightGBM ap        held 0.305047 seen 0.598964 diff +0.293917 ± 0.077481 higher 15/15 p 1.35e-06 | 68e8d63: diff +0.291791 ± 0.074808 p 9.77e-07 | PR #8: diff +0.293917 ± 0.077481 p 1.35e-06
+   LightGBM auroc     held 0.890647 seen 0.969938 diff +0.079290 ± 0.042407 higher 15/15 p 0.00146 | 68e8d63: diff +0.078531 ± 0.041108 p 0.00123 | PR #8: diff +0.079290 ± 0.042407 p 0.00146
+   LightGBM recall    held 0.421123 seen 0.712295 diff +0.291172 ± 0.095913 higher 15/15 p 1.63e-05 | 68e8d63: diff +0.299766 ± 0.110287 p 5.13e-05 | PR #8: diff +0.291172 ± 0.095913 p 1.63e-05
+   LightGBM precision held 0.340406 seen 0.519293 diff +0.178886 ± 0.059305 higher 15/15 p 1.75e-05 | 68e8d63: diff +0.179583 ± 0.080413 p 0.000332 | PR #8: diff +0.178886 ± 0.059305 p 1.75e-05
+   XGBoost  f1        held 0.362983 seen 0.581217 diff +0.218234 ± 0.080859 higher 15/15 p 5.51e-05 | 68e8d63: diff +0.217027 ± 0.080988 p 5.92e-05 | PR #8: diff +0.218234 ± 0.080859 p 5.51e-05
+   XGBoost  ap        held 0.305010 seen 0.595040 diff +0.290030 ± 0.075161 higher 15/15 p 1.11e-06 | 68e8d63: diff +0.291435 ± 0.077670 p 1.54e-06 | PR #8: diff +0.290030 ± 0.075161 p 1.11e-06
+   XGBoost  auroc     held 0.887756 seen 0.967308 diff +0.079551 ± 0.043303 higher 15/15 p 0.00167 | 68e8d63: diff +0.078398 ± 0.042584 p 0.00165 | PR #8: diff +0.079551 ± 0.043303 p 0.00167
+   XGBoost  recall    held 0.413198 seen 0.723279 diff +0.310081 ± 0.082612 higher 15/15 p 1.53e-06 | 68e8d63: diff +0.302827 ± 0.102365 p 2.14e-05 | PR #8: diff +0.310081 ± 0.082612 p 1.53e-06
+   XGBoost  precision held 0.336961 seen 0.492504 diff +0.155543 ± 0.069307 higher 15/15 p 0.000318 | 68e8d63: diff +0.163058 ± 0.066881 p 0.000148 | PR #8: diff +0.155543 ± 0.069307 p 0.000318
+
+## 99
+   all_passed True | passed 83 of 83 | multiple_platforms_cited False

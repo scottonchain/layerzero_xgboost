@@ -1,0 +1,264 @@
+{
+  "notebook": "23_revision_figures",
+  "code_commit": "bb458c6",
+  "leakage": null,
+  "models": [],
+  "figures": {
+    "rev_leakage_hierarchy": {
+      "files": [
+        "figures/rev_leakage_hierarchy.pdf",
+        "figures/rev_leakage_hierarchy.png"
+      ],
+      "sources": [
+        {
+          "results": "results/11_split_comparison.json",
+          "code_commit": "0d9eacc",
+          "platform": "not recorded (machine of the committed 00-12 results)"
+        },
+        {
+          "results": "results/22_report_dependence.json",
+          "code_commit": "1588c7c",
+          "platform": "x86_64 / Linux"
+        }
+      ],
+      "platform_note": "mixes platforms: 11_split_comparison: not recorded (machine of the committed 00-12 results); 22_report_dependence: x86_64 / Linux",
+      "caption_note": "Panel B: test rows are 2.1% Sybil (large components always in training); compare conditions, not absolute values with panel A.",
+      "panel_B": "LightGBM per fold-repeat (15 grey lines), means as filled markers; XGBoost means hollow"
+    },
+    "rev_report_dependence": {
+      "files": [
+        "figures/rev_report_dependence.pdf",
+        "figures/rev_report_dependence.png"
+      ],
+      "sources": [
+        {
+          "results": "results/22_report_dependence.json",
+          "code_commit": "1588c7c",
+          "platform": "x86_64 / Linux"
+        }
+      ],
+      "platform_note": null,
+      "caption_note": "Pooled over 15 fold-repeats; test rows are 2.1% Sybil. Panel B: AUROC seen \u2212 held out, mean \u00b1 SD, and seen higher out of 15. IxE and IxI have too few test Sybils per fold for reliable category-level estimates."
+    },
+    "rev_label_effects": {
+      "files": [
+        "figures/rev_label_effects.pdf",
+        "figures/rev_label_effects.png"
+      ],
+      "sources": [
+        {
+          "results": "results/16_label_robustness_initial_list.json",
+          "code_commit": "3a0e8ee",
+          "platform": "x86_64 / Linux"
+        }
+      ],
+      "platform_note": null,
+      "caption_note": "Panel B: bars are the seed-42 split (3 model seeds); points are the 10-split mean \u00b1 SD (one model seed)."
+    },
+    "rev_mimicry": {
+      "files": [
+        "figures/rev_mimicry.pdf",
+        "figures/rev_mimicry.png"
+      ],
+      "sources": [
+        {
+          "results": "results/18_mimicry_stress.json",
+          "code_commit": "daa8986",
+          "platform": "x86_64 / Linux"
+        }
+      ],
+      "platform_note": null,
+      "caption_note": "\"wallet-local + funding-graph\" equals \"wallet-local only\" for k \u2264 10; mean \u00b1 SD over 5 repetitions; feature cost classes tentative.",
+      "cheap_structural_equals_cheap_k_le_10": true
+    },
+    "rev_shap_by_category": {
+      "files": [
+        "figures/rev_shap_by_category.pdf",
+        "figures/rev_shap_by_category.png"
+      ],
+      "sources": [
+        {
+          "results": "results/09_shap_importance.json",
+          "code_commit": "0d9eacc",
+          "platform": "not recorded (machine of the committed 00-12 results)"
+        }
+      ],
+      "platform_note": null,
+      "caption_note": "Mean |SHAP| on the test partition, each column normalized to its total over all 62 features; family tags: LZ = LayerZero transactions, ETH = Ethereum transactions, GP = Gas provider, TREE = Gas provision tree, CHAIN = Provision chain."
+    }
+  },
+  "tables": {
+    "rev_models_10split": {
+      "file": "tables/rev_models_10split.tex",
+      "sources": [
+        {
+          "results": "results/17_models_10_splits.json",
+          "code_commit": "17dd144",
+          "platform": "x86_64 / Linux"
+        }
+      ],
+      "platform_note": null
+    },
+    "rev_ensemble_appendix": {
+      "file": "tables/rev_ensemble_appendix.tex",
+      "sources": [
+        {
+          "results": "results/17_models_10_splits.json",
+          "code_commit": "17dd144",
+          "platform": "x86_64 / Linux"
+        }
+      ],
+      "platform_note": null
+    },
+    "rev_ensemble_weight_stats": {
+      "file": "tables/rev_ensemble_weight_stats.json",
+      "sources": [
+        {
+          "results": "results/17_models_10_splits.json",
+          "code_commit": "17dd144",
+          "platform": "x86_64 / Linux"
+        },
+        {
+          "results": "results/06_cross_ensemble_sybil.json",
+          "code_commit": "0d9eacc",
+          "platform": "not recorded (machine of the committed 00-12 results)"
+        }
+      ],
+      "platform_note": "mixes platforms: 17_models_10_splits: x86_64 / Linux; 06_cross_ensemble_sybil: not recorded (machine of the committed 00-12 results)"
+    },
+    "rev_report_dependence": {
+      "file": "tables/rev_report_dependence.tex",
+      "sources": [
+        {
+          "results": "results/22_report_dependence.json",
+          "code_commit": "1588c7c",
+          "platform": "x86_64 / Linux"
+        }
+      ],
+      "platform_note": null
+    },
+    "rev_label_robustness": {
+      "file": "tables/rev_label_robustness.tex",
+      "sources": [
+        {
+          "results": "results/16_label_robustness_initial_list.json",
+          "code_commit": "3a0e8ee",
+          "platform": "x86_64 / Linux"
+        }
+      ],
+      "platform_note": null
+    },
+    "rev_operating_points": {
+      "file": "tables/rev_operating_points.tex",
+      "sources": [
+        {
+          "results": "results/16_label_robustness_initial_list.json",
+          "code_commit": "3a0e8ee",
+          "platform": "x86_64 / Linux"
+        }
+      ],
+      "platform_note": null
+    },
+    "rev_mimicry": {
+      "file": "tables/rev_mimicry.tex",
+      "sources": [
+        {
+          "results": "results/18_mimicry_stress.json",
+          "code_commit": "daa8986",
+          "platform": "x86_64 / Linux"
+        }
+      ],
+      "platform_note": null
+    }
+  },
+  "sources": {
+    "rev_leakage_hierarchy": [
+      {
+        "results": "results/11_split_comparison.json",
+        "code_commit": "0d9eacc",
+        "platform": "not recorded (machine of the committed 00-12 results)"
+      },
+      {
+        "results": "results/22_report_dependence.json",
+        "code_commit": "1588c7c",
+        "platform": "x86_64 / Linux"
+      }
+    ],
+    "rev_report_dependence": [
+      {
+        "results": "results/22_report_dependence.json",
+        "code_commit": "1588c7c",
+        "platform": "x86_64 / Linux"
+      }
+    ],
+    "rev_label_effects": [
+      {
+        "results": "results/16_label_robustness_initial_list.json",
+        "code_commit": "3a0e8ee",
+        "platform": "x86_64 / Linux"
+      }
+    ],
+    "rev_mimicry": [
+      {
+        "results": "results/18_mimicry_stress.json",
+        "code_commit": "daa8986",
+        "platform": "x86_64 / Linux"
+      }
+    ],
+    "rev_shap_by_category": [
+      {
+        "results": "results/09_shap_importance.json",
+        "code_commit": "0d9eacc",
+        "platform": "not recorded (machine of the committed 00-12 results)"
+      }
+    ],
+    "rev_models_10split": [
+      {
+        "results": "results/17_models_10_splits.json",
+        "code_commit": "17dd144",
+        "platform": "x86_64 / Linux"
+      }
+    ],
+    "rev_ensemble_appendix": [
+      {
+        "results": "results/17_models_10_splits.json",
+        "code_commit": "17dd144",
+        "platform": "x86_64 / Linux"
+      }
+    ],
+    "rev_ensemble_weight_stats": [
+      {
+        "results": "results/17_models_10_splits.json",
+        "code_commit": "17dd144",
+        "platform": "x86_64 / Linux"
+      },
+      {
+        "results": "results/06_cross_ensemble_sybil.json",
+        "code_commit": "0d9eacc",
+        "platform": "not recorded (machine of the committed 00-12 results)"
+      }
+    ],
+    "rev_label_robustness": [
+      {
+        "results": "results/16_label_robustness_initial_list.json",
+        "code_commit": "3a0e8ee",
+        "platform": "x86_64 / Linux"
+      }
+    ],
+    "rev_operating_points": [
+      {
+        "results": "results/16_label_robustness_initial_list.json",
+        "code_commit": "3a0e8ee",
+        "platform": "x86_64 / Linux"
+      }
+    ]
+  },
+  "platform_notes": {
+    "rev_leakage_hierarchy": "mixes platforms: 11_split_comparison: not recorded (machine of the committed 00-12 results); 22_report_dependence: x86_64 / Linux",
+    "rev_ensemble_weight_stats": "mixes platforms: 17_models_10_splits: x86_64 / Linux; 06_cross_ensemble_sybil: not recorded (machine of the committed 00-12 results)"
+  },
+  "compile_check": "pdflatex: all tables compile",
+  "skipped": [
+    "F6 rev_models_10split (Table T1 carries the same numbers)"
+  ]
+}

@@ -1,0 +1,25 @@
+03_xgboost_sybil rc=0 seconds=341
+04_lightgbm_sybil rc=0 seconds=223
+06_cross_ensemble_sybil rc=0 seconds=7
+03_xgboost_sybil results identical to pre-restart regen: True
+04_lightgbm_sybil results identical to pre-restart regen: True
+06_cross_ensemble_sybil results identical to pre-restart regen: True
+output/pred_03_xgboost_sybil_test.parquet: OK
+output/pred_03_xgboost_sybil_val.parquet: OK
+output/pred_04_lightgbm_sybil_test.parquet: OK
+output/pred_04_lightgbm_sybil_val.parquet: OK
+output/pred_06_cross_ensemble_sybil_test.parquet: OK
+output/pred_06_cross_ensemble_sybil_val.parquet: OK
+Traceback (most recent call last):
+  File "/home/user/rerun_x86_2p80/logs/rerun_x86_68e8d63/run/regen_after_restart/rf_check.py", line 6, in <module>
+    import sybil_pipeline as sp
+ModuleNotFoundError: No module named 'sybil_pipeline'
+HOSTCHECK_DONE ok=0
+== rf_check rerun with PYTHONPATH=. (first attempt failed on import path)
+seconds 86.2
+val_f1         before np.float64(0.699041699041699) after 0.699041699041699        diff 0
+val_ap         before np.float64(0.7469453026196529) after 0.7469453026196529       diff 0
+val_auroc      before np.float64(0.9674963192246552) after 0.9674963192246551       diff -1.11e-16
+val_logloss    before np.float64(0.0768494745569687) after 0.07684947455696874      diff 4.16e-17
+val_threshold  before np.float64(0.3325641025641025) after 0.33256410256410257      diff 5.55e-17
+rf_check rc=0
