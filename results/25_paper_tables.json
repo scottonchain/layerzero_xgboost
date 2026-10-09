@@ -1,6 +1,6 @@
 {
   "notebook": "25_paper_tables",
-  "code_commit": "1a0282c",
+  "code_commit": "2bfbee1",
   "leakage": null,
   "models": [],
   "tables": {
@@ -14,14 +14,14 @@
         },
         {
           "results": "results/16_label_robustness_initial_list.json",
-          "code_commit": "5888aa3",
-          "platform": "arm64 / Darwin"
+          "code_commit": "3a0e8ee",
+          "platform": "x86_64 / Linux"
         },
         {
           "file": "./data/20240915_final_sybil_list/fcfs_list.csv"
         }
       ],
-      "platform_note": "mixes platforms: 00_data_pipeline: not recorded (machine of the committed 00-12 results); 16_label_robustness_initial_list: arm64 / Darwin"
+      "platform_note": "mixes platforms: 00_data_pipeline: not recorded (machine of the committed 00-12 results); 16_label_robustness_initial_list: x86_64 / Linux"
     },
     "rev_taxonomy": {
       "file": "tables/rev_taxonomy.tex",
@@ -39,13 +39,13 @@
       "sources": [
         {
           "results": "results/15_split_tree_report.json",
-          "code_commit": "3bbec2c",
-          "platform": "arm64 / Darwin"
+          "code_commit": "1e6aa04",
+          "platform": "x86_64 / Linux"
         },
         {
           "results": "results/22_report_dependence.json",
-          "code_commit": "ef82c78",
-          "platform": "arm64 / Darwin"
+          "code_commit": "1588c7c",
+          "platform": "x86_64 / Linux"
         }
       ],
       "platform_note": null
@@ -55,8 +55,8 @@
       "sources": [
         {
           "results": "results/17_models_10_splits.json",
-          "code_commit": "5888aa3",
-          "platform": "arm64 / Darwin"
+          "code_commit": "17dd144",
+          "platform": "x86_64 / Linux"
         }
       ],
       "platform_note": null
@@ -77,8 +77,8 @@
       "sources": [
         {
           "results": "results/19_ablation_by_category.json",
-          "code_commit": "5888aa3",
-          "platform": "arm64 / Darwin"
+          "code_commit": "cdb7aed",
+          "platform": "x86_64 / Linux"
         }
       ],
       "platform_note": null
@@ -88,8 +88,8 @@
       "sources": [
         {
           "results": "results/14_entity_level_recall.json",
-          "code_commit": "e156d9d",
-          "platform": "arm64 / Darwin"
+          "code_commit": "9c634b7",
+          "platform": "x86_64 / Linux"
         }
       ],
       "platform_note": null
@@ -99,8 +99,8 @@
       "sources": [
         {
           "results": "results/20_temporal_holdout.json",
-          "code_commit": "5888aa3",
-          "platform": "arm64 / Darwin"
+          "code_commit": "cb1243e",
+          "platform": "x86_64 / Linux"
         }
       ],
       "platform_note": null
@@ -110,8 +110,8 @@
       "sources": [
         {
           "results": "results/15_split_tree_report.json",
-          "code_commit": "3bbec2c",
-          "platform": "arm64 / Darwin"
+          "code_commit": "1e6aa04",
+          "platform": "x86_64 / Linux"
         }
       ],
       "platform_note": null
@@ -126,8 +126,8 @@
         },
         {
           "results": "results/13_random_forest_sybil.json",
-          "code_commit": "3bbec2c",
-          "platform": "arm64 / Darwin"
+          "code_commit": "412db11",
+          "platform": "x86_64 / Linux"
         },
         {
           "file": "results/02_search_xgboost.csv"
@@ -139,7 +139,7 @@
           "file": "results/13_search_random_forest.csv"
         }
       ],
-      "platform_note": "mixes platforms: 02_hyperparameter_search: not recorded (machine of the committed 00-12 results); 13_random_forest_sybil: arm64 / Darwin"
+      "platform_note": "mixes platforms: 02_hyperparameter_search: not recorded (machine of the committed 00-12 results); 13_random_forest_sybil: x86_64 / Linux"
     },
     "rev_text_numbers": {
       "file": "tables/rev_text_numbers.json",
@@ -156,8 +156,8 @@
       },
       {
         "results": "results/16_label_robustness_initial_list.json",
-        "code_commit": "5888aa3",
-        "platform": "arm64 / Darwin"
+        "code_commit": "3a0e8ee",
+        "platform": "x86_64 / Linux"
       },
       {
         "file": "./data/20240915_final_sybil_list/fcfs_list.csv"
@@ -173,20 +173,20 @@
     "rev_levels": [
       {
         "results": "results/15_split_tree_report.json",
-        "code_commit": "3bbec2c",
-        "platform": "arm64 / Darwin"
+        "code_commit": "1e6aa04",
+        "platform": "x86_64 / Linux"
       },
       {
         "results": "results/22_report_dependence.json",
-        "code_commit": "ef82c78",
-        "platform": "arm64 / Darwin"
+        "code_commit": "1588c7c",
+        "platform": "x86_64 / Linux"
       }
     ],
     "rev_per_category": [
       {
         "results": "results/17_models_10_splits.json",
-        "code_commit": "5888aa3",
-        "platform": "arm64 / Darwin"
+        "code_commit": "17dd144",
+        "platform": "x86_64 / Linux"
       }
     ],
     "rev_family_ablation": [
@@ -199,29 +199,29 @@
     "rev_provision_ablation_by_category": [
       {
         "results": "results/19_ablation_by_category.json",
-        "code_commit": "5888aa3",
-        "platform": "arm64 / Darwin"
+        "code_commit": "cdb7aed",
+        "platform": "x86_64 / Linux"
       }
     ],
     "rev_entity_level": [
       {
         "results": "results/14_entity_level_recall.json",
-        "code_commit": "e156d9d",
-        "platform": "arm64 / Darwin"
+        "code_commit": "9c634b7",
+        "platform": "x86_64 / Linux"
       }
     ],
     "rev_temporal_holdout": [
       {
         "results": "results/20_temporal_holdout.json",
-        "code_commit": "5888aa3",
-        "platform": "arm64 / Darwin"
+        "code_commit": "cb1243e",
+        "platform": "x86_64 / Linux"
       }
     ],
     "rev_union_split_appendix": [
       {
         "results": "results/15_split_tree_report.json",
-        "code_commit": "3bbec2c",
-        "platform": "arm64 / Darwin"
+        "code_commit": "1e6aa04",
+        "platform": "x86_64 / Linux"
       }
     ],
     "rev_search_top": [
@@ -232,8 +232,8 @@
       },
       {
         "results": "results/13_random_forest_sybil.json",
-        "code_commit": "3bbec2c",
-        "platform": "arm64 / Darwin"
+        "code_commit": "412db11",
+        "platform": "x86_64 / Linux"
       },
       {
         "file": "results/02_search_xgboost.csv"
@@ -253,19 +253,19 @@
     "07_sensitivity_label_vintage": "not recorded (machine of the committed 00-12 results)",
     "08_ablation_families": "not recorded (machine of the committed 00-12 results)",
     "11_split_comparison": "not recorded (machine of the committed 00-12 results)",
-    "13_random_forest_sybil": "arm64 / Darwin",
-    "14_entity_level_recall": "arm64 / Darwin",
-    "15_split_tree_report": "arm64 / Darwin",
-    "16_label_robustness_initial_list": "arm64 / Darwin",
-    "17_models_10_splits": "arm64 / Darwin",
-    "19_ablation_by_category": "arm64 / Darwin",
-    "20_temporal_holdout": "arm64 / Darwin",
-    "22_report_dependence": "arm64 / Darwin",
+    "13_random_forest_sybil": "x86_64 / Linux",
+    "14_entity_level_recall": "x86_64 / Linux",
+    "15_split_tree_report": "x86_64 / Linux",
+    "16_label_robustness_initial_list": "x86_64 / Linux",
+    "17_models_10_splits": "x86_64 / Linux",
+    "19_ablation_by_category": "x86_64 / Linux",
+    "20_temporal_holdout": "x86_64 / Linux",
+    "22_report_dependence": "x86_64 / Linux",
     "03_xgboost_sybil": "not recorded (machine of the committed 00-12 results)",
     "04_lightgbm_sybil": "not recorded (machine of the committed 00-12 results)",
     "06_cross_ensemble_sybil": "not recorded (machine of the committed 00-12 results)"
   },
-  "compile_check": "WARNING: pdflatex not installed; compile check skipped (structural column check passed)",
+  "compile_check": "pdflatex: all tables compile",
   "bounty_stats": {
     "computed": {
       "list_rows": 151784,
@@ -321,15 +321,15 @@
     "cohorts.late_sybil_rate"
   ],
   "per_category_note": "The seed-42 per-category values in an earlier draft (IxI F1 0.534, IxE F1 0.265) are more favorable than these 10-split means.",
-  "results14_flag": false,
-  "results14_platform": "arm64 / Darwin",
+  "results14_flag": true,
+  "results14_platform": "x86_64 / Linux",
   "text_numbers_missing": [],
   "platform": {
-    "machine": "arm64",
-    "processor": "arm",
-    "system": "Darwin",
-    "python": "3.13.7",
-    "cpu_count": 10,
+    "machine": "x86_64",
+    "processor": "x86_64",
+    "system": "Linux",
+    "python": "3.11.15",
+    "cpu_count": 4,
     "n_jobs": 4
   }
 }
