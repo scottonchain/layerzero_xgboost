@@ -1,6 +1,6 @@
 {
   "notebook": "18_mimicry_stress",
-  "code_commit": "5888aa3",
+  "code_commit": "daa8986",
   "leakage": null,
   "models": [],
   "params": {
@@ -9,12 +9,12 @@
     "subsample": 0.7,
     "reg_lambda": 1.0
   },
-  "threshold": 0.5748310308675113,
+  "threshold": 0.6000858349504762,
   "baseline": {
-    "recall": 0.718652754896577,
-    "f1": 0.7167503423094478,
-    "ap": 0.7696917549094032,
-    "mean_sybil_score": 0.717581479584564
+    "recall": 0.7111477210323998,
+    "f1": 0.7188454066056065,
+    "ap": 0.7695927941671368,
+    "mean_sybil_score": 0.7188370280249414
   },
   "ks": [
     1,
@@ -248,14 +248,14 @@
       "top_features": [
         "l0_tx_time_span"
       ],
-      "recall_mean": 0.4197327475745928,
-      "recall_std": 0.005956851581648547,
-      "f1_mean": 0.49193987555145713,
-      "f1_std": 0.005242420632837062,
-      "ap_mean": 0.5131495203877489,
-      "ap_std": 0.002603626423882386,
-      "mean_sybil_score_mean": 0.4562573905249686,
-      "mean_sybil_score_std": 0.0034850772842743806
+      "recall_mean": 0.4097748489840747,
+      "recall_std": 0.005864162061666215,
+      "f1_mean": 0.4886238688103831,
+      "f1_std": 0.005265180001000448,
+      "ap_mean": 0.5162500265289903,
+      "ap_std": 0.0027634915052462575,
+      "mean_sybil_score_mean": 0.46036495013775963,
+      "mean_sybil_score_std": 0.003032865114707443
     },
     {
       "features": "all features",
@@ -264,14 +264,14 @@
       "top_features": [
         "l0_tx_time_span"
       ],
-      "recall_mean": 0.4197327475745928,
-      "recall_std": 0.005956851581648547,
-      "f1_mean": 0.49193987555145713,
-      "f1_std": 0.005242420632837062,
-      "ap_mean": 0.5131495203877489,
-      "ap_std": 0.002603626423882386,
-      "mean_sybil_score_mean": 0.4562573905249686,
-      "mean_sybil_score_std": 0.0034850772842743806
+      "recall_mean": 0.4097748489840747,
+      "recall_std": 0.005864162061666215,
+      "f1_mean": 0.4886238688103831,
+      "f1_std": 0.005265180001000448,
+      "ap_mean": 0.5162500265289903,
+      "ap_std": 0.0027634915052462575,
+      "mean_sybil_score_mean": 0.46036495013775963,
+      "mean_sybil_score_std": 0.003032865114707443
     },
     {
       "features": "all features",
@@ -281,14 +281,14 @@
         "l0_tx_time_span",
         "n_l0_source_contracts"
       ],
-      "recall_mean": 0.18352553542009883,
-      "recall_std": 0.0024201345606499657,
-      "f1_mean": 0.24966002931636594,
-      "f1_std": 0.0028844370095061837,
-      "ap_mean": 0.27059648085160004,
-      "ap_std": 0.0016629171624622779,
-      "mean_sybil_score_mean": 0.23487478094592057,
-      "mean_sybil_score_std": 0.001360080897521953
+      "recall_mean": 0.17909573494416986,
+      "recall_std": 0.004821541922574827,
+      "f1_mean": 0.24760542790423887,
+      "f1_std": 0.0058308013520185845,
+      "ap_mean": 0.2751710269558466,
+      "ap_std": 0.0017160901766216665,
+      "mean_sybil_score_mean": 0.2384763518439923,
+      "mean_sybil_score_std": 0.0016669427288813217
     },
     {
       "features": "all features",
@@ -298,14 +298,14 @@
         "l0_tx_time_span",
         "n_l0_source_contracts"
       ],
-      "recall_mean": 0.2397217645982061,
-      "recall_std": 0.00399702553584658,
-      "f1_mean": 0.3140962435715869,
-      "f1_std": 0.0044115472227645005,
-      "ap_mean": 0.2970150715174492,
-      "ap_std": 0.003148420673453496,
-      "mean_sybil_score_mean": 0.27655055400654627,
-      "mean_sybil_score_std": 0.0037640830614486622
+      "recall_mean": 0.23375434742815301,
+      "recall_std": 0.0045486998498221465,
+      "f1_mean": 0.311413056645744,
+      "f1_std": 0.00510686585084107,
+      "ap_mean": 0.30159490992038746,
+      "ap_std": 0.002951952054902895,
+      "mean_sybil_score_mean": 0.28051995548618036,
+      "mean_sybil_score_std": 0.003890583491058022
     },
     {
       "features": "all features",
@@ -316,14 +316,14 @@
         "n_l0_source_contracts",
         "l0_avg_stargate_swap"
       ],
-      "recall_mean": 0.07907742998352553,
-      "recall_std": 0.0014237917981058067,
-      "f1_mean": 0.11580053412467865,
-      "f1_std": 0.0019630086069439205,
-      "ap_mean": 0.16625387229020333,
-      "ap_std": 0.002389969694990374,
-      "mean_sybil_score_mean": 0.12748031856799774,
-      "mean_sybil_score_std": 0.002229756290856737
+      "recall_mean": 0.07398865092440052,
+      "recall_std": 0.0022987124401904592,
+      "f1_mean": 0.11030914606638606,
+      "f1_std": 0.0032366015445999944,
+      "ap_mean": 0.16827817191082856,
+      "ap_std": 0.0024090670582539806,
+      "mean_sybil_score_mean": 0.12876022704209183,
+      "mean_sybil_score_std": 0.0024894523788732133
     },
     {
       "features": "all features",
@@ -334,14 +334,14 @@
         "n_l0_source_contracts",
         "l0_avg_stargate_swap"
       ],
-      "recall_mean": 0.11982427237781439,
-      "recall_std": 0.0008247395442847422,
-      "f1_mean": 0.17038837688672742,
-      "f1_std": 0.0010729410369474592,
-      "ap_mean": 0.1884634264997811,
-      "ap_std": 0.0019517242070794779,
-      "mean_sybil_score_mean": 0.1672971581366881,
-      "mean_sybil_score_std": 0.00203293177873169
+      "recall_mean": 0.11360058575874062,
+      "recall_std": 0.0011905262706578175,
+      "f1_mean": 0.16451392627217326,
+      "f1_std": 0.001582111879246352,
+      "ap_mean": 0.19076595705709104,
+      "ap_std": 0.0016454068932118837,
+      "mean_sybil_score_mean": 0.1678427184842606,
+      "mean_sybil_score_std": 0.001669703080826206
     },
     {
       "features": "all features",
@@ -354,14 +354,14 @@
         "earliest_l0_tx_time",
         "latest_l0_tx_time"
       ],
-      "recall_mean": 0.013106351821343582,
-      "recall_std": 0.001705409437869612,
-      "f1_mean": 0.02016458258893811,
-      "f1_std": 0.002598153416232623,
-      "ap_mean": 0.07279994528700243,
-      "ap_std": 0.0003331471565295115,
-      "mean_sybil_score_mean": 0.03484848593129756,
-      "mean_sybil_score_std": 0.001270819108920236
+      "recall_mean": 0.011934834340106167,
+      "recall_std": 0.0012031247830975645,
+      "f1_mean": 0.0186559546181513,
+      "f1_std": 0.0018641559763001884,
+      "ap_mean": 0.07372040401095635,
+      "ap_std": 0.0003333736355362365,
+      "mean_sybil_score_mean": 0.03554809373754324,
+      "mean_sybil_score_std": 0.0009271066597416114
     },
     {
       "features": "all features",
@@ -374,14 +374,14 @@
         "earliest_l0_tx_time",
         "latest_l0_tx_time"
       ],
-      "recall_mean": 0.038989566172432724,
-      "recall_std": 0.0033528572366857403,
-      "f1_mean": 0.058813607124159825,
-      "f1_std": 0.004903819643838419,
-      "ap_mean": 0.09675322533113231,
-      "ap_std": 0.0015055806299101831,
-      "mean_sybil_score_mean": 0.07399389917212705,
-      "mean_sybil_score_std": 0.0020232765792427047
+      "recall_mean": 0.03613399231191653,
+      "recall_std": 0.003276025464129693,
+      "f1_mean": 0.055428721795191135,
+      "f1_std": 0.004882170434354297,
+      "ap_mean": 0.09828669310821318,
+      "ap_std": 0.0014556491860578875,
+      "mean_sybil_score_mean": 0.07510975413466348,
+      "mean_sybil_score_std": 0.0020180529326910284
     },
     {
       "features": "all features",
@@ -399,14 +399,14 @@
         "tx_value_per_block_out",
         "earliest_tx_block_in"
       ],
-      "recall_mean": 0.0004027091341753616,
-      "recall_std": 0.0003007811957743911,
-      "f1_mean": 0.0006256948937978763,
-      "f1_std": 0.00046713334918417707,
-      "ap_mean": 0.038832814914458544,
-      "ap_std": 0.00031885015423457013,
-      "mean_sybil_score_mean": 0.004725604644895567,
-      "mean_sybil_score_std": 0.00032906797771603633
+      "recall_mean": 0.0004759289767527,
+      "recall_std": 0.00027760847314851,
+      "f1_mean": 0.000750652411312026,
+      "f1_std": 0.00043767022994703356,
+      "ap_mean": 0.03962445438573855,
+      "ap_std": 0.00037522474227777024,
+      "mean_sybil_score_mean": 0.0053336838433305864,
+      "mean_sybil_score_std": 0.00039107949684908137
     },
     {
       "features": "all features",
@@ -424,14 +424,14 @@
         "tx_value_per_block_out",
         "earliest_tx_block_in"
       ],
-      "recall_mean": 0.004832509610104338,
-      "recall_std": 0.0010952425628154194,
-      "f1_mean": 0.0074824824536368194,
-      "f1_std": 0.0016908069114547094,
-      "ap_mean": 0.04800572611915328,
-      "ap_std": 0.0007602598384763544,
-      "mean_sybil_score_mean": 0.0170704224515143,
-      "mean_sybil_score_std": 0.00141030626433427
+      "recall_mean": 0.004795899688815669,
+      "recall_std": 0.0012100672803249798,
+      "f1_mean": 0.0075379080086635354,
+      "f1_std": 0.0018969087315371322,
+      "ap_mean": 0.04911330943224138,
+      "ap_std": 0.0007508465912269188,
+      "mean_sybil_score_mean": 0.01791033870110361,
+      "mean_sybil_score_std": 0.0013921244095213266
     },
     {
       "features": "all features",
@@ -459,14 +459,14 @@
         "provider_min_gas_provision_amount",
         "provider_fan_out"
       ],
-      "recall_mean": 0.00010982976386600769,
-      "recall_std": 0.00010026039859146369,
-      "f1_mean": 0.00017069701280227599,
-      "f1_std": 0.00015582434068425781,
-      "ap_mean": 0.032859420784595424,
-      "ap_std": 8.87431060563968e-05,
-      "mean_sybil_score_mean": 0.002187727128982706,
-      "mean_sybil_score_std": 0.0001290392332286627
+      "recall_mean": 3.660992128866923e-05,
+      "recall_std": 8.186227265238111e-05,
+      "f1_mean": 5.776173285198556e-05,
+      "f1_std": 0.00012915916115522252,
+      "ap_mean": 0.033227799870907085,
+      "ap_std": 7.990514889914298e-05,
+      "mean_sybil_score_mean": 0.0024840707636096275,
+      "mean_sybil_score_std": 0.0001358663613958299
     },
     {
       "features": "all features",
@@ -494,14 +494,14 @@
         "provider_min_gas_provision_amount",
         "provider_fan_out"
       ],
-      "recall_mean": 0.0042833607907743,
-      "recall_std": 0.0010952425628154194,
-      "f1_mean": 0.006634891164911817,
-      "f1_std": 0.001690859829589745,
-      "ap_mean": 0.043323029877688754,
-      "ap_std": 0.0003086869342517702,
-      "mean_sybil_score_mean": 0.014177173965723572,
-      "mean_sybil_score_std": 0.0009576585925286291
+      "recall_mean": 0.004136921105619623,
+      "recall_std": 0.0012982334414422217,
+      "f1_mean": 0.006505119104511653,
+      "f1_std": 0.002033845770912918,
+      "ap_mean": 0.043511685048261986,
+      "ap_std": 0.00028492685594805404,
+      "mean_sybil_score_mean": 0.014741703753282492,
+      "mean_sybil_score_std": 0.0009047455052373723
     },
     {
       "features": "cheap only",
@@ -510,14 +510,14 @@
       "top_features": [
         "n_l0_source_contracts"
       ],
-      "recall_mean": 0.41995240710232473,
-      "recall_std": 0.0014202573488025492,
-      "f1_mean": 0.4921477827607192,
-      "f1_std": 0.001255300484269835,
-      "ap_mean": 0.5108672929773797,
-      "ap_std": 0.001499722121287405,
-      "mean_sybil_score_mean": 0.45206508745311247,
-      "mean_sybil_score_std": 0.0013013598447979928
+      "recall_mean": 0.41252059308072486,
+      "recall_std": 0.0030591746184950833,
+      "f1_mean": 0.4911047805045999,
+      "f1_std": 0.002749960821575092,
+      "ap_mean": 0.5140580185392267,
+      "ap_std": 0.0014080590197524188,
+      "mean_sybil_score_mean": 0.45503091250100747,
+      "mean_sybil_score_std": 0.0013087353482407803
     },
     {
       "features": "cheap only",
@@ -526,14 +526,14 @@
       "top_features": [
         "n_l0_source_contracts"
       ],
-      "recall_mean": 0.41995240710232473,
-      "recall_std": 0.0014202573488025492,
-      "f1_mean": 0.4921477827607192,
-      "f1_std": 0.001255300484269835,
-      "ap_mean": 0.5108672929773797,
-      "ap_std": 0.001499722121287405,
-      "mean_sybil_score_mean": 0.45206508745311247,
-      "mean_sybil_score_std": 0.0013013598447979928
+      "recall_mean": 0.41252059308072486,
+      "recall_std": 0.0030591746184950833,
+      "f1_mean": 0.4911047805045999,
+      "f1_std": 0.002749960821575092,
+      "ap_mean": 0.5140580185392267,
+      "ap_std": 0.0014080590197524188,
+      "mean_sybil_score_mean": 0.45503091250100747,
+      "mean_sybil_score_std": 0.0013087353482407803
     },
     {
       "features": "cheap only",
@@ -543,14 +543,14 @@
         "n_l0_source_contracts",
         "l0_avg_stargate_swap"
       ],
-      "recall_mean": 0.2181951308804686,
-      "recall_std": 0.006290624300728382,
-      "f1_mean": 0.289965230204067,
-      "f1_std": 0.007123504698488729,
-      "ap_mean": 0.3166654997132833,
-      "ap_std": 0.0038070803087658376,
-      "mean_sybil_score_mean": 0.2734952154445741,
-      "mean_sybil_score_std": 0.003295925304341817
+      "recall_mean": 0.20970162914149734,
+      "recall_std": 0.004929781131180883,
+      "f1_mean": 0.28391451676902346,
+      "f1_std": 0.00572825635108277,
+      "ap_mean": 0.3186572358830928,
+      "ap_std": 0.003770401076213829,
+      "mean_sybil_score_mean": 0.2756892751932661,
+      "mean_sybil_score_std": 0.003469144543190763
     },
     {
       "features": "cheap only",
@@ -560,14 +560,14 @@
         "n_l0_source_contracts",
         "l0_avg_stargate_swap"
       ],
-      "recall_mean": 0.22002562694490208,
-      "recall_std": 0.0011058984050516777,
-      "f1_mean": 0.2920658409593419,
-      "f1_std": 0.0012544569362891048,
-      "ap_mean": 0.31278482617624176,
-      "ap_std": 0.0019244290635978055,
-      "mean_sybil_score_mean": 0.2738205084414621,
-      "mean_sybil_score_std": 0.0013152053737172061
+      "recall_mean": 0.2110561962291781,
+      "recall_std": 0.0017605147411377728,
+      "f1_mean": 0.28550009724224445,
+      "f1_std": 0.0020424054384890595,
+      "ap_mean": 0.31470185376872395,
+      "ap_std": 0.0018633671757361482,
+      "mean_sybil_score_mean": 0.2754706501191065,
+      "mean_sybil_score_std": 0.0015752489339212238
     },
     {
       "features": "cheap only",
@@ -578,14 +578,14 @@
         "l0_avg_stargate_swap",
         "max_tx_value_out"
       ],
-      "recall_mean": 0.11901885410946367,
-      "recall_std": 0.0020926981639432986,
-      "f1_mean": 0.169337311052493,
-      "f1_std": 0.0027248164066842207,
-      "ap_mean": 0.22129149191821101,
-      "ap_std": 0.0020993070806355576,
-      "mean_sybil_score_mean": 0.17766596634474002,
-      "mean_sybil_score_std": 0.002086103674246753
+      "recall_mean": 0.11275855756910122,
+      "recall_std": 0.0022418906670173713,
+      "f1_mean": 0.16339134367280445,
+      "f1_std": 0.0029872271062182485,
+      "ap_mean": 0.22339810996337323,
+      "ap_std": 0.0018599708216850092,
+      "mean_sybil_score_mean": 0.18039173820857385,
+      "mean_sybil_score_std": 0.0020955492088671653
     },
     {
       "features": "cheap only",
@@ -596,14 +596,14 @@
         "l0_avg_stargate_swap",
         "max_tx_value_out"
       ],
-      "recall_mean": 0.11323448654585393,
-      "recall_std": 0.0028316537587922013,
-      "f1_mean": 0.16177021878497846,
-      "f1_std": 0.0037230856569121116,
-      "ap_mean": 0.21636550925234577,
-      "ap_std": 0.001323899706291503,
-      "mean_sybil_score_mean": 0.17345003451949054,
-      "mean_sybil_score_std": 0.0016743251093340127
+      "recall_mean": 0.10712062969064615,
+      "recall_std": 0.003393583702906455,
+      "f1_mean": 0.15585314176581808,
+      "f1_std": 0.004557107447369224,
+      "ap_mean": 0.2181427434104679,
+      "ap_std": 0.001485628827918657,
+      "mean_sybil_score_mean": 0.17523103589941663,
+      "mean_sybil_score_std": 0.001415401654145701
     },
     {
       "features": "cheap only",
@@ -616,14 +616,14 @@
         "num_transactions_in",
         "n_l0_source_chains"
       ],
-      "recall_mean": 0.026578802855573857,
-      "recall_std": 0.0021126176893653315,
-      "f1_mean": 0.04047432444517772,
-      "f1_std": 0.0031519149416613223,
-      "ap_mean": 0.10492806062163222,
-      "ap_std": 0.001064166434305025,
-      "mean_sybil_score_mean": 0.06386466290572115,
-      "mean_sybil_score_std": 0.0015421843975459188
+      "recall_mean": 0.024967966318872416,
+      "recall_std": 0.001567186878491964,
+      "f1_mean": 0.0386357322808102,
+      "f1_std": 0.002376296673416401,
+      "ap_mean": 0.10710679291920981,
+      "ap_std": 0.0010395676900491803,
+      "mean_sybil_score_mean": 0.06625583844335406,
+      "mean_sybil_score_std": 0.0014726219764024354
     },
     {
       "features": "cheap only",
@@ -636,14 +636,14 @@
         "num_transactions_in",
         "n_l0_source_chains"
       ],
-      "recall_mean": 0.04462749405088779,
-      "recall_std": 0.0018000395048785674,
-      "f1_mean": 0.0670415044944416,
-      "f1_std": 0.0026117196514734296,
-      "ap_mean": 0.11153038527566897,
-      "ap_std": 0.0019864184714596324,
-      "mean_sybil_score_mean": 0.08473639966843508,
-      "mean_sybil_score_std": 0.002258058459062268
+      "recall_mean": 0.04279699798645433,
+      "recall_std": 0.0021046725025524156,
+      "f1_mean": 0.06532334167343548,
+      "f1_std": 0.0031076507156755067,
+      "ap_mean": 0.11176531050492755,
+      "ap_std": 0.0019731929048897225,
+      "mean_sybil_score_mean": 0.08512835435994089,
+      "mean_sybil_score_std": 0.002282590910996329
     },
     {
       "features": "cheap only",
@@ -661,14 +661,14 @@
         "n_l0_project_per_source_chain",
         "n_l0_projects"
       ],
-      "recall_mean": 0.0038074318140216,
-      "recall_std": 0.0009097399699644281,
-      "f1_mean": 0.005900083651673809,
-      "f1_std": 0.0014060298075712417,
-      "ap_mean": 0.06087267334209925,
-      "ap_std": 0.0007444589277978131,
-      "mean_sybil_score_mean": 0.020926726802529067,
-      "mean_sybil_score_std": 0.0009438501469121849
+      "recall_mean": 0.0031484532308255534,
+      "recall_std": 0.00055521694629702,
+      "f1_mean": 0.00495561050153695,
+      "f1_std": 0.0008721900900972927,
+      "ap_mean": 0.06201083536237116,
+      "ap_std": 0.0009108455215860796,
+      "mean_sybil_score_mean": 0.0223431668418306,
+      "mean_sybil_score_std": 0.0008228260136024945
     },
     {
       "features": "cheap only",
@@ -686,14 +686,14 @@
         "n_l0_project_per_source_chain",
         "n_l0_projects"
       ],
-      "recall_mean": 0.011166025993044117,
-      "recall_std": 0.001672676815165391,
-      "f1_mean": 0.01720469639792412,
-      "f1_std": 0.002558394365907283,
-      "ap_mean": 0.07189951978674701,
-      "ap_std": 0.0016221976901473814,
-      "mean_sybil_score_mean": 0.038370567545973386,
-      "mean_sybil_score_std": 0.002025641415784418
+      "recall_mean": 0.010616877173714076,
+      "recall_std": 0.0014060307061813302,
+      "f1_mean": 0.016612231747279584,
+      "f1_std": 0.0021803296766313637,
+      "ap_mean": 0.07228122120843421,
+      "ap_std": 0.0017012850718336862,
+      "mean_sybil_score_mean": 0.039339749026778566,
+      "mean_sybil_score_std": 0.002003017096694337
     },
     {
       "features": "cheap only",
@@ -721,14 +721,14 @@
         "n_l0_to_eth_txs",
         "n_l0_to_eth_project_per_source_chain"
       ],
-      "recall_mean": 0.002050155592165477,
-      "recall_std": 0.0007367604538714298,
-      "f1_mean": 0.0031812057753730764,
-      "f1_std": 0.001141357591206019,
-      "ap_mean": 0.05269928946956013,
-      "ap_std": 0.00018536295516707464,
-      "mean_sybil_score_mean": 0.013781776345582517,
-      "mean_sybil_score_std": 0.0008445696781143029
+      "recall_mean": 0.001940325828299469,
+      "recall_std": 0.0008348346513630885,
+      "f1_mean": 0.0030564429275427656,
+      "f1_std": 0.001313085988961753,
+      "ap_mean": 0.0535959692129631,
+      "ap_std": 0.0003718799575840043,
+      "mean_sybil_score_mean": 0.014571242036612997,
+      "mean_sybil_score_std": 0.000924008936555759
     },
     {
       "features": "cheap only",
@@ -756,14 +756,14 @@
         "n_l0_to_eth_txs",
         "n_l0_to_eth_project_per_source_chain"
       ],
-      "recall_mean": 0.009042650558301299,
-      "recall_std": 0.0020854805591984057,
-      "f1_mean": 0.013953836287811616,
-      "f1_std": 0.0031999128613978065,
-      "ap_mean": 0.061616247364974494,
-      "ap_std": 0.0005034779038805262,
-      "mean_sybil_score_mean": 0.029132927476861237,
-      "mean_sybil_score_std": 0.0013935206609055465
+      "recall_mean": 0.008273842211239247,
+      "recall_std": 0.0015116838969110435,
+      "f1_mean": 0.012969126602734488,
+      "f1_std": 0.0023556351883362407,
+      "ap_mean": 0.062103200921869516,
+      "ap_std": 0.0005098109505569797,
+      "mean_sybil_score_mean": 0.02960317722781263,
+      "mean_sybil_score_std": 0.0013787390476400158
     },
     {
       "features": "cheap + structural",
@@ -772,14 +772,14 @@
       "top_features": [
         "n_l0_source_contracts"
       ],
-      "recall_mean": 0.41995240710232473,
-      "recall_std": 0.0014202573488025492,
-      "f1_mean": 0.4921477827607192,
-      "f1_std": 0.001255300484269835,
-      "ap_mean": 0.5108672929773797,
-      "ap_std": 0.001499722121287405,
-      "mean_sybil_score_mean": 0.45206508745311247,
-      "mean_sybil_score_std": 0.0013013598447979928
+      "recall_mean": 0.41252059308072486,
+      "recall_std": 0.0030591746184950833,
+      "f1_mean": 0.4911047805045999,
+      "f1_std": 0.002749960821575092,
+      "ap_mean": 0.5140580185392267,
+      "ap_std": 0.0014080590197524188,
+      "mean_sybil_score_mean": 0.45503091250100747,
+      "mean_sybil_score_std": 0.0013087353482407803
     },
     {
       "features": "cheap + structural",
@@ -788,14 +788,14 @@
       "top_features": [
         "n_l0_source_contracts"
       ],
-      "recall_mean": 0.41995240710232473,
-      "recall_std": 0.0014202573488025492,
-      "f1_mean": 0.4921477827607192,
-      "f1_std": 0.001255300484269835,
-      "ap_mean": 0.5108672929773797,
-      "ap_std": 0.001499722121287405,
-      "mean_sybil_score_mean": 0.45206508745311247,
-      "mean_sybil_score_std": 0.0013013598447979928
+      "recall_mean": 0.41252059308072486,
+      "recall_std": 0.0030591746184950833,
+      "f1_mean": 0.4911047805045999,
+      "f1_std": 0.002749960821575092,
+      "ap_mean": 0.5140580185392267,
+      "ap_std": 0.0014080590197524188,
+      "mean_sybil_score_mean": 0.45503091250100747,
+      "mean_sybil_score_std": 0.0013087353482407803
     },
     {
       "features": "cheap + structural",
@@ -805,14 +805,14 @@
         "n_l0_source_contracts",
         "l0_avg_stargate_swap"
       ],
-      "recall_mean": 0.2181951308804686,
-      "recall_std": 0.006290624300728382,
-      "f1_mean": 0.289965230204067,
-      "f1_std": 0.007123504698488729,
-      "ap_mean": 0.3166654997132833,
-      "ap_std": 0.0038070803087658376,
-      "mean_sybil_score_mean": 0.2734952154445741,
-      "mean_sybil_score_std": 0.003295925304341817
+      "recall_mean": 0.20970162914149734,
+      "recall_std": 0.004929781131180883,
+      "f1_mean": 0.28391451676902346,
+      "f1_std": 0.00572825635108277,
+      "ap_mean": 0.3186572358830928,
+      "ap_std": 0.003770401076213829,
+      "mean_sybil_score_mean": 0.2756892751932661,
+      "mean_sybil_score_std": 0.003469144543190763
     },
     {
       "features": "cheap + structural",
@@ -822,14 +822,14 @@
         "n_l0_source_contracts",
         "l0_avg_stargate_swap"
       ],
-      "recall_mean": 0.22002562694490208,
-      "recall_std": 0.0011058984050516777,
-      "f1_mean": 0.2920658409593419,
-      "f1_std": 0.0012544569362891048,
-      "ap_mean": 0.31278482617624176,
-      "ap_std": 0.0019244290635978055,
-      "mean_sybil_score_mean": 0.2738205084414621,
-      "mean_sybil_score_std": 0.0013152053737172061
+      "recall_mean": 0.2110561962291781,
+      "recall_std": 0.0017605147411377728,
+      "f1_mean": 0.28550009724224445,
+      "f1_std": 0.0020424054384890595,
+      "ap_mean": 0.31470185376872395,
+      "ap_std": 0.0018633671757361482,
+      "mean_sybil_score_mean": 0.2754706501191065,
+      "mean_sybil_score_std": 0.0015752489339212238
     },
     {
       "features": "cheap + structural",
@@ -840,14 +840,14 @@
         "l0_avg_stargate_swap",
         "max_tx_value_out"
       ],
-      "recall_mean": 0.11901885410946367,
-      "recall_std": 0.0020926981639432986,
-      "f1_mean": 0.169337311052493,
-      "f1_std": 0.0027248164066842207,
-      "ap_mean": 0.22129149191821101,
-      "ap_std": 0.0020993070806355576,
-      "mean_sybil_score_mean": 0.17766596634474002,
-      "mean_sybil_score_std": 0.002086103674246753
+      "recall_mean": 0.11275855756910122,
+      "recall_std": 0.0022418906670173713,
+      "f1_mean": 0.16339134367280445,
+      "f1_std": 0.0029872271062182485,
+      "ap_mean": 0.22339810996337323,
+      "ap_std": 0.0018599708216850092,
+      "mean_sybil_score_mean": 0.18039173820857385,
+      "mean_sybil_score_std": 0.0020955492088671653
     },
     {
       "features": "cheap + structural",
@@ -858,14 +858,14 @@
         "l0_avg_stargate_swap",
         "max_tx_value_out"
       ],
-      "recall_mean": 0.11323448654585393,
-      "recall_std": 0.0028316537587922013,
-      "f1_mean": 0.16177021878497846,
-      "f1_std": 0.0037230856569121116,
-      "ap_mean": 0.21636550925234577,
-      "ap_std": 0.001323899706291503,
-      "mean_sybil_score_mean": 0.17345003451949054,
-      "mean_sybil_score_std": 0.0016743251093340127
+      "recall_mean": 0.10712062969064615,
+      "recall_std": 0.003393583702906455,
+      "f1_mean": 0.15585314176581808,
+      "f1_std": 0.004557107447369224,
+      "ap_mean": 0.2181427434104679,
+      "ap_std": 0.001485628827918657,
+      "mean_sybil_score_mean": 0.17523103589941663,
+      "mean_sybil_score_std": 0.001415401654145701
     },
     {
       "features": "cheap + structural",
@@ -878,14 +878,14 @@
         "num_transactions_in",
         "n_l0_source_chains"
       ],
-      "recall_mean": 0.026578802855573857,
-      "recall_std": 0.0021126176893653315,
-      "f1_mean": 0.04047432444517772,
-      "f1_std": 0.0031519149416613223,
-      "ap_mean": 0.10492806062163222,
-      "ap_std": 0.001064166434305025,
-      "mean_sybil_score_mean": 0.06386466290572115,
-      "mean_sybil_score_std": 0.0015421843975459188
+      "recall_mean": 0.024967966318872416,
+      "recall_std": 0.001567186878491964,
+      "f1_mean": 0.0386357322808102,
+      "f1_std": 0.002376296673416401,
+      "ap_mean": 0.10710679291920981,
+      "ap_std": 0.0010395676900491803,
+      "mean_sybil_score_mean": 0.06625583844335406,
+      "mean_sybil_score_std": 0.0014726219764024354
     },
     {
       "features": "cheap + structural",
@@ -898,14 +898,14 @@
         "num_transactions_in",
         "n_l0_source_chains"
       ],
-      "recall_mean": 0.04462749405088779,
-      "recall_std": 0.0018000395048785674,
-      "f1_mean": 0.0670415044944416,
-      "f1_std": 0.0026117196514734296,
-      "ap_mean": 0.11153038527566897,
-      "ap_std": 0.0019864184714596324,
-      "mean_sybil_score_mean": 0.08473639966843508,
-      "mean_sybil_score_std": 0.002258058459062268
+      "recall_mean": 0.04279699798645433,
+      "recall_std": 0.0021046725025524156,
+      "f1_mean": 0.06532334167343548,
+      "f1_std": 0.0031076507156755067,
+      "ap_mean": 0.11176531050492755,
+      "ap_std": 0.0019731929048897225,
+      "mean_sybil_score_mean": 0.08512835435994089,
+      "mean_sybil_score_std": 0.002282590910996329
     },
     {
       "features": "cheap + structural",
@@ -923,14 +923,14 @@
         "n_l0_project_per_source_chain",
         "n_l0_projects"
       ],
-      "recall_mean": 0.0038074318140216,
-      "recall_std": 0.0009097399699644281,
-      "f1_mean": 0.005900083651673809,
-      "f1_std": 0.0014060298075712417,
-      "ap_mean": 0.06087267334209925,
-      "ap_std": 0.0007444589277978131,
-      "mean_sybil_score_mean": 0.020926726802529067,
-      "mean_sybil_score_std": 0.0009438501469121849
+      "recall_mean": 0.0031484532308255534,
+      "recall_std": 0.00055521694629702,
+      "f1_mean": 0.00495561050153695,
+      "f1_std": 0.0008721900900972927,
+      "ap_mean": 0.06201083536237116,
+      "ap_std": 0.0009108455215860796,
+      "mean_sybil_score_mean": 0.0223431668418306,
+      "mean_sybil_score_std": 0.0008228260136024945
     },
     {
       "features": "cheap + structural",
@@ -948,14 +948,14 @@
         "n_l0_project_per_source_chain",
         "n_l0_projects"
       ],
-      "recall_mean": 0.011166025993044117,
-      "recall_std": 0.001672676815165391,
-      "f1_mean": 0.01720469639792412,
-      "f1_std": 0.002558394365907283,
-      "ap_mean": 0.07189951978674701,
-      "ap_std": 0.0016221976901473814,
-      "mean_sybil_score_mean": 0.038370567545973386,
-      "mean_sybil_score_std": 0.002025641415784418
+      "recall_mean": 0.010616877173714076,
+      "recall_std": 0.0014060307061813302,
+      "f1_mean": 0.016612231747279584,
+      "f1_std": 0.0021803296766313637,
+      "ap_mean": 0.07228122120843421,
+      "ap_std": 0.0017012850718336862,
+      "mean_sybil_score_mean": 0.039339749026778566,
+      "mean_sybil_score_std": 0.002003017096694337
     },
     {
       "features": "cheap + structural",
@@ -983,14 +983,14 @@
         "indegree_per_block_in",
         "gas_distribution_entropy"
       ],
-      "recall_mean": 0.0002562694490206846,
-      "recall_std": 0.00010026039859146369,
-      "f1_mean": 0.00039826065950971447,
-      "f1_std": 0.00015578001574024293,
-      "ap_mean": 0.045624697816454646,
-      "ap_std": 0.0002031707665612119,
-      "mean_sybil_score_mean": 0.0072240477669847005,
-      "mean_sybil_score_std": 0.00040194554168715077
+      "recall_mean": 0.00021965952773201537,
+      "recall_std": 0.0001531502885839421,
+      "f1_mean": 0.0003465370377513289,
+      "f1_std": 0.00024159479366900414,
+      "ap_mean": 0.046604116798669604,
+      "ap_std": 0.0002653650178604363,
+      "mean_sybil_score_mean": 0.007996014195017583,
+      "mean_sybil_score_std": 0.00042599404928072004
     },
     {
       "features": "cheap + structural",
@@ -1018,14 +1018,14 @@
         "indegree_per_block_in",
         "gas_distribution_entropy"
       ],
-      "recall_mean": 0.003404722679846238,
-      "recall_std": 0.0008835817965328332,
-      "f1_mean": 0.00527764407399191,
-      "f1_std": 0.0013661737255661732,
-      "ap_mean": 0.05392559204842699,
-      "ap_std": 0.0005374892527353201,
-      "mean_sybil_score_mean": 0.018416822145470878,
-      "mean_sybil_score_std": 0.0010939938766428596
+      "recall_mean": 0.003002013545670877,
+      "recall_std": 0.0008546672180068645,
+      "f1_mean": 0.00472522990332433,
+      "f1_std": 0.001342452633192292,
+      "ap_mean": 0.05399836098520474,
+      "ap_std": 0.000441034850561257,
+      "mean_sybil_score_mean": 0.018883092447292905,
+      "mean_sybil_score_std": 0.0011060720987458555
     }
   ],
   "caveats": [
@@ -1035,11 +1035,11 @@
     "The result measures the fragility of the published model, not the cost or feasibility of a real attack."
   ],
   "platform": {
-    "machine": "arm64",
-    "processor": "arm",
-    "system": "Darwin",
-    "python": "3.13.7",
-    "cpu_count": 10,
+    "machine": "x86_64",
+    "processor": "x86_64",
+    "system": "Linux",
+    "python": "3.11.15",
+    "cpu_count": 4,
     "n_jobs": 4
   }
 }
