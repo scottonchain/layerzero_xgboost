@@ -92,9 +92,10 @@ for line in open('/home/user/fix_diag/progress.log'):
     if m: stamps.append((int(m.group(2)), datetime.datetime.strptime(m.group(1), '%Y-%m-%dT%H:%M:%SZ')))
 w("\n## 7. What can be concluded now, what still needs the full rerun, and the ETA")
 x_o = np.array([d(q, 'orig', 'f1') for q in P]); x_n = np.array([d(q, 'new', 'f1') for q in P])
-w(f"- Now (descriptive, {n} of 15 pairs): the feature fix is verified as intended and touches only roots; with a fixed configuration it changes test F1 by {S2['overall']['f1']['diff']:+.4f} and leaves AUROC unchanged; "
-  f"in every completed report-dependence pair the seen arm beats the held-out arm for both feature versions, and the mean effect moves from {x_o.mean():+.3f} to {x_n.mean():+.3f} F1. "
-  "No change in the interpretation is visible so far. No significance test is quoted until all 15 pairs are complete.")
+_tail = ("All 15 pairs are complete, so the planned tests are reported above." if n == 15 else "No significance test is quoted until all 15 pairs are complete.")
+w(f"- Now ({'complete, LightGBM only' if n == 15 else 'descriptive, ' + str(n) + ' of 15 pairs'}): the feature fix is verified as intended and touches only roots; with a fixed configuration it changes test F1 by {S2['overall']['f1']['diff']:+.4f} and leaves AUROC unchanged; "
+  f"in every completed report-dependence pair the seen arm beats the held-out arm for both feature versions, and the mean F1 effect moves from {x_o.mean():+.3f} to {x_n.mean():+.3f}. "
+  f"The interpretation does not change in this diagnostic. {_tail} This is the fixed-configuration LightGBM comparison, not the retuned two-model result of the corrected rerun.")
 w("- Still needs the full rerun: retuned hyperparameters (02 and 13 from scratch), the Gini keep-or-drop rule (01), all models and predictions, entity-level recall (14), the ten-split comparisons (13, 17, 19), "
   "the revised analyses (15, 16, 18, 20, 22, 24), the figures, tables and named numbers (23, 25), and the tie-out (99). The 83 of 83 checks of the earlier run are evidence for the original implementation only.")
 if len(stamps) >= 3:
@@ -102,8 +103,8 @@ if len(stamps) >= 3:
     left = 15 - n
     eta = stamps[-1][1] + datetime.timedelta(seconds=per * left)
     w(f"- Observed ETA: {n} pairs done; about {per / 60:.1f} minutes per pair, so the remaining {left} should finish near {eta.strftime('%H:%M')} UTC ({(eta - datetime.timedelta(hours=6)).strftime('%H:%M')} Denver).")
-w("- The corrected publication rerun (00 to 25, 99; fresh search caches) takes roughly 12 hours of compute on this four-core host, based on the earlier run's notebook timings (13 to 99: about 7.7 hours; 00 to 12 with the 80-minute search: about 5 hours), "
-  "plus any container restarts; it starts when Stage 3 ends.")
+w("- The corrected publication rerun (00 to 25, 99; fresh search caches) takes roughly 12 hours of compute on this four-core host (an estimate; it starts when Stage 3 ends), based on the earlier run's notebook timings (13 to 99: about 7.7 hours; 00 to 12 with the 80-minute search: about 5 hours), "
+  "plus any container restarts.")
 w("\n## 8. Required manuscript corrections")
 w(f"- **\"Single-wallet tree\".** The tree ids (`provision_tree`) are unchanged, so counts of single-wallet groups stand. What changes is what the tree *features* said: before the fix every one of the "
   f"{BR['ixl_total']:,} IxL wallets had all-zero tree features. {BR['ixl_singletons']:,} IxL wallets ({100 * BR['ixl_singletons'] / BR['ixl_total']:.1f} %) are single-wallet trees "

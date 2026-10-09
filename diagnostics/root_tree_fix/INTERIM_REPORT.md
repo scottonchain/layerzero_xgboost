@@ -1,4 +1,4 @@
-# Root-wallet tree-feature fix: interim report (2026-10-09 16:41 UTC)
+# Root-wallet tree-feature fix: interim report (2026-10-09 16:57 UTC)
 
 Interim evidence from one environment (x86_64 Linux, Xeon 2.80 GHz, 4 cores, Python 3.11.15, pinned packages). The corrected publication rerun of notebooks 00 to 25 and 99 has not been done; results, figures and tables committed in the repository are still those from before the fix.
 
@@ -46,7 +46,7 @@ Affected Sybil roots in test: 4,779; recall 0.809 to 0.778 (mean score 0.773 to 
 
 Binary predictions that change: 702 of 130,435 (0.54 %): 74 to flagged, 628 to unflagged; Sybils 222 (30 missed to caught, 192 caught to missed), non-Sybils 480 (44 false positives added, 436 removed).
 
-## 6. Central evidence: notebook 22 report dependence, LightGBM only, **10 of 15 pairs complete**
+## 6. Central evidence: notebook 22 report dependence, LightGBM only, **15 of 15 pairs complete**
 Same components, folds (repeats 42, 1, 2; folds 0 to 4), matched-tree removal, upsampling and validation-only selection; row identities asserted equal for every arm. The original arm is PR #13's stored result (the first pair was refitted here and is bit-identical). Descriptive until all 15 pairs are done.
 
 | Pair | Test Sybils | F1 held / seen: original | corrected | F1 diff original | corrected | AP diff original | corrected | AUROC diff original | corrected |
@@ -61,18 +61,34 @@ Same components, folds (repeats 42, 1, 2; folds 0 to 4), matched-tree removal, u
 | r1 f2 | 900 | 0.347 / 0.583 | 0.343 / 0.603 | +0.236 | +0.260 | +0.351 | +0.357 | +0.080 | +0.076 |
 | r1 f3 | 899 | 0.247 / 0.604 | 0.241 / 0.616 | +0.356 | +0.375 | +0.428 | +0.427 | +0.160 | +0.148 |
 | r1 f4 | 899 | 0.429 / 0.616 | 0.429 / 0.621 | +0.187 | +0.192 | +0.241 | +0.235 | +0.048 | +0.046 |
+| r2 f0 | 901 | 0.461 / 0.615 | 0.457 / 0.623 | +0.153 | +0.166 | +0.227 | +0.221 | +0.053 | +0.052 |
+| r2 f1 | 899 | 0.401 / 0.593 | 0.406 / 0.593 | +0.193 | +0.186 | +0.232 | +0.224 | +0.051 | +0.051 |
+| r2 f2 | 899 | 0.326 / 0.545 | 0.321 / 0.589 | +0.219 | +0.268 | +0.346 | +0.336 | +0.079 | +0.079 |
+| r2 f3 | 899 | 0.221 / 0.587 | 0.205 / 0.585 | +0.366 | +0.380 | +0.404 | +0.407 | +0.162 | +0.155 |
+| r2 f4 | 899 | 0.430 / 0.596 | 0.430 / 0.605 | +0.166 | +0.175 | +0.266 | +0.269 | +0.055 | +0.056 |
 
 | Seen minus held out, mean ± SD over completed pairs | Original | Corrected |
 |---|---|---|
-| F1 | +0.2335 ± 0.0755 (10/10 higher) | +0.2380 ± 0.0855 (10/10 higher) |
-| AP | +0.2934 ± 0.0817 (10/10 higher) | +0.2927 ± 0.0814 (10/10 higher) |
-| AUROC | +0.0789 ± 0.0425 (10/10 higher) | +0.0764 ± 0.0394 (10/10 higher) |
+| F1 | +0.2288 ± 0.0763 (15/15 higher) | +0.2370 ± 0.0840 (15/15 higher) |
+| AP | +0.2939 ± 0.0775 (15/15 higher) | +0.2923 ± 0.0779 (15/15 higher) |
+| AUROC | +0.0793 ± 0.0424 (15/15 higher) | +0.0771 ± 0.0394 (15/15 higher) |
+
+Planned aggregate tests (all 15 pairs; corrected resampled t-test, df = 14):
+
+| Arm | Metric | Seen minus held out | Higher in | Corrected p |
+|---|---|---|---|---|
+| orig | f1 | +0.2288 ± 0.0763 | 15/15 | 1.9e-05 |
+| orig | ap | +0.2939 ± 0.0775 | 15/15 | 1.4e-06 |
+| orig | auroc | +0.0793 ± 0.0424 | 15/15 | 0.0015 |
+| new | f1 | +0.2370 ± 0.0840 | 15/15 | 3.5e-05 |
+| new | ap | +0.2923 ± 0.0779 | 15/15 | 1.5e-06 |
+| new | auroc | +0.0771 ± 0.0394 | 15/15 | 0.001 |
 
 ## 7. What can be concluded now, what still needs the full rerun, and the ETA
-- Now (descriptive, 10 of 15 pairs): the feature fix is verified as intended and touches only roots; with a fixed configuration it changes test F1 by +0.0064 and leaves AUROC unchanged; in every completed report-dependence pair the seen arm beats the held-out arm for both feature versions, and the mean effect moves from +0.234 to +0.238 F1. No change in the interpretation is visible so far. No significance test is quoted until all 15 pairs are complete.
+- Now (complete, LightGBM only): the feature fix is verified as intended and touches only roots; with a fixed configuration it changes test F1 by +0.0064 and leaves AUROC unchanged; in every completed report-dependence pair the seen arm beats the held-out arm for both feature versions, and the mean F1 effect moves from +0.229 to +0.237. The interpretation does not change in this diagnostic. All 15 pairs are complete, so the planned tests are reported above. This is the fixed-configuration LightGBM comparison, not the retuned two-model result of the corrected rerun.
 - Still needs the full rerun: retuned hyperparameters (02 and 13 from scratch), the Gini keep-or-drop rule (01), all models and predictions, entity-level recall (14), the ten-split comparisons (13, 17, 19), the revised analyses (15, 16, 18, 20, 22, 24), the figures, tables and named numbers (23, 25), and the tie-out (99). The 83 of 83 checks of the earlier run are evidence for the original implementation only.
-- Observed ETA: 10 pairs done; about 3.1 minutes per pair, so the remaining 5 should finish near 16:56 UTC (10:56 Denver).
-- The corrected publication rerun (00 to 25, 99; fresh search caches) takes roughly 12 hours of compute on this four-core host, based on the earlier run's notebook timings (13 to 99: about 7.7 hours; 00 to 12 with the 80-minute search: about 5 hours), plus any container restarts; it starts when Stage 3 ends.
+- Observed ETA: 15 pairs done; about 3.1 minutes per pair, so the remaining 0 should finish near 16:56 UTC (10:56 Denver).
+- The corrected publication rerun (00 to 25, 99; fresh search caches) takes roughly 12 hours of compute on this four-core host (an estimate; it starts when Stage 3 ends), based on the earlier run's notebook timings (13 to 99: about 7.7 hours; 00 to 12 with the 80-minute search: about 5 hours), plus any container restarts.
 
 ## 8. Required manuscript corrections
 - **"Single-wallet tree".** The tree ids (`provision_tree`) are unchanged, so counts of single-wallet groups stand. What changes is what the tree *features* said: before the fix every one of the 306,658 IxL wallets had all-zero tree features. 293,772 IxL wallets (95.8 %) are single-wallet trees (15,669 of the 15,921 IxL Sybils, 98.4 %), but 12,886 (4.2 %) are roots of multi-wallet trees of up to 610 wallets (252 of them Sybils). Text saying IxL wallets are singletons, or that their tree features were computed from a tree, must be corrected.
