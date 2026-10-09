@@ -1,104 +1,104 @@
 {
   "notebook": "01_ablation_gini",
-  "code_commit": "0d9eacc",
+  "code_commit": "da08630",
   "leakage": null,
   "models": [],
   "rule": "retain if removing lowers validation F1 on >= 8 of 10 group splits",
-  "splits_lowered": 3,
-  "sign_test_p": 0.9453125,
-  "mean_f1_change": 0.001130674433883383,
-  "mean_ap_change": 0.0009659128728605638,
+  "splits_lowered": 6,
+  "sign_test_p": 0.376953125,
+  "mean_f1_change": -0.00018753126681676503,
+  "mean_ap_change": 0.0014866413714745065,
   "decision": "remove",
   "per_split": [
     {
       "split_seed": 42,
-      "val_f1_with": 0.7016523463317912,
-      "val_f1_without": 0.7025435073627845,
-      "val_ap_with": 0.7595457415425101,
-      "val_ap_without": 0.759887165046236,
-      "f1_change_when_removed": 0.0008911610309932927,
-      "ap_change_when_removed": 0.0003414235037259017
+      "val_f1_with": 0.7058195408435665,
+      "val_f1_without": 0.7041420118343196,
+      "val_ap_with": 0.7599645886236733,
+      "val_ap_without": 0.7579187707854862,
+      "f1_change_when_removed": -0.001677529009246892,
+      "ap_change_when_removed": -0.002045817838187136
     },
     {
       "split_seed": 1,
-      "val_f1_with": 0.7164138308049747,
-      "val_f1_without": 0.7152644560153467,
-      "val_ap_with": 0.7695718458453337,
-      "val_ap_without": 0.7703348411266753,
-      "f1_change_when_removed": -0.001149374789627955,
-      "ap_change_when_removed": 0.0007629952813416052
+      "val_f1_with": 0.7188864628820961,
+      "val_f1_without": 0.7183441558441559,
+      "val_ap_with": 0.768733746026945,
+      "val_ap_without": 0.7703378709005039,
+      "f1_change_when_removed": -0.0005423070379402262,
+      "ap_change_when_removed": 0.0016041248735588765
     },
     {
       "split_seed": 2,
-      "val_f1_with": 0.7147343627322691,
-      "val_f1_without": 0.7181947866683958,
-      "val_ap_with": 0.7741540738938928,
-      "val_ap_without": 0.776184488327103,
-      "f1_change_when_removed": 0.0034604239361266664,
-      "ap_change_when_removed": 0.0020304144332101703
+      "val_f1_with": 0.715318869165023,
+      "val_f1_without": 0.7142857142857143,
+      "val_ap_with": 0.7736434360412499,
+      "val_ap_without": 0.7748570279555375,
+      "f1_change_when_removed": -0.001033154879308662,
+      "ap_change_when_removed": 0.001213591914287604
     },
     {
       "split_seed": 3,
-      "val_f1_with": 0.7091397849462365,
-      "val_f1_without": 0.7124600638977636,
-      "val_ap_with": 0.75527890780877,
-      "val_ap_without": 0.7594389183783566,
-      "f1_change_when_removed": 0.003320278951527089,
-      "ap_change_when_removed": 0.004160010569586592
+      "val_f1_with": 0.7102141006409383,
+      "val_f1_without": 0.7094188376753507,
+      "val_ap_with": 0.7586562605082311,
+      "val_ap_without": 0.7587450440437171,
+      "f1_change_when_removed": -0.0007952629655875176,
+      "ap_change_when_removed": 8.878353548602558e-05
     },
     {
       "split_seed": 4,
-      "val_f1_with": 0.706723133933298,
-      "val_f1_without": 0.7040389031473727,
-      "val_ap_with": 0.7492963394590467,
-      "val_ap_without": 0.7448593269986047,
-      "f1_change_when_removed": -0.002684230785925279,
-      "ap_change_when_removed": -0.004437012460442036
+      "val_f1_with": 0.7031434959884256,
+      "val_f1_without": 0.7052223854681448,
+      "val_ap_with": 0.7450431467820108,
+      "val_ap_without": 0.746287353009319,
+      "f1_change_when_removed": 0.002078889479719126,
+      "ap_change_when_removed": 0.0012442062273082533
     },
     {
       "split_seed": 5,
-      "val_f1_with": 0.7168468591761324,
-      "val_f1_without": 0.7220971799285052,
-      "val_ap_with": 0.7677248754356665,
-      "val_ap_without": 0.7687814421352994,
-      "f1_change_when_removed": 0.00525032075237275,
-      "ap_change_when_removed": 0.0010565666996329437
+      "val_f1_with": 0.7173825232260671,
+      "val_f1_without": 0.7185781869326173,
+      "val_ap_with": 0.7665482483658249,
+      "val_ap_without": 0.7694827215997294,
+      "f1_change_when_removed": 0.0011956637065502207,
+      "ap_change_when_removed": 0.0029344732339045
     },
     {
       "split_seed": 6,
-      "val_f1_with": 0.708604867668573,
-      "val_f1_without": 0.7097130242825607,
-      "val_ap_with": 0.7527346844399425,
-      "val_ap_without": 0.7525266926228216,
-      "f1_change_when_removed": 0.0011081566139876653,
-      "ap_change_when_removed": -0.00020799181712094494
+      "val_f1_with": 0.7077655774573356,
+      "val_f1_without": 0.7090933657613836,
+      "val_ap_with": 0.7522008320500477,
+      "val_ap_without": 0.7530386578891742,
+      "f1_change_when_removed": 0.0013277883040480054,
+      "ap_change_when_removed": 0.0008378258391265048
     },
     {
       "split_seed": 7,
-      "val_f1_with": 0.7060750853242321,
-      "val_f1_without": 0.7040572792362768,
-      "val_ap_with": 0.7578330028840279,
-      "val_ap_without": 0.7581702316575053,
-      "f1_change_when_removed": -0.0020178060879553206,
-      "ap_change_when_removed": 0.000337228773477416
+      "val_f1_with": 0.7077294685990339,
+      "val_f1_without": 0.704177098431941,
+      "val_ap_with": 0.7592838768649215,
+      "val_ap_without": 0.7591208418697324,
+      "f1_change_when_removed": -0.0035523701670928665,
+      "ap_change_when_removed": -0.00016303499518910414
     },
     {
       "split_seed": 8,
-      "val_f1_with": 0.7120786516853933,
-      "val_f1_without": 0.7150147730325007,
-      "val_ap_with": 0.7624882665823827,
-      "val_ap_without": 0.7607877701848396,
-      "f1_change_when_removed": 0.002936121347107412,
-      "ap_change_when_removed": -0.0017004963975431053
+      "val_f1_with": 0.7148298962301327,
+      "val_f1_without": 0.7128765662490003,
+      "val_ap_with": 0.7611577017288543,
+      "val_ap_without": 0.7634843091419876,
+      "f1_change_when_removed": -0.001953329981132401,
+      "ap_change_when_removed": 0.002326607413133286
     },
     {
       "split_seed": 9,
-      "val_f1_with": 0.7098789535337758,
-      "val_f1_without": 0.7100706469040033,
-      "val_ap_with": 0.7586725646558964,
-      "val_ap_without": 0.7659885547986335,
-      "f1_change_when_removed": 0.0001916933702275081,
-      "ap_change_when_removed": 0.007315990142737094
+      "val_f1_with": 0.7092086140837627,
+      "val_f1_without": 0.7122849139655862,
+      "val_ap_with": 0.755993643769146,
+      "val_ap_without": 0.7628192972804623,
+      "f1_change_when_removed": 0.003076299881823563,
+      "ap_change_when_removed": 0.006825653511316254
     }
   ],
   "params": {
