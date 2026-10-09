@@ -1,0 +1,8 @@
+03 rc=0 seconds=316
+03 results identical to the first regen: True
+output/pred_03_xgboost_sybil_test.parquet: OK
+output/pred_03_xgboost_sybil_val.parquet: OK
+output/pred_04_lightgbm_sybil_test.parquet: OK
+output/pred_04_lightgbm_sybil_val.parquet: OK
+output/pred_06_cross_ensemble_sybil_test.parquet: OK
+output/pred_06_cross_ensemble_sybil_val.parquet: OK

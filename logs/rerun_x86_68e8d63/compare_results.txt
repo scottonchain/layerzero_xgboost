@@ -1,0 +1,188 @@
+=== 13_random_forest_sybil  (this run: 412db11)
+  vs 68e8d63 (PR #12, committed) [3bbec2c]: 392 shared fields, 321 differ (320 numeric, max |diff| 9.97e+09), 0 only on one side, 7 commit/platform/timing fields skipped
+      .by_category[0].auroc: ref 0.9394016208168404  now 0.9387330151242357
+      .by_category[0].f1: ref 0.2765273311897106  now 0.2802547770700637
+      .by_category[0].fpr: ref 0.00035825600974456344  now 0.00042990721169347616
+      .by_category[0].precision: ref 0.8113207547169812  now 0.7857142857142857
+      .by_category[0].recall: ref 0.16666666666666666  now 0.17054263565891473
+      .by_category[1].auroc: ref 0.9234833062941111  now 0.9212698543916962
+      .by_category[1].f1: ref 0.18604651162790697  now 0.19665271966527198
+      .by_category[1].fpr: ref 0.00031443244942878104  now 0.0005240540823813018
+  vs PR #8 x86 (cf47a0f) [073ecca]: 392 shared fields, 4 differ (4 numeric, max |diff| 7.8e+07), 0 only on one side, 7 commit/platform/timing fields skipped
+      .memory_guard.available_ram_bytes: ref 15111102464  now 15189123072
+      .per_split[4].val_ap: ref 0.7407011133606751  now 0.7407011224977817
+      .summary.val_ap_mean: ref 0.7561604662605178  now 0.7561604671742284
+      .summary.val_ap_std: ref 0.007835330672778232  now 0.007835328669689882
+=== 14_entity_level_recall  (this run: 9c634b7)
+  vs 68e8d63 (PR #12, committed) [e156d9d]: 4905 shared fields, 1243 differ (1239 numeric, max |diff| 101), 0 only on one side, 8 commit/platform/timing fields skipped
+      .inputs.models.Ensemble.matches_committed: ref False  now True
+      .inputs.models.Ensemble.used.ap: ref 0.7696917549094032  now 0.7698852314328927
+      .inputs.models.Ensemble.used.auroc: ref 0.9683017452801246  now 0.9683298709286132
+      .inputs.models.Ensemble.used.f1: ref 0.7167503423094478  now 0.7173198258242246
+      .inputs.models.Ensemble.used.precision: ref 0.7148579752367079  now 0.6970639032815199
+      .inputs.models.Ensemble.used.recall: ref 0.718652754896577  now 0.738788211605345
+      .inputs.models.Ensemble.used.threshold: ref 0.5748310308675113  now 0.503464382751962
+      .inputs.models.LightGBM.matches_committed: ref False  now True
+  vs PR #8 x86 (cf47a0f) [4f2d3a9]: 4905 shared fields, 0 differ (0 numeric, max |diff| 0), 0 only on one side, 8 commit/platform/timing fields skipped
+=== 15_split_tree_report  (this run: 1e6aa04)
+  vs 68e8d63 (PR #12, committed) [3bbec2c]: 1101 shared fields, 503 differ (503 numeric, max |diff| 107), 0 only on one side, 9 commit/platform/timing fields skipped
+      .interpretation_inputs.delta_outBIG_ap_mean: ref -0.4488659942860159  now -0.44773341145223383
+      .interpretation_inputs.delta_outBIG_ap_std: ref 0.015434159175538108  now 0.01573023042910113
+      .interpretation_inputs.delta_outBIG_f1_mean: ref -0.37519648996370514  now -0.37040651782774997
+      .interpretation_inputs.delta_outBIG_f1_std: ref 0.02164046950437782  now 0.019995503700317028
+      .interpretation_inputs.delta_test_ap_mean: ref -0.5640853216668356  now -0.5634927954750356
+      .interpretation_inputs.delta_test_ap_std: ref 0.01583482070880758  now 0.01676134748393594
+      .interpretation_inputs.delta_test_f1_IxE_mean: ref -0.18125097284438224  now -0.18638905055379076
+      .interpretation_inputs.delta_test_f1_IxE_std: ref 0.06193720703116924  now 0.06870186022897957
+  vs PR #8 x86 (cf47a0f) [9753ef1]: 1101 shared fields, 0 differ (0 numeric, max |diff| 0), 0 only on one side, 9 commit/platform/timing fields skipped
+=== 16_label_robustness_initial_list  (this run: 3a0e8ee)
+  vs 68e8d63 (PR #12, committed) [5888aa3]: 572 shared fields, 470 differ (470 numeric, max |diff| 146), 0 only on one side, 7 commit/platform/timing fields skipped
+      .fp_composition[0].flagged: ref 2991  now 2996
+      .fp_composition[0].fp: ref 373  now 374
+      .fp_composition[0].fp_not_on_list: ref 308  now 310
+      .fp_composition[0].fp_on_initial_list: ref 65  now 64
+      .fp_composition[0].fp_share_on_list: ref 0.1742627345844504  now 0.1711229946524064
+      .fp_composition[0].precision: ref 0.8752925442995654  now 0.8751668891855807
+      .fp_composition[0].precision_if_list_counted_sybil: ref 0.8970244065529923  now 0.8965287049399199
+      .fp_composition[0].tp: ref 2618  now 2622
+  vs PR #8 x86 (cf47a0f) [a03cf26]: 572 shared fields, 0 differ (0 numeric, max |diff| 0), 0 only on one side, 7 commit/platform/timing fields skipped
+=== 17_models_10_splits  (this run: 17dd144)
+  vs 68e8d63 (PR #12, committed) [5888aa3]: 2794 shared fields, 1102 differ (1079 numeric, max |diff| 258), 0 only on one side, 50 commit/platform/timing fields skipped
+      .by_category[104].auroc: ref 0.8666524439112399  now 0.8708018137881283
+      .by_category[104].f1: ref 0.1824561403508772  now 0.176056338028169
+      .by_category[104].precision: ref 0.6190476190476191  now 0.6097560975609756
+      .by_category[104].recall: ref 0.10699588477366255  now 0.102880658436214
+      .by_category[105].auroc: ref 0.9341797352908464  now 0.9296974752530309
+      .by_category[105].f1: ref 0.5121555915721232  now 0.45868465430016864
+      .by_category[105].fpr: ref 0.0009009009009009009  now 0.0007007007007007007
+      .by_category[105].precision: ref 0.9461077844311377  now 0.951048951048951
+  vs PR #8 x86 (cf47a0f) [8d24f2e]: 2794 shared fields, 10 differ (10 numeric, max |diff| 6.66e-07), 0 only on one side, 50 commit/platform/timing fields skipped
+      .per_split[23].ap: ref 0.7559007410490775  now 0.7559007482742444
+      .per_split[8].ap: ref 0.741506741614377  now 0.741506751025633
+      .summary.Random Forest.ap_mean: ref 0.7535371850048727  now 0.753537186668515
+      .summary.Random Forest.ap_std: ref 0.007314805466199314  now 0.007314804005775443
+      .tests[7].mean_diff: ref -0.00714931915107696  now -0.0071493174874346695
+      .tests[7].p_corrected: ref 0.03242922648862622  now 0.03242921321944432
+      .tests[7].p_paired_uncorrected: ref 8.438473763322533e-05  now 8.438467395900347e-05
+      .tests[7].sd_diff: ref 0.003353191973869815  now 0.003353190862590026
+=== 18_mimicry_stress  (this run: daa8986)
+  vs 68e8d63 (PR #12, committed) [5888aa3]: 806 shared fields, 293 differ (293 numeric, max |diff| 0.0253), 0 only on one side, 70 commit/platform/timing fields skipped
+      .baseline.ap: ref 0.7696917549094032  now 0.7695927941671368
+      .baseline.f1: ref 0.7167503423094478  now 0.7188454066056065
+      .baseline.mean_sybil_score: ref 0.717581479584564  now 0.7188370280249414
+      .baseline.recall: ref 0.718652754896577  now 0.7111477210323998
+      .results[0].ap_mean: ref 0.5131495203877489  now 0.5162500265289903
+      .results[0].ap_std: ref 0.002603626423882386  now 0.0027634915052462575
+      .results[0].f1_mean: ref 0.49193987555145713  now 0.4886238688103831
+      .results[0].f1_std: ref 0.005242420632837062  now 0.005265180001000448
+  vs PR #8 x86 (cf47a0f) [5ab0bb1]: 806 shared fields, 0 differ (0 numeric, max |diff| 0), 0 only on one side, 70 commit/platform/timing fields skipped
+=== 19_ablation_by_category  (this run: cdb7aed)
+  vs 68e8d63 (PR #12, committed) [5888aa3]: 3207 shared fields, 973 differ (972 numeric, max |diff| 6), 0 only on one side, 7 commit/platform/timing fields skipped
+      .all_features_matches_08: ref False  now True
+      .diffs[0].all_higher_n: ref 9  now 7
+      .diffs[0].all_mean: ref 0.713273201768423  now 0.7130925126561611
+      .diffs[0].diff_mean: ref 0.008060886112374311  now 0.007880197000112587
+      .diffs[0].diff_sd: ref 0.007881927948300794  now 0.007566021512448003
+      .diffs[0].p_corrected: ref 0.2564366276867141  now 0.24841298292359018
+      .diffs[0].t_corrected: ref 1.2118164887845655  now 1.2341161499456113
+      .diffs[10].all_mean: ref 0.14159625437168222  now 0.14793668340596083
+  vs PR #8 x86 (cf47a0f) [5ceb757]: 3207 shared fields, 0 differ (0 numeric, max |diff| 0), 0 only on one side, 7 commit/platform/timing fields skipped
+=== 20_temporal_holdout  (this run: cb1243e)
+  vs 68e8d63 (PR #12, committed) [5888aa3]: 352 shared fields, 93 differ (93 numeric, max |diff| 148), 0 only on one side, 7 commit/platform/timing fields skipped
+      .by_category[0].auroc: ref 0.8921747995244882  now 0.8945987408212681
+      .by_category[10].auroc: ref 0.7526278625908175  now 0.7381910319576332
+      .by_category[11].auroc: ref 0.5473118279569893  now 0.49354838709677423
+      .by_category[12].auroc: ref 0.8909159727479183  now 0.9007759273277819
+      .by_category[12].f1: ref 0.2222222222222222  now 0.0
+      .by_category[12].precision: ref 1.0  now 0.0
+      .by_category[12].recall: ref 0.125  now 0.0
+      .by_category[13].auroc: ref 0.8767416934619507  now 0.8708467309753483
+  vs PR #8 x86 (cf47a0f) [31d466b]: 352 shared fields, 0 differ (0 numeric, max |diff| 0), 0 only on one side, 7 commit/platform/timing fields skipped
+=== 22_report_dependence  (this run: 1588c7c)
+  vs 68e8d63 (PR #12, committed) [ef82c78]: 2005 shared fields, 653 differ (653 numeric, max |diff| 278), 0 only on one side, 7 commit/platform/timing fields skipped
+      .by_category[0].auroc_diff_mean: ref 0.04400244699790136  now 0.0456813155083565
+      .by_category[0].auroc_diff_sd: ref 0.0355768893980303  now 0.04609444033476798
+      .by_category[0].auroc_held_out: ref 0.8542658105580229  now 0.8540746790611907
+      .by_category[0].auroc_seen: ref 0.8982682575559243  now 0.8997559945695474
+      .by_category[0].auroc_seen_higher_n: ref 13  now 14
+      .by_category[0].f1_diff_mean: ref 0.15374177006891673  now 0.15149090914877597
+      .by_category[0].f1_diff_sd: ref 0.2362975095477057  now 0.238455416605545
+      .by_category[0].f1_held_out: ref 0.06800438073213895  now 0.07785966620674624
+  vs PR #8 x86 (cf47a0f) [7da3628]: 2005 shared fields, 0 differ (0 numeric, max |diff| 0), 0 only on one side, 7 commit/platform/timing fields skipped
+=== 23_revision_figures  (this run: bb458c6)
+  vs 68e8d63 (PR #12, committed) [2f39463]: 54 shared fields, 1 differ (0 numeric, max |diff| 0), 0 only on one side, 67 commit/platform/timing fields skipped
+      .compile_check: ref 'WARNING: pdflatex not installed; compile check skipped (structural column check passed)'  now 'pdflatex: all tables compile'
+  vs PR #8 x86 (cf47a0f) [3b1c175]: 54 shared fields, 1 differ (0 numeric, max |diff| 0), 0 only on one side, 67 commit/platform/timing fields skipped
+      .figures.rev_mimicry.caption_note: ref '"cheap + structural" equals "cheap only" for k ≤ 10; mean ± SD over 5 repetitions; feature cost classes tentative.'  now '"wallet-local + funding-graph" equals "wallet-local only" for k ≤ 10; mean ± SD over 5 repetitions; feature cost classes tentative.'
+=== 24_mimicry_controls  (this run: 37bdba6)
+  vs 68e8d63 (PR #12, committed) [2f39463]: 7400 shared fields, 3011 differ (2969 numeric, max |diff| 55), 0 only on one side, 134 commit/platform/timing fields skipped
+      .baseline.ap: ref 0.7696917549094032  now 0.7695927941671368
+      .baseline.f1: ref 0.7167503423094478  now 0.7188454066056065
+      .baseline.mean_sybil_score: ref 0.717581479584564  now 0.7188370280249414
+      .baseline.recall: ref 0.718652754896577  now 0.7111477210323998
+      .compile_check: ref 'WARNING: pdflatex not installed; compile check skipped (structural column check passed)'  now 'pdflatex: tables compile'
+      .previous_result_check.max_abs_diff.baseline: ref 0.0  now 0.007505033864177224
+      .previous_result_check.max_abs_diff.random_k: ref 0.0  now 0.014277869300000023
+      .previous_result_check.max_abs_diff.shap_ordered: ref 0.0  now 0.009957898600000015
+  vs PR #8 x86 (cf47a0f) [693757c]: 7390 shared fields, 0 differ (0 numeric, max |diff| 0), 10 only on one side, 134 commit/platform/timing fields skipped
+=== 25_paper_tables  (this run: 2bfbee1)
+  vs 68e8d63 (PR #12, committed) [1a0282c]: 88 shared fields, 2 differ (0 numeric, max |diff| 0), 0 only on one side, 87 commit/platform/timing fields skipped
+      .compile_check: ref 'WARNING: pdflatex not installed; compile check skipped (structural column check passed)'  now 'pdflatex: all tables compile'
+      .results14_flag: ref False  now True
+  vs PR #8 x86 (cf47a0f) [d31479e]: 88 shared fields, 0 differ (0 numeric, max |diff| 0), 0 only on one side, 87 commit/platform/timing fields skipped
+=== 99_tie_out_revision  (this run: 8eed3f4)
+  vs 68e8d63 (PR #12, committed) [f5d9618]: 1149 shared fields, 559 differ (478 numeric, max |diff| 148), 0 only on one side, 77 commit/platform/timing fields skipped
+      .all_passed: ref False  now True
+      .checks[0].detail: ref 'commit 3bbec2c'  now 'commit 412db11'
+      .checks[10].detail: ref 'commit 2f39463'  now 'commit 37bdba6'
+      .checks[11].detail: ref 'commit 1a0282c'  now 'commit 2bfbee1'
+      .checks[12].detail: ref "code of 02_hyperparameter_search unchanged since 3bbec2c: True; 02_hyperparameter_search's own result traces to HEAD: True"  now "code of 02_hyperparameter_search unchanged since 412db11: True; 02_hyperparameter_search's own result traces to HEAD: True"
+      .checks[13].detail: ref "code of 08_ablation_families unchanged since 3bbec2c: True; 08_ablation_families's own result traces to HEAD: True"  now "code of 08_ablation_families unchanged since 412db11: True; 08_ablation_families's own result traces to HEAD: True"
+      .checks[14].detail: ref "code of 03_xgboost_sybil unchanged since e156d9d: True; 03_xgboost_sybil's own result traces to HEAD: True"  now "code of 03_xgboost_sybil unchanged since 9c634b7: True; 03_xgboost_sybil's own result traces to HEAD: True"
+      .checks[15].detail: ref "code of 04_lightgbm_sybil unchanged since e156d9d: True; 04_lightgbm_sybil's own result traces to HEAD: True"  now "code of 04_lightgbm_sybil unchanged since 9c634b7: True; 04_lightgbm_sybil's own result traces to HEAD: True"
+  vs PR #8 x86 (cf47a0f) [5b6e441]: 1149 shared fields, 57 differ (0 numeric, max |diff| 0), 0 only on one side, 77 commit/platform/timing fields skipped
+      .checks[0].detail: ref 'commit 073ecca'  now 'commit 412db11'
+      .checks[10].detail: ref 'commit 693757c'  now 'commit 37bdba6'
+      .checks[11].detail: ref 'commit d31479e'  now 'commit 2bfbee1'
+      .checks[12].detail: ref "code of 02_hyperparameter_search unchanged since 073ecca: True; 02_hyperparameter_search's own result traces to HEAD: True"  now "code of 02_hyperparameter_search unchanged since 412db11: True; 02_hyperparameter_search's own result traces to HEAD: True"
+      .checks[13].detail: ref "code of 08_ablation_families unchanged since 073ecca: True; 08_ablation_families's own result traces to HEAD: True"  now "code of 08_ablation_families unchanged since 412db11: True; 08_ablation_families's own result traces to HEAD: True"
+      .checks[14].detail: ref "code of 03_xgboost_sybil unchanged since 4f2d3a9: True; 03_xgboost_sybil's own result traces to HEAD: True"  now "code of 03_xgboost_sybil unchanged since 9c634b7: True; 03_xgboost_sybil's own result traces to HEAD: True"
+      .checks[15].detail: ref "code of 04_lightgbm_sybil unchanged since 4f2d3a9: True; 04_lightgbm_sybil's own result traces to HEAD: True"  now "code of 04_lightgbm_sybil unchanged since 9c634b7: True; 04_lightgbm_sybil's own result traces to HEAD: True"
+      .checks[16].detail: ref "code of 06_cross_ensemble_sybil unchanged since 4f2d3a9: True; 06_cross_ensemble_sybil's own result traces to HEAD: True"  now "code of 06_cross_ensemble_sybil unchanged since 9c634b7: True; 06_cross_ensemble_sybil's own result traces to HEAD: True"
+
+=== files (byte-identical?)
+  figures/rev_label_effects.pdf                        68e8d63:DIFF  PR:DIFF
+  figures/rev_label_effects.png                        68e8d63:DIFF  PR:DIFF
+  figures/rev_leakage_hierarchy.pdf                    68e8d63:DIFF  PR:DIFF
+  figures/rev_leakage_hierarchy.png                    68e8d63:DIFF  PR:DIFF
+  figures/rev_mimicry.pdf                              68e8d63:DIFF  PR:DIFF
+  figures/rev_mimicry.png                              68e8d63:DIFF  PR:DIFF
+  figures/rev_mimicry_controls.pdf                     68e8d63:DIFF  PR:DIFF
+  figures/rev_mimicry_controls.png                     68e8d63:DIFF  PR:DIFF
+  figures/rev_report_dependence.pdf                    68e8d63:DIFF  PR:DIFF
+  figures/rev_report_dependence.png                    68e8d63:DIFF  PR:DIFF
+  figures/rev_shap_by_category.pdf                     68e8d63:DIFF  PR:DIFF
+  figures/rev_shap_by_category.png                     68e8d63:DIFF  PR:DIFF
+  results/02_search_lightgbm.csv                       68e8d63:same  PR:same
+  results/02_search_xgboost.csv                        68e8d63:same  PR:same
+  results/13_search_random_forest.csv                  68e8d63:DIFF  PR:DIFF
+  tables/rev_data_labels.tex                           68e8d63:DIFF  PR:DIFF
+  tables/rev_ensemble_appendix.tex                     68e8d63:DIFF  PR:DIFF
+  tables/rev_ensemble_weight_stats.json                68e8d63:DIFF  PR:DIFF
+  tables/rev_entity_level.tex                          68e8d63:DIFF  PR:DIFF
+  tables/rev_family_ablation.tex                       68e8d63:DIFF  PR:DIFF
+  tables/rev_label_robustness.tex                      68e8d63:DIFF  PR:DIFF
+  tables/rev_levels.tex                                68e8d63:DIFF  PR:DIFF
+  tables/rev_mimicry.tex                               68e8d63:DIFF  PR:DIFF
+  tables/rev_mimicry_controls.tex                      68e8d63:DIFF  PR:DIFF
+  tables/rev_models_10split.tex                        68e8d63:DIFF  PR:DIFF
+  tables/rev_operating_points.tex                      68e8d63:DIFF  PR:DIFF
+  tables/rev_per_category.tex                          68e8d63:DIFF  PR:DIFF
+  tables/rev_provision_ablation_by_category.tex        68e8d63:DIFF  PR:DIFF
+  tables/rev_report_dependence.tex                     68e8d63:DIFF  PR:DIFF
+  tables/rev_search_top.tex                            68e8d63:DIFF  PR:DIFF
+  tables/rev_single_feature_sensitivity.tex            68e8d63:DIFF  PR:DIFF
+  tables/rev_taxonomy.tex                              68e8d63:DIFF  PR:DIFF
+  tables/rev_temporal_holdout.tex                      68e8d63:DIFF  PR:DIFF
+  tables/rev_text_numbers.json                         68e8d63:DIFF  PR:DIFF
+  tables/rev_union_split_appendix.tex                  68e8d63:DIFF  PR:DIFF
