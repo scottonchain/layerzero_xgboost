@@ -1,0 +1,56 @@
+{
+ "00_data_pipeline": {
+  "compared": 33,
+  "differ": 0,
+  "max_abs": 0.0,
+  "corrected_commit": "7e7130d"
+ },
+ "01_ablation_gini": {
+  "compared": 82,
+  "differ": 64,
+  "max_abs": 3,
+  "corrected_commit": "da08630"
+ },
+ "02_hyperparameter_search": {
+  "compared": 20,
+  "differ": 12,
+  "max_abs": 962,
+  "corrected_commit": "03cea83"
+ },
+ "03_xgboost_sybil": {
+  "compared": 84,
+  "differ": 76,
+  "max_abs": 480,
+  "corrected_commit": "622ca58"
+ },
+ "04_lightgbm_sybil": {
+  "compared": 83,
+  "differ": 74,
+  "max_abs": 962,
+  "corrected_commit": "71a009e"
+ },
+ "05_logistic_regression_sybil": {
+  "compared": 19,
+  "differ": 7,
+  "max_abs": 0.09481969613765329,
+  "corrected_commit": "9cd7e6b"
+ },
+ "06_cross_ensemble_sybil": {
+  "compared": 95,
+  "differ": 87,
+  "max_abs": 962,
+  "corrected_commit": "93a79f5"
+ },
+ "07_sensitivity_label_vintage": {
+  "compared": 209,
+  "differ": 151,
+  "max_abs": 384,
+  "corrected_commit": "8b09009"
+ },
+ "08_ablation_families": {
+  "compared": 1520,
+  "differ": 1059,
+  "max_abs": 384,
+  "corrected_commit": "deef156"
+ }
+}
