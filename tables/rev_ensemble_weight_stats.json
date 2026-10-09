@@ -1,22 +1,22 @@
 {
   "split_weights": {
     "values": [
-      0.38,
-      0.34,
-      0.0,
-      0.48,
-      0.06,
-      0.0,
-      0.64,
-      0.42,
-      0.22,
-      0.1
+      0.6,
+      0.1,
+      0.2,
+      0.52,
+      0.14,
+      0.24,
+      0.76,
+      0.6,
+      0.2,
+      0.02
     ],
-    "min": 0.0,
-    "max": 0.64,
-    "mean": 0.26400000000000007,
+    "min": 0.02,
+    "max": 0.76,
+    "mean": 0.33799999999999997,
     "source": "results/17_models_10_splits.json -> split_info.xgb_weight",
-    "platform": "arm64 / Darwin"
+    "platform": "x86_64 / Linux"
   },
   "seed42_curve": {
     "selected_weight": 0.06,
@@ -27,5 +27,5 @@
     "source": "results/06_cross_ensemble_sybil.json -> val_f1_by_weight (rounded to 4 decimals there)",
     "platform": "not recorded (machine of the committed 00-12 results)"
   },
-  "generated_by": "23_revision_figures.ipynb at 2f39463"
+  "generated_by": "23_revision_figures.ipynb at bb458c6"
 }
