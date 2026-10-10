@@ -1,6 +1,6 @@
 {
   "notebook": "23_revision_figures",
-  "code_commit": "bb458c6",
+  "code_commit": "a2f163c",
   "leakage": null,
   "models": [],
   "figures": {
@@ -12,12 +12,12 @@
       "sources": [
         {
           "results": "results/11_split_comparison.json",
-          "code_commit": "0d9eacc",
+          "code_commit": "2b23ba4",
           "platform": "not recorded (machine of the committed 00-12 results)"
         },
         {
           "results": "results/22_report_dependence.json",
-          "code_commit": "1588c7c",
+          "code_commit": "1f3da83",
           "platform": "x86_64 / Linux"
         }
       ],
@@ -33,7 +33,7 @@
       "sources": [
         {
           "results": "results/22_report_dependence.json",
-          "code_commit": "1588c7c",
+          "code_commit": "1f3da83",
           "platform": "x86_64 / Linux"
         }
       ],
@@ -48,7 +48,7 @@
       "sources": [
         {
           "results": "results/16_label_robustness_initial_list.json",
-          "code_commit": "3a0e8ee",
+          "code_commit": "7baad94",
           "platform": "x86_64 / Linux"
         }
       ],
@@ -63,13 +63,13 @@
       "sources": [
         {
           "results": "results/18_mimicry_stress.json",
-          "code_commit": "daa8986",
+          "code_commit": "2ac94cb",
           "platform": "x86_64 / Linux"
         }
       ],
       "platform_note": null,
-      "caption_note": "\"wallet-local + funding-graph\" equals \"wallet-local only\" for k \u2264 10; mean \u00b1 SD over 5 repetitions; feature cost classes tentative.",
-      "cheap_structural_equals_cheap_k_le_10": true
+      "caption_note": "\"wallet-local + funding-graph\" differs from \"wallet-local only\" for some k \u2264 10; mean \u00b1 SD over 5 repetitions; feature cost classes tentative.",
+      "cheap_structural_equals_cheap_k_le_10": false
     },
     "rev_shap_by_category": {
       "files": [
@@ -79,7 +79,7 @@
       "sources": [
         {
           "results": "results/09_shap_importance.json",
-          "code_commit": "0d9eacc",
+          "code_commit": "38c3093",
           "platform": "not recorded (machine of the committed 00-12 results)"
         }
       ],
@@ -93,7 +93,7 @@
       "sources": [
         {
           "results": "results/17_models_10_splits.json",
-          "code_commit": "17dd144",
+          "code_commit": "2f50786",
           "platform": "x86_64 / Linux"
         }
       ],
@@ -104,7 +104,7 @@
       "sources": [
         {
           "results": "results/17_models_10_splits.json",
-          "code_commit": "17dd144",
+          "code_commit": "2f50786",
           "platform": "x86_64 / Linux"
         }
       ],
@@ -115,12 +115,12 @@
       "sources": [
         {
           "results": "results/17_models_10_splits.json",
-          "code_commit": "17dd144",
+          "code_commit": "2f50786",
           "platform": "x86_64 / Linux"
         },
         {
           "results": "results/06_cross_ensemble_sybil.json",
-          "code_commit": "0d9eacc",
+          "code_commit": "93a79f5",
           "platform": "not recorded (machine of the committed 00-12 results)"
         }
       ],
@@ -131,7 +131,7 @@
       "sources": [
         {
           "results": "results/22_report_dependence.json",
-          "code_commit": "1588c7c",
+          "code_commit": "1f3da83",
           "platform": "x86_64 / Linux"
         }
       ],
@@ -142,7 +142,7 @@
       "sources": [
         {
           "results": "results/16_label_robustness_initial_list.json",
-          "code_commit": "3a0e8ee",
+          "code_commit": "7baad94",
           "platform": "x86_64 / Linux"
         }
       ],
@@ -153,7 +153,7 @@
       "sources": [
         {
           "results": "results/16_label_robustness_initial_list.json",
-          "code_commit": "3a0e8ee",
+          "code_commit": "7baad94",
           "platform": "x86_64 / Linux"
         }
       ],
@@ -164,7 +164,7 @@
       "sources": [
         {
           "results": "results/18_mimicry_stress.json",
-          "code_commit": "daa8986",
+          "code_commit": "2ac94cb",
           "platform": "x86_64 / Linux"
         }
       ],
@@ -175,80 +175,80 @@
     "rev_leakage_hierarchy": [
       {
         "results": "results/11_split_comparison.json",
-        "code_commit": "0d9eacc",
+        "code_commit": "2b23ba4",
         "platform": "not recorded (machine of the committed 00-12 results)"
       },
       {
         "results": "results/22_report_dependence.json",
-        "code_commit": "1588c7c",
+        "code_commit": "1f3da83",
         "platform": "x86_64 / Linux"
       }
     ],
     "rev_report_dependence": [
       {
         "results": "results/22_report_dependence.json",
-        "code_commit": "1588c7c",
+        "code_commit": "1f3da83",
         "platform": "x86_64 / Linux"
       }
     ],
     "rev_label_effects": [
       {
         "results": "results/16_label_robustness_initial_list.json",
-        "code_commit": "3a0e8ee",
+        "code_commit": "7baad94",
         "platform": "x86_64 / Linux"
       }
     ],
     "rev_mimicry": [
       {
         "results": "results/18_mimicry_stress.json",
-        "code_commit": "daa8986",
+        "code_commit": "2ac94cb",
         "platform": "x86_64 / Linux"
       }
     ],
     "rev_shap_by_category": [
       {
         "results": "results/09_shap_importance.json",
-        "code_commit": "0d9eacc",
+        "code_commit": "38c3093",
         "platform": "not recorded (machine of the committed 00-12 results)"
       }
     ],
     "rev_models_10split": [
       {
         "results": "results/17_models_10_splits.json",
-        "code_commit": "17dd144",
+        "code_commit": "2f50786",
         "platform": "x86_64 / Linux"
       }
     ],
     "rev_ensemble_appendix": [
       {
         "results": "results/17_models_10_splits.json",
-        "code_commit": "17dd144",
+        "code_commit": "2f50786",
         "platform": "x86_64 / Linux"
       }
     ],
     "rev_ensemble_weight_stats": [
       {
         "results": "results/17_models_10_splits.json",
-        "code_commit": "17dd144",
+        "code_commit": "2f50786",
         "platform": "x86_64 / Linux"
       },
       {
         "results": "results/06_cross_ensemble_sybil.json",
-        "code_commit": "0d9eacc",
+        "code_commit": "93a79f5",
         "platform": "not recorded (machine of the committed 00-12 results)"
       }
     ],
     "rev_label_robustness": [
       {
         "results": "results/16_label_robustness_initial_list.json",
-        "code_commit": "3a0e8ee",
+        "code_commit": "7baad94",
         "platform": "x86_64 / Linux"
       }
     ],
     "rev_operating_points": [
       {
         "results": "results/16_label_robustness_initial_list.json",
-        "code_commit": "3a0e8ee",
+        "code_commit": "7baad94",
         "platform": "x86_64 / Linux"
       }
     ]
