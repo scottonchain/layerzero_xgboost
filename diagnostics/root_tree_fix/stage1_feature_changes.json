@@ -1,0 +1,531 @@
+{
+ "old_code_sha256": "ba23ca091ee5b79b69f7ce533cbcd3052697009e6bc64afc26914d28918e3959",
+ "new_code_sha256": "7b6c935e9bed59dec6a2fc4c3f8fc1392591c6146f047191f1da67cc503ed973",
+ "inputs_sha256": "d76974a0429168cf810850bb8c07b455bafd52011c348d91caa42b5f54353de8",
+ "rows": 434786,
+ "n_features": 62,
+ "identity": {
+  "same_columns_in_same_order": true,
+  "address_order_identical": true,
+  "labels_identical": true,
+  "category_identical": true,
+  "provision_tree_identical": true,
+  "anchors_flags_identical": true,
+  "n_anchors_old": 4308,
+  "n_anchors_new": 4308,
+  "n_edges_old": 604365,
+  "n_edges_new": 604365,
+  "split_train_row_ids_identical": true,
+  "split_val_row_ids_identical": true,
+  "split_test_row_ids_identical": true,
+  "y_train_identical": true,
+  "upsampled_train_index_identical": true
+ },
+ "changed_columns": {
+  "breadth_factor": 307622,
+  "tree_size": 307622,
+  "sparsity": 307002,
+  "avg_leaf_gas": 307002,
+  "depth_weighted_avg_gas": 12942,
+  "leaf_to_internal_ratio": 12942,
+  "breadth_to_depth_ratio": 12942,
+  "longest_chain_ratio": 12942,
+  "depth_variance": 12942,
+  "branching_factor": 12942,
+  "total_gas": 12942,
+  "leaf_provision_proportion": 12942,
+  "max_depth": 12942,
+  "avg_depth": 12942,
+  "gas_distribution_entropy": 5096,
+  "gini_coefficient": 4781,
+  "gas_distribution_skewness": 3834,
+  "star_like_ratio": 2895,
+  "leaf_gas_distribution_entropy": 2895,
+  "leaf_gas_distribution_skewness": 1932,
+  "balance_factor": 1165
+ },
+ "changed_model_features": [
+  "breadth_factor",
+  "tree_size",
+  "sparsity",
+  "leaf_to_internal_ratio",
+  "breadth_to_depth_ratio",
+  "longest_chain_ratio",
+  "branching_factor",
+  "total_gas",
+  "leaf_provision_proportion",
+  "max_depth",
+  "avg_depth",
+  "gas_distribution_entropy",
+  "gas_distribution_skewness",
+  "star_like_ratio",
+  "leaf_gas_distribution_entropy",
+  "leaf_gas_distribution_skewness",
+  "balance_factor"
+ ],
+ "changed_columns_excluded_from_model": [
+  "avg_leaf_gas",
+  "depth_weighted_avg_gas",
+  "depth_variance",
+  "gini_coefficient"
+ ],
+ "unchanged_tree_columns_in_model": [
+  "depth"
+ ],
+ "wallets_any_computed_column_changed": 307622,
+ "wallets_selected_model_input_changed": 307622,
+ "wallets_only_excluded_columns_changed": 0,
+ "by_category_selected_inputs": {
+  "IxL": {
+   "changed": 306658,
+   "total": 306658,
+   "pct": 100.0
+  },
+  "IxI": {
+   "changed": 37,
+   "total": 34391,
+   "pct": 0.108
+  },
+  "IxE": {
+   "changed": 251,
+   "total": 93061,
+   "pct": 0.27
+  },
+  "No provider": {
+   "changed": 676,
+   "total": 676,
+   "pct": 100.0
+  }
+ },
+ "sybil_nonsybil_selected_inputs": {
+  "changed_sybil": 15947,
+  "changed_non_sybil": 291675,
+  "sybil_total": 18211,
+  "non_sybil_total": 416575
+ },
+ "by_category_and_label": {
+  "IxL": {
+   "sybil": 15921,
+   "non_sybil": 290737
+  },
+  "IxI": {
+   "sybil": 0,
+   "non_sybil": 37
+  },
+  "IxE": {
+   "sybil": 0,
+   "non_sybil": 251
+  },
+  "No provider": {
+   "sybil": 26,
+   "non_sybil": 650
+  }
+ },
+ "new_table_roots": {
+  "roots_with_descendants": 12942,
+  "singleton_roots": 294680,
+  "non_roots": 127164
+ },
+ "changed_selected_inputs_by_kind": {
+  "roots_with_descendants": 12942,
+  "singleton_roots": 294680,
+  "non_roots": 0
+ },
+ "changed_any_column_by_kind": {
+  "roots_with_descendants": 12942,
+  "singleton_roots": 294680,
+  "non_roots": 0
+ },
+ "changed_selected_inputs_kind_by_category": {
+  "IxL": {
+   "roots_with_descendants": 12886,
+   "singleton_roots": 293772
+  },
+  "IxI": {
+   "roots_with_descendants": 0,
+   "singleton_roots": 37
+  },
+  "IxE": {
+   "roots_with_descendants": 0,
+   "singleton_roots": 251
+  },
+  "No provider": {
+   "roots_with_descendants": 56,
+   "singleton_roots": 620
+  }
+ },
+ "changed_sybil_by_kind": {
+  "roots_with_descendants": 255,
+  "singleton_roots": 15692,
+  "roots_with_descendants_nonsybil": 12687,
+  "singleton_roots_nonsybil": 278988
+ },
+ "unexpected_nonroot_changes": {},
+ "non_tree_columns_changed": {},
+ "old_all_zero_tree_rows": 307622,
+ "new_all_zero_tree_rows": 0,
+ "old_zero_now_nonzero": 307622,
+ "ixl_roots_of_multi_wallet_provision_groups": 12886,
+ "ixl_roots_with_descendants_in_retained_forest": 12886,
+ "interactors_that_are_anchors": 637,
+ "examples": {
+  "ixl_sybil_root_with_descendants": [
+   {
+    "addr": "0x770edb43ecc5bcbe6f7088e1049fc42b2d1b195c",
+    "before": {
+     "category": "IxL",
+     "sybil": 1,
+     "provision_tree": "0x770edb43ecc5bcbe6f7088e1049fc42b2d1b195c",
+     "tree_size": 0.0,
+     "total_gas": 0.0,
+     "max_depth": 0.0,
+     "branching_factor": 0.0,
+     "avg_depth": 0.0,
+     "breadth_factor": 0.0,
+     "sparsity": 0.0,
+     "depth": 0.0,
+     "star_like_ratio": 0.0,
+     "gas_distribution_entropy": 0.0,
+     "avg_leaf_gas": 0.0
+    },
+    "after": {
+     "category": "IxL",
+     "sybil": 1,
+     "provision_tree": "0x770edb43ecc5bcbe6f7088e1049fc42b2d1b195c",
+     "tree_size": 10.0,
+     "total_gas": 0.6519529704171876,
+     "max_depth": 3.0,
+     "branching_factor": 0.9,
+     "avg_depth": 1.6,
+     "breadth_factor": 2.5,
+     "sparsity": 1.0,
+     "depth": 0.0,
+     "star_like_ratio": 0.2,
+     "gas_distribution_entropy": 1.9005377713211733,
+     "avg_leaf_gas": 0.08749216173619791
+    }
+   },
+   {
+    "addr": "0xa3c12dfc26d9e3d4413d9771eb4e3ae62bde39cc",
+    "before": {
+     "category": "IxL",
+     "sybil": 1,
+     "provision_tree": "0xa3c12dfc26d9e3d4413d9771eb4e3ae62bde39cc",
+     "tree_size": 0.0,
+     "total_gas": 0.0,
+     "max_depth": 0.0,
+     "branching_factor": 0.0,
+     "avg_depth": 0.0,
+     "breadth_factor": 0.0,
+     "sparsity": 0.0,
+     "depth": 0.0,
+     "star_like_ratio": 0.0,
+     "gas_distribution_entropy": 0.0,
+     "avg_leaf_gas": 0.0
+    },
+    "after": {
+     "category": "IxL",
+     "sybil": 1,
+     "provision_tree": "0xa3c12dfc26d9e3d4413d9771eb4e3ae62bde39cc",
+     "tree_size": 3.0,
+     "total_gas": 0.002,
+     "max_depth": 1.0,
+     "branching_factor": 0.6666666666666666,
+     "avg_depth": 0.6666666666666666,
+     "breadth_factor": 1.5,
+     "sparsity": 1.0,
+     "depth": 0.0,
+     "star_like_ratio": 0.3333333333333333,
+     "gas_distribution_entropy": 1.0,
+     "avg_leaf_gas": 0.001
+    }
+   },
+   {
+    "addr": "0xcfd5710c393403cf0f44b8bc085b8aa5f409f613",
+    "before": {
+     "category": "IxL",
+     "sybil": 1,
+     "provision_tree": "0xcfd5710c393403cf0f44b8bc085b8aa5f409f613",
+     "tree_size": 0.0,
+     "total_gas": 0.0,
+     "max_depth": 0.0,
+     "branching_factor": 0.0,
+     "avg_depth": 0.0,
+     "breadth_factor": 0.0,
+     "sparsity": 0.0,
+     "depth": 0.0,
+     "star_like_ratio": 0.0,
+     "gas_distribution_entropy": 0.0,
+     "avg_leaf_gas": 0.0
+    },
+    "after": {
+     "category": "IxL",
+     "sybil": 1,
+     "provision_tree": "0xcfd5710c393403cf0f44b8bc085b8aa5f409f613",
+     "tree_size": 2.0,
+     "total_gas": 0.18,
+     "max_depth": 1.0,
+     "branching_factor": 0.5,
+     "avg_depth": 0.5,
+     "breadth_factor": 1.0,
+     "sparsity": 1.0,
+     "depth": 0.0,
+     "star_like_ratio": 0.0,
+     "gas_distribution_entropy": -0.0,
+     "avg_leaf_gas": 0.18
+    }
+   }
+  ],
+  "ixl_non_sybil_root_with_descendants": [
+   {
+    "addr": "0x043aee850680c4fb982761b585929834c26cc32c",
+    "before": {
+     "category": "IxL",
+     "sybil": 0,
+     "provision_tree": "0x043aee850680c4fb982761b585929834c26cc32c",
+     "tree_size": 0.0,
+     "total_gas": 0.0,
+     "max_depth": 0.0,
+     "branching_factor": 0.0,
+     "avg_depth": 0.0,
+     "breadth_factor": 0.0,
+     "sparsity": 0.0,
+     "depth": 0.0,
+     "star_like_ratio": 0.0,
+     "gas_distribution_entropy": 0.0,
+     "avg_leaf_gas": 0.0
+    },
+    "after": {
+     "category": "IxL",
+     "sybil": 0,
+     "provision_tree": "0x043aee850680c4fb982761b585929834c26cc32c",
+     "tree_size": 2.0,
+     "total_gas": 0.0111,
+     "max_depth": 1.0,
+     "branching_factor": 0.5,
+     "avg_depth": 0.5,
+     "breadth_factor": 1.0,
+     "sparsity": 1.0,
+     "depth": 0.0,
+     "star_like_ratio": 0.0,
+     "gas_distribution_entropy": -0.0,
+     "avg_leaf_gas": 0.0111
+    }
+   },
+   {
+    "addr": "0x0a5abc4eef196994abb9cd34fa8fe9229ce53e4f",
+    "before": {
+     "category": "IxL",
+     "sybil": 0,
+     "provision_tree": "0x0a5abc4eef196994abb9cd34fa8fe9229ce53e4f",
+     "tree_size": 0.0,
+     "total_gas": 0.0,
+     "max_depth": 0.0,
+     "branching_factor": 0.0,
+     "avg_depth": 0.0,
+     "breadth_factor": 0.0,
+     "sparsity": 0.0,
+     "depth": 0.0,
+     "star_like_ratio": 0.0,
+     "gas_distribution_entropy": 0.0,
+     "avg_leaf_gas": 0.0
+    },
+    "after": {
+     "category": "IxL",
+     "sybil": 0,
+     "provision_tree": "0x0a5abc4eef196994abb9cd34fa8fe9229ce53e4f",
+     "tree_size": 2.0,
+     "total_gas": 0.01,
+     "max_depth": 1.0,
+     "branching_factor": 0.5,
+     "avg_depth": 0.5,
+     "breadth_factor": 1.0,
+     "sparsity": 1.0,
+     "depth": 0.0,
+     "star_like_ratio": 0.0,
+     "gas_distribution_entropy": -0.0,
+     "avg_leaf_gas": 0.01
+    }
+   },
+   {
+    "addr": "0x13192b1056ed57eaa06bb7e49d70964a668e8604",
+    "before": {
+     "category": "IxL",
+     "sybil": 0,
+     "provision_tree": "0x13192b1056ed57eaa06bb7e49d70964a668e8604",
+     "tree_size": 0.0,
+     "total_gas": 0.0,
+     "max_depth": 0.0,
+     "branching_factor": 0.0,
+     "avg_depth": 0.0,
+     "breadth_factor": 0.0,
+     "sparsity": 0.0,
+     "depth": 0.0,
+     "star_like_ratio": 0.0,
+     "gas_distribution_entropy": 0.0,
+     "avg_leaf_gas": 0.0
+    },
+    "after": {
+     "category": "IxL",
+     "sybil": 0,
+     "provision_tree": "0x13192b1056ed57eaa06bb7e49d70964a668e8604",
+     "tree_size": 2.0,
+     "total_gas": 0.01721091262580975,
+     "max_depth": 1.0,
+     "branching_factor": 0.5,
+     "avg_depth": 0.5,
+     "breadth_factor": 1.0,
+     "sparsity": 1.0,
+     "depth": 0.0,
+     "star_like_ratio": 0.0,
+     "gas_distribution_entropy": -0.0,
+     "avg_leaf_gas": 0.01721091262580975
+    }
+   }
+  ],
+  "singleton_root": [
+   {
+    "addr": "0xa647d32a301b2830990a88f0e0aff0920423936a",
+    "before": {
+     "category": "IxL",
+     "sybil": 0,
+     "provision_tree": "0xa647d32a301b2830990a88f0e0aff0920423936a",
+     "tree_size": 0.0,
+     "total_gas": 0.0,
+     "max_depth": 0.0,
+     "branching_factor": 0.0,
+     "avg_depth": 0.0,
+     "breadth_factor": 0.0,
+     "sparsity": 0.0,
+     "depth": 0.0,
+     "star_like_ratio": 0.0,
+     "gas_distribution_entropy": 0.0,
+     "avg_leaf_gas": 0.0
+    },
+    "after": {
+     "category": "IxL",
+     "sybil": 0,
+     "provision_tree": "0xa647d32a301b2830990a88f0e0aff0920423936a",
+     "tree_size": 1.0,
+     "total_gas": 0.0,
+     "max_depth": 0.0,
+     "branching_factor": 0.0,
+     "avg_depth": 0.0,
+     "breadth_factor": 1.0,
+     "sparsity": 1.0,
+     "depth": 0.0,
+     "star_like_ratio": 0.0,
+     "gas_distribution_entropy": 0.0,
+     "avg_leaf_gas": 0.34979
+    }
+   },
+   {
+    "addr": "0xe95ac4001faad8207998f8144e46e08f7a06a9a8",
+    "before": {
+     "category": "IxL",
+     "sybil": 0,
+     "provision_tree": "0xe95ac4001faad8207998f8144e46e08f7a06a9a8",
+     "tree_size": 0.0,
+     "total_gas": 0.0,
+     "max_depth": 0.0,
+     "branching_factor": 0.0,
+     "avg_depth": 0.0,
+     "breadth_factor": 0.0,
+     "sparsity": 0.0,
+     "depth": 0.0,
+     "star_like_ratio": 0.0,
+     "gas_distribution_entropy": 0.0,
+     "avg_leaf_gas": 0.0
+    },
+    "after": {
+     "category": "IxL",
+     "sybil": 0,
+     "provision_tree": "0xe95ac4001faad8207998f8144e46e08f7a06a9a8",
+     "tree_size": 1.0,
+     "total_gas": 0.0,
+     "max_depth": 0.0,
+     "branching_factor": 0.0,
+     "avg_depth": 0.0,
+     "breadth_factor": 1.0,
+     "sparsity": 1.0,
+     "depth": 0.0,
+     "star_like_ratio": 0.0,
+     "gas_distribution_entropy": 0.0,
+     "avg_leaf_gas": 0.13749013
+    }
+   }
+  ],
+  "no_provider_root_with_descendants": [
+   {
+    "addr": "0xa1abd0687da18cb40ac006467b3d8dd89f5e98f4",
+    "before": {
+     "category": "No provider",
+     "sybil": 0,
+     "provision_tree": "0xa1abd0687da18cb40ac006467b3d8dd89f5e98f4",
+     "tree_size": 0.0,
+     "total_gas": 0.0,
+     "max_depth": 0.0,
+     "branching_factor": 0.0,
+     "avg_depth": 0.0,
+     "breadth_factor": 0.0,
+     "sparsity": 0.0,
+     "depth": 0.0,
+     "star_like_ratio": 0.0,
+     "gas_distribution_entropy": 0.0,
+     "avg_leaf_gas": 0.0
+    },
+    "after": {
+     "category": "No provider",
+     "sybil": 0,
+     "provision_tree": "0xa1abd0687da18cb40ac006467b3d8dd89f5e98f4",
+     "tree_size": 2.0,
+     "total_gas": 10.0,
+     "max_depth": 1.0,
+     "branching_factor": 0.5,
+     "avg_depth": 0.5,
+     "breadth_factor": 1.0,
+     "sparsity": 0.5,
+     "depth": 0.0,
+     "star_like_ratio": 0.0,
+     "gas_distribution_entropy": -0.0,
+     "avg_leaf_gas": 10.0
+    }
+   },
+   {
+    "addr": "0xfaa6041ce62209859e4b29f9c8a56336972067d3",
+    "before": {
+     "category": "No provider",
+     "sybil": 0,
+     "provision_tree": "0xfaa6041ce62209859e4b29f9c8a56336972067d3",
+     "tree_size": 0.0,
+     "total_gas": 0.0,
+     "max_depth": 0.0,
+     "branching_factor": 0.0,
+     "avg_depth": 0.0,
+     "breadth_factor": 0.0,
+     "sparsity": 0.0,
+     "depth": 0.0,
+     "star_like_ratio": 0.0,
+     "gas_distribution_entropy": 0.0,
+     "avg_leaf_gas": 0.0
+    },
+    "after": {
+     "category": "No provider",
+     "sybil": 0,
+     "provision_tree": "0xfaa6041ce62209859e4b29f9c8a56336972067d3",
+     "tree_size": 2.0,
+     "total_gas": 0.030660738923808065,
+     "max_depth": 1.0,
+     "branching_factor": 0.5,
+     "avg_depth": 0.5,
+     "breadth_factor": 1.0,
+     "sparsity": 0.5,
+     "depth": 0.0,
+     "star_like_ratio": 0.0,
+     "gas_distribution_entropy": -0.0,
+     "avg_leaf_gas": 0.030660738923808065
+    }
+   }
+  ]
+ }
+}

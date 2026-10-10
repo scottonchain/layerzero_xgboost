@@ -228,6 +228,8 @@ def _entropy(x):
     if not x:
         return 0
     s = sum(x)
+    if s <= 0:    # all-zero amounts (an unfunded singleton's leaf list): no distribution to measure
+        return 0
     return -sum((v / s) * np.log2(v / s) for v in x if v / s > 0)
 
 
@@ -263,6 +265,9 @@ def provision_features(funding, interactors, anchors):
     Featurization.ipynb, which produced the precomputed file; same definitions.
     The provision forest excludes every edge that touches a labeled address; an
     interactor's tree features describe the whole tree of that forest containing it.
+    That holds for roots too: a wallet funded by a labeled entity, or with no recorded
+    funding at all, is the root of its own tree (a singleton if it funds nobody) and
+    gets that tree's metrics with depth 0. Every interactor therefore has a row.
     """
     gas = funding.groupby('activated_address')['gas_provision_amount'].sum().to_dict()
 
@@ -358,11 +363,14 @@ def provision_features(funding, interactors, anchors):
             cache[x] = m
         return m
 
+    # Interactors with no recorded incoming edge have no provider_* values (zero after the merge)
+    # but can still be the root of a tree; they get a row so that their tree features are computed.
+    no_edge = sorted(set(interactors) - set(out['addr']))
+    if no_edge:
+        out = pd.concat([out, pd.DataFrame({'addr': no_edge})], ignore_index=True)
+
     rows = []
     for a in out['addr']:
-        if a not in parent:
-            rows.append({})
-            continue
         cur, depth, seen = a, 0, {a}
         while cur in parent and parent[cur] not in seen:
             cur = parent[cur]
@@ -371,14 +379,14 @@ def provision_features(funding, interactors, anchors):
         m = dict(tree_metrics(cur))
         m['depth'] = depth
         rows.append(m)
-    tf = pd.DataFrame(rows, columns=TREE_COLS, index=out.index).fillna(0)
+    tf = pd.DataFrame(rows, columns=TREE_COLS, index=out.index).fillna(0).astype(float)
     out = pd.concat([out.drop(columns='gas_provider'), tf], axis=1).reset_index(drop=True)
     assert out['addr'].is_unique
     return out
 
 
 def merge_provision_features(df, feats):
-    """Step 4 (merge): interactors without a provider get zeros."""
+    """Step 4 (merge): interactors without a recorded provider get zero provider_* values."""
     return df.merge(feats, on='addr', how='left').fillna(0)
 
 

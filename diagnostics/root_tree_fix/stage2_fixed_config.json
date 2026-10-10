@@ -1,0 +1,253 @@
+{
+ "label": "fixed-configuration sensitivity analysis (not the retuned paper result)",
+ "config": {
+  "model_seeds": [
+   42
+  ],
+  "split_seed": 42,
+  "lgbm_params": {
+   "num_leaves": 127,
+   "learning_rate": 0.05,
+   "subsample": 0.7,
+   "reg_lambda": 1.0
+  },
+  "n_features": 62,
+  "n_jobs": 4,
+  "lgbm_repro": {
+   "force_col_wise": true,
+   "deterministic": true
+  }
+ },
+ "key": "00b92596da74a197749f681d618601ec6dde6cfecef75b2598e0da6d542d747c",
+ "old_code_sha256": "ba23ca091ee5b79b69f7ce533cbcd3052697009e6bc64afc26914d28918e3959",
+ "new_code_sha256": "7b6c935e9bed59dec6a2fc4c3f8fc1392591c6146f047191f1da67cc503ed973",
+ "inputs_sha256": "d76974a0429168cf810850bb8c07b455bafd52011c348d91caa42b5f54353de8",
+ "n_val": 91305,
+ "n_test": 130435,
+ "test_sybils": 5463,
+ "overall": {
+  "threshold": {
+   "old": 0.4354775697578806,
+   "new": 0.5840646801587737,
+   "diff": 0.14858711040089306
+  },
+  "f1": {
+   "old": 0.7105080027835768,
+   "new": 0.716870773167611,
+   "diff": 0.006362770384034211
+  },
+  "ap": {
+   "old": 0.7649995720342848,
+   "new": 0.7667511575019178,
+   "diff": 0.0017515854676329878
+  },
+  "auroc": {
+   "old": 0.9672113696063561,
+   "new": 0.9672382971098357,
+   "diff": 2.6927503479545756e-05
+  },
+  "precision": {
+   "old": 0.6769434775401956,
+   "new": 0.7158240554845775,
+   "diff": 0.03888057794438193
+  },
+  "recall": {
+   "old": 0.7475745927146257,
+   "new": 0.7179205564708036,
+   "diff": -0.029654036243822124
+  },
+  "val_f1": {
+   "old": 0.7067422810333963,
+   "new": 0.701146360970408,
+   "diff": -0.005595920062988369
+  },
+  "val_ap": {
+   "old": 0.7599885342460364,
+   "new": 0.756384958406359,
+   "diff": -0.0036035758396774087
+  },
+  "early_stopping_rounds": {
+   "old": 1277,
+   "new": 1214,
+   "diff": -63
+  },
+  "fit_seconds": {
+   "old": 90.2,
+   "new": 81.7,
+   "diff": -8.5
+  },
+  "flagged": {
+   "old": 6033,
+   "new": 5479,
+   "diff": -554
+  }
+ },
+ "by_category": {
+  "IxE": {
+   "n": 28171,
+   "sybils": 258,
+   "precision": {
+    "old": 0.7727272727272727,
+    "new": 0.8070175438596491,
+    "diff": 0.03429027113237637
+   },
+   "recall": {
+    "old": 0.19767441860465115,
+    "new": 0.17829457364341086,
+    "diff": -0.01937984496124029
+   },
+   "f1": {
+    "old": 0.3148148148148148,
+    "new": 0.2920634920634921,
+    "diff": -0.022751322751322745
+   },
+   "auroc": {
+    "old": 0.9225085307976584,
+    "new": 0.9123591241557031,
+    "diff": -0.010149406641955294
+   }
+  },
+  "IxI": {
+   "n": 9967,
+   "sybils": 426,
+   "precision": {
+    "old": 0.5971731448763251,
+    "new": 0.6235294117647059,
+    "diff": 0.026356266888380775
+   },
+   "recall": {
+    "old": 0.3967136150234742,
+    "new": 0.3732394366197183,
+    "diff": -0.023474178403755874
+   },
+   "f1": {
+    "old": 0.4767277856135402,
+    "new": 0.4669603524229075,
+    "diff": -0.009767433190632668
+   },
+   "auroc": {
+    "old": 0.9118393412566375,
+    "new": 0.9181880227316455,
+    "diff": 0.006348681475008
+   }
+  },
+  "IxL": {
+   "n": 92079,
+   "sybils": 4770,
+   "precision": {
+    "old": 0.6794081381011098,
+    "new": 0.7189922480620154,
+    "diff": 0.03958410996090567
+   },
+   "recall": {
+    "old": 0.8085953878406709,
+    "new": 0.7777777777777778,
+    "diff": -0.030817610062893075
+   },
+   "f1": {
+    "old": 0.738393797262372,
+    "new": 0.7472306143001007,
+    "diff": 0.008836817037728761
+   },
+   "auroc": {
+    "old": 0.9753171817304803,
+    "new": 0.9756359116142423,
+    "diff": 0.0003187298837620256
+   }
+  },
+  "No provider": {
+   "n": 218,
+   "sybils": 9,
+   "precision": {
+    "old": 1.0,
+    "new": 1.0,
+    "diff": 0.0
+   },
+   "recall": {
+    "old": 0.7777777777777778,
+    "new": 0.7777777777777778,
+    "diff": 0.0
+   },
+   "f1": {
+    "old": 0.875,
+    "new": 0.875,
+    "diff": 0.0
+   },
+   "auroc": {
+    "old": 0.9766081871345029,
+    "new": 0.9845826687931951,
+    "diff": 0.00797448165869219
+   }
+  }
+ },
+ "affected": {
+  "affected_sybil_roots": {
+   "old": {
+    "sybils": 4779,
+    "recall": 0.8085373509102323,
+    "mean_prob": 0.7728320535650344
+   },
+   "new": {
+    "sybils": 4779,
+    "recall": 0.7777777777777778,
+    "mean_prob": 0.7765905473386456
+   }
+  },
+  "affected_sybil_roots_with_descendants": {
+   "old": {
+    "sybils": 70,
+    "recall": 0.4714285714285714,
+    "mean_prob": 0.4524800194379633
+   },
+   "new": {
+    "sybils": 70,
+    "recall": 0.38571428571428573,
+    "mean_prob": 0.44192563283272657
+   }
+  },
+  "affected_sybil_singleton_roots": {
+   "old": {
+    "sybils": 4709,
+    "recall": 0.8135485241027819,
+    "mean_prob": 0.7775941351935958
+   },
+   "new": {
+    "sybils": 4709,
+    "recall": 0.78360586111701,
+    "mean_prob": 0.781565392107262
+   }
+  },
+  "unaffected_sybils": {
+   "old": {
+    "sybils": 684,
+    "recall": 0.3216374269005848,
+    "mean_prob": 0.30566837830902016
+   },
+   "new": {
+    "sybils": 684,
+    "recall": 0.2997076023391813,
+    "mean_prob": 0.3140213762792319
+   }
+  }
+ },
+ "test_rows_with_changed_inputs": {
+  "total": 92384,
+  "sybil": 4779,
+  "non_sybil": 87605
+ },
+ "flips": {
+  "total": 702,
+  "pct_of_test": 0.538199103001495,
+  "to_flagged": 74,
+  "to_unflagged": 628,
+  "sybil": 222,
+  "non_sybil": 480,
+  "in_changed_input_rows": 657,
+  "in_unchanged_input_rows": 45,
+  "sybil_missed_to_caught": 30,
+  "sybil_caught_to_missed": 192,
+  "false_pos_added": 44,
+  "false_pos_removed": 436
+ },
+ "note_on_flips_outside_changed_rows": "Rows whose inputs did not change can still flip: the two fits are different models (different trees, early-stopping round and threshold)."
+}

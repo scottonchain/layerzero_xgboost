@@ -2,7 +2,7 @@
 
 > Reproduces and extends: *Sybil Detection on Public Blockchains via XGBoost and Gas Provision Network Analysis* (Imig et al., 2025)
 
-Trains four classifiers (XGBoost, LightGBM, Random Forest, Logistic Regression) and a cross-model ensemble on 434,786 Ethereum addresses to identify Sybil wallets in the LayerZero airdrop of June 2024. Every number below is produced by a notebook in this repository; `10_tie_out.ipynb` checks that each one traces to the code in the current commit.
+Trains four classifiers (XGBoost, LightGBM, Random Forest, Logistic Regression) and a cross-model ensemble on 434,786 Ethereum addresses to identify Sybil wallets in the LayerZero airdrop of June 2024. Every number below is produced by a notebook in this repository. `10_tie_out.ipynb` checks the core pipeline through notebook 09, and `99_tie_out_revision.ipynb` checks the revision notebooks and their dependencies. The corrected publication rerun completed on x86_64 Linux and `99` passed all checks.
 
 ---
 
@@ -14,70 +14,72 @@ on validation; test labels are used only for this table.
 
 | Model | Precision | Recall | F1 | AUROC | AP | FPR |
 |---|---|---|---|---|---|---|
-| XGBoost (3 seeds) | 0.720 | 0.720 | 0.720 | 0.966 | 0.764 | 0.0123 |
-| LightGBM (3 seeds) | 0.727 | 0.711 | 0.719 | 0.968 | 0.770 | 0.0117 |
-| Cross-ensemble | 0.697 | 0.739 | 0.717 | 0.968 | 0.770 | 0.0140 |
-| Random forest (3 seeds) | 0.727 | 0.698 | 0.712 | 0.971 | 0.769 | 0.0115 |
-| Logistic regression | 0.150 | 0.617 | 0.241 | 0.837 | 0.166 | 0.1529 |
+| XGBoost (3 seeds) | 0.710 | 0.722 | 0.716 | 0.969 | 0.764 | 0.0129 |
+| LightGBM (3 seeds) | 0.703 | 0.728 | 0.715 | 0.970 | 0.769 | 0.0135 |
+| Cross-ensemble | 0.710 | 0.723 | 0.717 | 0.970 | 0.770 | 0.0129 |
+| Random forest (3 seeds) | 0.723 | 0.701 | 0.712 | 0.971 | 0.769 | 0.0118 |
+| Logistic regression | 0.156 | 0.522 | 0.240 | 0.838 | 0.167 | 0.1236 |
 
-Source: `10_tie_out.ipynb`. AP is average precision; FPR is the false-positive rate among
-non-Sybils at the model's threshold. Results produced at commit `0d9eacc`; Random forest from
-`13_random_forest_sybil.ipynb` at `ce0a3c0` (Apple M5, arm64; not checked by `10`).
+Sources: `03`–`06` and `13`. AP is average precision; FPR is the false-positive rate among
+non-Sybils at the model's validation-selected threshold. These are the corrected x86_64 Linux results.
 
-- **Split noise.** Over 10 group splits, LightGBM test F1 has SD 0.006 (`08`). Differences between
-  XGBoost, LightGBM and the ensemble are smaller than that.
+- **Split noise.** Over 10 group splits, LightGBM test F1 is 0.709 ± 0.008.
 
-**Over 10 group splits** (`17_models_10_splits.ipynb`, one model seed per fit, all models on one machine:
-Apple M5, arm64, at `5888aa3`). Mean ± SD of test metrics; p: corrected resampled t-test (Nadeau and Bengio
-2003) against LightGBM, Holm-adjusted per metric.
+**Over 10 group splits** (`17_models_10_splits.ipynb`, one model seed per fit, corrected x86_64 Linux rerun).
+Mean ± SD of test metrics; p: corrected resampled t-test (Nadeau and Bengio 2003) against LightGBM,
+Holm-adjusted per metric.
 
 | Model | F1 | p | AP | p | AUROC | p |
 |---|---|---|---|---|---|---|
-| LightGBM | 0.713 ± 0.009 | — | 0.761 ± 0.007 | — | 0.968 ± 0.002 | — |
-| Cross-ensemble | 0.713 ± 0.008 | 0.96 | 0.761 ± 0.008 | 0.92 | 0.968 ± 0.002 | 1 |
-| XGBoost | 0.706 ± 0.007 | 0.30 | 0.753 ± 0.008 | 0.020 | 0.964 ± 0.002 | 0.003 |
-| Random forest | 0.703 ± 0.006 | 0.30 | 0.754 ± 0.007 | 0.022 | 0.969 ± 0.002 | 1 |
-| Logistic regression | 0.234 ± 0.004 | <0.001 | 0.161 ± 0.009 | <0.001 | 0.832 ± 0.003 | <0.001 |
+| LightGBM | 0.709 ± 0.008 | — | 0.761 ± 0.007 | — | 0.969 ± 0.002 | — |
+| Cross-ensemble | 0.710 ± 0.008 | 1.000 | 0.763 ± 0.006 | 0.351 | 0.970 ± 0.002 | 0.043 |
+| XGBoost | 0.708 ± 0.007 | 1.000 | 0.754 ± 0.007 | 0.234 | 0.969 ± 0.001 | 1.000 |
+| Random forest | 0.702 ± 0.005 | 1.000 | 0.754 ± 0.008 | 0.234 | 0.969 ± 0.001 | 1.000 |
+| Logistic regression | 0.234 ± 0.004 | <0.001 | 0.163 ± 0.008 | <0.001 | 0.834 ± 0.003 | <0.001 |
 
-No F1 difference among the tree models is significant after the correction; LightGBM's AP is higher than
-XGBoost's and Random Forest's (p ≈ 0.02). Training one model on 408,244 upsampled rows takes 27 s (XGBoost), 33 s
-(LightGBM), 95 s (Random Forest) and 11 s (logistic regression); scoring the 130,435 test rows takes under 4 s for
-every model (`17`, cost section).
-- **Ensemble.** The validation-selected XGBoost weight is 0.06; the ensemble is essentially LightGBM.
+No F1 difference among the tree models is significant after correction. LightGBM's AP advantage over
+XGBoost and Random Forest is also not significant after the corrected resampled test and Holm adjustment
+(p = 0.234 for each). The weighted average has a small AUROC advantage over LightGBM
+(+0.0012 ± 0.0004, Holm-adjusted p = 0.043), but not a significant F1 or AP advantage.
+
+On the seed-42 split, the validation-selected XGBoost weight in the 3-seed cross-ensemble is 0.56.
+Across the ten one-seed fits in `17`, selected XGBoost weights range from 0.30 to 0.76.
 
 ### Note on leakage with simple random split
 
 If a simple random split is used, rather than a stratified group split, wallets from a gas provision tree can fall on both
-sides of the split.  This causes leakage where the model is tested on the same actors it saw in training: In a sample random split, 599 of 5,463 test
-Sybils share a gas provision tree with a training Sybil.  This cannot occur under the group
-split. This shows the leakage in the event of a simple random split (`11_split_comparison.ipynb`):
+sides of the split. In the seed-42 random split, 599 of 5,463 test Sybils share a gas provision tree with a training
+Sybil; this cannot occur under the group split. Under the corrected pipeline (`11_split_comparison.ipynb`):
 
-| Model | F1 random (original, leaky) | F1 group | Δ F1 | AP random | AP group | Δ AP |
+| Model | F1 random (leaky) | F1 group | Δ F1 | AP random | AP group | Δ AP |
 |---|---|---|---|---|---|---|
-| XGBoost (3 seeds) | 0.741 | 0.720 | −0.0210 | 0.798 | 0.764 | −0.0331 |
-| LightGBM (3 seeds) | 0.742 | 0.719 | −0.0230 | 0.802 | 0.770 | −0.0328 |
-| Cross-ensemble | 0.743 | 0.717 | −0.0253 | 0.803 | 0.770 | −0.0327 |
-| Logistic regression | 0.234 | 0.241 | +0.0077 | 0.160 | 0.166 | +0.0056 |
+| XGBoost (3 seeds) | 0.738 | 0.716 | −0.0218 | 0.797 | 0.764 | −0.0326 |
+| LightGBM (3 seeds) | 0.741 | 0.715 | −0.0262 | 0.804 | 0.769 | −0.0348 |
+| Cross-ensemble | 0.741 | 0.717 | −0.0249 | 0.805 | 0.770 | −0.0350 |
+| Logistic regression | 0.236 | 0.240 | +0.0041 | 0.162 | 0.167 | +0.0049 |
 
-XGBoost and LightGBM lose similar Average Precision; the cross-ensemble tracks LightGBM closely. Logistic regression has low performance and is included for completeness. The loss sits in the interactor categories where they would be expected in the event of leakage, e.g. LightGBM F1: IxI 0.85 to 0.47, IxE 0.54 to 0.29.
+The tree-split effect is much smaller than the report-dependence effect below. The loss is concentrated
+in the interactor categories: for LightGBM, F1 changes from 0.847 to 0.453 for IxI and from 0.544 to 0.271 for IxE.
 
 ### Robustness checks (group split; 10 splits, SHAP on one)
 
-| Check | Notebook | Result |
+| Check | Notebook | Corrected result |
 |---|---|---|
-| Corrected `gini_coefficient`, rule fixed in advance | `01` | Removing it lowered **validation** F1 on 3 of 10 splits (8 required): removed. The test set was not used |
-| Labels known before the snapshot vs current labels | `07` | Test F1 −0.005 ± 0.007 (mean ± SD) |
-| All provision-network features removed | `08` | Test F1 −0.008; transaction features alone carry most of the signal |
-| SHAP by feature family | `09` | LayerZero transactions first, then Ethereum transactions, gas provider, gas provision tree, provision chain |
-| Random forest on 10 group splits | `13` | Test F1 0.703 ± 0.006 vs LightGBM 0.713 ± 0.009 (same machine); paired difference −0.011 ± 0.007, lower on 9 of 10 |
-| Entity-level recall (LightGBM, validation threshold) | `14` | Gas provision trees: any-hit 0.765 (97 % are single-wallet trees). Bounty reports: any-hit 0.703, majority-hit 0.552; 49 % of reports keep at least half their ZRO allocation unflagged. 37 % of the test Sybils' allocation is unflagged (address miss rate 28 %). Arm64 predictions, flagged in the results file |
-| Split grouped by tree and bounty report | `15` | Under the tree split, 5,406 of 5,463 test Sybils still share a bounty report with a training Sybil (random split: 5,434). Grouping by tree and report as well: test F1 0.256 ± 0.022 vs 0.713 ± 0.009 (−0.457 ± 0.023, 10 of 10; outside the two largest components −0.375). One component holds 45 % of Sybils and always lands in train, so the drop also reflects that composition |
-| Label noise: LayerZero's initial Sybil list ([archived source](https://web.archive.org/web/*/https://github.com/LayerZero-Labs/sybil-report/raw/main/*)) | `16` | 34,545 interactors (8.3 % of the non-Sybils) are on LayerZero's initial list and labeled non-Sybil. At the validation threshold, 625 of the 1,566 test false positives (40 %) are on it; counting them as Sybil, precision is 0.829 instead of 0.715. Dropping them from training and validation: test F1 on the test set without them +0.034 ± 0.010 (10 of 10) |
-| Mimicry controls | `24` | Profile copy at k = 5: top features by SHAP 0.039, wallet-local only 0.045, Ethereum-local (7 Ethereum-side counts and values) 0.167, funding-graph only 0.546, random 5 of 62 0.433 (range 0.179–0.719). All 30 funding-graph features together: 0.484. Collapse is specific to the top features, and strongest for LayerZero activity and timing |
-| Mimicry stress test (fixed model) | `18` | Replacing the 5 most important features of test Sybils with values from non-Sybils cuts recall at the fixed threshold from 0.719 to 0.01–0.04 (0.03–0.05 with cheap features only). Tentative cost classes; a fragility measure, not an attack simulation |
-| Provision-network features by category | `19` | Removing them: test F1 −0.008 overall (9 of 10), IxI −0.105 ± 0.124 (9 of 10), IxL −0.004, IxE +0.046 (removing them helps IxE on 9 of 10); none significant after the correction |
-| Report-mates in training | `22` | Same test Sybils, same training size: with their bounty-report mates in training, test F1 +0.231 ± 0.084, AP +0.292 ± 0.075, AUROC +0.079 ± 0.041 (15 of 15, corrected p < 0.002; LightGBM; XGBoost alike). The gain grows from +0.006 recall with no report-mate to +0.24 with 1–9 and +0.36 with 10–99. Test prevalence is 2.1 %, so only the paired difference is comparable |
-| Temporal holdout | `20` | Trained on wallets whose first LayerZero transaction precedes 2023-08-20, tested on the 30 % after: F1 0.170 (recall 0.095), AUROC 0.891, against 0.736 and 0.978 for the tree-split model on the same cohort. The late cohort's Sybil rate is 1.0 % against 5.6 % |
+| Corrected `gini_coefficient`, rule fixed in advance | `01` | Removing it lowered **validation** F1 on 6 of 10 splits (8 required): removed. Sign-test p = 0.377. The test set was not used |
+| Labels known before the snapshot vs current labels | `07` | Test F1 change −0.003 ± 0.007 (mean ± SD) |
+| All provision-network features removed | `08` | All-features F1 0.709; without all provision-network features 0.708. The incremental F1 is +0.0002 (all minus reduced) |
+| SHAP by feature family | `09` | `n_l0_source_contracts` is the top feature overall; `l0_tx_time_span` is a close second and is top for IxL. Provision-network families account for about 15.3% of total mean absolute SHAP |
+| Random forest on 10 group splits | `13`, `17` | Test F1 0.702 ± 0.005 vs LightGBM 0.709 ± 0.008; mean difference −0.006 ± 0.008. Corrected Holm-adjusted F1 p = 1.000 |
+| Entity-level recall (LightGBM, validation threshold) | `14` | Gas provision trees: any-hit 0.776; bounty reports: any-hit 0.707, majority-hit 0.565; 48.5% of reports keep at least half their ZRO allocation unflagged. 36.8% of test-Sybil allocation is unflagged. Predictions reproduce the committed corrected x86 results |
+| Split grouped by tree and bounty report | `15` | Under the tree split, 5,406 of 5,463 test Sybils share a bounty report with a training Sybil (random split: 5,434). Grouping by tree and report: LightGBM test F1 0.250 ± 0.027 vs 0.709 ± 0.008 under the tree split. One component holds 45.4% of Sybils, so this union split is superseded by the paired design in `22` |
+| LayerZero initial Sybil list | `16` | 34,545 interactors (8.3% of bounty-only negatives) are on the initial list. At the validation threshold, 705 of 1,683 apparent false positives (41.9%) are on it; counting them as Sybil gives precision 0.827 instead of 0.703. Residual FPR is 978 / 114,657 = 0.853% if initial-list addresses are treated as positives |
+| Mimicry controls | `24` | Profile copy at k=5: top SHAP features 0.039 recall, wallet-local 0.038, Ethereum-local 0.153, funding-graph 0.519, random 5 of 62 0.423 mean. Replacing all 30 funding-graph features gives 0.452 recall |
+| Mimicry stress test (fixed model) | `18` | Replacing the 5 most important features cuts recall from 0.728 to 0.012 (marginal) or 0.039 (profile copy). Tentative cost classes; this is a fragility measure, not an attack simulation |
+| Provision-network features by category | `19` | ΔF1 (all minus without all provision-network families): +0.0002 overall, +0.0028 IxL, −0.0328 IxI, −0.0534 IxE; none is statistically significant after correction |
+| Report-mates in training | `22` | Same test Sybils and matched training size: LightGBM seen vs held-out F1 0.593 vs 0.363 (Δ +0.230), AP 0.600 vs 0.305 (Δ +0.294), AUROC 0.971 vs 0.895 (Δ +0.076); seen is higher in all 15 fold-repeats. Corrected p < 0.002 for all three headline metrics |
+| Temporal holdout | `20` | Latest 30%: temporal F1 0.166, recall 0.093, AUROC 0.888, versus same-cohort reference F1 0.735, recall 0.697, AUROC 0.983. Late-cohort Sybil rate is 1.02% vs 5.55% in the early cohort |
+
+The corrected publication rerun completed through `99_tie_out_revision`; all provenance and named-number checks passed.
 
 ---
 
@@ -182,14 +184,12 @@ pip install -r requirements.txt
 `requirements.txt` pins the versions used to produce the results. Model libraries are pinned
 because default hyperparameters change between releases.
 
-**Hardware.** 4 CPU cores and 8 GB RAM are enough; no GPU is used. The model notebooks fix the
-XGBoost and LightGBM thread count at 4 (`sp.N_JOBS`), because XGBoost's `hist` algorithm gives
-slightly different trees with different thread counts. LightGBM also runs with `force_col_wise` and
-`deterministic` (`sp.LGBM_REPRO`): otherwise it picks its histogram method by a timing test at
-startup and sums in thread order, and its trees change between runs. With these settings, results
-reproduce across runs on one machine, but not necessarily across machines: on an Apple M5 (arm64), `03` and
-`04` give test F1 0.7183 and 0.7168, against the committed 0.7200 and 0.7188, with different
-early-stopping rounds (`docs/REVISION_LEAKAGE.md`, findings 2026-10-05).
+**Hardware.** The corrected publication rerun used x86_64 Linux, Intel Xeon @ 2.80 GHz,
+4 CPU cores, Python 3.11.15, and the pinned package set in `requirements.txt`; no GPU is used.
+XGBoost and LightGBM use four threads. A cloud-VM restart changed only the guest kernel build during the
+run; CPU model/core count, Python packages, data hashes and thread counts were unchanged. As a cross-boundary
+check, post-restart notebook `19` reproduced the pre-restart `08` all-features F1 on all ten splits to
+within 1e-12, and `17` independently reproduced `08`'s LightGBM arm.
 
 > **RAM note.** The labeled-addresses file (`20241214_labeled_addresses.csv`) contains 9 million
 > entries. The pipeline streams it and retains only the addresses that appear in the provision
@@ -235,40 +235,40 @@ rerun `23`, `25` and then `99` after any rerun of the notebooks they read. They 
 `04` and `06` saved in `output/`; `17` needs `13`'s result, and `16` reads `review_support/initial_list/`
 (Git LFS).
 
-Runtimes on 4 cores, from the run at commit `0d9eacc` (`02` searched from scratch):
+Runtimes on 4 cores from the corrected x86_64 publication rerun (`02` searched from scratch):
 
 | Notebook | Runtime |
 |---|---|
-| `00_data_pipeline` | 3 min |
-| `01_ablation_gini` | 21 min |
-| `02_hyperparameter_search` | 119 min |
-| `03_xgboost_sybil` | 7 min |
-| `04_lightgbm_sybil` | 5 min |
-| `05_logistic_regression_sybil` | 2 min |
+| `00_data_pipeline` | 2.6 min |
+| `01_ablation_gini` | 20.5 min |
+| `02_hyperparameter_search` | 115.4 min |
+| `03_xgboost_sybil` | 5.9 min |
+| `04_lightgbm_sybil` | 4.0 min |
+| `05_logistic_regression_sybil` | 2.2 min |
 | `06_cross_ensemble_sybil` | 10 s |
-| `07_sensitivity_label_vintage` | 32 min |
-| `08_ablation_families` | 126 min |
-| `09_shap_importance` | 55 min |
-| `10_tie_out` | 8 s |
-| `11_split_comparison` | 12 min |
-| `12_figures` | 6 min |
-| `13_random_forest_sybil` | 60 min (Apple M5, 12 of 24 configurations resumed) |
-| `14_entity_level_recall` | 18 s |
-| `15_split_tree_report` | 13.5 min (Apple M5) |
-| `16_label_robustness_initial_list` | 21 min (Apple M5) |
-| `17_models_10_splits` | 40 min (Apple M5) |
-| `18_mimicry_stress` | 4 min (Apple M5) |
-| `19_ablation_by_category` | 28 min (Apple M5) |
-| `20_temporal_holdout` | 6 min (Apple M5) |
-| `22_report_dependence` | 53 min (Apple M5) |
-| `23_revision_figures` | 5 s |
-| `24_mimicry_controls` | 10 min (Apple M5) |
-| `25_paper_tables` | 14 s |
-| `99_tie_out_revision` | 3 s |
+| `07_sensitivity_label_vintage` | 21.2 min |
+| `08_ablation_families` | 76.9 min |
+| `09_shap_importance` | 116.0 min |
+| `10_tie_out` | 7 s |
+| `11_split_comparison` | 9.1 min |
+| `12_figures` | 4.6 min |
+| `13_random_forest_sybil` | 216.9 min |
+| `14_entity_level_recall` | 1.1 min |
+| `15_split_tree_report` | 17.7 min |
+| `16_label_robustness_initial_list` | 25.2 min |
+| `17_models_10_splits` | 102.9 min |
+| `18_mimicry_stress` | 5.4 min |
+| `19_ablation_by_category` | 36.9 min |
+| `20_temporal_holdout` | 11.5 min |
+| `22_report_dependence` | 66.3 min |
+| `23_revision_figures` | 12 s |
+| `24_mimicry_controls` | 14.8 min |
+| `25_paper_tables` | 1.2 min |
+| `99_tie_out_revision` | 8 s |
 
-About 6.5 hours in total. `01` and `02` are needed only when `sybil_pipeline.py` changes; with their committed
-results, `03` to `12` take about 4.1 hours.
+The serial notebook execution time was about 14.6 hours, excluding the interrupted first attempt at `16`.
 
+### What each notebook does
 ### What each notebook does
 
 - **`00_data_pipeline`**: loads the L0 features, the provision network (with the snapshot cutoff),
@@ -304,7 +304,7 @@ results, `03` to `12` take about 4.1 hours.
   (group split), and trains one XGBoost model (seed 42, selected hyperparameters) for the learning
   curve; it checks the curve against `02` and `03` and the plotted AP and AUROC against `results/`.
   The depth distribution uses all addresses.
-- **`13`**: a Random Forest baseline selected like `02` (12 configurations, validation only, test
+- **`13`**: a Random Forest baseline selected like `02` (24 configurations, validation only, test
   deleted before any fit), trained as a 3-seed ensemble, and run on the 10 group splits of `08`.
 - **`14`**: evaluates the saved test predictions of `03`, `04` and `06` per entity (gas provision
   tree, bounty report, reporter): any-, majority- and full-hit recall, within-entity recall, and the
@@ -348,7 +348,7 @@ Generated by `23_revision_figures.ipynb` from `results/` only; each figure is sa
 
 | File | Content | Source |
 |---|---|---|
-| `figures/rev_leakage_hierarchy` | A: address vs gas-provision-tree split (seed 42); B: report-mates seen vs held out (15 fold-repeats) | `11`, `22` (two platforms) |
+| `figures/rev_leakage_hierarchy` | A: address vs gas-provision-tree split (seed 42); B: report-mates seen vs held out (15 fold-repeats) | `11`, `22` (corrected x86_64 run) |
 | `figures/rev_report_dependence` | A: dose-response by number of report-mates; B: by category | `22` |
 | `figures/rev_label_effects` | A: test false positives on LayerZero's initial list; B: clean negatives | `16` |
 | `figures/rev_mimicry` | Recall against top-k features replaced | `18` |
@@ -373,11 +373,11 @@ Tables from `25_paper_tables.ipynb` (same rules; `results/25_paper_tables.json` 
 | `tables/rev_per_category.tex` | LightGBM and XGBoost per category over 10 splits | `17` |
 | `tables/rev_family_ablation.tex` | Feature families removed, 10 splits | `08` |
 | `tables/rev_provision_ablation_by_category.tex` | Provision-network families removed, per category | `19` |
-| `tables/rev_entity_level.tex` | Entity-level outcomes (marked UNVERIFIED until `14` is rerun) | `14` |
+| `tables/rev_entity_level.tex` | Entity-level outcomes; `14` verified that its predictions reproduce the committed corrected results | `14` |
 | `tables/rev_temporal_holdout.tex` | Temporal holdout at 20, 30, 40 % late cohorts | `20` |
 | `tables/rev_union_split_appendix.tex` | The superseded union split (appendix) | `15` |
 | `tables/rev_search_top.tex` | Top configurations of the three searches (appendix) | `02`, `13`, search CSVs |
-| `tables/rev_text_numbers.json` | 199 named scalars for the running text, each with source and platform | as listed in the file |
+| `tables/rev_text_numbers.json` | 215 named scalars for the running text, each with source and platform | as listed in the file |
 
 ## Input data files
 

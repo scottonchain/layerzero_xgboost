@@ -1,6 +1,6 @@
 {
   "notebook": "05_logistic_regression_sybil",
-  "code_commit": "0d9eacc",
+  "code_commit": "9cd7e6b",
   "leakage": {
     "method": "group",
     "test_rows": 130435,
@@ -11,13 +11,13 @@
   "models": [
     {
       "name": "Logistic Regression (C=0.01, L1)",
-      "threshold": 0.6823029538074272,
-      "precision": 0.1499132292083834,
-      "recall": 0.6166941241076331,
-      "f1": 0.24119415807560138,
-      "auroc": 0.8368401529081448,
-      "ap": 0.16564483763713758,
-      "brier": 0.17504387826069132
+      "threshold": 0.7132223096951691,
+      "precision": 0.15585196523260264,
+      "recall": 0.5218744279699798,
+      "f1": 0.2400235729920862,
+      "auroc": 0.8376000624652462,
+      "ap": 0.1667535894403785,
+      "brier": 0.17461438650630795
     }
   ],
   "params": {

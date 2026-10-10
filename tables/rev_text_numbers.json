@@ -1,5 +1,5 @@
 {
-  "generated_by": "25_paper_tables.ipynb at 2bfbee1",
+  "generated_by": "25_paper_tables.ipynb at 3179d43",
   "numbers": {
     "n_addresses": {
       "value": 434786,
@@ -112,47 +112,47 @@
       "platform": "not recorded (machine of the committed 00-12 results)"
     },
     "wallets_changed": {
-      "value": 10575,
+      "value": 10580,
       "source": "results/07 -> wallets_changed",
       "platform": "not recorded (machine of the committed 00-12 results)"
     },
     "vintage_test_f1_diff_mean": {
-      "value": -0.004734556147439273,
+      "value": -0.0033249567601805197,
       "source": "results/07 -> diff_mean.test_f1",
       "platform": "not recorded (machine of the committed 00-12 results)"
     },
     "vintage_test_f1_diff_sd": {
-      "value": 0.007047925669539539,
+      "value": 0.0070745998578688315,
       "source": "results/07 -> diff_sd.test_f1",
       "platform": "not recorded (machine of the committed 00-12 results)"
     },
     "vintage_test_ap_diff_mean": {
-      "value": -0.005492363846645009,
+      "value": -0.0058162183452442505,
       "source": "results/07 -> diff_mean.test_ap",
       "platform": "not recorded (machine of the committed 00-12 results)"
     },
     "vintage_test_ap_diff_sd": {
-      "value": 0.009042083728387726,
+      "value": 0.010827290266557014,
       "source": "results/07 -> diff_sd.test_ap",
       "platform": "not recorded (machine of the committed 00-12 results)"
     },
     "vintage_test_auroc_diff_mean": {
-      "value": -0.0022935516505281804,
+      "value": -0.002742036844638618,
       "source": "results/07 -> diff_mean.test_auroc",
       "platform": "not recorded (machine of the committed 00-12 results)"
     },
     "vintage_test_auroc_diff_sd": {
-      "value": 0.003868618323039622,
+      "value": 0.0037701430848702333,
       "source": "results/07 -> diff_sd.test_auroc",
       "platform": "not recorded (machine of the committed 00-12 results)"
     },
     "vintage_val_f1_diff_mean": {
-      "value": 0.008883757567968043,
+      "value": 0.009614315338068858,
       "source": "results/07 -> diff_mean.val_f1",
       "platform": "not recorded (machine of the committed 00-12 results)"
     },
     "vintage_val_f1_diff_sd": {
-      "value": 0.011500274102864272,
+      "value": 0.011181714112288929,
       "source": "results/07 -> diff_sd.val_f1",
       "platform": "not recorded (machine of the committed 00-12 results)"
     },
@@ -182,147 +182,187 @@
       "platform": "x86_64 / Linux"
     },
     "initial_list_valthr_threshold": {
-      "value": 0.6001,
+      "value": 0.5444,
       "source": "results/16 -> fp_composition[validation threshold].threshold",
       "platform": "x86_64 / Linux"
     },
     "initial_list_valthr_fp": {
-      "value": 1461,
+      "value": 1683,
       "source": "results/16 -> fp_composition[validation threshold].fp",
       "platform": "x86_64 / Linux"
     },
     "initial_list_valthr_fp_on_initial_list": {
-      "value": 556,
+      "value": 705,
       "source": "results/16 -> fp_composition[validation threshold].fp_on_initial_list",
       "platform": "x86_64 / Linux"
     },
     "initial_list_valthr_fp_not_on_list": {
-      "value": 905,
+      "value": 978,
       "source": "results/16 -> fp_composition[validation threshold].fp_not_on_list",
       "platform": "x86_64 / Linux"
     },
     "initial_list_valthr_fp_share_on_list": {
-      "value": 0.3805612594113621,
+      "value": 0.41889483065953653,
       "source": "results/16 -> fp_composition[validation threshold].fp_share_on_list",
       "platform": "x86_64 / Linux"
     },
     "initial_list_valthr_precision": {
-      "value": 0.7267115600448933,
+      "value": 0.7025450689289502,
       "source": "results/16 -> fp_composition[validation threshold].precision",
       "platform": "x86_64 / Linux"
     },
     "initial_list_valthr_precision_if_list_counted_sybil": {
-      "value": 0.8307145529367752,
+      "value": 0.8271474019088016,
       "source": "results/16 -> fp_composition[validation threshold].precision_if_list_counted_sybil",
       "platform": "x86_64 / Linux"
     },
+    "initial_list_test_negatives": {
+      "value": 124972,
+      "source": "results/16 -> by_partition[Test].negatives",
+      "platform": "x86_64 / Linux"
+    },
+    "initial_list_test_negatives_on_list": {
+      "value": 10315,
+      "source": "results/16 -> by_partition[Test].negatives_on_list",
+      "platform": "x86_64 / Linux"
+    },
+    "fpr_original_labels_numerator": {
+      "value": 1683,
+      "source": "results/16 -> fp_composition[validation threshold].fp (F)",
+      "platform": "x86_64 / Linux"
+    },
+    "fpr_original_labels_denominator": {
+      "value": 124972,
+      "source": "results/16 -> by_partition[Test].negatives (N)",
+      "platform": "x86_64 / Linux"
+    },
+    "fpr_original_labels": {
+      "value": 0.013467016611721026,
+      "source": "F / N",
+      "platform": "x86_64 / Linux"
+    },
+    "fpr_initial_list_as_positive_numerator": {
+      "value": 978,
+      "source": "F - J, J = fp_composition[validation threshold].fp_on_initial_list",
+      "platform": "x86_64 / Linux"
+    },
+    "fpr_initial_list_as_positive_denominator": {
+      "value": 114657,
+      "source": "N - I, I = by_partition[Test].negatives_on_list",
+      "platform": "x86_64 / Linux"
+    },
+    "fpr_initial_list_as_positive": {
+      "value": 0.008529788848478506,
+      "source": "(F - J) / (N - I)",
+      "platform": "x86_64 / Linux"
+    },
     "initial_list_2x2_baseline_full_f1": {
-      "value": 0.7188454066056065,
+      "value": 0.7148637712435932,
       "source": "results/16 -> table_2x2[Baseline, full test].f1",
       "platform": "x86_64 / Linux"
     },
     "initial_list_2x2_baseline_full_ap": {
-      "value": 0.7695927941671368,
+      "value": 0.7692950032089741,
       "source": "results/16 -> table_2x2[Baseline, full test].ap",
       "platform": "x86_64 / Linux"
     },
     "initial_list_2x2_baseline_full_auroc": {
-      "value": 0.9682758108601609,
+      "value": 0.9695692977456494,
       "source": "results/16 -> table_2x2[Baseline, full test].auroc",
       "platform": "x86_64 / Linux"
     },
     "initial_list_2x2_baseline_full_precision": {
-      "value": 0.7267115600448933,
+      "value": 0.7025450689289502,
       "source": "results/16 -> table_2x2[Baseline, full test].precision",
       "platform": "x86_64 / Linux"
     },
     "initial_list_2x2_baseline_full_recall": {
-      "value": 0.7111477210323998,
+      "value": 0.727622185612301,
       "source": "results/16 -> table_2x2[Baseline, full test].recall",
       "platform": "x86_64 / Linux"
     },
     "initial_list_2x2_baseline_nolist_f1": {
-      "value": 0.7578269774700088,
+      "value": 0.7632488479262672,
       "source": "results/16 -> table_2x2[Baseline, test without initial-list rows].f1",
       "platform": "x86_64 / Linux"
     },
     "initial_list_2x2_baseline_nolist_ap": {
-      "value": 0.8060166344947022,
+      "value": 0.8073602287290896,
       "source": "results/16 -> table_2x2[Baseline, test without initial-list rows].ap",
       "platform": "x86_64 / Linux"
     },
     "initial_list_2x2_baseline_nolist_auroc": {
-      "value": 0.9720630183005974,
+      "value": 0.9734948777361635,
       "source": "results/16 -> table_2x2[Baseline, test without initial-list rows].auroc",
       "platform": "x86_64 / Linux"
     },
     "initial_list_2x2_baseline_nolist_precision": {
-      "value": 0.8110647181628392,
+      "value": 0.8025439127801333,
       "source": "results/16 -> table_2x2[Baseline, test without initial-list rows].precision",
       "platform": "x86_64 / Linux"
     },
     "initial_list_2x2_baseline_nolist_recall": {
-      "value": 0.7111477210323998,
+      "value": 0.727622185612301,
       "source": "results/16 -> table_2x2[Baseline, test without initial-list rows].recall",
       "platform": "x86_64 / Linux"
     },
     "initial_list_2x2_clean_full_f1": {
-      "value": 0.6486156662344597,
+      "value": 0.6433638025594149,
       "source": "results/16 -> table_2x2[Variant A (clean negatives), full test].f1",
       "platform": "x86_64 / Linux"
     },
     "initial_list_2x2_clean_full_ap": {
-      "value": 0.45698315108659276,
+      "value": 0.45327320940325105,
       "source": "results/16 -> table_2x2[Variant A (clean negatives), full test].ap",
       "platform": "x86_64 / Linux"
     },
     "initial_list_2x2_clean_full_auroc": {
-      "value": 0.9594104100369187,
+      "value": 0.9608425411949058,
       "source": "results/16 -> table_2x2[Variant A (clean negatives), full test].auroc",
       "platform": "x86_64 / Linux"
     },
     "initial_list_2x2_clean_full_precision": {
-      "value": 0.5559623430962343,
+      "value": 0.5356794934242571,
       "source": "results/16 -> table_2x2[Variant A (clean negatives), full test].precision",
       "platform": "x86_64 / Linux"
     },
     "initial_list_2x2_clean_full_recall": {
-      "value": 0.7783269265971078,
+      "value": 0.8052352187442797,
       "source": "results/16 -> table_2x2[Variant A (clean negatives), full test].recall",
       "platform": "x86_64 / Linux"
     },
     "initial_list_2x2_clean_nolist_f1": {
-      "value": 0.787043035631652,
+      "value": 0.7828098585283388,
       "source": "results/16 -> table_2x2[Variant A (clean negatives), test without initial-list rows].f1",
       "platform": "x86_64 / Linux"
     },
     "initial_list_2x2_clean_nolist_ap": {
-      "value": 0.8309832480825501,
+      "value": 0.8329218898506361,
       "source": "results/16 -> table_2x2[Variant A (clean negatives), test without initial-list rows].ap",
       "platform": "x86_64 / Linux"
     },
     "initial_list_2x2_clean_nolist_auroc": {
-      "value": 0.9738834819751472,
+      "value": 0.9755523630077042,
       "source": "results/16 -> table_2x2[Variant A (clean negatives), test without initial-list rows].auroc",
       "platform": "x86_64 / Linux"
     },
     "initial_list_2x2_clean_nolist_precision": {
-      "value": 0.7959565705728192,
+      "value": 0.7615997229916898,
       "source": "results/16 -> table_2x2[Variant A (clean negatives), test without initial-list rows].precision",
       "platform": "x86_64 / Linux"
     },
     "initial_list_2x2_clean_nolist_recall": {
-      "value": 0.7783269265971078,
+      "value": 0.8052352187442797,
       "source": "results/16 -> table_2x2[Variant A (clean negatives), test without initial-list rows].recall",
       "platform": "x86_64 / Linux"
     },
     "initial_list_10split_delta_clean_f1_mean": {
-      "value": 0.03182181520421281,
+      "value": 0.033507079969431974,
       "source": "results/16 -> summary.delta_clean_f1_mean",
       "platform": "x86_64 / Linux"
     },
     "initial_list_10split_delta_clean_f1_std": {
-      "value": 0.005884419943034396,
+      "value": 0.006476190453301017,
       "source": "results/16 -> summary.delta_clean_f1_std",
       "platform": "x86_64 / Linux"
     },
@@ -332,12 +372,12 @@
       "platform": "x86_64 / Linux"
     },
     "initial_list_10split_delta_full_f1_mean": {
-      "value": -0.06880137303186792,
+      "value": -0.06947256140829397,
       "source": "results/16 -> summary.delta_full_f1_mean",
       "platform": "x86_64 / Linux"
     },
     "initial_list_10split_delta_full_f1_std": {
-      "value": 0.005437609539593869,
+      "value": 0.005688367670397273,
       "source": "results/16 -> summary.delta_full_f1_std",
       "platform": "x86_64 / Linux"
     },
@@ -452,12 +492,12 @@
       "platform": "x86_64 / Linux"
     },
     "level3_lightgbm_f1_diff_mean": {
-      "value": 0.22882469765529556,
+      "value": 0.2298824046166001,
       "source": "results/22 -> tests[LightGBM, f1].diff_mean",
       "platform": "x86_64 / Linux"
     },
     "level3_lightgbm_f1_diff_sd": {
-      "value": 0.07629428550214266,
+      "value": 0.090645837812611,
       "source": "results/22 -> tests[LightGBM, f1].diff_sd",
       "platform": "x86_64 / Linux"
     },
@@ -467,17 +507,17 @@
       "platform": "x86_64 / Linux"
     },
     "level3_lightgbm_f1_p_corrected": {
-      "value": 1.8548392687032806e-05,
+      "value": 0.00010177303861922974,
       "source": "results/22 -> tests[LightGBM, f1].p_corrected",
       "platform": "x86_64 / Linux"
     },
     "level3_lightgbm_ap_diff_mean": {
-      "value": 0.2939171408987279,
+      "value": 0.2943821022034449,
       "source": "results/22 -> tests[LightGBM, ap].diff_mean",
       "platform": "x86_64 / Linux"
     },
     "level3_lightgbm_ap_diff_sd": {
-      "value": 0.07748053660236716,
+      "value": 0.07945441497263896,
       "source": "results/22 -> tests[LightGBM, ap].diff_sd",
       "platform": "x86_64 / Linux"
     },
@@ -487,17 +527,17 @@
       "platform": "x86_64 / Linux"
     },
     "level3_lightgbm_ap_p_corrected": {
-      "value": 1.3534852529446437e-06,
+      "value": 1.7791430771282602e-06,
       "source": "results/22 -> tests[LightGBM, ap].p_corrected",
       "platform": "x86_64 / Linux"
     },
     "level3_lightgbm_auroc_diff_mean": {
-      "value": 0.07929004779305918,
+      "value": 0.07555926738949696,
       "source": "results/22 -> tests[LightGBM, auroc].diff_mean",
       "platform": "x86_64 / Linux"
     },
     "level3_lightgbm_auroc_diff_sd": {
-      "value": 0.04240726935624671,
+      "value": 0.041295249468562646,
       "source": "results/22 -> tests[LightGBM, auroc].diff_sd",
       "platform": "x86_64 / Linux"
     },
@@ -507,17 +547,17 @@
       "platform": "x86_64 / Linux"
     },
     "level3_lightgbm_auroc_p_corrected": {
-      "value": 0.0014601720962593198,
+      "value": 0.0017240929124039035,
       "source": "results/22 -> tests[LightGBM, auroc].p_corrected",
       "platform": "x86_64 / Linux"
     },
     "level3_xgboost_f1_diff_mean": {
-      "value": 0.21823394830341936,
+      "value": 0.22269276800637655,
       "source": "results/22 -> tests[XGBoost, f1].diff_mean",
       "platform": "x86_64 / Linux"
     },
     "level3_xgboost_f1_diff_sd": {
-      "value": 0.08085869466792871,
+      "value": 0.08614758074060011,
       "source": "results/22 -> tests[XGBoost, f1].diff_sd",
       "platform": "x86_64 / Linux"
     },
@@ -527,17 +567,17 @@
       "platform": "x86_64 / Linux"
     },
     "level3_xgboost_f1_p_corrected": {
-      "value": 5.5091187478339587e-05,
+      "value": 8.448509347865967e-05,
       "source": "results/22 -> tests[XGBoost, f1].p_corrected",
       "platform": "x86_64 / Linux"
     },
     "level3_xgboost_ap_diff_mean": {
-      "value": 0.29002975022877675,
+      "value": 0.28451302645511256,
       "source": "results/22 -> tests[XGBoost, ap].diff_mean",
       "platform": "x86_64 / Linux"
     },
     "level3_xgboost_ap_diff_sd": {
-      "value": 0.07516082799891323,
+      "value": 0.07512938126206346,
       "source": "results/22 -> tests[XGBoost, ap].diff_sd",
       "platform": "x86_64 / Linux"
     },
@@ -547,17 +587,17 @@
       "platform": "x86_64 / Linux"
     },
     "level3_xgboost_ap_p_corrected": {
-      "value": 1.1087182109813585e-06,
+      "value": 1.3805992038830119e-06,
       "source": "results/22 -> tests[XGBoost, ap].p_corrected",
       "platform": "x86_64 / Linux"
     },
     "level3_xgboost_auroc_diff_mean": {
-      "value": 0.07955123864651205,
+      "value": 0.07624622500941983,
       "source": "results/22 -> tests[XGBoost, auroc].diff_mean",
       "platform": "x86_64 / Linux"
     },
     "level3_xgboost_auroc_diff_sd": {
-      "value": 0.04330308041507737,
+      "value": 0.04040717672695559,
       "source": "results/22 -> tests[XGBoost, auroc].diff_sd",
       "platform": "x86_64 / Linux"
     },
@@ -567,7 +607,7 @@
       "platform": "x86_64 / Linux"
     },
     "level3_xgboost_auroc_p_corrected": {
-      "value": 0.0016722019833952247,
+      "value": 0.0013595789786567845,
       "source": "results/22 -> tests[XGBoost, auroc].p_corrected",
       "platform": "x86_64 / Linux"
     },
@@ -614,26 +654,26 @@
       "platform": "x86_64 / Linux"
     },
     "blend_weight_seed42": {
-      "value": 0.06,
+      "value": 0.56,
       "source": "results/06 -> xgb_weight",
       "platform": "not recorded (machine of the committed 00-12 results)"
     },
     "xgb_selected": {
       "value": {
         "learning_rate": 0.05,
-        "max_depth": 8,
-        "subsample": 0.7,
-        "colsample_bytree": 1.0,
-        "min_child_weight": 1
+        "max_depth": 12,
+        "subsample": 0.5,
+        "colsample_bytree": 0.8,
+        "min_child_weight": 10
       },
       "source": "results/02 -> xgb_selected",
       "platform": "not recorded (machine of the committed 00-12 results)"
     },
     "lgbm_selected": {
       "value": {
-        "num_leaves": 127,
+        "num_leaves": 511,
         "learning_rate": 0.05,
-        "subsample": 0.7,
+        "subsample": 1.0,
         "reg_lambda": 1.0
       },
       "source": "results/02 -> lgbm_selected",
@@ -649,18 +689,18 @@
     },
     "xgb_rounds_seed42_3seeds": {
       "value": [
-        1679,
-        1617,
-        1578
+        1214,
+        1169,
+        1098
       ],
       "source": "results/03 -> rounds",
       "platform": "not recorded (machine of the committed 00-12 results)"
     },
     "lgbm_rounds_seed42_3seeds": {
       "value": [
-        1277,
-        1248,
-        1143
+        315,
+        298,
+        301
       ],
       "source": "results/04 -> rounds",
       "platform": "not recorded (machine of the committed 00-12 results)"
@@ -681,7 +721,7 @@
       "platform": "x86_64 / Linux"
     },
     "blend_weight_min": {
-      "value": 0.02,
+      "value": 0.3,
       "source": "results/17 -> split_info.xgb_weight",
       "platform": "x86_64 / Linux"
     },
@@ -691,27 +731,27 @@
       "platform": "x86_64 / Linux"
     },
     "blend_weight_mean": {
-      "value": 0.33799999999999997,
+      "value": 0.5239999999999999,
       "source": "results/17 -> split_info.xgb_weight",
       "platform": "x86_64 / Linux"
     },
     "cost_logistic_regression_train_seconds_single_median": {
-      "value": 43.516866441000275,
+      "value": 37.437494648998836,
       "source": "results/17 -> cost.table[Logistic regression].train_seconds_single_median",
       "platform": "x86_64 / Linux"
     },
     "cost_logistic_regression_train_seconds_3seed": {
-      "value": 132.48292416800086,
+      "value": 110.94489283399889,
       "source": "results/17 -> cost.table[Logistic regression].train_seconds_3seed",
       "platform": "x86_64 / Linux"
     },
     "cost_logistic_regression_score_seconds_test_median": {
-      "value": 0.05655869700058247,
+      "value": 0.09945852300006663,
       "source": "results/17 -> cost.table[Logistic regression].score_seconds_test_median",
       "platform": "x86_64 / Linux"
     },
     "cost_logistic_regression_score_rows_per_second": {
-      "value": 2306188.206539778,
+      "value": 1311451.206649355,
       "source": "results/17 -> cost.table[Logistic regression].score_rows_per_second",
       "platform": "x86_64 / Linux"
     },
@@ -726,57 +766,57 @@
       "platform": "x86_64 / Linux"
     },
     "cost_xgboost_train_seconds_single_median": {
-      "value": 65.71465294100017,
+      "value": 71.31460766099917,
       "source": "results/17 -> cost.table[XGBoost].train_seconds_single_median",
       "platform": "x86_64 / Linux"
     },
     "cost_xgboost_train_seconds_3seed": {
-      "value": 200.0909868409999,
+      "value": 215.4626521479986,
       "source": "results/17 -> cost.table[XGBoost].train_seconds_3seed",
       "platform": "x86_64 / Linux"
     },
     "cost_xgboost_score_seconds_test_median": {
-      "value": 1.0760609799999656,
+      "value": 2.142544778998854,
       "source": "results/17 -> cost.table[XGBoost].score_seconds_test_median",
       "platform": "x86_64 / Linux"
     },
     "cost_xgboost_score_rows_per_second": {
-      "value": 121215.24934395833,
+      "value": 60878.54091943335,
       "source": "results/17 -> cost.table[XGBoost].score_rows_per_second",
       "platform": "x86_64 / Linux"
     },
     "cost_xgboost_pickled_mib_median": {
-      "value": 14.221095085144043,
+      "value": 12.654144287109375,
       "source": "results/17 -> cost.table[XGBoost].pickled_mib_median",
       "platform": "x86_64 / Linux"
     },
     "cost_xgboost_peak_rss_increase_mib_median": {
-      "value": 0.00390625,
+      "value": 121.34765625,
       "source": "results/17 -> cost.table[XGBoost].peak_rss_increase_mib_median",
       "platform": "x86_64 / Linux"
     },
     "cost_lightgbm_train_seconds_single_median": {
-      "value": 42.18272000900015,
+      "value": 40.86374158000035,
       "source": "results/17 -> cost.table[LightGBM].train_seconds_single_median",
       "platform": "x86_64 / Linux"
     },
     "cost_lightgbm_train_seconds_3seed": {
-      "value": 127.25243067000065,
+      "value": 122.2223075260008,
       "source": "results/17 -> cost.table[LightGBM].train_seconds_3seed",
       "platform": "x86_64 / Linux"
     },
     "cost_lightgbm_score_seconds_test_median": {
-      "value": 7.626466312000048,
+      "value": 3.203556996999396,
       "source": "results/17 -> cost.table[LightGBM].score_seconds_test_median",
       "platform": "x86_64 / Linux"
     },
     "cost_lightgbm_score_rows_per_second": {
-      "value": 17102.940557773643,
+      "value": 40715.679515667005,
       "source": "results/17 -> cost.table[LightGBM].score_rows_per_second",
       "platform": "x86_64 / Linux"
     },
     "cost_lightgbm_pickled_mib_median": {
-      "value": 16.542598724365234,
+      "value": 16.027112007141113,
       "source": "results/17 -> cost.table[LightGBM].pickled_mib_median",
       "platform": "x86_64 / Linux"
     },
@@ -786,287 +826,287 @@
       "platform": "x86_64 / Linux"
     },
     "cost_random_forest_train_seconds_single_median": {
-      "value": 191.42657936899923,
+      "value": 290.03052925000156,
       "source": "results/17 -> cost.table[Random Forest].train_seconds_single_median",
       "platform": "x86_64 / Linux"
     },
     "cost_random_forest_train_seconds_3seed": {
-      "value": 571.5710540519985,
+      "value": 865.3413619470011,
       "source": "results/17 -> cost.table[Random Forest].train_seconds_3seed",
       "platform": "x86_64 / Linux"
     },
     "cost_random_forest_score_seconds_test_median": {
-      "value": 1.6431999110000106,
+      "value": 2.175282074000279,
       "source": "results/17 -> cost.table[Random Forest].score_seconds_test_median",
       "platform": "x86_64 / Linux"
     },
     "cost_random_forest_score_rows_per_second": {
-      "value": 79378.65571123388,
+      "value": 59962.33847508977,
       "source": "results/17 -> cost.table[Random Forest].score_rows_per_second",
       "platform": "x86_64 / Linux"
     },
     "cost_random_forest_pickled_mib_median": {
-      "value": 270.2546043395996,
+      "value": 268.8233308792114,
       "source": "results/17 -> cost.table[Random Forest].pickled_mib_median",
       "platform": "x86_64 / Linux"
     },
     "cost_random_forest_peak_rss_increase_mib_median": {
-      "value": 326.3984375,
+      "value": 246.78125,
       "source": "results/17 -> cost.table[Random Forest].peak_rss_increase_mib_median",
       "platform": "x86_64 / Linux"
     },
     "cost_build_master_df_seconds": {
-      "value": 42.71375012397766,
+      "value": 60.315574645996094,
       "source": "results/17 -> cost.build_master_df_seconds",
       "platform": "x86_64 / Linux"
     },
     "models10_lightgbm_f1_mean": {
-      "value": 0.7130925126561611,
+      "value": 0.7085820102494188,
       "source": "results/17 -> summary.LightGBM.f1_mean",
       "platform": "x86_64 / Linux"
     },
     "models10_lightgbm_f1_sd": {
-      "value": 0.006012560529847479,
+      "value": 0.008321344466715872,
       "source": "results/17 -> summary.LightGBM.f1_std",
       "platform": "x86_64 / Linux"
     },
     "models10_lightgbm_ap_mean": {
-      "value": 0.7606865041559495,
+      "value": 0.7605652000215437,
       "source": "results/17 -> summary.LightGBM.ap_mean",
       "platform": "x86_64 / Linux"
     },
     "models10_lightgbm_ap_sd": {
-      "value": 0.005978143666864308,
+      "value": 0.007096846372223031,
       "source": "results/17 -> summary.LightGBM.ap_std",
       "platform": "x86_64 / Linux"
     },
     "models10_lightgbm_auroc_mean": {
-      "value": 0.9681638710562203,
+      "value": 0.9687816508225998,
       "source": "results/17 -> summary.LightGBM.auroc_mean",
       "platform": "x86_64 / Linux"
     },
     "models10_lightgbm_auroc_sd": {
-      "value": 0.0017573570306608157,
+      "value": 0.0018682333244897022,
       "source": "results/17 -> summary.LightGBM.auroc_std",
       "platform": "x86_64 / Linux"
     },
     "models10_lightgbm_precision_mean": {
-      "value": 0.716947622988727,
+      "value": 0.7238462435363857,
       "source": "results/17 -> summary.LightGBM.precision_mean",
       "platform": "x86_64 / Linux"
     },
     "models10_lightgbm_precision_sd": {
-      "value": 0.021515768288066704,
+      "value": 0.01969337936567641,
       "source": "results/17 -> summary.LightGBM.precision_std",
       "platform": "x86_64 / Linux"
     },
     "models10_lightgbm_recall_mean": {
-      "value": 0.7103972176459822,
+      "value": 0.6950393556653853,
       "source": "results/17 -> summary.LightGBM.recall_mean",
       "platform": "x86_64 / Linux"
     },
     "models10_lightgbm_recall_sd": {
-      "value": 0.022304268845808002,
+      "value": 0.024770158394008826,
       "source": "results/17 -> summary.LightGBM.recall_std",
       "platform": "x86_64 / Linux"
     },
     "models10_xgboost_f1_mean": {
-      "value": 0.7065701865215777,
+      "value": 0.7075457322398561,
       "source": "results/17 -> summary.XGBoost.f1_mean",
       "platform": "x86_64 / Linux"
     },
     "models10_xgboost_f1_sd": {
-      "value": 0.00763146124691191,
+      "value": 0.006945838152955403,
       "source": "results/17 -> summary.XGBoost.f1_std",
       "platform": "x86_64 / Linux"
     },
     "models10_xgboost_ap_mean": {
-      "value": 0.7529184916681008,
+      "value": 0.7544505943083798,
       "source": "results/17 -> summary.XGBoost.ap_mean",
       "platform": "x86_64 / Linux"
     },
     "models10_xgboost_ap_sd": {
-      "value": 0.008484026166456519,
+      "value": 0.006773422603117335,
       "source": "results/17 -> summary.XGBoost.ap_std",
       "platform": "x86_64 / Linux"
     },
     "models10_xgboost_auroc_mean": {
-      "value": 0.964076677122398,
+      "value": 0.9688180984424394,
       "source": "results/17 -> summary.XGBoost.auroc_mean",
       "platform": "x86_64 / Linux"
     },
     "models10_xgboost_auroc_sd": {
-      "value": 0.0019552781774832854,
+      "value": 0.0012276667779380045,
       "source": "results/17 -> summary.XGBoost.auroc_std",
       "platform": "x86_64 / Linux"
     },
     "models10_xgboost_precision_mean": {
-      "value": 0.7181440521051916,
+      "value": 0.7112407963371998,
       "source": "results/17 -> summary.XGBoost.precision_mean",
       "platform": "x86_64 / Linux"
     },
     "models10_xgboost_precision_sd": {
-      "value": 0.011979060494291927,
+      "value": 0.011443610040297255,
       "source": "results/17 -> summary.XGBoost.precision_std",
       "platform": "x86_64 / Linux"
     },
     "models10_xgboost_recall_mean": {
-      "value": 0.6958630788943804,
+      "value": 0.70426505583013,
       "source": "results/17 -> summary.XGBoost.recall_mean",
       "platform": "x86_64 / Linux"
     },
     "models10_xgboost_recall_sd": {
-      "value": 0.019348159638626822,
+      "value": 0.016001742024239825,
       "source": "results/17 -> summary.XGBoost.recall_std",
       "platform": "x86_64 / Linux"
     },
     "models10_random_forest_f1_mean": {
-      "value": 0.7022008845509194,
+      "value": 0.7023420593702971,
       "source": "results/17 -> summary.Random Forest.f1_mean",
       "platform": "x86_64 / Linux"
     },
     "models10_random_forest_f1_sd": {
-      "value": 0.005578580376245376,
+      "value": 0.005190826750709468,
       "source": "results/17 -> summary.Random Forest.f1_std",
       "platform": "x86_64 / Linux"
     },
     "models10_random_forest_ap_mean": {
-      "value": 0.753537186668515,
+      "value": 0.7536920912911576,
       "source": "results/17 -> summary.Random Forest.ap_mean",
       "platform": "x86_64 / Linux"
     },
     "models10_random_forest_ap_sd": {
-      "value": 0.007314804005775443,
+      "value": 0.007686879962739352,
       "source": "results/17 -> summary.Random Forest.ap_std",
       "platform": "x86_64 / Linux"
     },
     "models10_random_forest_auroc_mean": {
-      "value": 0.9685184079103948,
+      "value": 0.9689006667508944,
       "source": "results/17 -> summary.Random Forest.auroc_mean",
       "platform": "x86_64 / Linux"
     },
     "models10_random_forest_auroc_sd": {
-      "value": 0.001496739384010066,
+      "value": 0.0014351651516756865,
       "source": "results/17 -> summary.Random Forest.auroc_std",
       "platform": "x86_64 / Linux"
     },
     "models10_random_forest_precision_mean": {
-      "value": 0.7224467043877171,
+      "value": 0.7159239982844652,
       "source": "results/17 -> summary.Random Forest.precision_mean",
       "platform": "x86_64 / Linux"
     },
     "models10_random_forest_precision_sd": {
-      "value": 0.018614348395117535,
+      "value": 0.017869844716099526,
       "source": "results/17 -> summary.Random Forest.precision_std",
       "platform": "x86_64 / Linux"
     },
     "models10_random_forest_recall_mean": {
-      "value": 0.6839465495149185,
+      "value": 0.689767526999817,
       "source": "results/17 -> summary.Random Forest.recall_mean",
       "platform": "x86_64 / Linux"
     },
     "models10_random_forest_recall_sd": {
-      "value": 0.02077757729568731,
+      "value": 0.011961980158517675,
       "source": "results/17 -> summary.Random Forest.recall_std",
       "platform": "x86_64 / Linux"
     },
     "models10_logistic_regression_f1_mean": {
-      "value": 0.23360477890269982,
+      "value": 0.23429074927817886,
       "source": "results/17 -> summary.Logistic regression.f1_mean",
       "platform": "x86_64 / Linux"
     },
     "models10_logistic_regression_f1_sd": {
-      "value": 0.004083399818392749,
+      "value": 0.0037224942415105197,
       "source": "results/17 -> summary.Logistic regression.f1_std",
       "platform": "x86_64 / Linux"
     },
     "models10_logistic_regression_ap_mean": {
-      "value": 0.16048614810623274,
+      "value": 0.1625874579802087,
       "source": "results/17 -> summary.Logistic regression.ap_mean",
       "platform": "x86_64 / Linux"
     },
     "models10_logistic_regression_ap_sd": {
-      "value": 0.00881513195344471,
+      "value": 0.007876137024820894,
       "source": "results/17 -> summary.Logistic regression.ap_std",
       "platform": "x86_64 / Linux"
     },
     "models10_logistic_regression_auroc_mean": {
-      "value": 0.8322727759775056,
+      "value": 0.8337238889311991,
       "source": "results/17 -> summary.Logistic regression.auroc_mean",
       "platform": "x86_64 / Linux"
     },
     "models10_logistic_regression_auroc_sd": {
-      "value": 0.0030017606304122268,
+      "value": 0.002598673158308369,
       "source": "results/17 -> summary.Logistic regression.auroc_std",
       "platform": "x86_64 / Linux"
     },
     "models10_logistic_regression_precision_mean": {
-      "value": 0.14634638042779907,
+      "value": 0.14761992135228558,
       "source": "results/17 -> summary.Logistic regression.precision_mean",
       "platform": "x86_64 / Linux"
     },
     "models10_logistic_regression_precision_sd": {
-      "value": 0.003671858529140237,
+      "value": 0.004626707390518859,
       "source": "results/17 -> summary.Logistic regression.precision_std",
       "platform": "x86_64 / Linux"
     },
     "models10_logistic_regression_recall_mean": {
-      "value": 0.5815302947098664,
+      "value": 0.5712062969064617,
       "source": "results/17 -> summary.Logistic regression.recall_mean",
       "platform": "x86_64 / Linux"
     },
     "models10_logistic_regression_recall_sd": {
-      "value": 0.038826509681205344,
+      "value": 0.038992502303610135,
       "source": "results/17 -> summary.Logistic regression.recall_std",
       "platform": "x86_64 / Linux"
     },
     "models10_ensemble_f1_mean": {
-      "value": 0.71275207830014,
+      "value": 0.709991173404912,
       "source": "results/17 -> summary.Ensemble.f1_mean",
       "platform": "x86_64 / Linux"
     },
     "models10_ensemble_f1_sd": {
-      "value": 0.008233106371581728,
+      "value": 0.00821146330220106,
       "source": "results/17 -> summary.Ensemble.f1_std",
       "platform": "x86_64 / Linux"
     },
     "models10_ensemble_ap_mean": {
-      "value": 0.7609846926909203,
+      "value": 0.7627315948738088,
       "source": "results/17 -> summary.Ensemble.ap_mean",
       "platform": "x86_64 / Linux"
     },
     "models10_ensemble_ap_sd": {
-      "value": 0.006999214666189865,
+      "value": 0.006428222497301198,
       "source": "results/17 -> summary.Ensemble.ap_std",
       "platform": "x86_64 / Linux"
     },
     "models10_ensemble_auroc_mean": {
-      "value": 0.9679528109725662,
+      "value": 0.9699415992406648,
       "source": "results/17 -> summary.Ensemble.auroc_mean",
       "platform": "x86_64 / Linux"
     },
     "models10_ensemble_auroc_sd": {
-      "value": 0.001813360650458822,
+      "value": 0.0015731345700380345,
       "source": "results/17 -> summary.Ensemble.auroc_std",
       "platform": "x86_64 / Linux"
     },
     "models10_ensemble_precision_mean": {
-      "value": 0.7257669550450507,
+      "value": 0.7136851273627951,
       "source": "results/17 -> summary.Ensemble.precision_mean",
       "platform": "x86_64 / Linux"
     },
     "models10_ensemble_precision_sd": {
-      "value": 0.021559644136706337,
+      "value": 0.01634198852431766,
       "source": "results/17 -> summary.Ensemble.precision_std",
       "platform": "x86_64 / Linux"
     },
     "models10_ensemble_recall_mean": {
-      "value": 0.7014643968515468,
+      "value": 0.7069558850448472,
       "source": "results/17 -> summary.Ensemble.recall_mean",
       "platform": "x86_64 / Linux"
     },
     "models10_ensemble_recall_sd": {
-      "value": 0.026418038995612774,
+      "value": 0.018849754868209702,
       "source": "results/17 -> summary.Ensemble.recall_std",
       "platform": "x86_64 / Linux"
     }

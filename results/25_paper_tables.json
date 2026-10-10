@@ -1,6 +1,6 @@
 {
   "notebook": "25_paper_tables",
-  "code_commit": "2bfbee1",
+  "code_commit": "3179d43",
   "leakage": null,
   "models": [],
   "tables": {
@@ -9,12 +9,12 @@
       "sources": [
         {
           "results": "results/00_data_pipeline.json",
-          "code_commit": "0d9eacc",
+          "code_commit": "7e7130d",
           "platform": "not recorded (machine of the committed 00-12 results)"
         },
         {
           "results": "results/16_label_robustness_initial_list.json",
-          "code_commit": "3a0e8ee",
+          "code_commit": "7baad94",
           "platform": "x86_64 / Linux"
         },
         {
@@ -28,7 +28,7 @@
       "sources": [
         {
           "results": "results/00_data_pipeline.json",
-          "code_commit": "0d9eacc",
+          "code_commit": "7e7130d",
           "platform": "not recorded (machine of the committed 00-12 results)"
         }
       ],
@@ -39,12 +39,12 @@
       "sources": [
         {
           "results": "results/15_split_tree_report.json",
-          "code_commit": "1e6aa04",
+          "code_commit": "afd06fd",
           "platform": "x86_64 / Linux"
         },
         {
           "results": "results/22_report_dependence.json",
-          "code_commit": "1588c7c",
+          "code_commit": "1f3da83",
           "platform": "x86_64 / Linux"
         }
       ],
@@ -55,7 +55,7 @@
       "sources": [
         {
           "results": "results/17_models_10_splits.json",
-          "code_commit": "17dd144",
+          "code_commit": "2f50786",
           "platform": "x86_64 / Linux"
         }
       ],
@@ -66,7 +66,7 @@
       "sources": [
         {
           "results": "results/08_ablation_families.json",
-          "code_commit": "0d9eacc",
+          "code_commit": "deef156",
           "platform": "not recorded (machine of the committed 00-12 results)"
         }
       ],
@@ -77,7 +77,7 @@
       "sources": [
         {
           "results": "results/19_ablation_by_category.json",
-          "code_commit": "cdb7aed",
+          "code_commit": "52b3fc4",
           "platform": "x86_64 / Linux"
         }
       ],
@@ -88,7 +88,7 @@
       "sources": [
         {
           "results": "results/14_entity_level_recall.json",
-          "code_commit": "9c634b7",
+          "code_commit": "8188899",
           "platform": "x86_64 / Linux"
         }
       ],
@@ -99,7 +99,7 @@
       "sources": [
         {
           "results": "results/20_temporal_holdout.json",
-          "code_commit": "cb1243e",
+          "code_commit": "dc4d551",
           "platform": "x86_64 / Linux"
         }
       ],
@@ -110,7 +110,7 @@
       "sources": [
         {
           "results": "results/15_split_tree_report.json",
-          "code_commit": "1e6aa04",
+          "code_commit": "afd06fd",
           "platform": "x86_64 / Linux"
         }
       ],
@@ -121,12 +121,12 @@
       "sources": [
         {
           "results": "results/02_hyperparameter_search.json",
-          "code_commit": "0d9eacc",
+          "code_commit": "03cea83",
           "platform": "not recorded (machine of the committed 00-12 results)"
         },
         {
           "results": "results/13_random_forest_sybil.json",
-          "code_commit": "412db11",
+          "code_commit": "2adac1c",
           "platform": "x86_64 / Linux"
         },
         {
@@ -151,12 +151,12 @@
     "rev_data_labels": [
       {
         "results": "results/00_data_pipeline.json",
-        "code_commit": "0d9eacc",
+        "code_commit": "7e7130d",
         "platform": "not recorded (machine of the committed 00-12 results)"
       },
       {
         "results": "results/16_label_robustness_initial_list.json",
-        "code_commit": "3a0e8ee",
+        "code_commit": "7baad94",
         "platform": "x86_64 / Linux"
       },
       {
@@ -166,73 +166,73 @@
     "rev_taxonomy": [
       {
         "results": "results/00_data_pipeline.json",
-        "code_commit": "0d9eacc",
+        "code_commit": "7e7130d",
         "platform": "not recorded (machine of the committed 00-12 results)"
       }
     ],
     "rev_levels": [
       {
         "results": "results/15_split_tree_report.json",
-        "code_commit": "1e6aa04",
+        "code_commit": "afd06fd",
         "platform": "x86_64 / Linux"
       },
       {
         "results": "results/22_report_dependence.json",
-        "code_commit": "1588c7c",
+        "code_commit": "1f3da83",
         "platform": "x86_64 / Linux"
       }
     ],
     "rev_per_category": [
       {
         "results": "results/17_models_10_splits.json",
-        "code_commit": "17dd144",
+        "code_commit": "2f50786",
         "platform": "x86_64 / Linux"
       }
     ],
     "rev_family_ablation": [
       {
         "results": "results/08_ablation_families.json",
-        "code_commit": "0d9eacc",
+        "code_commit": "deef156",
         "platform": "not recorded (machine of the committed 00-12 results)"
       }
     ],
     "rev_provision_ablation_by_category": [
       {
         "results": "results/19_ablation_by_category.json",
-        "code_commit": "cdb7aed",
+        "code_commit": "52b3fc4",
         "platform": "x86_64 / Linux"
       }
     ],
     "rev_entity_level": [
       {
         "results": "results/14_entity_level_recall.json",
-        "code_commit": "9c634b7",
+        "code_commit": "8188899",
         "platform": "x86_64 / Linux"
       }
     ],
     "rev_temporal_holdout": [
       {
         "results": "results/20_temporal_holdout.json",
-        "code_commit": "cb1243e",
+        "code_commit": "dc4d551",
         "platform": "x86_64 / Linux"
       }
     ],
     "rev_union_split_appendix": [
       {
         "results": "results/15_split_tree_report.json",
-        "code_commit": "1e6aa04",
+        "code_commit": "afd06fd",
         "platform": "x86_64 / Linux"
       }
     ],
     "rev_search_top": [
       {
         "results": "results/02_hyperparameter_search.json",
-        "code_commit": "0d9eacc",
+        "code_commit": "03cea83",
         "platform": "not recorded (machine of the committed 00-12 results)"
       },
       {
         "results": "results/13_random_forest_sybil.json",
-        "code_commit": "412db11",
+        "code_commit": "2adac1c",
         "platform": "x86_64 / Linux"
       },
       {
@@ -294,7 +294,7 @@
     "XGBoost": {
       "configs": 74,
       "selected_rank": 1,
-      "default_rank": 60
+      "default_rank": 72
     },
     "LightGBM": {
       "configs": 48,
