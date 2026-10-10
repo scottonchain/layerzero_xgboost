@@ -27,11 +27,11 @@ non-Sybils at the model's validation-selected threshold. These are the corrected
 
 **Over 10 group splits** (`17_models_10_splits.ipynb`, one model seed per fit, corrected x86_64 Linux rerun).
 Mean ± SD of test metrics; p: corrected resampled t-test (Nadeau and Bengio 2003) against LightGBM,
-Holm-adjusted per metric.
+Holm-adjusted per metric over five comparisons (the four models against LightGBM, and XGBoost against the cross-ensemble).
 
 | Model | F1 | p | AP | p | AUROC | p |
 |---|---|---|---|---|---|---|
-| LightGBM | 0.709 ± 0.008 | — | 0.761 ± 0.007 | — | 0.969 ± 0.002 | — |
+| LightGBM | 0.709 ± 0.008 | n/a | 0.761 ± 0.007 | n/a | 0.969 ± 0.002 | n/a |
 | Cross-ensemble | 0.710 ± 0.008 | 1.000 | 0.763 ± 0.006 | 0.351 | 0.970 ± 0.002 | 0.043 |
 | XGBoost | 0.708 ± 0.007 | 1.000 | 0.754 ± 0.007 | 0.234 | 0.969 ± 0.001 | 1.000 |
 | Random forest | 0.702 ± 0.005 | 1.000 | 0.754 ± 0.008 | 0.234 | 0.969 ± 0.001 | 1.000 |
@@ -40,10 +40,12 @@ Holm-adjusted per metric.
 No F1 difference among the tree models is significant after correction. LightGBM's AP advantage over
 XGBoost and Random Forest is also not significant after the corrected resampled test and Holm adjustment
 (p = 0.234 for each). The weighted average has a small AUROC advantage over LightGBM
-(+0.0012 ± 0.0004, Holm-adjusted p = 0.043), but not a significant F1 or AP advantage.
+(+0.0012 ± 0.0004, Holm-adjusted p = 0.043), but not a significant F1 or AP advantage. The ensemble's AP is also higher than XGBoost's (+0.0083, Holm-adjusted p = 0.004).
 
 On the seed-42 split, the validation-selected XGBoost weight in the 3-seed cross-ensemble is 0.56.
 Across the ten one-seed fits in `17`, selected XGBoost weights range from 0.30 to 0.76.
+
+Training one model on 408,244 upsampled rows takes 71 s (XGBoost), 41 s (LightGBM), 290 s (Random Forest) and 37 s (logistic regression); scoring the 130,435 test rows takes under 4 s for every model (`17`, cost section).
 
 ### Note on leakage with simple random split
 
@@ -65,19 +67,19 @@ in the interactor categories: for LightGBM, F1 changes from 0.847 to 0.453 for I
 
 | Check | Notebook | Corrected result |
 |---|---|---|
-| Corrected `gini_coefficient`, rule fixed in advance | `01` | Removing it lowered **validation** F1 on 6 of 10 splits (8 required): removed. Sign-test p = 0.377. The test set was not used |
+| Corrected `gini_coefficient`, rule fixed in advance | `01` | Removing it lowered **validation** F1 on 6 of 10 splits (8 required): removed. One-sided sign-test p = 0.377. The test set was not used |
 | Labels known before the snapshot vs current labels | `07` | Test F1 change −0.003 ± 0.007 (mean ± SD) |
 | All provision-network features removed | `08` | All-features F1 0.709; without all provision-network features 0.708. The incremental F1 is +0.0002 (all minus reduced) |
 | SHAP by feature family | `09` | `n_l0_source_contracts` is the top feature overall; `l0_tx_time_span` is a close second and is top for IxL. Provision-network families account for about 15.3% of total mean absolute SHAP |
 | Random forest on 10 group splits | `13`, `17` | Test F1 0.702 ± 0.005 vs LightGBM 0.709 ± 0.008; mean difference −0.006 ± 0.008. Corrected Holm-adjusted F1 p = 1.000 |
 | Entity-level recall (LightGBM, validation threshold) | `14` | Gas provision trees: any-hit 0.776; bounty reports: any-hit 0.707, majority-hit 0.565; 48.5% of reports keep at least half their ZRO allocation unflagged. 36.8% of test-Sybil allocation is unflagged. Predictions reproduce the committed corrected x86 results |
 | Split grouped by tree and bounty report | `15` | Under the tree split, 5,406 of 5,463 test Sybils share a bounty report with a training Sybil (random split: 5,434). Grouping by tree and report: LightGBM test F1 0.250 ± 0.027 vs 0.709 ± 0.008 under the tree split. One component holds 45.4% of Sybils, so this union split is superseded by the paired design in `22` |
-| LayerZero initial Sybil list | `16` | 34,545 interactors (8.3% of bounty-only negatives) are on the initial list. At the validation threshold, 705 of 1,683 apparent false positives (41.9%) are on it; counting them as Sybil gives precision 0.827 instead of 0.703. Residual FPR is 978 / 114,657 = 0.853% if initial-list addresses are treated as positives |
+| LayerZero initial Sybil list | `16` | 34,545 interactors (8.3% of the 416,575 non-Sybils) are on the initial list. At the validation threshold, 705 of 1,683 apparent false positives (41.9%) are on it; counting them as Sybil gives precision 0.827 instead of 0.703. Residual FPR is 978 / 114,657 = 0.853% if initial-list addresses are treated as positives |
 | Mimicry controls | `24` | Profile copy at k=5: top SHAP features 0.039 recall, wallet-local 0.038, Ethereum-local 0.153, funding-graph 0.519, random 5 of 62 0.423 mean. Replacing all 30 funding-graph features gives 0.452 recall |
 | Mimicry stress test (fixed model) | `18` | Replacing the 5 most important features cuts recall from 0.728 to 0.012 (marginal) or 0.039 (profile copy). Tentative cost classes; this is a fragility measure, not an attack simulation |
 | Provision-network features by category | `19` | ΔF1 (all minus without all provision-network families): +0.0002 overall, +0.0028 IxL, −0.0328 IxI, −0.0534 IxE; none is statistically significant after correction |
 | Report-mates in training | `22` | Same test Sybils and matched training size: LightGBM seen vs held-out F1 0.593 vs 0.363 (Δ +0.230), AP 0.600 vs 0.305 (Δ +0.294), AUROC 0.971 vs 0.895 (Δ +0.076); seen is higher in all 15 fold-repeats. Corrected p < 0.002 for all three headline metrics |
-| Temporal holdout | `20` | Latest 30%: temporal F1 0.166, recall 0.093, AUROC 0.888, versus same-cohort reference F1 0.735, recall 0.697, AUROC 0.983. Late-cohort Sybil rate is 1.02% vs 5.55% in the early cohort |
+| Temporal holdout | `20` | Trained on the early 70% of wallets (by the date their gas provision tree first used LayerZero; cut-off 2023-08-20) and tested on the latest 30% (130,436 wallets, 1,326 Sybils): F1 0.166, recall 0.093, AUROC 0.888. Reference: the tree-split model on its own test wallets in that cohort (39,217 wallets, 383 Sybils): F1 0.735, recall 0.697, AUROC 0.983. Late-cohort Sybil rate is 1.02% vs 5.55% in the early cohort |
 
 The corrected publication rerun completed through `99_tie_out_revision`; all provenance and named-number checks passed.
 
@@ -135,6 +137,9 @@ layerzero_xgboost/
 ├── review_support/                         ← supporting files for the reviewer response (Blockscout checks; LayerZero's initial list)
 ├── docs/REVISION_LEAKAGE.md                ← revision work items and findings log
 ├── legacy/                                 ← original 2025 notebook (Windows paths; reference only)
+├── diagnostics/root_tree_fix/              ← evidence for the root-wallet tree-feature fix (663e026)
+├── logs/rerun_fix_20261009/                ← logs, environment record and timeline of the corrected run
+├── tests/                                  ← unit tests for the tree features
 │
 ├── sybil_pipeline.py                       ← shared code: features, gas provision trees, splits, training, metrics
 ├── 00_data_pipeline.ipynb                  ← builds the feature table; leakage check
@@ -186,7 +191,7 @@ because default hyperparameters change between releases.
 
 **Hardware.** The corrected publication rerun used x86_64 Linux, Intel Xeon @ 2.80 GHz,
 4 CPU cores, Python 3.11.15, and the pinned package set in `requirements.txt`; no GPU is used.
-XGBoost and LightGBM use four threads. A cloud-VM restart changed only the guest kernel build during the
+XGBoost and LightGBM use four threads (`sp.N_JOBS`), because XGBoost's `hist` algorithm gives slightly different trees with different thread counts; LightGBM runs with `force_col_wise` and `deterministic` (`sp.LGBM_REPRO`). With these settings, results reproduce across runs on one machine, but not necessarily across machines (`docs/REVISION_LEAKAGE.md`, findings 2026-10-05). A cloud-VM restart changed only the guest kernel build during the
 run; CPU model/core count, Python packages, data hashes and thread counts were unchanged. As a cross-boundary
 check, post-restart notebook `19` reproduced the pre-restart `08` all-features F1 on all ten splits to
 within 1e-12, and `17` independently reproduced `08`'s LightGBM arm.
@@ -268,7 +273,6 @@ Runtimes on 4 cores from the corrected x86_64 publication rerun (`02` searched f
 
 The serial notebook execution time was about 14.6 hours, excluding the interrupted first attempt at `16`.
 
-### What each notebook does
 ### What each notebook does
 
 - **`00_data_pipeline`**: loads the L0 features, the provision network (with the snapshot cutoff),
@@ -377,7 +381,7 @@ Tables from `25_paper_tables.ipynb` (same rules; `results/25_paper_tables.json` 
 | `tables/rev_temporal_holdout.tex` | Temporal holdout at 20, 30, 40 % late cohorts | `20` |
 | `tables/rev_union_split_appendix.tex` | The superseded union split (appendix) | `15` |
 | `tables/rev_search_top.tex` | Top configurations of the three searches (appendix) | `02`, `13`, search CSVs |
-| `tables/rev_text_numbers.json` | 215 named scalars for the running text, each with source and platform | as listed in the file |
+| `tables/rev_text_numbers.json` | 215 named scalars for the running text, each with source and platform (32 from `00`–`12` say "not recorded"; all notebooks ran on one host, `logs/rerun_fix_20261009/run/timeline.tsv`) | as listed in the file |
 
 ## Input data files
 
@@ -388,7 +392,7 @@ Tables from `25_paper_tables.ipynb` (same rules; `results/25_paper_tables.json` 
 | `20241214_labeled_addresses.csv` | 9,054,104 | Label lists compiled Oct–Dec 2024 | Known entities (CEXs, DEXs, contracts, named accounts). The 44 addresses its `readme.txt` adds by hand are excluded. |
 | Dune Spellbook lists (`data/20260128_dune_spellbook_labels/`) | CEX 4,957; DEX 73; bridges 136 (current versions) | Pinned commits; each row has the date it was added | CEX, DEX and bridge addresses on Ethereum. A `presnapshot` version (entries added by 2024-05-01) is the sensitivity in `07`. |
 | `service_labels.csv` (`data/20260930_etherscan_service_labels/`) | 36 | Etherscan read 2026-09-30 and 2026-10-01 | Every other funder of 50+ interactors, with its Etherscan tag and the rule's decision; 10 labeled. |
-| `20241117_graph_and_tree_features.csv` | 434,111 | Built from the unfiltered network | Original precomputed provider and tree features. Now used only as a regression check; the pipeline recomputes these features. |
+| `20241117_graph_and_tree_features.csv` | 434,111 | Built from the unfiltered network | Original precomputed provider and tree features. Used only for comparison (`00` lists the differences); the pipeline recomputes these features, and since the root-wallet fix (`663e026`) most tree features differ from this file by design. |
 | `cex_dex_features_in_*.csv` (×5) | 434,793 total | Transfers ≤ 2024-05-01 | Distinct CEX and DEX addresses that sent ETH to each interactor. Labels from Flipside `dim_labels`. |
 | `fcfs_list.csv` | 151,784 | Sybil list snapshot 2024-09-15 | LayerZero Foundation's final Sybil list. Ground-truth labels. |
 | `review_support/initial_list/initial_list.csv` | 803,093 | Published 18 May 2024; archived 24 May 2024 | LayerZero's initial Sybil list, from the deleted `LayerZero-Labs/sybil-report` repository, as archived by the [Wayback Machine](https://web.archive.org/web/*/https://github.com/LayerZero-Labs/sybil-report/raw/main/*). Not a label; used only by `16`. Provenance: [`review_support/initial_list/README.md`](review_support/initial_list/README.md). |
@@ -412,9 +416,12 @@ inflating recall and F1. The pipeline splits first, then upsamples the training 
 
 **Why recompute the tree features?**
 The original precomputed file was built from the provision network without a date filter, with
-inputs outside this repository, and listed one wallet twice. `sybil_pipeline.provision_features`
-ports the same featurization, applies the snapshot cutoff, and runs from repository data;
-`00_data_pipeline` reports how the recomputed values compare with the original file.
+inputs outside this repository, listed one wallet twice, and gave every root of the unlabeled provision
+forest (and every interactor with no recorded incoming funding edge) all-zero tree features, although its
+descendants carried the whole tree's summaries. `sybil_pipeline.provision_features` ports the featurization
+with that defect corrected (every interactor receives the whole-tree metrics of its tree, `depth` stays per
+wallet; fix `663e026`, `docs/REVISION_LEAKAGE.md` A27), applies the snapshot cutoff, and runs from repository
+data; `00_data_pipeline` lists the features that differ from the original file (`tree_size` agrees for 28 % of wallets, by design).
 
 <a id="labeled-addresses"></a>**Labeled addresses.**
 A labeled address ends a provision chain, so it shapes the provider, chain and tree features of every
@@ -449,8 +456,8 @@ A result was produced by code that differs from the current commit, or from a di
 tree. Rerun the notebooks it names.
 
 **Results differ from the paper's original numbers**
-The revision changes the evaluation (group split, validation-only selection, snapshot cutoff,
-duplicate removed, fixed thread count). `11_split_comparison` reports the random-split numbers
+The revision changes the evaluation and the features (group split, validation-only selection, snapshot cutoff,
+duplicate removed, root-wallet tree features corrected, fixed thread count). `11_split_comparison` reports the random-split numbers
 under the same corrected pipeline for comparison.
 
 ---
