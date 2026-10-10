@@ -52,5 +52,101 @@
   "differ": 1059,
   "max_abs": 384,
   "corrected_commit": "deef156"
+ },
+ "09_shap_importance": {
+  "compared": 378,
+  "differ": 330,
+  "max_abs": 384,
+  "corrected_commit": "38c3093"
+ },
+ "11_split_comparison": {
+  "compared": 129,
+  "differ": 89,
+  "max_abs": 384,
+  "corrected_commit": "2b23ba4"
+ },
+ "12_figures": {
+  "compared": 77,
+  "differ": 4,
+  "max_abs": 465,
+  "corrected_commit": "41a76ca"
+ },
+ "13_random_forest_sybil": {
+  "compared": 384,
+  "differ": 308,
+  "max_abs": 384,
+  "corrected_commit": "2adac1c"
+ },
+ "14_entity_level_recall": {
+  "compared": 4905,
+  "differ": 1469,
+  "max_abs": 131,
+  "corrected_commit": "8188899"
+ },
+ "15_split_tree_report": {
+  "compared": 1101,
+  "differ": 504,
+  "max_abs": 336,
+  "corrected_commit": "afd06fd"
+ },
+ "16_label_robustness_initial_list": {
+  "compared": 572,
+  "differ": 473,
+  "max_abs": 740,
+  "corrected_commit": "7baad94"
+ },
+ "17_models_10_splits": {
+  "compared": 2794,
+  "differ": 1370,
+  "max_abs": 1019,
+  "corrected_commit": "2f50786"
+ },
+ "18_mimicry_stress": {
+  "compared": 806,
+  "differ": 565,
+  "max_abs": 384,
+  "corrected_commit": "2ac94cb"
+ },
+ "19_ablation_by_category": {
+  "compared": 3207,
+  "differ": 1448,
+  "max_abs": 384,
+  "corrected_commit": "52b3fc4"
+ },
+ "20_temporal_holdout": {
+  "compared": 352,
+  "differ": 106,
+  "max_abs": 1236,
+  "corrected_commit": "dc4d551"
+ },
+ "22_report_dependence": {
+  "compared": 2005,
+  "differ": 660,
+  "max_abs": 1331,
+  "corrected_commit": "1f3da83"
+ },
+ "23_revision_figures": {
+  "compared": 54,
+  "differ": 2,
+  "max_abs": 0.0,
+  "corrected_commit": "a2f163c"
+ },
+ "24_mimicry_controls": {
+  "compared": 7401,
+  "differ": 3252,
+  "max_abs": 384,
+  "corrected_commit": "5b83115"
+ },
+ "25_paper_tables": {
+  "compared": 88,
+  "differ": 1,
+  "max_abs": 12,
+  "corrected_commit": "3179d43"
+ },
+ "99_tie_out_revision": {
+  "compared": 1149,
+  "differ": 609,
+  "max_abs": 1236,
+  "corrected_commit": "4761590"
  }
 }
