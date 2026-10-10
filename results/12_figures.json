@@ -1,6 +1,6 @@
 {
   "notebook": "12_figures",
-  "code_commit": "cae1b67",
+  "code_commit": "41a76ca",
   "leakage": null,
   "models": [],
   "figures": [
@@ -118,10 +118,10 @@
     ]
   },
   "learning_curve": {
-    "best_iteration": 1679,
-    "trees": 1680,
-    "train_f1": 0.9993240827361914,
-    "val_f1": 0.7031573498964804
+    "best_iteration": 1214,
+    "trees": 1215,
+    "train_f1": 0.99837781893719,
+    "val_f1": 0.7024157154234139
   },
   "shared_top15": 15
 }
