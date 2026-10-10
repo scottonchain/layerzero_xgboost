@@ -1,0 +1,61 @@
+2026-10-09T16:57:35Z	PLAN	00_data_pipeline 01_ablation_gini 02_hyperparameter_search 03_xgboost_sybil 04_lightgbm_sybil 05_logistic_regression_sybil 06_cross_ensemble_sybil 07_sensitivity_label_vintage 08_ablation_families 09_shap_importance 10_tie_out 11_split_comparison 12_figures 13_random_forest_sybil 14_entity_level_recall 15_split_tree_report 16_label_robustness_initial_list 17_models_10_splits 18_mimicry_stress 19_ablation_by_category 20_temporal_holdout 22_report_dependence 23_revision_figures 24_mimicry_controls 25_paper_tables  99_tie_out_revision
+2026-10-09T16:57:36Z	ABSENT	21
+2026-10-09T16:57:36Z	START	00_data_pipeline	7e7130d
+2026-10-09T17:00:09Z	END	00_data_pipeline	7e7130d	rc=0	seconds=153
+2026-10-09T17:00:13Z	START	01_ablation_gini	da08630
+2026-10-09T17:20:43Z	END	01_ablation_gini	da08630	rc=0	seconds=1231
+2026-10-09T17:20:47Z	START	02_hyperparameter_search	03cea83
+2026-10-09T19:16:11Z	END	02_hyperparameter_search	03cea83	rc=0	seconds=6924
+2026-10-09T19:16:15Z	START	03_xgboost_sybil	622ca58
+2026-10-09T19:22:06Z	END	03_xgboost_sybil	622ca58	rc=0	seconds=352
+2026-10-09T19:22:10Z	START	04_lightgbm_sybil	71a009e
+2026-10-09T19:26:06Z	END	04_lightgbm_sybil	71a009e	rc=0	seconds=237
+2026-10-09T19:26:10Z	START	05_logistic_regression_sybil	9cd7e6b
+2026-10-09T19:28:22Z	END	05_logistic_regression_sybil	9cd7e6b	rc=0	seconds=132
+2026-10-09T19:28:25Z	START	06_cross_ensemble_sybil	93a79f5
+2026-10-09T19:28:35Z	END	06_cross_ensemble_sybil	93a79f5	rc=0	seconds=10
+2026-10-09T19:28:40Z	START	07_sensitivity_label_vintage	8b09009
+2026-10-09T19:49:48Z	END	07_sensitivity_label_vintage	8b09009	rc=0	seconds=1269
+2026-10-09T19:49:51Z	START	08_ablation_families	deef156
+2026-10-09T21:06:47Z	END	08_ablation_families	deef156	rc=0	seconds=4616
+2026-10-09T21:06:51Z	START	09_shap_importance	38c3093
+2026-10-09T23:02:49Z	END	09_shap_importance	38c3093	rc=0	signal=0	seconds=6958	(exit status read from /proc; run.sh stopped)
+2026-10-09T23:02:51Z	NOTE	run.sh (2809) ended at the 09/10 boundary; the remaining order is taken from run/queue.txt
+2026-10-09T23:02:54Z	PLAN	10_tie_out 14_entity_level_recall 16_label_robustness_initial_list 19_ablation_by_category 15_split_tree_report 22_report_dependence 11_split_comparison 12_figures 13_random_forest_sybil 17_models_10_splits 18_mimicry_stress 20_temporal_holdout HOLD 24_mimicry_controls 23_revision_figures 25_paper_tables 99_tie_out_revision 
+2026-10-09T23:02:55Z	START	10_tie_out	7da2fbb
+2026-10-09T23:03:01Z	END	10_tie_out	7da2fbb	rc=0	seconds=7
+2026-10-09T23:03:04Z	START	14_entity_level_recall	8188899
+2026-10-09T23:04:09Z	END	14_entity_level_recall	8188899	rc=0	seconds=65
+2026-10-09T23:04:12Z	START	16_label_robustness_initial_list	925b437
+2026-10-09T23:13:08Z	NOTE	container restarted about 23:10Z (uptime 0 at 23:11:27Z); 16_label_robustness_initial_list (started 23:04:12Z) was interrupted by the restart, nothing of it committed, tree clean; host rechecked: Intel Xeon @ 2.80GHz, 4 cores, KVM, lscpu and the 105 packages identical to the run record, 37 LFS files present; guest kernel build 6.18.44-fc-v80 -> 6.18.44-fc-v114
+2026-10-09T23:15:46Z	NOTE	after the restart: 37 LFS data files verified against their pointer hashes; notebook-24 previous-result check committed and pushed as 7baad94 (Scott approved); HOLD before 24 removed; runner restarted from 16
+2026-10-09T23:15:46Z	PLAN	16_label_robustness_initial_list 19_ablation_by_category 15_split_tree_report 22_report_dependence 11_split_comparison 12_figures 13_random_forest_sybil 17_models_10_splits 18_mimicry_stress 20_temporal_holdout 24_mimicry_controls 23_revision_figures 25_paper_tables 99_tie_out_revision 
+2026-10-09T23:16:04Z	START	16_label_robustness_initial_list	7baad94
+2026-10-09T23:40:56Z	END	16_label_robustness_initial_list	7baad94	rc=0	seconds=1510
+2026-10-09T23:41:00Z	START	19_ablation_by_category	52b3fc4
+2026-10-10T00:17:54Z	END	19_ablation_by_category	52b3fc4	rc=0	seconds=2215
+2026-10-10T00:17:57Z	START	15_split_tree_report	afd06fd
+2026-10-10T00:35:36Z	END	15_split_tree_report	afd06fd	rc=0	seconds=1059
+2026-10-10T00:35:40Z	START	22_report_dependence	1f3da83
+2026-10-10T01:41:54Z	END	22_report_dependence	1f3da83	rc=0	seconds=3975
+2026-10-10T01:41:58Z	START	11_split_comparison	2b23ba4
+2026-10-10T01:51:02Z	END	11_split_comparison	2b23ba4	rc=0	seconds=545
+2026-10-10T01:51:05Z	START	12_figures	41a76ca
+2026-10-10T01:55:38Z	END	12_figures	41a76ca	rc=0	seconds=274
+2026-10-10T01:55:42Z	START	13_random_forest_sybil	2adac1c
+2026-10-10T05:32:37Z	END	13_random_forest_sybil	2adac1c	rc=0	seconds=13016
+2026-10-10T05:32:40Z	START	17_models_10_splits	2f50786
+2026-10-10T07:15:35Z	END	17_models_10_splits	2f50786	rc=0	seconds=6175
+2026-10-10T07:15:38Z	START	18_mimicry_stress	2ac94cb
+2026-10-10T07:21:03Z	END	18_mimicry_stress	2ac94cb	rc=0	seconds=325
+2026-10-10T07:21:06Z	START	20_temporal_holdout	dc4d551
+2026-10-10T07:32:34Z	END	20_temporal_holdout	dc4d551	rc=0	seconds=689
+2026-10-10T07:32:38Z	START	24_mimicry_controls	5b83115
+2026-10-10T07:47:24Z	END	24_mimicry_controls	5b83115	rc=0	seconds=887
+2026-10-10T07:47:28Z	START	23_revision_figures	a2f163c
+2026-10-10T07:47:39Z	END	23_revision_figures	a2f163c	rc=0	seconds=12
+2026-10-10T07:47:42Z	START	25_paper_tables	3179d43
+2026-10-10T07:48:55Z	END	25_paper_tables	3179d43	rc=0	seconds=73
+2026-10-10T07:48:58Z	START	99_tie_out_revision	4761590
+2026-10-10T07:49:05Z	END	99_tie_out_revision	4761590	rc=0	seconds=8
+2026-10-10T07:49:08Z	DONE	all
